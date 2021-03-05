@@ -1,0 +1,43 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="CustomerFacingMaster.master.cs" Inherits="Lab3.CustomerFacingMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+     <title>Stuart Walker & Aaron Walsh</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <p>Stuart Walker & Aaron Walsh</p>
+        <fieldset>
+            <asp:Table
+                ID="Table1" 
+                runat="server">
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label
+                            ID="LblActiveUser" 
+                            runat="server" 
+                            Text=""></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Button 
+                            ID="BtnLogout" 
+                            runat="server" 
+                            Text="Logout ->" 
+                            OnClick="BtnLogout_Click"/>
+                    </asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+        </fieldset>
+        <br />
+        <div>
+            <asp:ContentPlaceHolder ID="body" runat="server">
+
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
