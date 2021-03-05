@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddCustomer.aspx.cs" Inherits="WalkerS_Lab1Part3.AddCustomer" MasterPageFile="LabFormat.Master" %>
 
-<%-- Coded By: Stuart Walker & Aaron Walsh --%>
+<%-- Coded By: RoCo Consulting --%>
 
 <asp:Content ID="myContent" ContentPlaceHolderID="body" runat="server">
     <h1>Add Customer</h1>
