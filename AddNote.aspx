@@ -158,7 +158,7 @@
                                 <asp:Button
                                     ID="BtnAddNote"
                                     runat="server"
-                                    Text="Save New Note"
+                                    Text="Save New Note!!!!!!!"
                                     OnClick="BtnAddNote_Click"
                                     ValidationGroup="SaveGroup" />
                             </asp:TableCell>
