@@ -7,102 +7,57 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WalkerS_Lab1Part3
+namespace Lab3
 {
 
 
-    public partial class Navigation
+    public partial class AddItem
     {
 
         /// <summary>
-        /// Table2 control.
+        /// AddItemTbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table2;
+        protected global::System.Web.UI.WebControls.Table AddItemTbl;
 
         /// <summary>
-        /// BtnCustomerPage control.
+        /// CustLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnCustomerPage;
+        protected global::System.Web.UI.WebControls.Label CustLbl;
 
         /// <summary>
-        /// BtnServicePage control.
+        /// DDLCust control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnServicePage;
+        protected global::System.Web.UI.WebControls.DropDownList DDLCust;
 
         /// <summary>
-        /// BtnViewNotes control.
+        /// LblType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnViewNotes;
+        protected global::System.Web.UI.WebControls.Label LblType;
 
         /// <summary>
-        /// BtnAddCustomerPage control.
+        /// DDLType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAddCustomerPage;
-
-        /// <summary>
-        /// btnAddServicePage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddServicePage;
-
-        /// <summary>
-        /// BtnAddNote control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAddNote;
-
-        /// <summary>
-        /// BtnAuctions control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAuctions;
-
-        /// <summary>
-        /// BtnAddItem control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAddItem;
-
-        /// <summary>
-        /// TblNotifications control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table TblNotifications;
+        protected global::System.Web.UI.WebControls.DropDownList DDLType;
 
         /// <summary>
         /// Table1 control.
@@ -114,57 +69,120 @@ namespace WalkerS_Lab1Part3
         protected global::System.Web.UI.WebControls.Table Table1;
 
         /// <summary>
-        /// LblNewCustomer control.
+        /// GridItem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblNewCustomer;
+        protected global::System.Web.UI.WebControls.GridView GridItem;
 
         /// <summary>
-        /// LstBoxCustomerRequests control.
+        /// LblItem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox LstBoxCustomerRequests;
+        protected global::System.Web.UI.WebControls.Label LblItem;
 
         /// <summary>
-        /// LblNewService control.
+        /// TxtItem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblNewService;
+        protected global::System.Web.UI.WebControls.TextBox TxtItem;
 
         /// <summary>
-        /// LstBoxServiceRequests control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox LstBoxServiceRequests;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
-        /// LblIncompleteServiceTickets control.
+        /// LblCost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblIncompleteServiceTickets;
+        protected global::System.Web.UI.WebControls.Label LblCost;
 
         /// <summary>
-        /// LstBoxIncompleteServiceTickets control.
+        /// TxtCost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox LstBoxIncompleteServiceTickets;
+        protected global::System.Web.UI.WebControls.TextBox TxtCost;
+
+        /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+
+        /// <summary>
+        /// LblDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblDate;
+
+        /// <summary>
+        /// TxtDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtDate;
+
+        /// <summary>
+        /// RequiredFieldValidator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+
+        /// <summary>
+        /// BtnComplete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnComplete;
+
+        /// <summary>
+        /// LblStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblStatus;
+
+        /// <summary>
+        /// dtasrcCustomerList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcCustomerList;
     }
 }

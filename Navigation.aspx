@@ -44,6 +44,11 @@
                         runat="server"
                         Text="Auction"
                         OnClick="BtnAuctions_Click" />
+
+                    <asp:Button ID="BtnAddItem" 
+                        runat="server" 
+                        Text="AddItem" 
+                        OnClick="BtnAddItem_Click" />
                 </fieldset>
             </asp:TableCell>
         </asp:TableRow>

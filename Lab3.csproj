@@ -70,6 +70,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddItem.aspx" />
     <Content Include="AddServiceRequest.aspx" />
     <Content Include="Auction.aspx" />
     <Content Include="CustomerPortal.aspx" />
@@ -101,6 +102,13 @@
     </Compile>
     <Compile Include="AddCustomer.aspx.designer.cs">
       <DependentUpon>AddCustomer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddItem.aspx.cs">
+      <DependentUpon>AddItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddItem.aspx.designer.cs">
+      <DependentUpon>AddItem.aspx</DependentUpon>
     </Compile>
     <Compile Include="AddNote.aspx.cs">
       <DependentUpon>AddNote.aspx</DependentUpon>
