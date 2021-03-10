@@ -184,13 +184,82 @@
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
+                        <asp:TableCell ColumnSpan="10">
+                <asp:Label 
+                    ID="LblInstructions"
+                    runat="server" 
+                    Text="Please Select The Service(s) You Are Interested In:"
+                    Font-Bold="true"></asp:Label>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell Width="100px" >
+                <asp:CheckBox  AutoPostBack="true"
+                    ID="ChkBoxMove"
+                    runat="server" 
+                    Text="Move"
+                     OnCheckedChanged="ChkBoxMove_CheckedChanged"/>
+            </asp:TableCell>
+            <asp:TableCell Width="100px" >
+                <asp:CheckBox AutoPostBack="true" 
+                    ID="ChkBoxAuction"
+                    runat="server"
+                    Text="Auction"
+                     OnCheckedChanged="ChkBoxAuction_CheckedChanged"/>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell Width="200px">
+                <asp:CheckBox 
+                    ID="ChkBoxConsignment"
+                    runat="server" 
+                    Text="Consignment"/>
+            </asp:TableCell>
+            <asp:TableCell Width="100px">
+                <asp:CheckBox 
+                    ID="ChkBoxAppraisal"
+                    runat="server"
+                    Text="Appraisal"/>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:CheckBox ID="ChkBoxLookAt" runat="server" Text="Do you need your items to be looked at?" Visible="false" AutoPostBack="true" OnCheckedChanged="ChkBoxLookAt_CheckedChanged" />
+            </asp:TableCell>
+            <asp:TableCell>
+                 <asp:TextBox ID="TxtLookAtSchedule" runat="server" Visible="false" TextMode="Date" AutoPostBack="true"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox ID="TxtLookatScheduleTime" Visible="false" AutoPostBack="true" TextMode="Time" runat="server"></asp:TextBox>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+             <asp:TableCell>
+                <asp:Label
+                    ID="LblItemTransport"
+                    runat="server"
+                    Text="Item Transport Options?"
+                    ></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:DropDownList
+                    ID="DropDownList1"
+                    runat="server">
+                    <asp:ListItem Value="Select">Select</asp:ListItem>
+                    <asp:ListItem>We Pick-Up Your Item(s)</asp:ListItem>
+                    <asp:ListItem>You Drop-Off Your Item(s)</asp:ListItem>
+                    <asp:ListItem>Unsure</asp:ListItem>
+                </asp:DropDownList>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
             <asp:TableCell>
                 <asp:Label
                     ID="LblOriginStreet"
                     runat="server"
                     Text="Origin Street:"></asp:Label>
             </asp:TableCell>
-            <asp:TableCell>
+            <asp:TableCell HorizontalAlign="Center">
                 <asp:TextBox
                     ID="TxtOriginStreet"
                     runat="server"></asp:TextBox>
@@ -298,7 +367,7 @@
             <asp:TableCell>
                          <asp:Label 
                              runat="server"
-                             Text="Initial Contact:"></asp:Label>
+                             Text="Prefered Contact:"></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
                 <asp:DropDownList
@@ -446,6 +515,24 @@
                     ValidationGroup="SaveGroup"></asp:CompareValidator>
             </asp:TableCell>
         </asp:TableRow>
+          <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label 
+                    ID="LblInitiatingEmp" 
+                    runat="server" 
+                    Text="Completed By:"></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:DropDownList
+                    ID="CompletedByEmpDDL"
+                    runat="server">
+                    <asp:ListItem Value="Select">Select</asp:ListItem>
+                    <asp:ListItem>Employee1</asp:ListItem>
+                    <asp:ListItem>Employee2</asp:ListItem>
+                    <asp:ListItem>Employee3</asp:ListItem>
+                </asp:DropDownList>
+            </asp:TableCell>
+        </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Label 
@@ -453,7 +540,7 @@
                     runat="server" 
                     Text="Check If Complete:"></asp:Label>
             </asp:TableCell>
-            <asp:TableCell>
+            <asp:TableCell >
                 <asp:CheckBox
                     ID="ChkBoxCompleted"
                     runat="server" />

@@ -412,5 +412,62 @@ namespace WalkerS_Lab1Part3
             }
         }
 
+        protected void ChkBoxMove_CheckedChanged(object sender, EventArgs e)
+        {
+            
+            if (ChkBoxMove.Checked)
+            {
+                LblDestinationStreet.Visible = true;
+                TxtDestinationStreet.Visible = true;
+                LblDestinationCity.Visible = true;
+                TxtDestinationCity.Visible = true;
+                LblDestinationState.Visible = true;
+                TxtDestinationState.Visible = true;
+
+
+
+            }
+            else
+            {
+                LblDestinationStreet.Visible = false;
+                TxtDestinationStreet.Visible = false;
+                LblDestinationCity.Visible = false;
+                TxtDestinationCity.Visible = false;
+                LblDestinationState.Visible = false;
+                TxtDestinationState.Visible = false;
+
+                TxtDestinationStreet.Text = "";
+                TxtDestinationCity.Text = "";
+                TxtDestinationState.Text = "";
+            }
+        }
+
+        protected void ChkBoxAuction_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChkBoxAuction.Checked)
+            {
+                
+                ChkBoxLookAt.Visible = true;
+            }
+            else
+            {
+                ChkBoxLookAt.Visible = false;
+
+            }
+        }
+
+        protected void ChkBoxLookAt_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChkBoxLookAt.Checked)
+            {
+                TxtLookAtSchedule.Visible = true;
+                TxtLookatScheduleTime.Visible = true;
+            }
+            else
+            {
+                TxtLookAtSchedule.Visible = false;
+                TxtLookatScheduleTime.Visible = false;
+            }
+        }
     }
 }
