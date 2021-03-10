@@ -13,14 +13,14 @@ namespace Lab3
         protected void Page_Load(object sender, EventArgs e)
         {
             //Checks to see if the Session data for the customer username is null
-            if (Session["CustomerUsername"] == null)
-            {
-                Response.Redirect("CustomerUnauthorized.aspx");
-            }
-            else
-            {
-                LblActiveUser.Text = "You Are Logged In As: " + Session["CustomerUsername"].ToString();
-            }
+            //if (Session["CustomerUsername"] == null)
+            //{
+            //    Response.Redirect("CustomerUnauthorized.aspx");
+            //}
+            //else
+            //{
+            //    LblActiveUser.Text = "You Are Logged In As: " + Session["CustomerUsername"].ToString();
+            //}
         }
 
         protected void BtnLogout_Click(object sender, EventArgs e)
