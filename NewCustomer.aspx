@@ -198,32 +198,44 @@
                             ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
                     </asp:TableCell>
                 </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell>
-                        <asp:Label
-                            ID="LblPhoneNumber"
-                            runat="server"
-                            Text="Phone Number:"></asp:Label>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:TextBox
-                            ID="TxtPhoneNumber"
-                            runat="server"
-                            Text=""></asp:TextBox>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:RequiredFieldValidator
-                            ID="RfvPhoneNumber"
-                            runat="server"
-                            ErrorMessage="RequiredFieldValidator"
-                            ControlToValidate="TxtPhoneNumber"
-                            Text="This Field Is Required"
-                            ForeColor="Red"
-                            SetFocusOnError="true"
-                            ValidationGroup="SaveGroup"
-                            Display="Dynamic"></asp:RequiredFieldValidator>
-                    </asp:TableCell>
-                </asp:TableRow>
+                 <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label
+                    ID="LblPhoneNumber"
+                    runat="server"
+                    Text="Home Phone: "></asp:Label>
+                </asp:TableCell>
+            <asp:TableCell ColumnSpan ="5">
+                <asp:TextBox
+                    ID="TxtPhoneNumber"
+                    runat="server"
+                    Text=""
+                    ></asp:TextBox>
+           
+                <asp:Label
+                    ID="LblCellPhone"
+                    runat="server"
+                    Text=" Cell Phone: "></asp:Label>
+           
+                <asp:TextBox
+                    ID="TxtCellPhone"
+                    runat="server"
+                    Text=""
+                    ></asp:TextBox>
+        
+                <asp:Label
+                    ID="LblWorkPhone"
+                    runat="server"
+                    Text=" Work Phone: "></asp:Label>
+         
+                <asp:TextBox
+                    ID="TxtWorkPhone"
+                    runat="server"
+                    Text=""
+                    ></asp:TextBox>
+            </asp:TableCell>
+        
+        </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label
