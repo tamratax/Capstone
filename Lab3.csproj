@@ -73,6 +73,7 @@
     <Content Include="AddItem.aspx" />
     <Content Include="AddServiceRequest.aspx" />
     <Content Include="Auction.aspx" />
+    <Content Include="CompletionForm.aspx" />
     <Content Include="CustomerPortal.aspx" />
     <Content Include="CustomerUnauthorized.aspx" />
     <Content Include="LabFormat.Master" />
@@ -139,6 +140,13 @@
       <DependentUpon>Auction.aspx</DependentUpon>
     </Compile>
     <Compile Include="Auction.cs" />
+    <Compile Include="CompletionForm.aspx.cs">
+      <DependentUpon>CompletionForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompletionForm.aspx.designer.cs">
+      <DependentUpon>CompletionForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerFacingMaster.Master.cs">
       <DependentUpon>CustomerFacingMaster.Master</DependentUpon>
