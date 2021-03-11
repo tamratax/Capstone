@@ -76,6 +76,7 @@
     <Content Include="CompletionForm.aspx" />
     <Content Include="CustomerPortal.aspx" />
     <Content Include="CustomerUnauthorized.aspx" />
+    <Content Include="ItemRecieval.aspx" />
     <Content Include="LabFormat.Master" />
     <Content Include="CustomerFacingMaster.Master" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
@@ -172,6 +173,13 @@
     <Compile Include="Employee.cs" />
     <Compile Include="Equipment.cs" />
     <Compile Include="Inventory.cs" />
+    <Compile Include="ItemRecieval.aspx.cs">
+      <DependentUpon>ItemRecieval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItemRecieval.aspx.designer.cs">
+      <DependentUpon>ItemRecieval.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LabFormat.Master.cs">
       <DependentUpon>LabFormat.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
