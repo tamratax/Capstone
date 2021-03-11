@@ -15,6 +15,42 @@ namespace WalkerS_Lab1Part3
     {
 
         /// <summary>
+        /// TblAddService control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table TblAddService;
+
+        /// <summary>
+        /// LblPotentialDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblPotentialDate;
+
+        /// <summary>
+        /// TxtPotentialDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtPotentialDate;
+
+        /// <summary>
+        /// TxtPotentialTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtPotentialTime;
+
+        /// <summary>
         /// TblAddCustomer control.
         /// </summary>
         /// <remarks>

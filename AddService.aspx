@@ -3,7 +3,20 @@
 <%-- Coded By: Stuart Walker & Aaron Walsh --%>
 
 <asp:Content ID="myContent" ContentPlaceHolderID="body" runat="server">
-    <h1>Add Service</h1>
+    <h1>Service Order</h1>
+    <asp:Table ID="TblAddService" runat="server">
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="LblPotentialDate" runat="server" Text="Potential Date/Time: "></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox ID="TxtPotentialDate" runat="server" TextMode="Date"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox ID="TxtPotentialTime" runat="server" TextMode="Time"></asp:TextBox>
+            </asp:TableCell>
+        </asp:TableRow>
+    </asp:Table>
     <asp:Table
         ID="TblAddCustomer"
         runat="server">

@@ -3,7 +3,7 @@
 <%-- Coded By: RoCo Consulting --%>
 
 <asp:Content ID="myContent" ContentPlaceHolderID="body" runat="server">
-    <h1>Add Customer</h1>
+    <h1>Initial Conversation</h1>
     <asp:Table
         ID="TblAddCustomer"
         runat="server">
@@ -224,13 +224,45 @@
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:CheckBox ID="ChkBoxLookAt" runat="server" Text="Do you need your items to be looked at?" Visible="false" AutoPostBack="true" OnCheckedChanged="ChkBoxLookAt_CheckedChanged" />
+                <asp:CheckBox ID="ChkBoxLookAt" runat="server" Text=" Require A Look At?" Visible="false" AutoPostBack="true" OnCheckedChanged="ChkBoxLookAt_CheckedChanged" />
             </asp:TableCell>
             <asp:TableCell>
                  <asp:TextBox ID="TxtLookAtSchedule" runat="server" Visible="false" TextMode="Date" AutoPostBack="true"></asp:TextBox>
             </asp:TableCell>
             <asp:TableCell>
                 <asp:TextBox ID="TxtLookatScheduleTime" Visible="false" AutoPostBack="true" TextMode="Time" runat="server"></asp:TextBox>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="LblHowMany" runat="server" Text="How Many Items For Sale?" Visible="false"></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox ID="TxtHowMany" runat="server" Visible="false"></asp:TextBox>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="LblDescriptions" runat="server" Text="What Do You Have To Sell?" Visible="false"></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox ID="TxtDescriptions" runat="server" TextMode="MultiLine" Rows="5" Visible="false" ></asp:TextBox>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="LblDownsizing" runat="server" Text="Are You Downsizing?"></asp:Label>
+                </asp:TableCell>
+            <asp:TableCell>
+                <asp:CheckBox ID="ChkBoxDownsizing" runat="server" />
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="LblEstate" runat="server" Text="Are You Settling An Estate?"></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:CheckBox ID="ChkBoxEstate" runat="server" />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
@@ -583,6 +615,9 @@
                     ID="LblSaveStatus"
                     runat="server"
                     Text=""></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Button ID="BtnProceed" runat="server" Text="Proceed to Service Order Form" OnClick="BtnProceed_Click" />
             </asp:TableCell>
         </asp:TableRow>
 

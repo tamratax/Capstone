@@ -448,11 +448,18 @@ namespace WalkerS_Lab1Part3
             {
                 
                 ChkBoxLookAt.Visible = true;
+                LblHowMany.Visible = true;
+                LblDescriptions.Visible = true;
+                TxtHowMany.Visible = true;
+                TxtDescriptions.Visible = true;
             }
             else
             {
                 ChkBoxLookAt.Visible = false;
-
+                LblHowMany.Visible = false;
+                LblDescriptions.Visible = false;
+                TxtHowMany.Visible = false;
+                TxtDescriptions.Visible = false;
             }
         }
 
@@ -468,6 +475,11 @@ namespace WalkerS_Lab1Part3
                 TxtLookAtSchedule.Visible = false;
                 TxtLookatScheduleTime.Visible = false;
             }
+        }
+
+        protected void BtnProceed_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AddService.aspx");
         }
     }
 }
