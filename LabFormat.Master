@@ -20,7 +20,8 @@
                         <asp:Button ID="BtnNavigation"
                     runat="server"
                     Text="Back To Navigation ->"
-                    OnClick="BtnNavigation_Click" />
+                    OnClick="BtnNavigation_Click" 
+                             />
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label

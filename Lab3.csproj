@@ -79,7 +79,7 @@
     <Content Include="images\favicon.png" />
     <Content Include="images\GVA_logo.png" />
     <Content Include="images\GVM_logo.png" />
-    <Content Include="ItemRecieval.aspx" />
+    <Content Include="ItemReception.aspx" />
     <Content Include="LabFormat.Master" />
     <Content Include="CustomerFacingMaster.Master" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
@@ -176,12 +176,12 @@
     <Compile Include="Employee.cs" />
     <Compile Include="Equipment.cs" />
     <Compile Include="Inventory.cs" />
-    <Compile Include="ItemRecieval.aspx.cs">
-      <DependentUpon>ItemRecieval.aspx</DependentUpon>
+    <Compile Include="ItemReception.aspx.cs">
+      <DependentUpon>ItemReception.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ItemRecieval.aspx.designer.cs">
-      <DependentUpon>ItemRecieval.aspx</DependentUpon>
+    <Compile Include="ItemReception.aspx.designer.cs">
+      <DependentUpon>ItemReception.aspx</DependentUpon>
     </Compile>
     <Compile Include="LabFormat.Master.cs">
       <DependentUpon>LabFormat.Master</DependentUpon>
