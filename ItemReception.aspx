@@ -133,7 +133,7 @@
             <asp:TableCell>
                 <asp:Label ID="LblItemNotes" 
                     runat="server" 
-                    Text="ItemNotes: "
+                    Text="Item Notes: "
                     ></asp:Label>
             </asp:TableCell>
             <asp:TableCell>

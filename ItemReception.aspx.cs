@@ -33,14 +33,14 @@ namespace Lab3
                 TxtTime.Visible = false;
                 LeaveAtLbl.Visible = false;
                 TxtLeaveAt.Visible = false;
-               
+
             }
 
         }
 
         protected void PickupBtn_CheckedChanged(object sender, EventArgs e)
         {
-           if(PickupBtn.Checked)
+            if (PickupBtn.Checked)
             {
 
                 DateLbl.Visible = true;
@@ -63,18 +63,12 @@ namespace Lab3
         {
             try
             {
-
-
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-
-
                 string query = "INSERT into Inventory(ServiceTicketID, ItemName,ItemDescription, Quantity ) " +
                     "values (2, @ItemName, @ItemDescription, @ItemQuantity) ";
+
                 sqlConnect.Open();
                 SqlCommand com = new SqlCommand(query, sqlConnect);
-
-
-
 
                 com.Parameters.AddWithValue("ItemName", TxtItem.Text.ToString());
                 com.Parameters.AddWithValue("ItemDescription", TxtItemNotes.Text.ToString());
@@ -101,7 +95,7 @@ namespace Lab3
         }
         protected void UpdateGridView()
         {
-            String Query = "Select  ItemName,ItemDescription, Quantity  FROM Inventory join ServiceTicket on ServiceTicket.serviceticketID = inventory.ServiceTicketID where inventory.ServiceTicketID = 2" ;
+            String Query = "Select  ItemName,ItemDescription, Quantity  FROM Inventory join ServiceTicket on ServiceTicket.serviceticketID = inventory.ServiceTicketID where inventory.ServiceTicketID = 2";
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(Query, sqlConnect);
