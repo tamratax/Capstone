@@ -481,5 +481,13 @@ namespace WalkerS_Lab1Part3
         {
             Response.Redirect("AddService.aspx");
         }
+
+        protected void DdlCompletedByEmp_DataBound(object sender, EventArgs e)
+        {
+            //Sets Service list ddl to default of select
+            ListItem blankOption = new ListItem("Select", "Select");
+            DdlCompletedByEmp.Items.Insert(0, blankOption);
+            DdlCompletedByEmp.SelectedIndex = 0;
+        }
     }
 }
