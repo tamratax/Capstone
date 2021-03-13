@@ -1,13 +1,13 @@
---drop table address;
---drop table tickethistory;
---drop table assignment;
---drop table equipment;
---drop table inventory;
---drop table ServiceRequest;
---drop table serviceticket;
---drop table auction;
---drop table Customer;
---drop table employee;
+drop table address;
+drop table tickethistory;
+drop table assignment;
+drop table equipment;
+drop table inventory;
+drop table ServiceRequest;
+drop table serviceticket;
+drop table auction;
+drop table employee;
+drop table Customer;
 
 
 --Create tables in database
