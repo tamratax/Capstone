@@ -21,7 +21,7 @@ namespace WalkerS_Lab1Part3
                 LstBoxCustomerRequests.DataTextField = "Name";
                 LstBoxCustomerRequests.DataValueField = "Customer ID";
 
-                String sqlQueryCustomer = "Select customerID 'Customer ID', FirstName + ' ' + LastName + ' ->' 'Name' from Customer where Completed = 0";
+                String sqlQueryCustomer = "Select customerID 'Customer ID', FirstName + ' ' + LastName +  ' ->' 'Name' from Customer where Completed = 0";
 
 
                 SqlConnection sqlConnectCustomer = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
@@ -70,13 +70,13 @@ namespace WalkerS_Lab1Part3
         //Navigates to AddCustomer Web form after button is clicked
         protected void BtnAddCustomerPage_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AddCustomer.aspx");
+            Response.Redirect("InitialConversation.aspx");
         }
 
         //Navigates to BtnAddServices Web form after button is clicked
         protected void BtnAddServicePage_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AddService.aspx");
+            Response.Redirect("AddServiceOrderAddService.aspx");
         }
 
         protected void BtnViewNotes_Click(object sender, EventArgs e)
@@ -92,7 +92,7 @@ namespace WalkerS_Lab1Part3
         protected void LstBoxCustomerRequests_SelectedIndexChanged(object sender, EventArgs e)
         {
             Session["Customer ID"] = LstBoxCustomerRequests.SelectedValue.ToString();
-            Response.Redirect("AddCustomer.aspx");
+            Response.Redirect("InitialConversation.aspx");
         }
 
        
@@ -100,7 +100,7 @@ namespace WalkerS_Lab1Part3
         protected void LstBoxIncompleteServiceTickets_SelectedIndexChanged(object sender, EventArgs e)
         {
             Session["ServiceTicketID"] = LstBoxIncompleteServiceTickets.SelectedValue.ToString();
-            Response.Redirect("AddService.aspx");
+            Response.Redirect("AddServiceOrder.aspx");
         }
 
         protected void BtnAuctions_Click(object sender, EventArgs e)
