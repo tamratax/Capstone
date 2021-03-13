@@ -124,9 +124,49 @@
                     ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
             </asp:TableCell>
         </asp:TableRow>
-        
+        </asp:Table>
 
+    <asp:Table ID="Table2" runat="server">
+        <asp:TableRow>
+            <asp:TableCell ColumnSpan="2">
+                <asp:Label ID="LblPCA" runat="server" Text="Primary Contact Address" Font-Bold="true"></asp:Label>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="LblStreet" runat="server" Text="Street Address: "></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox ID="TxtStreet" runat="server"></asp:TextBox>
+            </asp:TableCell>
+        </asp:TableRow>
+         <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="LblCity" runat="server" Text="City: "></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox ID="TxtCity" runat="server"></asp:TextBox>
+            </asp:TableCell>
+        </asp:TableRow>
+         <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="LblState" runat="server" Text="State: "></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox ID="TxtState" runat="server"></asp:TextBox>
+            </asp:TableCell>
+        </asp:TableRow>
+         <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="LblZip" runat="server" Text="Zip Code: "></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox ID="TxtZip" runat="server"></asp:TextBox>
+            </asp:TableCell>
+        </asp:TableRow>
+        
     </asp:Table>
+    
     <asp:Table
         ID="Table1"
         runat="server">
@@ -254,21 +294,6 @@
     <asp:Table
         ID="Table3"
         runat="server">
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Button ID="BtnComplete"
-                    runat="server"
-                    Text="Add Item to Inventory"
-                    Visible="false"
-                    OnClick="BtnComplete_Click" 
-                    ValidationGroup="CreateItem"/>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:Label ID="LblStatus"
-                    runat="server"
-                    ForeColor="Green"></asp:Label>
-            </asp:TableCell>
-        </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
                          <asp:Label 

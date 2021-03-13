@@ -360,5 +360,11 @@ namespace WalkerS_Lab1Part3
             DdlCompletedByEmp.Items.Insert(0, blankOption);
             DdlCompletedByEmp.SelectedIndex = 0;
         }
+
+        protected void ChkBoxMove_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
