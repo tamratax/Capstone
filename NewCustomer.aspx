@@ -4,12 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>RoCo Consulting</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <p>Stuart Walker & Aaron Walsh</p>
             <h1>Create New Account</h1>
             <asp:Table
                 ID="TblAccountInfo"

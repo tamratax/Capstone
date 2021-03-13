@@ -4,13 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Stuart Walker & Aaron Walsh</title>
+    <title>RoCo Consulting</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-        <p>Stuart Walker & Aaron Walsh</p>
         <fieldset>
             <asp:Table
                 ID="Table1" 
@@ -20,7 +20,8 @@
                         <asp:Button ID="BtnNavigation"
                     runat="server"
                     Text="Back To Navigation ->"
-                    OnClick="BtnNavigation_Click" />
+                    OnClick="BtnNavigation_Click" 
+                             />
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label

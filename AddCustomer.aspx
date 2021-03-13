@@ -604,11 +604,12 @@
             <asp:TableCell>
                 <asp:DropDownList
                     ID="DdlCompletedByEmp"
-                    runat="server">
+                    runat="server"
+                    DataSourceID="dtasrcEmpList"
+                    DataTextField="EmpName"
+                    DataValueField="EmployeeID"
+                    OnDataBound="DdlCompletedByEmp_DataBound">
                     <asp:ListItem Value="Select">Select</asp:ListItem>
-                    <asp:ListItem>Employee1</asp:ListItem>
-                    <asp:ListItem>Employee2</asp:ListItem>
-                    <asp:ListItem>Employee3</asp:ListItem>
                 </asp:DropDownList>
             </asp:TableCell>
                <asp:TableCell>
@@ -701,4 +702,11 @@
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
+
+    <asp:SqlDataSource ID="dtasrcEmpList"
+        runat="server"
+        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        SelectCommand="Select EmployeeID, EmpFirstName + ' ' + EmpLastName 'EmpName' from EMPLOYEE Order By EmpLastName Desc"></asp:SqlDataSource>
+
 </asp:Content>
+

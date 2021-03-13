@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddServiceRequest.aspx.cs" Inherits="Lab3.AddServiceRequest" MasterPageFile="~/CustomerFacingMaster.Master" %>
 
 <asp:Content ID="myContent" ContentPlaceHolderID="body" runat="server">
-    <p>Stuart Walker & Aaron Walsh</p>
     <h1>Create Service Request</h1>
     <asp:Table
         ID="TblServiceRequest"

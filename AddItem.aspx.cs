@@ -22,29 +22,27 @@ namespace Lab3
         {
             try
             {
-
-
-                string query = "INSERT INTO [INVENTORY] (ServiceTicketID, ItemDescription, ItemCost, ItemDate) VALUES ((Select ServiceTicket.ServiceTicketID FROM ServiceTicket WHERE ServiceTicket.ServiceTicketID ='" + DDLType.SelectedValue + "'), @ItemDescription, @ItemCost, @ItemDate)";
+                string query = "INSERT INTO [INVENTORY] (ServiceTicketID, ItemName, ItemDescription, ItemCost, Quantity) VALUES (" + DDLType.SelectedValue + ", @ItemName, @ItemDescription, @ItemCost, @ItemQuantity)";
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                 sqlConnect.Open();
                 SqlCommand com = new SqlCommand(query, sqlConnect);
 
-                string item = TxtItem.Text;
-                com.Parameters.AddWithValue("ItemDescription", item);
-                string cost = TxtCost.Text;
-                com.Parameters.AddWithValue("ItemCost", cost);
-                string date = TxtDate.Text;
-                com.Parameters.AddWithValue("ItemDate", date);
+                com.Parameters.AddWithValue("ItemName", TxtItem.Text.ToString());
+                com.Parameters.AddWithValue("ItemDescription", TxtItemDescription.Text.ToString());
+                com.Parameters.AddWithValue("ItemCost", TxtCost.Text.ToString());
+                com.Parameters.AddWithValue("ItemQuantity", TxtQuantity.Text.ToString());
 
                 com.ExecuteNonQuery();
                 sqlConnect.Close();
 
                 TxtItem.Text = "";
+                TxtItemDescription.Text = "";
                 TxtCost.Text = "";
-                TxtDate.Text = "";
+                TxtQuantity.Text = "1";
 
                 DDLType_SelectedIndexChanged(sender, e);
                 LblStatus.Text = "Item sucessfully added!";
+                GridItem.DataBind();
 
             }
             catch
@@ -85,48 +83,41 @@ namespace Lab3
             }
         }
 
-    protected void DDLCust_DataBound(object sender, EventArgs e)
-    {
+        protected void DDLCust_DataBound(object sender, EventArgs e)
+        {
             //Sets Service list ddl to default of select
             ListItem blankOption = new ListItem("Select", "-1");
             DDLCust.Items.Insert(0, blankOption);
             DDLCust.SelectedIndex = 0;
         }
 
-    protected void DDLType_DataBound(object sender, EventArgs e)
-    {
-        //Sets Service list ddl to default of select
-        ListItem blankOption = new ListItem("Select", "-1");
-        DDLType.Items.Insert(0, blankOption);
-        DDLType.SelectedIndex = 0;
-    }
+        protected void DDLType_DataBound(object sender, EventArgs e)
+        {
+            //Sets Service list ddl to default of select
+            ListItem blankOption = new ListItem("Select", "-1");
+            DDLType.Items.Insert(0, blankOption);
+            DDLType.SelectedIndex = 0;
+        }
 
         protected void DDLType_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                String Query = "Select ItemDescription, ItemCost, ItemDate FROM Inventory join ServiceTicket on ServiceTicket.serviceticketID = inventory.ServiceTicketID where inventory.ServiceTicketID = " + DDLType.SelectedValue;
-                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-
-                SqlDataAdapter sqlAdapter = new SqlDataAdapter(Query, sqlConnect);
-
-                DataTable listData = new DataTable();
-                sqlAdapter.Fill(listData);
-                GridItem.DataSource = listData;
-                GridItem.DataBind();
-
                 TxtItem.Visible = true;
                 TxtCost.Visible = true;
-                TxtDate.Visible = true;
+                TxtItemDescription.Visible = true;
+                TxtQuantity.Visible = true;
                 LblItem.Visible = true;
                 LblCost.Visible = true;
-                LblDate.Visible = true;
+                LblItemDescription.Visible = true;
+                LblQuantity.Visible = true;
                 BtnComplete.Visible = true;
-            } 
+            }
             catch
             {
                 LblStatus.Text = "Database Error!";
             }
         }
+
     }
 }

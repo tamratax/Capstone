@@ -4,18 +4,23 @@
 
 <html>
 <head runat="server">
-     <title>Stuart Walker & Aaron Walsh</title>
+     <title>RoCo Consulting</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-        <p>Stuart Walker & Aaron Walsh</p>
+        <p>RoCo Consulting</p>
         <fieldset>
             <asp:Table
                 ID="Table1" 
                 runat="server">
                 <asp:TableRow>
+                    <asp:TableCell >
+                        <asp:Image runat="server" ImageUrl="/images/GVM_logo.png"/>
+                        <asp:Image runat="server" ImageUrl="/images/GVA_logo.png"/>
+                    </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label
                             ID="LblActiveUser" 
