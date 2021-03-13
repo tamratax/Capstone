@@ -1,12 +1,13 @@
---drop table tickethistory;
---drop table assignment;
---drop table equipment;
---drop table inventory;
---drop table ServiceRequest;
---drop table serviceticket;
---drop table auction;
---drop table Customer;
---drop table employee;
+drop table address;
+drop table tickethistory;
+drop table assignment;
+drop table equipment;
+drop table inventory;
+drop table ServiceRequest;
+drop table serviceticket;
+drop table auction;
+drop table employee;
+drop table Customer;
 
 
 --Create tables in database
@@ -18,20 +19,23 @@ create table CUSTOMER (
 	WorkPhone			varchar(15),
 	HomePhone			varchar(15),
 	Email			varchar(255),
-
-	MovingCB		bit,
-	AuctionCB		bit,
-	ConsignmentCB		Bit,
-	AppraiselCb		Bit,
+	ItemsForSale		varchar(200),
+	WhatDoYouSell		varchar(200),
+	Downsizing		varchar(10),
+	SettlingEstate		varchar(10),
+	MovingCB		varchar(10),
+	AuctionCB		varchar(10),
+	ConsignmentCB		varchar(10),
+	AppraisalCb		varchar(10),
 
 	ItemTransportation varchar(200),
-	InitialContact	varchar(255),
+	PreferredContact	varchar(255),
 	ReferralChannel	varchar(255),	
 	DateContacted	varchar(20),
 	DeadlineStart	varchar(20),
 	DeadlineEnd		varchar(20),
 	CustomerNotes	varchar (250),
-	Completed		bit
+	Completed		varchar(10)
 );
 create table EMPLOYEE (
 	EmployeeID		int identity(1, 1) primary key,
@@ -55,13 +59,13 @@ create table SERVICETICKET (
 	DestinationTime	varchar(255),
 	GasExpense		float,
 	MiscExpense		float,
-	LookAtCB		Bit,
+	LookAtCB		varchar(10),
 	LookAtDate			Date,
 	LookAtTime		Time,
 	ContactID		int references EMPLOYEE(EmployeeID),
 	InitiatingEmp	int references Employee(EmployeeID),
 	AuctionID		int references Auction(AuctionID),
-	Completed		bit
+	Completed		varchar(10)
 );
 
 Create table Address(
@@ -86,7 +90,7 @@ create table SERVICEREQUEST	(
 	ServiceType		    char(20),
 	ServiceDate		    varchar(20),
 	RequestDescription  varchar(500),
-	RequestStatus		bit,
+	RequestStatus		varchar(10),
 	Status_Service		int,
 	CustomerID		int references Customer(CustomerID)
 );
@@ -126,7 +130,7 @@ create table TICKETHISTORY (
 --Adding data to database--
 ---------------------------------------------
 
-insert into CUSTOMER values ('Aaron', 'Walsh', '1234567822','123456789', '123456789','walsh@dukes.com',1, 0, 0,0, 'pick up' , 'phone','poster','2021-03-07', '2021-03-07','2021-03-07','notes',0 );
+insert into CUSTOMER values ('Aaron', 'Walsh', '1234567822','123456789', '123456789','walsh@dukes.com',  'Item', 'What'   ,'true','false','true', 'false', 'false','false', 'pick up' , 'phone','poster','2021-03-07', '2021-03-07','2021-03-07','notes','false' );
 --insert into CUSTOMER values ('Kyle', 'Ledford', '9876543221', '123456789', '123456789', 'ledford@dukes.com', 'Auction','9172 Blvd', 'Tyler', 'TX','','','','By Phone','poster', 15.45, '2021-03-17','2021-04-30','', 1);
 --insert into CUSTOMER values ('Stuart', 'Walker', '8045640548','123456789', '123456789', 'stuart@dukes.com', 'Both','1823 Rd','Harrisonburg', 'VA','1560 Rd','Richmond','VA','Email','news ad', 10.20, '2021-01-05','2021-02-15','', 1);
 --insert into CUSTOMER values ('John', 'Smith', '8045640548','123456789', '123456789', 'smith@dukes.com', 'Move','','', '','','','','Carrier Pigeon','', 0, '','','', 0);
