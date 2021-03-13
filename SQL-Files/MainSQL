@@ -1,3 +1,4 @@
+--drop table address;
 --drop table tickethistory;
 --drop table assignment;
 --drop table equipment;
