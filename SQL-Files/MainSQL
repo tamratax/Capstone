@@ -1,13 +1,13 @@
-drop table address;
-drop table tickethistory;
-drop table assignment;
-drop table equipment;
-drop table inventory;
-drop table ServiceRequest;
-drop table serviceticket;
-drop table auction;
-drop table employee;
-drop table Customer;
+--drop table address;
+--drop table tickethistory;
+--drop table assignment;
+--drop table equipment;
+--drop table inventory;
+--drop table ServiceRequest;
+--drop table serviceticket;
+--drop table auction;
+--drop table Customer;
+--drop table employee;
 
 
 --Create tables in database
@@ -157,9 +157,9 @@ insert into Address values (null, 1, 'street', 'city','state ', '123', 'descript
 --insert into SERVICETICKET values (2, 'In Progress', '2021-02-01','2021-03-01', 100.25, '2021-03-07', 'Auction', '', '', '', 2, 1, 1, 1);
 --insert into SERVICETICKET values (3, 'In Progress', '2021-03-01','2021-04-01', 250, '2021-05-02', 'Move', '1:30pm', 18.56, 1.80, null, 3, null, 0);
 
---insert into SERVICEREQUEST values ('Move', '2021-06-15', 'We have a lot of things to move this day and will need plenty of help!', 0, 4);
---insert into SERVICEREQUEST values ('Auction', '2021-06-30', 'We want to sell all of our bowls!', 0, 4);
---insert into SERVICEREQUEST values ('Move', '2021-01-31', 'Help us!', 1, 5);
+insert into SERVICEREQUEST values ('Move', '2021-06-15', 'We have a lot of things to move this day and will need plenty of help!','Active',0, 1);
+insert into SERVICEREQUEST values ('Auction', '2021-06-30', 'We want to sell all of our bowls!', 'Active', 10, 1);
+insert into SERVICEREQUEST values ('Move', '2021-01-31', 'Help us!', 'Active',25, 1);
 
 --insert into INVENTORY values (1,'Bowl','Blue bowl', 500.23,  2);
 --insert into INVENTORY values (3,'mouse','Small bowl', 15.00,  1);
