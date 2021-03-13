@@ -276,6 +276,33 @@ namespace WalkerS_Lab1Part3
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvServiceType;
 
         /// <summary>
+        /// ChkBoxLookAt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox ChkBoxLookAt;
+
+        /// <summary>
+        /// TxtLookAtSchedule control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtLookAtSchedule;
+
+        /// <summary>
+        /// TxtLookatScheduleTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtLookatScheduleTime;
+
+        /// <summary>
         /// LblEmployeeContact control.
         /// </summary>
         /// <remarks>

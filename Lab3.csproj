@@ -111,9 +111,9 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
-    <Content Include="AddCustomer.aspx" />
+    <Content Include="InitialConversation.aspx" />
     <Content Include="AddNote.aspx" />
-    <Content Include="AddService.aspx" />
+    <Content Include="AddServiceOrder.aspx" />
     <Content Include="Navigation.aspx" />
     <Content Include="NewCustomer.aspx" />
     <Content Include="Scripts\jquery-3.5.1.js" />
@@ -200,12 +200,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddCustomer.aspx.cs">
-      <DependentUpon>AddCustomer.aspx</DependentUpon>
+    <Compile Include="InitialConversation.aspx.cs">
+      <DependentUpon>InitialConversation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddCustomer.aspx.designer.cs">
-      <DependentUpon>AddCustomer.aspx</DependentUpon>
+    <Compile Include="InitialConversation.aspx.designer.cs">
+      <DependentUpon>InitialConversation.aspx</DependentUpon>
     </Compile>
     <Compile Include="AddItem.aspx.cs">
       <DependentUpon>AddItem.aspx</DependentUpon>
@@ -221,12 +221,12 @@
     <Compile Include="AddNote.aspx.designer.cs">
       <DependentUpon>AddNote.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AddService.aspx.cs">
-      <DependentUpon>AddService.aspx</DependentUpon>
+    <Compile Include="AddServiceOrder.aspx.cs">
+      <DependentUpon>AddServiceOrder.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddService.aspx.designer.cs">
-      <DependentUpon>AddService.aspx</DependentUpon>
+    <Compile Include="AddServiceOrder.aspx.designer.cs">
+      <DependentUpon>AddServiceOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="AddServiceRequest.aspx.cs">
       <DependentUpon>AddServiceRequest.aspx</DependentUpon>

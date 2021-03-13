@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddService.aspx.cs" Inherits="WalkerS_Lab1Part3.AddService" MasterPageFile="LabFormat.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddServiceOrder.aspx.cs" Inherits="WalkerS_Lab1Part3.AddService" MasterPageFile="LabFormat.Master" %>
 
 <%-- Coded By: Stuart Walker & Aaron Walsh --%>
 
@@ -252,6 +252,32 @@
                     SetFocusOnError="true"
                     ValidationGroup="SaveGroup"
                     InitialValue="-1"></asp:RequiredFieldValidator>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:CheckBox
+                    ID="ChkBoxLookAt" 
+                    runat="server" 
+                    Text=" Require A Look At?"
+                    AutoPostBack="true"
+                    OnCheckedChanged="ChkBoxLookAt_CheckedChanged" />
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox
+                    ID="TxtLookAtSchedule"
+                    runat="server" 
+                    Visible="false" 
+                    TextMode="Date" 
+                    AutoPostBack="true"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox 
+                    ID="TxtLookatScheduleTime" 
+                    Visible="false" 
+                    AutoPostBack="true"
+                    TextMode="Time" 
+                    runat="server"></asp:TextBox>
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
