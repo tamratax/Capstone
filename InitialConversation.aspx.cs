@@ -48,7 +48,7 @@ namespace WalkerS_Lab1Part3
                     DataTable dtForSelect = new DataTable();
                     sqlAdapter.Fill(dtForSelect);
 
-                    //Fills data from editing customer's sql record into addcustomer page
+                    //Fills data from editing customer's sql record into InitialConversation page
                     TxtFirstName.Text = Convert.ToString(dtForSelect.Rows[0]["FirstName"]);
                     TxtLastName.Text = Convert.ToString(dtForSelect.Rows[0]["LastName"]);
                     TxtPhoneNumber.Text = Convert.ToString(dtForSelect.Rows[0]["Phone"]);
