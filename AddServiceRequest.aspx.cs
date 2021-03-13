@@ -22,7 +22,12 @@ namespace Lab3
                 DdlServiceType.Items.Add(new ListItem("Select", "-1"));
                 DdlServiceType.Items.Add(new ListItem("Move", "Move"));
                 DdlServiceType.Items.Add(new ListItem("Auction", "Auction"));
+                DdlServiceType.Items.Add(new ListItem("Consignment", "Consignment"));
+                DdlServiceType.Items.Add(new ListItem("Appraisal", "Appraisal"));
+
             }
+
+            username.Text = Session["CustomerUsername"].ToString();
         }
 
         protected void BtnCreateServiceRequest_Click(object sender, EventArgs e)
@@ -71,6 +76,11 @@ namespace Lab3
 
                     LblSaveStatus.Text = "Service Request Added Successfully";
                     LblSaveStatus.ForeColor = Color.Green;
+
+                    GridRequests.DataBind();
+
+                    TxtRequestDescription.Text = "";
+                    TxtServiceDate.Text = "";
                 }
                 else
                 {

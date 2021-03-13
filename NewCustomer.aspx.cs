@@ -16,17 +16,7 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                //Creates items for Phone type ddl
-                DdlPhoneType.Items.Add(new ListItem("Select", "-1"));
-                DdlPhoneType.Items.Add(new ListItem("Cell", "0"));
-                DdlPhoneType.Items.Add(new ListItem("Home", "1"));
-                DdlPhoneType.Items.Add(new ListItem("Work", "2"));
-                DdlPhoneType.Items.Add(new ListItem("Other", "3"));
-
-
-            }
+          
         }
 
         protected void BtnCreate_Click(object sender, EventArgs e)
@@ -89,7 +79,7 @@ namespace Lab3
 
                     //Create Customer record
                     //Concatenate Sql Query Insert Statements
-                    String sqlQuery = "insert into CUSTOMER values (@FirstName, @LastName, @PhoneNumber, @PhoneType, @Email, '', @StreetAddress, @City, @State";
+                    String sqlQuery = "insert into CUSTOMER values (@FirstName, @LastName, @WorkPhone, @CellPhone, @HomePhone, @Email, '', @StreetAddress, @City, @State";
                     sqlQuery += ", '', '', '', '', '', 0, '" + System.DateTime.Now.Date.ToString("yyyy-MM-dd") + "', '', '', 0)";
 
                     //Define the Connection to the Database
@@ -102,8 +92,9 @@ namespace Lab3
                     sqlCommandCustomer.CommandText = sqlQuery;
                     sqlCommandCustomer.Parameters.Add(new SqlParameter("@FirstName", HttpUtility.HtmlEncode(TxtFirstName.Text)));
                     sqlCommandCustomer.Parameters.Add(new SqlParameter("@LastName", HttpUtility.HtmlEncode(TxtLastName.Text)));
-                    sqlCommandCustomer.Parameters.Add(new SqlParameter("@PhoneNumber", HttpUtility.HtmlEncode(TxtPhoneNumber.Text)));
-                    sqlCommandCustomer.Parameters.Add(new SqlParameter("@PhoneType", DdlPhoneType.SelectedItem.Text));
+                    sqlCommandCustomer.Parameters.Add(new SqlParameter("@WorkPhone", HttpUtility.HtmlEncode(TxtWorkPhone.Text)));
+                    sqlCommandCustomer.Parameters.Add(new SqlParameter("@HomePhone", HttpUtility.HtmlEncode(TxtPhoneNumber.Text)));
+                    sqlCommandCustomer.Parameters.Add(new SqlParameter("@CellPhone", HttpUtility.HtmlEncode(TxtCellPhone.Text)));
                     sqlCommandCustomer.Parameters.Add(new SqlParameter("@Email", HttpUtility.HtmlEncode(TxtEmail.Text)));
                     sqlCommandCustomer.Parameters.Add(new SqlParameter("@StreetAddress", HttpUtility.HtmlEncode(TxtStreetAddress.Text)));
                     sqlCommandCustomer.Parameters.Add(new SqlParameter("@City", HttpUtility.HtmlEncode(TxtCity.Text)));
