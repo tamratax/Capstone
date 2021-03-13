@@ -256,6 +256,32 @@
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
+                <asp:CheckBox
+                    ID="ChkBoxLookAt" 
+                    runat="server" 
+                    Text=" Require A Look At?"
+                    AutoPostBack="true"
+                    OnCheckedChanged="ChkBoxLookAt_CheckedChanged" />
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox
+                    ID="TxtLookAtSchedule"
+                    runat="server" 
+                    Visible="false" 
+                    TextMode="Date" 
+                    AutoPostBack="true"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox 
+                    ID="TxtLookatScheduleTime" 
+                    Visible="false" 
+                    AutoPostBack="true"
+                    TextMode="Time" 
+                    runat="server"></asp:TextBox>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
                 <asp:Label
                     ID="LblEmployeeContact"
                     runat="server"

@@ -478,5 +478,18 @@ namespace WalkerS_Lab1Part3
             //Sets drop down list to default Select option
             DdlInitiatingEmp.Items.Insert(0, new ListItem("Select", "-1"));
         }
+        protected void ChkBoxLookAt_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChkBoxLookAt.Checked)
+            {
+                TxtLookAtSchedule.Visible = true;
+                TxtLookatScheduleTime.Visible = true;
+            }
+            else
+            {
+                TxtLookAtSchedule.Visible = false;
+                TxtLookatScheduleTime.Visible = false;
+            }
+        }
     }
 }
