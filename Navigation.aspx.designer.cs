@@ -132,24 +132,6 @@ namespace WalkerS_Lab1Part3
         protected global::System.Web.UI.WebControls.ListBox LstBoxCustomerRequests;
 
         /// <summary>
-        /// LblNewService control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblNewService;
-
-        /// <summary>
-        /// LstBoxServiceRequests control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox LstBoxServiceRequests;
-
-        /// <summary>
         /// LblIncompleteServiceTickets control.
         /// </summary>
         /// <remarks>

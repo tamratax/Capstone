@@ -88,23 +88,6 @@
                         <asp:TableRow>
                             <asp:TableCell>
                                 <asp:Label
-                                    ID="LblNewService"
-                                    runat="server"
-                                    Text="New Service Requests:"></asp:Label>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:ListBox
-                                    ID="LstBoxServiceRequests"
-                                    runat="server"
-                                    OnSelectedIndexChanged="LstBoxServiceRequests_SelectedIndexChanged"
-                                    AutoPostBack="true"></asp:ListBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label
                                     ID="LblIncompleteServiceTickets"
                                     runat="server"
                                     Text="Incomplete Service Tickets:"></asp:Label>
