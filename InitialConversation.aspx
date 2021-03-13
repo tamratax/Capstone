@@ -427,7 +427,7 @@
                 </asp:DropDownList>
             </asp:TableCell>
                <asp:TableCell>
-                <asp:RequiredFieldValidator
+                <%--<asp:RequiredFieldValidator
                     ID="RfvCompletedByEmp"
                     runat="server"
                     ErrorMessage="RequiredFieldValidator"
@@ -437,7 +437,7 @@
                     SetFocusOnError="true"
                     ValidationGroup="SaveGroup"
                     Display="Dynamic"
-                    InitialValue="Select"></asp:RequiredFieldValidator>
+                    InitialValue="Select"></asp:RequiredFieldValidator>--%>
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
