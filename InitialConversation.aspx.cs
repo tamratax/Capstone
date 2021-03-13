@@ -29,12 +29,6 @@ namespace WalkerS_Lab1Part3
                 DdlInitialContact.Items.Add(new ListItem("Other", "4"));
 
                 //Hides required fields at first
-                LblDestinationStreet.Visible = false;
-                TxtDestinationStreet.Visible = false;
-                LblDestinationCity.Visible = false;
-                TxtDestinationCity.Visible = false;
-                LblDestinationState.Visible = false;
-                TxtDestinationState.Visible = false;
                 LblOther.Visible = false;
                 TxtOther.Visible = false;
 
@@ -59,12 +53,10 @@ namespace WalkerS_Lab1Part3
                     TxtLastName.Text = Convert.ToString(dtForSelect.Rows[0]["LastName"]);
                     TxtPhoneNumber.Text = Convert.ToString(dtForSelect.Rows[0]["Phone"]);
                     TxtEmail.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
-                    TxtOriginStreet.Text = Convert.ToString(dtForSelect.Rows[0]["OriginStreet"]);
-                    TxtOriginCity.Text = Convert.ToString(dtForSelect.Rows[0]["OriginCity"]);
-                    TxtOriginState.Text = Convert.ToString(dtForSelect.Rows[0]["OriginState"]);
-                    TxtDestinationStreet.Text = Convert.ToString(dtForSelect.Rows[0]["DestinationStreet"]);
-                    TxtDestinationCity.Text = Convert.ToString(dtForSelect.Rows[0]["DestinationCity"]);
-                    TxtDestinationState.Text = Convert.ToString(dtForSelect.Rows[0]["DestinationState"]);
+
+                    //TxtDestinationStreet.Text = Convert.ToString(dtForSelect.Rows[0]["DestinationStreet"]);
+                    //TxtDestinationCity.Text = Convert.ToString(dtForSelect.Rows[0]["DestinationCity"]);
+                    //TxtDestinationState.Text = Convert.ToString(dtForSelect.Rows[0]["DestinationState"]);
 
                     //Array of possible mediums for intial contact
                     string[] arrayInitialContact = new string[] { "In-Person", "By Phone", "Email", "Text" };
@@ -104,12 +96,6 @@ namespace WalkerS_Lab1Part3
         protected void BtnPopulate_Click(object sender, EventArgs e)
         {
             //Show Text Boxes Again
-            LblDestinationStreet.Visible = true;
-            TxtDestinationStreet.Visible = true;
-            LblDestinationCity.Visible = true;
-            TxtDestinationCity.Visible = true;
-            LblDestinationState.Visible = true;
-            TxtDestinationState.Visible = true;
             LblOther.Visible = true;
             TxtOther.Visible = true;
 
@@ -118,12 +104,10 @@ namespace WalkerS_Lab1Part3
             TxtLastName.Text = "Robert";
             TxtPhoneNumber.Text = "7037284871";
             TxtEmail.Text = "jake@dukes.com";
-            TxtOriginStreet.Text = "123 Port Street";
-            TxtOriginCity.Text = "Harrisonburg";
-            TxtOriginState.Text = "VA";
-            TxtDestinationStreet.Text = "531 New Port Rd";
-            TxtDestinationCity.Text = "Harrisonburg";
-            TxtDestinationState.Text = "VA";
+
+            //TxtDestinationStreet.Text = "531 New Port Rd";
+            //TxtDestinationCity.Text = "Harrisonburg";
+            //TxtDestinationState.Text = "VA";
             DdlInitialContact.SelectedIndex = 5;
             TxtOther.Text = "Carrier Pidgeon";
             TxtReferral.Text = "Poster";
@@ -141,12 +125,9 @@ namespace WalkerS_Lab1Part3
             TxtLastName.Text = "";
             TxtPhoneNumber.Text = "";
             TxtEmail.Text = "";
-            TxtOriginStreet.Text = "";
-            TxtOriginCity.Text = "";
-            TxtOriginState.Text = "";
-            TxtDestinationStreet.Text = "";
-            TxtDestinationCity.Text = "";
-            TxtDestinationState.Text = "";
+            //TxtDestinationStreet.Text = "";
+            //TxtDestinationCity.Text = "";
+            //TxtDestinationState.Text = "";
             DdlInitialContact.SelectedIndex = -1;
             TxtOther.Text = "";
             TxtReferral.Text = "";
@@ -156,12 +137,6 @@ namespace WalkerS_Lab1Part3
             LblSaveStatus.Text = "";
 
             //Hide Text Boxes Again
-            LblDestinationStreet.Visible = false;
-            TxtDestinationStreet.Visible = false;
-            LblDestinationCity.Visible = false;
-            TxtDestinationCity.Visible = false;
-            LblDestinationState.Visible = false;
-            TxtDestinationState.Visible = false;
             LblOther.Visible = false;
             TxtOther.Visible = false;
             ChkBoxCompleted.Checked = false;
@@ -215,12 +190,10 @@ namespace WalkerS_Lab1Part3
                     sqlCommand.Parameters.Add(new SqlParameter("@LastName", HttpUtility.HtmlEncode(TxtLastName.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@PhoneNumber", HttpUtility.HtmlEncode(TxtPhoneNumber.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@Email", HttpUtility.HtmlEncode(TxtEmail.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@OriginStreet", HttpUtility.HtmlEncode(TxtOriginStreet.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@OriginCity", HttpUtility.HtmlEncode(TxtOriginCity.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@OriginState", HttpUtility.HtmlEncode(TxtOriginState.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@DestinationStreet", HttpUtility.HtmlEncode(TxtDestinationStreet.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@DestinationCity", HttpUtility.HtmlEncode(TxtDestinationCity.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@DestinationState", HttpUtility.HtmlEncode(TxtDestinationState.Text)));
+
+                    //sqlCommand.Parameters.Add(new SqlParameter("@DestinationStreet", HttpUtility.HtmlEncode(TxtDestinationStreet.Text)));
+                    //sqlCommand.Parameters.Add(new SqlParameter("@DestinationCity", HttpUtility.HtmlEncode(TxtDestinationCity.Text)));
+                    //sqlCommand.Parameters.Add(new SqlParameter("@DestinationState", HttpUtility.HtmlEncode(TxtDestinationState.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@InitialContact", DdlInitialContact.SelectedItem.Text));
                     sqlCommand.Parameters.Add(new SqlParameter("@ReferralChannel", HttpUtility.HtmlEncode(TxtReferral.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@DeadlineStart", HttpUtility.HtmlEncode(TxtDeadline.Text)));
@@ -303,12 +276,9 @@ namespace WalkerS_Lab1Part3
                         sqlCommand.Parameters.Add(new SqlParameter("@LastName", HttpUtility.HtmlEncode(TxtLastName.Text)));
                         sqlCommand.Parameters.Add(new SqlParameter("@PhoneNumber", HttpUtility.HtmlEncode(TxtPhoneNumber.Text)));
                         sqlCommand.Parameters.Add(new SqlParameter("@Email", HttpUtility.HtmlEncode(TxtEmail.Text)));
-                        sqlCommand.Parameters.Add(new SqlParameter("@OriginStreet", HttpUtility.HtmlEncode(TxtOriginStreet.Text)));
-                        sqlCommand.Parameters.Add(new SqlParameter("@OriginCity", HttpUtility.HtmlEncode(TxtOriginCity.Text)));
-                        sqlCommand.Parameters.Add(new SqlParameter("@OriginState", HttpUtility.HtmlEncode(TxtOriginState.Text)));
-                        sqlCommand.Parameters.Add(new SqlParameter("@DestinationStreet", HttpUtility.HtmlEncode(TxtDestinationStreet.Text)));
-                        sqlCommand.Parameters.Add(new SqlParameter("@DestinationCity", HttpUtility.HtmlEncode(TxtDestinationCity.Text)));
-                        sqlCommand.Parameters.Add(new SqlParameter("@DestinationState", HttpUtility.HtmlEncode(TxtDestinationState.Text)));
+                        //sqlCommand.Parameters.Add(new SqlParameter("@DestinationStreet", HttpUtility.HtmlEncode(TxtDestinationStreet.Text)));
+                        //sqlCommand.Parameters.Add(new SqlParameter("@DestinationCity", HttpUtility.HtmlEncode(TxtDestinationCity.Text)));
+                        //sqlCommand.Parameters.Add(new SqlParameter("@DestinationState", HttpUtility.HtmlEncode(TxtDestinationState.Text)));
                         sqlCommand.Parameters.Add(new SqlParameter("@InitialContact", DdlInitialContact.SelectedItem.Text));
                         sqlCommand.Parameters.Add(new SqlParameter("@ReferralChannel", HttpUtility.HtmlEncode(TxtReferral.Text)));
                         sqlCommand.Parameters.Add(new SqlParameter("@DeadlineStart", HttpUtility.HtmlEncode(TxtDeadline.Text)));
@@ -356,35 +326,6 @@ namespace WalkerS_Lab1Part3
 
    
 
-        protected void ChkBoxMove_CheckedChanged(object sender, EventArgs e)
-        {
-            
-            if (ChkBoxMove.Checked)
-            {
-                LblDestinationStreet.Visible = true;
-                TxtDestinationStreet.Visible = true;
-                LblDestinationCity.Visible = true;
-                TxtDestinationCity.Visible = true;
-                LblDestinationState.Visible = true;
-                TxtDestinationState.Visible = true;
-
-
-
-            }
-            else
-            {
-                LblDestinationStreet.Visible = false;
-                TxtDestinationStreet.Visible = false;
-                LblDestinationCity.Visible = false;
-                TxtDestinationCity.Visible = false;
-                LblDestinationState.Visible = false;
-                TxtDestinationState.Visible = false;
-
-                TxtDestinationStreet.Text = "";
-                TxtDestinationCity.Text = "";
-                TxtDestinationState.Text = "";
-            }
-        }
 
         protected void ChkBoxAuction_CheckedChanged(object sender, EventArgs e)
         {
