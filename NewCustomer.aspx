@@ -238,33 +238,6 @@
         </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
-                        <asp:Label
-                            ID="LblPhoneType"
-                            runat="server"
-                            Text="Phone Type:"></asp:Label>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:DropDownList
-                            ID="DdlPhoneType"
-                            runat="server">
-                        </asp:DropDownList>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:RequiredFieldValidator
-                            ID="RfvPhoneType"
-                            runat="server"
-                            ErrorMessage="RequiredFieldValidator"
-                            ControlToValidate="DdlPhoneType"
-                            Text="This Field Is Required"
-                            ForeColor="Red"
-                            SetFocusOnError="true"
-                            ValidationGroup="SaveGroup"
-                            Display="Dynamic"
-                            InitialValue="-1"></asp:RequiredFieldValidator>
-                    </asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell>
                         <asp:Button
                             ID="BtnCreate" 
                             runat="server"

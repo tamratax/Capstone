@@ -18,12 +18,12 @@ create table CUSTOMER (
 	WorkPhone			varchar(15),
 	HomePhone			varchar(15),
 	Email			varchar(255),
+
 	MovingCB		bit,
 	AuctionCB		bit,
 	ConsignmentCB		Bit,
 	AppraiselCb		Bit,
-	LookAtCB		Bit,
-	LookAtDate			Date,
+
 	ItemTransportation varchar(200),
 	InitialContact	varchar(255),
 	ReferralChannel	varchar(255),	
@@ -125,7 +125,7 @@ create table TICKETHISTORY (
 --Adding data to database--
 ---------------------------------------------
 
-insert into CUSTOMER values ('Aaron', 'Walsh', '1234567822','123456789', '123456789','walsh@dukes.com', 'Move','2928 St', 'Richmond', 'VA','1400 Blvd','Harrisonburg','VA','In-Person','from friend', 0,'2021-01-01','2021-03-01', '2021-03-20', 1);
+insert into CUSTOMER values ('Aaron', 'Walsh', '1234567822','123456789', '123456789','walsh@dukes.com',1, 0, 0,0, 'pick up' , 'phone','poster','2021-03-07', '2021-03-07','2021-03-07','notes',0 );
 insert into CUSTOMER values ('Kyle', 'Ledford', '9876543221', '123456789', '123456789', 'ledford@dukes.com', 'Auction','9172 Blvd', 'Tyler', 'TX','','','','By Phone','poster', 15.45, '2021-03-17','2021-04-30','', 1);
 insert into CUSTOMER values ('Stuart', 'Walker', '8045640548','123456789', '123456789', 'stuart@dukes.com', 'Both','1823 Rd','Harrisonburg', 'VA','1560 Rd','Richmond','VA','Email','news ad', 10.20, '2021-01-05','2021-02-15','', 1);
 insert into CUSTOMER values ('John', 'Smith', '8045640548','123456789', '123456789', 'smith@dukes.com', 'Move','','', '','','','','Carrier Pigeon','', 0, '','','', 0);
