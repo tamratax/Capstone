@@ -22,7 +22,7 @@ create table CUSTOMER (
 	ItemsForSale		varchar(200),
 	WhatDoYouSell		varchar(200),
 	Downsizing		varchar(10),
-	SettlingEstate		varhcar(10),
+	SettlingEstate		varchar(10),
 	MovingCB		varchar(10),
 	AuctionCB		varchar(10),
 	ConsignmentCB		varchar(10),
@@ -130,7 +130,7 @@ create table TICKETHISTORY (
 --Adding data to database--
 ---------------------------------------------
 
-insert into CUSTOMER values ('Aaron', 'Walsh', '1234567822','123456789', '123456789','walsh@dukes.com',1, 0, 0,0, 'pick up' , 'phone','poster','2021-03-07', '2021-03-07','2021-03-07','notes',0 );
+insert into CUSTOMER values ('Aaron', 'Walsh', '1234567822','123456789', '123456789','walsh@dukes.com',  'Item', 'What'   ,'true','false','true', 'false', 'false','false', 'pick up' , 'phone','poster','2021-03-07', '2021-03-07','2021-03-07','notes','false' );
 --insert into CUSTOMER values ('Kyle', 'Ledford', '9876543221', '123456789', '123456789', 'ledford@dukes.com', 'Auction','9172 Blvd', 'Tyler', 'TX','','','','By Phone','poster', 15.45, '2021-03-17','2021-04-30','', 1);
 --insert into CUSTOMER values ('Stuart', 'Walker', '8045640548','123456789', '123456789', 'stuart@dukes.com', 'Both','1823 Rd','Harrisonburg', 'VA','1560 Rd','Richmond','VA','Email','news ad', 10.20, '2021-01-05','2021-02-15','', 1);
 --insert into CUSTOMER values ('John', 'Smith', '8045640548','123456789', '123456789', 'smith@dukes.com', 'Move','','', '','','','','Carrier Pigeon','', 0, '','','', 0);
