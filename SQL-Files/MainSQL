@@ -20,10 +20,10 @@ create table CUSTOMER (
 	HomePhone			varchar(15),
 	Email			varchar(255),
 
-	MovingCB		bit,
-	AuctionCB		bit,
-	ConsignmentCB		Bit,
-	AppraiselCb		Bit,
+	MovingCB		varchar(10),
+	AuctionCB		varchar(10),
+	ConsignmentCB		varchar(10),
+	AppraiselCb		varchar(10),
 
 	ItemTransportation varchar(200),
 	InitialContact	varchar(255),
@@ -32,7 +32,7 @@ create table CUSTOMER (
 	DeadlineStart	varchar(20),
 	DeadlineEnd		varchar(20),
 	CustomerNotes	varchar (250),
-	Completed		bit
+	Completed		varchar(10)
 );
 create table EMPLOYEE (
 	EmployeeID		int identity(1, 1) primary key,
@@ -56,13 +56,13 @@ create table SERVICETICKET (
 	DestinationTime	varchar(255),
 	GasExpense		float,
 	MiscExpense		float,
-	LookAtCB		Bit,
+	LookAtCB		varchar(10),
 	LookAtDate			Date,
 	LookAtTime		Time,
 	ContactID		int references EMPLOYEE(EmployeeID),
 	InitiatingEmp	int references Employee(EmployeeID),
 	AuctionID		int references Auction(AuctionID),
-	Completed		bit
+	Completed		varchar(10)
 );
 
 Create table Address(
@@ -87,7 +87,7 @@ create table SERVICEREQUEST	(
 	ServiceType		    char(20),
 	ServiceDate		    varchar(20),
 	RequestDescription  varchar(500),
-	RequestStatus		bit,
+	RequestStatus		varchar(10),
 	Status_Service		int,
 	CustomerID		int references Customer(CustomerID)
 );
