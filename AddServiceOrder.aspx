@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddService.aspx.cs" Inherits="WalkerS_Lab1Part3.AddService" MasterPageFile="LabFormat.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddServiceOrder.aspx.cs" Inherits="WalkerS_Lab1Part3.AddService" MasterPageFile="LabFormat.Master" %>
 
 <%-- Coded By: Stuart Walker & Aaron Walsh --%>
 
