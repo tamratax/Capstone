@@ -24,25 +24,14 @@ namespace WalkerS_Lab1Part3
                 DdlServiceType.Items.Add(new ListItem("Auction", "Auction"));
 
                 //Hides auction/move fields on load
-                LblEmployeeContact.Visible = false;
-                DdlEmployeeContact.Visible = false;
+          
                 LblDestinationTime.Visible = false;
                 TxtDestinationTime.Visible = false;
-                LblGasExpense.Visible = false;
-                TxtGasExpense.Visible = false;
-                LblMiscExpense.Visible = false;
-                TxtMiscExpense.Visible = false;
+
 
                 //Hides rfv fields on load
                 RfvDestinationTime.Visible = false;
-                RfvGasExpense.Visible = false;
-                RfvMiscExpense.Visible = false;
 
-                RfvEmployeeContact.Visible = false;
-
-                //Hides cv fields
-                CvGasExpense.Visible = false;
-                CvMiscExpense.Visible = false;
 
                 if (Session["ServiceRequestID"] != null)
                 {
@@ -90,27 +79,69 @@ namespace WalkerS_Lab1Part3
                     //Fills page with data from selected service
                     DdlInitiatingEmp.SelectedValue = Convert.ToString(dtForSelect.Rows[0]["InitiatingEmp"]);
                     ddlCustomerList.SelectedValue = Convert.ToString(dtForSelect.Rows[0]["CustomerID"]);
-                    TxtTicketStatus.Text = Convert.ToString(dtForSelect.Rows[0]["TicketStatus"]);
                     TxtServiceDate.Text = Convert.ToString(dtForSelect.Rows[0]["ServiceDate"]);
                     TxtCompletionDate.Text = Convert.ToString(dtForSelect.Rows[0]["CompletionDate"]);
-                    TxtServiceCost.Text = Convert.ToString(dtForSelect.Rows[0]["ServiceCost"]);
                     DdlServiceType.SelectedValue = DdlServiceType.Items.FindByText(Convert.ToString(dtForSelect.Rows[0]["ServiceType"]).Trim()).Value;
                     DdlServiceType_SelectedIndexChanged(sender, e);
                     TxtDestinationTime.Text = Convert.ToString(dtForSelect.Rows[0]["DestinationTime"]);
-                    TxtGasExpense.Text = Convert.ToString(dtForSelect.Rows[0]["GasExpense"]);
-                    TxtMiscExpense.Text = Convert.ToString(dtForSelect.Rows[0]["MiscExpense"]);
-                    if (Convert.ToString(dtForSelect.Rows[0]["ContactID"]) != "")
-                    {
-                        DdlEmployeeContact.SelectedValue = Convert.ToString(dtForSelect.Rows[0]["ContactID"]);
-                    }
+
 
 
 
                 }
+                //If the user is trying to edit a customer, there will be a customerid in this session data
+                if (Session["Customer ID"] != null)
+                {
+                    //Pulling in customer's record
+                    String sqlQuery = "Select * from customer where customerid = " + Session["Customer ID"].ToString();
+
+                    //Establishes the connection between our web form and database
+                    SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+
+                    //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
+                    SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
+
+                    //This creates a datatable and fills it
+                    DataTable dtForSelect = new DataTable();
+                    sqlAdapter.Fill(dtForSelect);
+
+                    //Fills data from editing customer's sql record into InitialConversation page
+                    ddlCustomerList.SelectedValue = Convert.ToString(Session["Customer ID"]);
+                    //TxtLastName.Text = Convert.ToString(dtForSelect.Rows[0]["LastName"]);
+                    TxtPhoneNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
+                    TxtCellPhone.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
+                    TxtWorkPhone.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
+                    TxtEmail.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
+                }
+                if (Session["ServiceTicketID"] != null)
+                {
+                    //Pulling in customer's record
+                    String sqlQuery = "Select * from customer join serviceticket on customer.customerID = serviceticket.customerID where serviceticketID = " + Session["ServiceTicketID"].ToString();
+
+                    //Establishes the connection between our web form and database
+                    SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+
+                    //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
+                    SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
+
+                    //This creates a datatable and fills it
+                    DataTable dtForSelect = new DataTable();
+                    sqlAdapter.Fill(dtForSelect);
+
+                    String custID = dtForSelect.Rows[0]["CustomerID"].ToString();
+
+                    //Fills data from editing customer's sql record into InitialConversation page
+                    ddlCustomerList.SelectedValue = custID;
+                    //TxtLastName.Text = Convert.ToString(dtForSelect.Rows[0]["LastName"]);
+                    TxtPhoneNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
+                    TxtCellPhone.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
+                    TxtWorkPhone.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
+                    TxtEmail.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
+                }
+
+                }
 
             }
-
-        }
 
 
         protected void BtnViewServicePage_Click(object sender, EventArgs e)
@@ -126,14 +157,13 @@ namespace WalkerS_Lab1Part3
             //temp button to autofill controls with dummy data
             DdlInitiatingEmp.SelectedIndex = 2;
             ddlCustomerList.SelectedIndex = 2;
-            TxtTicketStatus.Text = "In Progress";
+           
             TxtServiceDate.Text = "2021-08-05";
             TxtCompletionDate.Text = "2021-09-07";
-            TxtServiceCost.Text = "24.67";
+      
             DdlServiceType.SelectedIndex = 1;
             TxtDestinationTime.Text = "9:00am";
-            TxtGasExpense.Text = "142.56";
-            TxtMiscExpense.Text = "80.00";
+   
 
             //Reloads data to show Move fields
             DdlServiceType_SelectedIndexChanged(sender, e);
@@ -148,39 +178,23 @@ namespace WalkerS_Lab1Part3
         }
 
 
-        protected void DdlEmployeeContact_DataBound(object sender, EventArgs e)
-        {
-            //Sets drop down list to default Select option
-            DdlEmployeeContact.Items.Insert(0, new ListItem("Select", "-1"));
-        }
+
 
         protected void DdlServiceType_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (DdlServiceType.SelectedValue == "Move")
             {
-                //hides auction fields
-                LblEmployeeContact.Visible = false;
-                DdlEmployeeContact.Visible = false;
+                
 
-                //Hides auction Rfv Fields
-                RfvEmployeeContact.Visible = false;
-
-                //Show compare validators
-                CvGasExpense.Visible = true;
-                CvMiscExpense.Visible = true;
 
                 //Show Move Fields
                 LblDestinationTime.Visible = true;
                 TxtDestinationTime.Visible = true;
-                LblGasExpense.Visible = true;
-                TxtGasExpense.Visible = true;
-                LblMiscExpense.Visible = true;
-                TxtMiscExpense.Visible = true;
+            
 
                 //Show move rfv fields
                 RfvDestinationTime.Visible = true;
-                RfvGasExpense.Visible = true;
-                RfvMiscExpense.Visible = true;
+             
 
 
 
@@ -190,50 +204,24 @@ namespace WalkerS_Lab1Part3
                 //hides move fields
                 LblDestinationTime.Visible = false;
                 TxtDestinationTime.Visible = false;
-                LblGasExpense.Visible = false;
-                TxtGasExpense.Visible = false;
-                LblMiscExpense.Visible = false;
-                TxtMiscExpense.Visible = false;
+  
 
                 //hides rfv fields
                 RfvDestinationTime.Visible = false;
-                RfvGasExpense.Visible = false;
-                RfvMiscExpense.Visible = false;
-
-                //Hides Cv Fields
-                CvGasExpense.Visible = false;
-                CvMiscExpense.Visible = false;
-
-                //show auction fields
-                LblEmployeeContact.Visible = true;
-                DdlEmployeeContact.Visible = true;
-
-                //Show auction Rfv Fields
-                RfvEmployeeContact.Visible = true;
+              
             }
             else
             {
 
                 //Hides fields if no choice selected
-                LblEmployeeContact.Visible = false;
-                DdlEmployeeContact.Visible = false;
+           
                 LblDestinationTime.Visible = false;
                 TxtDestinationTime.Visible = false;
-                LblGasExpense.Visible = false;
-                TxtGasExpense.Visible = false;
-                LblMiscExpense.Visible = false;
-                TxtMiscExpense.Visible = false;
+            
 
                 //Hides all rfv
                 RfvDestinationTime.Visible = false;
-                RfvGasExpense.Visible = false;
-                RfvMiscExpense.Visible = false;
-                RfvEmployeeContact.Visible = false;
-
-                //Hides compare validators
-                CvGasExpense.Visible = false;
-                CvMiscExpense.Visible = false;
-
+     
 
 
             }
@@ -242,16 +230,26 @@ namespace WalkerS_Lab1Part3
         protected void BtnClear_Click(object sender, EventArgs e)
         {
             //Clears all data on webform
+            TxtPotentialDate.Text = "";
+            TxtPotentialTime.Text = "";
             DdlInitiatingEmp.SelectedIndex = -1;
             ddlCustomerList.SelectedIndex = -1;
-            TxtTicketStatus.Text = "";
+            TxtPhoneNumber.Text = "";
+            TxtCellPhone.Text = "";
+            TxtWorkPhone.Text = "";
+            TxtEmail.Text = "";
+            TxtStreet.Text = "";
+            TxtCity.Text = "";
+            TxtState.Text = "";
+            TxtZip.Text = "";
+            TxtDescription.Text = "";
+            ChkBoxLookAt.Checked = false;
+            TxtLookAtSchedule.Text = "";
+            TxtLookatScheduleTime.Text = "";
             TxtServiceDate.Text = "";
             TxtCompletionDate.Text = "";
-            TxtServiceCost.Text = "";
             DdlServiceType.SelectedIndex = -1;
             TxtDestinationTime.Text = "";
-            TxtGasExpense.Text = "";
-            TxtMiscExpense.Text = "";
             ChkBoxCompleted.Checked = false;
             LblRequestDescription.Text = "";
 
@@ -267,15 +265,9 @@ namespace WalkerS_Lab1Part3
 
         protected void BtnSave_Click(object sender, EventArgs e)
         {
-            try
-            {
-                //Changes chkbox boolean into a 1 or 0 for inserting into db
-                int completed;
-            if (ChkBoxCompleted.Checked)
-            {
-                completed = 1;
-            }
-            else { completed = 0; }
+            //try
+            //{
+               
             String sqlQuery = "";
             if (Session["ServiceTicketID"] != null)
             {
@@ -285,7 +277,7 @@ namespace WalkerS_Lab1Part3
                 if (DdlServiceType.SelectedValue == "Move")
                 {
                     //Concatenate Sql Query Update Statements
-                    sqlQuery = "UPDATE ServiceTicket SET CustomerID = @CustomerID, TicketStatus = @TicketStatus, ServiceDate = @ServiceDate, ServiceCost = @ServiceCost, CompletionDate = @CompletionDate, ServiceType = @ServiceType, DestinationTime = @DestinationTime, GasExpense = @GasExpense, MiscExpense = @MiscExpense, ContactID = null, InitiatingEmp = @InitiatingEmp, AuctionID = null, Completed = " + completed + " WHERE ServiceTicketID = " + Session["ServiceTicketID"].ToString();
+                    sqlQuery = "UPDATE ServiceTicket SET CustomerID = @CustomerID, TicketStatus = @TicketStatus, ServiceDate = @ServiceDate, ServiceCost = @ServiceCost, CompletionDate = @CompletionDate, ServiceType = @ServiceType, DestinationTime = @DestinationTime, GasExpense = @GasExpense, MiscExpense = @MiscExpense, ContactID = null, InitiatingEmp = @InitiatingEmp, AuctionID = null, Completed = "   + " WHERE ServiceTicketID = " + Session["ServiceTicketID"].ToString();
                     
                     //Define the Connection to the Database
                     SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -298,14 +290,10 @@ namespace WalkerS_Lab1Part3
                     
                     //Parameterizes all the strings
                     sqlCommand.Parameters.Add(new SqlParameter("@CustomerID", ddlCustomerList.SelectedValue));
-                    sqlCommand.Parameters.Add(new SqlParameter("@TicketStatus", HttpUtility.HtmlEncode(TxtTicketStatus.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@ServiceDate", HttpUtility.HtmlEncode(TxtServiceDate.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@ServiceCost", HttpUtility.HtmlEncode(TxtServiceCost.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@CompletionDate", HttpUtility.HtmlEncode(TxtCompletionDate.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@ServiceType", DdlServiceType.SelectedItem.Text));
                     sqlCommand.Parameters.Add(new SqlParameter("@DestinationTime", HttpUtility.HtmlEncode(TxtDestinationTime.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@GasExpense", HttpUtility.HtmlEncode(TxtGasExpense.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@MiscExpense", HttpUtility.HtmlEncode(TxtMiscExpense.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@InitiatingEmp", DdlInitiatingEmp.SelectedValue));
 
                     // Open your connection, send the query 
@@ -323,7 +311,7 @@ namespace WalkerS_Lab1Part3
                 else if (DdlServiceType.SelectedValue == "Auction")
                 {
                     //Concatenate Sql Query Update Statements
-                    sqlQuery = "UPDATE ServiceTicket SET CustomerID = @CustomerID, TicketStatus = @TicketStatus, ServiceDate = @ServiceDate, ServiceCost = @ServiceCost, CompletionDate = @CompletionDate, ServiceType = @ServiceType, DestinationTime = '', GasExpense = 0, MiscExpense = 0, ContactID = @ContactID, InitiatingEmp = @InitiatingEmp, AuctionID = 1, Completed = " + completed + " WHERE ServiceTicketID = " + Session["ServiceTicketID"].ToString();
+                    sqlQuery = "UPDATE ServiceTicket SET CustomerID = @CustomerID, TicketStatus = @TicketStatus, ServiceDate = @ServiceDate, ServiceCost = @ServiceCost, CompletionDate = @CompletionDate, ServiceType = @ServiceType, DestinationTime = '', GasExpense = 0, MiscExpense = 0, ContactID = @ContactID, InitiatingEmp = @InitiatingEmp, AuctionID = 1, Completed = " + " WHERE ServiceTicketID = " + Session["ServiceTicketID"].ToString();
                     //Define the Connection to the Database
                     SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -335,12 +323,9 @@ namespace WalkerS_Lab1Part3
 
                     //Parameterizes all the strings
                     sqlCommand.Parameters.Add(new SqlParameter("@CustomerID", ddlCustomerList.SelectedValue));
-                    sqlCommand.Parameters.Add(new SqlParameter("@TicketStatus", HttpUtility.HtmlEncode(TxtTicketStatus.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@ServiceDate", HttpUtility.HtmlEncode(TxtServiceDate.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@ServiceCost", HttpUtility.HtmlEncode(TxtServiceCost.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@CompletionDate", HttpUtility.HtmlEncode(TxtCompletionDate.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@ServiceType", DdlServiceType.SelectedItem.Text));
-                    sqlCommand.Parameters.Add(new SqlParameter("@ContactID", DdlEmployeeContact.SelectedValue));
                     sqlCommand.Parameters.Add(new SqlParameter("@InitiatingEmp", DdlInitiatingEmp.SelectedValue));
 
 
@@ -361,14 +346,8 @@ namespace WalkerS_Lab1Part3
             }
             else
             {
-
-                //Different inserts for Move or Auction
-                if (DdlServiceType.SelectedValue == "Move")
-                {
-                    //Concatenate Sql Query Insert Statements
-                    sqlQuery = "insert into ServiceTicket values (";
-                    sqlQuery += "@CustomerID, @TicketStatus, '" + System.DateTime.Today.ToString("yyyy-MM-dd") + "', @ServiceDate, @ServiceCost, @CompletionDate, @ServiceType, ";
-                    sqlQuery += "@DestinationTime, @GasExpense, @MiscExpense, null, @InitiatingEmp, null, " + completed + ")";
+                    //Inserts service order
+                    sqlQuery = "insert into ServiceTicket values (@CustomerID, '" + System.DateTime.Today.ToString("yyyy-MM-dd") + "', @PotentialDate, @PotentialTime, @ServiceDate,  @CompletionDate, @ServiceType, @DestinationTime,@LookAtCB,@LookAtDate,@LookAtTime,@InitiatingEmp, 1, 25, @StorageCB, @CleaningCB, @TrashCB , @Completed)";
 
                     //Define the Connection to the Database
                     SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -381,15 +360,22 @@ namespace WalkerS_Lab1Part3
 
                     //Parameterizes all the strings
                     sqlCommand.Parameters.Add(new SqlParameter("@CustomerID", ddlCustomerList.SelectedValue));
-                    sqlCommand.Parameters.Add(new SqlParameter("@TicketStatus", HttpUtility.HtmlEncode(TxtTicketStatus.Text)));
+                    sqlCommand.Parameters.Add(new SqlParameter("@PotentialDate", HttpUtility.HtmlEncode(TxtPotentialDate.Text)));
+                    sqlCommand.Parameters.Add(new SqlParameter("@PotentialTime", HttpUtility.HtmlEncode(TxtPotentialTime.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@ServiceDate", HttpUtility.HtmlEncode(TxtServiceDate.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@ServiceCost", HttpUtility.HtmlEncode(TxtServiceCost.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@CompletionDate", HttpUtility.HtmlEncode(TxtCompletionDate.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@ServiceType", DdlServiceType.SelectedItem.Text));
                     sqlCommand.Parameters.Add(new SqlParameter("@DestinationTime", HttpUtility.HtmlEncode(TxtDestinationTime.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@GasExpense", HttpUtility.HtmlEncode(TxtGasExpense.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@MiscExpense", HttpUtility.HtmlEncode(TxtMiscExpense.Text)));
+                    sqlCommand.Parameters.Add(new SqlParameter("@LookAtCB", ChkBoxLookAt.Checked.ToString()));
+                    sqlCommand.Parameters.Add(new SqlParameter("@LookAtDate", HttpUtility.HtmlEncode(TxtLookAtSchedule.Text)));
+                    sqlCommand.Parameters.Add(new SqlParameter("@LookAtTime", HttpUtility.HtmlEncode(TxtLookatScheduleTime.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@InitiatingEmp", DdlInitiatingEmp.SelectedValue));
+                    sqlCommand.Parameters.Add(new SqlParameter("@CleaningCB", ChkBxCleaning.Checked.ToString()));
+                    sqlCommand.Parameters.Add(new SqlParameter("@StorageCB", ChkBxStorage.Checked.ToString()));
+                    sqlCommand.Parameters.Add(new SqlParameter("@TrashCB", ChkBxTrashRemoval.Checked.ToString()));
+                    sqlCommand.Parameters.Add(new SqlParameter("@Completed", ChkBoxCompleted.Checked.ToString()));
+
+
 
                     // Open your connection, send the query 
                     sqlConnect.Open();
@@ -399,48 +385,11 @@ namespace WalkerS_Lab1Part3
                     queryResults.Close();
                     sqlConnect.Close();
 
-                    LblSaveStatus.Text = "Move Saved Successfully";
+                    LblSaveStatus.Text = "Service Order Saved Successfully";
                     LblSaveStatus.ForeColor = Color.Green;
-                }
-                else if (DdlServiceType.SelectedValue == "Auction")
-                {
-                    //Concatenate Sql Query Insert Statements
-                    sqlQuery = "insert into ServiceTicket values (";
-                    sqlQuery += "@CustomerID, @TicketStatus, '" + System.DateTime.Today.ToString("yyyy-MM-dd") + "', @ServiceDate, @ServiceCost, @CompletionDate, @ServiceType, ";
-                    sqlQuery += "'', '', '', @ContactID, @InitiatingEmp, 1, " + completed + ")";
 
-                    //Define the Connection to the Database
-                    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-
-                    // Create the SQL Command object which will send the query
-                    SqlCommand sqlCommand = new SqlCommand();
-                    sqlCommand.Connection = sqlConnect;
-                    sqlCommand.CommandType = CommandType.Text;
-                    sqlCommand.CommandText = sqlQuery;
-
-                    sqlCommand.Parameters.Add(new SqlParameter("@CustomerID", ddlCustomerList.SelectedValue));
-                    sqlCommand.Parameters.Add(new SqlParameter("@TicketStatus", HttpUtility.HtmlEncode(TxtTicketStatus.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@ServiceDate", HttpUtility.HtmlEncode(TxtServiceDate.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@ServiceCost", HttpUtility.HtmlEncode(HttpUtility.HtmlEncode(TxtServiceCost.Text))));
-                    sqlCommand.Parameters.Add(new SqlParameter("@CompletionDate", HttpUtility.HtmlEncode(TxtCompletionDate.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@ServiceType", DdlServiceType.SelectedItem.Text));
-                    sqlCommand.Parameters.Add(new SqlParameter("@ContactID", DdlEmployeeContact.SelectedValue));
-                    sqlCommand.Parameters.Add(new SqlParameter("@InitiatingEmp", DdlInitiatingEmp.SelectedValue));
-
-                    // Open your connection, send the query 
-                    sqlConnect.Open();
-                    SqlDataReader queryResults = sqlCommand.ExecuteReader();
-
-                    // Close all related connections
-                    queryResults.Close();
-                    sqlConnect.Close();
-
-                    LblSaveStatus.Text = "Auction Saved Successfully";
-                    LblSaveStatus.ForeColor = Color.Green;
-                }
-
-                //Sets service request to completed, once serviceticket is sucessfully saved
-                if (Session["ServiceRequestID"] != null)
+                    //Sets service request to completed, once serviceticket is sucessfully saved
+                    if (Session["ServiceRequestID"] != null)
                 {
                     sqlQuery = "UPDATE ServiceRequest SET RequestStatus = 1 where ServiceRequestID = " + Session["ServiceRequestID"].ToString();
 
@@ -465,12 +414,12 @@ namespace WalkerS_Lab1Part3
 
 
             }
-            }
-            catch
-            {
-                LblSaveStatus.Text = "Error Saving Service, Check Data Fields";
-                LblSaveStatus.ForeColor = Color.Red;
-            }
+            //}
+            //catch
+            //{
+            //    LblSaveStatus.Text = "Error Saving Service, Check Data Fields";
+            //    LblSaveStatus.ForeColor = Color.Red;
+            //}
         }
 
         protected void DdlInitiatingEmp_DataBound(object sender, EventArgs e)
@@ -490,6 +439,72 @@ namespace WalkerS_Lab1Part3
                 TxtLookAtSchedule.Visible = false;
                 TxtLookatScheduleTime.Visible = false;
             }
+        }
+
+        protected void ddlCustomerList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Clear
+
+            //Pulling in customer's record
+            String sqlQuery = "Select * from customer where customerid = " + ddlCustomerList.SelectedValue.ToString();
+
+            //Establishes the connection between our web form and database
+            SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+
+            //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
+
+            //This creates a datatable and fills it
+            DataTable dtForSelect = new DataTable();
+            sqlAdapter.Fill(dtForSelect);
+
+            //TxtLastName.Text = Convert.ToString(dtForSelect.Rows[0]["LastName"]);
+            TxtPhoneNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
+            TxtCellPhone.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
+            TxtWorkPhone.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
+            TxtEmail.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
+        }
+
+        protected void BtnAddAddress_Click(object sender, EventArgs e)
+        {
+            //Concatenate Sql Query Update Statements
+            String sqlQuery = "Insert into address values (null, @CustomerID, @Street, @City, @State, @Zip, @Description)";
+
+            //Define the Connection to the Database
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+            // Create the SQL Command object which will send the query
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = sqlConnect;
+            sqlCommand.CommandType = CommandType.Text;
+            sqlCommand.CommandText = sqlQuery;
+
+            //Parameterizes all the strings
+            sqlCommand.Parameters.Add(new SqlParameter("@CustomerID", ddlCustomerList.SelectedValue));
+            sqlCommand.Parameters.Add(new SqlParameter("@Street", HttpUtility.HtmlEncode(TxtStreet.Text)));
+            sqlCommand.Parameters.Add(new SqlParameter("@City", HttpUtility.HtmlEncode(TxtCity.Text)));
+            sqlCommand.Parameters.Add(new SqlParameter("@State", HttpUtility.HtmlEncode(TxtState.Text)));
+            sqlCommand.Parameters.Add(new SqlParameter("@Zip", HttpUtility.HtmlEncode(TxtZip.Text)));
+            sqlCommand.Parameters.Add(new SqlParameter("@Description", HttpUtility.HtmlEncode(TxtDescription.Text)));
+
+            // Open your connection, send the query 
+            sqlConnect.Open();
+            SqlDataReader queryResults = sqlCommand.ExecuteReader();
+
+            // Close all related connections
+            queryResults.Close();
+            sqlConnect.Close();
+            GridAddress.DataBind();
+
+            //Clears textboxes
+            TxtStreet.Text = "";
+            TxtCity.Text = "";
+            TxtState.Text = "";
+            TxtZip.Text = "";
+            TxtDescription.Text = "";
+
+
+
         }
     }
 }

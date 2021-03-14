@@ -152,8 +152,8 @@ namespace WalkerS_Lab1Part3
 
         protected void BtnSave_Click(object sender, EventArgs e)
         {
-            //try
-            // {
+            try
+             {
             //Changes chkbox boolean into a 1 or 0 for inserting into db
             int completed;
             if (ChkBoxCompleted.Checked)
@@ -264,7 +264,7 @@ namespace WalkerS_Lab1Part3
                     }
                     //Concatenate Sql Query Insert Statements
                     String sqlQuery = "insert into CUSTOMER values (@FirstName, @LastName, @CellPhone, @WorkPhone, @HomePhone, @Email, @HowMany, @Descriptions, @Downsizing," +
-                        " @Estate, @MovingCB, @AuctionCB, @ConsignmentCB, @AppraisalCB, @ItemTransport, @InitialContact, @ReferralChannel, " + System.DateTime.Today.ToShortDateString() + ",  @DeadlineStart, @DeadlineEnd, @CustomerNotes, @Completed)";
+                        " @Estate, @MovingCB, @AuctionCB, @ConsignmentCB, @AppraisalCB, @ItemTransport, @InitialContact, @ReferralChannel, " + System.DateTime.Today.ToShortDateString() + ",  @DeadlineStart, @DeadlineEnd, @CompletedBy, @CustomerNotes, @Completed)";
                     //Define the Connection to the Database
                     SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -287,13 +287,12 @@ namespace WalkerS_Lab1Part3
                     sqlCommand.Parameters.Add(new SqlParameter("@AuctionCB", ChkBoxAuction.Checked.ToString()));
                     sqlCommand.Parameters.Add(new SqlParameter("@ConsignmentCB", ChkBoxConsignment.Checked.ToString()));
                     sqlCommand.Parameters.Add(new SqlParameter("@AppraisalCB", ChkBoxAppraisal.Checked.ToString()));
-
                     sqlCommand.Parameters.Add(new SqlParameter("@ItemTransport", DdlItemTransport.SelectedItem.Text));
                     sqlCommand.Parameters.Add(new SqlParameter("@InitialContact", initialContact));
                     sqlCommand.Parameters.Add(new SqlParameter("@ReferralChannel", HttpUtility.HtmlEncode(TxtReferral.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@DeadlineStart", HttpUtility.HtmlEncode(TxtDeadline.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@DeadlineEnd", HttpUtility.HtmlEncode(TxtDeadlineEnd.Text)));
-                    // sqlCommand.Parameters.Add(new SqlParameter("@CompletedBy", DdlCompletedByEmp.SelectedItem.Text));
+                    sqlCommand.Parameters.Add(new SqlParameter("@CompletedBy", DdlCompletedByEmp.SelectedItem.Value));
                     sqlCommand.Parameters.Add(new SqlParameter("@CustomerNotes", HttpUtility.HtmlEncode(TxtCustomerNotes.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@Completed", ChkBoxCompleted.Checked.ToString()));
 
@@ -305,18 +304,64 @@ namespace WalkerS_Lab1Part3
                     queryResults.Close();
                     sqlConnect.Close();
 
+
                     LblSaveStatus.Text = "Customer Added Successfully";
                     LblSaveStatus.ForeColor = Color.Green;
 
+                    //Define the Connection to the Database
+                    SqlConnection sqlConnect2 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                    sqlConnect2.Open();
+                    int CustomerID;
+                    //Concatenate Sql Query Insert Statements
+                    String query2 = "Select CustomerID from Customer WHERE Email = @Email";
+                    SqlCommand command2 = new SqlCommand(query2, sqlConnect2);
+                    command2.Parameters.AddWithValue("@Email", HttpUtility.HtmlEncode(TxtEmail.Text));
+
+                    SqlDataReader sqlDataReader = command2.ExecuteReader();
+                    sqlDataReader.Read();
+                    CustomerID = sqlDataReader["CustomerID"].GetHashCode();
+                    sqlConnect2.Close();
+
+
+
+
+
+
+
+
+
+
+
+                    //Define the Connection to the Database
+                    SqlConnection sqlConnect3 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                    sqlConnect3.Open();
+
+                    //Concatenate Sql Query Insert Statements
+                    String query1 = "Insert into Address values(null, "+CustomerID+", @Street, @City, @State, @Zip, 'Primary Contact Address')";
+                    
+
+                    // Create the SQL Command object which will send the query
+                    SqlCommand sqlCommand1 = new SqlCommand();
+                    sqlCommand1.Connection = sqlConnect3;
+                    sqlCommand1.CommandType = CommandType.Text;
+                    sqlCommand1.CommandText = query1;
+                    sqlCommand1.Parameters.Add(new SqlParameter("@Street", HttpUtility.HtmlEncode(TxtStreet.Text)));
+                    sqlCommand1.Parameters.Add(new SqlParameter("@City", HttpUtility.HtmlEncode(TxtCity.Text)));
+                    sqlCommand1.Parameters.Add(new SqlParameter("@State", HttpUtility.HtmlEncode(TxtState.Text)));
+                    sqlCommand1.Parameters.Add(new SqlParameter("@Zip", HttpUtility.HtmlEncode(TxtZip.Text)));
+
+                    SqlDataReader queryResults2 = sqlCommand1.ExecuteReader();
+                    queryResults2.Close();
+                    sqlConnect3.Close();
                 }
 
             }
-        //}
-           // catch
-           // {
-                //LblSaveStatus.Text = "Error Saving Customer, Check Data Fields";
-                //LblSaveStatus.ForeColor = Color.Red;
-            //}
+        }
+            catch
+            {
+                LblSaveStatus.Text = "Error Saving Customer, Check Data Fields";
+                LblSaveStatus.ForeColor = Color.Red;
+            }
         }
 
 
@@ -363,7 +408,7 @@ namespace WalkerS_Lab1Part3
 
         protected void BtnProceed_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AddService.aspx");
+            Response.Redirect("AddServiceOrder.aspx");
         }
 
         protected void DdlCompletedByEmp_DataBound(object sender, EventArgs e)
