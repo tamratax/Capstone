@@ -197,6 +197,7 @@
     <Content Include="ViewCustomer.aspx" />
     <Content Include="ViewNote.aspx" />
     <Content Include="ViewService.aspx" />
+    <Content Include="WarehouseInventory.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -341,6 +342,13 @@
     </Compile>
     <Compile Include="ViewService.aspx.designer.cs">
       <DependentUpon>ViewService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseInventory.aspx.cs">
+      <DependentUpon>WarehouseInventory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WarehouseInventory.aspx.designer.cs">
+      <DependentUpon>WarehouseInventory.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
