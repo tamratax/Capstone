@@ -67,7 +67,7 @@
 
                     <asp:Button ID="BtnCompletion" 
                         runat="server" 
-                        Text="Move Inventory"
+                        Text="Completion Form"
                         OnClick="BtnCompletion_Click"/>
 
                 </fieldset>
