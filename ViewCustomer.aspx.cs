@@ -26,9 +26,10 @@ namespace WalkerS_Lab1Part3
             String sqlQuery = "Select FirstName + ' ' + LastName as 'Name', ";
             sqlQuery += "cellphone as 'Cell Phone', workphone as 'Work Phone', homephone as 'Home Phone', " +
                 "PreferredContact as 'Preferred Contact', email as 'Email', ";
-            sqlQuery += "Street + ' ' + City + ' ' + State + ' ' + Zip ' ' as 'Origin Address'," +
+            sqlQuery += "Street + ' ' + City + ' ' + State + ' ' + Zip + ' ' as 'Origin Address'," +
                 "ReferralChannel as 'Referral Channel', " +
-                "DateContacted as 'Date Contacted', DeadlineStart as 'Deadline Start', DeadlineEnd as 'Deadline End' from Customer";
+                "DateContacted as 'Date Contacted', DeadlineStart as 'Deadline Start', DeadlineEnd as 'Deadline End' from Customer, Address " +
+                "where Customer.CustomerID = Address.CustomerID";
             
 
             //Establishes the connection between our web form and database
@@ -69,9 +70,9 @@ namespace WalkerS_Lab1Part3
                 //Where the CustomerID matches up with the selection from the drop down list
                 String sqlQuery = "Select FirstName + ' ' + LastName as 'Name', ";
                 sqlQuery += "cellphone as 'Cell Phone', workphone as 'Work Phone', homephone as 'Home Phone', PreferredContact as 'Preferred Contact', email as 'Email', ";
-                sqlQuery += "Street + ' ' + City + ' ' + State as 'Origin Address', ReferralChannel as 'Referral Channel', " +
-                    "DateContacted as 'Date Contacted', DeadlineStart as 'Deadline Start', DeadlineEnd as 'Deadline End' from Customer ";
-                sqlQuery += "where Customer.CustomerID = " + ddlCustomerList.SelectedValue;
+                sqlQuery += "Street + ' ' + City + ' ' + State + ' ' + Zip + ' ' as 'Origin Address', ReferralChannel as 'Referral Channel', " +
+                    "DateContacted as 'Date Contacted', DeadlineStart as 'Deadline Start', DeadlineEnd as 'Deadline End' from Customer, Address ";
+                sqlQuery += "where Customer.CustomerID = Address.CustomerID AND Customer.CustomerID = " + ddlCustomerList.SelectedValue;
 
                 //Establishes the connection between our web form and database
                 SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
