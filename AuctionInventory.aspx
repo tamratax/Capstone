@@ -3,15 +3,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <asp:Table ID="Table1" runat="server">
+       
         <asp:TableRow>
             <asp:TableCell>
-                <asp:RadioButton ID="PickupBtn" runat="server" Text="Pick Up"  GroupName="RecievalOptions" OnCheckedChanged="PickupBtn_CheckedChanged" AutoPostBack="true" />
+                <asp:Label ID="LblCustomerName" runat="server" Text="Customer Name:"></asp:Label>
             </asp:TableCell>
-            <asp:TableCell>
-               <asp:RadioButton ID="BringInBtn" runat="server" Text="Bring In" GroupName="RecievalOptions" OnCheckedChanged="BringInBtn_CheckedChanged" AutoPostBack="true" />
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
             <asp:TableCell>
                 <asp:DropDownList ID="DDLCust"
                     DataSourceID="dtasrcCustomerList"
@@ -24,7 +20,7 @@
                 </asp:DropDownList>
             </asp:TableCell>
         </asp:TableRow>
-              <asp:TableRow>
+            <%--  <asp:TableRow>
             <asp:TableCell>
                 <asp:Label
                     ID="LblPhoneNumber"
@@ -58,7 +54,7 @@
                     Text=""></asp:TextBox>
             </asp:TableCell>
 
-        </asp:TableRow>
+        </asp:TableRow>--%>
          <asp:TableRow>
             <asp:TableCell>
                 <asp:Label ID="LblType"
@@ -72,11 +68,20 @@
                     runat="server"
                     OnDataBound="DDLType_DataBound"
                     AutoPostBack="true" 
-                    OnSelectedIndexChange="DDLType_SelectedIndexChanged">
+                    OnSelectedIndexChange="DDLType_SelectedIndexChanged"
+                    >
                 </asp:DropDownList>
             </asp:TableCell>
         </asp:TableRow>
          <asp:TableRow>
+            <asp:TableCell>
+                <asp:RadioButton ID="PickupBtn" runat="server" Text="Pick Up"  GroupName="RecievalOptions" OnCheckedChanged="PickupBtn_CheckedChanged" AutoPostBack="true" />
+            </asp:TableCell>
+            <asp:TableCell>
+               <asp:RadioButton ID="BringInBtn" runat="server" Text="Bring In" GroupName="RecievalOptions" OnCheckedChanged="BringInBtn_CheckedChanged" AutoPostBack="true" />
+            </asp:TableCell>
+        </asp:TableRow>
+        <%-- <asp:TableRow>
             <asp:TableCell ColumnSpan="2">
                 <asp:Label ID="LblPCA" runat="server" Text="Primary Contact Address" Font-Bold="true"></asp:Label>
             </asp:TableCell>
@@ -132,15 +137,8 @@
                 <asp:TextBox ID="TxtZip"
                     runat="server"></asp:TextBox>
             </asp:TableCell>
-        </asp:TableRow>
-                <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label ID="ContactDateLbl" runat="server" Text="Contact Date: "></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox ID="TxtContactDate" runat="server" TextMode="Date"></asp:TextBox>
-            </asp:TableCell>
-        </asp:TableRow>
+        </asp:TableRow>--%>
+              
            <asp:TableRow>
                <asp:TableCell>
                    <asp:Label ID="AddOnLbl" runat="server" Text="Add On:"></asp:Label>
