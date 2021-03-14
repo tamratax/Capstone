@@ -11,6 +11,12 @@
 
 
 --Create tables in database
+create table EMPLOYEE (
+	EmployeeID		int identity(1, 1) primary key,
+	EmpFirstName	varchar(255),
+	EmpLastName		varchar(255)
+);
+
 create table CUSTOMER (
 	CustomerID		int not null identity(1, 1) primary key,
 	FirstName		varchar(255),
@@ -27,21 +33,17 @@ create table CUSTOMER (
 	AuctionCB		varchar(10),
 	ConsignmentCB		varchar(10),
 	AppraisalCb		varchar(10),
-
 	ItemTransportation varchar(200),
 	PreferredContact	varchar(255),
 	ReferralChannel	varchar(255),	
 	DateContacted	varchar(20),
 	DeadlineStart	varchar(20),
 	DeadlineEnd		varchar(20),
+	CompletedByEmp	int references EMPLOYEE(EmployeeID),
 	CustomerNotes	varchar (250),
 	Completed		varchar(10)
 );
-create table EMPLOYEE (
-	EmployeeID		int identity(1, 1) primary key,
-	EmpFirstName	varchar(255),
-	EmpLastName		varchar(255)
-);
+
 
 create table AUCTION (
 	AuctionID	int identity(1, 1) primary key,
@@ -65,6 +67,7 @@ create table SERVICETICKET (
 	ContactID		int references EMPLOYEE(EmployeeID),
 	InitiatingEmp	int references Employee(EmployeeID),
 	AuctionID		int references Auction(AuctionID),
+	Status_Service		int,
 	Completed		varchar(10)
 );
 
@@ -91,7 +94,6 @@ create table SERVICEREQUEST	(
 	ServiceDate		    varchar(20),
 	RequestDescription  varchar(500),
 	RequestStatus		varchar(10),
-	Status_Service		int,
 	CustomerID		int references Customer(CustomerID)
 );
 
@@ -130,9 +132,13 @@ create table TICKETHISTORY (
 --Adding data to database--
 ---------------------------------------------
 
-insert into CUSTOMER values ('Aaron', 'Walsh', '1234567822','123456789', '123456789','walsh@dukes.com',  'Item', 'What'   ,'true','false','true', 'false', 'false','false', 'pick up' , 'phone','poster','2021-03-07', '2021-03-07','2021-03-07','notes','false' );
-insert into CUSTOMER values ('Jared', 'Clatterbuck', '1234567890','', '','Clat@dukes.com',  '40', 'Collectibles and furniture','true','false','true', 'true', 'false','false', 'drop-off', 'email','advert','2021-03-13', '2021-04-21','2021-04-30','They have a pretty long driveway','false' );
-insert into CUSTOMER values ('Stu', 'Guy', '','', '1234567890','Guy@dukes.com',  '400', 'juiceboxes','true','true','true', 'true', 'false','false', 'drop-off', 'smokesignals','poster','2021-03-13', '2021-04-21','2021-04-30','Really annoying to speak with','false' );
+insert into EMPLOYEE values ('Jack', 'Frost');
+insert into EMPLOYEE values ('Professor','Ezell');
+insert into EMPLOYEE values ('Camille', 'Wood');
+
+insert into CUSTOMER values ('Aaron', 'Walsh', '1234567822','123456789', '123456789','walsh@dukes.com',  'Item', 'What'   ,'true','false','true', 'false', 'false','false', 'pick up' , 'phone','poster','2021-03-07', '2021-03-07','2021-03-07',1,'notes','false' );
+insert into CUSTOMER values ('Jared', 'Clatterbuck', '1234567890','', '','Clat@dukes.com',  '40', 'Collectibles and furniture','true','false','true', 'true', 'false','false', 'drop-off', 'email','advert','2021-03-13', '2021-04-21','2021-04-30', 2, 'They have a pretty long driveway','false' );
+insert into CUSTOMER values ('Stu', 'Guy', '','', '1234567890','Guy@dukes.com',  '400', 'juiceboxes','true','true','true', 'true', 'false','false', 'drop-off', 'smokesignals','poster','2021-03-13', '2021-04-21','2021-04-30',1,'Really annoying to speak with','false' );
 
 insert into EQUIPMENT values ('Pickup Truck #1');
 insert into EQUIPMENT values ('Pickup Truck #2');
@@ -140,21 +146,17 @@ insert into EQUIPMENT values ('Forklift');
 insert into EQUIPMENT values ('Box Truck');
 insert into EQUIPMENT values ('Pallet Jack');
 
-insert into EMPLOYEE values ('Jack', 'Frost');
-insert into EMPLOYEE values ('Professor','Ezell');
-insert into EMPLOYEE values ('Camille', 'Wood');
-
 insert into Auction values ('Unassigned');
 insert into Auction values ('2021-02-26');
 insert into Auction values ('2021-03-05');
 
-insert into SERVICETICKET values (1, 'In Progress', '2021-01-01','2021-02-01', 15.24, '2021-02-07', 'Move', '1:30pm', 18.56, 1.80, 'true', '2021-06-30', '2:30pm', null, 1, null, 0);
-insert into SERVICETICKET values (2, 'In Progress', '2021-01-01','2021-02-01', 15.24, '2021-02-07', 'Auction', '1:30pm', 18.56, 1.80, 'false', '', '', 1, 2, 1, 0);
-insert into SERVICETICKET values (3, 'In Progress', '2021-01-01','2021-02-01', 15.24, '2021-02-08', 'Move', '3:30pm', 20.56, 4.80, 'true', '2021-03-10', '10:00am', null, 3, null, 1);
+insert into SERVICETICKET values (1, 'In Progress', '2021-01-01','2021-02-01', 15.24, '2021-02-07', 'Move', '1:30pm', 18.56, 1.80, 'true', '2021-06-30', '2:30pm', null, 1, null, 25, 0);
+insert into SERVICETICKET values (2, 'In Progress', '2021-01-01','2021-02-01', 15.24, '2021-02-07', 'Auction', '1:30pm', 18.56, 1.80, 'false', '', '', 1, 2, 1, 50, 0);
+insert into SERVICETICKET values (3, 'In Progress', '2021-01-01','2021-02-01', 15.24, '2021-02-08', 'Move', '3:30pm', 20.56, 4.80, 'true', '2021-03-10', '10:00am', null, 3, null, 75, 1);
 
-insert into SERVICEREQUEST values ('Move', '2021-06-15', 'We have a lot of things to move this day and will need plenty of help!','Active', 25, 1);
-insert into SERVICEREQUEST values ('Auction', '2021-06-30', 'We want to sell all of our bowls!', 'Active', 50, 1);
-insert into SERVICEREQUEST values ('Move', '2021-01-31', 'Help us!', 'Active', 75, 1);
+insert into SERVICEREQUEST values ('Move', '2021-06-15', 'We have a lot of things to move this day and will need plenty of help!','Active', 1);
+insert into SERVICEREQUEST values ('Auction', '2021-06-30', 'We want to sell all of our bowls!', 'Active', 1);
+insert into SERVICEREQUEST values ('Move', '2021-01-31', 'Help us!', 'Active', 1);
 
 
 insert into Address values (null, 1, 'street', 'city','state ', '123', 'description');
