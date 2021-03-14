@@ -21,7 +21,7 @@ namespace WalkerS_Lab1Part3
                 LstBoxCustomerRequests.DataTextField = "Name";
                 LstBoxCustomerRequests.DataValueField = "Customer ID";
 
-                String sqlQueryCustomer = "Select customer.customerID 'Customer ID', Customer.FirstName + ' ' + Customer.LastName + ' ->' 'Name', ServiceRequest.ServiceType from Customer  join ServiceRequest on servicerequest.customerID = customer.CustomerID where Completed = 'false'";
+                String sqlQueryCustomer = "Select customer.customerID 'Customer ID', FirstName + ' ' + LastName + ' (' + ServiceType + ') ->' as 'Name' from Customer join ServiceRequest on servicerequest.customerID = customer.CustomerID where Completed = 'false'";
 
 
                 SqlConnection sqlConnectCustomer = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
