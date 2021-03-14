@@ -348,7 +348,8 @@
                 <asp:Button ID="BtnAddAddress" 
                     runat="server" 
                     Text="Add Address" 
-                    OnClick="BtnAddAddress_Click" />
+                    OnClick="BtnAddAddress_Click" 
+                    CausesValidation="false" />
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
@@ -474,6 +475,12 @@
                     runat="server"
                     Text=""></asp:Label>
             </asp:TableCell>
+            <asp:TableCell>
+                <asp:Button ID="BtnAuctionInvt" runat="server" Text="Add Auction Inventory ->" OnClick="BtnAuctionInvt_Click" />
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Button ID="BtnMoveInvt" runat="server" Text="Add Move Inventory ->" OnClick="BtnMoveInvt_Click" />
+            </asp:TableCell>
         </asp:TableRow>
 
     </asp:Table>
@@ -496,8 +503,8 @@
         runat="server"
         ConnectionString="<%$ConnectionStrings:Lab3%>"
         SelectCommand="SELECT * from Address join customer on Customer.CustomerID = Address.CustomerID where Customer.CustomerID = @CustomerID"
-        DeleteCommand=""
-        UpdateCommand="">
+        DeleteCommand="DELETE ADDRESS where AddressID = @AddressID"
+        UpdateCommand="UPDATE ADDRESS set Street = @Street, City = @City, State = @State, Zip = @Zip, Description = @Description where AddressID = @AddressID">
         <SelectParameters>
             <asp:ControlParameter Name="CustomerID" Type="Int64" ControlID="ddlCustomerList" />
         </SelectParameters>

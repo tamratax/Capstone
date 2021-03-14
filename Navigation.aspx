@@ -55,6 +55,15 @@
                         Text="Add Items to Warehouse" 
                         OnClick="BtnWarehouse_Click" />
 
+                    <asp:Button ID="BtnAuctionInvt" 
+                        runat="server" 
+                        Text="Auction Inventory"
+                        onclick="BtnAUctionInvt_Click"/>
+
+                    <asp:Button ID="BtnMoveInvt" 
+                        runat="server" 
+                        Text="Move Inventory"
+                        onclick="BtnMoveInvt_Click"/>
 
                 </fieldset>
             </asp:TableCell>
