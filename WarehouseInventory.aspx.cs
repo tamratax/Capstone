@@ -77,16 +77,19 @@ namespace Lab3
 
         protected void DDLType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            GridItem.Visible = true;
+         
             try
             {
                 if (DDLType.SelectedValue != "-1")
                 {
-                    //Populates service Ddl
-                    DDLItem.DataTextField = "ItemName";
-                    DDLItem.DataValueField = "ItemID";
+                    
 
                     String sqlQueryService = "Select ItemID, ItemName from INVENTORY where ServiceTicketID = " + DDLType.SelectedValue;
 
+                    //Populates service Ddl
+                    DDLItem.DataTextField = "ItemName";
+                    DDLItem.DataValueField = "ItemID";
 
                     SqlConnection sqlConnectService = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
@@ -95,8 +98,8 @@ namespace Lab3
                     DataTable dtForDdlServiceList = new DataTable();
                     sqlAdapterService.Fill(dtForDdlServiceList);
 
-                    DDLType.DataSource = dtForDdlServiceList;
-                    DDLType.DataBind();
+                    DDLItem.DataSource = dtForDdlServiceList;
+                    DDLItem.DataBind();
                 }
 
             }
@@ -110,7 +113,7 @@ namespace Lab3
         {
             try
             {
-                string query = "INSERT INTO [WAREHOUSE] (Date, Lot, Control, Description, ItemID, CustomerID) Values (@Date, @Lot, @Control, @Description, @Quantity, @ItemID, @CustomerID)";
+                string query = "INSERT INTO [WAREHOUSE] (Date, Lot, Control, Description, Quantity, ItemID, CustomerID) Values (@Date, @Lot, @Control, @Description, @Quantity, @ItemID, @CustomerID)";
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                 sqlConnect.Open();
                 SqlCommand com = new SqlCommand(query, sqlConnect);
@@ -119,6 +122,7 @@ namespace Lab3
                 com.Parameters.AddWithValue("Lot", TxtLot.Text.ToString());
                 com.Parameters.AddWithValue("Control", TxtControl.Text.ToString());
                 com.Parameters.AddWithValue("Description", TxtDescription.Text.ToString());
+                com.Parameters.AddWithValue("Quantity", TxtQuantity.Text.ToString());
                 string itemid = DDLItem.SelectedValue.ToString();
                 com.Parameters.AddWithValue("ItemID", itemid);
                 com.Parameters.AddWithValue("CustomerID", DDLCust.SelectedValue.ToString());
@@ -133,7 +137,7 @@ namespace Lab3
                
 
 
-                DDLType_SelectedIndexChanged(sender, e);
+        
                 LblStatus.Text = "Item sucessfully added!";
                 GridItem.DataBind();
 

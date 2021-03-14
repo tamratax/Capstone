@@ -49,6 +49,13 @@
                         runat="server" 
                         Text="AddItem" 
                         OnClick="BtnAddItem_Click" />
+
+                    <asp:Button ID="BtnWarehouse" 
+                        runat="server" 
+                        Text="Add Items to Warehouse" 
+                        OnClick="BtnWarehouse_Click" />
+
+
                 </fieldset>
             </asp:TableCell>
         </asp:TableRow>
