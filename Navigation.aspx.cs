@@ -117,5 +117,15 @@ namespace WalkerS_Lab1Part3
         {
             Response.Redirect("WarehouseInventory.aspx");
         }
+
+        protected void BtnAUctionInvt_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AuctionInventory.aspx");
+        }
+
+        protected void BtnMoveInvt_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MoveInventory.aspx");
+        }
     }
 }

@@ -16,6 +16,29 @@ namespace Lab3
         protected void Page_Load(object sender, EventArgs e)
         {
             UpdateGridView();
+            //If the user is trying to edit a customer, there will be a customerid in this session data
+            if (Session["Customer ID"] != null)
+            {
+                //Pulling in customer's record
+                String sqlQuery = "Select * from customer where customerid = " + Session["Customer ID"].ToString();
+
+                //Establishes the connection between our web form and database
+                SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+
+                //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
+                SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
+
+                //This creates a datatable and fills it
+                DataTable dtForSelect = new DataTable();
+                sqlAdapter.Fill(dtForSelect);
+
+                //Fills data from editing customer's sql record into InitialConversation page
+                TxtName.Text = Convert.ToString(Session["Customer ID"]);
+                TxtPhone.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
+                TxtAddress.Text = Convert.ToString(dtForSelect.Rows[0]["Address"]);
+                TxtContactDate.Text = Convert.ToString(dtForSelect.Rows[0]["DateContacted"]);
+
+            }
         }
 
         protected void BringInBtn_CheckedChanged(object sender, EventArgs e)
