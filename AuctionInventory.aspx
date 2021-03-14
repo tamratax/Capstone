@@ -13,57 +13,15 @@
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:Label
-                    ID="LblFirstName"
+                <asp:DropDownList ID="DDLCust"
+                    DataSourceID="dtasrcCustomerList"
+                    DataTextField="CustomerName"
+                    DataValueField="CustomerID"
                     runat="server"
-                    Text="First Name:">
-                </asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox
-                    ID="TxtFirstName"
-                    runat="server"
-                    Text="">
-                </asp:TextBox>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:RequiredFieldValidator
-                    ID="RfvFirstName"
-                    runat="server"
-                    ErrorMessage="RequiredFieldValidator"
-                    ControlToValidate="TxtFirstName"
-                    Text="This Field Is Required"
-                    ForeColor="Red"
-                    SetFocusOnError="true"
-                    ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
-            </asp:TableCell>
-        </asp:TableRow>
-
-        <asp:TableRow>
-            <asp:TableCell>
-
-                <asp:Label
-                    ID="LblLastName"
-                    runat="server"
-                    Text="Last Name:"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox
-                    ID="TxtLastName"
-                    runat="server"
-                    Text="">
-                </asp:TextBox>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:RequiredFieldValidator
-                    ID="RfvLastName"
-                    runat="server"
-                    ErrorMessage="RequiredFieldValidator"
-                    ControlToValidate="TxtLastName"
-                    Text="This Field Is Required"
-                    ForeColor="Red"
-                    SetFocusOnError="true"
-                    ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
+                    OnSelectedIndexChanged="DDLCust_SelectedIndexChanged"
+                    OnDataBound="DDLCust_DataBound"
+                    AutoPostBack="true">
+                </asp:DropDownList>
             </asp:TableCell>
         </asp:TableRow>
               <asp:TableRow>
@@ -100,6 +58,23 @@
                     Text=""></asp:TextBox>
             </asp:TableCell>
 
+        </asp:TableRow>
+         <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="LblType"
+                    runat="server"
+                    Text="Select Service: ">
+                </asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:DropDownList
+                    ID="DDLType"
+                    runat="server"
+                    OnDataBound="DDLType_DataBound"
+                    AutoPostBack="true" 
+                    OnSelectedIndexChange="DDLType_SelectedIndexChanged">
+                </asp:DropDownList>
+            </asp:TableCell>
         </asp:TableRow>
          <asp:TableRow>
             <asp:TableCell ColumnSpan="2">
@@ -238,6 +213,11 @@
         </asp:TableRow>
     <br />
         <asp:Table ID="Table2" runat="server" BorderWidth="2">
+            <asp:TableRow>
+                <asp:TableCell ColumnSpan="2">
+                <asp:Label ID="LblAddItem" runat="server" Text="Add New Item To Inventory" Font-Bold="true"></asp:Label>
+            </asp:TableCell>
+            </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Label ID="LblItem" 
@@ -295,13 +275,41 @@
                     ForeColor="Green"></asp:Label>
             </asp:TableCell>
         </asp:TableRow>
-
-
-
-
     </asp:Table>
+     <br />
+     <asp:Table ID="Table3" runat="server">
+         <asp:TableRow>
+              <asp:TableCell>
+                <asp:Button
+                    ID="BtnClear"
+                    runat="server"
+                    Text="Clear"
+                    OnClick="BtnClear_Click" />
+            </asp:TableCell>
+             <asp:TableCell>
+
+             </asp:TableCell>
+            <asp:TableCell>
+                <asp:Button
+                    ID="BtnSave"
+                    runat="server"
+                    Text="Save"
+                    OnClick="BtnSave_Click"
+                    ValidationGroup="SaveGroup" />
+            </asp:TableCell>
+              <asp:TableCell>
+                <asp:Label
+                    ID="LblSaveStatus"
+                    runat="server"
+                    Text=""></asp:Label>
+            </asp:TableCell>
+         </asp:TableRow>
+         </asp:Table>
 
 
-
+      <asp:SqlDataSource ID="dtasrcCustomerList"
+        runat="server"
+        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        SelectCommand="Select customer.CustomerID, FirstName + ' ' + LastName as CustomerName from Customer join serviceTicket on customer.customerID = serviceTicket.customerid where ServiceType = 'Auction' Order By LastName ASC"></asp:SqlDataSource>
 
 </asp:Content>

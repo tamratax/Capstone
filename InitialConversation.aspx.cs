@@ -152,8 +152,8 @@ namespace WalkerS_Lab1Part3
 
         protected void BtnSave_Click(object sender, EventArgs e)
         {
-            try
-             {
+            //try
+            // {
             //Changes chkbox boolean into a 1 or 0 for inserting into db
             int completed;
             if (ChkBoxCompleted.Checked)
@@ -176,7 +176,7 @@ namespace WalkerS_Lab1Part3
 
 
                 //Concatenate Sql Query Update Statement
-                String sqlQuery = "UPDATE CUSTOMER SET FirstName = @FirstName, LastName = @LastName, Phone = @PhoneNumber, PhoneType = @PhoneType, Email = @Email, InterestedIn = @InterestedIn, OriginStreet = @OriginStreet, OriginCity = @OriginCity, OriginState = @OriginState, DestinationStreet = @DestinationStreet, DestinationCity = @DestinationCity, DestinationState = @DestinationState, InitialContact = @InitialContact, ReferralChannel = @ReferralChannel, TotalEarnings = @TotalEarnings, DateContacted = '" + System.DateTime.Now.Date.ToString("yyyy-MM-dd") + "', DeadlineStart = @DeadlineStart, DeadlineEnd = @DeadlineEnd, completed = " + completed + " WHERE customerid = " + Session["Customer ID"].ToString();
+                String sqlQuery = "UPDATE CUSTOMER SET FirstName = @FirstName, LastName = @LastName, CellPhone = @CellPhone, WorkPhone = @WorkPhone, HomePhone = @HomePhone, Email = @Email, ItemsForSale = @HowMany, WhatDoyouSell = @Descriptions, Downsizing = @Downsizing, SettlingEstate =  @Estate, MovingCB = @MovingCB, AuctionCB = @AuctionCB, ConsignmentCB = @ConsignmentCB, AppraisalCB = @AppraisalCB, ItemTransportation = @ItemTransport, PreferredContact = @PreferredContact, ReferralChannel = @ReferralChannel, DeadlineStart = @DeadlineStart, DeadlineEnd = @DeadlineEnd, CompletedByEmp = @CompletedBy, CustomerNotes = @CustomerNotes, completed = " + completed + " WHERE customerID = " + Session["Customer ID"].ToString();
 
                 //Define the Connection to the Database
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -190,16 +190,41 @@ namespace WalkerS_Lab1Part3
                 //Parameterizes all strings
                 sqlCommand.Parameters.Add(new SqlParameter("@FirstName", HttpUtility.HtmlEncode(TxtFirstName.Text)));
                 sqlCommand.Parameters.Add(new SqlParameter("@LastName", HttpUtility.HtmlEncode(TxtLastName.Text)));
-                sqlCommand.Parameters.Add(new SqlParameter("@PhoneNumber", HttpUtility.HtmlEncode(TxtPhoneNumber.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@HomePhone", HttpUtility.HtmlEncode(TxtPhoneNumber.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@CellPhone", HttpUtility.HtmlEncode(TxtCellPhone.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@WorkPhone", HttpUtility.HtmlEncode(TxtWorkPhone.Text)));
                 sqlCommand.Parameters.Add(new SqlParameter("@Email", HttpUtility.HtmlEncode(TxtEmail.Text)));
-
-                //sqlCommand.Parameters.Add(new SqlParameter("@DestinationStreet", HttpUtility.HtmlEncode(TxtDestinationStreet.Text)));
-                //sqlCommand.Parameters.Add(new SqlParameter("@DestinationCity", HttpUtility.HtmlEncode(TxtDestinationCity.Text)));
-                //sqlCommand.Parameters.Add(new SqlParameter("@DestinationState", HttpUtility.HtmlEncode(TxtDestinationState.Text)));
-                sqlCommand.Parameters.Add(new SqlParameter("@InitialContact", DdlInitialContact.SelectedItem.Text));
+                sqlCommand.Parameters.Add(new SqlParameter("@HowMany", HttpUtility.HtmlEncode(TxtHowMany.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@Descriptions", HttpUtility.HtmlEncode(TxtDescriptions.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@Downsizing", ChkBoxDownsizing.Checked.ToString()));
+                sqlCommand.Parameters.Add(new SqlParameter("@Estate", ChkBoxEstate.Checked.ToString()));
+                sqlCommand.Parameters.Add(new SqlParameter("@MovingCB", ChkBoxMove.Checked.ToString()));
+                sqlCommand.Parameters.Add(new SqlParameter("@AuctionCB", ChkBoxAuction.Checked.ToString()));
+                sqlCommand.Parameters.Add(new SqlParameter("@ConsignmentCB", ChkBoxConsignment.Checked.ToString()));
+                sqlCommand.Parameters.Add(new SqlParameter("@AppraisalCB", ChkBoxAppraisal.Checked.ToString()));
+                if (DdlItemTransport.SelectedValue == "-1")
+                {
+                    sqlCommand.Parameters.Add(new SqlParameter("@ItemTransport", ""));
+                }
+                else
+                {
+                    sqlCommand.Parameters.Add(new SqlParameter("@ItemTransport", DdlItemTransport.SelectedItem.Text));
+                }
+              
+                sqlCommand.Parameters.Add(new SqlParameter("@PreferredContact", initialContact));
                 sqlCommand.Parameters.Add(new SqlParameter("@ReferralChannel", HttpUtility.HtmlEncode(TxtReferral.Text)));
                 sqlCommand.Parameters.Add(new SqlParameter("@DeadlineStart", HttpUtility.HtmlEncode(TxtDeadline.Text)));
                 sqlCommand.Parameters.Add(new SqlParameter("@DeadlineEnd", HttpUtility.HtmlEncode(TxtDeadlineEnd.Text)));
+                if (DdlCompletedByEmp.SelectedValue == "-1")
+                {
+                    sqlCommand.Parameters.Add(new SqlParameter("@CompletedBy", ""));
+                }
+                else
+                {
+                    sqlCommand.Parameters.Add(new SqlParameter("@CompletedBy", DdlCompletedByEmp.SelectedItem.Value));
+                }
+                
+                sqlCommand.Parameters.Add(new SqlParameter("@CustomerNotes", HttpUtility.HtmlEncode(TxtCustomerNotes.Text)));
 
 
                 // Open your connection, send the query 
@@ -356,12 +381,12 @@ namespace WalkerS_Lab1Part3
                 }
 
             }
-        }
-            catch
-            {
-                LblSaveStatus.Text = "Error Saving Customer, Check Data Fields";
-                LblSaveStatus.ForeColor = Color.Red;
-            }
+        //}
+            //catch
+            //{
+            //    LblSaveStatus.Text = "Error Saving Customer, Check Data Fields";
+            //    LblSaveStatus.ForeColor = Color.Red;
+            //}
         }
 
 
@@ -414,7 +439,7 @@ namespace WalkerS_Lab1Part3
         protected void DdlCompletedByEmp_DataBound(object sender, EventArgs e)
         {
             //Sets Service list ddl to default of select
-            ListItem blankOption = new ListItem("Select", "Select");
+            ListItem blankOption = new ListItem("Select", "-1");
             DdlCompletedByEmp.Items.Insert(0, blankOption);
             DdlCompletedByEmp.SelectedIndex = 0;
         }

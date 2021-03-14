@@ -14,8 +14,8 @@
                     DataTextField="CustomerName"
                     DataValueField="CustomerID"
                     runat="server"
-                    OnSelectedIndexChanged="DDLCust_SelectedIndexChanged"
-                    OnDataBound="DDLCust_DataBound"
+                    OnSelectedIndexChanged="DDLCust_SelectedIndexChanged1"
+                    OnDataBound="DDLCust_DataBound1"
                     AutoPostBack="true">
                 </asp:DropDownList>
             </asp:TableCell>
