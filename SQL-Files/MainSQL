@@ -52,22 +52,22 @@ create table AUCTION (
 create table SERVICETICKET (
 	ServiceTicketID	int not null identity(1, 1) primary key,
 	CustomerID		int references Customer(CustomerID),
-	TicketStatus	varchar(255),
 	TicketOpenDate	varchar(20),
+	PotentialDate	varchar(50),
+	PotentialTime	varchar(50),
 	ServiceDate		varchar(20),
-	ServiceCost		float,
 	CompletionDate	varchar(20),
 	ServiceType		char(20),
 	DestinationTime	varchar(255),
-	GasExpense		float,
-	MiscExpense		float,
 	LookAtCB		varchar(10),
-	LookAtDate			Date,
-	LookAtTime		Time,
-	ContactID		int references EMPLOYEE(EmployeeID),
-	InitiatingEmp	int references Employee(EmployeeID),
+	LookAtDate		varchar(50),
+	LookAtTime		varchar(50),
+	InitiatingEmp	int references EMPLOYEE(EmployeeID),
 	AuctionID		int references Auction(AuctionID),
-	Status_Service		int,
+	Status_Service	int,
+	StorageCB		varchar(10),
+	CleaningCB		varchar(10),
+	TrashCB			varchar(10),
 	Completed		varchar(10)
 );
 
@@ -150,9 +150,10 @@ insert into Auction values ('Unassigned');
 insert into Auction values ('2021-02-26');
 insert into Auction values ('2021-03-05');
 
-insert into SERVICETICKET values (1, 'In Progress', '2021-01-01','2021-02-01', 15.24, '2021-02-07', 'Move', '1:30pm', 18.56, 1.80, 'true', '2021-06-30', '2:30pm', null, 1, null, 25, 0);
-insert into SERVICETICKET values (2, 'In Progress', '2021-01-01','2021-02-01', 15.24, '2021-02-07', 'Auction', '1:30pm', 18.56, 1.80, 'false', '', '', 1, 2, 1, 50, 0);
-insert into SERVICETICKET values (3, 'In Progress', '2021-01-01','2021-02-01', 15.24, '2021-02-08', 'Move', '3:30pm', 20.56, 4.80, 'true', '2021-03-10', '10:00am', null, 3, null, 75, 1);
+insert into SERVICETICKET values (1, '2021-01-01','2021-02-25','4:00pm','2021-02-01', '2021-02-07', 'Move', '1:30pm', 'true', '2021-06-30', '2:30pm', 1, 1, 25,'true','true','true', 0);
+insert into SERVICETICKET values (2, '2021-01-01','2021-02-25','4:00pm','2021-02-01', '2021-02-07', 'Auction', '1:30pm', 'true', '2021-06-30', '2:30pm', 2, 1, 50,'true','false','true', 0);
+insert into SERVICETICKET values (3, '2021-01-01','2021-02-25','4:00pm','2021-02-01', '2021-02-07', 'Move', '1:30pm', 'true', '2021-06-30', '2:30pm', 3, 1, 75,'true','false','false', 0);
+
 
 insert into SERVICEREQUEST values ('Move', '2021-06-15', 'We have a lot of things to move this day and will need plenty of help!','Active', 1);
 insert into SERVICEREQUEST values ('Auction', '2021-06-30', 'We want to sell all of our bowls!', 'Active', 1);
