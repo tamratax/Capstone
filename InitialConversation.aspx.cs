@@ -29,12 +29,6 @@ namespace WalkerS_Lab1Part3
                 DdlInitialContact.Items.Add(new ListItem("Other", "4"));
 
                 //Hides required fields at first
-                LblDestinationStreet.Visible = false;
-                TxtDestinationStreet.Visible = false;
-                LblDestinationCity.Visible = false;
-                TxtDestinationCity.Visible = false;
-                LblDestinationState.Visible = false;
-                TxtDestinationState.Visible = false;
                 LblOther.Visible = false;
                 TxtOther.Visible = false;
 
@@ -54,32 +48,32 @@ namespace WalkerS_Lab1Part3
                     DataTable dtForSelect = new DataTable();
                     sqlAdapter.Fill(dtForSelect);
 
-                    //Fills data from editing customer's sql record into addcustomer page
+                    //Fills data from editing customer's sql record into InitialConversation page
                     TxtFirstName.Text = Convert.ToString(dtForSelect.Rows[0]["FirstName"]);
                     TxtLastName.Text = Convert.ToString(dtForSelect.Rows[0]["LastName"]);
-                    TxtPhoneNumber.Text = Convert.ToString(dtForSelect.Rows[0]["Phone"]);
+                    TxtPhoneNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
+                    TxtCellPhone.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
+                    TxtWorkPhone.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
                     TxtEmail.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
-                    TxtOriginStreet.Text = Convert.ToString(dtForSelect.Rows[0]["OriginStreet"]);
-                    TxtOriginCity.Text = Convert.ToString(dtForSelect.Rows[0]["OriginCity"]);
-                    TxtOriginState.Text = Convert.ToString(dtForSelect.Rows[0]["OriginState"]);
-                    TxtDestinationStreet.Text = Convert.ToString(dtForSelect.Rows[0]["DestinationStreet"]);
-                    TxtDestinationCity.Text = Convert.ToString(dtForSelect.Rows[0]["DestinationCity"]);
-                    TxtDestinationState.Text = Convert.ToString(dtForSelect.Rows[0]["DestinationState"]);
+
+                    //TxtDestinationStreet.Text = Convert.ToString(dtForSelect.Rows[0]["DestinationStreet"]);
+                    //TxtDestinationCity.Text = Convert.ToString(dtForSelect.Rows[0]["DestinationCity"]);
+                    //TxtDestinationState.Text = Convert.ToString(dtForSelect.Rows[0]["DestinationState"]);
 
                     //Array of possible mediums for intial contact
                     string[] arrayInitialContact = new string[] { "In-Person", "By Phone", "Email", "Text" };
 
                     //Checks to see if item is in the dropdown list items from array
-                    if (arrayInitialContact.Contains(Convert.ToString(dtForSelect.Rows[0]["InitialContact"])))
+                    if (arrayInitialContact.Contains(Convert.ToString(dtForSelect.Rows[0]["PreferredContact"])))
                     {
-                        DdlInitialContact.SelectedValue = DdlInitialContact.Items.FindByText(Convert.ToString(dtForSelect.Rows[0]["InitialContact"])).Value;
+                        DdlInitialContact.SelectedValue = DdlInitialContact.Items.FindByText(Convert.ToString(dtForSelect.Rows[0]["PreferredContact"])).Value;
                         DdlInitialContact_SelectedIndexChanged(sender, e);
                     }
                     //Checks to see if it is other since it is not in the array and is not blank (i.e. Carrier Pigeon)
-                    else if (Convert.ToString(dtForSelect.Rows[0]["InitialContact"]) != "")
+                    else if (Convert.ToString(dtForSelect.Rows[0]["PreferredContact"]) != "")
                     {
                         DdlInitialContact.SelectedValue = "4";
-                        TxtOther.Text = Convert.ToString(dtForSelect.Rows[0]["InitialContact"]);
+                        TxtOther.Text = Convert.ToString(dtForSelect.Rows[0]["PreferredContact"]);
                         DdlInitialContact_SelectedIndexChanged(sender, e);
                     }
 
@@ -104,12 +98,6 @@ namespace WalkerS_Lab1Part3
         protected void BtnPopulate_Click(object sender, EventArgs e)
         {
             //Show Text Boxes Again
-            LblDestinationStreet.Visible = true;
-            TxtDestinationStreet.Visible = true;
-            LblDestinationCity.Visible = true;
-            TxtDestinationCity.Visible = true;
-            LblDestinationState.Visible = true;
-            TxtDestinationState.Visible = true;
             LblOther.Visible = true;
             TxtOther.Visible = true;
 
@@ -118,12 +106,10 @@ namespace WalkerS_Lab1Part3
             TxtLastName.Text = "Robert";
             TxtPhoneNumber.Text = "7037284871";
             TxtEmail.Text = "jake@dukes.com";
-            TxtOriginStreet.Text = "123 Port Street";
-            TxtOriginCity.Text = "Harrisonburg";
-            TxtOriginState.Text = "VA";
-            TxtDestinationStreet.Text = "531 New Port Rd";
-            TxtDestinationCity.Text = "Harrisonburg";
-            TxtDestinationState.Text = "VA";
+
+            //TxtDestinationStreet.Text = "531 New Port Rd";
+            //TxtDestinationCity.Text = "Harrisonburg";
+            //TxtDestinationState.Text = "VA";
             DdlInitialContact.SelectedIndex = 5;
             TxtOther.Text = "Carrier Pidgeon";
             TxtReferral.Text = "Poster";
@@ -141,12 +127,9 @@ namespace WalkerS_Lab1Part3
             TxtLastName.Text = "";
             TxtPhoneNumber.Text = "";
             TxtEmail.Text = "";
-            TxtOriginStreet.Text = "";
-            TxtOriginCity.Text = "";
-            TxtOriginState.Text = "";
-            TxtDestinationStreet.Text = "";
-            TxtDestinationCity.Text = "";
-            TxtDestinationState.Text = "";
+            //TxtDestinationStreet.Text = "";
+            //TxtDestinationCity.Text = "";
+            //TxtDestinationState.Text = "";
             DdlInitialContact.SelectedIndex = -1;
             TxtOther.Text = "";
             TxtReferral.Text = "";
@@ -156,12 +139,6 @@ namespace WalkerS_Lab1Part3
             LblSaveStatus.Text = "";
 
             //Hide Text Boxes Again
-            LblDestinationStreet.Visible = false;
-            TxtDestinationStreet.Visible = false;
-            LblDestinationCity.Visible = false;
-            TxtDestinationCity.Visible = false;
-            LblDestinationState.Visible = false;
-            TxtDestinationState.Visible = false;
             LblOther.Visible = false;
             TxtOther.Visible = false;
             ChkBoxCompleted.Checked = false;
@@ -175,32 +152,119 @@ namespace WalkerS_Lab1Part3
 
         protected void BtnSave_Click(object sender, EventArgs e)
         {
-            try
+            //try
+            // {
+            //Changes chkbox boolean into a 1 or 0 for inserting into db
+            int completed;
+            if (ChkBoxCompleted.Checked)
             {
-                //Changes chkbox boolean into a 1 or 0 for inserting into db
-                int completed;
-                if (ChkBoxCompleted.Checked)
+                completed = 1;
+            }
+            else { completed = 0; }
+            if (Session["Customer ID"] != null)
+            {
+                //Gets 'other' field if selected for initial contact
+                String initialContact;
+                if (DdlInitialContact.SelectedIndex == 5)
                 {
-                    completed = 1;
+                    initialContact = HttpUtility.HtmlEncode(TxtOther.Text);
                 }
-                else { completed = 0; }
-                if (Session["Customer ID"] != null)
+                else
                 {
-                    //Gets 'other' field if selected for initial contact
+                    initialContact = DdlInitialContact.SelectedItem.Text;
+                }
+
+
+                //Concatenate Sql Query Update Statement
+                String sqlQuery = "UPDATE CUSTOMER SET FirstName = @FirstName, LastName = @LastName, Phone = @PhoneNumber, PhoneType = @PhoneType, Email = @Email, InterestedIn = @InterestedIn, OriginStreet = @OriginStreet, OriginCity = @OriginCity, OriginState = @OriginState, DestinationStreet = @DestinationStreet, DestinationCity = @DestinationCity, DestinationState = @DestinationState, InitialContact = @InitialContact, ReferralChannel = @ReferralChannel, TotalEarnings = @TotalEarnings, DateContacted = '" + System.DateTime.Now.Date.ToString("yyyy-MM-dd") + "', DeadlineStart = @DeadlineStart, DeadlineEnd = @DeadlineEnd, completed = " + completed + " WHERE customerid = " + Session["Customer ID"].ToString();
+
+                //Define the Connection to the Database
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+                // Create the SQL Command object which will send the query
+                SqlCommand sqlCommand = new SqlCommand();
+                sqlCommand.Connection = sqlConnect;
+                sqlCommand.CommandType = CommandType.Text;
+                sqlCommand.CommandText = sqlQuery;
+
+                //Parameterizes all strings
+                sqlCommand.Parameters.Add(new SqlParameter("@FirstName", HttpUtility.HtmlEncode(TxtFirstName.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@LastName", HttpUtility.HtmlEncode(TxtLastName.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@PhoneNumber", HttpUtility.HtmlEncode(TxtPhoneNumber.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@Email", HttpUtility.HtmlEncode(TxtEmail.Text)));
+
+                //sqlCommand.Parameters.Add(new SqlParameter("@DestinationStreet", HttpUtility.HtmlEncode(TxtDestinationStreet.Text)));
+                //sqlCommand.Parameters.Add(new SqlParameter("@DestinationCity", HttpUtility.HtmlEncode(TxtDestinationCity.Text)));
+                //sqlCommand.Parameters.Add(new SqlParameter("@DestinationState", HttpUtility.HtmlEncode(TxtDestinationState.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@InitialContact", DdlInitialContact.SelectedItem.Text));
+                sqlCommand.Parameters.Add(new SqlParameter("@ReferralChannel", HttpUtility.HtmlEncode(TxtReferral.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@DeadlineStart", HttpUtility.HtmlEncode(TxtDeadline.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@DeadlineEnd", HttpUtility.HtmlEncode(TxtDeadlineEnd.Text)));
+
+
+                // Open your connection, send the query 
+                sqlConnect.Open();
+                SqlDataReader queryResults = sqlCommand.ExecuteReader();
+
+                // Close all related connections
+                queryResults.Close();
+                sqlConnect.Close();
+
+                LblSaveStatus.Text = "Customer Updated Successfully";
+                LblSaveStatus.ForeColor = Color.Green;
+
+
+
+            }
+            else
+            {
+                //Check to see if customer is already in the database
+                String sqlQueryDuplicate = "Select CustomerID, FirstName + ' ' + LastName as 'Name' from customer WHERE Email = @Email";
+
+
+
+                //Establishes the connection between our web form and database
+                SqlConnection sqlConnectDuplicate = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+
+                //Creates sqlcommand with query and email parameter for security
+                SqlCommand sqlCommandInsert = new SqlCommand();
+                sqlCommandInsert.Connection = sqlConnectDuplicate;
+                sqlCommandInsert.CommandType = CommandType.Text;
+                sqlCommandInsert.CommandText = sqlQueryDuplicate;
+
+                sqlCommandInsert.Parameters.Add(new SqlParameter("@Email", HttpUtility.HtmlEncode(TxtEmail.Text)));
+
+
+                SqlDataAdapter sqlAdapterDuplicate = new SqlDataAdapter(sqlCommandInsert);
+                //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
+                //SqlDataAdapter sqlAdapterDuplicate = new SqlDataAdapter(sqlQueryDuplicate, sqlConnectDuplicate); <- This is how we originally did it with a DataAdapter
+
+                //This creates a datatable and fills it
+                DataTable dtForDuplicate = new DataTable();
+                sqlAdapterDuplicate.Fill(dtForDuplicate);
+
+
+                if (dtForDuplicate.Rows.Count > 0)
+                {
+                    //If any rows come back from the query
+                    LblSaveStatus.Text = "Customer with that email already exists!";
+                    LblSaveStatus.ForeColor = Color.Red;
+                }
+                else
+                {
+                    //Gets other field if selected for initial contact
                     String initialContact;
                     if (DdlInitialContact.SelectedIndex == 5)
                     {
-                        initialContact = HttpUtility.HtmlEncode(TxtOther.Text);
+                        initialContact = TxtOther.Text;
                     }
                     else
                     {
                         initialContact = DdlInitialContact.SelectedItem.Text;
                     }
-
-                                                                                                                                                                                                                                                                                                                                                                                          
-                    //Concatenate Sql Query Update Statement
-                    String sqlQuery = "UPDATE CUSTOMER SET FirstName = @FirstName, LastName = @LastName, Phone = @PhoneNumber, PhoneType = @PhoneType, Email = @Email, InterestedIn = @InterestedIn, OriginStreet = @OriginStreet, OriginCity = @OriginCity, OriginState = @OriginState, DestinationStreet = @DestinationStreet, DestinationCity = @DestinationCity, DestinationState = @DestinationState, InitialContact = @InitialContact, ReferralChannel = @ReferralChannel, TotalEarnings = @TotalEarnings, DateContacted = '" + System.DateTime.Now.Date.ToString("yyyy-MM-dd") + "', DeadlineStart = @DeadlineStart, DeadlineEnd = @DeadlineEnd, completed = " + completed + " WHERE customerid = " + Session["Customer ID"].ToString();
-
+                    //Concatenate Sql Query Insert Statements
+                    String sqlQuery = "insert into CUSTOMER values (@FirstName, @LastName, @CellPhone, @WorkPhone, @HomePhone, @Email, @HowMany, @Descriptions, @Downsizing," +
+                        " @Estate, @MovingCB, @AuctionCB, @ConsignmentCB, @AppraisalCB, @ItemTransport, @InitialContact, @ReferralChannel, " + System.DateTime.Today.ToShortDateString() + ",  @DeadlineStart, @DeadlineEnd, @CustomerNotes, @Completed)";
                     //Define the Connection to the Database
                     SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -209,23 +273,29 @@ namespace WalkerS_Lab1Part3
                     sqlCommand.Connection = sqlConnect;
                     sqlCommand.CommandType = CommandType.Text;
                     sqlCommand.CommandText = sqlQuery;
-                    
-                    //Parameterizes all strings
                     sqlCommand.Parameters.Add(new SqlParameter("@FirstName", HttpUtility.HtmlEncode(TxtFirstName.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@LastName", HttpUtility.HtmlEncode(TxtLastName.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@PhoneNumber", HttpUtility.HtmlEncode(TxtPhoneNumber.Text)));
+                    sqlCommand.Parameters.Add(new SqlParameter("@HomePhone", HttpUtility.HtmlEncode(TxtPhoneNumber.Text)));
+                    sqlCommand.Parameters.Add(new SqlParameter("@CellPhone", HttpUtility.HtmlEncode(TxtCellPhone.Text)));
+                    sqlCommand.Parameters.Add(new SqlParameter("@WorkPhone", HttpUtility.HtmlEncode(TxtWorkPhone.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@Email", HttpUtility.HtmlEncode(TxtEmail.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@OriginStreet", HttpUtility.HtmlEncode(TxtOriginStreet.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@OriginCity", HttpUtility.HtmlEncode(TxtOriginCity.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@OriginState", HttpUtility.HtmlEncode(TxtOriginState.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@DestinationStreet", HttpUtility.HtmlEncode(TxtDestinationStreet.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@DestinationCity", HttpUtility.HtmlEncode(TxtDestinationCity.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@DestinationState", HttpUtility.HtmlEncode(TxtDestinationState.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@InitialContact", DdlInitialContact.SelectedItem.Text));
+                    sqlCommand.Parameters.Add(new SqlParameter("@HowMany", HttpUtility.HtmlEncode(TxtHowMany.Text)));
+                    sqlCommand.Parameters.Add(new SqlParameter("@Descriptions", HttpUtility.HtmlEncode(TxtDescriptions.Text)));
+                    sqlCommand.Parameters.Add(new SqlParameter("@Downsizing", ChkBoxDownsizing.Checked.ToString()));
+                    sqlCommand.Parameters.Add(new SqlParameter("@Estate", ChkBoxEstate.Checked.ToString()));
+                    sqlCommand.Parameters.Add(new SqlParameter("@MovingCB", ChkBoxMove.Checked.ToString()));
+                    sqlCommand.Parameters.Add(new SqlParameter("@AuctionCB", ChkBoxAuction.Checked.ToString()));
+                    sqlCommand.Parameters.Add(new SqlParameter("@ConsignmentCB", ChkBoxConsignment.Checked.ToString()));
+                    sqlCommand.Parameters.Add(new SqlParameter("@AppraisalCB", ChkBoxAppraisal.Checked.ToString()));
+
+                    sqlCommand.Parameters.Add(new SqlParameter("@ItemTransport", DdlItemTransport.SelectedItem.Text));
+                    sqlCommand.Parameters.Add(new SqlParameter("@InitialContact", initialContact));
                     sqlCommand.Parameters.Add(new SqlParameter("@ReferralChannel", HttpUtility.HtmlEncode(TxtReferral.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@DeadlineStart", HttpUtility.HtmlEncode(TxtDeadline.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@DeadlineEnd", HttpUtility.HtmlEncode(TxtDeadlineEnd.Text)));
-
+                    // sqlCommand.Parameters.Add(new SqlParameter("@CompletedBy", DdlCompletedByEmp.SelectedItem.Text));
+                    sqlCommand.Parameters.Add(new SqlParameter("@CustomerNotes", HttpUtility.HtmlEncode(TxtCustomerNotes.Text)));
+                    sqlCommand.Parameters.Add(new SqlParameter("@Completed", ChkBoxCompleted.Checked.ToString()));
 
                     // Open your connection, send the query 
                     sqlConnect.Open();
@@ -235,105 +305,18 @@ namespace WalkerS_Lab1Part3
                     queryResults.Close();
                     sqlConnect.Close();
 
-                    LblSaveStatus.Text = "Customer Updated Successfully";
+                    LblSaveStatus.Text = "Customer Added Successfully";
                     LblSaveStatus.ForeColor = Color.Green;
 
-
-
                 }
-                else
-                {
-                    //Check to see if customer is already in the database
-                    String sqlQueryDuplicate = "Select CustomerID, FirstName + ' ' + LastName as 'Name' from customer WHERE Email = @Email";
 
-
-
-                    //Establishes the connection between our web form and database
-                    SqlConnection sqlConnectDuplicate = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
-
-                    //Creates sqlcommand with query and email parameter for security
-                    SqlCommand sqlCommandInsert = new SqlCommand();
-                    sqlCommandInsert.Connection = sqlConnectDuplicate;
-                    sqlCommandInsert.CommandType = CommandType.Text;
-                    sqlCommandInsert.CommandText = sqlQueryDuplicate;
-
-                    sqlCommandInsert.Parameters.Add(new SqlParameter("@Email", HttpUtility.HtmlEncode(TxtEmail.Text)));
-
-
-                    SqlDataAdapter sqlAdapterDuplicate = new SqlDataAdapter(sqlCommandInsert);
-                    //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
-                    //SqlDataAdapter sqlAdapterDuplicate = new SqlDataAdapter(sqlQueryDuplicate, sqlConnectDuplicate); <- This is how we originally did it with a DataAdapter
-
-                    //This creates a datatable and fills it
-                    DataTable dtForDuplicate = new DataTable();
-                    sqlAdapterDuplicate.Fill(dtForDuplicate);
-
-
-                    if (dtForDuplicate.Rows.Count > 0)
-                    {
-                        //If any rows come back from the query
-                        LblSaveStatus.Text = "Customer with that email already exists!";
-                        LblSaveStatus.ForeColor = Color.Red;
-                    }
-                    else
-                    {
-                        //Gets other field if selected for initial contact
-                        String initialContact;
-                        if (DdlInitialContact.SelectedIndex == 5)
-                        {
-                            initialContact = TxtOther.Text;
-                        }
-                        else
-                        {
-                            initialContact = DdlInitialContact.SelectedItem.Text;
-                        }
-                        //Concatenate Sql Query Insert Statements
-                        String sqlQuery = "insert into CUSTOMER values (@FirstName, @LastName, @PhoneNumber, @PhoneType, @Email, @InterestedIn, @OriginStreet, @OriginCity, @OriginState,";
-                        sqlQuery += "@DestinationStreet, @DestinationCity, @DestinationState, @InitialContact, @ReferralChannel, @TotalEarnings, '" + System.DateTime.Now.Date.ToString("yyyy-MM-dd") + "', @DeadlineStart, @DeadlineEnd, 0)";
-
-                        //Define the Connection to the Database
-                        SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-
-                        // Create the SQL Command object which will send the query
-                        SqlCommand sqlCommand = new SqlCommand();
-                        sqlCommand.Connection = sqlConnect;
-                        sqlCommand.CommandType = CommandType.Text;
-                        sqlCommand.CommandText = sqlQuery;
-                        sqlCommand.Parameters.Add(new SqlParameter("@FirstName", HttpUtility.HtmlEncode(TxtFirstName.Text)));
-                        sqlCommand.Parameters.Add(new SqlParameter("@LastName", HttpUtility.HtmlEncode(TxtLastName.Text)));
-                        sqlCommand.Parameters.Add(new SqlParameter("@PhoneNumber", HttpUtility.HtmlEncode(TxtPhoneNumber.Text)));
-                        sqlCommand.Parameters.Add(new SqlParameter("@Email", HttpUtility.HtmlEncode(TxtEmail.Text)));
-                        sqlCommand.Parameters.Add(new SqlParameter("@OriginStreet", HttpUtility.HtmlEncode(TxtOriginStreet.Text)));
-                        sqlCommand.Parameters.Add(new SqlParameter("@OriginCity", HttpUtility.HtmlEncode(TxtOriginCity.Text)));
-                        sqlCommand.Parameters.Add(new SqlParameter("@OriginState", HttpUtility.HtmlEncode(TxtOriginState.Text)));
-                        sqlCommand.Parameters.Add(new SqlParameter("@DestinationStreet", HttpUtility.HtmlEncode(TxtDestinationStreet.Text)));
-                        sqlCommand.Parameters.Add(new SqlParameter("@DestinationCity", HttpUtility.HtmlEncode(TxtDestinationCity.Text)));
-                        sqlCommand.Parameters.Add(new SqlParameter("@DestinationState", HttpUtility.HtmlEncode(TxtDestinationState.Text)));
-                        sqlCommand.Parameters.Add(new SqlParameter("@InitialContact", DdlInitialContact.SelectedItem.Text));
-                        sqlCommand.Parameters.Add(new SqlParameter("@ReferralChannel", HttpUtility.HtmlEncode(TxtReferral.Text)));
-                        sqlCommand.Parameters.Add(new SqlParameter("@DeadlineStart", HttpUtility.HtmlEncode(TxtDeadline.Text)));
-                        sqlCommand.Parameters.Add(new SqlParameter("@DeadlineEnd", HttpUtility.HtmlEncode(TxtDeadlineEnd.Text)));
-
-                        // Open your connection, send the query 
-                        sqlConnect.Open();
-                        SqlDataReader queryResults = sqlCommand.ExecuteReader();
-
-                        // Close all related connections
-                        queryResults.Close();
-                        sqlConnect.Close();
-
-                        LblSaveStatus.Text = "Customer Added Successfully";
-                        LblSaveStatus.ForeColor = Color.Green;
-
-                    }
-
-                }
             }
-            catch
-            {
-                LblSaveStatus.Text = "Error Saving Customer, Check Data Fields";
-                LblSaveStatus.ForeColor = Color.Red;
-            }
+        //}
+           // catch
+           // {
+                //LblSaveStatus.Text = "Error Saving Customer, Check Data Fields";
+                //LblSaveStatus.ForeColor = Color.Red;
+            //}
         }
 
 
@@ -356,35 +339,6 @@ namespace WalkerS_Lab1Part3
 
    
 
-        protected void ChkBoxMove_CheckedChanged(object sender, EventArgs e)
-        {
-            
-            if (ChkBoxMove.Checked)
-            {
-                LblDestinationStreet.Visible = true;
-                TxtDestinationStreet.Visible = true;
-                LblDestinationCity.Visible = true;
-                TxtDestinationCity.Visible = true;
-                LblDestinationState.Visible = true;
-                TxtDestinationState.Visible = true;
-
-
-
-            }
-            else
-            {
-                LblDestinationStreet.Visible = false;
-                TxtDestinationStreet.Visible = false;
-                LblDestinationCity.Visible = false;
-                TxtDestinationCity.Visible = false;
-                LblDestinationState.Visible = false;
-                TxtDestinationState.Visible = false;
-
-                TxtDestinationStreet.Text = "";
-                TxtDestinationCity.Text = "";
-                TxtDestinationState.Text = "";
-            }
-        }
 
         protected void ChkBoxAuction_CheckedChanged(object sender, EventArgs e)
         {
@@ -419,5 +373,11 @@ namespace WalkerS_Lab1Part3
             DdlCompletedByEmp.Items.Insert(0, blankOption);
             DdlCompletedByEmp.SelectedIndex = 0;
         }
+
+        protected void ChkBoxMove_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

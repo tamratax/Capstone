@@ -69,7 +69,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AddItem.aspx" />
+    <Content Include="MoveInventory.aspx" />
     <Content Include="AddServiceRequest.aspx" />
     <Content Include="Auction.aspx" />
     <Content Include="CompletionForm.aspx" />
@@ -84,7 +84,7 @@
     <Content Include="images\favicon.png" />
     <Content Include="images\GVA_logo.png" />
     <Content Include="images\GVM_logo.png" />
-    <Content Include="ItemReception.aspx" />
+    <Content Include="PickupInformation.aspx" />
     <Content Include="LabFormat.Master" />
     <Content Include="CustomerFacingMaster.Master" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -208,12 +208,12 @@
     <Compile Include="InitialConversation.aspx.designer.cs">
       <DependentUpon>InitialConversation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AddItem.aspx.cs">
-      <DependentUpon>AddItem.aspx</DependentUpon>
+    <Compile Include="MoveInventory.aspx.cs">
+      <DependentUpon>MoveInventory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddItem.aspx.designer.cs">
-      <DependentUpon>AddItem.aspx</DependentUpon>
+    <Compile Include="MoveInventory.aspx.designer.cs">
+      <DependentUpon>MoveInventory.aspx</DependentUpon>
     </Compile>
     <Compile Include="AddNote.aspx.cs">
       <DependentUpon>AddNote.aspx</DependentUpon>
@@ -271,12 +271,12 @@
     <Compile Include="CustomerUnauthorized.aspx.designer.cs">
       <DependentUpon>CustomerUnauthorized.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ItemReception.aspx.cs">
-      <DependentUpon>ItemReception.aspx</DependentUpon>
+    <Compile Include="PickupInformation.aspx.cs">
+      <DependentUpon>PickupInformation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ItemReception.aspx.designer.cs">
-      <DependentUpon>ItemReception.aspx</DependentUpon>
+    <Compile Include="PickupInformation.aspx.designer.cs">
+      <DependentUpon>PickupInformation.aspx</DependentUpon>
     </Compile>
     <Compile Include="LabFormat.Master.cs">
       <DependentUpon>LabFormat.Master</DependentUpon>

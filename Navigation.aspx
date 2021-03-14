@@ -69,7 +69,7 @@
                                 <asp:Label
                                     ID="LblNewCustomer"
                                     runat="server"
-                                    Text="New Customer Requests:"></asp:Label>
+                                    Text="Customer Service Requests:"></asp:Label>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow>
