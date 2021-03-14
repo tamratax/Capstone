@@ -20,7 +20,7 @@ namespace Lab3
             if (Session["Customer ID"] != null)
             {
                 //Pulling in customer's record
-                String sqlQuery = "Select FirstName + ' ' + LastName As Name, CellPhone, WorkPhone, HomePhone, Street, City, State, Zip, DateContacted from customer join Address on Customer.CustomerID = Address.CustomerID where Customer.customerid = " + Session["Customer ID"].ToString();
+                String sqlQuery = "Select FirstName, LastName, CellPhone, WorkPhone, HomePhone, Street, City, State, Zip, DateContacted from customer join Address on Customer.CustomerID = Address.CustomerID where Customer.customerid = " + Session["Customer ID"].ToString();
 
                 //Establishes the connection between our web form and database
                 SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
@@ -33,7 +33,8 @@ namespace Lab3
                 sqlAdapter.Fill(dtForSelect);
 
                 //Fills data from editing customer's sql record into InitialConversation page
-                TxtName.Text = Convert.ToString(Session["Customer ID"]);
+                TxtFirstName.Text = Convert.ToString(dtForSelect.Rows[0]["FirstName"]);
+                TxtLastName.Text = Convert.ToString(dtForSelect.Rows[0]["LastName"]);
                 TxtPhoneNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
                 TxtCellPhone.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
                 TxtWorkPhone.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
