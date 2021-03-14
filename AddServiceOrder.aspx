@@ -94,62 +94,86 @@
             </asp:TableCell>
         </asp:TableRow>
 
+    </asp:Table>
+
+    <asp:Table ID="Table4" runat="server">
         <asp:TableRow>
             <asp:TableCell>
-                <asp:Label
-                    ID="LblPhoneNumber"
-                    runat="server"
-                    Text="Home Phone: "></asp:Label>
+                <fieldset>
+                    <asp:Table ID="Table5" runat="server">
 
+                        <asp:TableRow>
+                            <asp:TableCell>
+                                <asp:Label
+                                    ID="LblHomePhone"
+                                    runat="server"
+                                    Text="Home Phone: "></asp:Label>
+                            </asp:TableCell>
+                            <asp:TableCell ColumnSpan="5">
+                                <asp:Label ID="LblHomeNumber"
+                                    runat="server"
+                                    Text=""
+                                    Font-Bold="true"></asp:Label>
+                            </asp:TableCell>
+                        </asp:TableRow>
+                        <asp:TableRow>
+                            <asp:TableCell>
+                                <asp:Label
+                                    ID="LblCellPhone"
+                                    runat="server"
+                                    Text="   Cell Phone: "></asp:Label>
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                <asp:Label
+                                    ID="LblCellNumber"
+                                    runat="server"
+                                    Text=""
+                                    Font-Bold="true"></asp:Label>
+                            </asp:TableCell>
+                            </asp:TableRow>
+                        <asp:TableRow>
+                            <asp:TableCell>
+                                <asp:Label
+                                    ID="LblWorkPhone"
+                                    runat="server"
+                                    Text="   Work Phone: "></asp:Label>
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                <asp:Label
+                                    ID="LblWorkNumber"
+                                    runat="server"
+                                    Text=""
+                                    Font-Bold="true"></asp:Label>
+                            </asp:TableCell>
+
+
+                        </asp:TableRow>
+                        <asp:TableRow>
+                            <asp:TableCell>
+                                <asp:Label
+                                    ID="LblEmail"
+                                    runat="server"
+                                    Text="Email:"></asp:Label>
+                            </asp:TableCell>
+                            <asp:TableCell ColumnSpan="10">
+                                <asp:Label
+                                    ID="LblEmailText"
+                                    runat="server"
+                                    Text=""
+                                    Font-Bold="true"></asp:Label>
+                            </asp:TableCell>
+                        </asp:TableRow>
+                    </asp:Table>
+                </fieldset>
             </asp:TableCell>
-            <asp:TableCell ColumnSpan="5">
-                <asp:TextBox
-                    ID="TxtPhoneNumber"
-                    runat="server"
-                    Text=""></asp:TextBox>
-
-                <asp:Label
-                    ID="LblCellPhone"
-                    runat="server"
-                    Text=" Cell Phone: "></asp:Label>
-
-                <asp:TextBox
-                    ID="TxtCellPhone"
-                    runat="server"
-                    Text=""></asp:TextBox>
-
-                <asp:Label
-                    ID="LblWorkPhone"
-                    runat="server"
-                    Text=" Work Phone: "></asp:Label>
-
-                <asp:TextBox
-                    ID="TxtWorkPhone"
-                    runat="server"
-                    Text=""></asp:TextBox>
-            </asp:TableCell>
-
         </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label
-                    ID="LblEmail"
-                    runat="server"
-                    Text="Email:"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox
-                    ID="TxtEmail"
-                    runat="server"
-                    Text=""
-                    TextMode="Email">
-                </asp:TextBox>
-            </asp:TableCell>
-        </asp:TableRow>
+
+    </asp:Table>
 
 
 
 
+    <asp:Table ID="Table3" runat="server">
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Label
@@ -278,7 +302,7 @@
 
             </asp:TableCell>
         </asp:TableRow>
-         <asp:TableRow>
+        <asp:TableRow>
             <asp:TableCell ColumnSpan="2">
                 <asp:Label ID="LblPCA" runat="server" Text="Primary Contact Address" Font-Bold="true"></asp:Label>
             </asp:TableCell>
@@ -346,10 +370,10 @@
                     runat="server"></asp:TextBox>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:Button ID="BtnAddAddress" 
-                    runat="server" 
-                    Text="Add Address" 
-                    OnClick="BtnAddAddress_Click" 
+                <asp:Button ID="BtnAddAddress"
+                    runat="server"
+                    Text="Add Address"
+                    OnClick="BtnAddAddress_Click"
                     CausesValidation="false" />
             </asp:TableCell>
         </asp:TableRow>

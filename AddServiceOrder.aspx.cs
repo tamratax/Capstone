@@ -81,9 +81,15 @@ namespace WalkerS_Lab1Part3
                     DdlServiceType.SelectedValue = DdlServiceType.Items.FindByText(Convert.ToString(dtForSelect.Rows[0]["ServiceType"]).Trim()).Value;
                     DdlServiceType_SelectedIndexChanged(sender, e);
                     TxtDestinationTime.Text = Convert.ToString(dtForSelect.Rows[0]["DestinationTime"]);
+                    ChkBoxLookAt.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["LookAtCB"]);
+                    ChkBoxLookAt_CheckedChanged(sender, e);
+                    TxtLookAtSchedule.Text = Convert.ToString(dtForSelect.Rows[0]["LookAtDate"]);
+                    TxtLookatScheduleTime.Text = Convert.ToString(dtForSelect.Rows[0]["LookAtTime"]);
+
                     ChkBxCleaning.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["CleaningCB"]);
                     ChkBxStorage.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["StorageCB"]); ;
-                    ChkBxTrashRemoval.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["TrashCB"]); ;
+                    ChkBxTrashRemoval.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["TrashCB"]);
+                    ChkBoxCompleted.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["Completed"]);
 
 
 
@@ -108,10 +114,10 @@ namespace WalkerS_Lab1Part3
                     //Fills data from editing customer's sql record into InitialConversation page
                     ddlCustomerList.SelectedValue = Convert.ToString(Session["Customer ID"]);
                     //TxtLastName.Text = Convert.ToString(dtForSelect.Rows[0]["LastName"]);
-                    TxtPhoneNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
-                    TxtCellPhone.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
-                    TxtWorkPhone.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
-                    TxtEmail.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
+                    LblHomeNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
+                    LblCellNumber.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
+                    LblWorkNumber.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
+                    LblEmailText.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
                 }
                 if (Session["ServiceTicketID"] != null)
                 {
@@ -133,10 +139,10 @@ namespace WalkerS_Lab1Part3
                     //Fills data from editing customer's sql record into InitialConversation page
                     ddlCustomerList.SelectedValue = custID;
                     //TxtLastName.Text = Convert.ToString(dtForSelect.Rows[0]["LastName"]);
-                    TxtPhoneNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
-                    TxtCellPhone.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
-                    TxtWorkPhone.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
-                    TxtEmail.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
+                    LblHomeNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
+                    LblCellNumber.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
+                    LblWorkNumber.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
+                    LblEmailText.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
                 }
 
             }
@@ -162,7 +168,7 @@ namespace WalkerS_Lab1Part3
             TxtCompletionDate.Text = "2021-09-07";
 
             DdlServiceType.SelectedIndex = 1;
-            TxtDestinationTime.Text = "9:00am";
+            TxtDestinationTime.Text = "09:00";
 
 
             //Reloads data to show Move fields
@@ -222,10 +228,10 @@ namespace WalkerS_Lab1Part3
             TxtPotentialTime.Text = "";
             DdlInitiatingEmp.SelectedIndex = -1;
             ddlCustomerList.SelectedIndex = -1;
-            TxtPhoneNumber.Text = "";
-            TxtCellPhone.Text = "";
-            TxtWorkPhone.Text = "";
-            TxtEmail.Text = "";
+            LblHomeNumber.Text = "";
+            LblCellNumber.Text = "";
+            LblWorkNumber.Text = "";
+            LblEmailText.Text = "";
             TxtStreet.Text = "";
             TxtCity.Text = "";
             TxtState.Text = "";
@@ -404,25 +410,34 @@ namespace WalkerS_Lab1Part3
 
         protected void ddlCustomerList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (ddlCustomerList.SelectedValue != "-1")
+            {
+                //Pulling in customer's record
+                String sqlQuery = "Select * from customer where customerid = " + ddlCustomerList.SelectedValue.ToString();
 
-            //Pulling in customer's record
-            String sqlQuery = "Select * from customer where customerid = " + ddlCustomerList.SelectedValue.ToString();
+                //Establishes the connection between our web form and database
+                SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
-            //Establishes the connection between our web form and database
-            SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+                //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
+                SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
 
-            //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
-            SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
+                //This creates a datatable and fills it
+                DataTable dtForSelect = new DataTable();
+                sqlAdapter.Fill(dtForSelect);
 
-            //This creates a datatable and fills it
-            DataTable dtForSelect = new DataTable();
-            sqlAdapter.Fill(dtForSelect);
-
-            //TxtLastName.Text = Convert.ToString(dtForSelect.Rows[0]["LastName"]);
-            TxtPhoneNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
-            TxtCellPhone.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
-            TxtWorkPhone.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
-            TxtEmail.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
+                //TxtLastName.Text = Convert.ToString(dtForSelect.Rows[0]["LastName"]);
+                LblHomeNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
+                LblCellNumber.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
+                LblWorkNumber.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
+                LblEmailText.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
+            }
+            else
+            {
+                LblHomeNumber.Text = "";
+                LblCellNumber.Text = "";
+                LblWorkNumber.Text = "";
+                LblEmailText.Text = "";
+            }
         }
 
         protected void BtnAddAddress_Click(object sender, EventArgs e)

@@ -123,22 +123,40 @@ namespace WalkerS_Lab1Part3
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvCustomerList;
 
         /// <summary>
-        /// LblPhoneNumber control.
+        /// Table4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblPhoneNumber;
+        protected global::System.Web.UI.WebControls.Table Table4;
 
         /// <summary>
-        /// TxtPhoneNumber control.
+        /// Table5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtPhoneNumber;
+        protected global::System.Web.UI.WebControls.Table Table5;
+
+        /// <summary>
+        /// LblHomePhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblHomePhone;
+
+        /// <summary>
+        /// LblHomeNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblHomeNumber;
 
         /// <summary>
         /// LblCellPhone control.
@@ -150,13 +168,13 @@ namespace WalkerS_Lab1Part3
         protected global::System.Web.UI.WebControls.Label LblCellPhone;
 
         /// <summary>
-        /// TxtCellPhone control.
+        /// LblCellNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtCellPhone;
+        protected global::System.Web.UI.WebControls.Label LblCellNumber;
 
         /// <summary>
         /// LblWorkPhone control.
@@ -168,13 +186,13 @@ namespace WalkerS_Lab1Part3
         protected global::System.Web.UI.WebControls.Label LblWorkPhone;
 
         /// <summary>
-        /// TxtWorkPhone control.
+        /// LblWorkNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtWorkPhone;
+        protected global::System.Web.UI.WebControls.Label LblWorkNumber;
 
         /// <summary>
         /// LblEmail control.
@@ -186,13 +204,22 @@ namespace WalkerS_Lab1Part3
         protected global::System.Web.UI.WebControls.Label LblEmail;
 
         /// <summary>
-        /// TxtEmail control.
+        /// LblEmailText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtEmail;
+        protected global::System.Web.UI.WebControls.Label LblEmailText;
+
+        /// <summary>
+        /// Table3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table Table3;
 
         /// <summary>
         /// LblServiceDate control.
