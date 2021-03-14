@@ -193,9 +193,9 @@ insert into Auction values ('Unassigned');
 insert into Auction values ('2021-02-26');
 insert into Auction values ('2021-03-05');
 
-insert into SERVICETICKET values (1, '2021-01-01','2021-02-25','08:00','2021-02-01', '2021-02-07', 'Move', '1:30pm', 'True', '2021-06-30', '14:30', 1, 1, 25,'True','True','True', 'False');
-insert into SERVICETICKET values (2, '2021-01-01','2021-02-25','12:00','2021-02-01', '2021-02-07', 'Auction', '1:30pm', 'True', '2021-06-30', '14:30', 2, 1, 50,'True','False','True', 'False');
-insert into SERVICETICKET values (3, '2021-01-01','2021-02-25','16:00','2021-02-01', '2021-02-07', 'Move', '1:30pm', 'True', '2021-06-30', '14:30', 3, 1, 75,'True','False','False', 'False');
+insert into SERVICETICKET values (1, '2021-01-01','2021-02-25','08:00','2021-02-01', '2021-02-07', 'Move', '13:30', 'True', '2021-06-30', '14:30', 1, 1, 25,'True','True','True', 'False');
+insert into SERVICETICKET values (2, '2021-01-01','2021-02-25','12:00','2021-02-01', '2021-02-07', 'Auction', '13:30', 'True', '2021-06-30', '14:30', 2, 1, 50,'True','False','True', 'False');
+insert into SERVICETICKET values (3, '2021-01-01','2021-02-25','16:00','2021-02-01', '2021-02-07', 'Move', '13:30', 'True', '2021-06-30', '14:30', 3, 1, 75,'True','False','False', 'False');
 
 
 insert into SERVICEREQUEST values ('Move', '2021-06-15', 'We have a lot of things to move this day and will need plenty of help!','Active', 1);
