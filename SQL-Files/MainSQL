@@ -67,6 +67,7 @@ create table SERVICETICKET (
 	ContactID		int references EMPLOYEE(EmployeeID),
 	InitiatingEmp	int references Employee(EmployeeID),
 	AuctionID		int references Auction(AuctionID),
+	Status_Service		int,
 	Completed		varchar(10)
 );
 
@@ -93,7 +94,6 @@ create table SERVICEREQUEST	(
 	ServiceDate		    varchar(20),
 	RequestDescription  varchar(500),
 	RequestStatus		varchar(10),
-	Status_Service		int,
 	CustomerID		int references Customer(CustomerID)
 );
 
@@ -150,13 +150,13 @@ insert into Auction values ('Unassigned');
 insert into Auction values ('2021-02-26');
 insert into Auction values ('2021-03-05');
 
-insert into SERVICETICKET values (1, 'In Progress', '2021-01-01','2021-02-01', 15.24, '2021-02-07', 'Move', '1:30pm', 18.56, 1.80, 'true', '2021-06-30', '2:30pm', null, 1, null, 0);
-insert into SERVICETICKET values (2, 'In Progress', '2021-01-01','2021-02-01', 15.24, '2021-02-07', 'Auction', '1:30pm', 18.56, 1.80, 'false', '', '', 1, 2, 1, 0);
-insert into SERVICETICKET values (3, 'In Progress', '2021-01-01','2021-02-01', 15.24, '2021-02-08', 'Move', '3:30pm', 20.56, 4.80, 'true', '2021-03-10', '10:00am', null, 3, null, 1);
+insert into SERVICETICKET values (1, 'In Progress', '2021-01-01','2021-02-01', 15.24, '2021-02-07', 'Move', '1:30pm', 18.56, 1.80, 'true', '2021-06-30', '2:30pm', null, 1, null, 25, 0);
+insert into SERVICETICKET values (2, 'In Progress', '2021-01-01','2021-02-01', 15.24, '2021-02-07', 'Auction', '1:30pm', 18.56, 1.80, 'false', '', '', 1, 2, 1, 50, 0);
+insert into SERVICETICKET values (3, 'In Progress', '2021-01-01','2021-02-01', 15.24, '2021-02-08', 'Move', '3:30pm', 20.56, 4.80, 'true', '2021-03-10', '10:00am', null, 3, null, 75, 1);
 
-insert into SERVICEREQUEST values ('Move', '2021-06-15', 'We have a lot of things to move this day and will need plenty of help!','Active', 25, 1);
-insert into SERVICEREQUEST values ('Auction', '2021-06-30', 'We want to sell all of our bowls!', 'Active', 50, 1);
-insert into SERVICEREQUEST values ('Move', '2021-01-31', 'Help us!', 'Active', 75, 1);
+insert into SERVICEREQUEST values ('Move', '2021-06-15', 'We have a lot of things to move this day and will need plenty of help!','Active', 1);
+insert into SERVICEREQUEST values ('Auction', '2021-06-30', 'We want to sell all of our bowls!', 'Active', 1);
+insert into SERVICEREQUEST values ('Move', '2021-01-31', 'Help us!', 'Active', 1);
 
 
 insert into Address values (null, 1, 'street', 'city','state ', '123', 'description');
