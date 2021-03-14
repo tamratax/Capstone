@@ -1,5 +1,5 @@
 --drop table address;
-drop table PotentialDateTime;
+--drop table PotentialDateTime;
 --drop table tickethistory;
 --drop table assignment;
 --drop table equipment;
