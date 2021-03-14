@@ -13,10 +13,57 @@
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:Label ID="LblName" runat="server" Text="Name: "></asp:Label>
+                <asp:Label
+                    ID="LblFirstName"
+                    runat="server"
+                    Text="First Name:">
+                </asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox ID="TxtName" runat="server"></asp:TextBox>
+                <asp:TextBox
+                    ID="TxtFirstName"
+                    runat="server"
+                    Text="">
+                </asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:RequiredFieldValidator
+                    ID="RfvFirstName"
+                    runat="server"
+                    ErrorMessage="RequiredFieldValidator"
+                    ControlToValidate="TxtFirstName"
+                    Text="This Field Is Required"
+                    ForeColor="Red"
+                    SetFocusOnError="true"
+                    ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
+            </asp:TableCell>
+        </asp:TableRow>
+
+        <asp:TableRow>
+            <asp:TableCell>
+
+                <asp:Label
+                    ID="LblLastName"
+                    runat="server"
+                    Text="Last Name:"></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox
+                    ID="TxtLastName"
+                    runat="server"
+                    Text="">
+                </asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:RequiredFieldValidator
+                    ID="RfvLastName"
+                    runat="server"
+                    ErrorMessage="RequiredFieldValidator"
+                    ControlToValidate="TxtLastName"
+                    Text="This Field Is Required"
+                    ForeColor="Red"
+                    SetFocusOnError="true"
+                    ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
             </asp:TableCell>
         </asp:TableRow>
               <asp:TableRow>
