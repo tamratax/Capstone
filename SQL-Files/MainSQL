@@ -128,7 +128,7 @@ create table TICKETHISTORY (
 );
 
 CREATE TABLE WAREHOUSE (
-	[WarehouseID] [int] IDENTITY(1,1) NOT NULL, primary key,
+	[WarehouseID] [int] IDENTITY(1,1) NOT NULL primary key,
 	[Date] [date] NULL,
 	[Lot] [varchar](50) NULL,
 	[Control] [nvarchar](50) NULL,
