@@ -257,6 +257,20 @@
                         runat="server"
                         Text=""></asp:Label>
                 </asp:TableCell>
+                    </asp:TableRow>
+                <asp:TableRow >
+                    <asp:TableCell>
+                        <asp:Button ID="BtnPopulate" 
+                            runat="server" 
+                            Text="Populate"
+                            onclick="BtnPopulate_Click"/>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Button ID="BtnClear"
+                            runat="server" 
+                            Text="Clear" 
+                            onclick="BtnClear_Click"/>
+                    </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
         </div>

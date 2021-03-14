@@ -133,5 +133,36 @@ namespace Lab3
         {
             Response.Redirect("CustomerPortal.aspx");
         }
+
+        protected void BtnPopulate_Click(object sender, EventArgs e)
+        {
+            TxtEmail.Text = "bradyT@Gmail.com";
+            TxtPassword.Text = "dukedog";
+            TxtFirstName.Text = "Tom";
+            TxtLastName.Text = "Brady";
+            TxtStreetAddress.Text = "155 Tampa Street";
+            TxtCity.Text = "Harrisonburg";
+            TxtState.Text = "Virginia";
+            TxtPhoneNumber.Text = "5405228558";
+            TxtCellPhone.Text = "5405201010";
+            TxtWorkPhone.Text = "5404252754";
+
+            
+        }
+
+        protected void BtnClear_Click(object sender, EventArgs e)
+        {
+            TxtEmail.Text = "";
+            TxtPassword.Text = "";
+            TxtFirstName.Text = "";
+            TxtLastName.Text = "";
+            TxtStreetAddress.Text = "";
+            TxtCity.Text = "";
+            TxtState.Text = "";
+            TxtPhoneNumber.Text = "";
+            TxtCellPhone.Text = "";
+            TxtWorkPhone.Text = "";
+
+        }
     }
 }
