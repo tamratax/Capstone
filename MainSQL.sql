@@ -1,15 +1,16 @@
-drop table warehouse;
-drop table address;
-drop table tickethistory;
-drop table assignment;
-drop table equipment;
-drop table inventory;
-drop table ServiceRequest;
-drop table serviceticket;
-drop table auction;
-drop table Customer;
-drop table employee;
-
+--drop table auctionInventory;
+--drop table warehouse;
+--drop table address;
+--drop table PotentialDateTime;
+--drop table tickethistory;
+--drop table assignment;
+--drop table equipment;
+--drop table inventory;
+--drop table ServiceRequest;
+--drop table serviceticket;
+--drop table auction;
+--drop table Customer;
+--drop table employee;
 
 
 --Create tables in database
@@ -84,6 +85,15 @@ Zip		varchar(20),
 Description		varchar(200)
 )
 
+Create table PotentialDateTime(
+PotentialDateTimeID int identity (1, 1) Primary Key,
+ServiceTicketID		int references SERVICETICKET (ServiceTicketID),
+CustomerID		int references Customer(CustomerID),
+PotentialDate	varchar(255),
+PotentialTime		varchar(255),
+Description		varchar(200)
+)
+
 
 
 
@@ -105,7 +115,8 @@ create table INVENTORY (
 	ItemName varchar(50),
 	ItemDescription	varchar(255),
 	ItemCost		float,
-	Quantity int
+	Quantity int,
+	AddedDate		varchar(255)
 );
 
 create table EQUIPMENT (
@@ -129,41 +140,44 @@ create table TICKETHISTORY (
 	EmployeeID	int references Employee(EmployeeID)
 );
 
-CREATE TABLE WAREHOUSE (
-	[WarehouseID] [int] IDENTITY(1,1) NOT NULL primary key,
-	[Date] [date] NULL,
-	[Lot] [varchar](50) NULL,
-	[Control] [nvarchar](50) NULL,
-	[Description] [varchar](max) NULL,
-	[Quantity] [int] NULL,
-	[ItemID] [int] NULL,
-	[CustomerID] [int] NULL,
+CREATE TABLE WAREHOUSE(
+	WarehouseID int IDENTITY(1,1) NOT NULL primary key,
+	Date date NULL,
+	Lot varchar(50) NULL,
+	Control nvarchar(50) NULL,
+	Description varchar(max) NULL,
+	Quantity int NULL,
+	ItemID int NULL,
+	CustomerID int NULL,
 	);
 
+	
 Create Table AUCTIONINVENTORY(
 	AuctionInventoryID int not null identity(1, 1) primary key,
 	ItemTransportationType varchar(20),
-	Name				varchar(20),
-	CellPhone			varchar(15),
-	WorkPhone			varchar(15),
-	HomePhone			varchar(15),
-	StreetAddress		varchar(100),
-	City				varchar(50),
-	State				varchar(50),
-	ZipCode				varchar(20),
+	AddOn				varchar(200),
+	BringInDate			varchar(200),
+	CloseOutDate		varchar(200),
+	PickupDate			varchar(200),
+	PickupTime			varchar(200),
+	LeaveAt				varchar(200),
+	AuctionNotes		varchar(200),
+	ServiceTicketID	int references SERVICETICKET(ServiceTicketID)
 );
+
+
 
 ---------------------------------------------
 --Adding data to database--
 ---------------------------------------------
 
 insert into EMPLOYEE values ('Jack', 'Frost');
-insert into EMPLOYEE values ('Professor','Ezell');
+insert into EMPLOYEE values ('Professor', 'Ezell');
 insert into EMPLOYEE values ('Camille', 'Wood');
 
-insert into CUSTOMER values ('Aaron', 'Walsh', '1234567822','123456789', '123456789','walsh@dukes.com',  'Item', 'What'   ,'true','false','true', 'false', 'false','false', 'pick up' , 'phone','poster','2021-03-07', '2021-03-07','2021-03-07',1,'notes','false' );
-insert into CUSTOMER values ('Jared', 'Clatterbuck', '1234567890','', '','Clat@dukes.com',  '40', 'Collectibles and furniture','true','false','true', 'true', 'false','false', 'drop-off', 'email','advert','2021-03-13', '2021-04-21','2021-04-30', 2, 'They have a pretty long driveway','false' );
-insert into CUSTOMER values ('Stu', 'Guy', '','', '1234567890','Guy@dukes.com',  '400', 'juiceboxes','true','true','true', 'true', 'false','false', 'drop-off', 'smokesignals','poster','2021-03-13', '2021-04-21','2021-04-30',1,'Really annoying to speak with','false' );
+insert into CUSTOMER values ('Aaron', 'Walsh', '1234567822','123456789', '123456789','walsh@dukes.com',  'Item', 'What', 'True', 'False', 'True', 'False', 'False','False', 'pick up' , 'phone','poster','2021-03-07', '2021-03-07','2021-03-07',1,'notes','False' );
+insert into CUSTOMER values ('Jared', 'Clatterbuck', '1234567890','', '','Clat@dukes.com',  '40', 'Collectibles and furniture','True','False','True', 'True', 'False','False', 'drop-off', 'email','advert','2021-03-13', '2021-04-21','2021-04-30', 2, 'They have a pretty long driveway','False' );
+insert into CUSTOMER values ('Stu', 'Guy', '','', '1234567890','Guy@dukes.com',  '400', 'juiceboxes','True','True','True', 'True', 'False','False', 'drop-off', 'smokesignals','poster','2021-03-13', '2021-04-21','2021-04-30',1,'Really annoying to speak with','False' );
 
 insert into EQUIPMENT values ('Pickup Truck #1');
 insert into EQUIPMENT values ('Pickup Truck #2');
@@ -175,9 +189,9 @@ insert into Auction values ('Unassigned');
 insert into Auction values ('2021-02-26');
 insert into Auction values ('2021-03-05');
 
-insert into SERVICETICKET values (1, '2021-01-01','2021-02-25','4:00pm','2021-02-01', '2021-02-07', 'Move', '1:30pm', 'true', '2021-06-30', '2:30pm', 1, 1, 25,'true','true','true', 0);
-insert into SERVICETICKET values (2, '2021-01-01','2021-02-25','4:00pm','2021-02-01', '2021-02-07', 'Auction', '1:30pm', 'true', '2021-06-30', '2:30pm', 2, 1, 50,'true','false','true', 0);
-insert into SERVICETICKET values (3, '2021-01-01','2021-02-25','4:00pm','2021-02-01', '2021-02-07', 'Move', '1:30pm', 'true', '2021-06-30', '2:30pm', 3, 1, 75,'true','false','false', 0);
+insert into SERVICETICKET values (1, '2021-01-01','2021-02-25','08:00','2021-02-01', '2021-02-07', 'Move', '13:30', 'True', '2021-06-30', '14:30', 1, 1, 25,'True','True','True', 'False');
+insert into SERVICETICKET values (2, '2021-01-01','2021-02-25','12:00','2021-02-01', '2021-02-07', 'Auction', '13:30', 'True', '2021-06-30', '14:30', 2, 1, 50,'True','False','True', 'False');
+insert into SERVICETICKET values (3, '2021-01-01','2021-02-25','16:00','2021-02-01', '2021-02-07', 'Move', '13:30', 'True', '2021-06-30', '14:30', 3, 1, 75,'True','False','False', 'False');
 
 
 insert into SERVICEREQUEST values ('Move', '2021-06-15', 'We have a lot of things to move this day and will need plenty of help!','Active', 1);

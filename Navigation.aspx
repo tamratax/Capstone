@@ -65,6 +65,11 @@
                         Text="Move Inventory"
                         onclick="BtnMoveInvt_Click"/>
 
+                    <asp:Button ID="BtnCompletion" 
+                        runat="server" 
+                        Text="Move Inventory"
+                        OnClick="BtnCompletion_Click"/>
+
                 </fieldset>
             </asp:TableCell>
         </asp:TableRow>
