@@ -127,7 +127,7 @@ create table TICKETHISTORY (
 	EmployeeID	int references Employee(EmployeeID)
 );
 
-CREATE TABLE [dbo].[WAREHOUSE](
+CREATE TABLE WAREHOUSE (
 	[WarehouseID] [int] IDENTITY(1,1) NOT NULL, primary key,
 	[Date] [date] NULL,
 	[Lot] [varchar](50) NULL,
