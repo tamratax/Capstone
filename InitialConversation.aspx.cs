@@ -51,9 +51,9 @@ namespace WalkerS_Lab1Part3
                     //Fills data from editing customer's sql record into InitialConversation page
                     TxtFirstName.Text = Convert.ToString(dtForSelect.Rows[0]["FirstName"]);
                     TxtLastName.Text = Convert.ToString(dtForSelect.Rows[0]["LastName"]);
-                    TxtPhoneNumber.Text = Convert.ToString(dtForSelect.Rows[0]["Phone"]);
-                    TxtCellPhone.Text = Convert.ToString(dtForSelect.Rows[0]["Phone"]);
-                    TxtWorkPhone.Text = Convert.ToString(dtForSelect.Rows[0]["Phone"]);
+                    TxtPhoneNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
+                    TxtCellPhone.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
+                    TxtWorkPhone.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
                     TxtEmail.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
 
                     //TxtDestinationStreet.Text = Convert.ToString(dtForSelect.Rows[0]["DestinationStreet"]);
@@ -64,16 +64,16 @@ namespace WalkerS_Lab1Part3
                     string[] arrayInitialContact = new string[] { "In-Person", "By Phone", "Email", "Text" };
 
                     //Checks to see if item is in the dropdown list items from array
-                    if (arrayInitialContact.Contains(Convert.ToString(dtForSelect.Rows[0]["InitialContact"])))
+                    if (arrayInitialContact.Contains(Convert.ToString(dtForSelect.Rows[0]["PreferredContact"])))
                     {
-                        DdlInitialContact.SelectedValue = DdlInitialContact.Items.FindByText(Convert.ToString(dtForSelect.Rows[0]["InitialContact"])).Value;
+                        DdlInitialContact.SelectedValue = DdlInitialContact.Items.FindByText(Convert.ToString(dtForSelect.Rows[0]["PreferredContact"])).Value;
                         DdlInitialContact_SelectedIndexChanged(sender, e);
                     }
                     //Checks to see if it is other since it is not in the array and is not blank (i.e. Carrier Pigeon)
-                    else if (Convert.ToString(dtForSelect.Rows[0]["InitialContact"]) != "")
+                    else if (Convert.ToString(dtForSelect.Rows[0]["PreferredContact"]) != "")
                     {
                         DdlInitialContact.SelectedValue = "4";
-                        TxtOther.Text = Convert.ToString(dtForSelect.Rows[0]["InitialContact"]);
+                        TxtOther.Text = Convert.ToString(dtForSelect.Rows[0]["PreferredContact"]);
                         DdlInitialContact_SelectedIndexChanged(sender, e);
                     }
 
