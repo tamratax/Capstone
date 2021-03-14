@@ -25,8 +25,8 @@ namespace Lab2
         {
             //Shows whole service table in gridview for moves
             String sqlQueryMove = "select c.FirstName + ' ' + c.lastname 'Customer Name', ";
-            sqlQueryMove += "TicketStatus as 'Ticket Status', TicketOpenDate as 'Ticket Open Date', ServiceDate as 'Service Date', ServiceCost as 'Service Cost', CompletionDate as 'Completion Date', ServiceType as 'Type', ";
-            sqlQueryMove += "DestinationTime as 'Destination Time', GasExpense as 'Gas Expense', MiscExpense as 'Misc Expense', EmpFirstName + ' ' + EmpLastName 'Initiating Employee' ";
+            sqlQueryMove += "TicketOpenDate as 'Ticket Open Date', ServiceDate as 'Service Date', CompletionDate as 'Completion Date', ServiceType as 'Type', ";
+            sqlQueryMove += "DestinationTime as 'Destination Time', EmpFirstName + ' ' + EmpLastName 'Initiating Employee' ";
             sqlQueryMove += "from customer c join SERVICETICKET st on c.CustomerID = st.CustomerID join EMPLOYEE e on e.employeeid = st.InitiatingEmp ";
             sqlQueryMove += "where servicetype = 'Move' ";
 
@@ -44,11 +44,11 @@ namespace Lab2
 
             //Shows whole service table in gridview for Auction
             String sqlQueryAuction = "select c.FirstName + ' ' + c.lastname 'Customer Name', ";
-            sqlQueryAuction += "TicketStatus as 'Ticket Status', TicketOpenDate as 'Ticket Open Date', ServiceDate as 'Service Date', AuctionDate as 'Auction Date', ServiceCost as 'Service Cost', CompletionDate as 'Completion Date', ServiceType as 'Service Type', ";
+            sqlQueryAuction += "TicketOpenDate as 'Ticket Open Date', ServiceDate as 'Service Date', AuctionDate as 'Auction Date', CompletionDate as 'Completion Date', ServiceType as 'Service Type', ";
             sqlQueryAuction += "e2.EmpFirstName + ' ' + e2.EmpLastName 'Auction Contact', ";
             sqlQueryAuction += "e.EmpFirstName + ' ' + e.EmpLastName 'Initiating Employee'  ";
             sqlQueryAuction += "from customer c join SERVICETICKET st on c.CustomerID = st.CustomerID ";
-            sqlQueryAuction += "join EMPLOYEE e on e.employeeid = st.InitiatingEmp join EMPLOYEE e2 on e2.employeeid = st.ContactID join AUCTION on Auction.AuctionID = st.AuctionID ";
+            sqlQueryAuction += "join EMPLOYEE e on e.employeeid = st.InitiatingEmp join EMPLOYEE e2 on e2.employeeid = st.InitiatingEmp join AUCTION on Auction.AuctionID = st.AuctionID ";
             sqlQueryAuction += "where servicetype = 'Auction'";
 
 
@@ -122,7 +122,7 @@ namespace Lab2
 
 
                 //Updates Inventory details in gridview
-                String sqlQuery3 = "select ItemDescription as 'Item Description', ItemCost as 'Item Cost', ItemDate as 'Item Date' from Inventory ";
+                String sqlQuery3 = "select ItemDescription as 'Item Description', ItemCost as 'Item Cost' from Inventory ";
                 sqlQuery3 += "join ServiceTicket st on inventory.ServiceTicketID = st.ServiceTicketID ";
                 sqlQuery3 += "where st.ServiceTicketID = " + DdlServiceList.SelectedValue;
 
@@ -190,8 +190,8 @@ namespace Lab2
 
                 //Shows whole service table in gridview for moves
                 String sqlQueryMove = "select c.FirstName + ' ' + c.lastname 'Customer Name', ";
-                sqlQueryMove += "TicketStatus as 'Ticket Status', TicketOpenDate as 'Ticket Open Date', ServiceDate as 'Service Date', ServiceCost as 'Service Cost', CompletionDate as 'Completion Date', ServiceType 'Type', ";
-                sqlQueryMove += "DestinationTime as 'Destination Time', GasExpense as 'Gas Expense', MiscExpense as 'Misc Expense', EmpFirstName + ' ' + EmpLastName 'Initiating Employee' ";
+                sqlQueryMove += "TicketOpenDate as 'Ticket Open Date', ServiceDate as 'Service Date', CompletionDate as 'Completion Date', ServiceType 'Type', ";
+                sqlQueryMove += "DestinationTime as 'Destination Time', EmpFirstName + ' ' + EmpLastName 'Initiating Employee' ";
                 sqlQueryMove += "from customer c join SERVICETICKET st on c.CustomerID = st.CustomerID join EMPLOYEE e on e.employeeid = st.InitiatingEmp ";
                 sqlQueryMove += "where servicetype = 'Move' and c.CustomerID = " + DdlCustomerList.SelectedValue;
 
@@ -209,11 +209,11 @@ namespace Lab2
 
                 //Shows whole service table in gridview for Auction
                 String sqlQueryAuction = "select c.FirstName + ' ' + c.lastname 'Customer Name', ";
-                sqlQueryAuction += "TicketStatus as 'Ticket Status', TicketOpenDate as 'Ticket Open Date', ServiceDate as 'Service Date', AuctionDate as 'Auction Date', ServiceCost as 'Service Cost', CompletionDate as 'Completion Date', ServiceType as 'Service Type', ";
+                sqlQueryAuction += "TicketOpenDate as 'Ticket Open Date', ServiceDate as 'Service Date', AuctionDate as 'Auction Date', CompletionDate as 'Completion Date', ServiceType as 'Service Type', ";
                 sqlQueryAuction += "e2.EmpFirstName + ' ' + e2.EmpLastName 'Auction Contact', ";
                 sqlQueryAuction += "e.EmpFirstName + ' ' + e.EmpLastName 'Initiating Employee'  ";
                 sqlQueryAuction += "from customer c join SERVICETICKET st on c.CustomerID = st.CustomerID  join AUCTION on Auction.AuctionID = st.AuctionID ";
-                sqlQueryAuction += "join EMPLOYEE e on e.employeeid = st.InitiatingEmp join EMPLOYEE e2 on e2.employeeid = st.ContactID ";
+                sqlQueryAuction += "join EMPLOYEE e on e.employeeid = st.InitiatingEmp join EMPLOYEE e2 on e2.employeeid = st.InitiatingEmp ";
                 sqlQueryAuction += "where servicetype = 'Auction' and c.CustomerID = " + DdlCustomerList.SelectedValue;
 
 

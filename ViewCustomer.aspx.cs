@@ -24,8 +24,12 @@ namespace WalkerS_Lab1Part3
         {
             //This query selects everything from customer
             String sqlQuery = "Select FirstName + ' ' + LastName as 'Name', ";
-            sqlQuery += "phone as 'Phone', PhoneType as 'Phone Type', email as 'Email', ";
-            sqlQuery += "InterestedIn as 'Interested In', OriginStreet + ' ' + OriginCity + ' ' + OriginState as 'Origin Address', DestinationStreet + ' ' + DestinationCity + ' ' + DestinationState as 'Destination Address', InitialContact as 'Initial Contact', ReferralChannel as 'Referral Channel', TotalEarnings as 'Total Earnings', DateContacted as 'Date Contacted', DeadlineStart as 'Deadline Start', DeadlineEnd as 'Deadline End' from Customer";
+            sqlQuery += "cellphone as 'Cell Phone', workphone as 'Work Phone', homephone as 'Home Phone', " +
+                "PreferredContact as 'Preferred Contact', email as 'Email', ";
+            sqlQuery += "Street + ' ' + City + ' ' + State + ' ' + Zip + ' ' as 'Origin Address'," +
+                "ReferralChannel as 'Referral Channel', " +
+                "DateContacted as 'Date Contacted', DeadlineStart as 'Deadline Start', DeadlineEnd as 'Deadline End' from Customer, Address " +
+                "where Customer.CustomerID = Address.CustomerID";
             
 
             //Establishes the connection between our web form and database
@@ -65,9 +69,10 @@ namespace WalkerS_Lab1Part3
                 //Selects First Name, Last Name, Phone, Email, Street, City, State and Total Customers from Customer Table
                 //Where the CustomerID matches up with the selection from the drop down list
                 String sqlQuery = "Select FirstName + ' ' + LastName as 'Name', ";
-                sqlQuery += "phone as 'Phone', PhoneType as 'Phone Type', email as 'Email', ";
-                sqlQuery += "InterestedIn as 'Interested In', OriginStreet + ' ' + OriginCity + ' ' + OriginState as 'Origin Address', DestinationStreet + ' ' + DestinationCity + ' ' + DestinationState as 'Destination Address', InitialContact as 'Initial Contact', ReferralChannel as 'Referral Channel', TotalEarnings as 'Total Earnings', DateContacted as 'Date Contacted', DeadlineStart as 'Deadline Start', DeadlineEnd as 'Deadline End' from Customer ";
-                sqlQuery += "where Customer.CustomerID = " + ddlCustomerList.SelectedValue;
+                sqlQuery += "cellphone as 'Cell Phone', workphone as 'Work Phone', homephone as 'Home Phone', PreferredContact as 'Preferred Contact', email as 'Email', ";
+                sqlQuery += "Street + ' ' + City + ' ' + State + ' ' + Zip + ' ' as 'Origin Address', ReferralChannel as 'Referral Channel', " +
+                    "DateContacted as 'Date Contacted', DeadlineStart as 'Deadline Start', DeadlineEnd as 'Deadline End' from Customer, Address ";
+                sqlQuery += "where Customer.CustomerID = Address.CustomerID AND Customer.CustomerID = " + ddlCustomerList.SelectedValue;
 
                 //Establishes the connection between our web form and database
                 SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
