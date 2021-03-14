@@ -76,7 +76,7 @@ namespace WalkerS_Lab1Part3
         //Navigates to BtnAddServices Web form after button is clicked
         protected void BtnAddServicePage_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AddServiceOrderAddService.aspx");
+            Response.Redirect("AddServiceOrder.aspx");
         }
 
         protected void BtnViewNotes_Click(object sender, EventArgs e)
