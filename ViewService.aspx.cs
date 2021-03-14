@@ -88,6 +88,43 @@ namespace Lab2
             //if Select is not selected...
             if (DdlServiceList.SelectedValue != "-1")
             {
+                //Deals with status bar of service ticket
+
+                String sqlQueryBar = "select status_service from serviceticket where serviceticketID = " + DdlServiceList.SelectedValue.ToString();
+
+            SqlConnection sqlConnectBar = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+
+            SqlDataAdapter sqlAdapterBar = new SqlDataAdapter(sqlQueryBar, sqlConnectBar);
+
+            DataTable dtForGridViewBar = new DataTable();
+            sqlAdapterBar.Fill(dtForGridViewBar);
+            int Status_Service = Convert.ToInt32(dtForGridViewBar.Rows[0]["Status_Service"]);
+
+            divStatus.Style.Value = "background-color:Green;width:" + Status_Service + "%;";
+            String StatusStep = "";
+            switch (Status_Service)
+            {
+                case 15:
+                    StatusStep = "Order Form in Progress";
+                    break;
+                case 25:
+                    StatusStep = "Order Form Complete";
+                    break;
+                case 50:
+                    StatusStep = "Scheduling Set";
+                    break;
+                case 75:
+                    StatusStep = "Order In Progress";
+                    break;
+                case 100:
+                    StatusStep = "Service Completed";
+                    break;
+            }
+
+            StatusPercent.Text = "[" + Status_Service.ToString() + "%] " + StatusStep;
+
+
+            
                 //updates Employee details in gridview
                 String sqlQuery1 = "select EmpFirstName + ' ' + EmpLastName as EmployeeName, ";
                 sqlQuery1 += "TicketChangeDate as 'Ticket Change Date' from employee emp join tickethistory th on emp.EmployeeID = th.EmployeeID ";
@@ -158,6 +195,8 @@ namespace Lab2
                 LstBoxNoteSelect.DataSource = dtForListBox;
                 LstBoxNoteSelect.DataBind();
 
+
+
             }
             else
             {
@@ -165,6 +204,8 @@ namespace Lab2
                 GrdEmployeeResults.Visible = false;
                 GrdEquipmentResults.Visible = false;
                 GrdInventory.Visible = false;
+                StatusPercent.Text = "";
+                divStatus.Style.Value = "background-color:Green;width:0%;";
             }
         }
         protected void DdlCustomerList_DataBound(object sender, EventArgs e)
@@ -181,6 +222,9 @@ namespace Lab2
 
         protected void DdlCustomerList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            StatusPercent.Text = "";
+            divStatus.Style.Value = "background-color:Green;width:0%;";
+
             if (DdlCustomerList.SelectedValue != "-1")
             {
                 //hides gridboxes if you select "select" on the dropdownlist
@@ -255,6 +299,10 @@ namespace Lab2
                 //hides gridbox if you select "select" on the dropdownlist
                 GrdMoveResults.Visible = false;
                 GrdAuctionResults.Visible = false;
+                DdlServiceList.SelectedValue = "-1";
+                DdlServiceList_SelectedIndexChanged(sender, e);
+                DdlServiceList.Items.Clear();
+                LstBoxNoteSelect.Items.Clear();
             }
 
 

@@ -268,9 +268,13 @@ namespace WalkerS_Lab1Part3
             String sqlQuery = "";
             if (Session["ServiceTicketID"] != null)
             {
-
+                int status = 15;
+                if (ChkBoxCompleted.Checked)
+                {
+                    status = 25;
+                }
                 //Concatenate Sql Query Update Statements
-                sqlQuery = "UPDATE ServiceTicket SET CustomerID = @CustomerID, PotentialDate = @PotentialDate, PotentialTime = @PotentialTime, ServiceDate = @ServiceDate, CompletionDate = @CompletionDate, ServiceType = @ServiceType, DestinationTime = @DestinationTime, LookAtCB = @LookAtCB, LookAtDate = @LookAtDate, LookAtTime = @LookAtTime, InitiatingEmp = @InitiatingEmp, StorageCB = @StorageCB, CleaningCB = @CleaningCB, TrashCB = @TrashCB, Completed = @Completed WHERE ServiceTicketID = " + Session["ServiceTicketID"].ToString();
+                sqlQuery = "UPDATE ServiceTicket SET CustomerID = @CustomerID, PotentialDate = @PotentialDate, PotentialTime = @PotentialTime, ServiceDate = @ServiceDate, CompletionDate = @CompletionDate, ServiceType = @ServiceType, DestinationTime = @DestinationTime, LookAtCB = @LookAtCB, LookAtDate = @LookAtDate, LookAtTime = @LookAtTime, InitiatingEmp = @InitiatingEmp, StorageCB = @StorageCB, CleaningCB = @CleaningCB, TrashCB = @TrashCB, Status_Service = "+ status +", Completed = @Completed WHERE ServiceTicketID = " + Session["ServiceTicketID"].ToString();
 
                 //Define the Connection to the Database
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -314,7 +318,7 @@ namespace WalkerS_Lab1Part3
             else
             {
                 //Inserts service order
-                sqlQuery = "insert into ServiceTicket values (@CustomerID, '" + System.DateTime.Today.ToString("yyyy-MM-dd") + "', @PotentialDate, @PotentialTime, @ServiceDate,  @CompletionDate, @ServiceType, @DestinationTime,@LookAtCB,@LookAtDate,@LookAtTime,@InitiatingEmp, 1, 25, @StorageCB, @CleaningCB, @TrashCB , @Completed)";
+                sqlQuery = "insert into ServiceTicket values (@CustomerID, '" + System.DateTime.Today.ToString("yyyy-MM-dd") + "', @PotentialDate, @PotentialTime, @ServiceDate,  @CompletionDate, @ServiceType, @DestinationTime,@LookAtCB,@LookAtDate,@LookAtTime,@InitiatingEmp, 1, 15, @StorageCB, @CleaningCB, @TrashCB , @Completed)";
 
                 //Define the Connection to the Database
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
