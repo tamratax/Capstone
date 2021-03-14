@@ -185,7 +185,7 @@
      <asp:SqlDataSource ID="dtasrcItems"
         runat="server"
         ConnectionString="<%$ConnectionStrings:Lab3%>"
-        SelectCommand="SELECT WAREHOUSE.WarehouseID, WAREHOUSE.Date, WAREHOUSE.Lot, WAREHOUSE.Control, WAREHOUSE.Description, WAREHOUSE.Quantity, INVENTORY.ItemName, FirstName + ' ' + LastName as CustomerName FROM Inventory, Warehouse WHERE WAREHOUSE.ItemID = INVENTORY.ItemID AND WAREHOUSE.CustomerID = CUSTOMER.CustomerID "
+        SelectCommand="SELECT WAREHOUSE.WarehouseID, WAREHOUSE.Date, WAREHOUSE.Lot, WAREHOUSE.Control, WAREHOUSE.Description, WAREHOUSE.Quantity, INVENTORY.ItemName, CUSTOMER.FirstName + ' ' + CUSTOMER.LastName as CustomerName FROM Inventory, Warehouse, Customer WHERE WAREHOUSE.ItemID = INVENTORY.ItemID AND WAREHOUSE.CustomerID = CUSTOMER.CustomerID "
         DeleteCommand="DELETE WAREHOUSE where WarehouseID = @WarehouseID"
         UpdateCommand="UPDATE WAREHOUSE SET Date = @Date, Lot = @Lot, Control = @Control, Description = @Description, Quantity = @Quantity WHERE WarehouseID = @WarehouseID">
         <SelectParameters>
