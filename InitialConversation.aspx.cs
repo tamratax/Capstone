@@ -305,9 +305,55 @@ namespace WalkerS_Lab1Part3
                     queryResults.Close();
                     sqlConnect.Close();
 
+
                     LblSaveStatus.Text = "Customer Added Successfully";
                     LblSaveStatus.ForeColor = Color.Green;
 
+                    //Define the Connection to the Database
+                    SqlConnection sqlConnect2 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                    sqlConnect2.Open();
+                    int CustomerID;
+                    //Concatenate Sql Query Insert Statements
+                    String query2 = "Select CustomerID from Customer WHERE Email = @Email";
+                    SqlCommand command2 = new SqlCommand(query2, sqlConnect2);
+                    command2.Parameters.AddWithValue("@Email", HttpUtility.HtmlEncode(TxtEmail.Text));
+
+                    SqlDataReader sqlDataReader = command2.ExecuteReader();
+                    sqlDataReader.Read();
+                    CustomerID = sqlDataReader["CustomerID"].GetHashCode();
+                    sqlConnect2.Close();
+
+
+
+
+
+
+
+
+
+
+
+                    //Define the Connection to the Database
+                    SqlConnection sqlConnect3 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                    sqlConnect3.Open();
+
+                    //Concatenate Sql Query Insert Statements
+                    String query1 = "Insert into Address values(null, "+CustomerID+", @Street, @City, @State, @Zip, 'Primary Contact Address')";
+                    
+
+                    // Create the SQL Command object which will send the query
+                    SqlCommand sqlCommand1 = new SqlCommand();
+                    sqlCommand1.Connection = sqlConnect3;
+                    sqlCommand1.CommandType = CommandType.Text;
+                    sqlCommand1.CommandText = query1;
+                    sqlCommand1.Parameters.Add(new SqlParameter("@Street", HttpUtility.HtmlEncode(TxtStreet.Text)));
+                    sqlCommand1.Parameters.Add(new SqlParameter("@City", HttpUtility.HtmlEncode(TxtCity.Text)));
+                    sqlCommand1.Parameters.Add(new SqlParameter("@State", HttpUtility.HtmlEncode(TxtState.Text)));
+                    sqlCommand1.Parameters.Add(new SqlParameter("@Zip", HttpUtility.HtmlEncode(TxtZip.Text)));
+
+                    SqlDataReader queryResults2 = sqlCommand1.ExecuteReader();
+                    queryResults2.Close();
+                    sqlConnect3.Close();
                 }
 
             }
