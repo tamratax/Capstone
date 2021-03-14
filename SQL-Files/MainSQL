@@ -1,15 +1,14 @@
-drop table warehouse;
-drop table address;
-drop table tickethistory;
-drop table assignment;
-drop table equipment;
-drop table inventory;
-drop table ServiceRequest;
-drop table serviceticket;
-drop table auction;
-drop table Customer;
-drop table employee;
-
+--drop table address;
+drop table PotentialDateTime;
+--drop table tickethistory;
+--drop table assignment;
+--drop table equipment;
+--drop table inventory;
+--drop table ServiceRequest;
+--drop table serviceticket;
+--drop table auction;
+--drop table Customer;
+--drop table employee;
 
 
 --Create tables in database
@@ -84,6 +83,15 @@ Zip		varchar(20),
 Description		varchar(200)
 )
 
+Create table PotentialDateTime(
+PotentialDateTimeID int identity (1, 1) Primary Key,
+ServiceTicketID		int references SERVICETICKET (ServiceTicketID),
+CustomerID		int references Customer(CustomerID),
+PotentialDate	varchar(255),
+PotentialTime		varchar(255),
+Description		varchar(200)
+)
+
 
 
 
@@ -129,15 +137,15 @@ create table TICKETHISTORY (
 	EmployeeID	int references Employee(EmployeeID)
 );
 
-CREATE TABLE WAREHOUSE (
-	[WarehouseID] [int] IDENTITY(1,1) NOT NULL primary key,
-	[Date] [date] NULL,
-	[Lot] [varchar](50) NULL,
-	[Control] [nvarchar](50) NULL,
-	[Description] [varchar](max) NULL,
-	[Quantity] [int] NULL,
-	[ItemID] [int] NULL,
-	[CustomerID] [int] NULL,
+CREATE TABLE WAREHOUSE(
+	WarehouseID int IDENTITY(1,1) NOT NULL primary key,
+	Date date NULL,
+	Lot varchar(50) NULL,
+	Control nvarchar(50) NULL,
+	Description varchar(max) NULL,
+	Quantity int NULL,
+	ItemID int NULL,
+	CustomerID int NULL,
 	);
 
 
