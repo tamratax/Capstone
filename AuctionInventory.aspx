@@ -19,6 +19,18 @@
                     AutoPostBack="true">
                 </asp:DropDownList>
             </asp:TableCell>
+             <asp:TableCell>
+                <asp:RequiredFieldValidator
+                    ID="RfvCustomerList"
+                    runat="server"
+                    ErrorMessage="RequiredFieldValidator"
+                    ControlToValidate="DDLCust"
+                    Text="Please Choose A Valid Option"
+                    ForeColor="Red"
+                    SetFocusOnError="true"
+                    ValidationGroup="SaveGroup"
+                    InitialValue="-1"></asp:RequiredFieldValidator>
+            </asp:TableCell>
         </asp:TableRow>
             <%--  <asp:TableRow>
             <asp:TableCell>
@@ -71,6 +83,18 @@
                     OnSelectedIndexChange="DDLType_SelectedIndexChanged"
                     >
                 </asp:DropDownList>
+            </asp:TableCell>
+             <asp:TableCell>
+                <asp:RequiredFieldValidator
+                    ID="RfvSeriveTicket"
+                    runat="server"
+                    ErrorMessage="RequiredFieldValidator"
+                    ControlToValidate="DDLType"
+                    Text="Please Choose A Valid Option"
+                    ForeColor="Red"
+                    SetFocusOnError="true"
+                    ValidationGroup="SaveGroup"
+                    InitialValue="-1"></asp:RequiredFieldValidator>
             </asp:TableCell>
         </asp:TableRow>
          <asp:TableRow>
@@ -141,15 +165,12 @@
               
            <asp:TableRow>
                <asp:TableCell>
-                   <asp:Label ID="AddOnLbl" runat="server" Text="Add On:"></asp:Label>
+                   <asp:Label ID="AddOnLbl" runat="server" Text="Add On?"></asp:Label>
                </asp:TableCell>
             <asp:TableCell>
-                <asp:RadioButton ID="YesBtn" runat="server" Text="Yes"  GroupName="AddOn" />
+                <asp:CheckBox ID="ChkBoxAddOn" runat="server" />
             </asp:TableCell>
-            <asp:TableCell>
-               <asp:RadioButton ID="NoBtn" runat="server" Text="No" GroupName="AddOn"  />
-            </asp:TableCell>
-        </asp:TableRow>
+            </asp:TableRow>
 
 
         <asp:TableRow>

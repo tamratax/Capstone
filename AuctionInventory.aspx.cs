@@ -153,7 +153,7 @@ namespace Lab3
                 sqlConnect3.Open();
 
                 //Concatenate Sql Query Insert Statements
-                String query1 = "Insert into AuctionInventory values(@ItemTransportationType, @AddOn, @BringInDate, @CloseOutDate, @PickupDate, @PickupTime, @LeaveAt, @AuctionNotes)";
+                String query1 = "Insert into AuctionInventory values(@ItemTransportationType, @AddOn, @BringInDate, @CloseOutDate, @PickupDate, @PickupTime, @LeaveAt, @AuctionNotes, "+ DDLType.SelectedValue.ToString() + ")";
 
 
                 // Create the SQL Command object which will send the query
@@ -161,13 +161,35 @@ namespace Lab3
                 sqlCommand1.Connection = sqlConnect3;
                 sqlCommand1.CommandType = CommandType.Text;
                 sqlCommand1.CommandText = query1;
-                sqlCommand1.Parameters.Add(new SqlParameter("@ItemTransportationType", HttpUtility.HtmlEncode(YesBtn.Checked))); ////HOW TO DO WITH RADIO BUTTON
-                
+
+                String LookAtOrPickUp = "";
+                if (PickupBtn.Checked)
+                {
+                    LookAtOrPickUp = "Pick-Up";
+                }
+                else if (BringInBtn.Checked)
+                {
+                    LookAtOrPickUp = "Bring-In";
+                }
+
+                sqlCommand1.Parameters.Add(new SqlParameter("@ItemTransportationType", HttpUtility.HtmlEncode(LookAtOrPickUp)));
+                sqlCommand1.Parameters.Add(new SqlParameter("@AddOn", ChkBoxAddOn.Checked.ToString()));
+                sqlCommand1.Parameters.Add(new SqlParameter("@BringInDate", HttpUtility.HtmlEncode(TxtBringInDate.Text)));
+                sqlCommand1.Parameters.Add(new SqlParameter("@CloseOutDate", HttpUtility.HtmlEncode(TxtCloseOutDate.Text)));
+                sqlCommand1.Parameters.Add(new SqlParameter("@PickUpDate", HttpUtility.HtmlEncode(TxtDate.Text)));
+                sqlCommand1.Parameters.Add(new SqlParameter("@PickUpTime", HttpUtility.HtmlEncode(TxtTime.Text)));
+                sqlCommand1.Parameters.Add(new SqlParameter("@LeaveAt", HttpUtility.HtmlEncode(TxtLeaveAt.Text)));
+                sqlCommand1.Parameters.Add(new SqlParameter("@AuctionNotes", HttpUtility.HtmlEncode(TxtNotes.Text)));
+
 
 
                 SqlDataReader queryResults2 = sqlCommand1.ExecuteReader();
                 queryResults2.Close();
                 sqlConnect3.Close();
+
+                LblSaveStatus.Text = "Saved Customer Auction Inventory";
+                LblSaveStatus.ForeColor = Color.Green;
+
             }
             catch
             {
@@ -180,8 +202,7 @@ namespace Lab3
         {
             PickupBtn.Checked = false;
             BringInBtn.Checked = false;
-            YesBtn.Checked = false;
-            NoBtn.Checked = false;
+            ChkBoxAddOn.Checked = false;
             TxtBringInDate.Text = "";
             TxtCloseOutDate.Text = "";
             TxtDate.Text = "";
