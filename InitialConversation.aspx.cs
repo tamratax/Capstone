@@ -152,8 +152,8 @@ namespace WalkerS_Lab1Part3
 
         protected void BtnSave_Click(object sender, EventArgs e)
         {
-            //try
-            // {
+            try
+             {
             //Changes chkbox boolean into a 1 or 0 for inserting into db
             int completed;
             if (ChkBoxCompleted.Checked)
@@ -264,7 +264,7 @@ namespace WalkerS_Lab1Part3
                     }
                     //Concatenate Sql Query Insert Statements
                     String sqlQuery = "insert into CUSTOMER values (@FirstName, @LastName, @CellPhone, @WorkPhone, @HomePhone, @Email, @HowMany, @Descriptions, @Downsizing," +
-                        " @Estate, @MovingCB, @AuctionCB, @ConsignmentCB, @AppraisalCB, @ItemTransport, @InitialContact, @ReferralChannel, " + System.DateTime.Today.ToShortDateString() + ",  @DeadlineStart, @DeadlineEnd, @CustomerNotes, @Completed)";
+                        " @Estate, @MovingCB, @AuctionCB, @ConsignmentCB, @AppraisalCB, @ItemTransport, @InitialContact, @ReferralChannel, " + System.DateTime.Today.ToShortDateString() + ",  @DeadlineStart, @DeadlineEnd, @CompletedBy, @CustomerNotes, @Completed)";
                     //Define the Connection to the Database
                     SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -287,13 +287,12 @@ namespace WalkerS_Lab1Part3
                     sqlCommand.Parameters.Add(new SqlParameter("@AuctionCB", ChkBoxAuction.Checked.ToString()));
                     sqlCommand.Parameters.Add(new SqlParameter("@ConsignmentCB", ChkBoxConsignment.Checked.ToString()));
                     sqlCommand.Parameters.Add(new SqlParameter("@AppraisalCB", ChkBoxAppraisal.Checked.ToString()));
-
                     sqlCommand.Parameters.Add(new SqlParameter("@ItemTransport", DdlItemTransport.SelectedItem.Text));
                     sqlCommand.Parameters.Add(new SqlParameter("@InitialContact", initialContact));
                     sqlCommand.Parameters.Add(new SqlParameter("@ReferralChannel", HttpUtility.HtmlEncode(TxtReferral.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@DeadlineStart", HttpUtility.HtmlEncode(TxtDeadline.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@DeadlineEnd", HttpUtility.HtmlEncode(TxtDeadlineEnd.Text)));
-                    // sqlCommand.Parameters.Add(new SqlParameter("@CompletedBy", DdlCompletedByEmp.SelectedItem.Text));
+                    sqlCommand.Parameters.Add(new SqlParameter("@CompletedBy", DdlCompletedByEmp.SelectedItem.Value));
                     sqlCommand.Parameters.Add(new SqlParameter("@CustomerNotes", HttpUtility.HtmlEncode(TxtCustomerNotes.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@Completed", ChkBoxCompleted.Checked.ToString()));
 
@@ -357,12 +356,12 @@ namespace WalkerS_Lab1Part3
                 }
 
             }
-        //}
-           // catch
-           // {
-                //LblSaveStatus.Text = "Error Saving Customer, Check Data Fields";
-                //LblSaveStatus.ForeColor = Color.Red;
-            //}
+        }
+            catch
+            {
+                LblSaveStatus.Text = "Error Saving Customer, Check Data Fields";
+                LblSaveStatus.ForeColor = Color.Red;
+            }
         }
 
 
