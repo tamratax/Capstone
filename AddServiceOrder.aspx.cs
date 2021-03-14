@@ -240,6 +240,9 @@ namespace WalkerS_Lab1Part3
             TxtDestinationTime.Text = "";
             ChkBoxCompleted.Checked = false;
             LblRequestDescription.Text = "";
+            ChkBxCleaning.Checked = false;
+            ChkBxStorage.Checked = false;
+            ChkBxTrashRemoval.Checked = false;
 
             //Reloads data to hide move/auction fields
             DdlServiceType_SelectedIndexChanged(sender, e);
