@@ -21,10 +21,10 @@
         ID="TblAddCustomer"
         runat="server">
         <asp:TableRow>
-              <asp:TableCell ColumnSpan ="3">
-                <asp:Label 
+            <asp:TableCell ColumnSpan="3">
+                <asp:Label
                     ID="LblRequestDescription"
-                    runat="server" 
+                    runat="server"
                     Text=""
                     Font-Bold="true"
                     BackColor="Yellow"></asp:Label>
@@ -32,9 +32,9 @@
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:Label 
-                    ID="LblInitiatingEmp" 
-                    runat="server" 
+                <asp:Label
+                    ID="LblInitiatingEmp"
+                    runat="server"
                     Text="Initiating Employee:"></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
@@ -76,7 +76,8 @@
                     DataTextField="CustomerName"
                     DataValueField="CustomerID"
                     OnDataBound="ddlCustomerList_DataBound"
-                    AutoPostBack="true">
+                    AutoPostBack="true"
+                    OnSelectedIndexChanged="ddlCustomerList_SelectedIndexChanged">
                 </asp:DropDownList>
             </asp:TableCell>
             <asp:TableCell>
@@ -93,7 +94,7 @@
             </asp:TableCell>
         </asp:TableRow>
 
-         <asp:TableRow>
+        <asp:TableRow>
             <asp:TableCell>
                 <asp:Label
                     ID="LblPhoneNumber"
@@ -147,31 +148,7 @@
 
 
 
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label 
-                    ID="LblTicketStatus"
-                    runat="server" 
-                    Text="Ticket Status:"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox
-                    ID="TxtTicketStatus"
-                    runat="server">
-                </asp:TextBox>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:RequiredFieldValidator
-                    ID="RfvTicketStatus"
-                    runat="server"
-                    ErrorMessage="RequiredFieldValidator"
-                    ControlToValidate="TxtTicketStatus"
-                    Text="This Field Is Required"
-                    ForeColor="Red"
-                    SetFocusOnError="true"
-                    ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
-            </asp:TableCell>
-        </asp:TableRow>
+
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Label
@@ -226,8 +203,8 @@
                     SetFocusOnError="true"
                     ValidationGroup="SaveGroup"
                     Display="Dynamic"></asp:RequiredFieldValidator>
-                <asp:CompareValidator 
-                    ID="CvDateComapare" 
+                <asp:CompareValidator
+                    ID="CvDateComapare"
                     runat="server"
                     ErrorMessage="CompareValidator"
                     Display="Dynamic"
@@ -240,46 +217,7 @@
                     SetFocusOnError="true"
                     ValidationGroup="SaveGroup"></asp:CompareValidator>
             </asp:TableCell>
-            
-        </asp:TableRow>
 
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label
-                    ID="LblServiceCost"
-                    runat="server"
-                    Text="Service Cost:"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox
-                    ID="TxtServiceCost"
-                    runat="server"
-                    Text="">
-                </asp:TextBox>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:RequiredFieldValidator
-                    ID="rfvServiceCost"
-                    runat="server"
-                    ErrorMessage="RequiredFieldValidator"
-                    ControlToValidate="TxtServiceCost"
-                    Text="This Field Is Required"
-                    ForeColor="Red"
-                    SetFocusOnError="true"
-                    ValidationGroup="SaveGroup"
-                    Display="Dynamic"></asp:RequiredFieldValidator>
-                <asp:CompareValidator
-                    ID="CvServiceCost"
-                    runat="server"
-                    ErrorMessage="CompareValidator"
-                    Text="Invalid Number"
-                    ForeColor="Red"
-                    ControlToValidate="TxtServiceCost"
-                    Operator="DataTypeCheck"
-                    Type="Double"
-                    ValidationGroup="SaveGroup"
-                    Display="Dynamic"></asp:CompareValidator>
-            </asp:TableCell>
         </asp:TableRow>
 
         <asp:TableRow>
@@ -310,7 +248,7 @@
                     InitialValue="-1"></asp:RequiredFieldValidator>
             </asp:TableCell>
         </asp:TableRow>
-        </asp:Table>
+    </asp:Table>
     <asp:Table
         ID="Table2"
         runat="server">
@@ -391,7 +329,7 @@
                     runat="server"></asp:TextBox>
             </asp:TableCell>
         </asp:TableRow>
-                <asp:TableRow>
+        <asp:TableRow>
             <asp:TableCell>
                 <asp:Label ID="LblDescription"
                     runat="server"
@@ -401,14 +339,20 @@
                 <asp:TextBox ID="TxtDescription"
                     runat="server"></asp:TextBox>
             </asp:TableCell>
+            <asp:TableCell>
+                <asp:Button ID="BtnAddAddress" 
+                    runat="server" 
+                    Text="Add Address" 
+                    OnClick="BtnAddAddress_Click" />
+            </asp:TableCell>
         </asp:TableRow>
-        </asp:Table>
+    </asp:Table>
     <asp:Table ID="Table1" runat="server">
         <asp:TableRow>
             <asp:TableCell>
                 <asp:CheckBox
-                    ID="ChkBoxLookAt" 
-                    runat="server" 
+                    ID="ChkBoxLookAt"
+                    runat="server"
                     Text=" Require A Look At?"
                     AutoPostBack="true"
                     OnCheckedChanged="ChkBoxLookAt_CheckedChanged" />
@@ -416,51 +360,21 @@
             <asp:TableCell>
                 <asp:TextBox
                     ID="TxtLookAtSchedule"
-                    runat="server" 
-                    Visible="false" 
-                    TextMode="Date" 
+                    runat="server"
+                    Visible="false"
+                    TextMode="Date"
                     AutoPostBack="true"></asp:TextBox>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox 
-                    ID="TxtLookatScheduleTime" 
-                    Visible="false" 
+                <asp:TextBox
+                    ID="TxtLookatScheduleTime"
+                    Visible="false"
                     AutoPostBack="true"
-                    TextMode="Time" 
+                    TextMode="Time"
                     runat="server"></asp:TextBox>
             </asp:TableCell>
         </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label
-                    ID="LblEmployeeContact"
-                    runat="server"
-                    Text="Employee Contact:"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:DropDownList
-                    ID="DdlEmployeeContact"
-                    runat="server"
-                    DataSourceID="dtasrcEmployeeContact"
-                    DataTextField="EmployeeName"
-                    DataValueField="EmployeeID"
-                    OnDataBound="DdlEmployeeContact_DataBound">
-                </asp:DropDownList>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:RequiredFieldValidator
-                    ID="RfvEmployeeContact"
-                    runat="server"
-                    ErrorMessage="RequiredFieldValidator"
-                    ControlToValidate="DdlEmployeeContact"
-                    Text="Please Choose A Valid Option"
-                    ForeColor="Red"
-                    SetFocusOnError="true"
-                    ValidationGroup="SaveGroup"
-                    InitialValue="-1"></asp:RequiredFieldValidator>
-            </asp:TableCell>
-        </asp:TableRow>
-        
+
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Label
@@ -487,81 +401,26 @@
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:Label
-                    ID="LblGasExpense"
-                    runat="server"
-                    Text="Gas Expense:"></asp:Label>
+                <asp:Label ID="LblAdditionalServices" runat="server" Text="Select Additional Services:" Font-Bold="true"></asp:Label>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:CheckBox ID="ChkBxStorage" runat="server" Text="Storage" />
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox
-                    ID="TxtGasExpense"
-                    runat="server"></asp:TextBox>
+                <asp:CheckBox ID="ChkBxCleaning" runat="server" Text="Cleaning" />
             </asp:TableCell>
             <asp:TableCell>
-                <asp:RequiredFieldValidator
-                    ID="RfvGasExpense"
-                    runat="server"
-                    ErrorMessage="RequiredFieldValidator"
-                    ControlToValidate="TxtGasExpense"
-                    Text="This Field Is Required"
-                    ForeColor="Red"
-                    SetFocusOnError="true"
-                    ValidationGroup="SaveGroup"
-                    Display="Dynamic"></asp:RequiredFieldValidator>
-                <asp:CompareValidator
-                    ID="CvGasExpense"
-                    runat="server"
-                    ErrorMessage="CompareValidator"
-                    Text="Invalid Number"
-                    ForeColor="Red"
-                    ControlToValidate="TxtGasExpense"
-                    Operator="DataTypeCheck"
-                    Type="Double"
-                    ValidationGroup="SaveGroup"
-                    Display="Dynamic"></asp:CompareValidator>
+                <asp:CheckBox ID="ChkBxTrashRemoval" runat="server" Text="Trash Removal" />
+
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Label
-                    ID="LblMiscExpense"
-                    runat="server"
-                    Text="Misc Expense:"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox
-                    ID="TxtMiscExpense"
-                    runat="server"></asp:TextBox>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:RequiredFieldValidator
-                    ID="RfvMiscExpense"
-                    runat="server"
-                    ErrorMessage="RequiredFieldValidator"
-                    ControlToValidate="TxtMiscExpense"
-                    Text="This Field Is Required"
-                    ForeColor="Red"
-                    SetFocusOnError="true"
-                    ValidationGroup="SaveGroup"
-                    Display="Dynamic"></asp:RequiredFieldValidator>
-                <asp:CompareValidator
-                    ID="CvMiscExpense"
-                    runat="server"
-                    ErrorMessage="CompareValidator"
-                    Text="Invalid Number"
-                    ForeColor="Red"
-                    ControlToValidate="TxtMiscExpense"
-                    Operator="DataTypeCheck"
-                    Type="Double"
-                    ValidationGroup="SaveGroup"
-                    Display="Dynamic"></asp:CompareValidator>
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label 
                     ID="LblCompleted"
-                    runat="server" 
+                    runat="server"
                     Text="Check If Complete:"></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
@@ -605,9 +464,9 @@
                     ValidationGroup="SaveGroup" />
             </asp:TableCell>
             <asp:TableCell>
-                <asp:Label 
-                    ID="LblSaveStatus" 
-                    runat="server" 
+                <asp:Label
+                    ID="LblSaveStatus"
+                    runat="server"
                     Text=""></asp:Label>
             </asp:TableCell>
         </asp:TableRow>
@@ -638,4 +497,4 @@
             <asp:ControlParameter Name="CustomerID" Type="Int64" ControlID="ddlCustomerList" />
         </SelectParameters>
     </asp:SqlDataSource>
-    </asp:Content>
+</asp:Content>

@@ -195,33 +195,6 @@ namespace WalkerS_Lab1Part3
         protected global::System.Web.UI.WebControls.TextBox TxtEmail;
 
         /// <summary>
-        /// LblTicketStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblTicketStatus;
-
-        /// <summary>
-        /// TxtTicketStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtTicketStatus;
-
-        /// <summary>
-        /// RfvTicketStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvTicketStatus;
-
-        /// <summary>
         /// LblServiceDate control.
         /// </summary>
         /// <remarks>
@@ -283,42 +256,6 @@ namespace WalkerS_Lab1Part3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CompareValidator CvDateComapare;
-
-        /// <summary>
-        /// LblServiceCost control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblServiceCost;
-
-        /// <summary>
-        /// TxtServiceCost control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtServiceCost;
-
-        /// <summary>
-        /// rfvServiceCost control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvServiceCost;
-
-        /// <summary>
-        /// CvServiceCost control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CvServiceCost;
 
         /// <summary>
         /// LblServiceType control.
@@ -465,6 +402,15 @@ namespace WalkerS_Lab1Part3
         protected global::System.Web.UI.WebControls.TextBox TxtDescription;
 
         /// <summary>
+        /// BtnAddAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnAddAddress;
+
+        /// <summary>
         /// Table1 control.
         /// </summary>
         /// <remarks>
@@ -501,33 +447,6 @@ namespace WalkerS_Lab1Part3
         protected global::System.Web.UI.WebControls.TextBox TxtLookatScheduleTime;
 
         /// <summary>
-        /// LblEmployeeContact control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblEmployeeContact;
-
-        /// <summary>
-        /// DdlEmployeeContact control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlEmployeeContact;
-
-        /// <summary>
-        /// RfvEmployeeContact control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvEmployeeContact;
-
-        /// <summary>
         /// LblDestinationTime control.
         /// </summary>
         /// <remarks>
@@ -555,76 +474,40 @@ namespace WalkerS_Lab1Part3
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvDestinationTime;
 
         /// <summary>
-        /// LblGasExpense control.
+        /// LblAdditionalServices control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblGasExpense;
+        protected global::System.Web.UI.WebControls.Label LblAdditionalServices;
 
         /// <summary>
-        /// TxtGasExpense control.
+        /// ChkBxStorage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtGasExpense;
+        protected global::System.Web.UI.WebControls.CheckBox ChkBxStorage;
 
         /// <summary>
-        /// RfvGasExpense control.
+        /// ChkBxCleaning control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvGasExpense;
+        protected global::System.Web.UI.WebControls.CheckBox ChkBxCleaning;
 
         /// <summary>
-        /// CvGasExpense control.
+        /// ChkBxTrashRemoval control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CvGasExpense;
-
-        /// <summary>
-        /// LblMiscExpense control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblMiscExpense;
-
-        /// <summary>
-        /// TxtMiscExpense control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtMiscExpense;
-
-        /// <summary>
-        /// RfvMiscExpense control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvMiscExpense;
-
-        /// <summary>
-        /// CvMiscExpense control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CvMiscExpense;
+        protected global::System.Web.UI.WebControls.CheckBox ChkBxTrashRemoval;
 
         /// <summary>
         /// LblCompleted control.
