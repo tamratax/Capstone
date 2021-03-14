@@ -1,3 +1,5 @@
+--drop table auctionInventory;
+--drop table warehouse;
 --drop table address;
 --drop table PotentialDateTime;
 --drop table tickethistory;
@@ -147,6 +149,26 @@ CREATE TABLE WAREHOUSE(
 	ItemID int NULL,
 	CustomerID int NULL,
 	);
+
+	
+Create Table AUCTIONINVENTORY(
+	AuctionInventoryID int not null identity(1, 1) primary key,
+	ItemTransportationType varchar(20),
+	FirstName			varchar(20),
+	LastName			varchar(20),
+	CellPhone			varchar(15),
+	WorkPhone			varchar(15),
+	HomePhone			varchar(15),
+	StreetAddress			varchar(100),
+	City				varchar(50),
+	State				varchar(50),
+	ZipCode			varchar(20),
+	ContactDated			varchar(20),
+	AddOn				varchar(20),
+	AuctionNotes			varchar(20),
+	ServiceTicketID	int references SERVICETICKET(ServiceTicketID)
+);
+
 
 
 ---------------------------------------------
