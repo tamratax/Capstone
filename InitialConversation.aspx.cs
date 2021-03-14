@@ -409,7 +409,7 @@ namespace WalkerS_Lab1Part3
 
         protected void BtnProceed_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AddService.aspx");
+            Response.Redirect("AddServiceOrder.aspx");
         }
 
         protected void DdlCompletedByEmp_DataBound(object sender, EventArgs e)
