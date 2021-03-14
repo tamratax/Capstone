@@ -278,6 +278,11 @@
 
             </asp:TableCell>
         </asp:TableRow>
+         <asp:TableRow>
+            <asp:TableCell ColumnSpan="2">
+                <asp:Label ID="LblPCA" runat="server" Text="Primary Contact Address" Font-Bold="true"></asp:Label>
+            </asp:TableCell>
+        </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Label ID="LblStreet"
@@ -459,6 +464,12 @@
                     ID="LblSaveStatus"
                     runat="server"
                     Text=""></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Button ID="BtnAuctionInvt" runat="server" Text="Add Auction Inventory ->" OnClick="BtnAuctionInvt_Click" />
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Button ID="BtnMoveInvt" runat="server" Text="Add Move Inventory ->" OnClick="BtnMoveInvt_Click" />
             </asp:TableCell>
         </asp:TableRow>
 

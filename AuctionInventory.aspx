@@ -13,26 +13,149 @@
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:Label ID="LblName" runat="server" Text="Name: "></asp:Label>
+                <asp:Label
+                    ID="LblFirstName"
+                    runat="server"
+                    Text="First Name:">
+                </asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox ID="TxtName" runat="server"></asp:TextBox>
+                <asp:TextBox
+                    ID="TxtFirstName"
+                    runat="server"
+                    Text="">
+                </asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:RequiredFieldValidator
+                    ID="RfvFirstName"
+                    runat="server"
+                    ErrorMessage="RequiredFieldValidator"
+                    ControlToValidate="TxtFirstName"
+                    Text="This Field Is Required"
+                    ForeColor="Red"
+                    SetFocusOnError="true"
+                    ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
+            </asp:TableCell>
+        </asp:TableRow>
+
+        <asp:TableRow>
+            <asp:TableCell>
+
+                <asp:Label
+                    ID="LblLastName"
+                    runat="server"
+                    Text="Last Name:"></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox
+                    ID="TxtLastName"
+                    runat="server"
+                    Text="">
+                </asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:RequiredFieldValidator
+                    ID="RfvLastName"
+                    runat="server"
+                    ErrorMessage="RequiredFieldValidator"
+                    ControlToValidate="TxtLastName"
+                    Text="This Field Is Required"
+                    ForeColor="Red"
+                    SetFocusOnError="true"
+                    ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
+            </asp:TableCell>
+        </asp:TableRow>
+              <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label
+                    ID="LblPhoneNumber"
+                    runat="server"
+                    Text="Home Phone: "></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell ColumnSpan="5">
+                <asp:TextBox
+                    ID="TxtPhoneNumber"
+                    runat="server"
+                    Text=""></asp:TextBox>
+
+                <asp:Label
+                    ID="LblCellPhone"
+                    runat="server"
+                    Text=" Cell Phone: "></asp:Label>
+
+                <asp:TextBox
+                    ID="TxtCellPhone"
+                    runat="server"
+                    Text=""></asp:TextBox>
+
+                <asp:Label
+                    ID="LblWorkPhone"
+                    runat="server"
+                    Text=" Work Phone: "></asp:Label>
+
+                <asp:TextBox
+                    ID="TxtWorkPhone"
+                    runat="server"
+                    Text=""></asp:TextBox>
+            </asp:TableCell>
+
+        </asp:TableRow>
+         <asp:TableRow>
+            <asp:TableCell ColumnSpan="2">
+                <asp:Label ID="LblPCA" runat="server" Text="Primary Contact Address" Font-Bold="true"></asp:Label>
             </asp:TableCell>
         </asp:TableRow>
                 <asp:TableRow>
             <asp:TableCell>
-                <asp:Label ID="LblPhone" runat="server" Text="Phone: "></asp:Label>
+                <asp:Label ID="LblStreet"
+                    runat="server"
+                    Text="Street: "></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox ID="TxtPhone" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TxtStreet"
+                    runat="server"></asp:TextBox>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1"
+                    runat="server"
+                    ControlToValidate="TxtStreet"
+                    Text="Field Cannot Be Blank"
+                    ForeColor="Red"
+                    ValidationGroup="CreateAddress"></asp:RequiredFieldValidator>
             </asp:TableCell>
         </asp:TableRow>
-                <asp:TableRow>
+        <asp:TableRow>
             <asp:TableCell>
-                <asp:Label ID="AddressLbl" runat="server" Text="Address: "></asp:Label>
+                <asp:Label ID="LblCity"
+                    runat="server"
+                    Text="City: "></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox ID="TxtAddress" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TxtCity"
+                    runat="server"></asp:TextBox>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="LblState"
+                    runat="server"
+                    Text="State: "></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox ID="TxtState"
+                    runat="server"></asp:TextBox>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="LblZip"
+                    runat="server"
+                    Text="Zip Code: "></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox ID="TxtZip"
+                    runat="server"></asp:TextBox>
             </asp:TableCell>
         </asp:TableRow>
                 <asp:TableRow>
@@ -40,7 +163,7 @@
                 <asp:Label ID="ContactDateLbl" runat="server" Text="Contact Date: "></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox ID="TxtContactDate" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TxtContactDate" runat="server" TextMode="Date"></asp:TextBox>
             </asp:TableCell>
         </asp:TableRow>
            <asp:TableRow>

@@ -16,6 +16,34 @@ namespace Lab3
         protected void Page_Load(object sender, EventArgs e)
         {
             UpdateGridView();
+            //If the user is trying to edit a customer, there will be a customerid in this session data
+            if (Session["Customer ID"] != null)
+            {
+                //Pulling in customer's record
+                String sqlQuery = "Select FirstName + ' ' + LastName As Name, CellPhone, WorkPhone, HomePhone, Street, City, State, Zip, DateContacted from customer join Address on Customer.CustomerID = Address.CustomerID where Customer.customerid = " + Session["Customer ID"].ToString();
+
+                //Establishes the connection between our web form and database
+                SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+
+                //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
+                SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
+
+                //This creates a datatable and fills it
+                DataTable dtForSelect = new DataTable();
+                sqlAdapter.Fill(dtForSelect);
+
+                //Fills data from editing customer's sql record into InitialConversation page
+                TxtName.Text = Convert.ToString(Session["Customer ID"]);
+                TxtPhoneNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
+                TxtCellPhone.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
+                TxtWorkPhone.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
+                TxtStreet.Text = Convert.ToString(dtForSelect.Rows[0]["Street"]);
+                TxtCity.Text = Convert.ToString(dtForSelect.Rows[0]["City"]);
+                TxtState.Text = Convert.ToString(dtForSelect.Rows[0]["State"]);
+                TxtZip.Text = Convert.ToString(dtForSelect.Rows[0]["Zip"]);
+                TxtContactDate.Text = Convert.ToString(dtForSelect.Rows[0]["DateContacted"]);
+
+            }
         }
 
         protected void BringInBtn_CheckedChanged(object sender, EventArgs e)

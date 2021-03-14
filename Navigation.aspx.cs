@@ -76,7 +76,7 @@ namespace WalkerS_Lab1Part3
         //Navigates to BtnAddServices Web form after button is clicked
         protected void BtnAddServicePage_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AddServiceOrderAddService.aspx");
+            Response.Redirect("AddServiceOrder.aspx");
         }
 
         protected void BtnViewNotes_Click(object sender, EventArgs e)
@@ -116,6 +116,16 @@ namespace WalkerS_Lab1Part3
         protected void BtnWarehouse_Click(object sender, EventArgs e)
         {
             Response.Redirect("WarehouseInventory.aspx");
+        }
+
+        protected void BtnAUctionInvt_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AuctionInventory.aspx");
+        }
+
+        protected void BtnMoveInvt_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MoveInventory.aspx");
         }
     }
 }
