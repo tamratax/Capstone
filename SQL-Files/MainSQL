@@ -149,6 +149,22 @@ CREATE TABLE WAREHOUSE(
 	ItemID int NULL,
 	CustomerID int NULL,
 	);
+	
+	CREATE TABLE MOVEEMPLOYEES(
+	MoveID int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	EmployeeID int NULL,
+	EmployeeName varchar(50) NULL,
+	ServiceTicketID int NULL,
+
+);
+
+CREATE TABLE CHARGES(
+	ChargeID int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	Hours int NULL,
+	Amount money NULL,
+	Total money NULL,
+	ServiceTicketID int NULL,
+);
 
 	
 Create Table AUCTIONINVENTORY(

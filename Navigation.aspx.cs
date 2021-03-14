@@ -127,5 +127,10 @@ namespace WalkerS_Lab1Part3
         {
             Response.Redirect("MoveInventory.aspx");
         }
+
+        protected void BtnCompletion_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CompletionForm.aspx");
+        }
     }
 }
