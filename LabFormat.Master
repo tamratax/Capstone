@@ -16,6 +16,10 @@
                 ID="Table1" 
                 runat="server">
                 <asp:TableRow>
+                    <asp:TableCell >
+                        <asp:Image runat="server" ImageUrl="/images/GVM_logo.png"/>
+                        <asp:Image runat="server" ImageUrl="/images/GVA_logo.png"/>
+                    </asp:TableCell>
                     <asp:TableCell>
                         <asp:Button ID="BtnNavigation"
                     runat="server"
