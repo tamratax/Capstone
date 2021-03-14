@@ -28,7 +28,7 @@ namespace WalkerS_Lab1Part3
                 "PreferredContact as 'Preferred Contact', email as 'Email', ";
             sqlQuery += "Street + ' ' + City + ' ' + State + ' ' + Zip + ' ' as 'Origin Address'," +
                 "ReferralChannel as 'Referral Channel', " +
-                "DateContacted as 'Date Contacted', DeadlineStart as 'Deadline Start', DeadlineEnd as 'Deadline End' from Customer, Address " +
+                "DateContacted as 'Date Contacted', Movingcb as 'Moving', AuctionCb as 'Auction', ConsignmentCB as 'Consignment', AppraisalCB as 'Appraisal', Downsizing, SettlingEstate, DeadlineStart as 'Deadline Start', DeadlineEnd as 'Deadline End' from Customer, Address " +
                 "where Customer.CustomerID = Address.CustomerID";
             
 
@@ -71,7 +71,7 @@ namespace WalkerS_Lab1Part3
                 String sqlQuery = "Select FirstName + ' ' + LastName as 'Name', ";
                 sqlQuery += "cellphone as 'Cell Phone', workphone as 'Work Phone', homephone as 'Home Phone', PreferredContact as 'Preferred Contact', email as 'Email', ";
                 sqlQuery += "Street + ' ' + City + ' ' + State + ' ' + Zip + ' ' as 'Origin Address', ReferralChannel as 'Referral Channel', " +
-                    "DateContacted as 'Date Contacted', DeadlineStart as 'Deadline Start', DeadlineEnd as 'Deadline End' from Customer, Address ";
+                    "DateContacted as 'Date Contacted', MovingCb as 'Moving', AuctionCb as 'Auction', ConsignmentCB as 'Consignment', AppraisalCB as 'Appraisal', Downsizing, SettlingEstate, DeadlineStart as 'Deadline Start', DeadlineEnd as 'Deadline End' from Customer, Address ";
                 sqlQuery += "where Customer.CustomerID = Address.CustomerID AND Customer.CustomerID = " + ddlCustomerList.SelectedValue;
 
                 //Establishes the connection between our web form and database
