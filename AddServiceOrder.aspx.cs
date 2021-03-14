@@ -107,10 +107,35 @@ namespace WalkerS_Lab1Part3
 
 
                 }
+                //If the user is trying to edit a customer, there will be a customerid in this session data
+                if (Session["Customer ID"] != null)
+                {
+                    //Pulling in customer's record
+                    String sqlQuery = "Select * from customer where customerid = " + Session["Customer ID"].ToString();
+
+                    //Establishes the connection between our web form and database
+                    SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+
+                    //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
+                    SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
+
+                    //This creates a datatable and fills it
+                    DataTable dtForSelect = new DataTable();
+                    sqlAdapter.Fill(dtForSelect);
+
+                    //Fills data from editing customer's sql record into InitialConversation page
+                    ddlCustomerList.SelectedValue = Convert.ToString(Session["Customer ID"]);
+                    //TxtLastName.Text = Convert.ToString(dtForSelect.Rows[0]["LastName"]);
+                    TxtPhoneNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
+                    TxtCellPhone.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
+                    TxtWorkPhone.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
+                    TxtEmail.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
+                }
+
+
+                }
 
             }
-
-        }
 
 
         protected void BtnViewServicePage_Click(object sender, EventArgs e)

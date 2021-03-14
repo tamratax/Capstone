@@ -92,6 +92,61 @@
                     InitialValue="-1"></asp:RequiredFieldValidator>
             </asp:TableCell>
         </asp:TableRow>
+
+         <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label
+                    ID="LblPhoneNumber"
+                    runat="server"
+                    Text="Home Phone: "></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell ColumnSpan="5">
+                <asp:TextBox
+                    ID="TxtPhoneNumber"
+                    runat="server"
+                    Text=""></asp:TextBox>
+
+                <asp:Label
+                    ID="LblCellPhone"
+                    runat="server"
+                    Text=" Cell Phone: "></asp:Label>
+
+                <asp:TextBox
+                    ID="TxtCellPhone"
+                    runat="server"
+                    Text=""></asp:TextBox>
+
+                <asp:Label
+                    ID="LblWorkPhone"
+                    runat="server"
+                    Text=" Work Phone: "></asp:Label>
+
+                <asp:TextBox
+                    ID="TxtWorkPhone"
+                    runat="server"
+                    Text=""></asp:TextBox>
+            </asp:TableCell>
+
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label
+                    ID="LblEmail"
+                    runat="server"
+                    Text="Email:"></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox
+                    ID="TxtEmail"
+                    runat="server"
+                    Text=""
+                    TextMode="Email">
+                </asp:TextBox>
+            </asp:TableCell>
+        </asp:TableRow>
+
+
+
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Label 
