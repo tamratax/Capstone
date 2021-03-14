@@ -84,7 +84,7 @@
     <Content Include="images\favicon.png" />
     <Content Include="images\GVA_logo.png" />
     <Content Include="images\GVM_logo.png" />
-    <Content Include="PickupInformation.aspx" />
+    <Content Include="AuctionInventory.aspx" />
     <Content Include="LabFormat.Master" />
     <Content Include="CustomerFacingMaster.Master" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -271,12 +271,12 @@
     <Compile Include="CustomerUnauthorized.aspx.designer.cs">
       <DependentUpon>CustomerUnauthorized.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PickupInformation.aspx.cs">
-      <DependentUpon>PickupInformation.aspx</DependentUpon>
+    <Compile Include="AuctionInventory.aspx.cs">
+      <DependentUpon>AuctionInventory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PickupInformation.aspx.designer.cs">
-      <DependentUpon>PickupInformation.aspx</DependentUpon>
+    <Compile Include="AuctionInventory.aspx.designer.cs">
+      <DependentUpon>AuctionInventory.aspx</DependentUpon>
     </Compile>
     <Compile Include="LabFormat.Master.cs">
       <DependentUpon>LabFormat.Master</DependentUpon>
