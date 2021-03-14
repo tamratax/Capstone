@@ -116,7 +116,7 @@
                 <asp:Label ID="ContactDateLbl" runat="server" Text="Contact Date: "></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox ID="TxtContactDate" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TxtContactDate" runat="server" TextMode="Date"></asp:TextBox>
             </asp:TableCell>
         </asp:TableRow>
            <asp:TableRow>
