@@ -100,6 +100,7 @@
                     ID="LblPhoneNumber"
                     runat="server"
                     Text="Home Phone: "></asp:Label>
+
             </asp:TableCell>
             <asp:TableCell ColumnSpan="5">
                 <asp:TextBox
@@ -386,18 +387,7 @@
             <asp:TableCell>
                 <asp:TextBox
                     ID="TxtDestinationTime"
-                    runat="server"></asp:TextBox>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:RequiredFieldValidator
-                    ID="RfvDestinationTime"
-                    runat="server"
-                    ErrorMessage="RequiredFieldValidator"
-                    ControlToValidate="TxtDestinationTime"
-                    Text="This Field Is Required"
-                    ForeColor="Red"
-                    SetFocusOnError="true"
-                    ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
+                    runat="server" TextMode="Time"></asp:TextBox>
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>

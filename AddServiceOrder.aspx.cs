@@ -24,13 +24,8 @@ namespace WalkerS_Lab1Part3
                 DdlServiceType.Items.Add(new ListItem("Auction", "Auction"));
 
                 //Hides auction/move fields on load
-          
                 LblDestinationTime.Visible = false;
                 TxtDestinationTime.Visible = false;
-
-
-                //Hides rfv fields on load
-                RfvDestinationTime.Visible = false;
 
 
                 if (Session["ServiceRequestID"] != null)
@@ -77,6 +72,8 @@ namespace WalkerS_Lab1Part3
                     sqlAdapter.Fill(dtForSelect);
 
                     //Fills page with data from selected service
+                    TxtPotentialDate.Text = Convert.ToString(dtForSelect.Rows[0]["PotentialDate"]);
+                    TxtPotentialTime.Text = Convert.ToString(dtForSelect.Rows[0]["PotentialTime"]);
                     DdlInitiatingEmp.SelectedValue = Convert.ToString(dtForSelect.Rows[0]["InitiatingEmp"]);
                     ddlCustomerList.SelectedValue = Convert.ToString(dtForSelect.Rows[0]["CustomerID"]);
                     TxtServiceDate.Text = Convert.ToString(dtForSelect.Rows[0]["ServiceDate"]);
@@ -84,6 +81,9 @@ namespace WalkerS_Lab1Part3
                     DdlServiceType.SelectedValue = DdlServiceType.Items.FindByText(Convert.ToString(dtForSelect.Rows[0]["ServiceType"]).Trim()).Value;
                     DdlServiceType_SelectedIndexChanged(sender, e);
                     TxtDestinationTime.Text = Convert.ToString(dtForSelect.Rows[0]["DestinationTime"]);
+                    ChkBxCleaning.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["CleaningCB"]);
+                    ChkBxStorage.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["StorageCB"]); ;
+                    ChkBxTrashRemoval.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["TrashCB"]); ;
 
 
 
@@ -139,9 +139,9 @@ namespace WalkerS_Lab1Part3
                     TxtEmail.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
                 }
 
-                }
-
             }
+
+        }
 
 
         protected void BtnViewServicePage_Click(object sender, EventArgs e)
@@ -157,13 +157,13 @@ namespace WalkerS_Lab1Part3
             //temp button to autofill controls with dummy data
             DdlInitiatingEmp.SelectedIndex = 2;
             ddlCustomerList.SelectedIndex = 2;
-           
+
             TxtServiceDate.Text = "2021-08-05";
             TxtCompletionDate.Text = "2021-09-07";
-      
+
             DdlServiceType.SelectedIndex = 1;
             TxtDestinationTime.Text = "9:00am";
-   
+
 
             //Reloads data to show Move fields
             DdlServiceType_SelectedIndexChanged(sender, e);
@@ -184,17 +184,12 @@ namespace WalkerS_Lab1Part3
         {
             if (DdlServiceType.SelectedValue == "Move")
             {
-                
+
 
 
                 //Show Move Fields
                 LblDestinationTime.Visible = true;
                 TxtDestinationTime.Visible = true;
-            
-
-                //Show move rfv fields
-                RfvDestinationTime.Visible = true;
-             
 
 
 
@@ -204,24 +199,17 @@ namespace WalkerS_Lab1Part3
                 //hides move fields
                 LblDestinationTime.Visible = false;
                 TxtDestinationTime.Visible = false;
-  
 
-                //hides rfv fields
-                RfvDestinationTime.Visible = false;
-              
+
             }
             else
             {
 
                 //Hides fields if no choice selected
-           
+
                 LblDestinationTime.Visible = false;
                 TxtDestinationTime.Visible = false;
-            
 
-                //Hides all rfv
-                RfvDestinationTime.Visible = false;
-     
 
 
             }
@@ -267,129 +255,99 @@ namespace WalkerS_Lab1Part3
         {
             //try
             //{
-               
+
             String sqlQuery = "";
             if (Session["ServiceTicketID"] != null)
             {
 
+                //Concatenate Sql Query Update Statements
+                sqlQuery = "UPDATE ServiceTicket SET CustomerID = @CustomerID, PotentialDate = @PotentialDate, PotentialTime = @PotentialTime, ServiceDate = @ServiceDate, CompletionDate = @CompletionDate, ServiceType = @ServiceType, DestinationTime = @DestinationTime, LookAtCB = @LookAtCB, LookAtDate = @LookAtDate, LookAtTime = @LookAtTime, InitiatingEmp = @InitiatingEmp, StorageCB = @StorageCB, CleaningCB = @CleaningCB, TrashCB = @TrashCB, Completed = @Completed WHERE ServiceTicketID = " + Session["ServiceTicketID"].ToString();
 
-                //Different Updates for Move or Auction
-                if (DdlServiceType.SelectedValue == "Move")
-                {
-                    //Concatenate Sql Query Update Statements
-                    sqlQuery = "UPDATE ServiceTicket SET CustomerID = @CustomerID, TicketStatus = @TicketStatus, ServiceDate = @ServiceDate, ServiceCost = @ServiceCost, CompletionDate = @CompletionDate, ServiceType = @ServiceType, DestinationTime = @DestinationTime, GasExpense = @GasExpense, MiscExpense = @MiscExpense, ContactID = null, InitiatingEmp = @InitiatingEmp, AuctionID = null, Completed = "   + " WHERE ServiceTicketID = " + Session["ServiceTicketID"].ToString();
-                    
-                    //Define the Connection to the Database
-                    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                //Define the Connection to the Database
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
-                    // Create the SQL Command object which will send the query
-                    SqlCommand sqlCommand = new SqlCommand();
-                    sqlCommand.Connection = sqlConnect;
-                    sqlCommand.CommandType = CommandType.Text;
-                    sqlCommand.CommandText = sqlQuery;
-                    
-                    //Parameterizes all the strings
-                    sqlCommand.Parameters.Add(new SqlParameter("@CustomerID", ddlCustomerList.SelectedValue));
-                    sqlCommand.Parameters.Add(new SqlParameter("@ServiceDate", HttpUtility.HtmlEncode(TxtServiceDate.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@CompletionDate", HttpUtility.HtmlEncode(TxtCompletionDate.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@ServiceType", DdlServiceType.SelectedItem.Text));
-                    sqlCommand.Parameters.Add(new SqlParameter("@DestinationTime", HttpUtility.HtmlEncode(TxtDestinationTime.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@InitiatingEmp", DdlInitiatingEmp.SelectedValue));
+                // Create the SQL Command object which will send the query
+                SqlCommand sqlCommand = new SqlCommand();
+                sqlCommand.Connection = sqlConnect;
+                sqlCommand.CommandType = CommandType.Text;
+                sqlCommand.CommandText = sqlQuery;
 
-                    // Open your connection, send the query 
-                    sqlConnect.Open();
-                    SqlDataReader queryResults = sqlCommand.ExecuteReader();
+                //Parameterizes all the strings
+                sqlCommand.Parameters.Add(new SqlParameter("@CustomerID", ddlCustomerList.SelectedValue));                                                            
+                sqlCommand.Parameters.Add(new SqlParameter("@ServiceDate", HttpUtility.HtmlEncode(TxtServiceDate.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@CompletionDate", HttpUtility.HtmlEncode(TxtCompletionDate.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@ServiceType", DdlServiceType.SelectedItem.Text));
+                sqlCommand.Parameters.Add(new SqlParameter("@DestinationTime", HttpUtility.HtmlEncode(TxtDestinationTime.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@InitiatingEmp", DdlInitiatingEmp.SelectedValue));
+                sqlCommand.Parameters.Add(new SqlParameter("@PotentialDate", HttpUtility.HtmlEncode(TxtPotentialDate.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@PotentialTime", HttpUtility.HtmlEncode(TxtPotentialTime.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@LookAtCB", ChkBoxLookAt.Checked.ToString()));
+                sqlCommand.Parameters.Add(new SqlParameter("@LookAtDate", HttpUtility.HtmlEncode(TxtLookAtSchedule.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@LookAtTime", HttpUtility.HtmlEncode(TxtLookatScheduleTime.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@CleaningCB", ChkBxCleaning.Checked.ToString()));
+                sqlCommand.Parameters.Add(new SqlParameter("@StorageCB", ChkBxStorage.Checked.ToString()));
+                sqlCommand.Parameters.Add(new SqlParameter("@TrashCB", ChkBxTrashRemoval.Checked.ToString()));
+                sqlCommand.Parameters.Add(new SqlParameter("@Completed", ChkBoxCompleted.Checked.ToString()));
 
-                    // Close all related connections
-                    queryResults.Close();
-                    sqlConnect.Close();
+                // Open your connection, send the query 
+                sqlConnect.Open();
+                SqlDataReader queryResults = sqlCommand.ExecuteReader();
 
-                    LblSaveStatus.Text = "Move Updated Successfully";
-                    LblSaveStatus.ForeColor = Color.Green;
+                // Close all related connections
+                queryResults.Close();
+                sqlConnect.Close();
 
-                }
-                else if (DdlServiceType.SelectedValue == "Auction")
-                {
-                    //Concatenate Sql Query Update Statements
-                    sqlQuery = "UPDATE ServiceTicket SET CustomerID = @CustomerID, TicketStatus = @TicketStatus, ServiceDate = @ServiceDate, ServiceCost = @ServiceCost, CompletionDate = @CompletionDate, ServiceType = @ServiceType, DestinationTime = '', GasExpense = 0, MiscExpense = 0, ContactID = @ContactID, InitiatingEmp = @InitiatingEmp, AuctionID = 1, Completed = " + " WHERE ServiceTicketID = " + Session["ServiceTicketID"].ToString();
-                    //Define the Connection to the Database
-                    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-
-                    // Create the SQL Command object which will send the query
-                    SqlCommand sqlCommand = new SqlCommand();
-                    sqlCommand.Connection = sqlConnect;
-                    sqlCommand.CommandType = CommandType.Text;
-                    sqlCommand.CommandText = sqlQuery;
-
-                    //Parameterizes all the strings
-                    sqlCommand.Parameters.Add(new SqlParameter("@CustomerID", ddlCustomerList.SelectedValue));
-                    sqlCommand.Parameters.Add(new SqlParameter("@ServiceDate", HttpUtility.HtmlEncode(TxtServiceDate.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@CompletionDate", HttpUtility.HtmlEncode(TxtCompletionDate.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@ServiceType", DdlServiceType.SelectedItem.Text));
-                    sqlCommand.Parameters.Add(new SqlParameter("@InitiatingEmp", DdlInitiatingEmp.SelectedValue));
-
-
-                    // Open your connection, send the query 
-                    sqlConnect.Open();
-                    SqlDataReader queryResults = sqlCommand.ExecuteReader();
-
-                    // Close all related connections
-                    queryResults.Close();
-                    sqlConnect.Close();
-
-                    LblSaveStatus.Text = "Auction Updated Successfully";
-                    LblSaveStatus.ForeColor = Color.Green;
-                }
-
+                LblSaveStatus.Text = "Service Order Updated Successfully";
+                LblSaveStatus.ForeColor = Color.Green;
 
 
             }
             else
             {
-                    //Inserts service order
-                    sqlQuery = "insert into ServiceTicket values (@CustomerID, '" + System.DateTime.Today.ToString("yyyy-MM-dd") + "', @PotentialDate, @PotentialTime, @ServiceDate,  @CompletionDate, @ServiceType, @DestinationTime,@LookAtCB,@LookAtDate,@LookAtTime,@InitiatingEmp, 1, 25, @StorageCB, @CleaningCB, @TrashCB , @Completed)";
+                //Inserts service order
+                sqlQuery = "insert into ServiceTicket values (@CustomerID, '" + System.DateTime.Today.ToString("yyyy-MM-dd") + "', @PotentialDate, @PotentialTime, @ServiceDate,  @CompletionDate, @ServiceType, @DestinationTime,@LookAtCB,@LookAtDate,@LookAtTime,@InitiatingEmp, 1, 25, @StorageCB, @CleaningCB, @TrashCB , @Completed)";
 
-                    //Define the Connection to the Database
-                    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                //Define the Connection to the Database
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
-                    // Create the SQL Command object which will send the query
-                    SqlCommand sqlCommand = new SqlCommand();
-                    sqlCommand.Connection = sqlConnect;
-                    sqlCommand.CommandType = CommandType.Text;
-                    sqlCommand.CommandText = sqlQuery;
+                // Create the SQL Command object which will send the query
+                SqlCommand sqlCommand = new SqlCommand();
+                sqlCommand.Connection = sqlConnect;
+                sqlCommand.CommandType = CommandType.Text;
+                sqlCommand.CommandText = sqlQuery;
 
-                    //Parameterizes all the strings
-                    sqlCommand.Parameters.Add(new SqlParameter("@CustomerID", ddlCustomerList.SelectedValue));
-                    sqlCommand.Parameters.Add(new SqlParameter("@PotentialDate", HttpUtility.HtmlEncode(TxtPotentialDate.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@PotentialTime", HttpUtility.HtmlEncode(TxtPotentialTime.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@ServiceDate", HttpUtility.HtmlEncode(TxtServiceDate.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@CompletionDate", HttpUtility.HtmlEncode(TxtCompletionDate.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@ServiceType", DdlServiceType.SelectedItem.Text));
-                    sqlCommand.Parameters.Add(new SqlParameter("@DestinationTime", HttpUtility.HtmlEncode(TxtDestinationTime.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@LookAtCB", ChkBoxLookAt.Checked.ToString()));
-                    sqlCommand.Parameters.Add(new SqlParameter("@LookAtDate", HttpUtility.HtmlEncode(TxtLookAtSchedule.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@LookAtTime", HttpUtility.HtmlEncode(TxtLookatScheduleTime.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@InitiatingEmp", DdlInitiatingEmp.SelectedValue));
-                    sqlCommand.Parameters.Add(new SqlParameter("@CleaningCB", ChkBxCleaning.Checked.ToString()));
-                    sqlCommand.Parameters.Add(new SqlParameter("@StorageCB", ChkBxStorage.Checked.ToString()));
-                    sqlCommand.Parameters.Add(new SqlParameter("@TrashCB", ChkBxTrashRemoval.Checked.ToString()));
-                    sqlCommand.Parameters.Add(new SqlParameter("@Completed", ChkBoxCompleted.Checked.ToString()));
+                //Parameterizes all the strings
+                sqlCommand.Parameters.Add(new SqlParameter("@CustomerID", ddlCustomerList.SelectedValue));
+                sqlCommand.Parameters.Add(new SqlParameter("@PotentialDate", HttpUtility.HtmlEncode(TxtPotentialDate.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@PotentialTime", HttpUtility.HtmlEncode(TxtPotentialTime.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@ServiceDate", HttpUtility.HtmlEncode(TxtServiceDate.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@CompletionDate", HttpUtility.HtmlEncode(TxtCompletionDate.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@ServiceType", DdlServiceType.SelectedItem.Text));
+                sqlCommand.Parameters.Add(new SqlParameter("@DestinationTime", HttpUtility.HtmlEncode(TxtDestinationTime.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@LookAtCB", ChkBoxLookAt.Checked.ToString()));
+                sqlCommand.Parameters.Add(new SqlParameter("@LookAtDate", HttpUtility.HtmlEncode(TxtLookAtSchedule.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@LookAtTime", HttpUtility.HtmlEncode(TxtLookatScheduleTime.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@InitiatingEmp", DdlInitiatingEmp.SelectedValue));
+                sqlCommand.Parameters.Add(new SqlParameter("@CleaningCB", ChkBxCleaning.Checked.ToString()));
+                sqlCommand.Parameters.Add(new SqlParameter("@StorageCB", ChkBxStorage.Checked.ToString()));
+                sqlCommand.Parameters.Add(new SqlParameter("@TrashCB", ChkBxTrashRemoval.Checked.ToString()));
+                sqlCommand.Parameters.Add(new SqlParameter("@Completed", ChkBoxCompleted.Checked.ToString()));
 
 
 
-                    // Open your connection, send the query 
-                    sqlConnect.Open();
-                    SqlDataReader queryResults = sqlCommand.ExecuteReader();
+                // Open your connection, send the query 
+                sqlConnect.Open();
+                SqlDataReader queryResults = sqlCommand.ExecuteReader();
 
-                    // Close all related connections
-                    queryResults.Close();
-                    sqlConnect.Close();
+                // Close all related connections
+                queryResults.Close();
+                sqlConnect.Close();
 
-                    LblSaveStatus.Text = "Service Order Saved Successfully";
-                    LblSaveStatus.ForeColor = Color.Green;
+                LblSaveStatus.Text = "Service Order Saved Successfully";
+                LblSaveStatus.ForeColor = Color.Green;
 
-                    //Sets service request to completed, once serviceticket is sucessfully saved
-                    if (Session["ServiceRequestID"] != null)
+                //Sets service request to completed, once serviceticket is sucessfully saved
+                if (Session["ServiceRequestID"] != null)
                 {
                     sqlQuery = "UPDATE ServiceRequest SET RequestStatus = 1 where ServiceRequestID = " + Session["ServiceRequestID"].ToString();
 
@@ -443,7 +401,6 @@ namespace WalkerS_Lab1Part3
 
         protected void ddlCustomerList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Clear
 
             //Pulling in customer's record
             String sqlQuery = "Select * from customer where customerid = " + ddlCustomerList.SelectedValue.ToString();
