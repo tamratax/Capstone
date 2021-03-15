@@ -198,6 +198,30 @@
                             ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
                     </asp:TableCell>
                 </asp:TableRow>
+                     <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label
+                            ID="ZipLbl"
+                            runat="server"
+                            Text="Zip:"></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:TextBox
+                            ID="TxtZip"
+                            runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:RequiredFieldValidator
+                            ID="RequiredFieldValidator1"
+                            runat="server"
+                            ErrorMessage="RequiredFieldValidator"
+                            ControlToValidate="TxtZip"
+                            Text="This Field Is Required"
+                            ForeColor="Red"
+                            SetFocusOnError="true"
+                            ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
+                    </asp:TableCell>
+                </asp:TableRow>
                  <asp:TableRow>
             <asp:TableCell>
                 <asp:Label
