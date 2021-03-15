@@ -108,10 +108,6 @@ namespace WalkerS_Lab1Part3
             Response.Redirect("Auction.aspx");
         }
 
-        protected void BtnAddItem_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("AddItem.aspx");
-        }
 
         protected void BtnWarehouse_Click(object sender, EventArgs e)
         {

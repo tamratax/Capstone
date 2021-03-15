@@ -45,10 +45,7 @@
                         Text="Auction"
                         OnClick="BtnAuctions_Click" />
 
-                    <asp:Button ID="BtnAddItem" 
-                        runat="server" 
-                        Text="AddItem" 
-                        OnClick="BtnAddItem_Click" />
+
 
                     <asp:Button ID="BtnWarehouse" 
                         runat="server" 
