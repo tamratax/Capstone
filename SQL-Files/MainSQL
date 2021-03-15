@@ -221,11 +221,11 @@ insert into Address values (null, 2, 'street', 'city','state ', '123', 'descript
 insert into Address values (3, 3, 'street', 'city','state ', '123', 'description');
 
 
-insert into INVENTORY values (1,'Bowl','Blue bowl', 500.23,  2);
-insert into INVENTORY values (3,'mouse','Small bowl', 15.00,  1);
-insert into INVENTORY values (2,'Lamp','Big bowl', 12.50,  2);
-insert into INVENTORY values (3, 'Couch','Tiny bowl', 18.90, 1);
-insert into INVENTORY values (1,'TV','Red bowl', 10000,  3);
+insert into INVENTORY values (1,'Bowl','Blue bowl', 500.23,  2, '2021-05-04');
+insert into INVENTORY values (3,'mouse','Small bowl', 15.00,  1,'2021-05-04');
+insert into INVENTORY values (2,'Lamp','Big bowl', 12.50,  2, '2021-05-04');
+insert into INVENTORY values (3, 'Couch','Tiny bowl', 18.90, 1, '2021-05-04');
+insert into INVENTORY values (1,'TV','Red bowl', 10000,  3, '2021-05-04');
 
 insert into ASSIGNMENT values (1, 1);
 insert into ASSIGNMENT values (1, 2);
