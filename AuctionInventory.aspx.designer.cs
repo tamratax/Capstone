@@ -42,6 +42,15 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.DropDownList DDLCust;
 
         /// <summary>
+        /// RfvCustomerList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvCustomerList;
+
+        /// <summary>
         /// LblType control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDLType;
+
+        /// <summary>
+        /// RfvSeriveTicket control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvSeriveTicket;
 
         /// <summary>
         /// PickupBtn control.
@@ -87,22 +105,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Label AddOnLbl;
 
         /// <summary>
-        /// YesBtn control.
+        /// ChkBoxAddOn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton YesBtn;
-
-        /// <summary>
-        /// NoBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton NoBtn;
+        protected global::System.Web.UI.WebControls.CheckBox ChkBoxAddOn;
 
         /// <summary>
         /// DateLbl control.
