@@ -16,34 +16,34 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            UpdateGridView();
+            
             //If the user is trying to edit a customer, there will be a customerid in this session data
-            if (Session["Customer ID"] != null)
-            {
-                //Pulling in customer's record
-                String sqlQuery = "Select CellPhone, WorkPhone, HomePhone, Street, City, State, Zip, DateContacted from customer join Address on Customer.CustomerID = Address.CustomerID where Customer.customerid = " + Session["Customer ID"].ToString();
+            //if (Session["Customer ID"] != null)
+            //{
+            //    //Pulling in customer's record
+            //    String sqlQuery = "Select CellPhone, WorkPhone, HomePhone, Street, City, State, Zip, DateContacted from customer join Address on Customer.CustomerID = Address.CustomerID where Customer.customerid = " + Session["Customer ID"].ToString();
 
-                //Establishes the connection between our web form and database
-                SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+            //    //Establishes the connection between our web form and database
+            //    SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
-                //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
-                SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
+            //    //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
+            //    SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
 
-                //This creates a datatable and fills it
-                DataTable dtForSelect = new DataTable();
-                sqlAdapter.Fill(dtForSelect);
+            //    //This creates a datatable and fills it
+            //    DataTable dtForSelect = new DataTable();
+            //    sqlAdapter.Fill(dtForSelect);
 
-                //Fills data from editing customer's sql record into InitialConversation page
-                TxtPhoneNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
-                TxtCellPhone.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
-                TxtWorkPhone.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
-                TxtStreet.Text = Convert.ToString(dtForSelect.Rows[0]["Street"]);
-                TxtCity.Text = Convert.ToString(dtForSelect.Rows[0]["City"]);
-                TxtState.Text = Convert.ToString(dtForSelect.Rows[0]["State"]);
-                TxtZip.Text = Convert.ToString(dtForSelect.Rows[0]["Zip"]);
-                TxtContactDate.Text = Convert.ToString(dtForSelect.Rows[0]["DateContacted"]);
+            //    //Fills data from editing customer's sql record into InitialConversation page
+            //    TxtPhoneNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
+            //    TxtCellPhone.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
+            //    TxtWorkPhone.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
+            //    TxtStreet.Text = Convert.ToString(dtForSelect.Rows[0]["Street"]);
+            //    TxtCity.Text = Convert.ToString(dtForSelect.Rows[0]["City"]);
+            //    TxtState.Text = Convert.ToString(dtForSelect.Rows[0]["State"]);
+            //    TxtZip.Text = Convert.ToString(dtForSelect.Rows[0]["Zip"]);
+            //    TxtContactDate.Text = Convert.ToString(dtForSelect.Rows[0]["DateContacted"]);
 
-            }
+            //}
         }
 
         protected void BringInBtn_CheckedChanged(object sender, EventArgs e)
@@ -89,22 +89,23 @@ namespace Lab3
 
         protected void BtnComplete_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-                string query = "INSERT into Inventory(ServiceTicketID, ItemName,ItemDescription, Quantity ) " +
-                    "values (2, @ItemName, @ItemDescription, @ItemQuantity) ";
+                string query = "INSERT into Inventory(ServiceTicketID, ItemName, ItemDescription, Quantity, AddedDate) values (" + DDLType.SelectedValue.ToString() + ", @ItemName, @ItemDescription, @ItemQuantity, @addedDate)";
 
                 sqlConnect.Open();
                 SqlCommand com = new SqlCommand(query, sqlConnect);
 
+
                 com.Parameters.AddWithValue("ItemName", TxtItem.Text.ToString());
                 com.Parameters.AddWithValue("ItemDescription", TxtItemNotes.Text.ToString());
-                com.Parameters.AddWithValue("ItemQuantity", TxtQuantity.Text.ToString());
+                com.Parameters.AddWithValue("ItemQuantity", TxtQuantity.Text);
+                com.Parameters.AddWithValue("addedDate", System.DateTime.Today.ToString("yyyy-MM-dd"));
 
 
 
-                com.ExecuteNonQuery();
+            com.ExecuteNonQuery();
                 sqlConnect.Close();
 
                 TxtItem.Text = "";
@@ -115,23 +116,32 @@ namespace Lab3
 
                 LblStatus.Text = "Item sucessfully added!";
 
+            //}
+            //catch
+            //{
+            //    LblStatus.Text = "Database Error!";
+            //}
+        }
+        protected void UpdateGridView()
+        {
+            try
+            {
+
+
+                String Query = "Select  ItemName,ItemDescription, Quantity FROM Inventory join ServiceTicket on ServiceTicket.serviceticketID = inventory.ServiceTicketID where inventory.ServiceTicketID = " + DDLType.SelectedValue.ToString();
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+                SqlDataAdapter sqlAdapter = new SqlDataAdapter(Query, sqlConnect);
+
+                DataTable listData = new DataTable();
+                sqlAdapter.Fill(listData);
+                GridItem.DataSource = listData;
+                GridItem.DataBind();
             }
             catch
             {
                 LblStatus.Text = "Database Error!";
             }
-        }
-        protected void UpdateGridView()
-        {
-            String Query = "Select  ItemName,ItemDescription, Quantity  FROM Inventory join ServiceTicket on ServiceTicket.serviceticketID = inventory.ServiceTicketID where inventory.ServiceTicketID = 2";
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-
-            SqlDataAdapter sqlAdapter = new SqlDataAdapter(Query, sqlConnect);
-
-            DataTable listData = new DataTable();
-            sqlAdapter.Fill(listData);
-            GridItem.DataSource = listData;
-            GridItem.DataBind();
         }
 
         protected void BtnSave_Click(object sender, EventArgs e)
@@ -143,7 +153,7 @@ namespace Lab3
                 sqlConnect3.Open();
 
                 //Concatenate Sql Query Insert Statements
-                String query1 = "Insert into AuctionInventory values(@ItemTransportationType, @CellPhone, @WorkPhone, @HomePhone, @StreetAddress, @City, @State, @ZipCode, @ContactedDate, @AddOn, @BringInDate, @CloseOutDate, @PickupDate, @PickupTime, @LeaveAt, @AuctionNotes)";
+                String query1 = "Insert into AuctionInventory values(@ItemTransportationType, @AddOn, @BringInDate, @CloseOutDate, @PickupDate, @PickupTime, @LeaveAt, @AuctionNotes, "+ DDLType.SelectedValue.ToString() + ")";
 
 
                 // Create the SQL Command object which will send the query
@@ -151,13 +161,35 @@ namespace Lab3
                 sqlCommand1.Connection = sqlConnect3;
                 sqlCommand1.CommandType = CommandType.Text;
                 sqlCommand1.CommandText = query1;
-                sqlCommand1.Parameters.Add(new SqlParameter("@ItemTransportationType", HttpUtility.HtmlEncode(YesBtn.Checked))); ////HOW TO DO WITH RADIO BUTTON
-                sqlCommand1.Parameters.Add(new SqlParameter("@CellPhone", HttpUtility.HtmlEncode(TxtCellPhone.Text)));
+
+                String LookAtOrPickUp = "";
+                if (PickupBtn.Checked)
+                {
+                    LookAtOrPickUp = "Pick-Up";
+                }
+                else if (BringInBtn.Checked)
+                {
+                    LookAtOrPickUp = "Bring-In";
+                }
+
+                sqlCommand1.Parameters.Add(new SqlParameter("@ItemTransportationType", HttpUtility.HtmlEncode(LookAtOrPickUp)));
+                sqlCommand1.Parameters.Add(new SqlParameter("@AddOn", ChkBoxAddOn.Checked.ToString()));
+                sqlCommand1.Parameters.Add(new SqlParameter("@BringInDate", HttpUtility.HtmlEncode(TxtBringInDate.Text)));
+                sqlCommand1.Parameters.Add(new SqlParameter("@CloseOutDate", HttpUtility.HtmlEncode(TxtCloseOutDate.Text)));
+                sqlCommand1.Parameters.Add(new SqlParameter("@PickUpDate", HttpUtility.HtmlEncode(TxtDate.Text)));
+                sqlCommand1.Parameters.Add(new SqlParameter("@PickUpTime", HttpUtility.HtmlEncode(TxtTime.Text)));
+                sqlCommand1.Parameters.Add(new SqlParameter("@LeaveAt", HttpUtility.HtmlEncode(TxtLeaveAt.Text)));
+                sqlCommand1.Parameters.Add(new SqlParameter("@AuctionNotes", HttpUtility.HtmlEncode(TxtNotes.Text)));
+
 
 
                 SqlDataReader queryResults2 = sqlCommand1.ExecuteReader();
                 queryResults2.Close();
                 sqlConnect3.Close();
+
+                LblSaveStatus.Text = "Saved Customer Auction Inventory";
+                LblSaveStatus.ForeColor = Color.Green;
+
             }
             catch
             {
@@ -170,16 +202,7 @@ namespace Lab3
         {
             PickupBtn.Checked = false;
             BringInBtn.Checked = false;
-            TxtPhoneNumber.Text = "";
-            TxtCellPhone.Text = "";
-            TxtWorkPhone.Text = "";
-            TxtStreet.Text = "";
-            TxtCity.Text = "";
-            TxtState.Text = "";
-            TxtZip.Text = "";
-            TxtContactDate.Text = "";
-            YesBtn.Checked = false;
-            NoBtn.Checked = false;
+            ChkBoxAddOn.Checked = false;
             TxtBringInDate.Text = "";
             TxtCloseOutDate.Text = "";
             TxtDate.Text = "";
@@ -200,7 +223,7 @@ namespace Lab3
                     DDLType.DataTextField = "Services";
                     DDLType.DataValueField = "ServiceTicketID";
 
-                    String sqlQueryService = "Select ServiceTicketID, ServiceType + ' ' + ServiceDate 'Services' from ServiceTicket where ServiceType = 'Auction' AND customerID = " + DDLCust.SelectedValue;
+                    String sqlQueryService = "Select ServiceTicketID, ServiceType + ' ' + ServiceDate 'Services' from ServiceTicket where ServiceType = 'Auction' AND customerID = " + DDLCust.SelectedValue.ToString();
 
 
                     SqlConnection sqlConnectService = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
@@ -239,22 +262,7 @@ namespace Lab3
 
         protected void DDLType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                //TxtItem.Visible = true;
-                //TxtCost.Visible = true;
-                //TxtItemDescription.Visible = true;
-                //TxtQuantity.Visible = true;
-                //LblItem.Visible = true;
-                //LblCost.Visible = true;
-                //LblItemDescription.Visible = true;
-                //LblQuantity.Visible = true;
-                //BtnComplete.Visible = true;
-            }
-            catch
-            {
-                LblStatus.Text = "Database Error!";
-            }
+            UpdateGridView();
         }
 
     }

@@ -45,10 +45,7 @@
                         Text="Auction"
                         OnClick="BtnAuctions_Click" />
 
-                    <asp:Button ID="BtnAddItem" 
-                        runat="server" 
-                        Text="AddItem" 
-                        OnClick="BtnAddItem_Click" />
+
 
                     <asp:Button ID="BtnWarehouse" 
                         runat="server" 
@@ -64,6 +61,11 @@
                         runat="server" 
                         Text="Move Inventory"
                         onclick="BtnMoveInvt_Click"/>
+
+                    <asp:Button ID="BtnCompletion" 
+                        runat="server" 
+                        Text="Completion Form"
+                        OnClick="BtnCompletion_Click"/>
 
                 </fieldset>
             </asp:TableCell>

@@ -115,7 +115,8 @@ create table INVENTORY (
 	ItemName varchar(50),
 	ItemDescription	varchar(255),
 	ItemCost		float,
-	Quantity int
+	Quantity int,
+	AddedDate		varchar(255)
 );
 
 create table EQUIPMENT (
@@ -154,23 +155,13 @@ CREATE TABLE WAREHOUSE(
 Create Table AUCTIONINVENTORY(
 	AuctionInventoryID int not null identity(1, 1) primary key,
 	ItemTransportationType varchar(20),
-	FirstName			varchar(20),
-	LastName			varchar(20),
-	CellPhone			varchar(15),
-	WorkPhone			varchar(15),
-	HomePhone			varchar(15),
-	StreetAddress			varchar(100),
-	City				varchar(50),
-	State				varchar(50),
-	ZipCode			varchar(20),
-	ContactDated			varchar(20),
-	AddOn				varchar(20),
-	AuctionNotes			varchar(20),
-	BringInDate			varchar(20),
-	CloseOutDate		varchar(20),
-	PickupDate			varchar(20),
-	PickupTime			varchar(20),
-	LeaveAt				varchar(20),
+	AddOn				varchar(200),
+	BringInDate			varchar(200),
+	CloseOutDate		varchar(200),
+	PickupDate			varchar(200),
+	PickupTime			varchar(200),
+	LeaveAt				varchar(200),
+	AuctionNotes		varchar(200),
 	ServiceTicketID	int references SERVICETICKET(ServiceTicketID)
 );
 

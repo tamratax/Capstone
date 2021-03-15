@@ -65,7 +65,7 @@
                         <asp:BoundField DataField="Description"  HeaderText="Description" />  
                         <asp:BoundField DataField="ItemName"  HeaderText="Name"/>
                         <asp:BoundField DataField="Quantity"  HeaderText="Quantity"/>
-                        <asp:BoundField DataField="CustomerName"  HeaderText="Customer"/>
+                      <%--  <asp:BoundField DataField="CustomerName"  HeaderText="Customer"/>--%>
                         
                     </Columns>
                 </asp:GridView>
@@ -187,7 +187,7 @@
      <asp:SqlDataSource ID="dtasrcItems"
         runat="server"
         ConnectionString="<%$ConnectionStrings:Lab3%>"
-        SelectCommand="SELECT WAREHOUSE.WarehouseID, WAREHOUSE.Date, WAREHOUSE.Lot, WAREHOUSE.Control, WAREHOUSE.Description, WAREHOUSE.Quantity, INVENTORY.ItemName, CUSTOMER.FirstName + ' ' + CUSTOMER.LastName as CustomerName FROM Inventory, Warehouse, Customer WHERE WAREHOUSE.ItemID = INVENTORY.ItemID AND WAREHOUSE.CustomerID = @CustomerID"
+        SelectCommand="SELECT DISTINCT WAREHOUSE.WarehouseID, WAREHOUSE.Date, WAREHOUSE.Lot, WAREHOUSE.Control, WAREHOUSE.Description, WAREHOUSE.Quantity, INVENTORY.ItemName FROM Inventory, Warehouse, Customer WHERE WAREHOUSE.ItemID = INVENTORY.ItemID AND WAREHOUSE.CustomerID = @CustomerID"
         DeleteCommand="DELETE WAREHOUSE where WarehouseID = @WarehouseID"
         UpdateCommand="UPDATE WAREHOUSE SET Date = @Date, Lot = @Lot, Control = @Control, Description = @Description, Quantity = @Quantity WHERE WarehouseID = @WarehouseID">
         <SelectParameters>

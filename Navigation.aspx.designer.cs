@@ -87,15 +87,6 @@ namespace WalkerS_Lab1Part3
         protected global::System.Web.UI.WebControls.Button BtnAuctions;
 
         /// <summary>
-        /// BtnAddItem control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAddItem;
-
-        /// <summary>
         /// BtnWarehouse control.
         /// </summary>
         /// <remarks>
@@ -121,6 +112,15 @@ namespace WalkerS_Lab1Part3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnMoveInvt;
+
+        /// <summary>
+        /// BtnCompletion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnCompletion;
 
         /// <summary>
         /// TblNotifications control.

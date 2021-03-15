@@ -100,48 +100,68 @@ namespace WalkerS_Lab1Part3
             //Show Text Boxes Again
             LblOther.Visible = true;
             TxtOther.Visible = true;
+            ChkBoxAuction.Checked = true;
+            LblHowMany.Visible = true;
+            LblDescriptions.Visible = true;
+            TxtHowMany.Visible = true;
+            TxtDescriptions.Visible = true;
+            ChkBoxCompleted.Checked = true;
 
             //Populates fields for testing
             TxtFirstName.Text = "Jake";
             TxtLastName.Text = "Robert";
             TxtPhoneNumber.Text = "7037284871";
+            TxtCellPhone.Text = "7078523694";
+            TxtWorkPhone.Text = "7578452321";
             TxtEmail.Text = "jake@dukes.com";
-
-            //TxtDestinationStreet.Text = "531 New Port Rd";
-            //TxtDestinationCity.Text = "Harrisonburg";
-            //TxtDestinationState.Text = "VA";
+            TxtStreet.Text = "531 New Port Rd";
+            TxtCity.Text = "Harrisonburg";
+            TxtState.Text = "VA";
+            TxtZip.Text = "22801";       
+            TxtHowMany.Text = "5";
+            TxtDescriptions.Text = "Couch, tv, coffee table, nightstand, lamp";
             DdlInitialContact.SelectedIndex = 5;
+            DdlItemTransport.SelectedIndex = 2;
+            DdlCompletedByEmp.SelectedIndex = 2;
             TxtOther.Text = "Carrier Pidgeon";
             TxtReferral.Text = "Poster";
             TxtDeadline.Text = "2021-02-01";
             TxtDeadlineEnd.Text = "2021-02-28";
-
-
         }
 
         //Clears all textboxes once button is clicked
         protected void BtnClear_Click(object sender, EventArgs e)
         {
-
             TxtFirstName.Text = "";
             TxtLastName.Text = "";
             TxtPhoneNumber.Text = "";
+            TxtCellPhone.Text = "";
+            TxtWorkPhone.Text = "";
             TxtEmail.Text = "";
-            //TxtDestinationStreet.Text = "";
-            //TxtDestinationCity.Text = "";
-            //TxtDestinationState.Text = "";
+            TxtStreet.Text = "";
+            TxtCity.Text = "";
+            TxtState.Text = "";
+            TxtZip.Text = "";
+            TxtHowMany.Text = "";
+            TxtDescriptions.Text = "";
             DdlInitialContact.SelectedIndex = -1;
+            DdlItemTransport.SelectedIndex = -1;
+            DdlCompletedByEmp.SelectedIndex = -1;
             TxtOther.Text = "";
             TxtReferral.Text = "";
             TxtDeadline.Text = "";
             TxtDeadlineEnd.Text = "";
-
             LblSaveStatus.Text = "";
 
             //Hide Text Boxes Again
             LblOther.Visible = false;
             TxtOther.Visible = false;
             ChkBoxCompleted.Checked = false;
+            LblHowMany.Visible = false;
+            LblDescriptions.Visible = false;
+            TxtHowMany.Visible = false;
+            TxtDescriptions.Visible = false;
+            ChkBoxAuction.Checked = false;
 
             //Stops the edit function
             Session["Customer ID"] = null;

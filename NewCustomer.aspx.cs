@@ -79,8 +79,9 @@ namespace Lab3
 
                     //Create Customer record
                     //Concatenate Sql Query Insert Statements
-                    String sqlQuery = "insert into CUSTOMER values (@FirstName, @LastName, @WorkPhone, @CellPhone, @HomePhone, @Email, '', @StreetAddress, @City, @State";
-                    sqlQuery += ", '', '', '', '', '', 0, '" + System.DateTime.Now.Date.ToString("yyyy-MM-dd") + "', '', '', 0)";
+                    String sqlQuery = "insert into CUSTOMER (FirstName, LastName, WorkPhone, CellPhone, HomePhone, Email ) values (@FirstName, @LastName, @WorkPhone, @CellPhone, @HomePhone, @Email) ";
+                    //sqlQuery += ", '', '', '', '', '', 0, '" + System.DateTime.Now.Date.ToString("yyyy-MM-dd") + "', '', '', 0)";
+
 
                     //Define the Connection to the Database
                     SqlConnection sqlConnectCustomer = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -96,9 +97,11 @@ namespace Lab3
                     sqlCommandCustomer.Parameters.Add(new SqlParameter("@HomePhone", HttpUtility.HtmlEncode(TxtPhoneNumber.Text)));
                     sqlCommandCustomer.Parameters.Add(new SqlParameter("@CellPhone", HttpUtility.HtmlEncode(TxtCellPhone.Text)));
                     sqlCommandCustomer.Parameters.Add(new SqlParameter("@Email", HttpUtility.HtmlEncode(TxtEmail.Text)));
-                    sqlCommandCustomer.Parameters.Add(new SqlParameter("@StreetAddress", HttpUtility.HtmlEncode(TxtStreetAddress.Text)));
-                    sqlCommandCustomer.Parameters.Add(new SqlParameter("@City", HttpUtility.HtmlEncode(TxtCity.Text)));
-                    sqlCommandCustomer.Parameters.Add(new SqlParameter("@State", HttpUtility.HtmlEncode(TxtState.Text)));
+                    //sqlCommandCustomer.Parameters.Add(new SqlParameter("@StreetAddress", HttpUtility.HtmlEncode(TxtStreetAddress.Text)));
+                    //sqlCommandCustomer.Parameters.Add(new SqlParameter("@City", HttpUtility.HtmlEncode(TxtCity.Text)));
+                    //sqlCommandCustomer.Parameters.Add(new SqlParameter("@State", HttpUtility.HtmlEncode(TxtState.Text)));
+
+
 
 
                     // Open your connection, send the query 
@@ -109,16 +112,43 @@ namespace Lab3
                     queryResultsCustomer.Close();
                     sqlConnectCustomer.Close();
 
+                    
+
+                    sqlQuery = "insert into Address (street, city, state, zip, Description ) values (@street, @city, @state, @zip, 'Primary Contact Address') ";
+
+                    SqlConnection sqlConnectAddress = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                    SqlCommand sqlCommandAddress = new SqlCommand();
+                    sqlCommandAddress.Connection = sqlConnectAddress;
+                    sqlCommandAddress.CommandType = CommandType.Text;
+                    sqlCommandAddress.CommandText = sqlQuery;
+                    sqlCommandAddress.Parameters.Add(new SqlParameter("@street", HttpUtility.HtmlEncode(TxtStreetAddress.Text)));
+                    sqlCommandAddress.Parameters.Add(new SqlParameter("@city", HttpUtility.HtmlEncode(TxtCity.Text)));
+                    sqlCommandAddress.Parameters.Add(new SqlParameter("@state", HttpUtility.HtmlEncode(TxtState.Text)));
+                    sqlCommandAddress.Parameters.Add(new SqlParameter("@Zip", HttpUtility.HtmlEncode(TxtZip.Text)));
+
+                    sqlConnectAddress.Open();
+                    SqlDataReader queryResultsAddress = sqlCommandAddress.ExecuteReader();
+
+                    // Close all related connections
+                    queryResultsAddress.Close();
+                    sqlConnectAddress.Close();
+
+
+
+
+
+
+
                     LblCreateStatus.Text = "Customer Added Successfully";
                     LblCreateStatus.ForeColor = Color.Green;
                 }
 
-            }
+                }
                 catch
-            {
-                LblCreateStatus.Text = "Database Error - User not committed.";
+                {
+                    LblCreateStatus.Text = "Database Error - User not committed.";
+                }
             }
-        }
             else
             {
                 LblCreateStatus.Text = "Fill all fields.";
@@ -132,6 +162,38 @@ namespace Lab3
         protected void BtnBack_Click(object sender, EventArgs e)
         {
             Response.Redirect("CustomerPortal.aspx");
+        }
+
+        protected void BtnPopulate_Click(object sender, EventArgs e)
+        {
+            TxtEmail.Text = "bradyT@Gmail.com";
+            TxtPassword.Text = "dukedog";
+            TxtFirstName.Text = "Tom";
+            TxtLastName.Text = "Brady";
+            TxtStreetAddress.Text = "155 Tampa Street";
+            TxtCity.Text = "Harrisonburg";
+            TxtState.Text = "Virginia";
+            TxtZip.Text = "22801";
+            TxtPhoneNumber.Text = "5405228558";
+            TxtCellPhone.Text = "5405201010";
+            TxtWorkPhone.Text = "5404252754";
+
+            
+        }
+
+        protected void BtnClear_Click(object sender, EventArgs e)
+        {
+            TxtEmail.Text = "";
+            TxtPassword.Text = "";
+            TxtFirstName.Text = "";
+            TxtLastName.Text = "";
+            TxtStreetAddress.Text = "";
+            TxtCity.Text = "";
+            TxtState.Text = "";
+            TxtPhoneNumber.Text = "";
+            TxtCellPhone.Text = "";
+            TxtWorkPhone.Text = "";
+
         }
     }
 }

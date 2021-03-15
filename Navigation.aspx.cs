@@ -21,7 +21,7 @@ namespace WalkerS_Lab1Part3
                 LstBoxCustomerRequests.DataTextField = "Name";
                 LstBoxCustomerRequests.DataValueField = "Customer ID";
 
-                String sqlQueryCustomer = "Select customer.customerID 'Customer ID', FirstName + ' ' + LastName + ' (' + ServiceType + ') ->' as 'Name' from Customer join ServiceRequest on servicerequest.customerID = customer.CustomerID where Completed = 'false'";
+                String sqlQueryCustomer = "Select customer.customerID 'Customer ID', FirstName + ' ' + LastName + ' (' + ServiceType + ') ->' as 'Name' from Customer join ServiceRequest on servicerequest.customerID = customer.CustomerID";
 
 
                 SqlConnection sqlConnectCustomer = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
@@ -108,10 +108,6 @@ namespace WalkerS_Lab1Part3
             Response.Redirect("Auction.aspx");
         }
 
-        protected void BtnAddItem_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("AddItem.aspx");
-        }
 
         protected void BtnWarehouse_Click(object sender, EventArgs e)
         {
@@ -126,6 +122,11 @@ namespace WalkerS_Lab1Part3
         protected void BtnMoveInvt_Click(object sender, EventArgs e)
         {
             Response.Redirect("MoveInventory.aspx");
+        }
+
+        protected void BtnCompletion_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CompletionForm.aspx");
         }
     }
 }

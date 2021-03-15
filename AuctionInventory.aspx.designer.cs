@@ -24,22 +24,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Table Table1;
 
         /// <summary>
-        /// PickupBtn control.
+        /// LblCustomerName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton PickupBtn;
-
-        /// <summary>
-        /// BringInBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton BringInBtn;
+        protected global::System.Web.UI.WebControls.Label LblCustomerName;
 
         /// <summary>
         /// DDLCust control.
@@ -51,58 +42,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.DropDownList DDLCust;
 
         /// <summary>
-        /// LblPhoneNumber control.
+        /// RfvCustomerList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblPhoneNumber;
-
-        /// <summary>
-        /// TxtPhoneNumber control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtPhoneNumber;
-
-        /// <summary>
-        /// LblCellPhone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblCellPhone;
-
-        /// <summary>
-        /// TxtCellPhone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtCellPhone;
-
-        /// <summary>
-        /// LblWorkPhone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblWorkPhone;
-
-        /// <summary>
-        /// TxtWorkPhone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtWorkPhone;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvCustomerList;
 
         /// <summary>
         /// LblType control.
@@ -123,112 +69,31 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.DropDownList DDLType;
 
         /// <summary>
-        /// LblPCA control.
+        /// RfvSeriveTicket control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblPCA;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvSeriveTicket;
 
         /// <summary>
-        /// LblStreet control.
+        /// PickupBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblStreet;
+        protected global::System.Web.UI.WebControls.RadioButton PickupBtn;
 
         /// <summary>
-        /// TxtStreet control.
+        /// BringInBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtStreet;
-
-        /// <summary>
-        /// RequiredFieldValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-
-        /// <summary>
-        /// LblCity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblCity;
-
-        /// <summary>
-        /// TxtCity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtCity;
-
-        /// <summary>
-        /// LblState control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblState;
-
-        /// <summary>
-        /// TxtState control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtState;
-
-        /// <summary>
-        /// LblZip control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblZip;
-
-        /// <summary>
-        /// TxtZip control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtZip;
-
-        /// <summary>
-        /// ContactDateLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ContactDateLbl;
-
-        /// <summary>
-        /// TxtContactDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtContactDate;
+        protected global::System.Web.UI.WebControls.RadioButton BringInBtn;
 
         /// <summary>
         /// AddOnLbl control.
@@ -240,22 +105,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Label AddOnLbl;
 
         /// <summary>
-        /// YesBtn control.
+        /// ChkBoxAddOn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton YesBtn;
-
-        /// <summary>
-        /// NoBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton NoBtn;
+        protected global::System.Web.UI.WebControls.CheckBox ChkBoxAddOn;
 
         /// <summary>
         /// DateLbl control.
