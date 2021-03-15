@@ -173,6 +173,7 @@ namespace Lab3
             TxtStreetAddress.Text = "155 Tampa Street";
             TxtCity.Text = "Harrisonburg";
             TxtState.Text = "Virginia";
+            TxtZip.Text = "22801";
             TxtPhoneNumber.Text = "5405228558";
             TxtCellPhone.Text = "5405201010";
             TxtWorkPhone.Text = "5404252754";
