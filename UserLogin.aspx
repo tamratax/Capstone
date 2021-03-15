@@ -9,7 +9,6 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <p>Stuart Walker & Aaron Walsh</p>
              <h1>User Login</h1>
         <asp:Table ID="TblLogin" runat="server">
             <asp:TableRow>
