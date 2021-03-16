@@ -69,6 +69,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BootstrapSandBox.aspx" />
+    <Content Include="Content\LandingPage.css" />
+    <Content Include="Content\UserLogin.css" />
     <Content Include="MoveInventory.aspx" />
     <Content Include="AddServiceRequest.aspx" />
     <Content Include="Auction.aspx" />
@@ -201,6 +204,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BootstrapSandBox.aspx.cs">
+      <DependentUpon>BootstrapSandBox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BootstrapSandBox.aspx.designer.cs">
+      <DependentUpon>BootstrapSandBox.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InitialConversation.aspx.cs">
       <DependentUpon>InitialConversation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

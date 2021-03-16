@@ -78,15 +78,6 @@ namespace WalkerS_Lab1Part3
         protected global::System.Web.UI.WebControls.Button BtnAddNote;
 
         /// <summary>
-        /// BtnAuctions control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAuctions;
-
-        /// <summary>
         /// BtnWarehouse control.
         /// </summary>
         /// <remarks>

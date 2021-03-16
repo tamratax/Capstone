@@ -1,3 +1,6 @@
+--drop table Pass;
+--drop table Person;
+
 CREATE TABLE Person(
 UserID int IDENTITY (1,1) NOT NULL,
 FirstName varchar(20) NOT NULL,
@@ -31,5 +34,3 @@ Insert into Pass values (3, 'Ledford@dukes.com', '1000:JfF+8X2bGiIzLJLgOnJU3ITDh
 Insert into Pass values (4, 'Ezell@dukes.com', '1000:JfF+8X2bGiIzLJLgOnJU3ITDh5Iw/utM:gkVkHdwvEMRf00ODb6oCpDel6Pw='); --Hash is for 'password'
 Insert into Pass values (5, 'Frost@dukes.com', '1000:JfF+8X2bGiIzLJLgOnJU3ITDh5Iw/utM:gkVkHdwvEMRf00ODb6oCpDel6Pw='); --Hash is for 'password'
 Insert into Pass values (8, 'admin', '1000:JfF+8X2bGiIzLJLgOnJU3ITDh5Iw/utM:gkVkHdwvEMRf00ODb6oCpDel6Pw='); --Hash is for 'password'
-
-
