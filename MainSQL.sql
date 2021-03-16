@@ -1,3 +1,5 @@
+--drop table moveemployees
+--drop table charges
 --drop table auctionInventory;
 --drop table warehouse;
 --drop table address;
@@ -119,6 +121,7 @@ create table INVENTORY (
 	AddedDate		varchar(255)
 );
 
+
 create table EQUIPMENT (
 	EquipmentID		int not null identity(1, 1) primary key,
 	EquipmentType	varchar(255)
@@ -148,8 +151,25 @@ CREATE TABLE WAREHOUSE(
 	Description varchar(max) NULL,
 	Quantity int NULL,
 	ItemID int NULL,
-	CustomerID int NULL,
+	CustomerID		int references Customer(CustomerID)
+
 	);
+	
+	CREATE TABLE MOVEEMPLOYEES(
+	MoveID int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	EmployeeID int NULL,
+	EmployeeName varchar(50) NULL,
+	ServiceTicketID int NULL,
+
+);
+
+CREATE TABLE CHARGES(
+	ChargeID int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	Hours int NULL,
+	Amount money NULL,
+	Total money NULL,
+	ServiceTicketID int NULL,
+);
 
 	
 Create Table AUCTIONINVENTORY(
@@ -204,11 +224,11 @@ insert into Address values (null, 2, 'street', 'city','state ', '123', 'descript
 insert into Address values (3, 3, 'street', 'city','state ', '123', 'description');
 
 
-insert into INVENTORY values (1,'Bowl','Blue bowl', 500.23,  2);
-insert into INVENTORY values (3,'mouse','Small bowl', 15.00,  1);
-insert into INVENTORY values (2,'Lamp','Big bowl', 12.50,  2);
-insert into INVENTORY values (3, 'Couch','Tiny bowl', 18.90, 1);
-insert into INVENTORY values (1,'TV','Red bowl', 10000,  3);
+insert into INVENTORY values (1,'Bowl','Blue bowl', 500.23,  2, '2021-05-04');
+insert into INVENTORY values (3,'mouse','Small bowl', 15.00,  1,'2021-05-04');
+insert into INVENTORY values (2,'Lamp','Big bowl', 12.50,  2, '2021-05-04');
+insert into INVENTORY values (3, 'Couch','Tiny bowl', 18.90, 1, '2021-05-04');
+insert into INVENTORY values (1,'TV','Red bowl', 10000,  3, '2021-05-04');
 
 insert into ASSIGNMENT values (1, 1);
 insert into ASSIGNMENT values (1, 2);
@@ -220,3 +240,7 @@ insert into TICKETHISTORY values ('2021-01-01','Fragile','Customer says be caref
 insert into TICKETHISTORY values ('2021-01-03','Big Fragile','Customer also says be careful with his big bowl',1,2);
 insert into TICKETHISTORY values ('2021-02-01','Phone change','Call customer at work number',2,2);
 insert into TICKETHISTORY values ('2021-02-04','Call at home','Call customer at home number',3,2);
+
+insert into AUCTIONINVENTORY values ('Pick-Up', 'False', '', '2021-12-08',  '2021-10-08', '6:30', '09:30', '', 1);
+insert into AUCTIONINVENTORY values ('Pick-Up', 'False', '', '2021-12-08',  '2021-12-05', '14:30', '16:30', '', 2);
+insert into AUCTIONINVENTORY values ('Bring-In', 'False', '2021-9-07', '2021-10-07',  '', '', '', '', 3);

@@ -57,7 +57,7 @@ namespace WalkerS_Lab1Part3
         //Navigates to AddCustomer Web form after button is clicked
         protected void BtnAddCustomer_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AddCustomer.aspx");
+            Response.Redirect("InitialConversation.aspx");
         }
 
         //Populates Customer Gridview When The Customer Name is Selected
