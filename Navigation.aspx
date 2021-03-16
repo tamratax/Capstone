@@ -42,10 +42,7 @@
                         Text="Add Note"
                         OnClick="BtnAddNote_Click" />
 
-                    <asp:Button ID="BtnAuctions"
-                        runat="server"
-                        Text="Auction"
-                        OnClick="BtnAuctions_Click" />
+                  
 
 
 
