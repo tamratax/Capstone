@@ -2,6 +2,8 @@
 
 <%-- Coded By: Stuart Walker & Aaron Walsh --%>
 
+<asp:Content ID="test" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
 <asp:Content ID="myContent" ContentPlaceHolderID="body" runat="server">
     <asp:Table
         ID="Table2"
@@ -125,5 +127,5 @@
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
-
+    
 </asp:Content>
