@@ -8,6 +8,7 @@ using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.Drawing;
 
 
 namespace Lab3
@@ -51,11 +52,13 @@ namespace Lab3
                             Response.Redirect("AddServiceRequest.aspx");
                         }
                         else
-                            LblLoginStatus.Text = "Password is wrong.";
+                            LblLoginStatus.ForeColor = Color.Red;
+                            LblLoginStatus.Text = "Email/Password is wrong!";
                     }
                 }
                 else // if the username doesn't exist, it will show failure
-                    LblLoginStatus.Text = "Login failed.";
+                    LblLoginStatus.ForeColor = Color.Red;
+                LblLoginStatus.Text = "Email/Password is wrong!";
 
                 sc.Close();
             }
