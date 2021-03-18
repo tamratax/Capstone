@@ -2,6 +2,8 @@
 
 <%-- Coded By: Stuart Walker & Aaron Walsh --%>
 
+<asp:Content ID="test" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
 <asp:Content ID="myContent" ContentPlaceHolderID="body" runat="server">
     <asp:Table
         ID="Table2"
@@ -40,10 +42,7 @@
                         Text="Add Note"
                         OnClick="BtnAddNote_Click" />
 
-                    <asp:Button ID="BtnAuctions"
-                        runat="server"
-                        Text="Auction"
-                        OnClick="BtnAuctions_Click" />
+                  
 
 
 
@@ -125,5 +124,5 @@
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
-
+    
 </asp:Content>

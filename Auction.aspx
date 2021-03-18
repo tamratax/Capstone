@@ -140,7 +140,7 @@
         ConnectionString="<%$ConnectionStrings:Lab3%>"
         SelectCommand="Select Customer.CustomerID, FirstName + ' ' + LastName as CustomerName 
            from Customer join SERVICETICKET on Customer.CustomerID = SERVICETICKET.CustomerID 
-           where ServiceType = 'Auction' AND serviceTicket.completed = 1 
+           where ServiceType = 'Auction' AND serviceTicket.completed = 'True' 
            order by lastName desc"></asp:SqlDataSource>
 
     <asp:SqlDataSource
