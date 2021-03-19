@@ -137,10 +137,10 @@ namespace Lab3
 
 
 
-
-
-                    LblCreateStatus.Text = "Customer Added Successfully";
-                    LblCreateStatus.ForeColor = Color.Green;
+                        Session["CustomerCreated"] = "True";
+                        Response.Redirect("CustomerPortal.aspx");
+                    //LblCreateStatus.Text = "Customer Added Successfully";
+                    //LblCreateStatus.ForeColor = Color.Green;
                 }
 
                 }
