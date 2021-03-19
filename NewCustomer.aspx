@@ -171,6 +171,14 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-checkbox">
+                                                    <asp:Label
+                                                        ID="LblCreateStatus"
+                                                        runat="server"
+                                                        Text=""></asp:Label>
+                                                    </div>
+                                                </div>
                                             <div class="form-group mt-4 mb-0"></div>
                                             <asp:Button
                                                 ID="BtnCreate"
