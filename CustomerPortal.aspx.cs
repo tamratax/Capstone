@@ -17,7 +17,13 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["CustomerCreated"] != null)
+            {
+                LblLoginStatus.ForeColor = Color.Green;
+                LblLoginStatus.Text = "Account created sucessfully!";
+                
+                Session.Remove("CustomerCreated");
+            }
         }
 
         protected void BtnLogin_Click(object sender, EventArgs e)
