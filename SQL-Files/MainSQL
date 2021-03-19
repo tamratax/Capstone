@@ -1,3 +1,5 @@
+--drop table charges;
+--drop table MOVEEMPLOYEES;
 --drop table auctionInventory;
 --drop table warehouse;
 --drop table address;
