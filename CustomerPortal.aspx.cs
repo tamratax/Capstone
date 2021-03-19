@@ -53,12 +53,12 @@ namespace Lab3
                         }
                         else
                             LblLoginStatus.ForeColor = Color.Red;
-                            LblLoginStatus.Text = "Email/Password is wrong!";
+                            LblLoginStatus.Text = "Email and Password combination incorrect!";
                     }
                 }
                 else // if the username doesn't exist, it will show failure
                     LblLoginStatus.ForeColor = Color.Red;
-                LblLoginStatus.Text = "Email/Password is wrong!";
+                LblLoginStatus.Text = "Email and Password combination incorrect!";
 
                 sc.Close();
             }
