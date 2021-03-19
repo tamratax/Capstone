@@ -204,7 +204,7 @@
                 </footer>
             </div>
         </div>
-        <div>
+       <%-- <div>
             <h1>Create New Account</h1>
             <asp:Table
                 ID="TblAccountInfo"
@@ -216,13 +216,13 @@
                             runat="server"
                             Text="Email:"></asp:Label>
                     </asp:TableCell>
-                    <asp:TableCell>
+                    <asp:TableCell>--%>
 <%--                        <asp:TextBox
                             ID="TxtEmail"
                             runat="server"
                             Text="">
                         </asp:TextBox>--%>
-                    </asp:TableCell>
+                   <%-- </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label
                             ID="LblUsernameMessage"
@@ -248,12 +248,12 @@
                             runat="server"
                             Text="Password:"></asp:Label>
                     </asp:TableCell>
-                    <asp:TableCell>
+                    <asp:TableCell>--%>
 <%--                        <asp:TextBox
                             ID="TxtPassword"
                             runat="server"
                             TextMode="Password"></asp:TextBox>--%>
-                    </asp:TableCell>
+                   <%-- </asp:TableCell>
                     <asp:TableCell>
                         <asp:RequiredFieldValidator
                             ID="RfvPassword"
@@ -274,13 +274,13 @@
                             Text="First Name:">
                         </asp:Label>
                     </asp:TableCell>
-                    <asp:TableCell>
+                    <asp:TableCell>--%>
 <%--                        <asp:TextBox
                             ID="TxtFirstName"
                             runat="server"
                             Text="">
                         </asp:TextBox>--%>
-                    </asp:TableCell>
+                   <%-- </asp:TableCell>
                     <asp:TableCell>
                         <asp:RequiredFieldValidator
                             ID="RfvFirstName"
@@ -302,13 +302,13 @@
                             runat="server"
                             Text="Last Name:"></asp:Label>
                     </asp:TableCell>
-                    <asp:TableCell>
+                    <asp:TableCell>--%>
 <%--                        <asp:TextBox
                             ID="TxtLastName"
                             runat="server"
                             Text="">
                         </asp:TextBox>--%>
-                    </asp:TableCell>
+                 <%--   </asp:TableCell>
                     <asp:TableCell>
                         <asp:RequiredFieldValidator
                             ID="RfvLastName"
@@ -328,11 +328,11 @@
                             runat="server"
                             Text="Street Address:"></asp:Label>
                     </asp:TableCell>
-                    <asp:TableCell>
+                    <asp:TableCell>--%>
 <%--                        <asp:TextBox
                             ID="TxtStreetAddress"
                             runat="server"></asp:TextBox>--%>
-                    </asp:TableCell>
+                   <%-- </asp:TableCell>
                     <asp:TableCell>
                         <asp:RequiredFieldValidator
                             ID="RfvStreetAddress"
@@ -352,11 +352,11 @@
                             runat="server"
                             Text="City:"></asp:Label>
                     </asp:TableCell>
-                    <asp:TableCell>
+                    <asp:TableCell>--%>
 <%--                        <asp:TextBox
                             ID="TxtCity"
                             runat="server"></asp:TextBox>--%>
-                    </asp:TableCell>
+                  <%--  </asp:TableCell>
                     <asp:TableCell>
                         <asp:RequiredFieldValidator
                             ID="RfvCity"
@@ -376,11 +376,11 @@
                             runat="server"
                             Text="State:"></asp:Label>
                     </asp:TableCell>
-                    <asp:TableCell>
+                    <asp:TableCell>--%>
 <%--                        <asp:TextBox
                             ID="TxtState"
                             runat="server"></asp:TextBox>--%>
-                    </asp:TableCell>
+                   <%-- </asp:TableCell>
                     <asp:TableCell>
                         <asp:RequiredFieldValidator
                             ID="RfvState"
@@ -390,8 +390,8 @@
                             Text="This Field Is Required"
                             ForeColor="Red"
                             SetFocusOnError="true"
-                            ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
-                    </asp:TableCell>
+                            ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>--%>
+                   <%--<%-- </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
@@ -404,7 +404,7 @@
 <%--                        <asp:TextBox
                             ID="TxtZip"
                             runat="server"></asp:TextBox>--%>
-                    </asp:TableCell>
+                   <%-- </asp:TableCell>
                     <asp:TableCell>
                         <asp:RequiredFieldValidator
                             ID="RequiredFieldValidator1"
@@ -424,43 +424,43 @@
                             runat="server"
                             Text="Home Phone: "></asp:Label>
                     </asp:TableCell>
-                    <asp:TableCell ColumnSpan="5">
+                    <asp:TableCell ColumnSpan="5">--%>
                         <%--                        <asp:TextBox
                             ID="TxtPhoneNumber"
                             runat="server"
                             Text=""></asp:TextBox>--%>
 
-                        <asp:Label
+                        <%--<asp:Label
                             ID="LblCellPhone"
                             runat="server"
-                            Text=" Cell Phone: "></asp:Label>
+                            Text=" Cell Phone: "></asp:Label>--%>
 
                         <%--                        <asp:TextBox
                             ID="TxtCellPhone"
                             runat="server"
                             Text=""></asp:TextBox>--%>
 
-                        <asp:Label
+                       <%-- <asp:Label
                             ID="LblWorkPhone"
                             runat="server"
-                            Text=" Work Phone: "></asp:Label>
+                            Text=" Work Phone: "></asp:Label>--%>
 
                         <%--                        <asp:TextBox
                             ID="TxtWorkPhone"
                             runat="server"
                             Text=""></asp:TextBox>--%>
-                    </asp:TableCell>
+                    <%--</asp:TableCell>
 
                 </asp:TableRow>
                 <asp:TableRow>
-                    <asp:TableCell>
+                    <asp:TableCell>--%>
 <%--                        <asp:Button
                             ID="BtnCreate"
                             runat="server"
                             Text="Create Account"
                             OnClick="BtnCreate_Click"
                             ValidationGroup="SaveGroup" />--%>
-                    </asp:TableCell>
+                   <%-- </asp:TableCell>
                     <asp:TableCell>
                         <asp:Button ID="BtnBack"
                             runat="server"
@@ -489,7 +489,7 @@
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
-        </div>
+        </div>--%>
     </form>
     <script src="Scripts/jquery-3.5.1.slim.js"></script>
     <script src="Scripts/popper.min.js"></script>
