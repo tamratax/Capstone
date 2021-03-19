@@ -55,7 +55,7 @@ namespace WalkerS_Lab1Part3
                 LstBoxIncompleteServiceTickets.DataTextField = "Service Ticket";
                 LstBoxIncompleteServiceTickets.DataValueField = "ServiceTicketID";
 
-                String sqlQueryTicket = "Select ServiceTicketID, FirstName + ' ' + LastName + ': ' + ServiceType + ' on '+ ServiceDate +' ->' as 'Service Ticket' from ServiceTicket join Customer on ServiceTicket.CustomerID = Customer.CustomerID where ServiceTicket.Completed = 'False' OR ServiceTicket.Completed = 'NULL'";
+                String sqlQueryTicket = "Select ServiceTicketID, FirstName + ' ' + LastName + ': ' + ServiceType + ' on '+ ServiceDate +' ->' as 'Service Ticket' from ServiceTicket join Customer on ServiceTicket.CustomerID = Customer.CustomerID where ServiceTicket.Completed = 'False'";
 
 
                 SqlConnection sqlConnectTicket = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");

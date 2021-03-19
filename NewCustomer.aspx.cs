@@ -79,7 +79,7 @@ namespace Lab3
 
                     //Create Customer record
                     //Concatenate Sql Query Insert Statements
-                    String sqlQuery = "insert into CUSTOMER (FirstName, LastName, WorkPhone, CellPhone, HomePhone, Email ) values (@FirstName, @LastName, @WorkPhone, @CellPhone, @HomePhone, @Email) ";
+                    String sqlQuery = "insert into CUSTOMER (FirstName, LastName, WorkPhone, CellPhone, HomePhone, Email, Completed ) values (@FirstName, @LastName, @WorkPhone, @CellPhone, @HomePhone, @Email, 'False') ";
                     //sqlQuery += ", '', '', '', '', '', 0, '" + System.DateTime.Now.Date.ToString("yyyy-MM-dd") + "', '', '', 0)";
 
 
