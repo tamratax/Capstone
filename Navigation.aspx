@@ -86,7 +86,7 @@
                                 <asp:Label
                                     ID="LblNewCustomer"
                                     runat="server"
-                                    Text="New Customer Service Requests:"></asp:Label>
+                                    Text="Incomplete Customer (Date Last Contacted):"></asp:Label>
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow>
@@ -98,10 +98,23 @@
                                     AutoPostBack="true"></asp:ListBox>
                             </asp:TableCell>
                         </asp:TableRow>
-                        <asp:TableRow>
+                       <%-- <asp:TableRow>
                             <asp:TableCell>
+                                <asp:Label
+                                    ID="LblServicerequests"
+                                    runat="server"
+                                    Text="New Customer Service Requests:"></asp:Label>
                             </asp:TableCell>
                         </asp:TableRow>
+                        <asp:TableRow>
+                            <asp:TableCell>
+                                <asp:ListBox
+                                    ID="LstBoxServiceRequests"
+                                    runat="server"
+                                    OnSelectedIndexChanged="LstBoxServiceRequests_SelectedIndexChanged"
+                                    AutoPostBack="true"></asp:ListBox>
+                            </asp:TableCell>
+                        </asp:TableRow>--%>
                         <asp:TableRow>
                             <asp:TableCell>
                                 <asp:Label
