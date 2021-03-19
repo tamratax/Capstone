@@ -45,14 +45,14 @@ namespace Lab3
                 //If there are any records, user already exists
                 if (dtForDuplicate.Rows.Count > 0)
                 {
-                    LblCreateStatus.Text = "Customer with that Email/Username already exists!";
-                    LblCreateStatus.ForeColor = Color.Red;
+                    //LblCreateStatus.Text = "Customer with that Email/Username already exists!";
+                    //LblCreateStatus.ForeColor = Color.Red;
                 }
                 else
                 {
                     //Establishes a new Sql connection to the AUTH database
                     System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString.ToString());
-                    LblCreateStatus.Text = "Database Connection Successful";
+                    //LblCreateStatus.Text = "Database Connection Successful";
 
                     sc.Open();
 
@@ -75,11 +75,11 @@ namespace Lab3
 
                     sc.Close();
 
-                    LblCreateStatus.Text = "User committed!";
+                    //LblCreateStatus.Text = "User committed!";
 
                     //Create Customer record
                     //Concatenate Sql Query Insert Statements
-                    String sqlQuery = "insert into CUSTOMER (FirstName, LastName, WorkPhone, CellPhone, HomePhone, Email, Completed ) values (@FirstName, @LastName, @WorkPhone, @CellPhone, @HomePhone, @Email, 'False') ";
+                    String sqlQuery = "insert into CUSTOMER (FirstName, LastName, WorkPhone, CellPhone, HomePhone, Email, Completed, DateContacted ) values (@FirstName, @LastName, @WorkPhone, @CellPhone, @HomePhone, @Email, 'False', '" + System.DateTime.Today.ToString("yyyy-MM-dd") + "') ";
                     //sqlQuery += ", '', '', '', '', '', 0, '" + System.DateTime.Now.Date.ToString("yyyy-MM-dd") + "', '', '', 0)";
 
 
@@ -146,12 +146,12 @@ namespace Lab3
                 }
                 catch
                 {
-                    LblCreateStatus.Text = "Database Error - User not committed.";
+                    //LblCreateStatus.Text = "Database Error - User not committed.";
                 }
             }
             else
             {
-                LblCreateStatus.Text = "Fill all fields.";
+                //LblCreateStatus.Text = "Fill all fields.";
 
             }
 

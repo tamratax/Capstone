@@ -55,10 +55,23 @@ namespace WalkerS_Lab1Part3
                     TxtCellPhone.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
                     TxtWorkPhone.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
                     TxtEmail.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
+                    TxtHowMany.Text = Convert.ToString(dtForSelect.Rows[0]["ItemsForSale"]);
+                    TxtDescriptions.Text = Convert.ToString(dtForSelect.Rows[0]["WhatDoYouSell"]);
+                    ChkBoxDownsizing.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["Downsizing"]);
+                    ChkBoxEstate.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["SettlingEstate"]);
+                    ChkBoxMove.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["MovingCB"]);
+                    ChkBoxAuction.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["AuctionCB"]);
+                    ChkBoxConsignment.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["ConsignmentCB"]);
+                    ChkBoxAppraisal.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["AppraisalCb"]);
 
-                    //TxtDestinationStreet.Text = Convert.ToString(dtForSelect.Rows[0]["DestinationStreet"]);
-                    //TxtDestinationCity.Text = Convert.ToString(dtForSelect.Rows[0]["DestinationCity"]);
-                    //TxtDestinationState.Text = Convert.ToString(dtForSelect.Rows[0]["DestinationState"]);
+
+                    string[] arrayTransport = new string[] { "We Pick-Up Your Item(s)", "You Drop-Off Your Item(s)", "Unsure"};
+                    if (arrayTransport.Contains(Convert.ToString(dtForSelect.Rows[0]["ItemTransportation"])))
+                    {
+                        DdlItemTransport.SelectedValue = DdlItemTransport.Items.FindByText(Convert.ToString(dtForSelect.Rows[0]["ItemTransportation"])).Value;
+                  
+                    }
+
 
                     //Array of possible mediums for intial contact
                     string[] arrayInitialContact = new string[] { "In-Person", "By Phone", "Email", "Text" };
@@ -80,6 +93,11 @@ namespace WalkerS_Lab1Part3
                     TxtReferral.Text = Convert.ToString(dtForSelect.Rows[0]["ReferralChannel"]);
                     TxtDeadline.Text = Convert.ToString(dtForSelect.Rows[0]["DeadlineStart"]);
                     TxtDeadlineEnd.Text = Convert.ToString(dtForSelect.Rows[0]["DeadlineEnd"]);
+                    DdlCompletedByEmp.SelectedValue = Convert.ToString(dtForSelect.Rows[0]["CompletedByEmp"]);
+                    TxtCustomerNotes.Text = Convert.ToString(dtForSelect.Rows[0]["CustomerNotes"]);
+                    ChkBoxCompleted.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["Completed"]);
+
+
 
                 }
             }
@@ -175,12 +193,12 @@ namespace WalkerS_Lab1Part3
             //try
             // {
             //Changes chkbox boolean into a 1 or 0 for inserting into db
-            int completed;
+            string completed;
             if (ChkBoxCompleted.Checked)
             {
-                completed = 1;
+                completed = "True";
             }
-            else { completed = 0; }
+            else { completed = "False"; }
             if (Session["Customer ID"] != null)
             {
                 //Gets 'other' field if selected for initial contact
@@ -196,7 +214,7 @@ namespace WalkerS_Lab1Part3
 
 
                 //Concatenate Sql Query Update Statement
-                String sqlQuery = "UPDATE CUSTOMER SET FirstName = @FirstName, LastName = @LastName, CellPhone = @CellPhone, WorkPhone = @WorkPhone, HomePhone = @HomePhone, Email = @Email, ItemsForSale = @HowMany, WhatDoyouSell = @Descriptions, Downsizing = @Downsizing, SettlingEstate =  @Estate, MovingCB = @MovingCB, AuctionCB = @AuctionCB, ConsignmentCB = @ConsignmentCB, AppraisalCB = @AppraisalCB, ItemTransportation = @ItemTransport, PreferredContact = @PreferredContact, ReferralChannel = @ReferralChannel, DeadlineStart = @DeadlineStart, DeadlineEnd = @DeadlineEnd, CompletedByEmp = @CompletedBy, CustomerNotes = @CustomerNotes, completed = " + completed + " WHERE customerID = " + Session["Customer ID"].ToString();
+                String sqlQuery = "UPDATE CUSTOMER SET FirstName = @FirstName, LastName = @LastName, CellPhone = @CellPhone, WorkPhone = @WorkPhone, HomePhone = @HomePhone, Email = @Email, ItemsForSale = @HowMany, WhatDoyouSell = @Descriptions, Downsizing = @Downsizing, SettlingEstate =  @Estate, MovingCB = @MovingCB, AuctionCB = @AuctionCB, ConsignmentCB = @ConsignmentCB, AppraisalCB = @AppraisalCB, ItemTransportation = @ItemTransport, PreferredContact = @PreferredContact, ReferralChannel = @ReferralChannel, DeadlineStart = @DeadlineStart, DeadlineEnd = @DeadlineEnd, CompletedByEmp = @CompletedBy, CustomerNotes = @CustomerNotes, DateContacted = @DateContacted, completed = '" + completed + "' WHERE customerID = " + Session["Customer ID"].ToString();
 
                 //Define the Connection to the Database
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -222,6 +240,7 @@ namespace WalkerS_Lab1Part3
                 sqlCommand.Parameters.Add(new SqlParameter("@AuctionCB", ChkBoxAuction.Checked.ToString()));
                 sqlCommand.Parameters.Add(new SqlParameter("@ConsignmentCB", ChkBoxConsignment.Checked.ToString()));
                 sqlCommand.Parameters.Add(new SqlParameter("@AppraisalCB", ChkBoxAppraisal.Checked.ToString()));
+                sqlCommand.Parameters.Add(new SqlParameter("@DateContacted", System.DateTime.Today.ToString("yyyy-MM-dd")));
                 if (DdlItemTransport.SelectedValue == "-1")
                 {
                     sqlCommand.Parameters.Add(new SqlParameter("@ItemTransport", ""));
@@ -309,7 +328,7 @@ namespace WalkerS_Lab1Part3
                     }
                     //Concatenate Sql Query Insert Statements
                     String sqlQuery = "insert into CUSTOMER values (@FirstName, @LastName, @CellPhone, @WorkPhone, @HomePhone, @Email, @HowMany, @Descriptions, @Downsizing," +
-                        " @Estate, @MovingCB, @AuctionCB, @ConsignmentCB, @AppraisalCB, @ItemTransport, @InitialContact, @ReferralChannel, " + System.DateTime.Today.ToShortDateString() + ",  @DeadlineStart, @DeadlineEnd, @CompletedBy, @CustomerNotes, @Completed)";
+                        " @Estate, @MovingCB, @AuctionCB, @ConsignmentCB, @AppraisalCB, @ItemTransport, @PreferredContact, @ReferralChannel, " + System.DateTime.Today.ToShortDateString() + ",  @DeadlineStart, @DeadlineEnd, @CompletedBy, @CustomerNotes, @Completed)";
                     //Define the Connection to the Database
                     SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -333,7 +352,7 @@ namespace WalkerS_Lab1Part3
                     sqlCommand.Parameters.Add(new SqlParameter("@ConsignmentCB", ChkBoxConsignment.Checked.ToString()));
                     sqlCommand.Parameters.Add(new SqlParameter("@AppraisalCB", ChkBoxAppraisal.Checked.ToString()));
                     sqlCommand.Parameters.Add(new SqlParameter("@ItemTransport", DdlItemTransport.SelectedItem.Text));
-                    sqlCommand.Parameters.Add(new SqlParameter("@InitialContact", initialContact));
+                    sqlCommand.Parameters.Add(new SqlParameter("@PreferredContact", initialContact));
                     sqlCommand.Parameters.Add(new SqlParameter("@ReferralChannel", HttpUtility.HtmlEncode(TxtReferral.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@DeadlineStart", HttpUtility.HtmlEncode(TxtDeadline.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@DeadlineEnd", HttpUtility.HtmlEncode(TxtDeadlineEnd.Text)));
@@ -458,10 +477,20 @@ namespace WalkerS_Lab1Part3
 
         protected void DdlCompletedByEmp_DataBound(object sender, EventArgs e)
         {
-            //Sets Service list ddl to default of select
-            ListItem blankOption = new ListItem("Select", "-1");
-            DdlCompletedByEmp.Items.Insert(0, blankOption);
-            DdlCompletedByEmp.SelectedIndex = 0;
+            if (Session["Customer ID"] != null)
+            {
+                //Sets Service list ddl to default of select
+                ListItem blankOption = new ListItem("Select", "-1");
+                DdlCompletedByEmp.Items.Insert(0, blankOption);
+                
+            }
+            else
+            {
+                //Sets Service list ddl to default of select
+                ListItem blankOption = new ListItem("Select", "-1");
+                DdlCompletedByEmp.Items.Insert(0, blankOption);
+                DdlCompletedByEmp.SelectedIndex = 0;
+            }
         }
 
         protected void ChkBoxMove_CheckedChanged(object sender, EventArgs e)
