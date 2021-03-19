@@ -21,7 +21,7 @@ namespace WalkerS_Lab1Part3
                 LstBoxCustomerRequests.DataTextField = "Name";
                 LstBoxCustomerRequests.DataValueField = "Customer ID";
 
-                String sqlQueryCustomer = "Select customer.customerID 'Customer ID', FirstName + ' ' + LastName + ' (' + ServiceType + ') ->' as 'Name' from Customer join ServiceRequest on servicerequest.customerID = customer.CustomerID";
+                String sqlQueryCustomer = "Select customer.customerID 'Customer ID', FirstName + ' ' + LastName + ' (' + DateContacted + ') ->' as 'Name' from Customer where completed='False'";
 
 
                 SqlConnection sqlConnectCustomer = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
@@ -34,8 +34,23 @@ namespace WalkerS_Lab1Part3
                 LstBoxCustomerRequests.DataSource = dtForListBox;
                 LstBoxCustomerRequests.DataBind();
 
+                ////Populates Service Request listbox
+                //LstBoxServiceRequests.DataTextField = "Service Request";
+                //LstBoxServiceRequests.DataValueField = "ServiceRequestID";
 
-              
+                //String sqlQueryService = "Select ServiceRequestID, FirstName + ' ' + LastName + ': ' + ServiceType + ' ->' as 'Service Request' from ServiceRequest join Customer on ServiceRequest.CustomerID = Customer.CustomerID WHERE requeststatus = 'Active'";
+
+
+                //SqlConnection sqlConnectService = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+
+                //SqlDataAdapter sqlAdapterService = new SqlDataAdapter(sqlQueryService, sqlConnectService);
+
+                //DataTable dtForListBox2 = new DataTable();
+                //sqlAdapterService.Fill(dtForListBox2);
+
+                //LstBoxServiceRequests.DataSource = dtForListBox2;
+                //LstBoxServiceRequests.DataBind();
+
                 //Populates Unfinished Service Ticket listbox
                 LstBoxIncompleteServiceTickets.DataTextField = "Service Ticket";
                 LstBoxIncompleteServiceTickets.DataValueField = "ServiceTicketID";
@@ -95,7 +110,11 @@ namespace WalkerS_Lab1Part3
             Response.Redirect("InitialConversation.aspx");
         }
 
-       
+        //protected void LstBoxServiceRequests_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    Session["ServiceRequestID"] = LstBoxServiceRequests.SelectedValue.ToString();
+        //    Response.Redirect("AddServiceOrder.aspx");
+        //}
 
         protected void LstBoxIncompleteServiceTickets_SelectedIndexChanged(object sender, EventArgs e)
         {

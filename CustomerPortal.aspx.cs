@@ -8,6 +8,7 @@ using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.Drawing;
 
 
 namespace Lab3
@@ -16,7 +17,13 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["CustomerCreated"] != null)
+            {
+                LblLoginStatus.ForeColor = Color.Green;
+                LblLoginStatus.Text = "Account created sucessfully!";
+                
+                Session.Remove("CustomerCreated");
+            }
         }
 
         protected void BtnLogin_Click(object sender, EventArgs e)
@@ -51,11 +58,13 @@ namespace Lab3
                             Response.Redirect("AddServiceRequest.aspx");
                         }
                         else
-                            LblLoginStatus.Text = "Password is wrong.";
+                            LblLoginStatus.ForeColor = Color.Red;
+                            LblLoginStatus.Text = "Email and Password combination incorrect!";
                     }
                 }
                 else // if the username doesn't exist, it will show failure
-                    LblLoginStatus.Text = "Login failed.";
+                    LblLoginStatus.ForeColor = Color.Red;
+                LblLoginStatus.Text = "Email and Password combination incorrect!";
 
                 sc.Close();
             }

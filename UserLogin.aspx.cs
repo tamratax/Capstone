@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Drawing;
 
 namespace Lab2
 {
@@ -47,11 +48,13 @@ namespace Lab2
                             Response.Redirect("Navigation.aspx");
                         }
                         else
-                            LblLoginStatus.Text = "Either the Username or Password was incorrect. Please try again!";
+                            LblLoginStatus.ForeColor = Color.Red;
+                        LblLoginStatus.Text = "Email and Password combination incorrect!";
                     }
                 }
                 else // if the username doesn't exist, it will show failure
-                    LblLoginStatus.Text = "Login failed.";
+                    LblLoginStatus.ForeColor = Color.Red;
+                    LblLoginStatus.Text = "Email and Password combination incorrect!";
 
                 sc.Close();
             }
