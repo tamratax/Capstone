@@ -84,25 +84,25 @@ namespace Lab3
                 TxtRequestDescription.Text = "";
                 TxtServiceDate.Text = "";
 
-                var fromAddress = new MailAddress("RoCoConsulting1@gmail.com", "From RoCoConsulting");
-                var toAddress = new MailAddress("meharida@dukes.jmu.edu", "To Name"); 
-                const string fromPassword = "RoCo703757";
-                const string subject = "Service Request Created!" ;
-                const string body = "New Service Request has been created from the Customer Portal.";
+                //var fromAddress = new MailAddress("RoCoConsulting1@gmail.com", "From RoCoConsulting");
+                //var toAddress = new MailAddress("meharida@dukes.jmu.edu", "To Name");
+                //const string fromPassword = "RoCo703757";
+                //const string subject = "Service Request Created!";
+                //const string body = "New Service Request has been created from the Customer Portal.";
 
-                var smtp = new SmtpClient
-                {
-                    Host = "smtp.gmail.com",
-                    Port = 587,
-                    EnableSsl = true,
-                    DeliveryMethod = SmtpDeliveryMethod.Network,
-                    UseDefaultCredentials = false,
-                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
-                };
-                using (var message = new MailMessage(fromAddress, toAddress) { Subject = subject, Body = body })
-                {
-                    smtp.Send(message);
-                }
+                //var smtp = new SmtpClient
+                //{
+                //    Host = "smtp.gmail.com",
+                //    Port = 587,
+                //    EnableSsl = true,
+                //    DeliveryMethod = SmtpDeliveryMethod.Network,
+                //    UseDefaultCredentials = false,
+                //    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                //};
+                //using (var message = new MailMessage(fromAddress, toAddress) { Subject = subject, Body = body })
+                //{
+                //    smtp.Send(message);
+                //}
             }
 
             else
@@ -111,14 +111,14 @@ namespace Lab3
                 LblSaveStatus.ForeColor = Color.Red;
             }
 
-                //}
-                //catch
-                //{
-                //    LblSaveStatus.Text = "Database Error";
-                //    LblSaveStatus.ForeColor = Color.Red;
-                //}
+            //}
+            //catch
+            //{
+            //    LblSaveStatus.Text = "Database Error";
+            //    LblSaveStatus.ForeColor = Color.Red;
+            //}
 
-            }
+        }
 
         protected void UploadButton_Click(object sender, EventArgs e)
         {

@@ -79,7 +79,7 @@ namespace Lab3
 
                     //Create Customer record
                     //Concatenate Sql Query Insert Statements
-                    String sqlQuery = "insert into CUSTOMER (FirstName, LastName, WorkPhone, CellPhone, HomePhone, Email, Completed, DateContacted ) values (@FirstName, @LastName, @WorkPhone, @CellPhone, @HomePhone, @Email, 'False', '" + System.DateTime.Today.ToString("yyyy-MM-dd") + "') ";
+                    String sqlQuery = "insert into CUSTOMER (FirstName, LastName, WorkPhone, CellPhone, HomePhone, Email, Completed, DateContacted, Downsizing, SettlingEstate, MovingCB, AuctionCB, ConsignmentCB, AppraisalCb) values (@FirstName, @LastName, @WorkPhone, @CellPhone, @HomePhone, @Email, 'False', '" + System.DateTime.Today.ToString("yyyy-MM-dd") + "', 'False', 'False', 'False', 'False', 'False', 'False') ";
                     //sqlQuery += ", '', '', '', '', '', 0, '" + System.DateTime.Now.Date.ToString("yyyy-MM-dd") + "', '', '', 0)";
 
 
@@ -97,15 +97,10 @@ namespace Lab3
                     sqlCommandCustomer.Parameters.Add(new SqlParameter("@HomePhone", HttpUtility.HtmlEncode(TxtPhoneNumber.Text)));
                     sqlCommandCustomer.Parameters.Add(new SqlParameter("@CellPhone", HttpUtility.HtmlEncode(TxtCellPhone.Text)));
                     sqlCommandCustomer.Parameters.Add(new SqlParameter("@Email", HttpUtility.HtmlEncode(TxtEmail.Text)));
-                    //sqlCommandCustomer.Parameters.Add(new SqlParameter("@StreetAddress", HttpUtility.HtmlEncode(TxtStreetAddress.Text)));
-                    //sqlCommandCustomer.Parameters.Add(new SqlParameter("@City", HttpUtility.HtmlEncode(TxtCity.Text)));
-                    //sqlCommandCustomer.Parameters.Add(new SqlParameter("@State", HttpUtility.HtmlEncode(TxtState.Text)));
-
-
-
-
-                    // Open your connection, send the query 
-                    sqlConnectCustomer.Open();
+                        
+                        
+                        // Open your connection, send the query 
+                        sqlConnectCustomer.Open();
                     SqlDataReader queryResultsCustomer = sqlCommandCustomer.ExecuteReader();
 
                     // Close all related connections
@@ -114,7 +109,7 @@ namespace Lab3
 
                     
 
-                    sqlQuery = "insert into Address (street, city, state, zip, Description ) values (@street, @city, @state, @zip, 'Primary Contact Address') ";
+                    sqlQuery = "insert into Address (customerID, street, city, state, zip, Description ) values ((select TOP 1 customerID from customer order by customerid desc), @street, @city, @state, @zip, 'Primary Contact Address') ";
 
                     SqlConnection sqlConnectAddress = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                     SqlCommand sqlCommandAddress = new SqlCommand();
