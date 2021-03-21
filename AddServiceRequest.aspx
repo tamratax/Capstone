@@ -2,6 +2,18 @@
 
 <asp:Content ID="myContent" ContentPlaceHolderID="body" runat="server">
     <h1>Create Service Request</h1>
+
+  <%--  <html>
+<head>
+    <title>Upload Files</title>
+</head>
+<body>
+    <form id="form1" runat="server">--%>
+<%--    </form>
+</body>
+</html>--%>
+
+
    <asp:Label ID="username" runat="server" Text="" Visible="false"></asp:Label>
     <asp:Table
         ID="TblServiceRequest"
@@ -139,7 +151,21 @@
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
-   
+   <br />
+        <div>
+        &nbsp; 
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <asp:FileUpload ID="FilesUpload" runat="server"
+                        AllowMultiple="true" />
+        <br/>
+        <asp:Button ID="UploadButton" runat="server"
+                    OnClick="UploadButton_Click"
+                    Text="Upload File" />
+        <br/>
+        <asp:Label ID="FileUploadedList" runat="server"/>
+    </div>
    <br /> 
     <asp:Table ID="pendingservicestable" runat="server">
        <asp:TableRow>
