@@ -87,8 +87,8 @@ namespace Lab3
                 var fromAddress = new MailAddress("RoCoConsulting1@gmail.com", "From RoCoConsulting");
                 var toAddress = new MailAddress("meharida@dukes.jmu.edu", "To Name"); 
                 const string fromPassword = "RoCo703757";
-                const string subject = "Subject";
-                const string body = "Body";
+                const string subject = "Service Request Created!" ;
+                const string body = "New Service Request has been created from the Customer Portal.";
 
                 var smtp = new SmtpClient
                 {
