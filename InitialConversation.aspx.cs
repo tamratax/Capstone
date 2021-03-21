@@ -9,6 +9,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Web.Configuration;
 using System.Drawing;
+using System.Net;
+using System.Net.Mail;
 
 namespace WalkerS_Lab1Part3
 {
@@ -197,6 +199,26 @@ namespace WalkerS_Lab1Part3
             if (ChkBoxCompleted.Checked)
             {
                 completed = "True";
+                
+                var fromAddress = new MailAddress("RoCoConsulting1@gmail.com", "From RoCoConsulting");
+                var toAddress = new MailAddress("meharida@dukes.jmu.edu", "To Name");
+                const string fromPassword = "RoCo703757";
+                const string subject = "Initial Conversation Completed!";
+                const string body = "New Customer Account has been created from the Employee Portal.";
+
+                var smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                };
+                using (var message = new MailMessage(fromAddress, toAddress) { Subject = subject, Body = body })
+                {
+                    smtp.Send(message);
+                }
             }
             else { completed = "False"; }
             if (Session["Customer ID"] != null)
