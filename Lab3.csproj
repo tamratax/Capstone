@@ -72,6 +72,7 @@
     <Content Include="BootstrapSandBox.aspx" />
     <Content Include="Content\LandingPage.css" />
     <Content Include="Content\Login.css" />
+    <Content Include="Content\LoginFix.css" />
     <Content Include="Content\UserLogin.css" />
     <Content Include="MoveInventory.aspx" />
     <Content Include="AddServiceRequest.aspx" />

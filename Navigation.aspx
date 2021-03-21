@@ -2,14 +2,16 @@
 
 <%-- Coded By: Stuart Walker & Aaron Walsh --%>
 
+
 <asp:Content ID="test" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="myContent" ContentPlaceHolderID="body" runat="server">
-    <asp:Table
+    <div id="layoutSidenav_content">
+ <%--   <asp:Table
         ID="Table2"
         runat="server">
         <asp:TableRow>
-            <asp:TableCell>
+            <asp:TableCell>--%>
                 <fieldset>
                     <legend>Navigation</legend>
                     <asp:Button ID="BtnCustomerPage"
@@ -67,37 +69,37 @@
                         OnClick="BtnCompletion_Click"/>
 
                 </fieldset>
-            </asp:TableCell>
+ <%--           </asp:TableCell>
         </asp:TableRow>
-    </asp:Table>
+    </asp:Table>--%>
     <br />
-    <asp:Table
+  <%--  <asp:Table
         ID="TblNotifications"
         runat="server">
         <asp:TableRow>
-            <asp:TableCell>
+            <asp:TableCell>--%>
                 <fieldset>
                     <legend>Notifications</legend>
-                    <asp:Table
+                    <%--<asp:Table
                         ID="Table1"
                         runat="server">
                         <asp:TableRow>
-                            <asp:TableCell>
+                            <asp:TableCell>--%>
                                 <asp:Label
                                     ID="LblNewCustomer"
                                     runat="server"
                                     Text="Incomplete Customer (Date Last Contacted):"></asp:Label>
-                            </asp:TableCell>
+                           <%-- </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow>
-                            <asp:TableCell>
+                            <asp:TableCell>--%>
                                 <asp:ListBox
                                     ID="LstBoxCustomerRequests"
                                     runat="server"
                                     OnSelectedIndexChanged="LstBoxCustomerRequests_SelectedIndexChanged"
                                     AutoPostBack="true"></asp:ListBox>
-                            </asp:TableCell>
-                        </asp:TableRow>
+                           <%-- </asp:TableCell>
+                        </asp:TableRow>--%>
                        <%-- <asp:TableRow>
                             <asp:TableCell>
                                 <asp:Label
@@ -115,27 +117,27 @@
                                     AutoPostBack="true"></asp:ListBox>
                             </asp:TableCell>
                         </asp:TableRow>--%>
-                        <asp:TableRow>
-                            <asp:TableCell>
+                       <%-- <asp:TableRow>
+                            <asp:TableCell>--%>
                                 <asp:Label
                                     ID="LblIncompleteServiceTickets"
                                     runat="server"
                                     Text="Incomplete Service Tickets:"></asp:Label>
-                            </asp:TableCell>
+                           <%-- </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow>
-                            <asp:TableCell>
+                            <asp:TableCell>--%>
                                 <asp:ListBox
                                     ID="LstBoxIncompleteServiceTickets"
                                     runat="server"
                                     OnSelectedIndexChanged="LstBoxIncompleteServiceTickets_SelectedIndexChanged"
                                     AutoPostBack="true"></asp:ListBox>
-                            </asp:TableCell>
+                           <%-- </asp:TableCell>
                         </asp:TableRow>
-                    </asp:Table>
+                    </asp:Table>--%>
                 </fieldset>
-            </asp:TableCell>
+            <%--</asp:TableCell>
         </asp:TableRow>
-    </asp:Table>
-    
+    </asp:Table>--%>
+    </div>
 </asp:Content>
