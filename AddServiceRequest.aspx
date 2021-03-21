@@ -9,20 +9,6 @@
 </head>
 <body>
     <form id="form1" runat="server">--%>
-    <div>
-        &nbsp; 
-        &nbsp;
-        &nbsp;
-        &nbsp;
-        <asp:FileUpload ID="FilesUpload" runat="server"
-                        AllowMultiple="true" />
-        <br/>
-        <asp:Button ID="UploadButton" runat="server"
-                    OnClick="UploadButton_Click"
-                    Text="Upload File" />
-        <br/>
-        <asp:Label ID="FileUploadedList" runat="server"/>
-    </div>
 <%--    </form>
 </body>
 </html>--%>
@@ -165,7 +151,21 @@
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
-   
+   <br />
+        <div>
+        &nbsp; 
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <asp:FileUpload ID="FilesUpload" runat="server"
+                        AllowMultiple="true" />
+        <br/>
+        <asp:Button ID="UploadButton" runat="server"
+                    OnClick="UploadButton_Click"
+                    Text="Upload File" />
+        <br/>
+        <asp:Label ID="FileUploadedList" runat="server"/>
+    </div>
    <br /> 
     <asp:Table ID="pendingservicestable" runat="server">
        <asp:TableRow>
