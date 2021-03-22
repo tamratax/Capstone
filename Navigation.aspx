@@ -29,44 +29,44 @@
                         Text="View Notes"
                         OnClick="BtnViewNotes_Click" />
 
-                    <asp:Button ID="BtnAddCustomerPage"
+                    <%--<asp:Button ID="BtnAddCustomerPage"
                         runat="server"
                         Text="Add Customer"
-                        OnClick="BtnAddCustomerPage_Click" />
+                        OnClick="BtnAddCustomerPage_Click" />--%>
 
-                    <asp:Button ID="btnAddServicePage"
+<%--                    <asp:Button ID="btnAddServicePage"
                         runat="server"
                         Text="Add Service"
-                        OnClick="BtnAddServicePage_Click" />
+                        OnClick="BtnAddServicePage_Click" />--%>
 
-                    <asp:Button ID="BtnAddNote"
+<%--                    <asp:Button ID="BtnAddNote"
                         runat="server"
                         Text="Add Note"
-                        OnClick="BtnAddNote_Click" />
+                        OnClick="BtnAddNote_Click" />--%>
 
                   
 
 
 
-                    <asp:Button ID="BtnWarehouse" 
+<%--                    <asp:Button ID="BtnWarehouse" 
                         runat="server" 
                         Text="Add Items to Warehouse" 
-                        OnClick="BtnWarehouse_Click" />
+                        OnClick="BtnWarehouse_Click" />--%>
 
-                    <asp:Button ID="BtnAuctionInvt" 
+<%--                    <asp:Button ID="BtnAuctionInvt" 
                         runat="server" 
                         Text="Auction Inventory"
-                        onclick="BtnAUctionInvt_Click"/>
+                        onclick="BtnAUctionInvt_Click"/>--%>
 
                     <asp:Button ID="BtnMoveInvt" 
                         runat="server" 
                         Text="Move Inventory"
                         onclick="BtnMoveInvt_Click"/>
 
-                    <asp:Button ID="BtnCompletion" 
+<%--                    <asp:Button ID="BtnCompletion" 
                         runat="server" 
                         Text="Completion Form"
-                        OnClick="BtnCompletion_Click"/>
+                        OnClick="BtnCompletion_Click"/>--%>
 
                 </fieldset>
  <%--           </asp:TableCell>
@@ -89,6 +89,7 @@
                                     ID="LblNewCustomer"
                                     runat="server"
                                     Text="Incomplete Customer (Date Last Contacted):"></asp:Label>
+                    <br />
                            <%-- </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow>
@@ -98,6 +99,8 @@
                                     runat="server"
                                     OnSelectedIndexChanged="LstBoxCustomerRequests_SelectedIndexChanged"
                                     AutoPostBack="true"></asp:ListBox>
+                    <br />
+                    <br />
                            <%-- </asp:TableCell>
                         </asp:TableRow>--%>
                        <%-- <asp:TableRow>
@@ -123,6 +126,7 @@
                                     ID="LblIncompleteServiceTickets"
                                     runat="server"
                                     Text="Incomplete Service Tickets:"></asp:Label>
+                    <br />
                            <%-- </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow>
