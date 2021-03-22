@@ -85,9 +85,9 @@ namespace Lab3
                 TxtServiceDate.Text = "";
 
                 //var fromAddress = new MailAddress("RoCoConsulting1@gmail.com", "From RoCoConsulting");
-                //var toAddress = new MailAddress("meharida@dukes.jmu.edu", "To Name"); 
+                //var toAddress = new MailAddress("meharida@dukes.jmu.edu", "To Name");
                 //const string fromPassword = "RoCo703757";
-                //const string subject = "Service Request Created!" ;
+                //const string subject = "Service Request Created!";
                 //const string body = "New Service Request has been created from the Customer Portal.";
 
                 //var smtp = new SmtpClient
@@ -111,14 +111,14 @@ namespace Lab3
                 LblSaveStatus.ForeColor = Color.Red;
             }
 
-                //}
-                //catch
-                //{
-                //    LblSaveStatus.Text = "Database Error";
-                //    LblSaveStatus.ForeColor = Color.Red;
-                //}
+            //}
+            //catch
+            //{
+            //    LblSaveStatus.Text = "Database Error";
+            //    LblSaveStatus.ForeColor = Color.Red;
+            //}
 
-            }
+        }
 
         protected void UploadButton_Click(object sender, EventArgs e)
         {

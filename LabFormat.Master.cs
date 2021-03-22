@@ -21,6 +21,7 @@ namespace Lab2
             //{
             //    LblActiveUser.Text = "You Are Logged In As: " + Session["User"].ToString();
             //}
+
         }
 
         protected void BtnNavigation_Click(object sender, EventArgs e)
@@ -37,6 +38,18 @@ namespace Lab2
             //Set the session data for user to null
             Session.RemoveAll();
             Response.Redirect("UserLogin.aspx");
+        }
+
+        protected void LblSelectedCust_PreRender(object sender, EventArgs e)
+        {
+            if (Session["SelectedCustomerName"] != null)
+            {
+                LblSelectedCust.Text = Session["SelectedCustomerName"].ToString();
+            }
+            else
+            {
+                LblSelectedCust.Text = "No Customer Selected!";
+            }
         }
     }
 }

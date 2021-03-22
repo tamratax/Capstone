@@ -66,14 +66,12 @@ namespace WalkerS_Lab1Part3
                     ChkBoxConsignment.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["ConsignmentCB"]);
                     ChkBoxAppraisal.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["AppraisalCb"]);
 
-
                     string[] arrayTransport = new string[] { "We Pick-Up Your Item(s)", "You Drop-Off Your Item(s)", "Unsure"};
                     if (arrayTransport.Contains(Convert.ToString(dtForSelect.Rows[0]["ItemTransportation"])))
                     {
                         DdlItemTransport.SelectedValue = DdlItemTransport.Items.FindByText(Convert.ToString(dtForSelect.Rows[0]["ItemTransportation"])).Value;
                   
                     }
-
 
                     //Array of possible mediums for intial contact
                     string[] arrayInitialContact = new string[] { "In-Person", "By Phone", "Email", "Text" };
@@ -95,11 +93,34 @@ namespace WalkerS_Lab1Part3
                     TxtReferral.Text = Convert.ToString(dtForSelect.Rows[0]["ReferralChannel"]);
                     TxtDeadline.Text = Convert.ToString(dtForSelect.Rows[0]["DeadlineStart"]);
                     TxtDeadlineEnd.Text = Convert.ToString(dtForSelect.Rows[0]["DeadlineEnd"]);
-                    DdlCompletedByEmp.SelectedValue = Convert.ToString(dtForSelect.Rows[0]["CompletedByEmp"]);
+                    if (dtForSelect.Rows[0]["CompletedByEmp"] != DBNull.Value)
+                    {
+                        DdlCompletedByEmp.SelectedValue =  Convert.ToString(dtForSelect.Rows[0]["CompletedByEmp"]);
+                    } 
                     TxtCustomerNotes.Text = Convert.ToString(dtForSelect.Rows[0]["CustomerNotes"]);
                     ChkBoxCompleted.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["Completed"]);
 
+                    //Fill Primary Address
+                    //Pulling in customer's record
+                    String sqlQueryAddress = "Select * from address where description = 'Primary Contact Address' AND customerid = " + Session["Customer ID"].ToString();
 
+                    //Establishes the connection between our web form and database
+                    SqlConnection sqlConnectAddress = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+
+                    //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
+                    SqlDataAdapter sqlAdapterAddress = new SqlDataAdapter(sqlQueryAddress, sqlConnectAddress);
+
+                    //This creates a datatable and fills it
+                    DataTable dtForSelectAddress = new DataTable();
+                    sqlAdapterAddress.Fill(dtForSelectAddress);
+
+                    if (dtForSelectAddress.Rows.Count != 0)
+                    {
+                        TxtStreet.Text = Convert.ToString(dtForSelectAddress.Rows[0]["Street"]);
+                        TxtCity.Text = Convert.ToString(dtForSelectAddress.Rows[0]["City"]);
+                        TxtState.Text = Convert.ToString(dtForSelectAddress.Rows[0]["State"]);
+                        TxtZip.Text = Convert.ToString(dtForSelectAddress.Rows[0]["Zip"]);
+                    }
 
                 }
             }
@@ -278,7 +299,7 @@ namespace WalkerS_Lab1Part3
                 sqlCommand.Parameters.Add(new SqlParameter("@DeadlineEnd", HttpUtility.HtmlEncode(TxtDeadlineEnd.Text)));
                 if (DdlCompletedByEmp.SelectedValue == "-1")
                 {
-                    sqlCommand.Parameters.Add(new SqlParameter("@CompletedBy", ""));
+                    sqlCommand.Parameters.Add(new SqlParameter("@CompletedBy", null));
                 }
                 else
                 {
