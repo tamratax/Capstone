@@ -11,10 +11,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <link href="Content/Login.css" rel="stylesheet" />
+    <link href="Content/LoginFix.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="bg-primary">
     <form id="form2" runat="server">
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">

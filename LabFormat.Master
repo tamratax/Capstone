@@ -35,17 +35,17 @@
 
                 <ul class="list-unstyled components">
                     <li>
-                        <a href="Navigation.aspx"> Home
+                        <a href="Navigation.aspx">Home
                         </a>
                     </li>
                     <li class="active">
-                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                            <i class="fas fa-copy"></i>
+                        <%--                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             Customer
                         </a>--%>
-                         <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <%--                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">--%>
                             Customer
-                    </a>
+                        </a>
                         <ul class="collapse list-unstyled" id="pageSubmenu">
                             <li>
                                 <a href="AddServiceOrder.aspx">Add Service</a>
@@ -57,12 +57,33 @@
                                 <a href="AuctionInventory.aspx">Inventory</a>
                             </li>
                             <li>
-                                <a href="#">Notes</a>
+                                <a href="AddNote.aspx">Notes</a>
                             </li>
                             <li>
                                 <a href="CompletionForm.aspx">Completion Form</a>
                             </li>
+                            <%--                        </ul>--%>
+                            <%--                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a href="AddServiceOrder.aspx">Add Service</a>
+                            </li>
+                            <li>
+                                <a href="#">Scheduling</a>
+                            </li>
+                            <li>
+                                <a href="AuctionInventory.aspx">Inventory</a>
+                            </li>
+                            <li>
+                                <a href="AddNote.aspx">Notes</a>
+                            </li>
+                            <li>
+                                <a href="CompletionForm.aspx">Completion Form</a>
+                            </li>
+                        </ul>--%>
+                            <%--                                <a href="#">Notes</a>
+                            </li>--%>
                         </ul>
+
                         <%--                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             <i class="fas fa-copy"></i>
                             Customer
@@ -81,31 +102,31 @@
                                 <a href="#">Notes</a>
                             </li>
                         </ul>--%>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fas fa-image"></i>
-                            Add Customer
-                    </a>
-                    </li>
-                    <li>
-                        <a href="#">Move
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">Auction
-                        </a>
-                    </li>
-                    <li>
-                        <a href="WarehouseInventory.aspx">Warehouse
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fas fa-image"></i>
-                            Look Ats (Only for Greg)
-                    </a>
-                        <%-- <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <li>
+
+                            <a href="InitialConversation.aspx">Add Customer
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="#">Move
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">Auction
+                            </a>
+                        </li>
+                        <li>
+                            <a href="WarehouseInventory.aspx">Warehouse
+                            </a>
+                        </li>
+                        <li>
+
+
+                            <a href="#">Look Ats (Greg Only)
+                            </a>
+
+                            <%-- <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             <i class="fas fa-copy"></i>
                             Pages
                     </a>
@@ -121,13 +142,13 @@
                             </li>
                         </ul>
                     </li>--%>
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-image"></i>
-                                Reports
-                    </a>
-                        </li>
-                        <%--                    <li>
+                            <li>
+
+                                <a href="#">Reports
+                                </a>
+
+                            </li>
+                            <%--                    <li>
                         <a href="#">
                             <i class="fas fa-question"></i>
                             FAQ
@@ -139,23 +160,27 @@
                             Contact
                     </a>
                     </li>--%>
-                </ul>
+                        </li>
 
-                <%--<ul class="list-unstyled CTAs">
-                    <li>
-                        <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
-                    </li>
-                    <li>
-                        <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
-                    </li>
-                </ul>--%>
+                        <ul class="list-unstyled CTAs">
+                            <li>
+                                <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+                            </li>
+                            <li>
+                                <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+                            </li>
+                        </ul>
             </nav>
 
             <!-- Page Content  -->
             <div id="content">
+                <div>
+                </div>
 
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <div class="container-fluid">
+                        <%--                        <asp:Label ID="LblSelected" runat="server" Text="Selected Customer:   "></asp:Label>
+                        <asp:Label ID="LblSelectedCust" runat="server" Text="" OnPreRender="LblSelectedCust_PreRender"></asp:Label>--%>
 
                         <button type="button" id="sidebarCollapse" class="btn btn-info">
                             <i class="fas fa-align-left"></i>
@@ -163,14 +188,18 @@
                         <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <i class="fas fa-align-justify"></i>
                         </button>
-
                         <asp:Label ID="LblSelected" runat="server" Text="Selected Customer:   "></asp:Label>
                         <asp:Label ID="LblSelectedCust" runat="server" Text="" OnPreRender="LblSelectedCust_PreRender"></asp:Label>
 
+
+                        <%--                        <div class="center">
+                            <asp:Label ID="LblSelected" runat="server" Text="Selected Customer:   "></asp:Label>
+                            <asp:Label ID="LblSelectedCust" runat="server" Text="" OnPreRender="LblSelectedCust_PreRender"></asp:Label>
+                        </div>--%>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="nav navbar-nav ml-auto">
                                 <li class="nav-item active">
-<%--                                    <asp:Button ID="BtnNavigation"
+                                    <%--                                    <asp:Button ID="BtnNavigation"
                                         runat="server"
                                         Text="Back To Navigation ->"
                                         OnClick="BtnNavigation_Click" />--%>
