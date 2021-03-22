@@ -28,33 +28,33 @@ namespace WalkerS_Lab1Part3
                 TxtDestinationTime.Visible = false;
 
 
-                if (Session["ServiceRequestID"] != null)
-                {
-                    //Pulling in customer's record
-                    String sqlQuery = "Select * from ServiceRequest where ServiceRequestID = " + Session["ServiceRequestID"].ToString();
+                //if (Session["ServiceRequestID"] != null)
+                //{
+                //    //Pulling in customer's record
+                //    String sqlQuery = "Select * from ServiceRequest where ServiceRequestID = " + Session["ServiceRequestID"].ToString();
 
-                    //Establishes the connection between our web form and database
-                    SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+                //    //Establishes the connection between our web form and database
+                //    SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
-                    //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
-                    SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
+                //    //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
+                //    SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
 
-                    //This creates a datatable and fills it
-                    DataTable dtForSelect = new DataTable();
-                    sqlAdapter.Fill(dtForSelect);
+                //    //This creates a datatable and fills it
+                //    DataTable dtForSelect = new DataTable();
+                //    sqlAdapter.Fill(dtForSelect);
 
 
-                    //Populates service fields with request data
-                    TxtServiceDate.Text = Convert.ToString(dtForSelect.Rows[0]["ServiceDate"]);
+                //    //Populates service fields with request data
+                //    TxtServiceDate.Text = Convert.ToString(dtForSelect.Rows[0]["ServiceDate"]);
 
-                    if (Convert.ToString(dtForSelect.Rows[0]["ServiceType"]) != "")
-                    {
-                        DdlServiceType.SelectedValue = DdlServiceType.Items.FindByText(Convert.ToString(dtForSelect.Rows[0]["ServiceType"]).Trim()).Value;
-                        DdlServiceType_SelectedIndexChanged(sender, e);
-                    }
-                    ddlCustomerList.SelectedValue = Convert.ToString(dtForSelect.Rows[0]["CustomerID"]);
-                    LblRequestDescription.Text = "Request Description: " + Convert.ToString(dtForSelect.Rows[0]["RequestDescription"]);
-                }
+                //    if (Convert.ToString(dtForSelect.Rows[0]["ServiceType"]) != "")
+                //    {
+                //        DdlServiceType.SelectedValue = DdlServiceType.Items.FindByText(Convert.ToString(dtForSelect.Rows[0]["ServiceType"]).Trim()).Value;
+                //        DdlServiceType_SelectedIndexChanged(sender, e);
+                //    }
+                //    ddlCustomerList.SelectedValue = Convert.ToString(dtForSelect.Rows[0]["CustomerID"]);
+                //    LblRequestDescription.Text = "Request Description: " + Convert.ToString(dtForSelect.Rows[0]["RequestDescription"]);
+                //}
 
                 if (Session["ServiceTicketID"] != null)
                 {
@@ -119,6 +119,7 @@ namespace WalkerS_Lab1Part3
                     LblWorkNumber.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
                     LblEmailText.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
                 }
+
                 if (Session["ServiceTicketID"] != null)
                 {
                     //Pulling in customer's record
