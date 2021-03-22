@@ -21,7 +21,7 @@ namespace WalkerS_Lab1Part3
                 LstBoxCustomerRequests.DataTextField = "Name";
                 LstBoxCustomerRequests.DataValueField = "Customer ID";
 
-                String sqlQueryCustomer = "Select customer.customerID 'Customer ID', FirstName + ' ' + LastName + ' (' + DateContacted + ') ->' as 'Name' from Customer where completed='False'";
+                String sqlQueryCustomer = "Select customerID 'Customer ID', FirstName + ' ' + LastName + ' (' + DateContacted + ') ->' as 'Name' from Customer where completed='False'";
 
 
                 SqlConnection sqlConnectCustomer = new SqlConnection("Server= aa134xzc8c5axs3, 1433; Database=Capstone; uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;  Integrated Security = False;");
@@ -147,5 +147,47 @@ namespace WalkerS_Lab1Part3
         {
             Response.Redirect("CompletionForm.aspx");
         }
+
+        protected void BtnSearch_Click(object sender, EventArgs e)
+        {
+
+            //Check to see if customer is in the database
+            String sqlQueryDuplicate = "Select CustomerID, FirstName + ' ' + LastName as 'Name', email, homephone, workphone, cellphone from customer WHERE FirstName + ' ' +  LastName like @Name";
+
+
+
+            //Establishes the connection between our web form and database
+            SqlConnection sqlConnectDuplicate = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+
+            //Creates sqlcommand with query and email parameter for security
+            SqlCommand sqlCommandInsert = new SqlCommand();
+            sqlCommandInsert.Connection = sqlConnectDuplicate;
+            sqlCommandInsert.CommandType = CommandType.Text;
+            sqlCommandInsert.CommandText = sqlQueryDuplicate;
+            sqlCommandInsert.Parameters.Add(new SqlParameter("@Name", "%" + HttpUtility.HtmlEncode(TxtSearch.Text) + "%"));
+
+
+            SqlDataAdapter sqlAdapterDuplicate = new SqlDataAdapter(sqlCommandInsert);
+            //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
+            //SqlDataAdapter sqlAdapterDuplicate = new SqlDataAdapter(sqlQueryDuplicate, sqlConnectDuplicate); <- This is how we originally did it with a DataAdapter
+
+            //This creates a datatable and fills it
+            DataTable dtForDuplicate = new DataTable();
+            sqlAdapterDuplicate.Fill(dtForDuplicate);
+            
+
+            GridViewCustomers.DataSource = dtForDuplicate;
+            GridViewCustomers.DataBind();
+        }
+
+        protected void GridViewCustomers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TxtSearch.Text = GridViewCustomers.Rows[GridViewCustomers.SelectedIndex].Cells[2].Text;
+            Session["SelectedCustomerID"] = GridViewCustomers.SelectedDataKey.Value.ToString();
+            Session["SelectedCustomerName"] = GridViewCustomers.Rows[GridViewCustomers.SelectedIndex].Cells[2].Text;
+            
+        }
+
+
     }
 }

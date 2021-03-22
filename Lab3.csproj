@@ -116,6 +116,9 @@
     <Content Include="BootstrapSandBox.aspx" />
     <Content Include="Content\LandingPage.css" />
     <Content Include="Content\Login.css" />
+    <Content Include="Content\LoginFix.css" />
+    <Content Include="Content\NewTemplate.css" />
+    <Content Include="Content\style4.css" />
     <Content Include="Content\UserLogin.css" />
     <Content Include="MoveInventory.aspx" />
     <Content Include="AddServiceRequest.aspx" />
@@ -139,6 +142,7 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Collapse Toggle.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -239,7 +243,12 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="Test.aspx" />
+    <Content Include="src\assets\demo\chart-area-demo.js" />
+    <Content Include="src\assets\demo\chart-bar-demo.js" />
+    <Content Include="src\assets\demo\chart-pie-demo.js" />
+    <Content Include="src\assets\demo\datatables-demo.js" />
+    <Content Include="src\assets\img\error-404-monochrome.svg" />
+    <Content Include="src\js\scripts.js" />
     <Content Include="UnauthorizedAccess.aspx" />
     <Content Include="UserLogin.aspx" />
     <Content Include="ViewCustomer.aspx" />
@@ -356,13 +365,6 @@
     </Compile>
     <Compile Include="PasswordHash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Test.aspx.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Test.aspx.designer.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
-    </Compile>
     <Compile Include="UnauthorizedAccess.aspx.cs">
       <DependentUpon>UnauthorizedAccess.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -423,6 +425,44 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="src\pug\layouts\authentication.pug" />
+    <Content Include="src\pug\layouts\dashboard.pug" />
+    <Content Include="src\pug\layouts\error.pug" />
+    <Content Include="src\pug\layouts\includes\footer.pug" />
+    <Content Include="src\pug\layouts\includes\head\css.pug" />
+    <Content Include="src\pug\layouts\includes\head\icons.pug" />
+    <Content Include="src\pug\layouts\includes\head\meta.pug" />
+    <Content Include="src\pug\layouts\includes\head\title.pug" />
+    <Content Include="src\pug\layouts\includes\navigation\sidenav.pug" />
+    <Content Include="src\pug\layouts\includes\navigation\topnav.pug" />
+    <Content Include="src\pug\layouts\includes\scripts.pug" />
+    <Content Include="src\pug\pages\401.pug" />
+    <Content Include="src\pug\pages\404.pug" />
+    <Content Include="src\pug\pages\500.pug" />
+    <Content Include="src\pug\pages\charts.pug" />
+    <Content Include="src\pug\pages\includes\datatable.pug" />
+    <Content Include="src\pug\pages\includes\page-header.pug" />
+    <Content Include="src\pug\pages\index.pug" />
+    <Content Include="src\pug\pages\layout-sidenav-light.pug" />
+    <Content Include="src\pug\pages\layout-static.pug" />
+    <Content Include="src\pug\pages\login.pug" />
+    <Content Include="src\pug\pages\password.pug" />
+    <Content Include="src\pug\pages\register.pug" />
+    <Content Include="src\pug\pages\tables.pug" />
+    <Content Include="src\scss\layout\_authentication.scss" />
+    <Content Include="src\scss\layout\_dashboard-default.scss" />
+    <Content Include="src\scss\layout\_dashboard-fixed.scss" />
+    <Content Include="src\scss\layout\_error.scss" />
+    <Content Include="src\scss\navigation\sidenav\_sidenav-dark.scss" />
+    <Content Include="src\scss\navigation\sidenav\_sidenav-light.scss" />
+    <Content Include="src\scss\navigation\sidenav\_sidenav.scss" />
+    <Content Include="src\scss\navigation\_nav.scss" />
+    <Content Include="src\scss\navigation\_topnav.scss" />
+    <Content Include="src\scss\styles.scss" />
+    <Content Include="src\scss\variables\_navigation.scss" />
+    <Content Include="src\scss\variables\_spacing.scss" />
+    <Content Include="src\scss\_global.scss" />
+    <Content Include="src\scss\_variables.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -435,6 +475,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="uploads\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
