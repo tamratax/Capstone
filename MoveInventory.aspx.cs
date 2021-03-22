@@ -23,7 +23,7 @@ namespace Lab3
             try
             {
                 string query = "INSERT INTO [INVENTORY] (ServiceTicketID, ItemName, ItemDescription, ItemCost, Quantity) VALUES (" + DDLType.SelectedValue + ", @ItemName, @ItemDescription, @ItemCost, @ItemQuantity)";
-                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Capstone"].ConnectionString);
                 sqlConnect.Open();
                 SqlCommand com = new SqlCommand(query, sqlConnect);
 
@@ -54,34 +54,36 @@ namespace Lab3
 
         protected void DDLCust_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            //try
+            //{
+            if (DDLCust.SelectedValue != "-1")
             {
-                if (DDLCust.SelectedValue != "-1")
-                {
-                    //Populates service Ddl
-                    DDLType.DataTextField = "Services";
-                    DDLType.DataValueField = "ServiceTicketID";
+                //Populates service Ddl
+                DDLType.DataTextField = "Services";
+                DDLType.DataValueField = "ServiceTicketID";
 
-                    String sqlQueryService = "Select ServiceTicketID, ServiceType + ' ' + ServiceDate 'Services' from ServiceTicket where ServiceType = 'Move' AND customerID = " + DDLCust.SelectedValue;
+                String sqlQueryService = "Select ServiceTicketID, ServiceType + ' ' + ServiceDate 'Services' from ServiceTicket where ServiceType = 'Move' AND customerID = " + DDLCust.SelectedValue;
 
 
-                    SqlConnection sqlConnectService = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+                SqlConnection sqlConnectService = new SqlConnection("Server= aa134xzc8c5axs3, 1433;Database=Capstone;uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
 
-                    SqlDataAdapter sqlAdapterService = new SqlDataAdapter(sqlQueryService, sqlConnectService);
+                SqlDataAdapter sqlAdapterService = new SqlDataAdapter(sqlQueryService, sqlConnectService);
 
-                    DataTable dtForDdlServiceList = new DataTable();
-                    sqlAdapterService.Fill(dtForDdlServiceList);
+                DataTable dtForDdlServiceList = new DataTable();
+                sqlAdapterService.Fill(dtForDdlServiceList);
 
-                    DDLType.DataSource = dtForDdlServiceList;
-                    DDLType.DataBind();
-                }
-
+                DDLType.DataSource = dtForDdlServiceList;
+                DDLType.DataBind();
             }
-            catch
-            {
-                LblStatus.Text = "Database Error!";
-            }
+
         }
+        //catch
+        //{
+        //    LblStatus.Text = "Database Error!";
+        //}
+
+
+
 
         protected void DDLCust_DataBound(object sender, EventArgs e)
         {
@@ -118,6 +120,8 @@ namespace Lab3
                 LblStatus.Text = "Database Error!";
             }
         }
-
     }
 }
+
+    
+

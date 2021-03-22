@@ -181,12 +181,12 @@
 
       <asp:SqlDataSource ID="dtasrcCustomerList"
         runat="server"
-        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        ConnectionString="<%$ConnectionStrings:Capstone%>"
         SelectCommand="Select CustomerID, FirstName + ' ' + LastName as CustomerName from Customer Order By LastName ASC"></asp:SqlDataSource>
 
      <asp:SqlDataSource ID="dtasrcItems"
         runat="server"
-        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        ConnectionString="<%$ConnectionStrings:Capstone%>"
         SelectCommand="SELECT DISTINCT WAREHOUSE.WarehouseID, WAREHOUSE.Date, WAREHOUSE.Lot, WAREHOUSE.Control, WAREHOUSE.Description, WAREHOUSE.Quantity, INVENTORY.ItemName FROM Inventory, Warehouse, Customer WHERE WAREHOUSE.ItemID = INVENTORY.ItemID AND WAREHOUSE.CustomerID = @CustomerID"
         DeleteCommand="DELETE WAREHOUSE where WarehouseID = @WarehouseID"
         UpdateCommand="UPDATE WAREHOUSE SET Date = @Date, Lot = @Lot, Control = @Control, Description = @Description, Quantity = @Quantity WHERE WarehouseID = @WarehouseID">

@@ -41,7 +41,7 @@ namespace Lab3
                 String sqlQueryService = "Select ServiceTicketID, ServiceType + ' ' + ServiceDate 'Services' from ServiceTicket where customerID = " + DdlCustomerList.SelectedValue + " AND ServiceType = 'Auction' AND Completed = 1";
 
 
-                SqlConnection sqlConnectService = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+                SqlConnection sqlConnectService = new SqlConnection("Server=aabnzsit0g0yfy.chenrtpm7jne.us-east-1.rds.amazonaws.comjne.us-east-1.rds.amazonaws.comoy0sqje4e.chenrtpm7jne.us-east-1.rds.amazonaws.comdb.chenrtpm7jne.us-east-1.rds.amazonaws.com, 1433;Database=Capstone;Trusted_Connection=Yes;Integrated Security = False;");
 
                 SqlDataAdapter sqlAdapterService = new SqlDataAdapter(sqlQueryService, sqlConnectService);
 

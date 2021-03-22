@@ -91,7 +91,7 @@ namespace Lab3
         {
             //try
             //{
-                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Capstone"].ConnectionString);
                 string query = "INSERT into Inventory(ServiceTicketID, ItemName, ItemDescription, Quantity, AddedDate) values (" + DDLType.SelectedValue.ToString() + ", @ItemName, @ItemDescription, @ItemQuantity, @addedDate)";
 
                 sqlConnect.Open();
@@ -129,7 +129,7 @@ namespace Lab3
 
 
                 String Query = "Select  ItemName,ItemDescription, Quantity FROM Inventory join ServiceTicket on ServiceTicket.serviceticketID = inventory.ServiceTicketID where inventory.ServiceTicketID = " + DDLType.SelectedValue.ToString();
-                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Capstone"].ConnectionString);
 
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(Query, sqlConnect);
 
@@ -149,7 +149,7 @@ namespace Lab3
             try
             {
                 //Define the Connection to the Database
-                SqlConnection sqlConnect3 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                SqlConnection sqlConnect3 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Capstone"].ConnectionString);
                 sqlConnect3.Open();
 
                 //Concatenate Sql Query Insert Statements
@@ -226,7 +226,7 @@ namespace Lab3
                     String sqlQueryService = "Select ServiceTicketID, ServiceType + ' ' + ServiceDate 'Services' from ServiceTicket where ServiceType = 'Auction' AND customerID = " + DDLCust.SelectedValue.ToString();
 
 
-                    SqlConnection sqlConnectService = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+                    SqlConnection sqlConnectService = new SqlConnection("Server= aa134xzc8c5axs3, 1433;Database=Capstone;uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
 
                     SqlDataAdapter sqlAdapterService = new SqlDataAdapter(sqlQueryService, sqlConnectService);
 

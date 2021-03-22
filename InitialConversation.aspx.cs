@@ -39,7 +39,7 @@ namespace WalkerS_Lab1Part3
                     String sqlQuery = "Select * from customer where customerid = " + Session["Customer ID"].ToString();
 
                     //Establishes the connection between our web form and database
-                    SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+                    SqlConnection sqlConnect = new SqlConnection("Server= aa134xzc8c5axs3, 1433;Database=Capstone;uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
 
                     //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
                     SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
@@ -199,7 +199,7 @@ namespace WalkerS_Lab1Part3
                 String sqlQuery = "UPDATE CUSTOMER SET FirstName = @FirstName, LastName = @LastName, CellPhone = @CellPhone, WorkPhone = @WorkPhone, HomePhone = @HomePhone, Email = @Email, ItemsForSale = @HowMany, WhatDoyouSell = @Descriptions, Downsizing = @Downsizing, SettlingEstate =  @Estate, MovingCB = @MovingCB, AuctionCB = @AuctionCB, ConsignmentCB = @ConsignmentCB, AppraisalCB = @AppraisalCB, ItemTransportation = @ItemTransport, PreferredContact = @PreferredContact, ReferralChannel = @ReferralChannel, DeadlineStart = @DeadlineStart, DeadlineEnd = @DeadlineEnd, CompletedByEmp = @CompletedBy, CustomerNotes = @CustomerNotes, completed = " + completed + " WHERE customerID = " + Session["Customer ID"].ToString();
 
                 //Define the Connection to the Database
-                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Capstone"].ConnectionString);
 
                 // Create the SQL Command object which will send the query
                 SqlCommand sqlCommand = new SqlCommand();
@@ -269,7 +269,7 @@ namespace WalkerS_Lab1Part3
 
 
                 //Establishes the connection between our web form and database
-                SqlConnection sqlConnectDuplicate = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+                SqlConnection sqlConnectDuplicate = new SqlConnection("Server= aa134xzc8c5axs3, 1433;uid=admin;Password=Tobyman98!;Database=Capstone;Trusted_Connection=Yes;Integrated Security = False;");
 
                 //Creates sqlcommand with query and email parameter for security
                 SqlCommand sqlCommandInsert = new SqlCommand();
@@ -311,7 +311,7 @@ namespace WalkerS_Lab1Part3
                     String sqlQuery = "insert into CUSTOMER values (@FirstName, @LastName, @CellPhone, @WorkPhone, @HomePhone, @Email, @HowMany, @Descriptions, @Downsizing," +
                         " @Estate, @MovingCB, @AuctionCB, @ConsignmentCB, @AppraisalCB, @ItemTransport, @InitialContact, @ReferralChannel, " + System.DateTime.Today.ToShortDateString() + ",  @DeadlineStart, @DeadlineEnd, @CompletedBy, @CustomerNotes, @Completed)";
                     //Define the Connection to the Database
-                    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Capstone"].ConnectionString);
 
                     // Create the SQL Command object which will send the query
                     SqlCommand sqlCommand = new SqlCommand();
@@ -354,7 +354,7 @@ namespace WalkerS_Lab1Part3
                     LblSaveStatus.ForeColor = Color.Green;
 
                     //Define the Connection to the Database
-                    SqlConnection sqlConnect2 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                    SqlConnection sqlConnect2 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Capstone"].ConnectionString);
                     sqlConnect2.Open();
                     int CustomerID;
                     //Concatenate Sql Query Insert Statements
@@ -378,7 +378,7 @@ namespace WalkerS_Lab1Part3
 
 
                     //Define the Connection to the Database
-                    SqlConnection sqlConnect3 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                    SqlConnection sqlConnect3 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Capstone"].ConnectionString);
                     sqlConnect3.Open();
 
                     //Concatenate Sql Query Insert Statements

@@ -25,15 +25,15 @@ namespace Lab3
             if (TxtFirstName.Text != "" && TxtLastName.Text != "" && TxtPassword.Text != "" && TxtEmail.Text != "") // all fields must be filled out
             {
                 // COMMIT VALUES
-                try
-                {
-                    //Check to see if customer is already in the database
-                    String sqlQueryDuplicate = "Select CustomerID, email from customer WHERE email = '" + HttpUtility.HtmlEncode(TxtEmail.Text) + "'";
+                //try
+                //{
+                //Check to see if customer is already in the database
+                String sqlQueryDuplicate = "Select CustomerID, email from customer WHERE email = '" + HttpUtility.HtmlEncode(TxtEmail.Text) + "'";
 
 
 
                 //Establishes the connection between our web form and database
-                SqlConnection sqlConnectDuplicate = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+                SqlConnection sqlConnectDuplicate = new SqlConnection("Server= aa134xzc8c5axs3, 1433;Database=Capstone;uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
 
                 //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
                 SqlDataAdapter sqlAdapterDuplicate = new SqlDataAdapter(sqlQueryDuplicate, sqlConnectDuplicate);
@@ -51,7 +51,7 @@ namespace Lab3
                 else
                 {
                     //Establishes a new Sql connection to the AUTH database
-                    System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString.ToString());
+                    System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH1"].ConnectionString.ToString());
                     LblCreateStatus.Text = "Database Connection Successful";
 
                     sc.Open();
@@ -84,7 +84,7 @@ namespace Lab3
 
 
                     //Define the Connection to the Database
-                    SqlConnection sqlConnectCustomer = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                    SqlConnection sqlConnectCustomer = new SqlConnection(WebConfigurationManager.ConnectionStrings["Capstone"].ConnectionString);
 
                     // Create the SQL Command object which will send the query
                     SqlCommand sqlCommandCustomer = new SqlCommand();
@@ -112,11 +112,11 @@ namespace Lab3
                     queryResultsCustomer.Close();
                     sqlConnectCustomer.Close();
 
-                    
+
 
                     sqlQuery = "insert into Address (street, city, state, zip, Description ) values (@street, @city, @state, @zip, 'Primary Contact Address') ";
 
-                    SqlConnection sqlConnectAddress = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                    SqlConnection sqlConnectAddress = new SqlConnection(WebConfigurationManager.ConnectionStrings["Capstone"].ConnectionString);
                     SqlCommand sqlCommandAddress = new SqlCommand();
                     sqlCommandAddress.Connection = sqlConnectAddress;
                     sqlCommandAddress.CommandType = CommandType.Text;
@@ -137,18 +137,20 @@ namespace Lab3
 
 
 
-                        Session["CustomerCreated"] = "True";
-                        Response.Redirect("CustomerPortal.aspx");
+                    Session["CustomerCreated"] = "True";
+                    Response.Redirect("CustomerPortal.aspx");
                     //LblCreateStatus.Text = "Customer Added Successfully";
                     //LblCreateStatus.ForeColor = Color.Green;
                 }
 
-                }
-                catch
-                {
-                    LblCreateStatus.Text = "Database Error - User not committed.";
-                }
             }
+            //catch
+            //{
+            //    LblCreateStatus.Text = "Database Error - User not committed.";
+            //}
+        
+
+        
             else
             {
                 LblCreateStatus.Text = "Fill all fields.";
