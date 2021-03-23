@@ -109,11 +109,11 @@
 
                         </li>
                         <li>
-                            <a href="#">Move
+                            <a href="ViewMoves.aspx">Move
                             </a>
                         </li>
                         <li>
-                            <a href="#">Auction
+                            <a href="ViewAuctions.aspx">Auction
                             </a>
                         </li>
                         <li>

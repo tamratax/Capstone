@@ -207,7 +207,9 @@
     <Content Include="src\js\scripts.js" />
     <Content Include="UnauthorizedAccess.aspx" />
     <Content Include="UserLogin.aspx" />
+    <Content Include="ViewAuctions.aspx" />
     <Content Include="ViewCustomer.aspx" />
+    <Content Include="ViewMoves.aspx" />
     <Content Include="ViewNote.aspx" />
     <Content Include="ViewService.aspx" />
     <Content Include="WarehouseInventory.aspx" />
@@ -335,12 +337,26 @@
     <Compile Include="UserLogin.aspx.designer.cs">
       <DependentUpon>UserLogin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ViewAuctions.aspx.cs">
+      <DependentUpon>ViewAuctions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewAuctions.aspx.designer.cs">
+      <DependentUpon>ViewAuctions.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewCustomer.aspx.cs">
       <DependentUpon>ViewCustomer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewCustomer.aspx.designer.cs">
       <DependentUpon>ViewCustomer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewMoves.aspx.cs">
+      <DependentUpon>ViewMoves.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewMoves.aspx.designer.cs">
+      <DependentUpon>ViewMoves.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewNote.aspx.cs">
       <DependentUpon>ViewNote.aspx</DependentUpon>
