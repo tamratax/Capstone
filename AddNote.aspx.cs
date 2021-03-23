@@ -44,7 +44,7 @@ namespace Lab2
                 String sqlQueryService = "Select ServiceTicketID, ServiceType + ' ' + ServiceDate 'Services' from ServiceTicket where customerID = " + DdlCustomerList.SelectedValue;
 
 
-                SqlConnection sqlConnectService = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+                SqlConnection sqlConnectService = new SqlConnection("Server= aa134xzc8c5axs3, 1433;Database=Capstone;uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
 
                 SqlDataAdapter sqlAdapterService = new SqlDataAdapter(sqlQueryService, sqlConnectService);
 
@@ -97,7 +97,7 @@ namespace Lab2
                 String sqlQuery = "INSERT into TicketHistory VALUES ('" + System.DateTime.Today.ToString("yyyy-MM-dd") + "', @NoteTitle, @NoteDetails, " + DdlServiceList.SelectedValue + ", " + DdlNoteCreator.SelectedValue +  ")";
 
                 //Define the Connection to the Database
-                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Capstone"].ConnectionString);
 
                 // Create the SQL Command object which will send the query
                 SqlCommand sqlCommand = new SqlCommand();

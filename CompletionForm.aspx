@@ -510,12 +510,12 @@
 
     <asp:SqlDataSource ID="dtasrcCustomerList"
         runat="server"
-        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        ConnectionString="<%$ConnectionStrings:Capstone%>"
         SelectCommand="Select CustomerID, FirstName + ' ' + LastName as CustomerName from Customer Order By LastName ASC"></asp:SqlDataSource>
 
      <asp:SqlDataSource ID="dtasrcCustGrid"
         runat="server"
-        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        ConnectionString="<%$ConnectionStrings:Capstone%>"
         SelectCommand="Select CustomerID, FirstName + ' ' + LastName as CustomerName, CellPhone, HomePhone, WorkPhone, Email FROM CUSTOMER WHERE customerID = @CustomerID">
          <SelectParameters>
             <asp:ControlParameter Name="CustomerID" Type="Int64" ControlID="DDLCust" />
@@ -524,7 +524,7 @@
 
     <asp:SqlDataSource ID="dtasrcAddresses"
         runat="server"
-        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        ConnectionString="<%$ConnectionStrings:Capstone%>"
         SelectCommand="Select AddressID, Street, City, State, Zip, Description FROM ADDRESS WHERE CustomerID = @CustomerID">
          <SelectParameters>
             <asp:ControlParameter Name="CustomerID" Type="Int64" ControlID="DDLCust" />
@@ -533,12 +533,12 @@
 
       <asp:SqlDataSource ID="dtasrcEmployeeList"
         runat="server"
-        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        ConnectionString="<%$ConnectionStrings:Capstone%>"
         SelectCommand="Select EmployeeID, EmpFirstName + ' ' + EmpLastName as EmployeeName from EMPLOYEE Order By EmpLastName ASC"></asp:SqlDataSource>
     
     <asp:SqlDataSource ID="dtasrcMoveEmployees"
         runat="server"
-        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        ConnectionString="<%$ConnectionStrings:Capstone%>"
         SelectCommand="Select MoveID, EmployeeName FROM MOVEEMPLOYEES WHERE ServiceTicketID = @ServiceID"
         DeleteCommand="DELETE MOVEEMPLOYEES where MoveID = @MoveID">
          <SelectParameters>
@@ -548,7 +548,7 @@
 
       <asp:SqlDataSource ID="dtasrcCharges"
         runat="server"
-        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        ConnectionString="<%$ConnectionStrings:Capstone%>"
         SelectCommand="Select ChargeID, Hours, Amount, Total FROM CHARGES WHERE ServiceTicketID = @ServiceID"
         DeleteCommand="DELETE CHARGES where ChargeID = @ChargeID">
          <SelectParameters>

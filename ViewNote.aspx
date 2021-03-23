@@ -170,7 +170,7 @@
     <asp:SqlDataSource
         ID="dtasrcCustomerList"
         runat="server"
-        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        ConnectionString="<%$ConnectionStrings:Capstone%>"
         SelectCommand="Select CustomerID, FirstName + ' ' + LastName as CustomerName
                     from Customer Order By LastName ASC"></asp:SqlDataSource>
 

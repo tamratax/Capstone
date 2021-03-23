@@ -518,7 +518,7 @@
 
     <asp:SqlDataSource ID="dtasrcEmpList"
         runat="server"
-        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        ConnectionString="<%$ConnectionStrings:Capstone%>"
         SelectCommand="Select EmployeeID, EmpFirstName + ' ' + EmpLastName 'EmpName' from EMPLOYEE Order By EmpLastName Desc"></asp:SqlDataSource>
 
     

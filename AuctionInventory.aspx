@@ -328,7 +328,7 @@
 
       <asp:SqlDataSource ID="dtasrcCustomerList"
         runat="server"
-        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        ConnectionString="<%$ConnectionStrings:Capstone%>"
         SelectCommand="Select customer.CustomerID, FirstName + ' ' + LastName as CustomerName from Customer join serviceTicket on customer.customerID = serviceTicket.customerid where ServiceType = 'Auction' Order By LastName ASC"></asp:SqlDataSource>
 
 </asp:Content>

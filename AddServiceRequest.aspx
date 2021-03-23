@@ -198,7 +198,7 @@
 
      <asp:SqlDataSource ID="dtasrcRequest"
         runat="server"
-        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        ConnectionString="<%$ConnectionStrings:Capstone%>"
         SelectCommand="SELECT ServiceRequestID, ServiceType 'Service', ServiceDate 'Date', RequestDescription 'Description' FROM SERVICEREQUEST WHERE CustomerID = (SELECT CustomerID FROM Customer WHERE email = @email)"
         DeleteCommand="DELETE SERVICEREQUEST where ServiceRequestID = @ServiceRequestID"
         UpdateCommand="UPDATE SERVICEREQUEST SET ServiceType = @Service, ServiceDate = @Date, RequestDescription = @Description WHERE ServiceRequestID = @ServiceRequestID">

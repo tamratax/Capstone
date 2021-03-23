@@ -502,20 +502,20 @@
     <asp:SqlDataSource
         ID="dtasrcCustomerList"
         runat="server"
-        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        ConnectionString="<%$ConnectionStrings:Capstone%>"
         SelectCommand="Select CustomerID, FirstName + ' ' + LastName as CustomerName
                     from Customer Order By LastName ASC"></asp:SqlDataSource>
 
     <asp:SqlDataSource
         ID="dtasrcEmployeeContact"
         runat="server"
-        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        ConnectionString="<%$ConnectionStrings:Capstone%>"
         SelectCommand="Select EmployeeID, EmpFirstName + ' ' + EmpLastName as EmployeeName
                     from Employee Order By EmpLastName ASC"></asp:SqlDataSource>
 
     <asp:SqlDataSource ID="dtasrcAddress"
         runat="server"
-        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        ConnectionString="<%$ConnectionStrings:Capstone%>"
         SelectCommand="SELECT * from Address join customer on Customer.CustomerID = Address.CustomerID where Customer.CustomerID = @CustomerID"
         DeleteCommand="DELETE ADDRESS where AddressID = @AddressID"
         UpdateCommand="UPDATE ADDRESS set Street = @Street, City = @City, State = @State, Zip = @Zip, Description = @Description where AddressID = @AddressID">
