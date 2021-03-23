@@ -33,7 +33,7 @@ namespace WalkerS_Lab1Part3
             
 
             //Establishes the connection between our web form and database
-            SqlConnection sqlConnect = new SqlConnection("Server= aa134xzc8c5axs3, 1433;Database=Capstone;uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
+            SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
             //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
@@ -75,7 +75,7 @@ namespace WalkerS_Lab1Part3
                 sqlQuery += "where Customer.CustomerID = Address.CustomerID AND Customer.CustomerID = " + ddlCustomerList.SelectedValue;
 
                 //Establishes the connection between our web form and database
-                SqlConnection sqlConnect = new SqlConnection("Server= aa134xzc8c5axs3, 1433;Database=Capstone;uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
+                SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
                 //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);

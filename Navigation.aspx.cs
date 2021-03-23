@@ -24,7 +24,7 @@ namespace WalkerS_Lab1Part3
                 String sqlQueryCustomer = "Select customerID 'Customer ID', FirstName + ' ' + LastName + ' (' + DateContacted + ') ->' as 'Name' from Customer where completed='False'";
 
 
-                SqlConnection sqlConnectCustomer = new SqlConnection("Server= aa134xzc8c5axs3, 1433; Database=Capstone; uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;  Integrated Security = False;");
+                SqlConnection sqlConnectCustomer = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
                 SqlDataAdapter sqlAdapterCustomer = new SqlDataAdapter(sqlQueryCustomer, sqlConnectCustomer);
 
@@ -58,7 +58,7 @@ namespace WalkerS_Lab1Part3
                 String sqlQueryTicket = "Select ServiceTicketID, FirstName + ' ' + LastName + ': ' + ServiceType + ' on '+ ServiceDate +' ->' as 'Service Ticket' from ServiceTicket join Customer on ServiceTicket.CustomerID = Customer.CustomerID where ServiceTicket.Completed = 'False'";
 
 
-                SqlConnection sqlConnectTicket = new SqlConnection("Server= aa134xzc8c5axs3,1433;Database=Capstone;uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
+                SqlConnection sqlConnectTicket = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
                 SqlDataAdapter sqlAdapterTicket = new SqlDataAdapter(sqlQueryTicket, sqlConnectTicket);
 

@@ -192,14 +192,14 @@
     <asp:SqlDataSource
         ID="dtasrcCustomerList"
         runat="server"
-        ConnectionString="<%$ConnectionStrings:Capstone%>"
+        ConnectionString="<%$ConnectionStrings:Lab3%>"
         SelectCommand="Select CustomerID, FirstName + ' ' + LastName as CustomerName
                     from Customer Order By LastName ASC"></asp:SqlDataSource>
 
     <asp:SqlDataSource
         ID="dtasrcEmployeeContact"
         runat="server"
-        ConnectionString="<%$ConnectionStrings:Capstone%>"
+        ConnectionString="<%$ConnectionStrings:Lab3%>"
         SelectCommand="Select EmployeeID, EmpFirstName + ' ' + EmpLastName as EmployeeName
                     from Employee Order By EmpLastName ASC"></asp:SqlDataSource>
 

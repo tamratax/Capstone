@@ -33,8 +33,8 @@ namespace WalkerS_Lab1Part3
                 //    //Pulling in customer's record
                 //    String sqlQuery = "Select * from ServiceRequest where ServiceRequestID = " + Session["ServiceRequestID"].ToString();
 
-                    //Establishes the connection between our web form and database
-                    SqlConnection sqlConnect = new SqlConnection("Server= aa134xzc8c5axs3 1433;Database=Capstone;uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
+                //    //Establishes the connection between our web form and database
+                //    SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
                 //    //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
                 //    SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
@@ -62,7 +62,7 @@ namespace WalkerS_Lab1Part3
                     String sqlQuery = "Select * from ServiceTicket where ServiceTicketID = " + Session["ServiceTicketID"].ToString();
 
                     //Establishes the connection between our web form and database
-                    SqlConnection sqlConnect = new SqlConnection("Server= aa134xzc8c5axs3, 1433;Database=Capstone; uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
+                    SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
                     //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
                     SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
@@ -102,7 +102,7 @@ namespace WalkerS_Lab1Part3
                     String sqlQuery = "Select * from customer where customerid = " + Session["SelectedCustomerID"].ToString();
 
                     //Establishes the connection between our web form and database
-                    SqlConnection sqlConnect = new SqlConnection("Server= aa134xzc8c5axs3, 1433;uid=admin;Password=Tobyman98!;Database=Capstone;Trusted_Connection=Yes;Integrated Security = False;");
+                    SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
                     //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
                     SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
@@ -126,7 +126,7 @@ namespace WalkerS_Lab1Part3
                     String sqlQuery = "Select * from customer join serviceticket on customer.customerID = serviceticket.customerID where serviceticketID = " + Session["ServiceTicketID"].ToString();
 
                     //Establishes the connection between our web form and database
-                    SqlConnection sqlConnect = new SqlConnection("Server= aa134xzc8c5axs3, 1433;Database=Capstone;uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
+                    SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
                     //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
                     SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
@@ -278,7 +278,7 @@ namespace WalkerS_Lab1Part3
                 sqlQuery = "UPDATE ServiceTicket SET CustomerID = @CustomerID, PotentialDate = @PotentialDate, PotentialTime = @PotentialTime, ServiceDate = @ServiceDate, CompletionDate = @CompletionDate, ServiceType = @ServiceType, DestinationTime = @DestinationTime, LookAtCB = @LookAtCB, LookAtDate = @LookAtDate, LookAtTime = @LookAtTime, InitiatingEmp = @InitiatingEmp, StorageCB = @StorageCB, CleaningCB = @CleaningCB, TrashCB = @TrashCB, Status_Service = "+ status +", Completed = @Completed WHERE ServiceTicketID = " + Session["ServiceTicketID"].ToString();
 
                 //Define the Connection to the Database
-                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Capstone"].ConnectionString);
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
                 // Create the SQL Command object which will send the query
                 SqlCommand sqlCommand = new SqlCommand();
@@ -322,7 +322,7 @@ namespace WalkerS_Lab1Part3
                 sqlQuery = "insert into ServiceTicket values (@CustomerID, '" + System.DateTime.Today.ToString("yyyy-MM-dd") + "', @PotentialDate, @PotentialTime, @ServiceDate,  @CompletionDate, @ServiceType, @DestinationTime,@LookAtCB,@LookAtDate,@LookAtTime,@InitiatingEmp, 1, 15, @StorageCB, @CleaningCB, @TrashCB , @Completed)";
 
                 //Define the Connection to the Database
-                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Capstone"].ConnectionString);
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
                 // Create the SQL Command object which will send the query
                 SqlCommand sqlCommand = new SqlCommand();
@@ -366,7 +366,7 @@ namespace WalkerS_Lab1Part3
                     sqlQuery = "UPDATE ServiceRequest SET RequestStatus = 1 where ServiceRequestID = " + Session["ServiceRequestID"].ToString();
 
                     //Define the Connection to the Database
-                    SqlConnection sqlConnectServiceRequest = new SqlConnection(WebConfigurationManager.ConnectionStrings["Capstone"].ConnectionString);
+                    SqlConnection sqlConnectServiceRequest = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
                     // Create the SQL Command object which will send the query
                     SqlCommand sqlCommandServiceRequest = new SqlCommand();
@@ -421,7 +421,7 @@ namespace WalkerS_Lab1Part3
                 String sqlQuery = "Select * from customer where customerid = " + ddlCustomerList.SelectedValue.ToString();
 
                 //Establishes the connection between our web form and database
-                SqlConnection sqlConnect = new SqlConnection("Server= aa134xzc8c5axs3, 1433;Database=Capstone;uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
+                SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
                 //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
@@ -451,7 +451,7 @@ namespace WalkerS_Lab1Part3
             String sqlQuery = "Insert into address values (null, @CustomerID, @Street, @City, @State, @Zip, @Description)";
 
             //Define the Connection to the Database
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Capstone"].ConnectionString);
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
             // Create the SQL Command object which will send the query
             SqlCommand sqlCommand = new SqlCommand();

@@ -52,7 +52,7 @@ namespace Lab2
                 String sqlQueryService = "Select ServiceTicketID, ServiceType + ' ' + ServiceDate 'Services' from ServiceTicket where customerID = " + DdlCustomerList.SelectedValue;
 
 
-                SqlConnection sqlConnectService = new SqlConnection("Server= aa134xzc8c5axs3, 1433;Database=Capstone;uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
+                SqlConnection sqlConnectService = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
                 SqlDataAdapter sqlAdapterService = new SqlDataAdapter(sqlQueryService, sqlConnectService);
 
@@ -114,7 +114,7 @@ namespace Lab2
                 String sqlQueryTicket = "Select TicketHistoryID, NoteTitle 'Note Title' from TicketHistory where ServiceTicketID = " + DdlServiceList.SelectedValue;
 
 
-                SqlConnection sqlConnectTicket = new SqlConnection("Server= aa134xzc8c5axs3, 1433;Database=Capstone;uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
+                SqlConnection sqlConnectTicket = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
                 SqlDataAdapter sqlAdapterTicket = new SqlDataAdapter(sqlQueryTicket, sqlConnectTicket);
 
@@ -142,7 +142,7 @@ namespace Lab2
             String sqlQueryNoteInfo = "Select TicketHistoryID, TicketChangeDate, th.EmployeeID, NoteTitle, NoteDetails, EmpFirstName +' '+ EmpLastName 'EmpName' from TicketHistory th join EMPLOYEE e on th.EmployeeID = e.EmployeeID where TicketHistoryID = " + LstBoxNoteSelect.SelectedValue;
 
 
-            SqlConnection sqlConnectNoteInfo = new SqlConnection("Server= aa134xzc8c5axs3, 1433;Database=Capstone;uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
+            SqlConnection sqlConnectNoteInfo = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
             SqlDataAdapter sqlAdapterNoteInfo = new SqlDataAdapter(sqlQueryNoteInfo, sqlConnectNoteInfo);
 
@@ -177,7 +177,7 @@ namespace Lab2
                 String sqlQuery = "UPDATE TicketHistory SET NoteTitle = @NoteTitle, NoteDetails = @NoteDetails WHERE TicketHistoryID = " + LstBoxNoteSelect.SelectedValue;
 
                 //Define the Connection to the Database
-                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Capstone"].ConnectionString);
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
                 // Create the SQL Command object which will send the query
                 SqlCommand sqlCommand = new SqlCommand();

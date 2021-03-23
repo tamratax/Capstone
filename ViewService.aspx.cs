@@ -31,7 +31,7 @@ namespace Lab2
             sqlQueryMove += "where servicetype = 'Move' ";
 
 
-            SqlConnection sqlConnect = new SqlConnection("Server= aa134xzc8c5axs3, 1433;Database=Capstone;uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
+            SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQueryMove, sqlConnect);
 
@@ -52,7 +52,7 @@ namespace Lab2
             sqlQueryAuction += "where servicetype = 'Auction'";
 
 
-            SqlConnection sqlConnectAuction = new SqlConnection("Server= aa134xzc8c5axs3, 1433;Database=Capstone;uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
+            SqlConnection sqlConnectAuction = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
             SqlDataAdapter sqlAdapterAuction = new SqlDataAdapter(sqlQueryAuction, sqlConnectAuction);
 
@@ -92,7 +92,7 @@ namespace Lab2
 
                 String sqlQueryBar = "select status_service from serviceticket where serviceticketID = " + DdlServiceList.SelectedValue.ToString();
 
-            SqlConnection sqlConnectBar = new SqlConnection("Server= aa134xzc8c5axs3, 1433;Database=Capstone;uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
+            SqlConnection sqlConnectBar = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
             SqlDataAdapter sqlAdapterBar = new SqlDataAdapter(sqlQueryBar, sqlConnectBar);
 
@@ -131,7 +131,7 @@ namespace Lab2
                 sqlQuery1 += "join serviceticket st on st.ServiceTicketID = th.ServiceTicketID ";
                 sqlQuery1 += "where st.ServiceTicketID = " + DdlServiceList.SelectedValue;
 
-                SqlConnection sqlConnect1 = new SqlConnection("Server= aa134xzc8c5axs3, 1433;Database=Capstone;uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
+                SqlConnection sqlConnect1 = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
                 SqlDataAdapter sqlAdapter1 = new SqlDataAdapter(sqlQuery1, sqlConnect1);
 
@@ -147,7 +147,7 @@ namespace Lab2
                 sqlQuery2 += "join ServiceTicket st on ASSIGNMENT.ServiceTicketID = st.ServiceTicketID ";
                 sqlQuery2 += "where st.ServiceTicketID = " + DdlServiceList.SelectedValue;
 
-                SqlConnection sqlConnect2 = new SqlConnection("Server= aa134xzc8c5axs3, 1433;Database=Capstone;uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
+                SqlConnection sqlConnect2 = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
                 SqlDataAdapter sqlAdapter2 = new SqlDataAdapter(sqlQuery2, sqlConnect2);
 
@@ -163,7 +163,7 @@ namespace Lab2
                 sqlQuery3 += "join ServiceTicket st on inventory.ServiceTicketID = st.ServiceTicketID ";
                 sqlQuery3 += "where st.ServiceTicketID = " + DdlServiceList.SelectedValue;
 
-                SqlConnection sqlConnect3 = new SqlConnection("Server= aa134xzc8c5axs3, 1433;Database=Capstone;uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
+                SqlConnection sqlConnect3 = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
                 SqlDataAdapter sqlAdapter3 = new SqlDataAdapter(sqlQuery3, sqlConnect3);
 
@@ -185,7 +185,7 @@ namespace Lab2
                 String sqlQueryTicket = "Select TicketHistoryID, NoteTitle + ' ->' 'Note Title' from TicketHistory where ServiceTicketID = " + DdlServiceList.SelectedValue;
 
 
-                SqlConnection sqlConnectTicket = new SqlConnection("Server= aa134xzc8c5axs3, 1433;Database=Capstone;uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
+                SqlConnection sqlConnectTicket = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
                 SqlDataAdapter sqlAdapterTicket = new SqlDataAdapter(sqlQueryTicket, sqlConnectTicket);
 
@@ -240,7 +240,7 @@ namespace Lab2
                 sqlQueryMove += "where servicetype = 'Move' and c.CustomerID = " + DdlCustomerList.SelectedValue;
 
 
-                SqlConnection sqlConnect = new SqlConnection("Server= aa134xzc8c5axs3, 1433;Database=Capstone;uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
+                SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQueryMove, sqlConnect);
 
@@ -261,7 +261,7 @@ namespace Lab2
                 sqlQueryAuction += "where servicetype = 'Auction' and c.CustomerID = " + DdlCustomerList.SelectedValue;
 
 
-                SqlConnection sqlConnectAuction = new SqlConnection("Server= aa134xzc8c5axs3, 1433;Database=Capstone;uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
+                SqlConnection sqlConnectAuction = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
                 SqlDataAdapter sqlAdapterAuction = new SqlDataAdapter(sqlQueryAuction, sqlConnectAuction);
 
@@ -282,7 +282,7 @@ namespace Lab2
                 String sqlQueryService = "Select ServiceTicketID, ServiceType + ' ' + ServiceDate 'Services' from ServiceTicket where customerID = " + DdlCustomerList.SelectedValue;
 
 
-                SqlConnection sqlConnectService = new SqlConnection("Server= aa134xzc8c5axs3, 1433;Database=Capstone;uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
+                SqlConnection sqlConnectService = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
                 SqlDataAdapter sqlAdapterService = new SqlDataAdapter(sqlQueryService, sqlConnectService);
 
@@ -333,7 +333,7 @@ namespace Lab2
 
 
             //Establishes the connection between our web form and database
-            SqlConnection sqlConnectDuplicate = new SqlConnection("Server= aa134xzc8c5axs3, 1433;Database=Capstone;uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;Integrated Security = False;");
+            SqlConnection sqlConnectDuplicate = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
             //Creates sqlcommand with query and email parameter for security
             SqlCommand sqlCommandInsert = new SqlCommand();

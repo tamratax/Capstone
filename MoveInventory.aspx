@@ -157,12 +157,12 @@
 
     <asp:SqlDataSource ID="dtasrcCustomerList"
         runat="server"
-        ConnectionString="<%$ConnectionStrings:Capstone%>"
+        ConnectionString="<%$ConnectionStrings:Lab3%>"
         SelectCommand="Select CustomerID, FirstName + ' ' + LastName as CustomerName from Customer Order By LastName ASC"></asp:SqlDataSource>
 
     <asp:SqlDataSource ID="dtasrcItems"
         runat="server"
-        ConnectionString="<%$ConnectionStrings:Capstone%>"
+        ConnectionString="<%$ConnectionStrings:Lab3%>"
         SelectCommand="SELECT ItemID, ItemName 'Name', ItemDescription 'Description', ItemCost 'Cost', Quantity FROM Inventory join ServiceTicket on ServiceTicket.serviceticketID = inventory.ServiceTicketID where inventory.ServiceTicketID = @ServiceID"
         DeleteCommand="DELETE INVENTORY where ItemID = @ItemID"
         UpdateCommand="UPDATE INVENTORY SET ItemName = @Name, ItemDescription = @Description, ItemCost = @Cost, Quantity = @Quantity WHERE ItemID = @ItemID">

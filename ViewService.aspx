@@ -209,13 +209,13 @@
     <asp:SqlDataSource
         ID="dtasrcCustomerList"
         runat="server"
-        ConnectionString="<%$ConnectionStrings:Capstone%>"
+        ConnectionString="<%$ConnectionStrings:Lab3%>"
         SelectCommand="Select CustomerID, FirstName + ' ' + LastName as CustomerName
                     from Customer Order By LastName ASC"></asp:SqlDataSource>
     <asp:SqlDataSource
         ID="SqlDataSource1"
         runat="server"
-        ConnectionString="<%$ConnectionStrings:Capstone%>"
+        ConnectionString="<%$ConnectionStrings:Lab3%>"
         SelectCommand="Select Status_Service as Status123
                     from ServiceTicket where ServiceTicketID = @ServID">
         <SelectParameters>
