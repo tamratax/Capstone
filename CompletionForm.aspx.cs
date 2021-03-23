@@ -15,7 +15,7 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         protected void DDLCust_SelectedIndexChanged(object sender, EventArgs e)
@@ -111,7 +111,7 @@ namespace Lab3
             }
 
 
-           
+
         }
 
         protected void DDLPaynentType_SelectedIndexChanged(object sender, EventArgs e)
@@ -126,62 +126,72 @@ namespace Lab3
 
         protected void BtnCalculate_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string query = "INSERT INTO [CHARGES] (Hours, Amount, Total, ServiceTicketID) Values (@Hours, @Amount, @Total, @ServiceTicketID)";
-                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-                sqlConnect.Open();
-                SqlCommand com = new SqlCommand(query, sqlConnect);
+            //try
+            //{
+            string query = "INSERT INTO [CHARGES] (Hours, Amount, Total, ServiceTicketID) Values (@Hours, @Amount, @Total, @ServiceTicketID)";
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            sqlConnect.Open();
+            SqlCommand com = new SqlCommand(query, sqlConnect);
 
-                com.Parameters.AddWithValue("Hours", HttpUtility.HtmlEncode(TxtCharge.Text.ToString()));
-                com.Parameters.AddWithValue("Amount", HttpUtility.HtmlEncode(TxtAmount.Text.ToString()));
-                com.Parameters.AddWithValue("ServiceTicketID", DDLType.SelectedValue.ToString());
-                int total = Convert.ToInt32(TxtCharge.Text) * Convert.ToInt32(TxtAmount.Text);
-                com.Parameters.AddWithValue("Total", total);
+            com.Parameters.AddWithValue("Hours", HttpUtility.HtmlEncode(TxtCharge.Text.ToString()));
+            com.Parameters.AddWithValue("Amount", HttpUtility.HtmlEncode(TxtAmount.Text.ToString()));
+            com.Parameters.AddWithValue("ServiceTicketID", DDLType.SelectedValue.ToString());
+            double total = Convert.ToDouble(TxtCharge.Text) * Convert.ToDouble(TxtAmount.Text);
+            com.Parameters.AddWithValue("Total", total);
 
-                com.ExecuteNonQuery();
-                sqlConnect.Close();
+            com.ExecuteNonQuery();
+            sqlConnect.Close();
 
-                LblStatus.Text = "Item sucessfully added!";
-                GridCharges.DataBind();
+            LblStatus.Text = "Item sucessfully added!";
+            GridCharges.DataBind();
 
-            }
-            catch
-            {
-                LblStatus.Text = "Database Error!";
-            }
+            //}
+            //catch
+            //{
+            //    LblStatus.Text = "Database Error!";
+            //}
         }
 
         protected void BtnSupplies_Click(object sender, EventArgs e)
         {
-            try
+            //try
+            //{
+
+            //Pulling in customer's record
+            string query2 = "SELECT SUM(Total) sum FROM CHARGES WHERE ServiceTicketID = " + DDLType.SelectedValue.ToString();
+
+            //Establishes the connection between our web form and database
+            SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+
+            //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(query2, sqlConnect);
+
+            //This creates a datatable and fills it
+            DataTable dtForSelect = new DataTable();
+            sqlAdapter.Fill(dtForSelect);
+
+
+
+            double queryresults = Convert.ToDouble(dtForSelect.Rows[0]["sum"]);
+            if (TxtSupplies.Text == "")
             {
-                string query2 = "SELECT SUM(Total) FROM CHARGES WHERE ServiceTicketID = @ServiceTicketID";
-                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-                sqlConnect.Open();
-                SqlCommand com = new SqlCommand(query2, sqlConnect);
+                TxtSupplies.Text = "0";
+            }
+            double trueTotal = Convert.ToDouble(TxtSupplies.Text) + Convert.ToDouble(queryresults);
+            LblCalculate.Text = "$"+trueTotal.ToString();
 
-              
-            com.Parameters.AddWithValue("ServiceTicketID", DDLType.SelectedValue.ToString());
-
-            com.ExecuteNonQuery();
-
-            int queryresults = Convert.ToInt32(query2[0]);
-            int trueTotal = Convert.ToInt32(TxtSupplies.Text) + Convert.ToInt32(queryresults);
-            LblCalculate.Text = trueTotal.ToString();
-            
 
 
             sqlConnect.Close();
 
-                LblStatus.Text = "Item sucessfully added!";
+            LblStatus.Text = "Item sucessfully added!";
 
 
-            }
-            catch
-            {
-                LblStatus.Text = "Database Error!";
-            }
+            //}
+            //catch
+            //{
+            //    LblStatus.Text = "Database Error!";
+            //}
         }
     }
 }

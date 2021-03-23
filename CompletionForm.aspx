@@ -86,7 +86,7 @@
     </asp:Table>
     
     <br />
-    <asp:Table ID="TblCompletition" runat="server">
+    <asp:Table ID="TblCompletion" runat="server">
         <asp:TableRow>
             <asp:TableCell>
                 <h2>Add Employees</h2>
@@ -209,7 +209,7 @@
                 <asp:Label ID="LblTotal" runat="server" Text="Total Charges: "></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:Label ID="LblCalculate" runat="server" Text=""></asp:Label>
+                <asp:Label ID="LblCalculate" runat="server" Text="" Font-Underline="true" Font-Bold="true"></asp:Label>
             </asp:TableCell>
         </asp:TableRow>
      </asp:Table>   
