@@ -186,8 +186,12 @@
                         <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <i class="fas fa-align-justify"></i>
                         </button>
+                        &nbsp;
                         <asp:Label ID="LblSelected" runat="server" Text="Selected Customer:   "></asp:Label>
-                        <asp:Label ID="LblSelectedCust" runat="server" Text="" OnPreRender="LblSelectedCust_PreRender"></asp:Label>
+                        &nbsp;
+                        <asp:Label ID="LblSelectedCust" runat="server" Text="" Font-Bold="true" OnPreRender="LblSelectedCust_PreRender"></asp:Label>
+                        &nbsp;
+                        <asp:Button ID="BtnClearCust" runat="server" Text="Clear->" OnClick="BtnClearCust_Click"/>
 
 
                         <%--                        <div class="center">
@@ -205,7 +209,8 @@
                                         ID="BtnLogout"
                                         runat="server"
                                         Text="Logout ->"
-                                        OnClick="BtnLogout_Click" />
+                                        OnClick="BtnLogout_Click" 
+                                        CssClass="btn-primary"/>
                                 </li>
                                 <%--        <li class="nav-item">
                                     <a class="nav-link" href="#">Page</a>

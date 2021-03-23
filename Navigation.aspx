@@ -12,24 +12,36 @@
         runat="server">
         <asp:TableRow>
             <asp:TableCell>--%>
-        <div>
-            <asp:Label ID="Label1" runat="server" Text="Customer Search: "></asp:Label>
-            <asp:TextBox
-                ID="TxtSearch"
-                runat="server"></asp:TextBox>
-            <asp:Button
-                ID="BtnSearch"
-                runat="server" Text="Search"
-                OnClick="BtnSearch_Click" />
+        <div class=" container">
+            <div class="row justify-content-center">
+                <div class="flex-column">
+                    <asp:Label ID="Label1"
+                        runat="server"
+                        Text="Customer Search:"></asp:Label>
+                </div>
+                <div class="flex-column">
+                    <asp:TextBox
+                        ID="TxtSearch"
+                        runat="server"></asp:TextBox>
+                </div>
+                <div class="flex-column">
+                    <asp:Button
+                        ID="BtnSearch"
+                        runat="server" Text="Search"
+                        OnClick="BtnSearch_Click" />
+                </div>
 
+            </div>
         </div>
+        <br />
         <div>
             <asp:GridView ID="GridViewCustomers"
                 runat="server"
                 EmptyDataText="No Customers Found"
                 DataKeyNames="CustomerID"
                 AutoGenerateColumns="false"
-                OnSelectedIndexChanged="GridViewCustomers_SelectedIndexChanged">
+                OnSelectedIndexChanged="GridViewCustomers_SelectedIndexChanged"
+                CssClass="table justify-content-center">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" ButtonType="Button" />
                     <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" Visible="false" />

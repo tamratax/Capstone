@@ -178,13 +178,14 @@ namespace WalkerS_Lab1Part3
 
             GridViewCustomers.DataSource = dtForDuplicate;
             GridViewCustomers.DataBind();
+            GridViewCustomers.Visible = true;
         }
 
         protected void GridViewCustomers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TxtSearch.Text = GridViewCustomers.Rows[GridViewCustomers.SelectedIndex].Cells[2].Text;
             Session["SelectedCustomerID"] = GridViewCustomers.SelectedDataKey.Value.ToString();
             Session["SelectedCustomerName"] = GridViewCustomers.Rows[GridViewCustomers.SelectedIndex].Cells[2].Text;
+            GridViewCustomers.Visible = false;
             
         }
 

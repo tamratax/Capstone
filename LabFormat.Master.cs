@@ -51,5 +51,12 @@ namespace Lab2
                 LblSelectedCust.Text = "No Customer Selected!";
             }
         }
+
+        protected void BtnClearCust_Click(object sender, EventArgs e)
+        {
+            Session.Remove("SelectedCustomerID");
+            Session.Remove("SelectedCustomerName");
+            Response.Redirect("Navigation.aspx");
+        }
     }
 }
