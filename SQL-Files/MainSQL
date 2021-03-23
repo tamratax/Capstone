@@ -164,9 +164,9 @@ CREATE TABLE WAREHOUSE(
 
 CREATE TABLE CHARGES(
 	ChargeID int IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	Hours int NULL,
-	Amount money NULL,
-	Total money NULL,
+	Hours float NULL,
+	Amount float NULL,
+	Total float NULL,
 	ServiceTicketID int NULL,
 );
 
