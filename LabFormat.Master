@@ -12,6 +12,7 @@
 <body>
     <form id="form1" runat="server">
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         <div class="wrapper">
             <!-- Sidebar  -->
@@ -215,6 +216,8 @@
                 </div>
             </div>
 =======
+=======
+>>>>>>> parent of fb3ebe4 (staged)
         <fieldset>
             <asp:Table
                 ID="Table1" 
@@ -252,6 +255,9 @@
             <asp:ContentPlaceHolder ID="body" runat="server">
 
             </asp:ContentPlaceHolder>
+<<<<<<< HEAD
+>>>>>>> parent of fb3ebe4 (staged)
+=======
 >>>>>>> parent of fb3ebe4 (staged)
         </div>
     </form>

@@ -39,8 +39,13 @@ namespace Lab3
                     //Concatenate Sql Query Insert Statements
                     String sqlQuery = "select CustomerID from Customer where email = '" + Session["CustomerUsername"].ToString() + "'";
 
+<<<<<<< HEAD
                 //Runs sql select statement and saves into datatable
                 SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+=======
+                    //Runs sql select statement and saves into datatable
+                    SqlConnection sqlConnect = new SqlConnection("Server= aa134xzc8c5axs3, 1433;Database=Capstone; uid=admin;Password=Tobyman98!;Trusted_Connection=Yes;  Integrated Security = False;");
+>>>>>>> parent of fb3ebe4 (staged)
 
                     //Creates bridge between the query and the connection
                     SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
@@ -51,11 +56,19 @@ namespace Lab3
                     //Gets Customer ID
                     String customerID = Convert.ToString(dtForSelect.Rows[0]["CustomerID"]);
 
+<<<<<<< HEAD
                 //Creates service request record with customerID
                 //Concatenate Sql Query Insert Statement
                 String sqlQueryInsert = "insert into servicerequest values (@DdlServicetype, @ServiceDate, @RequestDescription, 0, " + customerID + ")";
                 //Define the Connection to the Database
                 SqlConnection sqlConnectInsert = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+=======
+                    //Creates service request record with customerID
+                    //Concatenate Sql Query Insert Statement
+                    String sqlQueryInsert = "insert into servicerequest values (@DdlServicetype, @ServiceDate, @RequestDescription, 0, " + customerID + ")";
+                    //Define the Connection to the Database
+                    SqlConnection sqlConnectInsert = new SqlConnection(WebConfigurationManager.ConnectionStrings["Capstone"].ConnectionString);
+>>>>>>> parent of fb3ebe4 (staged)
 
                     // Create the SQL Command object which will send the query
                     SqlCommand sqlCommandInsert = new SqlCommand();

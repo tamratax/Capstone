@@ -52,9 +52,12 @@ namespace Lab3
                 {
                     //Establishes a new Sql connection to the AUTH database
 <<<<<<< HEAD
+<<<<<<< HEAD
                     System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString.ToString());
                     //LblCreateStatus.Text = "Database Connection Successful";
 =======
+=======
+>>>>>>> parent of fb3ebe4 (staged)
                     System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH1"].ConnectionString.ToString());
                     LblCreateStatus.Text = "Database Connection Successful";
 >>>>>>> parent of fb3ebe4 (staged)
@@ -121,7 +124,13 @@ namespace Lab3
 
                     sqlQuery = "insert into Address (street, city, state, zip, Description ) values (@street, @city, @state, @zip, 'Primary Contact Address') ";
 
+<<<<<<< HEAD
                     SqlConnection sqlConnectAddress = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+=======
+                    sqlQuery = "insert into Address (street, city, state, zip, Description ) values (@street, @city, @state, @zip, 'Primary Contact Address') ";
+
+                    SqlConnection sqlConnectAddress = new SqlConnection(WebConfigurationManager.ConnectionStrings["Capstone"].ConnectionString);
+>>>>>>> parent of fb3ebe4 (staged)
                     SqlCommand sqlCommandAddress = new SqlCommand();
                     sqlCommandAddress.Connection = sqlConnectAddress;
                     sqlCommandAddress.CommandType = CommandType.Text;

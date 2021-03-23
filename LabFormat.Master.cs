@@ -13,7 +13,11 @@ namespace Lab2
         protected void Page_Load(object sender, EventArgs e)
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             ////If not logged in, will kick user to Unauthorized page
+=======
+            //////If not logged in, will kick user to Unauthorized page
+>>>>>>> parent of fb3ebe4 (staged)
 =======
             //////If not logged in, will kick user to Unauthorized page
 >>>>>>> parent of fb3ebe4 (staged)
@@ -26,7 +30,10 @@ namespace Lab2
             //    LblActiveUser.Text = "You Are Logged In As: " + Session["User"].ToString();
             //}
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of fb3ebe4 (staged)
 =======
 >>>>>>> parent of fb3ebe4 (staged)
         }
