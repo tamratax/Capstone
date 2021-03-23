@@ -30,22 +30,8 @@ create table CUSTOMER (
 	WorkPhone			varchar(15),
 	HomePhone			varchar(15),
 	Email			varchar(255),
-	ItemsForSale		varchar(200),
-	WhatDoYouSell		varchar(200),
-	Downsizing		varchar(10),
-	SettlingEstate		varchar(10),
-	MovingCB		varchar(10),
-	AuctionCB		varchar(10),
-	ConsignmentCB		varchar(10),
-	AppraisalCb		varchar(10),
-	ItemTransportation varchar(200),
-	PreferredContact	varchar(255),
-	ReferralChannel	varchar(255),	
-	DateContacted	varchar(20),
-	DeadlineStart	varchar(20),
-	DeadlineEnd		varchar(20),
 	CompletedByEmp	int references EMPLOYEE(EmployeeID),
-	CustomerNotes	varchar (250),
+	DateContacted	nvarchar(20),
 	Completed		varchar(10)
 );
 
@@ -194,9 +180,9 @@ insert into EMPLOYEE values ('Jack', 'Frost');
 insert into EMPLOYEE values ('Professor', 'Ezell');
 insert into EMPLOYEE values ('Camille', 'Wood');
 
-insert into CUSTOMER values ('Aaron', 'Walsh', '1234567822','123456789', '123456789','walsh@dukes.com',  'Item', 'What', 'True', 'False', 'True', 'False', 'False','False', 'We Pick-Up Your Item(s)' , 'By Phone','poster','2021-03-07', '2021-03-07','2021-03-07',1,'notes','False' );
-insert into CUSTOMER values ('Jared', 'Clatterbuck', '1234567890','', '','Clat@dukes.com',  '40', 'Collectibles and furniture','True','False','True', 'True', 'False','False', 'You Drop-Off Your Item(s)', 'Email','advert','2021-03-13', '2021-04-21','2021-04-30', 2, 'They have a pretty long driveway','False' );
-insert into CUSTOMER values ('Stu', 'Guy', '','', '1234567890','Guy@dukes.com',  '400', 'juiceboxes','True','True','True', 'True', 'False','False', 'Unsure', 'smoke signals','poster','2021-03-13', '2021-04-21','2021-04-30',1,'Really annoying to speak with','False' );
+insert into CUSTOMER values ('Aaron', 'Walsh', '1234567822','123456789', '123456789','walsh@dukes.com', 1, '2021-03-07', 'False' );
+insert into CUSTOMER values ('Jared', 'Clatterbuck', '1234567890','', '','Clat@dukes.com', 2, '2021-03-07', 'False' );
+insert into CUSTOMER values ('Stu', 'Guy', '','', '1234567890','Guy@dukes.com', 1,'2021-03-07', 'False' );
 
 insert into EQUIPMENT values ('Pickup Truck #1');
 insert into EQUIPMENT values ('Pickup Truck #2');
