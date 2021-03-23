@@ -22,18 +22,7 @@ namespace WalkerS_Lab1Part3
             {
 
                 
-                //Creates items for Initial Contact ddl
-                DdlInitialContact.Items.Add(new ListItem("Select", "-1"));
-                DdlInitialContact.Items.Add(new ListItem("In-Person", "0"));
-                DdlInitialContact.Items.Add(new ListItem("By Phone", "1"));
-                DdlInitialContact.Items.Add(new ListItem("Email", "2"));
-                DdlInitialContact.Items.Add(new ListItem("Text", "3"));
-                DdlInitialContact.Items.Add(new ListItem("Other", "4"));
-
-                //Hides required fields at first
-                LblOther.Visible = false;
-                TxtOther.Visible = false;
-
+                
                 //If the user is trying to edit a customer, there will be a customerid in this session data
                 if (Session["Customer ID"] != null)
                 {
@@ -57,47 +46,12 @@ namespace WalkerS_Lab1Part3
                     TxtCellPhone.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
                     TxtWorkPhone.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
                     TxtEmail.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
-                    TxtHowMany.Text = Convert.ToString(dtForSelect.Rows[0]["ItemsForSale"]);
-                    TxtDescriptions.Text = Convert.ToString(dtForSelect.Rows[0]["WhatDoYouSell"]);
-                    ChkBoxDownsizing.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["Downsizing"]);
-                    ChkBoxEstate.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["SettlingEstate"]);
-                    ChkBoxMove.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["MovingCB"]);
-                    ChkBoxAuction.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["AuctionCB"]);
-                    ChkBoxConsignment.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["ConsignmentCB"]);
-                    ChkBoxAppraisal.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["AppraisalCb"]);
-
-                    string[] arrayTransport = new string[] { "We Pick-Up Your Item(s)", "You Drop-Off Your Item(s)", "Unsure"};
-                    if (arrayTransport.Contains(Convert.ToString(dtForSelect.Rows[0]["ItemTransportation"])))
-                    {
-                        DdlItemTransport.SelectedValue = DdlItemTransport.Items.FindByText(Convert.ToString(dtForSelect.Rows[0]["ItemTransportation"])).Value;
-                  
-                    }
-
-                    //Array of possible mediums for intial contact
-                    string[] arrayInitialContact = new string[] { "In-Person", "By Phone", "Email", "Text" };
-
-                    //Checks to see if item is in the dropdown list items from array
-                    if (arrayInitialContact.Contains(Convert.ToString(dtForSelect.Rows[0]["PreferredContact"])))
-                    {
-                        DdlInitialContact.SelectedValue = DdlInitialContact.Items.FindByText(Convert.ToString(dtForSelect.Rows[0]["PreferredContact"])).Value;
-                        DdlInitialContact_SelectedIndexChanged(sender, e);
-                    }
-                    //Checks to see if it is other since it is not in the array and is not blank (i.e. Carrier Pigeon)
-                    else if (Convert.ToString(dtForSelect.Rows[0]["PreferredContact"]) != "")
-                    {
-                        DdlInitialContact.SelectedValue = "4";
-                        TxtOther.Text = Convert.ToString(dtForSelect.Rows[0]["PreferredContact"]);
-                        DdlInitialContact_SelectedIndexChanged(sender, e);
-                    }
-
-                    TxtReferral.Text = Convert.ToString(dtForSelect.Rows[0]["ReferralChannel"]);
-                    TxtDeadline.Text = Convert.ToString(dtForSelect.Rows[0]["DeadlineStart"]);
-                    TxtDeadlineEnd.Text = Convert.ToString(dtForSelect.Rows[0]["DeadlineEnd"]);
+                   
                     if (dtForSelect.Rows[0]["CompletedByEmp"] != DBNull.Value)
                     {
                         DdlCompletedByEmp.SelectedValue =  Convert.ToString(dtForSelect.Rows[0]["CompletedByEmp"]);
                     } 
-                    TxtCustomerNotes.Text = Convert.ToString(dtForSelect.Rows[0]["CustomerNotes"]);
+                    //TxtCustomerNotes.Text = Convert.ToString(dtForSelect.Rows[0]["CustomerNotes"]);
                     ChkBoxCompleted.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["Completed"]);
 
                     //Fill Primary Address
@@ -138,15 +92,8 @@ namespace WalkerS_Lab1Part3
         //Autofills all textboxes with test data once button is clicked
         protected void BtnPopulate_Click(object sender, EventArgs e)
         {
-            //Show Text Boxes Again
-            LblOther.Visible = true;
-            TxtOther.Visible = true;
-            ChkBoxAuction.Checked = true;
-            LblHowMany.Visible = true;
-            LblDescriptions.Visible = true;
-            TxtHowMany.Visible = true;
-            TxtDescriptions.Visible = true;
-            ChkBoxCompleted.Checked = true;
+           
+            
 
             //Populates fields for testing
             TxtFirstName.Text = "Jake";
@@ -158,16 +105,9 @@ namespace WalkerS_Lab1Part3
             TxtStreet.Text = "531 New Port Rd";
             TxtCity.Text = "Harrisonburg";
             TxtState.Text = "VA";
-            TxtZip.Text = "22801";       
-            TxtHowMany.Text = "5";
-            TxtDescriptions.Text = "Couch, tv, coffee table, nightstand, lamp";
-            DdlInitialContact.SelectedIndex = 5;
-            DdlItemTransport.SelectedIndex = 2;
-            DdlCompletedByEmp.SelectedIndex = 2;
-            TxtOther.Text = "Carrier Pidgeon";
-            TxtReferral.Text = "Poster";
-            TxtDeadline.Text = "2021-02-01";
-            TxtDeadlineEnd.Text = "2021-02-28";
+            TxtZip.Text = "22801";
+            DdlCompletedByEmp.SelectedIndex = 1;
+           
         }
 
         //Clears all textboxes once button is clicked
@@ -183,26 +123,7 @@ namespace WalkerS_Lab1Part3
             TxtCity.Text = "";
             TxtState.Text = "";
             TxtZip.Text = "";
-            TxtHowMany.Text = "";
-            TxtDescriptions.Text = "";
-            DdlInitialContact.SelectedIndex = -1;
-            DdlItemTransport.SelectedIndex = -1;
-            DdlCompletedByEmp.SelectedIndex = -1;
-            TxtOther.Text = "";
-            TxtReferral.Text = "";
-            TxtDeadline.Text = "";
-            TxtDeadlineEnd.Text = "";
-            LblSaveStatus.Text = "";
-
-            //Hide Text Boxes Again
-            LblOther.Visible = false;
-            TxtOther.Visible = false;
-            ChkBoxCompleted.Checked = false;
-            LblHowMany.Visible = false;
-            LblDescriptions.Visible = false;
-            TxtHowMany.Visible = false;
-            TxtDescriptions.Visible = false;
-            ChkBoxAuction.Checked = false;
+            
 
             //Stops the edit function
             Session["Customer ID"] = null;
@@ -221,43 +142,33 @@ namespace WalkerS_Lab1Part3
             {
                 completed = "True";
                 
-                var fromAddress = new MailAddress("RoCoConsulting1@gmail.com", "From RoCoConsulting");
-                var toAddress = new MailAddress("meharida@dukes.jmu.edu", "To Name");
-                const string fromPassword = "RoCo703757";
-                const string subject = "Initial Conversation Completed!";
-                const string body = "New Customer Account has been created from the Employee Portal.";
+                //var fromAddress = new MailAddress("RoCoConsulting1@gmail.com", "From RoCoConsulting");
+                //var toAddress = new MailAddress("meharida@dukes.jmu.edu", "To Name");
+                //const string fromPassword = "RoCo703757";
+                //const string subject = "Initial Conversation Completed!";
+                //const string body = "New Customer Account has been created from the Employee Portal.";
 
-                var smtp = new SmtpClient
-                {
-                    Host = "smtp.gmail.com",
-                    Port = 587,
-                    EnableSsl = true,
-                    DeliveryMethod = SmtpDeliveryMethod.Network,
-                    UseDefaultCredentials = false,
-                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
-                };
-                using (var message = new MailMessage(fromAddress, toAddress) { Subject = subject, Body = body })
-                {
-                    smtp.Send(message);
-                }
+                //var smtp = new SmtpClient
+                //{
+                //    Host = "smtp.gmail.com",
+                //    Port = 587,
+                //    EnableSsl = true,
+                //    DeliveryMethod = SmtpDeliveryMethod.Network,
+                //    UseDefaultCredentials = false,
+                //    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                //};
+                //using (var message = new MailMessage(fromAddress, toAddress) { Subject = subject, Body = body })
+                //{
+                //    smtp.Send(message);
+                //}
             }
             else { completed = "False"; }
             if (Session["Customer ID"] != null)
             {
-                //Gets 'other' field if selected for initial contact
-                String initialContact;
-                if (DdlInitialContact.SelectedIndex == 5)
-                {
-                    initialContact = HttpUtility.HtmlEncode(TxtOther.Text);
-                }
-                else
-                {
-                    initialContact = DdlInitialContact.SelectedItem.Text;
-                }
-
+               
 
                 //Concatenate Sql Query Update Statement
-                String sqlQuery = "UPDATE CUSTOMER SET FirstName = @FirstName, LastName = @LastName, CellPhone = @CellPhone, WorkPhone = @WorkPhone, HomePhone = @HomePhone, Email = @Email, ItemsForSale = @HowMany, WhatDoyouSell = @Descriptions, Downsizing = @Downsizing, SettlingEstate =  @Estate, MovingCB = @MovingCB, AuctionCB = @AuctionCB, ConsignmentCB = @ConsignmentCB, AppraisalCB = @AppraisalCB, ItemTransportation = @ItemTransport, PreferredContact = @PreferredContact, ReferralChannel = @ReferralChannel, DeadlineStart = @DeadlineStart, DeadlineEnd = @DeadlineEnd, CompletedByEmp = @CompletedBy, CustomerNotes = @CustomerNotes, DateContacted = @DateContacted, completed = '" + completed + "' WHERE customerID = " + Session["Customer ID"].ToString();
+                String sqlQuery = "UPDATE CUSTOMER SET FirstName = @FirstName, LastName = @LastName, CellPhone = @CellPhone, WorkPhone = @WorkPhone, HomePhone = @HomePhone, Email = @Email, CompletedByEmp = @CompletedBy, DateContacted = @DateContacted, completed = '" + completed + "' WHERE customerID = " + Session["Customer ID"].ToString();
 
                 //Define the Connection to the Database
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -275,28 +186,8 @@ namespace WalkerS_Lab1Part3
                 sqlCommand.Parameters.Add(new SqlParameter("@CellPhone", HttpUtility.HtmlEncode(TxtCellPhone.Text)));
                 sqlCommand.Parameters.Add(new SqlParameter("@WorkPhone", HttpUtility.HtmlEncode(TxtWorkPhone.Text)));
                 sqlCommand.Parameters.Add(new SqlParameter("@Email", HttpUtility.HtmlEncode(TxtEmail.Text)));
-                sqlCommand.Parameters.Add(new SqlParameter("@HowMany", HttpUtility.HtmlEncode(TxtHowMany.Text)));
-                sqlCommand.Parameters.Add(new SqlParameter("@Descriptions", HttpUtility.HtmlEncode(TxtDescriptions.Text)));
-                sqlCommand.Parameters.Add(new SqlParameter("@Downsizing", ChkBoxDownsizing.Checked.ToString()));
-                sqlCommand.Parameters.Add(new SqlParameter("@Estate", ChkBoxEstate.Checked.ToString()));
-                sqlCommand.Parameters.Add(new SqlParameter("@MovingCB", ChkBoxMove.Checked.ToString()));
-                sqlCommand.Parameters.Add(new SqlParameter("@AuctionCB", ChkBoxAuction.Checked.ToString()));
-                sqlCommand.Parameters.Add(new SqlParameter("@ConsignmentCB", ChkBoxConsignment.Checked.ToString()));
-                sqlCommand.Parameters.Add(new SqlParameter("@AppraisalCB", ChkBoxAppraisal.Checked.ToString()));
                 sqlCommand.Parameters.Add(new SqlParameter("@DateContacted", System.DateTime.Today.ToString("yyyy-MM-dd")));
-                if (DdlItemTransport.SelectedValue == "-1")
-                {
-                    sqlCommand.Parameters.Add(new SqlParameter("@ItemTransport", ""));
-                }
-                else
-                {
-                    sqlCommand.Parameters.Add(new SqlParameter("@ItemTransport", DdlItemTransport.SelectedItem.Text));
-                }
-              
-                sqlCommand.Parameters.Add(new SqlParameter("@PreferredContact", initialContact));
-                sqlCommand.Parameters.Add(new SqlParameter("@ReferralChannel", HttpUtility.HtmlEncode(TxtReferral.Text)));
-                sqlCommand.Parameters.Add(new SqlParameter("@DeadlineStart", HttpUtility.HtmlEncode(TxtDeadline.Text)));
-                sqlCommand.Parameters.Add(new SqlParameter("@DeadlineEnd", HttpUtility.HtmlEncode(TxtDeadlineEnd.Text)));
+               
                 if (DdlCompletedByEmp.SelectedValue == "-1")
                 {
                     sqlCommand.Parameters.Add(new SqlParameter("@CompletedBy", null));
@@ -306,7 +197,7 @@ namespace WalkerS_Lab1Part3
                     sqlCommand.Parameters.Add(new SqlParameter("@CompletedBy", DdlCompletedByEmp.SelectedItem.Value));
                 }
                 
-                sqlCommand.Parameters.Add(new SqlParameter("@CustomerNotes", HttpUtility.HtmlEncode(TxtCustomerNotes.Text)));
+             
 
 
                 // Open your connection, send the query 
@@ -360,18 +251,17 @@ namespace WalkerS_Lab1Part3
                 else
                 {
                     //Gets other field if selected for initial contact
-                    String initialContact;
-                    if (DdlInitialContact.SelectedIndex == 5)
-                    {
-                        initialContact = TxtOther.Text;
-                    }
-                    else
-                    {
-                        initialContact = DdlInitialContact.SelectedItem.Text;
-                    }
+                    //String initialContact;
+                    //if (DdlInitialContact.SelectedIndex == 5)
+                    //{
+                    //    initialContact = TxtOther.Text;
+                    //}
+                    //else
+                    //{
+                    //    initialContact = DdlInitialContact.SelectedItem.Text;
+                    //}
                     //Concatenate Sql Query Insert Statements
-                    String sqlQuery = "insert into CUSTOMER values (@FirstName, @LastName, @CellPhone, @WorkPhone, @HomePhone, @Email, @HowMany, @Descriptions, @Downsizing," +
-                        " @Estate, @MovingCB, @AuctionCB, @ConsignmentCB, @AppraisalCB, @ItemTransport, @PreferredContact, @ReferralChannel, " + System.DateTime.Today.ToShortDateString() + ",  @DeadlineStart, @DeadlineEnd, @CompletedBy, @CustomerNotes, @Completed)";
+                    String sqlQuery = "insert into CUSTOMER values (@FirstName, @LastName, @CellPhone, @WorkPhone, @HomePhone, @Email, @CompletedBy, '" + System.DateTime.Today.ToShortDateString() + "', @Completed)";
                     //Define the Connection to the Database
                     SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -386,21 +276,7 @@ namespace WalkerS_Lab1Part3
                     sqlCommand.Parameters.Add(new SqlParameter("@CellPhone", HttpUtility.HtmlEncode(TxtCellPhone.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@WorkPhone", HttpUtility.HtmlEncode(TxtWorkPhone.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@Email", HttpUtility.HtmlEncode(TxtEmail.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@HowMany", HttpUtility.HtmlEncode(TxtHowMany.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@Descriptions", HttpUtility.HtmlEncode(TxtDescriptions.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@Downsizing", ChkBoxDownsizing.Checked.ToString()));
-                    sqlCommand.Parameters.Add(new SqlParameter("@Estate", ChkBoxEstate.Checked.ToString()));
-                    sqlCommand.Parameters.Add(new SqlParameter("@MovingCB", ChkBoxMove.Checked.ToString()));
-                    sqlCommand.Parameters.Add(new SqlParameter("@AuctionCB", ChkBoxAuction.Checked.ToString()));
-                    sqlCommand.Parameters.Add(new SqlParameter("@ConsignmentCB", ChkBoxConsignment.Checked.ToString()));
-                    sqlCommand.Parameters.Add(new SqlParameter("@AppraisalCB", ChkBoxAppraisal.Checked.ToString()));
-                    sqlCommand.Parameters.Add(new SqlParameter("@ItemTransport", DdlItemTransport.SelectedItem.Text));
-                    sqlCommand.Parameters.Add(new SqlParameter("@PreferredContact", initialContact));
-                    sqlCommand.Parameters.Add(new SqlParameter("@ReferralChannel", HttpUtility.HtmlEncode(TxtReferral.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@DeadlineStart", HttpUtility.HtmlEncode(TxtDeadline.Text)));
-                    sqlCommand.Parameters.Add(new SqlParameter("@DeadlineEnd", HttpUtility.HtmlEncode(TxtDeadlineEnd.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@CompletedBy", DdlCompletedByEmp.SelectedItem.Value));
-                    sqlCommand.Parameters.Add(new SqlParameter("@CustomerNotes", HttpUtility.HtmlEncode(TxtCustomerNotes.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@Completed", ChkBoxCompleted.Checked.ToString()));
 
                     // Open your connection, send the query 
@@ -428,13 +304,6 @@ namespace WalkerS_Lab1Part3
                     sqlDataReader.Read();
                     CustomerID = sqlDataReader["CustomerID"].GetHashCode();
                     sqlConnect2.Close();
-
-
-
-
-
-
-
 
 
 
@@ -474,43 +343,7 @@ namespace WalkerS_Lab1Part3
 
 
 
-        protected void DdlInitialContact_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (DdlInitialContact.SelectedValue == "4")
-            {
-                LblOther.Visible = true;
-                TxtOther.Visible = true;
-            }
-            else
-            {
-                LblOther.Visible = false;
-                TxtOther.Visible = false;
-                TxtOther.Text = "";
-            }
-        }
-
-   
-
-
-        protected void ChkBoxAuction_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ChkBoxAuction.Checked)
-            {
-                
-                LblHowMany.Visible = true;
-                LblDescriptions.Visible = true;
-                TxtHowMany.Visible = true;
-                TxtDescriptions.Visible = true;
-            }
-            else
-            {
-                LblHowMany.Visible = false;
-                LblDescriptions.Visible = false;
-                TxtHowMany.Visible = false;
-                TxtDescriptions.Visible = false;
-            }
-        }
-
+       
         
 
         protected void BtnProceed_Click(object sender, EventArgs e)
@@ -536,10 +369,7 @@ namespace WalkerS_Lab1Part3
             }
         }
 
-        protected void ChkBoxMove_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
     }
 }
