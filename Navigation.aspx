@@ -12,7 +12,7 @@
         runat="server">
         <asp:TableRow>
             <asp:TableCell>--%>
-         <div>
+        <div>
             <asp:Label ID="Label1" runat="server" Text="Customer Search: "></asp:Label>
             <asp:TextBox
                 ID="TxtSearch"
@@ -21,11 +21,11 @@
                 ID="BtnSearch"
                 runat="server" Text="Search"
                 OnClick="BtnSearch_Click" />
-            
+
         </div>
         <div>
-            <asp:GridView ID="GridViewCustomers" 
-                runat="server" 
+            <asp:GridView ID="GridViewCustomers"
+                runat="server"
                 EmptyDataText="No Customers Found"
                 DataKeyNames="CustomerID"
                 AutoGenerateColumns="false"
@@ -42,64 +42,63 @@
 
             </asp:GridView>
         </div>
-                <fieldset>
-                    <legend>Navigation</legend>
-                    <asp:Button ID="BtnCustomerPage"
-                        runat="server"
-                        Text="View Customer"
-                        OnClick="BtnCustomerPage_Click" />
+        <fieldset>
+            <legend>Navigation</legend>
+            <asp:Button ID="BtnCustomerPage"
+                runat="server"
+                Text="View Customer"
+                OnClick="BtnCustomerPage_Click" />
 
-                    <asp:Button ID="BtnServicePage"
-                        runat="server"
-                        Text="View Services"
-                        OnClick="BtnServicePage_Click" />
+            <asp:Button ID="BtnServicePage"
+                runat="server"
+                Text="View Services"
+                OnClick="BtnServicePage_Click" />
 
-                    <asp:Button ID="BtnViewNotes"
-                        runat="server"
-                        Text="View Notes"
-                        OnClick="BtnViewNotes_Click" />
+            <asp:Button ID="BtnViewNotes"
+                runat="server"
+                Text="View Notes"
+                OnClick="BtnViewNotes_Click" />
 
-                    <%--<asp:Button ID="BtnAddCustomerPage"
+            <%--<asp:Button ID="BtnAddCustomerPage"
                         runat="server"
                         Text="Add Customer"
                         OnClick="BtnAddCustomerPage_Click" />--%>
 
-<%--                    <asp:Button ID="btnAddServicePage"
+            <%--                    <asp:Button ID="btnAddServicePage"
                         runat="server"
                         Text="Add Service"
                         OnClick="BtnAddServicePage_Click" />--%>
 
-<%--                    <asp:Button ID="BtnAddNote"
+            <%--                    <asp:Button ID="BtnAddNote"
                         runat="server"
                         Text="Add Note"
                         OnClick="BtnAddNote_Click" />--%>
 
-                  
 
 
 
-<%--                    <asp:Button ID="BtnWarehouse" 
+
+            <%--                    <asp:Button ID="BtnWarehouse" 
                         runat="server" 
                         Text="Add Items to Warehouse" 
                         OnClick="BtnWarehouse_Click" />--%>
 
-<%--                    <asp:Button ID="BtnAuctionInvt" 
+            <%--                    <asp:Button ID="BtnAuctionInvt" 
                         runat="server" 
                         Text="Auction Inventory"
                         onclick="BtnAUctionInvt_Click"/>--%>
 
-                    <asp:Button ID="BtnMoveInvt" 
-                        runat="server" 
-                        Text="Move Inventory"
-                        onclick="BtnMoveInvt_Click"/>
+            <asp:Button ID="BtnMoveInvt"
+                runat="server"
+                Text="Move Inventory"
+                OnClick="BtnMoveInvt_Click" />
 
-<%--                    <asp:Button ID="BtnCompletion" 
+            <%--                    <asp:Button ID="BtnCompletion" 
                         runat="server" 
                         Text="Completion Form"
                         OnClick="BtnCompletion_Click"/>--%>
-
-                </fieldset>
-       <%-- <div>
+        </fieldset>
+        <%-- <div>
             <asp:Label ID="Label1" runat="server" Text="Customer Search: "></asp:Label>
             <asp:TextBox
                 ID="TxtSearch"
@@ -129,7 +128,7 @@
 
             </asp:GridView>
         </div>--%>
-       <%-- <fieldset>
+        <%-- <fieldset>
             <legend>Navigation</legend>
             <asp:Button ID="BtnCustomerPage"
                 runat="server"
@@ -203,23 +202,23 @@
                         runat="server">
                         <asp:TableRow>
                             <asp:TableCell>--%>
-                                <asp:Label
-                                    ID="LblNewCustomer"
-                                    runat="server"
-                                    Text="Incomplete Customer (Date Last Contacted):"></asp:Label>
-                    <br />
-                           <%-- </asp:TableCell>
+            <asp:Label
+                ID="LblNewCustomer"
+                runat="server"
+                Text="Incomplete Customer (Date Last Contacted):"></asp:Label>
+            <br />
+            <%-- </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow>
                             <asp:TableCell>--%>
-                                <asp:ListBox
-                                    ID="LstBoxCustomerRequests"
-                                    runat="server"
-                                    OnSelectedIndexChanged="LstBoxCustomerRequests_SelectedIndexChanged"
-                                    AutoPostBack="true"></asp:ListBox>
-                    <br />
-                    <br />
-                           <%-- </asp:TableCell>
+            <asp:ListBox
+                ID="LstBoxCustomerRequests"
+                runat="server"
+                OnSelectedIndexChanged="LstBoxCustomerRequests_SelectedIndexChanged"
+                AutoPostBack="true"></asp:ListBox>
+            <br />
+            <br />
+            <%-- </asp:TableCell>
 =======
             <asp:Label
                 ID="LblNewCustomer"
@@ -229,7 +228,7 @@
                         </asp:TableRow>
                         <asp:TableRow>
                             <asp:TableCell>--%>
-<%--            <asp:ListBox
+            <%--            <asp:ListBox
                 ID="LstBoxCustomerRequests"
                 runat="server"
                 OnSelectedIndexChanged="LstBoxCustomerRequests_SelectedIndexChanged"
@@ -256,12 +255,12 @@
                         </asp:TableRow>--%>
             <%-- <asp:TableRow>
                             <asp:TableCell>--%>
-                                <asp:Label
-                                    ID="LblIncompleteServiceTickets"
-                                    runat="server"
-                                    Text="Incomplete Service Tickets:"></asp:Label>
-                    <br />
-                           <%-- </asp:TableCell>
+            <asp:Label
+                ID="LblIncompleteServiceTickets"
+                runat="server"
+                Text="Incomplete Service Tickets:"></asp:Label>
+            <br />
+            <%-- </asp:TableCell>
 =======
             <asp:Label
                 ID="LblIncompleteServiceTickets"
