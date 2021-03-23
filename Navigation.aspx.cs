@@ -15,13 +15,17 @@ namespace WalkerS_Lab1Part3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            //Clear CustomerID Session Data on Page Load
+            Session["Customer ID"] = null;
+
             if (!IsPostBack)
             {
                 //Populates Customer Request listbox
                 LstBoxCustomerRequests.DataTextField = "Name";
                 LstBoxCustomerRequests.DataValueField = "Customer ID";
 
-                String sqlQueryCustomer = "Select customerID 'Customer ID', FirstName + ' ' + LastName + ' (' + DateContacted + ') ->' as 'Name' from Customer where completed='False'";
+                String sqlQueryCustomer = "Select customerID 'Customer ID', FirstName + ' ' + LastName + ' (' + DateContacted + ') ->' as Name from Customer where completed='False'";
 
 
                 SqlConnection sqlConnectCustomer = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
