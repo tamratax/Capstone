@@ -24,15 +24,6 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.Label LblCustomerName;
 
         /// <summary>
-        /// DdlCustomerList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlCustomerList;
-
-        /// <summary>
         /// TxtSearch control.
         /// </summary>
         /// <remarks>
@@ -60,85 +51,22 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.Label LblSearch;
 
         /// <summary>
-        /// btnLoadAllServices control.
+        /// GridViewCustomers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLoadAllServices;
+        protected global::System.Web.UI.WebControls.GridView GridViewCustomers;
 
         /// <summary>
-        /// BtnAddService control.
+        /// GrdServices control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAddService;
-
-        /// <summary>
-        /// LblMoveResults control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblMoveResults;
-
-        /// <summary>
-        /// GrdMoveResults control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GrdMoveResults;
-
-        /// <summary>
-        /// LblAuctionResults control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblAuctionResults;
-
-        /// <summary>
-        /// GrdAuctionResults control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GrdAuctionResults;
-
-        /// <summary>
-        /// LblService control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblService;
-
-        /// <summary>
-        /// DdlServiceList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlServiceList;
-
-        /// <summary>
-        /// LblCustomerError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblCustomerError;
+        protected global::System.Web.UI.WebControls.GridView GrdServices;
 
         /// <summary>
         /// Table1 control.
@@ -213,40 +141,31 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.Label LblSpacing2;
 
         /// <summary>
-        /// GrdInventory control.
+        /// GrdNotes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GrdInventory;
+        protected global::System.Web.UI.WebControls.GridView GrdNotes;
 
         /// <summary>
-        /// Table2 control.
+        /// notespacing control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table2;
+        protected global::System.Web.UI.WebControls.Label notespacing;
 
         /// <summary>
-        /// StatBar control.
+        /// lbldescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label StatBar;
-
-        /// <summary>
-        /// StatusPercent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label StatusPercent;
+        protected global::System.Web.UI.WebControls.Label lbldescription;
 
         /// <summary>
         /// divStatus control.
@@ -256,59 +175,5 @@ namespace Lab2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divStatus;
-
-        /// <summary>
-        /// TblNotes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table TblNotes;
-
-        /// <summary>
-        /// LblNoteSelect control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblNoteSelect;
-
-        /// <summary>
-        /// LstBoxNoteSelect control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox LstBoxNoteSelect;
-
-        /// <summary>
-        /// BtnAddNewNote control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAddNewNote;
-
-        /// <summary>
-        /// dtasrcCustomerList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcCustomerList;
-
-        /// <summary>
-        /// SqlDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }

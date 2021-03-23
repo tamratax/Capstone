@@ -21,314 +21,156 @@ namespace Lab2
 
         }
 
-        protected void btnLoadAllServices_Click(object sender, EventArgs e)
-        {
-            //Shows whole service table in gridview for moves
-            String sqlQueryMove = "select c.FirstName + ' ' + c.lastname 'Customer Name', ";
-            sqlQueryMove += "TicketOpenDate as 'Ticket Open Date', ServiceDate as 'Service Date', CompletionDate as 'Completion Date', ServiceType as 'Type', ";
-            sqlQueryMove += "DestinationTime as 'Destination Time', EmpFirstName + ' ' + EmpLastName 'Initiating Employee' ";
-            sqlQueryMove += "from customer c join SERVICETICKET st on c.CustomerID = st.CustomerID join EMPLOYEE e on e.employeeid = st.InitiatingEmp ";
-            sqlQueryMove += "where servicetype = 'Move' ";
 
-
-            SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
-            SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQueryMove, sqlConnect);
 
-            DataTable dtForGridView = new DataTable();
-            sqlAdapter.Fill(dtForGridView);
 
-            GrdMoveResults.DataSource = dtForGridView;
-            GrdMoveResults.DataBind();
+        //protected void DdlServiceList_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    //if Select is not selected...
+        //    if (DdlServiceList.SelectedValue != "-1")
+        //    {
+        //        //Deals with status bar of service ticket
 
+        //        String sqlQueryBar = "select status_service from serviceticket where serviceticketID = " + DdlServiceList.SelectedValue.ToString();
 
-            //Shows whole service table in gridview for Auction
-            String sqlQueryAuction = "select c.FirstName + ' ' + c.lastname 'Customer Name', ";
-            sqlQueryAuction += "TicketOpenDate as 'Ticket Open Date', ServiceDate as 'Service Date', AuctionDate as 'Auction Date', CompletionDate as 'Completion Date', ServiceType as 'Service Type', ";
-            sqlQueryAuction += "e2.EmpFirstName + ' ' + e2.EmpLastName 'Auction Contact', ";
-            sqlQueryAuction += "e.EmpFirstName + ' ' + e.EmpLastName 'Initiating Employee'  ";
-            sqlQueryAuction += "from customer c join SERVICETICKET st on c.CustomerID = st.CustomerID ";
-            sqlQueryAuction += "join EMPLOYEE e on e.employeeid = st.InitiatingEmp join EMPLOYEE e2 on e2.employeeid = st.InitiatingEmp join AUCTION on Auction.AuctionID = st.AuctionID ";
-            sqlQueryAuction += "where servicetype = 'Auction'";
+        //        SqlConnection sqlConnectBar = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
+        //        SqlDataAdapter sqlAdapterBar = new SqlDataAdapter(sqlQueryBar, sqlConnectBar);
 
-            SqlConnection sqlConnectAuction = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+        //        DataTable dtForGridViewBar = new DataTable();
+        //        sqlAdapterBar.Fill(dtForGridViewBar);
+        //        int Status_Service = Convert.ToInt32(dtForGridViewBar.Rows[0]["Status_Service"]);
 
-            SqlDataAdapter sqlAdapterAuction = new SqlDataAdapter(sqlQueryAuction, sqlConnectAuction);
+        //        divStatus.Style.Value = "background-color:Green;width:" + Status_Service + "%;";
+        //        String StatusStep = "";
+        //        switch (Status_Service)
+        //        {
+        //            case 15:
+        //                StatusStep = "Order Form in Progress";
+        //                break;
+        //            case 25:
+        //                StatusStep = "Order Form Complete";
+        //                break;
+        //            case 50:
+        //                StatusStep = "Scheduling Set";
+        //                break;
+        //            case 75:
+        //                StatusStep = "Order In Progress";
+        //                break;
+        //            case 100:
+        //                StatusStep = "Service Completed";
+        //                break;
+        //        }
 
-            DataTable dtForGridViewAuction = new DataTable();
-            sqlAdapterAuction.Fill(dtForGridViewAuction);
+        //        StatusPercent.Text = "[" + Status_Service.ToString() + "%] " + StatusStep;
 
-            GrdAuctionResults.DataSource = dtForGridViewAuction;
-            GrdAuctionResults.DataBind();
 
-            //Displays gridviews
-            GrdMoveResults.Visible = true;
-            GrdAuctionResults.Visible = true;
-        }
 
-        protected void BtnAddService_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("AddService.aspx");
-        }
+        //        //updates Employee details in gridview
+        //        String sqlQuery1 = "select EmpFirstName + ' ' + EmpLastName as EmployeeName, ";
+        //        sqlQuery1 += "TicketChangeDate as 'Ticket Change Date' from employee emp join tickethistory th on emp.EmployeeID = th.EmployeeID ";
+        //        sqlQuery1 += "join serviceticket st on st.ServiceTicketID = th.ServiceTicketID ";
+        //        sqlQuery1 += "where st.ServiceTicketID = " + DdlServiceList.SelectedValue;
 
-        protected void DdlServiceList_DataBound(object sender, EventArgs e)
-        {
+        //        SqlConnection sqlConnect1 = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
-            //Sets Service list ddl to default of select
-            ListItem blankOption = new ListItem("Select", "-1");
-            DdlServiceList.Items.Insert(0, blankOption);
-            DdlServiceList.SelectedIndex = 0;
+        //        SqlDataAdapter sqlAdapter1 = new SqlDataAdapter(sqlQuery1, sqlConnect1);
 
+        //        DataTable dtForGridView1 = new DataTable();
+        //        sqlAdapter1.Fill(dtForGridView1);
 
-        }
+        //        GrdEmployeeResults.DataSource = dtForGridView1;
+        //        GrdEmployeeResults.DataBind();
 
-        protected void DdlServiceList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //if Select is not selected...
-            if (DdlServiceList.SelectedValue != "-1")
-            {
-                //Deals with status bar of service ticket
+        //        //updates Equipment details in gridview
+        //        String sqlQuery2 = "select equipmenttype as 'Type' ";
+        //        sqlQuery2 += "from EQUIPMENT join ASSIGNMENT on EQUIPMENT.EquipmentID = ASSIGNMENT.EquipmentID ";
+        //        sqlQuery2 += "join ServiceTicket st on ASSIGNMENT.ServiceTicketID = st.ServiceTicketID ";
+        //        sqlQuery2 += "where st.ServiceTicketID = " + DdlServiceList.SelectedValue;
 
-                String sqlQueryBar = "select status_service from serviceticket where serviceticketID = " + DdlServiceList.SelectedValue.ToString();
+        //        SqlConnection sqlConnect2 = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
-            SqlConnection sqlConnectBar = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+        //        SqlDataAdapter sqlAdapter2 = new SqlDataAdapter(sqlQuery2, sqlConnect2);
 
-            SqlDataAdapter sqlAdapterBar = new SqlDataAdapter(sqlQueryBar, sqlConnectBar);
+        //        DataTable dtForGridView2 = new DataTable();
+        //        sqlAdapter2.Fill(dtForGridView2);
 
-            DataTable dtForGridViewBar = new DataTable();
-            sqlAdapterBar.Fill(dtForGridViewBar);
-            int Status_Service = Convert.ToInt32(dtForGridViewBar.Rows[0]["Status_Service"]);
+        //        GrdEquipmentResults.DataSource = dtForGridView2;
+        //        GrdEquipmentResults.DataBind();
 
-            divStatus.Style.Value = "background-color:Green;width:" + Status_Service + "%;";
-            String StatusStep = "";
-            switch (Status_Service)
-            {
-                case 15:
-                    StatusStep = "Order Form in Progress";
-                    break;
-                case 25:
-                    StatusStep = "Order Form Complete";
-                    break;
-                case 50:
-                    StatusStep = "Scheduling Set";
-                    break;
-                case 75:
-                    StatusStep = "Order In Progress";
-                    break;
-                case 100:
-                    StatusStep = "Service Completed";
-                    break;
-            }
 
-            StatusPercent.Text = "[" + Status_Service.ToString() + "%] " + StatusStep;
+        //        //Updates Inventory details in gridview
+        //        String sqlQuery3 = "select ItemDescription as 'Item Description', ItemCost as 'Item Cost' from Inventory ";
+        //        sqlQuery3 += "join ServiceTicket st on inventory.ServiceTicketID = st.ServiceTicketID ";
+        //        sqlQuery3 += "where st.ServiceTicketID = " + DdlServiceList.SelectedValue;
 
+        //        SqlConnection sqlConnect3 = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
-            
-                //updates Employee details in gridview
-                String sqlQuery1 = "select EmpFirstName + ' ' + EmpLastName as EmployeeName, ";
-                sqlQuery1 += "TicketChangeDate as 'Ticket Change Date' from employee emp join tickethistory th on emp.EmployeeID = th.EmployeeID ";
-                sqlQuery1 += "join serviceticket st on st.ServiceTicketID = th.ServiceTicketID ";
-                sqlQuery1 += "where st.ServiceTicketID = " + DdlServiceList.SelectedValue;
+        //        SqlDataAdapter sqlAdapter3 = new SqlDataAdapter(sqlQuery3, sqlConnect3);
 
-                SqlConnection sqlConnect1 = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+        //        DataTable dtForGridView3 = new DataTable();
+        //        sqlAdapter3.Fill(dtForGridView3);
 
-                SqlDataAdapter sqlAdapter1 = new SqlDataAdapter(sqlQuery1, sqlConnect1);
+        //        GrdInventory.DataSource = dtForGridView3;
+        //        GrdInventory.DataBind();
 
-                DataTable dtForGridView1 = new DataTable();
-                sqlAdapter1.Fill(dtForGridView1);
+        //        //Displays gridviews
+        //        GrdEmployeeResults.Visible = true;
+        //        GrdEquipmentResults.Visible = true;
+        //        GrdInventory.Visible = true;
 
-                GrdEmployeeResults.DataSource = dtForGridView1;
-                GrdEmployeeResults.DataBind();
+        //        //Populates ticket listbox
+        //        LstBoxNoteSelect.DataTextField = "Note Title";
+        //        LstBoxNoteSelect.DataValueField = "TicketHistoryID";
 
-                //updates Equipment details in gridview
-                String sqlQuery2 = "select equipmenttype as 'Type' ";
-                sqlQuery2 += "from EQUIPMENT join ASSIGNMENT on EQUIPMENT.EquipmentID = ASSIGNMENT.EquipmentID ";
-                sqlQuery2 += "join ServiceTicket st on ASSIGNMENT.ServiceTicketID = st.ServiceTicketID ";
-                sqlQuery2 += "where st.ServiceTicketID = " + DdlServiceList.SelectedValue;
+        //        String sqlQueryTicket = "Select TicketHistoryID, NoteTitle + ' ->' 'Note Title' from TicketHistory where ServiceTicketID = " + DdlServiceList.SelectedValue;
 
-                SqlConnection sqlConnect2 = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
-                SqlDataAdapter sqlAdapter2 = new SqlDataAdapter(sqlQuery2, sqlConnect2);
+        //        SqlConnection sqlConnectTicket = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
-                DataTable dtForGridView2 = new DataTable();
-                sqlAdapter2.Fill(dtForGridView2);
+        //        SqlDataAdapter sqlAdapterTicket = new SqlDataAdapter(sqlQueryTicket, sqlConnectTicket);
 
-                GrdEquipmentResults.DataSource = dtForGridView2;
-                GrdEquipmentResults.DataBind();
+        //        DataTable dtForListBox = new DataTable();
+        //        sqlAdapterTicket.Fill(dtForListBox);
 
+        //        LstBoxNoteSelect.DataSource = dtForListBox;
+        //        LstBoxNoteSelect.DataBind();
 
-                //Updates Inventory details in gridview
-                String sqlQuery3 = "select ItemDescription as 'Item Description', ItemCost as 'Item Cost' from Inventory ";
-                sqlQuery3 += "join ServiceTicket st on inventory.ServiceTicketID = st.ServiceTicketID ";
-                sqlQuery3 += "where st.ServiceTicketID = " + DdlServiceList.SelectedValue;
 
-                SqlConnection sqlConnect3 = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
-                SqlDataAdapter sqlAdapter3 = new SqlDataAdapter(sqlQuery3, sqlConnect3);
+        //    }
+        //    else
+        //    {
+        //        //hides gridboxes if you select "select" on the dropdownlist
+        //        GrdEmployeeResults.Visible = false;
+        //        GrdEquipmentResults.Visible = false;
+        //        GrdInventory.Visible = false;
+        //        StatusPercent.Text = "";
+        //        divStatus.Style.Value = "background-color:Green;width:0%;";
+        //    }
+        //}
 
-                DataTable dtForGridView3 = new DataTable();
-                sqlAdapter3.Fill(dtForGridView3);
 
-                GrdInventory.DataSource = dtForGridView3;
-                GrdInventory.DataBind();
 
-                //Displays gridviews
-                GrdEmployeeResults.Visible = true;
-                GrdEquipmentResults.Visible = true;
-                GrdInventory.Visible = true;
 
-                //Populates ticket listbox
-                LstBoxNoteSelect.DataTextField = "Note Title";
-                LstBoxNoteSelect.DataValueField = "TicketHistoryID";
+        //protected void LstBoxNoteSelect_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    Session["SelectedTicketHistoryID"] = LstBoxNoteSelect.SelectedValue.ToString();
+        //    Session["SelectedCustomerID"] = DdlCustomerList.SelectedValue.ToString();
+        //    Session["SelectedServiceTicketID"] = DdlServiceList.SelectedValue.ToString();
+        //    Session["FromPage"] = "ViewService";
+        //    Response.Redirect("ViewNote.aspx");
 
-                String sqlQueryTicket = "Select TicketHistoryID, NoteTitle + ' ->' 'Note Title' from TicketHistory where ServiceTicketID = " + DdlServiceList.SelectedValue;
 
+        //}
 
-                SqlConnection sqlConnectTicket = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
-
-                SqlDataAdapter sqlAdapterTicket = new SqlDataAdapter(sqlQueryTicket, sqlConnectTicket);
-
-                DataTable dtForListBox = new DataTable();
-                sqlAdapterTicket.Fill(dtForListBox);
-
-                LstBoxNoteSelect.DataSource = dtForListBox;
-                LstBoxNoteSelect.DataBind();
-
-
-
-            }
-            else
-            {
-                //hides gridboxes if you select "select" on the dropdownlist
-                GrdEmployeeResults.Visible = false;
-                GrdEquipmentResults.Visible = false;
-                GrdInventory.Visible = false;
-                StatusPercent.Text = "";
-                divStatus.Style.Value = "background-color:Green;width:0%;";
-            }
-        }
-        protected void DdlCustomerList_DataBound(object sender, EventArgs e)
-        {
-            if (!IsPostBack)
-            {
-                //Sets Customer list ddl to default of select
-                ListItem blankOption = new ListItem("Select", "-1");
-                DdlCustomerList.Items.Insert(0, blankOption);
-                DdlCustomerList.SelectedIndex = 0;
-
-            }
-        }
-
-        protected void DdlCustomerList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            StatusPercent.Text = "";
-            divStatus.Style.Value = "background-color:Green;width:0%;";
-
-            if (DdlCustomerList.SelectedValue != "-1")
-            {
-                //hides gridboxes if you select "select" on the dropdownlist
-                GrdEmployeeResults.Visible = false;
-                GrdEquipmentResults.Visible = false;
-                GrdInventory.Visible = false;
-
-                //Shows whole service table in gridview for moves
-                String sqlQueryMove = "select ";
-                sqlQueryMove += "TicketOpenDate as 'Ticket Open Date', ServiceDate as 'Service Date', CompletionDate as 'Completion Date', ServiceType 'Type', ";
-                sqlQueryMove += "DestinationTime as 'Destination Time', EmpFirstName + ' ' + EmpLastName 'Initiating Employee' ";
-                sqlQueryMove += "from customer c join SERVICETICKET st on c.CustomerID = st.CustomerID join EMPLOYEE e on e.employeeid = st.InitiatingEmp ";
-                sqlQueryMove += "where servicetype = 'Move' and c.CustomerID = " + DdlCustomerList.SelectedValue;
-
-
-                SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
-
-                SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQueryMove, sqlConnect);
-
-                DataTable dtForGridView = new DataTable();
-                sqlAdapter.Fill(dtForGridView);
-
-                GrdMoveResults.DataSource = dtForGridView;
-                GrdMoveResults.DataBind();
-
-
-                //Shows whole service table in gridview for Auction
-                String sqlQueryAuction = "select ";
-                sqlQueryAuction += "TicketOpenDate as 'Ticket Open Date', ServiceDate as 'Service Date', AuctionDate as 'Auction Date', CompletionDate as 'Completion Date', ServiceType as 'Service Type', ";
-                sqlQueryAuction += "e2.EmpFirstName + ' ' + e2.EmpLastName 'Auction Contact', ";
-                sqlQueryAuction += "e.EmpFirstName + ' ' + e.EmpLastName 'Initiating Employee'  ";
-                sqlQueryAuction += "from customer c join SERVICETICKET st on c.CustomerID = st.CustomerID  join AUCTION on Auction.AuctionID = st.AuctionID ";
-                sqlQueryAuction += "join EMPLOYEE e on e.employeeid = st.InitiatingEmp join EMPLOYEE e2 on e2.employeeid = st.InitiatingEmp ";
-                sqlQueryAuction += "where servicetype = 'Auction' and c.CustomerID = " + DdlCustomerList.SelectedValue;
-
-
-                SqlConnection sqlConnectAuction = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
-
-                SqlDataAdapter sqlAdapterAuction = new SqlDataAdapter(sqlQueryAuction, sqlConnectAuction);
-
-                DataTable dtForGridViewAuction = new DataTable();
-                sqlAdapterAuction.Fill(dtForGridViewAuction);
-
-                GrdAuctionResults.DataSource = dtForGridViewAuction;
-                GrdAuctionResults.DataBind();
-
-                //Reveals grid views
-                GrdMoveResults.Visible = true;
-                GrdAuctionResults.Visible = true;
-
-                //Populates service Ddl
-                DdlServiceList.DataTextField = "Services";
-                DdlServiceList.DataValueField = "ServiceTicketID";
-
-                String sqlQueryService = "Select ServiceTicketID, ServiceType + ' ' + ServiceDate 'Services' from ServiceTicket where customerID = " + DdlCustomerList.SelectedValue;
-
-
-                SqlConnection sqlConnectService = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
-
-                SqlDataAdapter sqlAdapterService = new SqlDataAdapter(sqlQueryService, sqlConnectService);
-
-                DataTable dtForDdlServiceList = new DataTable();
-                sqlAdapterService.Fill(dtForDdlServiceList);
-
-                DdlServiceList.DataSource = dtForDdlServiceList;
-                DdlServiceList.DataBind();
-
-
-            }
-            else
-            {
-                //hides gridbox if you select "select" on the dropdownlist
-                GrdMoveResults.Visible = false;
-                GrdAuctionResults.Visible = false;
-                DdlServiceList.SelectedValue = "-1";
-                DdlServiceList_SelectedIndexChanged(sender, e);
-                DdlServiceList.Items.Clear();
-                LstBoxNoteSelect.Items.Clear();
-            }
-
-
-        }
-
-        protected void LstBoxNoteSelect_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Session["SelectedTicketHistoryID"] = LstBoxNoteSelect.SelectedValue.ToString();
-            Session["SelectedCustomerID"] = DdlCustomerList.SelectedValue.ToString();
-            Session["SelectedServiceTicketID"] = DdlServiceList.SelectedValue.ToString();
-            Session["FromPage"] = "ViewService";
-            Response.Redirect("ViewNote.aspx");
-
-
-        }
-
-        protected void BtnAddNewNote_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("AddNote.aspx");
-        }
 
         protected void BtnSearch_Click(object sender, EventArgs e)
         {
 
             //Check to see if customer is in the database
-            String sqlQueryDuplicate = "Select CustomerID, FirstName + ' ' + LastName as 'Name' from customer WHERE FirstName + ' ' +  LastName like @Name";
+            String sqlQueryDuplicate = "Select CustomerID, FirstName + ' ' + LastName as 'Name', email, homephone, workphone, cellphone from customer WHERE FirstName + ' ' +  LastName like @Name";
 
 
 
@@ -340,7 +182,7 @@ namespace Lab2
             sqlCommandInsert.Connection = sqlConnectDuplicate;
             sqlCommandInsert.CommandType = CommandType.Text;
             sqlCommandInsert.CommandText = sqlQueryDuplicate;
-            sqlCommandInsert.Parameters.Add(new SqlParameter("@Name", "%"+ HttpUtility.HtmlEncode(TxtSearch.Text)+"%"));
+            sqlCommandInsert.Parameters.Add(new SqlParameter("@Name", "%" + HttpUtility.HtmlEncode(TxtSearch.Text) + "%"));
 
 
             SqlDataAdapter sqlAdapterDuplicate = new SqlDataAdapter(sqlCommandInsert);
@@ -351,19 +193,147 @@ namespace Lab2
             DataTable dtForDuplicate = new DataTable();
             sqlAdapterDuplicate.Fill(dtForDuplicate);
 
-            if (dtForDuplicate.Rows.Count == 0)
-            {
-                LblSearch.Text = "No Results Found";
-                LblSearch.ForeColor = Color.Red;
-            }
-            else
-            {
-                DdlCustomerList.SelectedValue = Convert.ToString(dtForDuplicate.Rows[0]["CustomerID"]);
-                DdlCustomerList_SelectedIndexChanged(sender, e);
-                LblSearch.Text = Convert.ToString(dtForDuplicate.Rows.Count) + " Results Found";
-                LblSearch.ForeColor = Color.Green;
-            }
 
+            GridViewCustomers.DataSource = dtForDuplicate;
+            GridViewCustomers.DataBind();
+            GridViewCustomers.Visible = true;
+
+        }
+
+
+        protected void GridViewCustomers_SelectedIndexChanged(System.Object sender, System.EventArgs e)
+        {
+            String sqlQuery = "Select SERVICETICKETID, ServiceDate, CompletionDate, ServiceType from ServiceTicket WHERE CustomerID = @CustomerID";
+            SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+
+            SqlCommand com = new SqlCommand();
+            com.Connection = sqlConnect;
+            com.CommandType = CommandType.Text;
+            com.CommandText = sqlQuery;
+            com.Parameters.Add(new SqlParameter("@CustomerID", GridViewCustomers.SelectedDataKey.Value.ToString()));
+
+            SqlDataAdapter sqlAdapterDuplicate = new SqlDataAdapter(com);
+            //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
+            //SqlDataAdapter sqlAdapterDuplicate = new SqlDataAdapter(sqlQueryDuplicate, sqlConnectDuplicate); <- This is how we originally did it with a DataAdapter
+
+            //This creates a datatable and fills it
+            DataTable dtForDuplicate = new DataTable();
+            sqlAdapterDuplicate.Fill(dtForDuplicate);
+
+
+            GrdServices.DataSource = dtForDuplicate;
+            GrdServices.DataBind();
+            GrdServices.Visible = true;
+
+
+        }
+
+        protected void GrdServices_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Employee Table 
+            String sqlQuery1 = "select emp.EmployeeID, EmpFirstName + ' ' + EmpLastName as EmployeeName, ";
+            sqlQuery1 += "TicketChangeDate as 'Ticket Change Date' from employee emp join tickethistory th on emp.EmployeeID = th.EmployeeID ";
+            sqlQuery1 += "join serviceticket st on st.ServiceTicketID = th.ServiceTicketID ";
+            sqlQuery1 += "where st.ServiceTicketID = @ServiceID";
+
+            SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+
+            SqlCommand com = new SqlCommand();
+            com.Connection = sqlConnect;
+            com.CommandType = CommandType.Text;
+            com.CommandText = sqlQuery1;
+            com.Parameters.Add(new SqlParameter("@ServiceID", GrdServices.SelectedDataKey.Value.ToString()));
+
+            SqlDataAdapter sqlAdapteremp = new SqlDataAdapter(com);
+
+            DataTable dtemp = new DataTable();
+            sqlAdapteremp.Fill(dtemp);
+
+            GrdEmployeeResults.DataSource = dtemp;
+            GrdEmployeeResults.DataBind();
+            GrdEmployeeResults.Visible = true;
+
+            //Equipment Table 
+            String sqlQuery2 = "select equipment.EquipmentID, equipmenttype as 'Type' ";
+            sqlQuery2 += "from EQUIPMENT join ASSIGNMENT on EQUIPMENT.EquipmentID = ASSIGNMENT.EquipmentID ";
+            sqlQuery2 += "join ServiceTicket st on ASSIGNMENT.ServiceTicketID = st.ServiceTicketID ";
+            sqlQuery2 += "where st.ServiceTicketID = @ServiceID";
+
+            SqlConnection sqlConnect2 = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+
+            SqlCommand com2 = new SqlCommand();
+            com2.Connection = sqlConnect2;
+            com2.CommandType = CommandType.Text;
+            com2.CommandText = sqlQuery2;
+            com2.Parameters.Add(new SqlParameter("@ServiceID", GrdServices.SelectedDataKey.Value.ToString()));
+
+
+            SqlDataAdapter sqlAdaptereq = new SqlDataAdapter(com2);
+
+            DataTable dtForeq = new DataTable();
+            sqlAdaptereq.Fill(dtForeq);
+
+            GrdEquipmentResults.DataSource = dtForeq;
+            GrdEquipmentResults.DataBind();
+
+            //Notes Table
+            String sqlQueryTicket = "Select TicketHistoryID, TicketChangeDate, NoteTitle + ' ->' 'Note Title' from TicketHistory where ServiceTicketID = @ServiceID";
+            SqlConnection sqlConnect3 = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+
+            SqlCommand com3 = new SqlCommand();
+            com3.Connection = sqlConnect3;
+            com3.CommandType = CommandType.Text;
+            com3.CommandText = sqlQueryTicket;
+            com3.Parameters.Add(new SqlParameter("@ServiceID", GrdServices.SelectedDataKey.Value.ToString()));
+
+            SqlDataAdapter sqlAdapternote = new SqlDataAdapter(com3);
+
+            DataTable dtFornote = new DataTable();
+            sqlAdapternote.Fill(dtFornote);
+
+            GrdNotes.DataSource = dtFornote;
+            GrdNotes.DataBind();
+
+
+
+        }
+
+        protected void GrdNotes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            notespacing.Visible = true;
+            String sqlQuerydescription = "Select NoteDetails from TicketHistory where TicketHistoryID = @TicketID";
+
+            SqlConnection sqlConnect4 = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+
+            SqlCommand com4 = new SqlCommand();
+            com4.Connection = sqlConnect4;
+            com4.CommandType = CommandType.Text;
+            com4.CommandText = sqlQuerydescription;
+            com4.Parameters.Add(new SqlParameter("@TicketID", GrdNotes.SelectedDataKey.Value.ToString()));
+
+                sqlConnect4.Open();
+                using (com4)
+                {
+                    SqlDataReader reader = com4.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        lbldescription.Text = reader[0] as string;
+
+                        //break for single row or you can continue if you have multiple rows...
+                        break;
+                    }
+                }
+                sqlConnect4.Close();
+
+
+
+
+
+            
         }
     }
 }
+
+
+
