@@ -45,14 +45,19 @@ namespace Lab3
                 //If there are any records, user already exists
                 if (dtForDuplicate.Rows.Count > 0)
                 {
-                    //LblCreateStatus.Text = "Customer with that Email/Username already exists!";
-                    //LblCreateStatus.ForeColor = Color.Red;
+                    LblCreateStatus.Text = "Customer with that Email/Username already exists!";
+                    LblCreateStatus.ForeColor = Color.Red;
                 }
                 else
                 {
                     //Establishes a new Sql connection to the AUTH database
+<<<<<<< HEAD
                     System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString.ToString());
                     //LblCreateStatus.Text = "Database Connection Successful";
+=======
+                    System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH1"].ConnectionString.ToString());
+                    LblCreateStatus.Text = "Database Connection Successful";
+>>>>>>> parent of fb3ebe4 (staged)
 
                     sc.Open();
 
@@ -75,11 +80,11 @@ namespace Lab3
 
                     sc.Close();
 
-                    //LblCreateStatus.Text = "User committed!";
+                    LblCreateStatus.Text = "User committed!";
 
                     //Create Customer record
                     //Concatenate Sql Query Insert Statements
-                    String sqlQuery = "insert into CUSTOMER (FirstName, LastName, WorkPhone, CellPhone, HomePhone, Email, Completed, DateContacted, Downsizing, SettlingEstate, MovingCB, AuctionCB, ConsignmentCB, AppraisalCb) values (@FirstName, @LastName, @WorkPhone, @CellPhone, @HomePhone, @Email, 'False', '" + System.DateTime.Today.ToString("yyyy-MM-dd") + "', 'False', 'False', 'False', 'False', 'False', 'False') ";
+                    String sqlQuery = "insert into CUSTOMER (FirstName, LastName, WorkPhone, CellPhone, HomePhone, Email, Completed ) values (@FirstName, @LastName, @WorkPhone, @CellPhone, @HomePhone, @Email, 'False') ";
                     //sqlQuery += ", '', '', '', '', '', 0, '" + System.DateTime.Now.Date.ToString("yyyy-MM-dd") + "', '', '', 0)";
 
 
@@ -97,10 +102,15 @@ namespace Lab3
                     sqlCommandCustomer.Parameters.Add(new SqlParameter("@HomePhone", HttpUtility.HtmlEncode(TxtPhoneNumber.Text)));
                     sqlCommandCustomer.Parameters.Add(new SqlParameter("@CellPhone", HttpUtility.HtmlEncode(TxtCellPhone.Text)));
                     sqlCommandCustomer.Parameters.Add(new SqlParameter("@Email", HttpUtility.HtmlEncode(TxtEmail.Text)));
-                        
-                        
-                        // Open your connection, send the query 
-                        sqlConnectCustomer.Open();
+                    //sqlCommandCustomer.Parameters.Add(new SqlParameter("@StreetAddress", HttpUtility.HtmlEncode(TxtStreetAddress.Text)));
+                    //sqlCommandCustomer.Parameters.Add(new SqlParameter("@City", HttpUtility.HtmlEncode(TxtCity.Text)));
+                    //sqlCommandCustomer.Parameters.Add(new SqlParameter("@State", HttpUtility.HtmlEncode(TxtState.Text)));
+
+
+
+
+                    // Open your connection, send the query 
+                    sqlConnectCustomer.Open();
                     SqlDataReader queryResultsCustomer = sqlCommandCustomer.ExecuteReader();
 
                     // Close all related connections
@@ -109,7 +119,7 @@ namespace Lab3
 
                     
 
-                    sqlQuery = "insert into Address (customerID, street, city, state, zip, Description ) values ((select TOP 1 customerID from customer order by customerid desc), @street, @city, @state, @zip, 'Primary Contact Address') ";
+                    sqlQuery = "insert into Address (street, city, state, zip, Description ) values (@street, @city, @state, @zip, 'Primary Contact Address') ";
 
                     SqlConnection sqlConnectAddress = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                     SqlCommand sqlCommandAddress = new SqlCommand();
@@ -146,7 +156,7 @@ namespace Lab3
             }
             else
             {
-                //LblCreateStatus.Text = "Fill all fields.";
+                LblCreateStatus.Text = "Fill all fields.";
 
             }
 

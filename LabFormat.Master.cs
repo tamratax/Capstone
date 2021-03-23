@@ -12,7 +12,11 @@ namespace Lab2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             ////If not logged in, will kick user to Unauthorized page
+=======
+            //////If not logged in, will kick user to Unauthorized page
+>>>>>>> parent of fb3ebe4 (staged)
             //if (Session["User"] == null)
             //{
             //    Response.Redirect("UnauthorizedAccess.aspx");
@@ -21,7 +25,10 @@ namespace Lab2
             //{
             //    LblActiveUser.Text = "You Are Logged In As: " + Session["User"].ToString();
             //}
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of fb3ebe4 (staged)
         }
 
         protected void BtnNavigation_Click(object sender, EventArgs e)
@@ -38,18 +45,6 @@ namespace Lab2
             //Set the session data for user to null
             Session.RemoveAll();
             Response.Redirect("UserLogin.aspx");
-        }
-
-        protected void LblSelectedCust_PreRender(object sender, EventArgs e)
-        {
-            if (Session["SelectedCustomerName"] != null)
-            {
-                LblSelectedCust.Text = Session["SelectedCustomerName"].ToString();
-            }
-            else
-            {
-                LblSelectedCust.Text = "No Customer Selected!";
-            }
         }
     }
 }

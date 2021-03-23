@@ -423,7 +423,9 @@
                     DataSourceID="dtasrcEmpList"
                     DataTextField="EmpName"
                     DataValueField="EmployeeID"
-                    OnDataBound="DdlCompletedByEmp_DataBound"></asp:DropDownList>
+                    OnDataBound="DdlCompletedByEmp_DataBound">
+                    <asp:ListItem Value="Select">Select</asp:ListItem>
+                </asp:DropDownList>
             </asp:TableCell>
                <asp:TableCell>
                 <asp:RequiredFieldValidator

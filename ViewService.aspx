@@ -51,7 +51,6 @@
             ID="GrdMoveResults"
             runat="server"
             AlternatingRowStyle-BackColor="#ebebeb"
-            AutoGenerateSelectButton="true"
             EmptyDataText="This Customer Has No Move Services!">
         </asp:GridView>
         <br />

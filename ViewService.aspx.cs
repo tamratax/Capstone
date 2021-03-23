@@ -233,7 +233,7 @@ namespace Lab2
                 GrdInventory.Visible = false;
 
                 //Shows whole service table in gridview for moves
-                String sqlQueryMove = "select ";
+                String sqlQueryMove = "select c.FirstName + ' ' + c.lastname 'Customer Name', ";
                 sqlQueryMove += "TicketOpenDate as 'Ticket Open Date', ServiceDate as 'Service Date', CompletionDate as 'Completion Date', ServiceType 'Type', ";
                 sqlQueryMove += "DestinationTime as 'Destination Time', EmpFirstName + ' ' + EmpLastName 'Initiating Employee' ";
                 sqlQueryMove += "from customer c join SERVICETICKET st on c.CustomerID = st.CustomerID join EMPLOYEE e on e.employeeid = st.InitiatingEmp ";
@@ -252,7 +252,7 @@ namespace Lab2
 
 
                 //Shows whole service table in gridview for Auction
-                String sqlQueryAuction = "select ";
+                String sqlQueryAuction = "select c.FirstName + ' ' + c.lastname 'Customer Name', ";
                 sqlQueryAuction += "TicketOpenDate as 'Ticket Open Date', ServiceDate as 'Service Date', AuctionDate as 'Auction Date', CompletionDate as 'Completion Date', ServiceType as 'Service Type', ";
                 sqlQueryAuction += "e2.EmpFirstName + ' ' + e2.EmpLastName 'Auction Contact', ";
                 sqlQueryAuction += "e.EmpFirstName + ' ' + e.EmpLastName 'Initiating Employee'  ";

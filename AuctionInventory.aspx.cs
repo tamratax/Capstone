@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Web.Configuration;
 using System.Drawing;
 using System.Data;
+using System.Drawing;
 
 namespace Lab3
 {

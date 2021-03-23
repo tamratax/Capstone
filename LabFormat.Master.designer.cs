@@ -33,22 +33,31 @@ namespace Lab2
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// LblSelected control.
+        /// Table1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblSelected;
+        protected global::System.Web.UI.WebControls.Table Table1;
 
         /// <summary>
-        /// LblSelectedCust control.
+        /// BtnNavigation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblSelectedCust;
+        protected global::System.Web.UI.WebControls.Button BtnNavigation;
+
+        /// <summary>
+        /// LblActiveUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblActiveUser;
 
         /// <summary>
         /// BtnLogout control.
