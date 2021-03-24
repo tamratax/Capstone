@@ -5,19 +5,25 @@
 
 <asp:Content ID="test" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="myContent" ContentPlaceHolderID="body" runat="server">
+<asp:Content ID="myContent" ContentPlaceHolderID="body" runat="server"> 
+    <div class="row justify-content-center">
+    <h1 class="display-4"> Navigation</h1>
+    </div>
+    <div>
     <div id="layoutSidenav_content">
         <%--   <asp:Table
         ID="Table2"
         runat="server">
         <asp:TableRow>
             <asp:TableCell>--%>
+        <br />
         <div class=" container">
             <div class="row justify-content-center">
                 <div class="flex-column">
                     <asp:Label ID="Label1"
                         runat="server"
                         Text="Customer Search:"></asp:Label>
+                    &nbsp;
                 </div>
                 <div class="flex-column">
                     <asp:TextBox
@@ -55,21 +61,7 @@
             </asp:GridView>
         </div>
         <fieldset>
-            <legend>Navigation</legend>
-            <asp:Button ID="BtnCustomerPage"
-                runat="server"
-                Text="View Customer"
-                OnClick="BtnCustomerPage_Click" />
 
-            <asp:Button ID="BtnServicePage"
-                runat="server"
-                Text="View Services"
-                OnClick="BtnServicePage_Click" />
-
-            <asp:Button ID="BtnViewNotes"
-                runat="server"
-                Text="View Notes"
-                OnClick="BtnViewNotes_Click" />
 
             <%--<asp:Button ID="BtnAddCustomerPage"
                         runat="server"
@@ -100,10 +92,10 @@
                         Text="Auction Inventory"
                         onclick="BtnAUctionInvt_Click"/>--%>
 
-            <asp:Button ID="BtnMoveInvt"
+<%--            <asp:Button ID="BtnMoveInvt"
                 runat="server"
                 Text="Move Inventory"
-                OnClick="BtnMoveInvt_Click" />
+                OnClick="BtnMoveInvt_Click" />--%>
 
             <%--                    <asp:Button ID="BtnCompletion" 
                         runat="server" 
@@ -208,7 +200,7 @@
         <asp:TableRow>
             <asp:TableCell>--%>
         <fieldset>
-            <legend>Notifications</legend>
+            <h2>Notifications</h2>
             <%--<asp:Table
                         ID="Table1"
                         runat="server">
@@ -217,7 +209,8 @@
             <asp:Label
                 ID="LblNewCustomer"
                 runat="server"
-                Text="Incomplete Customer (Date Last Contacted):"></asp:Label>
+                Text="Incomplete Customer (Date Last Contacted):"
+                CssClass="table justify-content-center"></asp:Label>
             <br />
             <%-- </asp:TableCell>
                         </asp:TableRow>
@@ -227,7 +220,8 @@
                 ID="LstBoxCustomerRequests"
                 runat="server"
                 OnSelectedIndexChanged="LstBoxCustomerRequests_SelectedIndexChanged"
-                AutoPostBack="true"></asp:ListBox>
+                AutoPostBack="true"
+                CssClass="table justify-content-center"></asp:ListBox>
             <br />
             <br />
             <%-- </asp:TableCell>
@@ -270,7 +264,8 @@
             <asp:Label
                 ID="LblIncompleteServiceTickets"
                 runat="server"
-                Text="Incomplete Service Tickets:"></asp:Label>
+                Text="Incomplete Service Tickets:"
+                CssClass="table justify-content-center"></asp:Label>
             <br />
             <%-- </asp:TableCell>
 =======
@@ -287,7 +282,8 @@
                 ID="LstBoxIncompleteServiceTickets"
                 runat="server"
                 OnSelectedIndexChanged="LstBoxIncompleteServiceTickets_SelectedIndexChanged"
-                AutoPostBack="true"></asp:ListBox>
+                AutoPostBack="true"
+                CssClass="table justify-content-center"></asp:ListBox>
             <%-- </asp:TableCell>
                         </asp:TableRow>
                     </asp:Table>--%>
@@ -296,4 +292,5 @@
         </asp:TableRow>
     </asp:Table>--%>
     </div>
+        </div>
 </asp:Content>
