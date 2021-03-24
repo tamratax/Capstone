@@ -74,7 +74,8 @@
                           <asp:TextBox
                             ID="TxtTime"
                             runat="server"
-                            TextMode="Time"></asp:TextBox>
+                            TextMode="Time"
+                            ></asp:TextBox>
                   
                         <asp:Label ID="LblMeetingLocation"
                             runat="server"
