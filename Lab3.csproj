@@ -95,6 +95,7 @@
     <Content Include="AuctionInventory.aspx" />
     <Content Include="LabFormat.Master" />
     <Content Include="CustomerFacingMaster.Master" />
+    <Content Include="Scheduling.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -331,6 +332,13 @@
     </Compile>
     <Compile Include="PasswordHash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scheduling.aspx.cs">
+      <DependentUpon>Scheduling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Scheduling.aspx.designer.cs">
+      <DependentUpon>Scheduling.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UnauthorizedAccess.aspx.cs">
       <DependentUpon>UnauthorizedAccess.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

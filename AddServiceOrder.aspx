@@ -4,6 +4,10 @@
 
 <asp:Content ID="myContent" ContentPlaceHolderID="body" runat="server">
     <h1>Service Order</h1>
+
+    <asp:Label ID="LblCust" runat="server" Text="Customer Name: "></asp:Label>
+    &nbsp;
+    <asp:Label ID="LblCustName" runat="server" Text=""></asp:Label>
     <asp:Table ID="TblAddService" runat="server">
         <asp:TableRow>
             <asp:TableCell>
@@ -60,40 +64,6 @@
                     InitialValue="-1"></asp:RequiredFieldValidator>
             </asp:TableCell>
         </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label
-                    ID="LblChooseCustomer"
-                    runat="server"
-                    Text="Choose Customer:">
-                </asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:DropDownList
-                    ID="ddlCustomerList"
-                    runat="server"
-                    DataSourceID="dtasrcCustomerList"
-                    DataTextField="CustomerName"
-                    DataValueField="CustomerID"
-                    OnDataBound="ddlCustomerList_DataBound"
-                    AutoPostBack="true"
-                    OnSelectedIndexChanged="ddlCustomerList_SelectedIndexChanged">
-                </asp:DropDownList>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:RequiredFieldValidator
-                    ID="RfvCustomerList"
-                    runat="server"
-                    ErrorMessage="RequiredFieldValidator"
-                    ControlToValidate="ddlCustomerList"
-                    Text="Please Choose A Valid Option"
-                    ForeColor="Red"
-                    SetFocusOnError="true"
-                    ValidationGroup="SaveGroup"
-                    InitialValue="-1"></asp:RequiredFieldValidator>
-            </asp:TableCell>
-        </asp:TableRow>
-
     </asp:Table>
 
     <asp:Table ID="Table4" runat="server">
@@ -499,12 +469,6 @@
 
     </asp:Table>
 
-    <asp:SqlDataSource
-        ID="dtasrcCustomerList"
-        runat="server"
-        ConnectionString="<%$ConnectionStrings:Lab3%>"
-        SelectCommand="Select CustomerID, FirstName + ' ' + LastName as CustomerName
-                    from Customer Order By LastName ASC"></asp:SqlDataSource>
 
     <asp:SqlDataSource
         ID="dtasrcEmployeeContact"
@@ -520,7 +484,7 @@
         DeleteCommand="DELETE ADDRESS where AddressID = @AddressID"
         UpdateCommand="UPDATE ADDRESS set Street = @Street, City = @City, State = @State, Zip = @Zip, Description = @Description where AddressID = @AddressID">
         <SelectParameters>
-            <asp:ControlParameter Name="CustomerID" Type="Int64" ControlID="ddlCustomerList" />
+            <asp:SessionParameter Name="CustomerID" SessionField="SelectedCustomerID" DefaultValue="" />
         </SelectParameters>
     </asp:SqlDataSource>
 </asp:Content>
