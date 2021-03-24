@@ -16,7 +16,6 @@ namespace WalkerS_Lab1Part3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void BtnSearch_Click(object sender, EventArgs e)
@@ -44,6 +43,8 @@ namespace WalkerS_Lab1Part3
 
             //GridviewCusts.DataBind();
             //GridviewCusts.Visible = true;
+            GridviewCusts.Visible = true;
+            GRDShowAllCust.Visible = false;
         }
 
         protected void GridviewMoves_RowEditing(object sender, GridViewEditEventArgs e)
@@ -54,29 +55,32 @@ namespace WalkerS_Lab1Part3
 
         protected void BtnLoadAll_Click(object sender, EventArgs e)
         {
-            string sqlQueryDuplicate = "Select CustomerID, Firstname, Lastname, CellPhone, WorkPhone, HomePhone,Email from customer";
+            //string sqlQueryDuplicate = "Select CustomerID, Firstname, Lastname, CellPhone, WorkPhone, HomePhone,Email from customer";
 
-            SqlConnection sqlConnectDuplicate = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
-            sqlConnectDuplicate.Open();
+            //SqlConnection sqlConnectDuplicate = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+            //sqlConnectDuplicate.Open();
 
-            SqlCommand sqlCommandInsert = new SqlCommand();
-            sqlCommandInsert.Connection = sqlConnectDuplicate;
-            sqlCommandInsert.CommandType = CommandType.Text;
-            sqlCommandInsert.CommandText = sqlQueryDuplicate;
+            //SqlCommand sqlCommandInsert = new SqlCommand();
+            //sqlCommandInsert.Connection = sqlConnectDuplicate;
+            //sqlCommandInsert.CommandType = CommandType.Text;
+            //sqlCommandInsert.CommandText = sqlQueryDuplicate;
             //sqlCommandInsert.Parameters.Add(new SqlParameter("@FirstName", "%" + HttpUtility.HtmlEncode(TxtSearch.Text) + "%"));
             //sqlCommandInsert.Parameters.Add(new SqlParameter("@LastName", "%" + HttpUtility.HtmlEncode(TxtSearch.Text) + "%"));
 
-            SqlDataAdapter sqlAdapterDuplicate = new SqlDataAdapter(sqlCommandInsert);
+            //SqlDataAdapter sqlAdapterDuplicate = new SqlDataAdapter(sqlCommandInsert);
 
 
             //DataSet ds = new DataSet();
 
             //sqlAdapterDuplicate.Fill(DSCust);
 
-            GridviewCusts.DataSource = DSCust;
+            //GridviewCusts.DataSource = DSCust;
 
-            GridviewCusts.DataBind();
-            GridviewCusts.Visible = true;
+            //GridviewCusts.DataBind();
+            //GridviewCusts.Visible = true;
+            GridviewCusts.Visible = false;
+            GRDShowAllCust.Visible = true;
+
         }
     }
 }
