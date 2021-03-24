@@ -129,9 +129,9 @@
                         <li>
 
 
-                            <a href="#">Look Ats (Greg Only)
+                            <a href="LookAt.aspx">Look Ats
                             </a>
-
+                            </li>
                             <%-- <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             <i class="fas fa-copy"></i>
                             Pages
