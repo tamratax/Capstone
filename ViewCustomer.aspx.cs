@@ -20,29 +20,7 @@ namespace WalkerS_Lab1Part3
 
         protected void BtnSearch_Click(object sender, EventArgs e)
         {
-            //string sqlQueryDuplicate = "Select CustomerID, Firstname, Lastname, CellPhone, WorkPhone, HomePhone,Email from customer where  Firstname Like @FirstName OR LastName Like @LastName";
-
-            //SqlConnection sqlConnectDuplicate = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
-            //sqlConnectDuplicate.Open();
-
-            //SqlCommand sqlCommandInsert = new SqlCommand();
-            //sqlCommandInsert.Connection = sqlConnectDuplicate;
-            //sqlCommandInsert.CommandType = CommandType.Text;
-            //sqlCommandInsert.CommandText = sqlQueryDuplicate;
-            //sqlCommandInsert.Parameters.Add(new SqlParameter("@FirstName", "%" + HttpUtility.HtmlEncode(TxtSearch.Text) + "%"));
-            //sqlCommandInsert.Parameters.Add(new SqlParameter("@LastName", "%" + HttpUtility.HtmlEncode(TxtSearch.Text) + "%"));
-
-            //SqlDataAdapter sqlAdapterDuplicate = new SqlDataAdapter(sqlCommandInsert);
-
-
-            //DataSet ds = new DataSet();
-
-            //sqlAdapterDuplicate.Fill(ds);
-
-            //GridviewCusts.DataSource = ds;
-
-            //GridviewCusts.DataBind();
-            //GridviewCusts.Visible = true;
+            
             GridviewCusts.Visible = true;
             GRDShowAllCust.Visible = false;
         }
