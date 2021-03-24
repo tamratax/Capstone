@@ -583,7 +583,7 @@
                 <asp:Button ID="Button3" runat="server" Text="Save Form ->" />
             </asp:TableCell>
             <asp:TableCell>
-                <asp:Button ID="Button4" runat="server" Text="Submit Form ->" />
+                <asp:Button ID="Button4" runat="server" Text="Submit Form ->" OnClick="SubmitButton_Click" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="Label4" runat="server" Text=""></asp:Label>

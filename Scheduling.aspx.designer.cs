@@ -7,92 +7,119 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WalkerS_Lab1Part3
+namespace Lab3
 {
 
 
-    public partial class Navigation
+    public partial class Scheduling
     {
 
         /// <summary>
-        /// Label1 control.
+        /// GrdViewScheduling control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.GridView GrdViewScheduling;
 
         /// <summary>
-        /// TxtSearch control.
+        /// TxtPurpose control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtSearch;
+        protected global::System.Web.UI.WebControls.TextBox TxtPurpose;
 
         /// <summary>
-        /// BtnSearch control.
+        /// TxtDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSearch;
+        protected global::System.Web.UI.WebControls.TextBox TxtDescription;
 
         /// <summary>
-        /// LblSelectCustomer control.
+        /// TxtDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblSelectCustomer;
+        protected global::System.Web.UI.WebControls.TextBox TxtDate;
 
         /// <summary>
-        /// GridViewCustomers control.
+        /// TxtTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewCustomers;
+        protected global::System.Web.UI.WebControls.TextBox TxtTime;
 
         /// <summary>
-        /// LblNewCustomer control.
+        /// TxtMeetingLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblNewCustomer;
+        protected global::System.Web.UI.WebControls.TextBox TxtMeetingLocation;
 
         /// <summary>
-        /// LstBoxCustomerRequests control.
+        /// LblName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox LstBoxCustomerRequests;
+        protected global::System.Web.UI.WebControls.Label LblName;
 
         /// <summary>
-        /// LblIncompleteServiceTickets control.
+        /// LblCustName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblIncompleteServiceTickets;
+        protected global::System.Web.UI.WebControls.Label LblCustName;
 
         /// <summary>
-        /// LstBoxIncompleteServiceTickets control.
+        /// BtnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox LstBoxIncompleteServiceTickets;
+        protected global::System.Web.UI.WebControls.Button BtnSave;
+
+        /// <summary>
+        /// LblSaveStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblSaveStatus;
+
+        /// <summary>
+        /// LblSelectedSessionID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblSelectedSessionID;
+
+        /// <summary>
+        /// DtaSrcSchedulingID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource DtaSrcSchedulingID;
     }
 }

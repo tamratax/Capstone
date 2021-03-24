@@ -8,6 +8,8 @@ using System.Data.SqlClient;
 using System.Web.Configuration;
 using System.Drawing;
 using System.Data;
+using System.Net;
+using System.Net.Mail;
 
 namespace Lab3
 {

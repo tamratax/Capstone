@@ -51,7 +51,7 @@
                                 <a href="AddServiceOrder.aspx">Add Service</a>
                             </li>
                             <li>
-                                <a href="#">Scheduling</a>
+                                <a href="Scheduling.aspx">Scheduling</a>
                             </li>
                             <li>
                                 <a href="AuctionInventory.aspx">Inventory</a>
@@ -109,6 +109,12 @@
 
                         </li>
                         <li>
+                                <a href="ViewCUstomer.aspx">View Customers</a>
+                        </li>
+                        <li>
+                                <a href="ViewService.aspx">View Services</a>
+                        </li>
+                        <li>
                             <a href="ViewMoves.aspx">Move
                             </a>
                         </li>
@@ -123,9 +129,9 @@
                         <li>
 
 
-                            <a href="#">Look Ats (Greg Only)
+                            <a href="LookAt.aspx">Look Ats
                             </a>
-
+                            </li>
                             <%-- <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             <i class="fas fa-copy"></i>
                             Pages
@@ -251,3 +257,5 @@
 </body>
 
 </html>
+
+

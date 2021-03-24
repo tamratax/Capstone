@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 
 
 namespace WalkerS_Lab1Part3
@@ -15,13 +16,36 @@ namespace WalkerS_Lab1Part3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+              
+                if (Session["NoCustSelected"] != null)
+                {
+                    LblSelectCustomer.ForeColor = Color.Red;
+                    LblSelectCustomer.Text = "Please Select a Customer!";
+                }
+                else
+                {
+                    LblSelectCustomer.Text = "";
+                }
+            
+            
+
+
+           
+            
+           
+           
+
+            //Clear CustomerID Session Data on Page Load
+            Session["Customer ID"] = null;
+
             if (!IsPostBack)
             {
                 //Populates Customer Request listbox
                 LstBoxCustomerRequests.DataTextField = "Name";
                 LstBoxCustomerRequests.DataValueField = "Customer ID";
 
-                String sqlQueryCustomer = "Select customerID 'Customer ID', FirstName + ' ' + LastName + ' (' + DateContacted + ') ->' as 'Name' from Customer where completed='False'";
+                String sqlQueryCustomer = "Select customerID 'Customer ID', FirstName + ' ' + LastName + ' (' + DateContacted + ') ->' as Name from Customer where completed='False'";
 
 
                 SqlConnection sqlConnectCustomer = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
@@ -150,6 +174,10 @@ namespace WalkerS_Lab1Part3
 
         protected void BtnSearch_Click(object sender, EventArgs e)
         {
+            
+            Session["NoCustSelected"] = null;
+          
+            
 
             //Check to see if customer is in the database
             String sqlQueryDuplicate = "Select CustomerID, FirstName + ' ' + LastName as 'Name', email, homephone, workphone, cellphone from customer WHERE FirstName + ' ' +  LastName like @Name";

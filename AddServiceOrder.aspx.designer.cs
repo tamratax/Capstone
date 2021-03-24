@@ -15,6 +15,24 @@ namespace WalkerS_Lab1Part3
     {
 
         /// <summary>
+        /// LblCust control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblCust;
+
+        /// <summary>
+        /// LblCustName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblCustName;
+
+        /// <summary>
         /// TblAddService control.
         /// </summary>
         /// <remarks>
@@ -94,33 +112,6 @@ namespace WalkerS_Lab1Part3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvEmployeeList;
-
-        /// <summary>
-        /// LblChooseCustomer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblChooseCustomer;
-
-        /// <summary>
-        /// ddlCustomerList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCustomerList;
-
-        /// <summary>
-        /// RfvCustomerList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvCustomerList;
 
         /// <summary>
         /// Table4 control.
@@ -625,15 +616,6 @@ namespace WalkerS_Lab1Part3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnMoveInvt;
-
-        /// <summary>
-        /// dtasrcCustomerList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcCustomerList;
 
         /// <summary>
         /// dtasrcEmployeeContact control.

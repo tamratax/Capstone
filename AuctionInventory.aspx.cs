@@ -15,7 +15,17 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
+
+            //Checks to see if there is a customer selected
+            if (Session["SelectedCustomerID"] == null)
+            {
+                Session["NoCustSelected"] = "true";
+                Response.Redirect("Navigation.aspx");
+
+
+            }
+
             //If the user is trying to edit a customer, there will be a customerid in this session data
             //if (Session["Customer ID"] != null)
             //{
@@ -176,7 +186,11 @@ namespace Lab3
                 sqlCommand1.Parameters.Add(new SqlParameter("@BringInDate", HttpUtility.HtmlEncode(TxtBringInDate.Text)));
                 sqlCommand1.Parameters.Add(new SqlParameter("@CloseOutDate", HttpUtility.HtmlEncode(TxtCloseOutDate.Text)));
                 sqlCommand1.Parameters.Add(new SqlParameter("@PickUpDate", HttpUtility.HtmlEncode(TxtDate.Text)));
-                sqlCommand1.Parameters.Add(new SqlParameter("@PickUpTime", HttpUtility.HtmlEncode(TxtTime.Text)));
+                if (TxtTime != null)
+                {
+                    String NormalTime = Convert.ToDateTime(TxtTime.Text).ToString("hh:mm:ss tt");
+                    sqlCommand1.Parameters.Add(new SqlParameter("@PickUpTime", HttpUtility.HtmlEncode(NormalTime)));
+                }
                 sqlCommand1.Parameters.Add(new SqlParameter("@LeaveAt", HttpUtility.HtmlEncode(TxtLeaveAt.Text)));
                 sqlCommand1.Parameters.Add(new SqlParameter("@AuctionNotes", HttpUtility.HtmlEncode(TxtNotes.Text)));
 

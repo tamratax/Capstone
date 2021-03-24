@@ -24,14 +24,7 @@ namespace Lab2
 
         }
 
-        protected void BtnNavigation_Click(object sender, EventArgs e)
-        {
-            //Changes page to main navigation page
-            Session["ServiceRequestID"] = null;
-            Session["ServiceTicketID"] = null;
-            Session["Customer ID"] = null;
-            Response.Redirect("Navigation.aspx");
-        }
+        
 
         protected void BtnLogout_Click(object sender, EventArgs e)
         {
