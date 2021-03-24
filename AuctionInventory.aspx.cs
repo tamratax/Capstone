@@ -15,7 +15,17 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
+
+            //Checks to see if there is a customer selected
+            if (Session["SelectedCustomerID"] == null)
+            {
+                Session["NoCustSelected"] = "true";
+                Response.Redirect("Navigation.aspx");
+
+
+            }
+
             //If the user is trying to edit a customer, there will be a customerid in this session data
             //if (Session["Customer ID"] != null)
             //{
