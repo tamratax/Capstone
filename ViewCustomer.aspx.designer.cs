@@ -15,66 +15,57 @@ namespace WalkerS_Lab1Part3
     {
 
         /// <summary>
-        /// Label2 control.
+        /// SearchCustomerLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label SearchCustomerLbl;
 
         /// <summary>
-        /// ddlCustomerList control.
+        /// TxtSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCustomerList;
+        protected global::System.Web.UI.WebControls.TextBox TxtSearch;
 
         /// <summary>
-        /// btnLoadAllCustomer control.
+        /// BtnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLoadAllCustomer;
+        protected global::System.Web.UI.WebControls.Button BtnSearch;
 
         /// <summary>
-        /// BtnAddCustomer control.
+        /// BtnLoadAll control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAddCustomer;
+        protected global::System.Web.UI.WebControls.Button BtnLoadAll;
 
         /// <summary>
-        /// BtnNavigation control.
+        /// GridviewCusts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnNavigation;
+        protected global::System.Web.UI.WebControls.GridView GridviewCusts;
 
         /// <summary>
-        /// grdOrderResults control.
+        /// DSCust control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdOrderResults;
-
-        /// <summary>
-        /// dtasrcCustomerList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcCustomerList;
+        protected global::System.Web.UI.WebControls.SqlDataSource DSCust;
     }
 }
