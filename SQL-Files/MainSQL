@@ -176,8 +176,8 @@ Create Table SCHEDULING(
 	CustomerID		int references Customer(CustomerID),
 	Purpose		    varchar(255),
 	Description		varchar(255),
-	Date			date,
-	Time			varchar(255),
+	Date			varchar(50),
+	Time			varchar(50),
 	MeetingLocation	varchar(255)
 );
 
