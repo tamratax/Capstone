@@ -187,6 +187,49 @@ ServiceTicketID int references SERVICETICKET(ServiceTicketID),
 CustomerID int references Customer(CustomerID)
 );
 
+CREATE TABLE TRAVEL(
+	[TravelID] [int] IDENTITY(1,1) NOT NULL Primary Key,
+	[Description] [varchar](100) NULL,
+	[StartTime] [nvarchar](50) NULL,
+	[EndTime] [nvarchar](50) NULL,
+	[Hours] [float] NULL,
+	[ServiceTicketID] [int] NULL
+	);
+	
+CREATE TABLE MOVEEQUIPMENT(
+	[MoveEquipmentID] [int] IDENTITY(1,1) NOT NULL Primary Key,
+	[EquipmentID] [int] NULL,
+	[EquipmentType] [nvarchar](50) NULL,
+	[Mileage] [nvarchar](50) NULL,
+	[ServiceTicketID] [int] NULL
+	);
+	
+CREATE TABLE COMPLETED(
+	[CompletedID] [int] IDENTITY(1,1) NOT NULL Primary Key,
+	[CompletedDate] [varchar](50) NULL,
+	[ServiceTicketID] [int] NULL,
+	[CustomerID] [int] NULL
+	);
+	
+CREATE TABLE PAYMENT(
+	[PaymentID] [int] IDENTITY(1,1) NOT NULL Primary Key,
+	[PaymentType] [varchar](50) NULL,
+	[Cost] [float] NULL,
+	[AdditionalExpenses] [nvarchar](50) NULL,
+	[CompleteStatus] [varchar](50) NULL,
+	[ServiceTicketID] [int] NULL
+	);
+	
+CREATE TABLE TRAVEL(
+	[TravelID] [int] IDENTITY(1,1) NOT NULL Primary Key,
+	[Description] [varchar](100) NULL,
+	[StartTime] [nvarchar](50) NULL,
+	[EndTime] [nvarchar](50) NULL,
+	[Hours] [float] NULL,
+	[ServiceTicketID] [int] NULL
+	);
+	
+
 
 
 
