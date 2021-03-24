@@ -43,7 +43,7 @@ namespace Lab3
                 SqlCommand com = new SqlCommand(query, sqlConnect);
 
                 com.Parameters.AddWithValue("Date", TxtDate.Text.ToString());
-                com.Parameters.AddWithValue("Location", TxtLocation.Text.ToString());
+                com.Parameters.AddWithValue("Location", DdlLocation.SelectedItem.Text.ToString());
                 com.Parameters.AddWithValue("Description", TxtDescription.Text.ToString());
                 com.Parameters.AddWithValue("CustomerID", Session["SelectedCustomerID"]);
 
@@ -52,7 +52,7 @@ namespace Lab3
 
                 TxtDate.Text = "";
                 TxtDescription.Text = "";
-                TxtLocation.Text = "";
+                DdlLocation.SelectedIndex = 0;
 
 
 

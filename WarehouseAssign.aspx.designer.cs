@@ -78,13 +78,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Label LblLocation;
 
         /// <summary>
-        /// TxtLocation control.
+        /// DdlLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtLocation;
+        protected global::System.Web.UI.WebControls.DropDownList DdlLocation;
 
         /// <summary>
         /// RfvLocation control.
