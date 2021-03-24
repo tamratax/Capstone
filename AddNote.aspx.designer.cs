@@ -33,31 +33,22 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.Table TblTicketSelection;
 
         /// <summary>
-        /// LblCustomerDropDown control.
+        /// LblCustomer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblCustomerDropDown;
+        protected global::System.Web.UI.WebControls.Label LblCustomer;
 
         /// <summary>
-        /// DdlCustomerList control.
+        /// LblSelectedCustomer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlCustomerList;
-
-        /// <summary>
-        /// RfvCustomerList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvCustomerList;
+        protected global::System.Web.UI.WebControls.Label LblSelectedCustomer;
 
         /// <summary>
         /// LblServiceSelect control.
@@ -211,15 +202,6 @@ namespace Lab2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LblSaveStatus;
-
-        /// <summary>
-        /// dtasrcCustomerList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcCustomerList;
 
         /// <summary>
         /// dtasrcEmployeeContact control.

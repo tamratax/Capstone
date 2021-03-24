@@ -24,31 +24,33 @@ namespace Lab2
 
 
             }
-        }
 
-        protected void DdlCustomerList_DataBound(object sender, EventArgs e)
-        {
-            if (!IsPostBack)
-            {
-                //Sets Customer list ddl to default of select
-                ListItem blankOption = new ListItem("Select", "-1");
-                DdlCustomerList.Items.Insert(0, blankOption);
-                DdlCustomerList.SelectedIndex = 0;
+            //Set label to Selected Customer
+            LblSelectedCustomer.Text = Session["SelectedCustomerName"].ToString();
+
+            //protected void DdlCustomerList_DataBound(object sender, EventArgs e)
+            //{
+            //    if (!IsPostBack)
+            //    {
+            //        //Sets Customer list ddl to default of select
+            //        ListItem blankOption = new ListItem("Select", "-1");
+            //        DdlCustomerList.Items.Insert(0, blankOption);
+            //        DdlCustomerList.SelectedIndex = 0;
 
 
 
-            }
-        }
+            //    }
+            //}
 
-        protected void DdlCustomerList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (DdlCustomerList.SelectedValue != "-1")
+            //protected void DdlCustomerList_SelectedIndexChanged(object sender, EventArgs e)
+            //{
+            if (Session["SelectedCustomerID"] != null)
             {
                 //Populates service Ddl when customer is selected
                 DdlServiceList.DataTextField = "Services";
                 DdlServiceList.DataValueField = "ServiceTicketID";
 
-                String sqlQueryService = "Select ServiceTicketID, ServiceType + ' ' + ServiceDate 'Services' from ServiceTicket where customerID = " + DdlCustomerList.SelectedValue;
+                String sqlQueryService = "Select ServiceTicketID, ServiceType + ' ' + ServiceDate 'Services' from ServiceTicket where customerID = " + Session["SelectedCustomerID"].ToString();
 
 
                 SqlConnection sqlConnectService = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
@@ -72,29 +74,34 @@ namespace Lab2
             }
         }
 
+        
+
         protected void DdlServiceList_DataBound(object sender, EventArgs e)
         {
-
-            //Sets Service list ddl to default of select
-            ListItem blankOption = new ListItem("Select", "-1");
-            DdlServiceList.Items.Insert(0, blankOption);
-            DdlServiceList.SelectedIndex = 0;
-
+            if (!IsPostBack)
+            {
+                //Sets Service list ddl to default of select
+                ListItem blankOption = new ListItem("Select", "-1");
+                DdlServiceList.Items.Insert(0, blankOption);
+                DdlServiceList.SelectedIndex = 0;
+            }
         }
 
 
         protected void DdlServiceList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (DdlServiceList.SelectedValue != "-1")
-            {
-            }
-            else
-            {
-                //Clears data when ServiceDdl is changed to Select
-                TxtTitle.Text = "";
-                TxtDetails.Text = "";
-                LblSaveStatus.Text = "";
-            }
+            
+                if (DdlServiceList.SelectedValue != "-1")
+                {
+                }
+                else
+                {
+                    //Clears data when ServiceDdl is changed to Select
+                    TxtTitle.Text = "";
+                    TxtDetails.Text = "";
+                    LblSaveStatus.Text = "";
+                }
+            
         }
         protected void BtnAddNote_Click(object sender, EventArgs e)
         {
@@ -144,7 +151,7 @@ namespace Lab2
         protected void BtnClear_Click(object sender, EventArgs e)
         {
             //Clears all data on page
-            DdlCustomerList.SelectedValue = "-1";
+            //DdlCustomerList.SelectedValue = "-1";
             DdlServiceList.Items.Clear();
             DdlNoteCreator.SelectedValue = "-1";
             TxtTitle.Text = "";
