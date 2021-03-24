@@ -1,3 +1,7 @@
+--drop table payment;
+--drop table completed;
+--drop table moveequipment;
+--drop table travel;
 --drop table LookAt;
 --drop table Scheduling;
 --drop table charges;
@@ -220,14 +224,7 @@ CREATE TABLE PAYMENT(
 	[ServiceTicketID] [int] NULL
 	);
 	
-CREATE TABLE TRAVEL(
-	[TravelID] [int] IDENTITY(1,1) NOT NULL Primary Key,
-	[Description] [varchar](100) NULL,
-	[StartTime] [nvarchar](50) NULL,
-	[EndTime] [nvarchar](50) NULL,
-	[Hours] [float] NULL,
-	[ServiceTicketID] [int] NULL
-	);
+
 	
 
 
