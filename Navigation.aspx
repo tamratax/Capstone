@@ -36,6 +36,12 @@
                         runat="server" Text="Search"
                         OnClick="BtnSearch_Click" />
                 </div>
+                <div>
+                    <asp:Label
+                        ID="LblSelectCustomer"
+                        runat="server"
+                        Text=""></asp:Label>
+                </div>
 
             </div>
         </div>
