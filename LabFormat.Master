@@ -51,7 +51,7 @@
                                 <a href="AddServiceOrder.aspx">Add Service</a>
                             </li>
                             <li>
-                                <a href="#">Scheduling</a>
+                                <a href="Scheduling.aspx">Scheduling</a>
                             </li>
                             <li>
                                 <a href="AuctionInventory.aspx">Inventory</a>
