@@ -16,6 +16,15 @@ namespace WalkerS_Lab1Part3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Checks to see if there is a customer selected
+            if (Session["SelectedCustomerID"] == null)
+            {
+                Session["NoCustSelected"] = "true";
+                Response.Redirect("Navigation.aspx");
+
+
+            }
+
             if (!IsPostBack)
             {
                 //Creates items for service type ddl

@@ -16,8 +16,18 @@ namespace Lab3
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            if (Session["SelectedCustomerID"] == null)
+            {
+                Session["NoCustSelected"] = "true";
+                Response.Redirect("Navigation.aspx");
+             
+               
+            }
+
             LblSelectedSessionID.Text = Session["SelectedCustomerID"].ToString();
 
+
+            
 
             ////POPULATE SCHEDULING GRIDVIEW
             //String sqlQuery = "Select SchedulingID, CustomerID, Purpose, Description, Date, Time, MeetingLocation from Scheduling where customerID = " + Session["SelectedCustomerID"].ToString();
