@@ -66,7 +66,7 @@
         <%--       <asp:CheckBox ID="AuctionChkBx" runat="server" Text="Auction" />
          <asp:CheckBox ID="AppraisalChkBx" runat="server" Text="Appraisal" />--%>
         <div class="form-group">
-            <label>Truck accessibility</label>
+            <h5>Truck Accessibility</h5>
             <asp:TextBox ID="TruckAccTxt"
                 runat="server"
                 TextMode="MultiLine"
@@ -76,7 +76,7 @@
         </div>
         <br />
         <div class="form-group">
-            <label>Supplies needed</label>
+            <h5>Supplies Needed</h5>
             <asp:TextBox ID="SuppliesTxt"
                 runat="server"
                 TextMode="MultiLine"
@@ -86,7 +86,7 @@
         </div>
         <br />
         <div class="form-group">
-            <label>Number of boxes and type</label>
+            <h5>Number of Boxes and Type</h5>
             <asp:TextBox ID="BoxesTxt"
                 runat="server"
                 TextMode="MultiLine"
@@ -96,7 +96,7 @@
         </div>
         <br />
         <div class="form-group">
-            <label>Crew</label>
+            <h5>Crew</h5>
             <asp:TextBox ID="CrewTxt"
                 runat="server"
                 TextMode="MultiLine"
@@ -106,7 +106,7 @@
         </div>
         <br />
         <div class="form-group">
-            <label>Type and number of trucks</label>
+            <h5>Type and Number of Trucks</h5>
             <asp:TextBox ID="TrucksTxt"
                 runat="server"
                 TextMode="MultiLine"

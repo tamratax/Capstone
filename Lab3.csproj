@@ -215,6 +215,7 @@
     <Content Include="ViewMoves.aspx" />
     <Content Include="ViewNote.aspx" />
     <Content Include="ViewService.aspx" />
+    <Content Include="WarehouseAssign.aspx" />
     <Content Include="WarehouseInventory.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -388,6 +389,13 @@
     </Compile>
     <Compile Include="ViewService.aspx.designer.cs">
       <DependentUpon>ViewService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseAssign.aspx.cs">
+      <DependentUpon>WarehouseAssign.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WarehouseAssign.aspx.designer.cs">
+      <DependentUpon>WarehouseAssign.aspx</DependentUpon>
     </Compile>
     <Compile Include="WarehouseInventory.aspx.cs">
       <DependentUpon>WarehouseInventory.aspx</DependentUpon>
