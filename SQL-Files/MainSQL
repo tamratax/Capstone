@@ -1,3 +1,4 @@
+--drop table LookAt;
 --drop table Scheduling;
 --drop table charges;
 --drop table MOVEEMPLOYEES;
@@ -179,6 +180,17 @@ Create Table SCHEDULING(
 	Date			varchar(50),
 	Time			varchar(50),
 	MeetingLocation	varchar(255)
+);
+
+create Table LookAt(
+LookAtID int identity(1, 1)  Not Null Primary Key,
+TruckAccess varchar(1000),
+Supplies varchar (1000),
+Boxes varchar(1000),
+Crew varchar(1000),
+Trucks varchar(1000),
+ServiceTicketID int references SERVICETICKET(ServiceTicketID),
+CustomerID int references Customer(CustomerID)
 );
 
 
