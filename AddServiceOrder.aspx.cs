@@ -27,7 +27,6 @@ namespace WalkerS_Lab1Part3
                 LblDestinationTime.Visible = false;
                 TxtDestinationTime.Visible = false;
 
-
                 //if (Session["ServiceRequestID"] != null)
                 //{
                 //    //Pulling in customer's record
@@ -75,7 +74,6 @@ namespace WalkerS_Lab1Part3
                     TxtPotentialDate.Text = Convert.ToString(dtForSelect.Rows[0]["PotentialDate"]);
                     TxtPotentialTime.Text = Convert.ToString(dtForSelect.Rows[0]["PotentialTime"]);
                     DdlInitiatingEmp.SelectedValue = Convert.ToString(dtForSelect.Rows[0]["InitiatingEmp"]);
-                    ddlCustomerList.SelectedValue = Convert.ToString(dtForSelect.Rows[0]["CustomerID"]);
                     TxtServiceDate.Text = Convert.ToString(dtForSelect.Rows[0]["ServiceDate"]);
                     TxtCompletionDate.Text = Convert.ToString(dtForSelect.Rows[0]["CompletionDate"]);
                     DdlServiceType.SelectedValue = DdlServiceType.Items.FindByText(Convert.ToString(dtForSelect.Rows[0]["ServiceType"]).Trim()).Value;
@@ -111,9 +109,7 @@ namespace WalkerS_Lab1Part3
                     DataTable dtForSelect = new DataTable();
                     sqlAdapter.Fill(dtForSelect);
 
-                    //Fills data from editing customer's sql record into InitialConversation page
-                    ddlCustomerList.SelectedValue = Convert.ToString(Session["SelectedCustomerID"]);
-                    //TxtLastName.Text = Convert.ToString(dtForSelect.Rows[0]["LastName"]);
+                    LblCustName.Text = Session["SelectedCustomerName"].ToString();
                     LblHomeNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
                     LblCellNumber.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
                     LblWorkNumber.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
@@ -135,11 +131,6 @@ namespace WalkerS_Lab1Part3
                     DataTable dtForSelect = new DataTable();
                     sqlAdapter.Fill(dtForSelect);
 
-                    String custID = dtForSelect.Rows[0]["CustomerID"].ToString();
-
-                    //Fills data from editing customer's sql record into InitialConversation page
-                    ddlCustomerList.SelectedValue = custID;
-                    //TxtLastName.Text = Convert.ToString(dtForSelect.Rows[0]["LastName"]);
                     LblHomeNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
                     LblCellNumber.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
                     LblWorkNumber.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
@@ -163,7 +154,6 @@ namespace WalkerS_Lab1Part3
         {
             //temp button to autofill controls with dummy data
             DdlInitiatingEmp.SelectedIndex = 2;
-            ddlCustomerList.SelectedIndex = 2;
 
             TxtServiceDate.Text = "2021-08-05";
             TxtCompletionDate.Text = "2021-09-07";
@@ -177,14 +167,6 @@ namespace WalkerS_Lab1Part3
 
 
         }
-
-        protected void ddlCustomerList_DataBound(object sender, EventArgs e)
-        {
-            //Sets drop down list to default Select option
-            ddlCustomerList.Items.Insert(0, new ListItem("Select", "-1"));
-        }
-
-
 
 
         protected void DdlServiceType_SelectedIndexChanged(object sender, EventArgs e)
@@ -228,7 +210,6 @@ namespace WalkerS_Lab1Part3
             TxtPotentialDate.Text = "";
             TxtPotentialTime.Text = "";
             DdlInitiatingEmp.SelectedIndex = -1;
-            ddlCustomerList.SelectedIndex = -1;
             LblHomeNumber.Text = "";
             LblCellNumber.Text = "";
             LblWorkNumber.Text = "";
@@ -287,7 +268,7 @@ namespace WalkerS_Lab1Part3
                 sqlCommand.CommandText = sqlQuery;
 
                 //Parameterizes all the strings
-                sqlCommand.Parameters.Add(new SqlParameter("@CustomerID", ddlCustomerList.SelectedValue));                                                            
+                sqlCommand.Parameters.Add(new SqlParameter("@CustomerID", Session["SelectedCustomerID"].ToString()));                                                            
                 sqlCommand.Parameters.Add(new SqlParameter("@ServiceDate", HttpUtility.HtmlEncode(TxtServiceDate.Text)));
                 sqlCommand.Parameters.Add(new SqlParameter("@CompletionDate", HttpUtility.HtmlEncode(TxtCompletionDate.Text)));
                 sqlCommand.Parameters.Add(new SqlParameter("@ServiceType", DdlServiceType.SelectedItem.Text));
@@ -331,7 +312,7 @@ namespace WalkerS_Lab1Part3
                 sqlCommand.CommandText = sqlQuery;
 
                 //Parameterizes all the strings
-                sqlCommand.Parameters.Add(new SqlParameter("@CustomerID", ddlCustomerList.SelectedValue));
+                sqlCommand.Parameters.Add(new SqlParameter("@CustomerID", Session["SelectedCustomerID"].ToString()));
                 sqlCommand.Parameters.Add(new SqlParameter("@PotentialDate", HttpUtility.HtmlEncode(TxtPotentialDate.Text)));
                 sqlCommand.Parameters.Add(new SqlParameter("@PotentialTime", HttpUtility.HtmlEncode(TxtPotentialTime.Text)));
                 sqlCommand.Parameters.Add(new SqlParameter("@ServiceDate", HttpUtility.HtmlEncode(TxtServiceDate.Text)));
@@ -413,37 +394,7 @@ namespace WalkerS_Lab1Part3
             }
         }
 
-        protected void ddlCustomerList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (ddlCustomerList.SelectedValue != "-1")
-            {
-                //Pulling in customer's record
-                String sqlQuery = "Select * from customer where customerid = " + ddlCustomerList.SelectedValue.ToString();
 
-                //Establishes the connection between our web form and database
-                SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
-
-                //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
-                SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
-
-                //This creates a datatable and fills it
-                DataTable dtForSelect = new DataTable();
-                sqlAdapter.Fill(dtForSelect);
-
-                //TxtLastName.Text = Convert.ToString(dtForSelect.Rows[0]["LastName"]);
-                LblHomeNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
-                LblCellNumber.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
-                LblWorkNumber.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
-                LblEmailText.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
-            }
-            else
-            {
-                LblHomeNumber.Text = "";
-                LblCellNumber.Text = "";
-                LblWorkNumber.Text = "";
-                LblEmailText.Text = "";
-            }
-        }
 
         protected void BtnAddAddress_Click(object sender, EventArgs e)
         {
@@ -460,7 +411,7 @@ namespace WalkerS_Lab1Part3
             sqlCommand.CommandText = sqlQuery;
 
             //Parameterizes all the strings
-            sqlCommand.Parameters.Add(new SqlParameter("@CustomerID", ddlCustomerList.SelectedValue));
+            sqlCommand.Parameters.Add(new SqlParameter("@CustomerID", Session["SelectedCustomerID"].ToString()));
             sqlCommand.Parameters.Add(new SqlParameter("@Street", HttpUtility.HtmlEncode(TxtStreet.Text)));
             sqlCommand.Parameters.Add(new SqlParameter("@City", HttpUtility.HtmlEncode(TxtCity.Text)));
             sqlCommand.Parameters.Add(new SqlParameter("@State", HttpUtility.HtmlEncode(TxtState.Text)));
