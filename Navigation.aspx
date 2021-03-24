@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Navigation.aspx.cs" Inherits="WalkerS_Lab1Part3.Navigation" MasterPageFile="LabFormat.Master" %>
+﻿ <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Navigation.aspx.cs" Inherits="WalkerS_Lab1Part3.Navigation" MasterPageFile="LabFormat.Master" %>
 
 <%-- Coded By: Stuart Walker & Aaron Walsh --%>
 
@@ -35,6 +35,12 @@
                         ID="BtnSearch"
                         runat="server" Text="Search"
                         OnClick="BtnSearch_Click" />
+                </div>
+                <div>
+                    <asp:Label
+                        ID="LblSelectCustomer"
+                        runat="server"
+                        Text=""></asp:Label>
                 </div>
 
             </div>

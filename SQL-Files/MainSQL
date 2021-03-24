@@ -1,3 +1,7 @@
+--drop table payment;
+--drop table completed;
+--drop table moveequipment;
+--drop table travel;
 --drop table LookAt;
 --drop table Scheduling;
 --drop table charges;
@@ -42,6 +46,7 @@ create table AUCTION (
 	AuctionID	int identity(1, 1) primary key,
 	AuctionDate varchar(20),
 );
+
 create table SERVICETICKET (
 	ServiceTicketID	int not null identity(1, 1) primary key,
 	CustomerID		int references Customer(CustomerID),
@@ -161,13 +166,6 @@ CREATE TABLE CHARGES(
 	
 Create Table AUCTIONINVENTORY(
 	AuctionInventoryID int not null identity(1, 1) primary key,
-	ItemTransportationType varchar(20),
-	AddOn				varchar(200),
-	BringInDate			varchar(200),
-	CloseOutDate		varchar(200),
-	PickupDate			varchar(200),
-	PickupTime			varchar(200),
-	LeaveAt				varchar(200),
 	AuctionNotes		varchar(200),
 	ServiceTicketID	int references SERVICETICKET(ServiceTicketID)
 );
@@ -192,6 +190,42 @@ Trucks varchar(1000),
 ServiceTicketID int references SERVICETICKET(ServiceTicketID),
 CustomerID int references Customer(CustomerID)
 );
+
+CREATE TABLE TRAVEL(
+	[TravelID] [int] IDENTITY(1,1) NOT NULL Primary Key,
+	[Description] [varchar](100) NULL,
+	[StartTime] [nvarchar](50) NULL,
+	[EndTime] [nvarchar](50) NULL,
+	[Hours] [float] NULL,
+	[ServiceTicketID] [int] NULL
+	);
+	
+CREATE TABLE MOVEEQUIPMENT(
+	[MoveEquipmentID] [int] IDENTITY(1,1) NOT NULL Primary Key,
+	[EquipmentID] [int] NULL,
+	[EquipmentType] [nvarchar](50) NULL,
+	[Mileage] [nvarchar](50) NULL,
+	[ServiceTicketID] [int] NULL
+	);
+	
+CREATE TABLE COMPLETED(
+	[CompletedID] [int] IDENTITY(1,1) NOT NULL Primary Key,
+	[CompletedDate] [varchar](50) NULL,
+	[ServiceTicketID] [int] NULL,
+	[CustomerID] [int] NULL
+	);
+	
+CREATE TABLE PAYMENT(
+	[PaymentID] [int] IDENTITY(1,1) NOT NULL Primary Key,
+	[PaymentType] [varchar](50) NULL,
+	[Cost] [float] NULL,
+	[AdditionalExpenses] [nvarchar](50) NULL,
+	[CompleteStatus] [varchar](50) NULL,
+	[ServiceTicketID] [int] NULL
+	);
+	
+
+	
 
 
 
@@ -250,9 +284,7 @@ insert into TICKETHISTORY values ('2021-01-03','Big Fragile','Customer also says
 insert into TICKETHISTORY values ('2021-02-01','Phone change','Call customer at work number',2,2);
 insert into TICKETHISTORY values ('2021-02-04','Call at home','Call customer at home number',3,2);
 
-insert into AUCTIONINVENTORY values ('Pick-Up', 'False', '', '2021-12-08',  '2021-10-08', '6:30', '09:30', '', 1);
-insert into AUCTIONINVENTORY values ('Pick-Up', 'False', '', '2021-12-08',  '2021-12-05', '14:30', '16:30', '', 2);
-insert into AUCTIONINVENTORY values ('Bring-In', 'False', '2021-9-07', '2021-10-07',  '', '', '', '', 3);
+insert into AUCTIONINVENTORY values ('Looks to need about 15 boxes, 5 large items, going to need 4 men and 3 trucks', 2);
 
 insert into SCHEDULING values (1, 'To Schedule Auction', 'Looking to sell 45 things', '2021-04-01', '12:30', 'In-Person');
 insert into SCHEDULING values (2, 'To Schedule Move', 'Looking to move to Harrisonburg', '2021-04-15', '1:30', 'Staunton');
