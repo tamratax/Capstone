@@ -18,6 +18,20 @@
                         runat="server">
                         <asp:TableRow>
                             <asp:TableCell>
+                                <asp:Label 
+                                    ID="LblCustomer"
+                                    runat="server" 
+                                    Text="Customer:"></asp:Label>
+                            </asp:TableCell>
+                            <asp:TableCell>
+                                <asp:Label 
+                                    ID="LblSelectedCustomer"
+                                    runat="server" 
+                                    Text=""></asp:Label>
+                            </asp:TableCell>
+                        </asp:TableRow>
+                     <%--   <asp:TableRow>
+                            <asp:TableCell>
                                 <asp:Label
                                     ID="LblCustomerDropDown"
                                     runat="server"
@@ -47,7 +61,7 @@
                                     ValidationGroup="SaveGroup"
                                     InitialValue="-1"></asp:RequiredFieldValidator>
                             </asp:TableCell>
-                        </asp:TableRow>
+                        </asp:TableRow>--%>
                         <asp:TableRow>
                             <asp:TableCell>
                                 <asp:Label
@@ -189,12 +203,12 @@
         </asp:TableRow>
     </asp:Table>
 
-    <asp:SqlDataSource
+    <%--<asp:SqlDataSource
         ID="dtasrcCustomerList"
         runat="server"
         ConnectionString="<%$ConnectionStrings:Lab3%>"
         SelectCommand="Select CustomerID, FirstName + ' ' + LastName as CustomerName
-                    from Customer Order By LastName ASC"></asp:SqlDataSource>
+                    from Customer Order By LastName ASC"></asp:SqlDataSource>--%>
 
     <asp:SqlDataSource
         ID="dtasrcEmployeeContact"
