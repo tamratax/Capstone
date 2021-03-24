@@ -17,13 +17,7 @@ namespace Lab2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["SelectedCustomerID"] == null)
-            {
-                Session["NoCustSelected"] = "true";
-                Response.Redirect("Navigation.aspx");
-
-
-            }
+            
 
         }
 
