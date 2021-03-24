@@ -68,7 +68,12 @@ namespace Lab3
             sqlCommand.Parameters.Add(new SqlParameter("@Purpose", HttpUtility.HtmlEncode(TxtPurpose.Text)));
             sqlCommand.Parameters.Add(new SqlParameter("@Description", HttpUtility.HtmlEncode(TxtDescription.Text)));
             sqlCommand.Parameters.Add(new SqlParameter("@Date", HttpUtility.HtmlEncode(TxtDate.Text)));
-            sqlCommand.Parameters.Add(new SqlParameter("@Time", HttpUtility.HtmlEncode(TxtTime.Text)));
+            if(TxtTime != null)
+            {
+                String NormalTime = Convert.ToDateTime(TxtTime.Text).ToString("hh:mm:ss tt");
+                sqlCommand.Parameters.Add(new SqlParameter("@Time", HttpUtility.HtmlEncode(NormalTime)));
+            }
+            
             sqlCommand.Parameters.Add(new SqlParameter("@MeetingLocation", HttpUtility.HtmlEncode(TxtMeetingLocation.Text)));
 
             // Open your connection, send the query 
