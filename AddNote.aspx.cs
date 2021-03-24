@@ -16,7 +16,14 @@ namespace Lab2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Checks to see if there is a customer selected
+            if (Session["SelectedCustomerID"] == null)
+            {
+                Session["NoCustSelected"] = "true";
+                Response.Redirect("Navigation.aspx");
 
+
+            }
         }
 
         protected void DdlCustomerList_DataBound(object sender, EventArgs e)
