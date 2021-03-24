@@ -7,7 +7,7 @@
 </asp:Content>
 <asp:Content ID="myContent" ContentPlaceHolderID="body" runat="server"> 
     <div class="row justify-content-center">
-    <h1 class="display-4"> Navigation</h1>
+    <h1 class="display-4">Navigation</h1>
     </div>
     <div>
     <div id="layoutSidenav_content">
