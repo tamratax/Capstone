@@ -60,6 +60,15 @@ namespace WalkerS_Lab1Part3
         protected global::System.Web.UI.WebControls.GridView GridviewCusts;
 
         /// <summary>
+        /// GRDShowAllCust control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GRDShowAllCust;
+
+        /// <summary>
         /// DSCust control.
         /// </summary>
         /// <remarks>
@@ -67,5 +76,14 @@ namespace WalkerS_Lab1Part3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource DSCust;
+
+        /// <summary>
+        /// DSShowAll control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource DSShowAll;
     }
 }
