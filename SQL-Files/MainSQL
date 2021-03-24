@@ -1,3 +1,4 @@
+--drop table LookAt;
 --drop table Scheduling;
 --drop table charges;
 --drop table MOVEEMPLOYEES;
@@ -41,6 +42,7 @@ create table AUCTION (
 	AuctionID	int identity(1, 1) primary key,
 	AuctionDate varchar(20),
 );
+
 create table SERVICETICKET (
 	ServiceTicketID	int not null identity(1, 1) primary key,
 	CustomerID		int references Customer(CustomerID),
@@ -160,13 +162,6 @@ CREATE TABLE CHARGES(
 	
 Create Table AUCTIONINVENTORY(
 	AuctionInventoryID int not null identity(1, 1) primary key,
-	ItemTransportationType varchar(20),
-	AddOn				varchar(200),
-	BringInDate			varchar(200),
-	CloseOutDate		varchar(200),
-	PickupDate			varchar(200),
-	PickupTime			varchar(200),
-	LeaveAt				varchar(200),
 	AuctionNotes		varchar(200),
 	ServiceTicketID	int references SERVICETICKET(ServiceTicketID)
 );
@@ -176,9 +171,20 @@ Create Table SCHEDULING(
 	CustomerID		int references Customer(CustomerID),
 	Purpose		    varchar(255),
 	Description		varchar(255),
-	Date			date,
-	Time			varchar(255),
+	Date			varchar(50),
+	Time			varchar(50),
 	MeetingLocation	varchar(255)
+);
+
+create Table LookAt(
+LookAtID int identity(1, 1)  Not Null Primary Key,
+TruckAccess varchar(1000),
+Supplies varchar (1000),
+Boxes varchar(1000),
+Crew varchar(1000),
+Trucks varchar(1000),
+ServiceTicketID int references SERVICETICKET(ServiceTicketID),
+CustomerID int references Customer(CustomerID)
 );
 
 
@@ -206,9 +212,9 @@ insert into Auction values ('Unassigned');
 insert into Auction values ('2021-02-26');
 insert into Auction values ('2021-03-05');
 
-insert into SERVICETICKET values (1, '2021-01-01','2021-02-25','08:00','2021-02-01', '2021-02-07', 'Move', '13:30', 'True', '2021-06-30', '14:30', 1, 1, 25,'True','True','True', 'False');
-insert into SERVICETICKET values (2, '2021-01-01','2021-02-25','12:00','2021-02-01', '2021-02-07', 'Auction', '13:30', 'True', '2021-06-30', '14:30', 2, 1, 50,'True','False','True', 'False');
-insert into SERVICETICKET values (3, '2021-01-01','2021-02-25','16:00','2021-02-01', '2021-02-07', 'Move', '13:30', 'True', '2021-06-30', '14:30', 3, 1, 75,'True','False','False', 'False');
+insert into SERVICETICKET values (1, '2021-01-01','2021-02-25','08:00','2021-02-01', '2021-02-07', 'Move', '13:30', 'True', '2021-06-30', '1:30', 1, 1, 25,'True','True','True', 'False');
+insert into SERVICETICKET values (2, '2021-01-01','2021-02-25','12:00','2021-02-01', '2021-02-07', 'Auction', '13:30', 'True', '2021-06-30', '2:30', 2, 1, 50,'True','False','True', 'False');
+insert into SERVICETICKET values (3, '2021-01-01','2021-02-25','16:00','2021-02-01', '2021-02-07', 'Move', '13:30', 'True', '2021-06-30', '12:30', 3, 1, 75,'True','False','False', 'False');
 
 
 insert into SERVICEREQUEST values ('Move', '2021-06-15', 'We have a lot of things to move this day and will need plenty of help!','Active', 1);
@@ -238,9 +244,7 @@ insert into TICKETHISTORY values ('2021-01-03','Big Fragile','Customer also says
 insert into TICKETHISTORY values ('2021-02-01','Phone change','Call customer at work number',2,2);
 insert into TICKETHISTORY values ('2021-02-04','Call at home','Call customer at home number',3,2);
 
-insert into AUCTIONINVENTORY values ('Pick-Up', 'False', '', '2021-12-08',  '2021-10-08', '6:30', '09:30', '', 1);
-insert into AUCTIONINVENTORY values ('Pick-Up', 'False', '', '2021-12-08',  '2021-12-05', '14:30', '16:30', '', 2);
-insert into AUCTIONINVENTORY values ('Bring-In', 'False', '2021-9-07', '2021-10-07',  '', '', '', '', 3);
+insert into AUCTIONINVENTORY values ('Looks to need about 15 boxes, 5 large items, going to need 4 men and 3 trucks', 2);
 
 insert into SCHEDULING values (1, 'To Schedule Auction', 'Looking to sell 45 things', '2021-04-01', '12:30', 'In-Person');
 insert into SCHEDULING values (2, 'To Schedule Move', 'Looking to move to Harrisonburg', '2021-04-15', '1:30', 'Staunton');
