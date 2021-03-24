@@ -4,45 +4,76 @@
 
 <html>
 <head runat="server">
-     <title>RoCo Consulting</title>
+    <title>RoCo Consulting</title>
     <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link href="Content/CustomerPortal.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <p>RoCo Consulting</p>
+       <form id="form1" runat="server">
+    <div class="topnav">
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+        <div class="custom">
+        <asp:Label
+            ID="LblActiveUser"
+            runat="server"
+            Text="" ForeColor="White"></asp:Label>
+        <asp:Button
+            ID="BtnLogout"
+            runat="server"
+            Text="Logout ->"
+            OnClick="BtnLogout_Click" />
+            </div>
+    </div>
+
+ <%--   <form id="form1" runat="server">--%>
+
+
+        <%-- <p>RoCo Consulting</p>
         <fieldset>
             <asp:Table
-                ID="Table1" 
+                ID="Table1"
                 runat="server">
                 <asp:TableRow>
-                    <asp:TableCell >
+                    <asp:TableCell>
                         <asp:Image runat="server" ImageUrl="/images/GVM_logo.png"/>
                         <asp:Image runat="server" ImageUrl="/images/GVA_logo.png"/>
                     </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:Label
-                            ID="LblActiveUser" 
-                            runat="server" 
-                            Text=""></asp:Label>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:Button 
-                            ID="BtnLogout" 
-                            runat="server" 
-                            Text="Logout ->" 
-                            OnClick="BtnLogout_Click"/>
-                    </asp:TableCell>
+                    <asp:TableCell>--%>
+        <%--<asp:Label
+                            ID="LblActiveUser"
+                            runat="server"
+                            Text=""></asp:Label>--%>
+        <%--  </asp:TableCell>
+                    <asp:TableCell>--%>
+        <%-- <asp:Button
+                            ID="BtnLogout"
+                            runat="server"
+                            Text="Logout ->"
+                            OnClick="BtnLogout_Click" />--%>
+        <%-- </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
-        </fieldset>
+        </fieldset>--%>
         <br />
+        <%--        <div id="wrapper">
+    <div class="bar green"></div>
+            </div>--%>
         <div>
             <asp:ContentPlaceHolder ID="body" runat="server">
-
             </asp:ContentPlaceHolder>
         </div>
     </form>
+    <script src="Scripts/jquery-3.5.1.slim.js"></script>
+    <script src="Scripts/popper.min.js"></script>
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
 </body>
 </html>
