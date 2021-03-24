@@ -18,6 +18,28 @@ namespace Lab3
 
         }
 
+        protected void UploadButton_Click(object sender, EventArgs e)
+        {
+            if (FilesUpload.HasFile)
+                foreach (HttpPostedFile uploadedFile in FilesUpload.PostedFiles)
+                    try
+                    {
+                        uploadedFile.SaveAs(Server.MapPath("~/uploads/") +
+                                            uploadedFile.FileName);
+                        FileUploadedList.Text += "File name: " +
+                           uploadedFile.FileName + "<br>" +
+                           uploadedFile.ContentLength + " kb<br>" +
+                           "Content type: " + uploadedFile.ContentType + "<br><br>";
+                    }
+                    catch (Exception ex)
+                    {
+                        FileUploadedList.Text = "ERROR: " + ex.Message.ToString();
+                    }
+            else
+            {
+                FileUploadedList.Text = "You have not specified a file.";
+            }
+        }
         protected void BtnSearch_Click(object sender, EventArgs e)
         {
             //Check to see if customer is in the database

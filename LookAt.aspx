@@ -67,7 +67,15 @@
          <br />
     <asp:Label ID="UploadFilesLbl" runat="server" Text="UpLoad Files"></asp:Label>
         <br />
-
+        <asp:FileUpload ID="FilesUpload" runat="server"
+                        AllowMultiple="true" />
+        <br />
+        <asp:Button ID="UploadButton" runat="server"
+                    OnClick="UploadButton_Click"
+                    Text="Upload File" />
+        <br />
+        <asp:Label ID="FileUploadedList" runat="server"/>
+    <br />
     <asp:Label ID="TruckAccLbl" runat="server" Text="Truck Accessibility:"></asp:Label>
     <asp:TextBox ID="TruckAccTxt" runat="server" TextMode="MultiLine" Wrap="true" Rows="5" Width="500px" length="75px"></asp:TextBox>
 
