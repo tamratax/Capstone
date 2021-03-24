@@ -76,6 +76,7 @@
     <Content Include="Content\NewTemplate.css" />
     <Content Include="Content\style4.css" />
     <Content Include="Content\UserLogin.css" />
+    <Content Include="LookAt.aspx" />
     <Content Include="MoveInventory.aspx" />
     <Content Include="AddServiceRequest.aspx" />
     <Content Include="Auction.aspx" />
@@ -94,6 +95,7 @@
     <Content Include="AuctionInventory.aspx" />
     <Content Include="LabFormat.Master" />
     <Content Include="CustomerFacingMaster.Master" />
+    <Content Include="Scheduling.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -230,6 +232,13 @@
     <Compile Include="InitialConversation.aspx.designer.cs">
       <DependentUpon>InitialConversation.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LookAt.aspx.cs">
+      <DependentUpon>LookAt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LookAt.aspx.designer.cs">
+      <DependentUpon>LookAt.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MoveInventory.aspx.cs">
       <DependentUpon>MoveInventory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -323,6 +332,13 @@
     </Compile>
     <Compile Include="PasswordHash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scheduling.aspx.cs">
+      <DependentUpon>Scheduling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Scheduling.aspx.designer.cs">
+      <DependentUpon>Scheduling.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UnauthorizedAccess.aspx.cs">
       <DependentUpon>UnauthorizedAccess.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -16,6 +16,15 @@ namespace WalkerS_Lab1Part3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Checks to see if there is a customer selected
+            if (Session["SelectedCustomerID"] == null)
+            {
+                Session["NoCustSelected"] = "true";
+                Response.Redirect("Navigation.aspx");
+
+
+            }
+
             if (!IsPostBack)
             {
                 //Creates items for service type ddl
@@ -314,11 +323,22 @@ namespace WalkerS_Lab1Part3
                 //Parameterizes all the strings
                 sqlCommand.Parameters.Add(new SqlParameter("@CustomerID", Session["SelectedCustomerID"].ToString()));
                 sqlCommand.Parameters.Add(new SqlParameter("@PotentialDate", HttpUtility.HtmlEncode(TxtPotentialDate.Text)));
-                sqlCommand.Parameters.Add(new SqlParameter("@PotentialTime", HttpUtility.HtmlEncode(TxtPotentialTime.Text)));
+
+                if (TxtPotentialTime != null)
+                {
+                    String NormalTime = Convert.ToDateTime(TxtPotentialTime.Text).ToString("hh:mm:ss tt");
+                    sqlCommand.Parameters.Add(new SqlParameter("@PotentialTime", HttpUtility.HtmlEncode(NormalTime)));
+                }
+                
                 sqlCommand.Parameters.Add(new SqlParameter("@ServiceDate", HttpUtility.HtmlEncode(TxtServiceDate.Text)));
                 sqlCommand.Parameters.Add(new SqlParameter("@CompletionDate", HttpUtility.HtmlEncode(TxtCompletionDate.Text)));
                 sqlCommand.Parameters.Add(new SqlParameter("@ServiceType", DdlServiceType.SelectedItem.Text));
-                sqlCommand.Parameters.Add(new SqlParameter("@DestinationTime", HttpUtility.HtmlEncode(TxtDestinationTime.Text)));
+                if (TxtDestinationTime != null)
+                {
+                    String NormalTime = Convert.ToDateTime(TxtDestinationTime.Text).ToString("hh:mm:ss tt");
+                    sqlCommand.Parameters.Add(new SqlParameter("@DestinationTime", HttpUtility.HtmlEncode(NormalTime)));
+                }
+                
                 sqlCommand.Parameters.Add(new SqlParameter("@LookAtCB", ChkBoxLookAt.Checked.ToString()));
                 sqlCommand.Parameters.Add(new SqlParameter("@LookAtDate", HttpUtility.HtmlEncode(TxtLookAtSchedule.Text)));
                 sqlCommand.Parameters.Add(new SqlParameter("@LookAtTime", HttpUtility.HtmlEncode(TxtLookatScheduleTime.Text)));
