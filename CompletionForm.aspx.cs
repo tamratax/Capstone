@@ -486,7 +486,28 @@ namespace Lab3
             com.Parameters.AddWithValue("CompletedDate", System.DateTime.Today.ToString("yyyy-MM-dd"));
             com.Parameters.AddWithValue("ServiceTicketID", DDLType.SelectedValue);
             com.Parameters.AddWithValue("CustomerID", Session["SelectedCustomerID"].ToString());
-           
+
+            var fromAddress = new MailAddress("RoCoConsulting1@gmail.com", "From RoCoConsulting");
+            var toAddress = new MailAddress("meharida@dukes.jmu.edu", "To Name");
+            const string fromPassword = "RoCo703757";
+            const string subject = "Completion Form has been Completed!";
+            const string body = "Thank you for your business," +
+                " We would be very greatful if you could fill out our survey and let us know how we did." +
+                "https://forms.gle/xo8Wt5nk1bnUidX66";
+
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+            };
+            using (var message = new MailMessage(fromAddress, toAddress) { Subject = subject, Body = body })
+            {
+                smtp.Send(message);
+            }
 
 
             com.ExecuteNonQuery();
