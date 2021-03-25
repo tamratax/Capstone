@@ -1,4 +1,5 @@
 --drop Table MoveAssessment;
+--drop table notes;
 --drop table payment;
 --drop table completed;
 --drop table moveequipment;
