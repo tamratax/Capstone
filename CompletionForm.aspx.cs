@@ -66,6 +66,15 @@ namespace Lab3
 
 
             }
+            if (!IsPostBack)
+            {
+                divEmp.Visible = false;
+                divCharge.Visible = false;
+                divPayment.Visible = false;
+                divAddress.Visible = false;
+                divVehicle.Visible = false;
+                divTravel.Visible = false;
+            }
         }
 
         //protected void DDLCust_SelectedIndexChanged(object sender, EventArgs e)
@@ -491,6 +500,67 @@ namespace Lab3
 
             com.ExecuteNonQuery();
             sqlConnect.Close();
+        }
+
+        protected void btnAddEmp_Click(object sender, EventArgs e)
+        {
+            divEmp.Visible = true;
+            divCharge.Visible = false;
+            divPayment.Visible = false;
+            divAddress.Visible = false;
+            divVehicle.Visible = false;
+            divTravel.Visible = false;
+
+        }
+
+        protected void btnCharges_Click(object sender, EventArgs e)
+        {
+            divCharge.Visible = true;
+            divEmp.Visible = false;
+            divPayment.Visible = false;
+            divAddress.Visible = false;
+            divVehicle.Visible = false;
+            divTravel.Visible = false;
+        }
+
+        protected void btnPay_Click(object sender, EventArgs e)
+        {
+            divPayment.Visible = true;
+            divEmp.Visible = false;
+            divCharge.Visible = false;
+            divAddress.Visible = false;
+            divVehicle.Visible = false;
+            divTravel.Visible = false;
+        }
+
+        protected void btnAddress_Click(object sender, EventArgs e)
+        {
+            divAddress.Visible = true;
+            divEmp.Visible = false;
+            divCharge.Visible = false;
+            divPayment.Visible = false;
+            divVehicle.Visible = false;
+            divTravel.Visible = false;
+        }
+
+        protected void btnVehicle_Click(object sender, EventArgs e)
+        {
+            divVehicle.Visible = true;
+            divEmp.Visible = false;
+            divCharge.Visible = false;
+            divPayment.Visible = false;
+            divAddress.Visible = false;
+            divTravel.Visible = false;
+        }
+
+        protected void btnTravel1_Click(object sender, EventArgs e)
+        {
+            divTravel.Visible = true;
+            divEmp.Visible = false;
+            divCharge.Visible = false;
+            divPayment.Visible = false;
+            divAddress.Visible = false;
+            divVehicle.Visible = false;
         }
     }
 }
