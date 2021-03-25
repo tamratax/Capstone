@@ -239,6 +239,12 @@ Donation varchar(25),
 Auction varchar(25),
 CustomerID int references Customer(CustomerID) );
 
+CREATE TABLE NOTES (
+	NoteID		int IDENTITY(1,1) NOT NULL Primary Key,
+	DateCreated	varchar(30),
+	NoteText	varchar(max),
+	CustomerID	int references Customer(CustomerID)
+);
 
 
 
