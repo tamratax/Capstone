@@ -77,6 +77,7 @@
     <Content Include="Content\style4.css" />
     <Content Include="Content\UserLogin.css" />
     <Content Include="LookAt.aspx" />
+    <Content Include="MoveAssessment.aspx" />
     <Content Include="MoveInventory.aspx" />
     <Content Include="AddServiceRequest.aspx" />
     <Content Include="Auction.aspx" />
@@ -238,6 +239,13 @@
     </Compile>
     <Compile Include="LookAt.aspx.designer.cs">
       <DependentUpon>LookAt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MoveAssessment.aspx.cs">
+      <DependentUpon>MoveAssessment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MoveAssessment.aspx.designer.cs">
+      <DependentUpon>MoveAssessment.aspx</DependentUpon>
     </Compile>
     <Compile Include="MoveInventory.aspx.cs">
       <DependentUpon>MoveInventory.aspx</DependentUpon>
