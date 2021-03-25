@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BootstrapSandBox.aspx" />
+    <Content Include="Content\AddService.css" />
     <Content Include="Content\CustomerPortal.css" />
     <Content Include="Content\LandingPage.css" />
     <Content Include="Content\Login.css" />

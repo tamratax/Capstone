@@ -15,15 +15,6 @@ namespace WalkerS_Lab1Part3
     {
 
         /// <summary>
-        /// DdlInitiatingEmp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlInitiatingEmp;
-
-        /// <summary>
         /// LblCust control.
         /// </summary>
         /// <remarks>
@@ -175,6 +166,15 @@ namespace WalkerS_Lab1Part3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnAddAddress;
+
+        /// <summary>
+        /// DdlInitiatingEmp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlInitiatingEmp;
 
         /// <summary>
         /// TxtPotentialDate control.
