@@ -17,12 +17,18 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["SelectedCustomerID"] == null)
+            {
+                Session["NoCustSelected"] = "true";
+                Response.Redirect("Navigation.aspx");
 
+
+            }
         }
 
         protected void SaveBtn_Click(object sender, EventArgs e)
         {
-            String sqlQuery = "insert into MoveAssessment values (@MustBeOut, @Range1, @Range2,@DestCity, @DestState, @DestZipCode, @MlSListing, @SendPhotos, @Packing,@TrashRemoval, @Donation, @Auction, @CustomerID )";
+            String sqlQuery = "insert into MoveAssessment values (@MustBeOut, @Range1, @Range2, @DestAddress, @DestCity, @DestState, @DestZipCode, @MlSListing, @SendPhotos, @Packing,@TrashRemoval, @Donation, @Auction, @CustomerID )";
             //Define the Connection to the Database
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -36,6 +42,7 @@ namespace Lab3
 
             sqlCommand.Parameters.Add(new SqlParameter("@Range1", HttpUtility.HtmlEncode(TxtRange1.Text)));
             sqlCommand.Parameters.Add(new SqlParameter("@Range2", HttpUtility.HtmlEncode(TxtRange2.Text)));
+            sqlCommand.Parameters.Add(new SqlParameter("@DestAddress", HttpUtility.HtmlEncode(DestAddressTxt.Text)));
             sqlCommand.Parameters.Add(new SqlParameter("@DestCity", HttpUtility.HtmlEncode(DestCityTxt.Text)));
             sqlCommand.Parameters.Add(new SqlParameter("@DestState", HttpUtility.HtmlEncode(DestStateTxt.Text)));
             sqlCommand.Parameters.Add(new SqlParameter("@DestZipCode", HttpUtility.HtmlEncode(DestZipTxt.Text)));

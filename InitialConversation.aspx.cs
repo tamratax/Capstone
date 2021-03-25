@@ -21,8 +21,15 @@ namespace WalkerS_Lab1Part3
             if (!IsPostBack)
             {
 
-                
-                
+                //Creates items for Phone type ddl
+                DdlPreferredContactMethod.Items.Add(new ListItem("Select", "-1"));
+                DdlPreferredContactMethod.Items.Add(new ListItem("Text", "0"));
+                DdlPreferredContactMethod.Items.Add(new ListItem("Call Cell", "1"));
+                DdlPreferredContactMethod.Items.Add(new ListItem("Call Home", "2"));
+                DdlPreferredContactMethod.Items.Add(new ListItem("Call Work", "3"));
+                DdlPreferredContactMethod.Items.Add(new ListItem("Email", "4"));
+
+
                 //If the user is trying to edit a customer, there will be a customerid in this session data
                 if (Session["Customer ID"] != null)
                 {
@@ -50,9 +57,21 @@ namespace WalkerS_Lab1Part3
                     if (dtForSelect.Rows[0]["CompletedByEmp"] != DBNull.Value)
                     {
                         DdlCompletedByEmp.SelectedValue =  Convert.ToString(dtForSelect.Rows[0]["CompletedByEmp"]);
-                    } 
-                    //TxtCustomerNotes.Text = Convert.ToString(dtForSelect.Rows[0]["CustomerNotes"]);
+                    }
+
+                    TxtInitialContactDate.Text = Convert.ToString(dtForSelect.Rows[0]["InitialContactDate"]);
+                    TxtDeadlineDate.Text = Convert.ToString(dtForSelect.Rows[0]["DeadlineDate"]);
+                    TxtReferralChannel.Text = Convert.ToString(dtForSelect.Rows[0]["ReferralChannel"]);
+                    
+
+                    if (dtForSelect.Rows[0]["PreferredContactMethod"] != null)
+                    {
+                        //DdlPreferredContactMethod.SelectedValue = Convert.ToString(dtForSelect.Rows[0]["PreferredContactMethod"]);
+                        DdlPreferredContactMethod.SelectedValue = DdlPreferredContactMethod.Items.FindByText(Convert.ToString(dtForSelect.Rows[0]["PreferredContactMethod"]).Trim()).Value;
+                    }
                     ChkBoxCompleted.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["Completed"]);
+
+                    
 
                     //Fill Primary Address
                     //Pulling in customer's record
@@ -107,7 +126,11 @@ namespace WalkerS_Lab1Part3
             TxtState.Text = "VA";
             TxtZip.Text = "22801";
             DdlCompletedByEmp.SelectedIndex = 1;
-           
+            TxtInitialContactDate.Text = "2021-03-05";
+            TxtDeadlineDate.Text = "2021-04-15";
+            TxtReferralChannel.Text = "From a friend";
+            DdlPreferredContactMethod.SelectedIndex = 1;
+
         }
 
         //Clears all textboxes once button is clicked
@@ -123,7 +146,12 @@ namespace WalkerS_Lab1Part3
             TxtCity.Text = "";
             TxtState.Text = "";
             TxtZip.Text = "";
-            
+            DdlCompletedByEmp.SelectedIndex = -1;
+            TxtInitialContactDate.Text = "";
+            TxtDeadlineDate.Text = "";
+            TxtReferralChannel.Text = "";
+            DdlPreferredContactMethod.SelectedIndex = -1;
+
 
             //Stops the edit function
             Session["Customer ID"] = null;
@@ -163,12 +191,13 @@ namespace WalkerS_Lab1Part3
                 //}
             }
             else { completed = "False"; }
+
             if (Session["Customer ID"] != null)
             {
                
 
                 //Concatenate Sql Query Update Statement
-                String sqlQuery = "UPDATE CUSTOMER SET FirstName = @FirstName, LastName = @LastName, CellPhone = @CellPhone, WorkPhone = @WorkPhone, HomePhone = @HomePhone, Email = @Email, CompletedByEmp = @CompletedBy, DateContacted = @DateContacted, completed = '" + completed + "' WHERE customerID = " + Session["Customer ID"].ToString();
+                String sqlQuery = "UPDATE CUSTOMER SET FirstName = @FirstName, LastName = @LastName, CellPhone = @CellPhone, WorkPhone = @WorkPhone, HomePhone = @HomePhone, Email = @Email, CompletedByEmp = @CompletedBy, DateContacted = @DateContacted, InitialContactDate = @InitialContactDate, DeadlineDate = @DeadlineDate, ReferralChannel = @ReferralChannel, PreferredContactMethod = @PreferredContactMethod, completed = '" + completed + "' WHERE customerID = " + Session["Customer ID"].ToString();
 
                 //Define the Connection to the Database
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -196,9 +225,10 @@ namespace WalkerS_Lab1Part3
                 {
                     sqlCommand.Parameters.Add(new SqlParameter("@CompletedBy", DdlCompletedByEmp.SelectedItem.Value));
                 }
-                
-             
-
+                sqlCommand.Parameters.Add(new SqlParameter("@InitialContactDate", HttpUtility.HtmlEncode(TxtInitialContactDate.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@DeadlineDate", HttpUtility.HtmlEncode(TxtDeadlineDate.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@ReferralChannel", HttpUtility.HtmlEncode(TxtReferralChannel.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@PreferredContactMethod", HttpUtility.HtmlEncode(DdlPreferredContactMethod.SelectedItem.Text)));
 
                 // Open your connection, send the query 
                 sqlConnect.Open();
@@ -207,6 +237,35 @@ namespace WalkerS_Lab1Part3
                 // Close all related connections
                 queryResults.Close();
                 sqlConnect.Close();
+
+
+
+
+                //Concatenate Sql Query Update Statement for Address Table
+                String sqlQueryAddress = "UPDATE ADDRESS SET Street = @Street, City = @City, State = @State, Zip = @Zip WHERE customerID = " + Session["Customer ID"].ToString();
+
+                //Define the Connection to the Database
+                SqlConnection sqlConnectAddress = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+                // Create the SQL Command object which will send the query
+                SqlCommand sqlCommandAddress = new SqlCommand();
+                sqlCommandAddress.Connection = sqlConnectAddress;
+                sqlCommandAddress.CommandType = CommandType.Text;
+                sqlCommandAddress.CommandText = sqlQueryAddress;
+
+                //Parameterizes all strings
+                sqlCommandAddress.Parameters.Add(new SqlParameter("@Street", HttpUtility.HtmlEncode(TxtStreet.Text)));
+                sqlCommandAddress.Parameters.Add(new SqlParameter("@City", HttpUtility.HtmlEncode(TxtCity.Text)));
+                sqlCommandAddress.Parameters.Add(new SqlParameter("@State", HttpUtility.HtmlEncode(TxtState.Text)));
+                sqlCommandAddress.Parameters.Add(new SqlParameter("@Zip", HttpUtility.HtmlEncode(TxtZip.Text)));
+
+                // Open your connection, send the query 
+                sqlConnectAddress.Open();
+                SqlDataReader queryResultsAddress = sqlCommandAddress.ExecuteReader();
+
+                // Close all related connections
+                queryResultsAddress.Close();
+                sqlConnectAddress.Close();
 
                 LblSaveStatus.Text = "Customer Updated Successfully";
                 LblSaveStatus.ForeColor = Color.Green;
@@ -261,7 +320,7 @@ namespace WalkerS_Lab1Part3
                     //    initialContact = DdlInitialContact.SelectedItem.Text;
                     //}
                     //Concatenate Sql Query Insert Statements
-                    String sqlQuery = "insert into CUSTOMER values (@FirstName, @LastName, @CellPhone, @WorkPhone, @HomePhone, @Email, @CompletedBy, '" + System.DateTime.Today.ToShortDateString() + "', @Completed)";
+                    String sqlQuery = "insert into CUSTOMER values (@FirstName, @LastName, @CellPhone, @WorkPhone, @HomePhone, @Email, @CompletedBy, '" + System.DateTime.Today.ToShortDateString() + "', @InitialContactDate, @DeadlineDate, @ReferralChannel, @PreferredContactMethod, @Completed)";
                     //Define the Connection to the Database
                     SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -277,6 +336,10 @@ namespace WalkerS_Lab1Part3
                     sqlCommand.Parameters.Add(new SqlParameter("@WorkPhone", HttpUtility.HtmlEncode(TxtWorkPhone.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@Email", HttpUtility.HtmlEncode(TxtEmail.Text)));
                     sqlCommand.Parameters.Add(new SqlParameter("@CompletedBy", DdlCompletedByEmp.SelectedItem.Value));
+                    sqlCommand.Parameters.Add(new SqlParameter("@InitialContactDate", HttpUtility.HtmlEncode(TxtInitialContactDate.Text)));
+                    sqlCommand.Parameters.Add(new SqlParameter("@DeadlineDate", HttpUtility.HtmlEncode(TxtDeadlineDate.Text)));
+                    sqlCommand.Parameters.Add(new SqlParameter("@ReferralChannel", HttpUtility.HtmlEncode(TxtReferralChannel.Text)));
+                    sqlCommand.Parameters.Add(new SqlParameter("@PreferredContactMethod", DdlPreferredContactMethod.SelectedItem.Text));
                     sqlCommand.Parameters.Add(new SqlParameter("@Completed", ChkBoxCompleted.Checked.ToString()));
 
                     // Open your connection, send the query 

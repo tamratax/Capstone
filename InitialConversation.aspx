@@ -74,7 +74,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label>Address</label>
+        <label>Address (Current Address)</label>
         <%--        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">--%>
         <asp:TextBox ID="TxtStreet"
             runat="server"
@@ -86,9 +86,8 @@
         <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
     </div>--%>
     <div class="form-row">
-        <div class="form-group col-md-6">
+         <div class="form-group col-md-4">
             <label for="inputCity">City</label>
-            <%--            <input type="text" class="form-control" id="inputCity" />--%>
             <asp:TextBox ID="TxtCity"
                 runat="server"
                 class="form-control"
@@ -108,7 +107,46 @@
                 class="form-control"
                 Placeholder="Zip"></asp:TextBox>
         </div>
+
     </div>
+        <div class="form-row">
+       <div class="form-group col-md-3">
+            <label for="LblInitialContactDate">Initial Contact</label>
+            <%--            <input type="text" class="form-control" id="inputCity" />--%>
+            <asp:TextBox ID="TxtInitialContactDate"
+                runat="server"
+                class="form-control"
+                Placeholder=""
+                TextMode="Date"></asp:TextBox>
+        </div>
+             <div class="form-group col-md-3">
+            <label for="lblDeadlineDate">Deadline Date For Service</label>
+            <asp:TextBox ID="TxtDeadlineDate"
+                runat="server"
+                class="form-control"
+                Placeholder="Deadline Date"
+                TextMode="Date"></asp:TextBox>
+        </div>
+             <div class="form-group col-md-4">
+            <label for="LblReferralChannel">How Did You Hear About Us?</label>
+            <asp:TextBox ID="TxtReferralChannel"
+                runat="server"
+                class="form-control"
+                Placeholder="Ex. From A Friend"></asp:TextBox>
+        </div>
+       
+    </div>
+      <div class="form-row">
+       
+          <div class="form-group col-md-4">
+            <label for="LblPreferredContactMethod">Preferred Contact Method</label>
+              <asp:DropDownList 
+                  ID="DdlPreferredContactMethod"
+                  runat="server"></asp:DropDownList>
+        </div>
+       
+    </div>
+
     <div>
         <label>Check if form is complete: </label>
         <asp:CheckBox

@@ -40,6 +40,10 @@ create table CUSTOMER (
 	Email			varchar(255),
 	CompletedByEmp	int references EMPLOYEE(EmployeeID),
 	DateContacted	nvarchar(20),
+	InitialContactDate nvarchar(20),
+	DeadlineDate	nvarchar(20),
+	ReferralChannel varchar(20),
+	PreferredContactMethod varchar(20),
 	Completed		varchar(10)
 );
 
@@ -229,6 +233,7 @@ MoveAssessmentID int identity (1,1) Not Null Primary Key,
 MustBeOut varchar (75),
 Range1 varchar (100),
 Range2 varchar (100),
+DestAddress varchar(100),
 DestCity varchar(100),
 DestState varchar(50),
 DestZipCode int,
@@ -257,9 +262,9 @@ insert into EMPLOYEE values ('Jack', 'Frost');
 insert into EMPLOYEE values ('Professor', 'Ezell');
 insert into EMPLOYEE values ('Camille', 'Wood');
 
-insert into CUSTOMER values ('Aaron', 'Walsh', '1234567822','123456789', '123456789','walsh@dukes.com', 1, '2021-03-07', 'False' );
-insert into CUSTOMER values ('Jared', 'Clatterbuck', '1234567890','', '','Clat@dukes.com', 2, '2021-03-07', 'False' );
-insert into CUSTOMER values ('Stu', 'Guy', '','', '1234567890','Guy@dukes.com', 1,'2021-03-07', 'False' );
+insert into CUSTOMER values ('Aaron', 'Walsh', '1234567822','123456789', '123456789','walsh@dukes.com', 1, '2021-03-07', '2021-03-05', '2021-03-30', 'From a friend', 'Call Cell', 'False' );
+insert into CUSTOMER values ('Jared', 'Clatterbuck', '1234567890','', '','Clat@dukes.com', 2, '2021-03-07', '2021-03-05', '2021-04-30', 'From a friend', 'Call Home', 'False' );
+insert into CUSTOMER values ('Stu', 'Guy', '','', '1234567890','Guy@dukes.com', 1,'2021-03-07', '2021-03-05', '2021-05-30', 'From a friend', 'Call Work', 'False' );
 
 insert into EQUIPMENT values ('Pickup Truck #1');
 insert into EQUIPMENT values ('Pickup Truck #2');
@@ -281,9 +286,9 @@ insert into SERVICEREQUEST values ('Auction', '2021-06-30', 'We want to sell all
 insert into SERVICEREQUEST values ('Move', '2021-01-31', 'Help us!', 'Active', 1);
 
 
-insert into Address values (null, 1, 'street', 'city','state ', '123', 'description');
-insert into Address values (null, 2, 'street', 'city','state ', '123', 'description');
-insert into Address values (3, 3, 'street', 'city','state ', '123', 'description');
+insert into Address values (null, 1, 'street', 'city','state ', '123', 'Primary Contact Address');
+insert into Address values (null, 2, 'street', 'city','state ', '123', 'Primary Contact Address');
+insert into Address values (3, 3, 'street', 'city','state ', '123', 'Primary Contact Address');
 
 
 insert into INVENTORY values (1,'Bowl','Blue bowl', 500.23,  2, '2021-05-04');
