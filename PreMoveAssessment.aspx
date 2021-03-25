@@ -3,9 +3,15 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <h1>Preliminary Move Assessment</h1>
-
-    <asp:Label ID="DateOutLbl" runat="server" Text="What Day do you have to be Out By:"></asp:Label>
-    <asp:TextBox ID="DateOutTxt" runat="server" TextMode="Date"></asp:TextBox>
+     <div class="form-group">
+        <label>What day do you have to be out by?</label>
+         <asp:TextBox ID="DateOutTxt" runat="server" TextMode="Date"
+             class="form-control"></asp:TextBox>
+         </div>
+    <div class="form-group">
+        <label>Range of Days</label>
+    <%--<asp:Label ID="DateOutLbl" runat="server" Text="What Day do you have to be Out By:"></asp:Label>--%>
+    <%--<asp:TextBox ID="DateOutTxt" runat="server" TextMode="Date"></asp:TextBox>--%>
     <br />
 
     <asp:Label ID="RangeLbl" runat="server" Text="Range of Days"></asp:Label>
