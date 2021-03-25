@@ -57,6 +57,9 @@
                                 <a href="AuctionInventory.aspx">Walkthrough</a>
                             </li>
                             <li>
+                                <a href="PreMoveAssessment.aspx">Pre-Move Assessment</a>
+                            </li>
+                             <li>
                                 <a href="WarehouseAssign.aspx">Assign to Warehouse</a>
                             </li>
                             <li>
