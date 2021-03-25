@@ -15,15 +15,6 @@ namespace Lab3
     {
 
         /// <summary>
-        /// TblSelection control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table TblSelection;
-
-        /// <summary>
         /// LblCustomer control.
         /// </summary>
         /// <remarks>
@@ -87,22 +78,67 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.GridView GridAddress;
 
         /// <summary>
-        /// TblCompletion control.
+        /// btnAddEmp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table TblCompletion;
+        protected global::System.Web.UI.WebControls.Button btnAddEmp;
 
         /// <summary>
-        /// LblMoveEmployees control.
+        /// btnCharges control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblMoveEmployees;
+        protected global::System.Web.UI.WebControls.Button btnCharges;
+
+        /// <summary>
+        /// btnPay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPay;
+
+        /// <summary>
+        /// btnAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddress;
+
+        /// <summary>
+        /// btnVehicle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVehicle;
+
+        /// <summary>
+        /// btnTravel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnTravel1;
+
+        /// <summary>
+        /// divEmp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divEmp;
 
         /// <summary>
         /// Drplst control.
@@ -132,22 +168,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.GridView GridEmployee;
 
         /// <summary>
-        /// chargestable control.
+        /// divCharge control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table chargestable;
-
-        /// <summary>
-        /// LblAmount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblAmount;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCharge;
 
         /// <summary>
         /// TxtAmount control.
@@ -157,15 +184,6 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtAmount;
-
-        /// <summary>
-        /// LblCharge control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblCharge;
 
         /// <summary>
         /// TxtCharge control.
@@ -193,15 +211,6 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridCharges;
-
-        /// <summary>
-        /// lblsupplies control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblsupplies;
 
         /// <summary>
         /// TxtSupplies control.
@@ -238,6 +247,15 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LblCalculate;
+
+        /// <summary>
+        /// divPayment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPayment;
 
         /// <summary>
         /// paymenttable control.
@@ -337,6 +355,15 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPayment;
+
+        /// <summary>
+        /// divAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAddress;
 
         /// <summary>
         /// GridAddresses control.
@@ -456,6 +483,15 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Button BtnAddAddress;
 
         /// <summary>
+        /// divVehicle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divVehicle;
+
+        /// <summary>
         /// tblvehicle control.
         /// </summary>
         /// <remarks>
@@ -526,6 +562,15 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LblStatus;
+
+        /// <summary>
+        /// divTravel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTravel;
 
         /// <summary>
         /// tbltravel control.
