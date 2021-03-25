@@ -11,142 +11,169 @@ namespace Lab3
 {
 
 
-    public partial class LookAt
+    public partial class WarehouseAssign
     {
 
         /// <summary>
-        /// CustLbl control.
+        /// LblCustomer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CustLbl;
+        protected global::System.Web.UI.WebControls.Label LblCustomer;
 
         /// <summary>
-        /// TxtSearch control.
+        /// LblCustomerSelected control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtSearch;
+        protected global::System.Web.UI.WebControls.Label LblCustomerSelected;
 
         /// <summary>
-        /// BtnSearch control.
+        /// table1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSearch;
+        protected global::System.Web.UI.WebControls.Table table1;
 
         /// <summary>
-        /// GridViewCustomers control.
+        /// gridtable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewCustomers;
+        protected global::System.Web.UI.WebControls.Table gridtable;
 
         /// <summary>
-        /// GrdServices control.
+        /// GridWarehouse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GrdServices;
+        protected global::System.Web.UI.WebControls.GridView GridWarehouse;
 
         /// <summary>
-        /// TruckAccTxt control.
+        /// table2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TruckAccTxt;
+        protected global::System.Web.UI.WebControls.Table table2;
 
         /// <summary>
-        /// SuppliesTxt control.
+        /// LblLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SuppliesTxt;
+        protected global::System.Web.UI.WebControls.Label LblLocation;
 
         /// <summary>
-        /// BoxesTxt control.
+        /// DdlLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox BoxesTxt;
+        protected global::System.Web.UI.WebControls.DropDownList DdlLocation;
 
         /// <summary>
-        /// CrewTxt control.
+        /// RfvLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CrewTxt;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvLocation;
 
         /// <summary>
-        /// TrucksTxt control.
+        /// LblDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TrucksTxt;
+        protected global::System.Web.UI.WebControls.Label LblDescription;
 
         /// <summary>
-        /// FilesUpload control.
+        /// TxtDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FilesUpload;
+        protected global::System.Web.UI.WebControls.TextBox TxtDescription;
 
         /// <summary>
-        /// UploadButton control.
+        /// RequiredFieldValidator2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button UploadButton;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
         /// <summary>
-        /// FileUploadedList control.
+        /// LblDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FileUploadedList;
+        protected global::System.Web.UI.WebControls.Label LblDate;
 
         /// <summary>
-        /// Save control.
+        /// TxtDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Save;
+        protected global::System.Web.UI.WebControls.TextBox TxtDate;
 
         /// <summary>
-        /// LblSaveStatus control.
+        /// RequiredFieldValidator4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblSaveStatus;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+
+        /// <summary>
+        /// Savebtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Savebtn;
+
+        /// <summary>
+        /// LblStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblStatus;
+
+        /// <summary>
+        /// dtasrcWarehouse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcWarehouse;
     }
 }

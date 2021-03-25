@@ -2,54 +2,100 @@
 <%-- Coded By: Stuart Walker & Aaron Walsh --%>
 
 <asp:Content ID="myContent" ContentPlaceHolderID="body" runat="server">
-            <h1>View Customers</h1>
-            <fieldset>
-                <legend>Select Customer to View Details:</legend>
+    <h1>View Customers</h1>
+     <fieldset>
+         <div>
+            <asp:Label ID="SearchCustomerLbl" runat="server" Text="Searh for a Customer:"></asp:Label>
+            <asp:TextBox ID="TxtSearch" runat="server"></asp:TextBox>
+            <asp:Button ID="BtnSearch" runat="server" Text="Search" OnClick="BtnSearch_Click" />
+             <asp:Button ID="BtnLoadAll" runat="server" Text="Show All" OnClick="BtnLoadAll_Click"/>
+             <br />
+           <asp:GridView ID="GridviewCusts" 
+            runat="server" 
+            AutoGenerateEditButton="true"
+            OnRowEditing="GridviewMoves_RowEditing"            
+            EmptyDataText="No Customers Found"
+            DataKeyNames="CustomerID"
+            AutoGenerateColumns="false"
+            AllowPaging="true"
+            AllowSorting="True" 
+            Visible="false"
+            DataSourceID="DSCust"
+            CssClass="table"
+            AlternatingRowStyle-BackColor="WhiteSmoke"
+            HeaderStyle-CssClass="thead-light">
+            <Columns>
+                 <asp:CommandField ButtonType="Button" />
+                    <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" Visible="false" />
+                    <asp:BoundField DataField="FirstName" HeaderText="First Name" />
+                    <asp:BoundField DataField="LastName" HeaderText="Last Name" />
+                    <asp:BoundField DataField="CellPhone" HeaderText="Cell Phone " />
+                    <asp:BoundField DataField="WorkPhone" HeaderText="Work Phone" />
+                    <asp:BoundField DataField="HomePhone" HeaderText="HomePhone " />
+                    <asp:BoundField DataField="Email" HeaderText="Email" />                   
+            </Columns>
+        </asp:GridView>
 
-                <asp:Label ID="Label2" runat="server" Text="Customer Name: "></asp:Label>
-                <asp:DropDownList
-                    ID="ddlCustomerList"
-                    runat="server"
-                    DataSourceID="dtasrcCustomerList"
-                    DataTextField="CustomerName"
-                    DataValueField="CustomerID"
-                    AutoPostBack="true"
-                    OnSelectedIndexChanged="ddlCustomerList_SelectedIndexChanged" 
-                    OnDataBound="ddlCustomerList_DataBound">
-                </asp:DropDownList>
 
-                <asp:Button ID="btnLoadAllCustomer"
-                    runat="server"
-                    Text="Show All Customers"
-                    OnClick="btnLoadAllCustomer_Click" />
+<asp:GridView ID="GRDShowAllCust" 
+            runat="server"  
+            AutoGenerateEditButton="true"
+            OnRowEditing="GridviewMoves_RowEditing"            
+            EmptyDataText="No Customers Found"
+            DataKeyNames="CustomerID"
+            AutoGenerateColumns="false"
+            AllowPaging="true"
+            AllowSorting="True" 
+            DataSourceID="DSShowAll"
+            CssClass="table"
+            AlternatingRowStyle-BackColor="WhiteSmoke"
+            HeaderStyle-CssClass="thead-light">
+            <Columns>
+                 <asp:CommandField ButtonType="Button" />
+                    <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" Visible="false" />
+                    <asp:BoundField DataField="FirstName" HeaderText="First Name" />
+                    <asp:BoundField DataField="LastName" HeaderText="Last Name" />
+                    <asp:BoundField DataField="CellPhone" HeaderText="Cell Phone " />
+                    <asp:BoundField DataField="WorkPhone" HeaderText="Work Phone" />
+                    <asp:BoundField DataField="HomePhone" HeaderText="HomePhone " />
+                    <asp:BoundField DataField="Email" HeaderText="Email" />                   
+            </Columns>
+        </asp:GridView>
 
-                <asp:Button ID="BtnAddCustomer"
-                    runat="server"
-                    Text="Add Customer ->"
-                    OnClick="BtnAddCustomer_Click" />
 
-                <asp:Button ID="BtnNavigation"
-                    runat="server"
-                    Text="Back To Navigation ->"
-                    OnClick="BtnNavigation_Click" />
+
+         </div>
+
 
 
             </fieldset>
-            <br />
-            <fieldset>
-                <legend>Orders for select customer: </legend>
-                <asp:GridView
-                    ID="grdOrderResults"
-                    runat="server"
-                    AlternatingRowStyle-BackColor="#ebebeb"
-                    EmptyDataText="No customer selected!">
-                </asp:GridView>
-            </fieldset>
-
-        <asp:SqlDataSource
-            ID="dtasrcCustomerList"
+      <asp:SqlDataSource
+            ID="DSCust"
             runat="server"
             ConnectionString="<%$ConnectionStrings:Lab3%>"
-            SelectCommand="Select CustomerID, FirstName + ' ' + LastName as CustomerName
-                    from Customer Order By LastName ASC"></asp:SqlDataSource>
+            SelectCommand="Select  CustomerID, FirstName, LastName, CellPhone, WorkPhone, HomePhone,Email  from Customer where Firstname + ' ' + LastName  Like '%'+@Name+'%' " 
+            UpdateCommand="UPDATE Customer SET FirstName = @FirstName, LastName = @LastName, CellPhone = @CellPhone, WorkPhone = @WorkPhone, HomePhone = @HomePhone, Email = @Email WHERE customerID = @customerID" 
+            DeleteCommand="DELETE Customer where customerID = @customerID" > 
+          <SelectParameters>
+              <asp:ControlParameter Name="Name" Type="String" ControlID="TxtSearch" />
+
+          </SelectParameters>
+
+         
+     </asp:SqlDataSource>
+
+          <asp:SqlDataSource
+            ID="DSShowAll"
+            runat="server"
+            ConnectionString="<%$ConnectionStrings:Lab3%>"
+            SelectCommand="Select  CustomerID, FirstName, LastName, CellPhone, WorkPhone, HomePhone,Email  from Customer" 
+            UpdateCommand="UPDATE Customer SET FirstName = @FirstName, LastName = @LastName, CellPhone = @CellPhone, WorkPhone = @WorkPhone, HomePhone = @HomePhone, Email = @Email WHERE customerID = @customerID" 
+            DeleteCommand="DELETE Customer where customerID = @customerID" > 
+<%--          <SelectParameters>
+              <asp:ControlParameter Name="Name" Type="String" ControlID="TxtShowAll" />
+
+          </SelectParameters>--%>
+
+         
+     </asp:SqlDataSource>
     </asp:Content>

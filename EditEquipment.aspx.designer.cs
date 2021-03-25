@@ -7,83 +7,65 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WalkerS_Lab1Part3
+namespace Lab3
 {
 
 
-    public partial class ViewCustomer
+    public partial class EditEmployee
     {
 
         /// <summary>
-        /// SearchCustomerLbl control.
+        /// GrdEquip control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label SearchCustomerLbl;
+        protected global::System.Web.UI.WebControls.GridView GrdEquip;
 
         /// <summary>
-        /// TxtSearch control.
+        /// AddEquipLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtSearch;
+        protected global::System.Web.UI.WebControls.Label AddEquipLbl;
 
         /// <summary>
-        /// BtnSearch control.
+        /// AddEquipTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSearch;
+        protected global::System.Web.UI.WebControls.TextBox AddEquipTxt;
 
         /// <summary>
-        /// BtnLoadAll control.
+        /// Save control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnLoadAll;
+        protected global::System.Web.UI.WebControls.Button Save;
 
         /// <summary>
-        /// GridviewCusts control.
+        /// LblSaveStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridviewCusts;
+        protected global::System.Web.UI.WebControls.Label LblSaveStatus;
 
         /// <summary>
-        /// GRDShowAllCust control.
+        /// DSEquip control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GRDShowAllCust;
-
-        /// <summary>
-        /// DSCust control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource DSCust;
-
-        /// <summary>
-        /// DSShowAll control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource DSShowAll;
+        protected global::System.Web.UI.WebControls.SqlDataSource DSEquip;
     }
 }

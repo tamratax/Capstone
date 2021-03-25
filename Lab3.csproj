@@ -70,12 +70,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BootstrapSandBox.aspx" />
+    <Content Include="Content\CustomerPortal.css" />
     <Content Include="Content\LandingPage.css" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\LoginFix.css" />
     <Content Include="Content\NewTemplate.css" />
     <Content Include="Content\style4.css" />
     <Content Include="Content\UserLogin.css" />
+    <Content Include="EditEquipment.aspx" />
     <Content Include="LookAt.aspx" />
     <Content Include="MoveAssessment.aspx" />
     <Content Include="MoveInventory.aspx" />
@@ -215,6 +217,7 @@
     <Content Include="ViewMoves.aspx" />
     <Content Include="ViewNote.aspx" />
     <Content Include="ViewService.aspx" />
+    <Content Include="WarehouseAssign.aspx" />
     <Content Include="WarehouseInventory.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -225,6 +228,13 @@
     </Compile>
     <Compile Include="BootstrapSandBox.aspx.designer.cs">
       <DependentUpon>BootstrapSandBox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditEquipment.aspx.cs">
+      <DependentUpon>EditEquipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditEquipment.aspx.designer.cs">
+      <DependentUpon>EditEquipment.aspx</DependentUpon>
     </Compile>
     <Compile Include="InitialConversation.aspx.cs">
       <DependentUpon>InitialConversation.aspx</DependentUpon>
@@ -395,6 +405,13 @@
     </Compile>
     <Compile Include="ViewService.aspx.designer.cs">
       <DependentUpon>ViewService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseAssign.aspx.cs">
+      <DependentUpon>WarehouseAssign.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WarehouseAssign.aspx.designer.cs">
+      <DependentUpon>WarehouseAssign.aspx</DependentUpon>
     </Compile>
     <Compile Include="WarehouseInventory.aspx.cs">
       <DependentUpon>WarehouseInventory.aspx</DependentUpon>
