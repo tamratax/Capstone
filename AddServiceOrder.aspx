@@ -4,252 +4,334 @@
 
 <asp:Content ID="myContent" ContentPlaceHolderID="body" runat="server">
     <h1>Service Order</h1>
-
+    <div class="form-group">
+    <label>Initiating Employee:</label>
+    <asp:DropDownList
+        ID="DdlInitiatingEmp"
+        runat="server"
+        DataSourceID="dtasrcEmployeeContact"
+        DataTextField="EmployeeName"
+        DataValueField="EmployeeID"
+        OnDataBound="DdlInitiatingEmp_DataBound" Width="100%">
+    </asp:DropDownList>
+        </div>
+    <h4>Customer Info:</h4>
+    <div>
     <asp:Label ID="LblCust" runat="server" Text="Customer Name: "></asp:Label>
     &nbsp;
     <asp:Label ID="LblCustName" runat="server" Text=""></asp:Label>
-    <asp:Table ID="TblAddService" runat="server">
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label ID="LblPotentialDate" runat="server" Text="Potential Date/Time: "></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox ID="TxtPotentialDate" runat="server" TextMode="Date"></asp:TextBox>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox ID="TxtPotentialTime" runat="server" TextMode="Time"></asp:TextBox>
-            </asp:TableCell>
-        </asp:TableRow>
-    </asp:Table>
-    <asp:Table
-        ID="TblAddCustomer"
-        runat="server">
-        <asp:TableRow>
-            <asp:TableCell ColumnSpan="3">
-                <asp:Label
-                    ID="LblRequestDescription"
-                    runat="server"
-                    Text=""
-                    Font-Bold="true"
-                    BackColor="Yellow"></asp:Label>
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label
-                    ID="LblInitiatingEmp"
-                    runat="server"
-                    Text="Initiating Employee:"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:DropDownList
-                    ID="DdlInitiatingEmp"
-                    runat="server"
-                    DataSourceID="dtasrcEmployeeContact"
-                    DataTextField="EmployeeName"
-                    DataValueField="EmployeeID"
-                    OnDataBound="DdlInitiatingEmp_DataBound">
-                </asp:DropDownList>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:RequiredFieldValidator
-                    ID="RfvEmployeeList"
-                    runat="server"
-                    ErrorMessage="RequiredFieldValidator"
-                    ControlToValidate="ddlInitiatingEmp"
-                    Text="Please Choose A Valid Option"
-                    ForeColor="Red"
-                    SetFocusOnError="true"
-                    ValidationGroup="SaveGroup"
-                    InitialValue="-1"></asp:RequiredFieldValidator>
-            </asp:TableCell>
-        </asp:TableRow>
-    </asp:Table>
+    </div>
+    <div> 
+        <asp:Label
+            ID="LblHomePhone"
+            runat="server"
+            Text="Home Phone: "></asp:Label>
+        
+        <asp:Label ID="LblHomeNumber"
+            runat="server"
+            Text=""
+            Font-Bold="true"></asp:Label>
+        <br />
+        <asp:Label
+            ID="LblCellPhone"
+            runat="server"
+            Text="   Cell Phone: "></asp:Label>
 
-    <asp:Table ID="Table4" runat="server">
-        <asp:TableRow>
-            <asp:TableCell>
-                <fieldset>
-                    <asp:Table ID="Table5" runat="server">
+        <asp:Label
+            ID="LblCellNumber"
+            runat="server"
+            Text=""
+            Font-Bold="true"></asp:Label>
+        <br />
+        <asp:Label
+            ID="LblWorkPhone"
+            runat="server"
+            Text="   Work Phone: "></asp:Label>
 
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label
-                                    ID="LblHomePhone"
-                                    runat="server"
-                                    Text="Home Phone: "></asp:Label>
-                            </asp:TableCell>
-                            <asp:TableCell ColumnSpan="5">
-                                <asp:Label ID="LblHomeNumber"
-                                    runat="server"
-                                    Text=""
-                                    Font-Bold="true"></asp:Label>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label
-                                    ID="LblCellPhone"
-                                    runat="server"
-                                    Text="   Cell Phone: "></asp:Label>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label
-                                    ID="LblCellNumber"
-                                    runat="server"
-                                    Text=""
-                                    Font-Bold="true"></asp:Label>
-                            </asp:TableCell>
-                            </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label
-                                    ID="LblWorkPhone"
-                                    runat="server"
-                                    Text="   Work Phone: "></asp:Label>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:Label
-                                    ID="LblWorkNumber"
-                                    runat="server"
-                                    Text=""
-                                    Font-Bold="true"></asp:Label>
-                            </asp:TableCell>
+        <asp:Label
+            ID="LblWorkNumber"
+            runat="server"
+            Text=""
+            Font-Bold="true"></asp:Label>
+        <br />
+        <asp:Label
+            ID="LblEmail"
+            runat="server"
+            Text="Email:"></asp:Label>
+
+        <asp:Label
+            ID="LblEmailText"
+            runat="server"
+            Text=""
+            Font-Bold="true"></asp:Label>
+            </div>
+    <fieldset>
+        <div>
+            <asp:GridView ID="GridAddress"
+                runat="server"
+                DataSourceID="dtasrcAddress"
+                CausesValidation="false"
+                AutoGenerateColumns="false"
+                DataKeyNames="AddressID"
+                CsssClass="table justify-content-center">
+                <Columns>
+                    <asp:CommandField ShowEditButton="true" ShowDeleteButton="true" ButtonType="Button" />
+                    <asp:BoundField DataField="AddressID" Visible="false" />
+                    <asp:BoundField DataField="Street" HeaderText="Street" />
+                    <asp:BoundField DataField="City" HeaderText="City" />
+                    <asp:BoundField DataField="State" HeaderText="State" />
+                    <asp:BoundField DataField="Zip" HeaderText="Zip" />
+                    <asp:BoundField DataField="Description" HeaderText="Description" />
+                </Columns>
+            </asp:GridView>
+            <br />
+            <br />
+        </div>
+    </fieldset>
+     <h5>Additional Address for Service</h5>
+    <div class="form-group">
+        <label for="inputAddress">Address</label>
+        <asp:TextBox ID="TxtStreet"
+            runat="server"
+            Placeholder="1234 Main St"
+            class="form-control"></asp:TextBox>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputCity">City</label>
+            <asp:TextBox ID="TxtCity"
+                runat="server"
+                class="form-control"
+                Placeholder="City"></asp:TextBox>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputState">State</label>
+            <asp:TextBox ID="TxtState"
+                runat="server"
+                class="form-control"
+                Placeholder="State"></asp:TextBox>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Zip</label>
+            <asp:TextBox ID="TxtZip"
+                runat="server"
+                class="form-control"
+                Placeholder="Zip"></asp:TextBox>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputDescription">Description</label>
+        <asp:TextBox ID="TxtDescription"
+            runat="server"
+            class="form-control"
+            placeholder="Description"></asp:TextBox>
+    </div>
+    <div>
+        <asp:Button ID="BtnAddAddress"
+            runat="server"
+            Text="Add Address"
+            OnClick="BtnAddAddress_Click"
+            CausesValidation="false" />
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group col-md-6">
+    <label>Potential Date</label>
+    <asp:TextBox ID="TxtPotentialDate" 
+        runat="server" 
+        TextMode="Date" 
+        class="form-control"></asp:TextBox>
+            </div>
+        <div class="form-group col-md-6">
+            <label>Potential Time</label>
+    <asp:TextBox ID="TxtPotentialTime" 
+        runat="server" 
+        TextMode="Time" 
+        class="form-control"></asp:TextBox>
+    </div>
+        </div>
+
+  <div class="form-row">
+      <div class="form-group col-md-6">
+    <label>Service Date</label>
+    <asp:TextBox
+        ID="TxtServiceDate"
+        runat="server"
+        Text=""
+        TextMode="Date"
+        class="form-control">
+    </asp:TextBox>
+          </div>
+     <div class="form-group col-md-6">
+<label>Completion Date</label>
+    <asp:TextBox
+        ID="TxtCompletionDate"
+        runat="server"
+        Text=""
+        TextMode="Date"
+        class="form-control">
+    </asp:TextBox>
+        </div>
+      </div>
 
 
-                        </asp:TableRow>
-                        <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label
-                                    ID="LblEmail"
-                                    runat="server"
-                                    Text="Email:"></asp:Label>
-                            </asp:TableCell>
-                            <asp:TableCell ColumnSpan="10">
-                                <asp:Label
-                                    ID="LblEmailText"
-                                    runat="server"
-                                    Text=""
-                                    Font-Bold="true"></asp:Label>
-                            </asp:TableCell>
-                        </asp:TableRow>
-                    </asp:Table>
-                </fieldset>
-            </asp:TableCell>
-        </asp:TableRow>
+    <div class="form-row">
+    <div class="form-group col-md-6">
+    <label>Service Type</label>
+    <asp:DropDownList
+        ID="DdlServiceType"
+        runat="server"
+        OnSelectedIndexChanged="DdlServiceType_SelectedIndexChanged"
+        AutoPostBack="true"
+        class="form-control">
+    </asp:DropDownList>
+        </div>
+        <div class="form-group col-md-6"></div>
+    <asp:Label
+        ID="LblDestinationTime"
+        runat="server"
+        Text="Destination Time:"></asp:Label>
 
-    </asp:Table>
+    <asp:TextBox
+        ID="TxtDestinationTime"
+        runat="server" TextMode="Time"></asp:TextBox>
+    </div>
+  
+   
+    <asp:CheckBox
+        ID="ChkBoxLookAt"
+        runat="server"
+        Text=" Require A Look At?"
+        AutoPostBack="true"
+        OnCheckedChanged="ChkBoxLookAt_CheckedChanged" />
 
+    <asp:TextBox
+        ID="TxtLookAtSchedule"
+        runat="server"
+        Visible="false"
+        TextMode="Date"
+        AutoPostBack="true"></asp:TextBox>
 
+    <asp:TextBox
+        ID="TxtLookatScheduleTime"
+        Visible="false"
+        AutoPostBack="true"
+        TextMode="Time"
+        runat="server"></asp:TextBox>
+    <div>
+        <asp:Label ID="LblAdditionalServices" runat="server" Text="Select Additional Services:" Font-Bold="true"></asp:Label>
 
+        <asp:CheckBox ID="ChkBxStorage" runat="server" Text="Storage" />
 
-    <asp:Table ID="Table3" runat="server">
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label
-                    ID="LblServiceDate"
-                    runat="server"
-                    Text="Service Date:"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox
-                    ID="TxtServiceDate"
-                    runat="server"
-                    Text=""
-                    TextMode="Date">
-                </asp:TextBox>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:RequiredFieldValidator
-                    ID="rfvServiceDate"
-                    runat="server"
-                    ErrorMessage="RequiredFieldValidator"
-                    ControlToValidate="TxtServiceDate"
-                    Text="This Field Is Required"
-                    ForeColor="Red"
-                    SetFocusOnError="true"
-                    ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
-            </asp:TableCell>
-        </asp:TableRow>
+        <asp:CheckBox ID="ChkBxCleaning" runat="server" Text="Cleaning" />
 
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label
-                    ID="LblCompletionDate"
-                    runat="server"
-                    Text="Completion Date:"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox
-                    ID="TxtCompletionDate"
-                    runat="server"
-                    Text=""
-                    TextMode="Date">
-                </asp:TextBox>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:RequiredFieldValidator
-                    ID="rfvCompletionDate"
-                    runat="server"
-                    ErrorMessage="RequiredFieldValidator"
-                    ControlToValidate="TxtCompletionDate"
-                    Text="This Field Is Required"
-                    ForeColor="Red"
-                    SetFocusOnError="true"
-                    ValidationGroup="SaveGroup"
-                    Display="Dynamic"></asp:RequiredFieldValidator>
-                <asp:CompareValidator
-                    ID="CvDateComapare"
-                    runat="server"
-                    ErrorMessage="CompareValidator"
-                    Display="Dynamic"
-                    ControlToValidate="TxtCompletionDate"
-                    ControlToCompare="TxtServiceDate"
-                    Type="Date"
-                    Operator="GreaterThanEqual"
-                    Text="Completion Date Must Be After Service Date"
-                    ForeColor="Red"
-                    SetFocusOnError="true"
-                    ValidationGroup="SaveGroup"></asp:CompareValidator>
-            </asp:TableCell>
+        <asp:CheckBox ID="ChkBxTrashRemoval" runat="server" Text="Trash Removal" />
+    </div>
+    <div>
+    <asp:Label
+        ID="LblCompleted"
+        runat="server"
+        Text="Check If Complete:"></asp:Label>
+    
+    <asp:CheckBox
+        ID="ChkBoxCompleted"
+        runat="server" />
+    </div>
 
-        </asp:TableRow>
+    <div class="form-row float-left">
+        <asp:Button ID="BtnViewServicePage"
+            runat="server"
+            Text="View Services ->"
+            OnClick="BtnViewServicePage_Click" />
 
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label
-                    ID="LblServiceType"
-                    runat="server"
-                    Text="Service Type:"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:DropDownList
-                    ID="DdlServiceType"
-                    runat="server"
-                    OnSelectedIndexChanged="DdlServiceType_SelectedIndexChanged"
-                    AutoPostBack="true">
-                </asp:DropDownList>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:RequiredFieldValidator
-                    ID="RfvServiceType"
-                    runat="server"
-                    ErrorMessage="RequiredFieldValidator"
-                    ControlToValidate="DdlServiceType"
-                    Text="Please Choose A Valid Option"
-                    ForeColor="Red"
-                    SetFocusOnError="true"
-                    ValidationGroup="SaveGroup"
-                    InitialValue="-1"></asp:RequiredFieldValidator>
-            </asp:TableCell>
-        </asp:TableRow>
-    </asp:Table>
-    <asp:Table
-        ID="Table2"
-        runat="server">
-        <asp:TableRow>
-            <asp:TableCell ColumnSpan="4">
-                <asp:GridView ID="GridAddress"
+        <asp:Button ID="BtnPopulate"
+            runat="server"
+            Text="Populate"
+            OnClick="BtnPopulate_Click"
+            AutoPostBack="true" />
+
+        <asp:Button
+            ID="BtnClear"
+            runat="server"
+            Text="Clear"
+            OnClick="BtnClear_Click" />
+
+        <asp:Button
+            ID="BtnSave"
+            runat="server"
+            Text="Save"
+            OnClick="BtnSave_Click"
+            ValidationGroup="SaveGroup" />
+
+        <asp:Button ID="BtnAuctionInvt" 
+            runat="server" 
+            Text="Add Auction Inventory ->" 
+            OnClick="BtnAuctionInvt_Click" />
+
+        <asp:Button ID="BtnMoveInvt" 
+            runat="server" 
+            Text="Add Move Inventory ->" 
+            OnClick="BtnMoveInvt_Click" />
+    </div>
+
+    <asp:RequiredFieldValidator
+        ID="RfvEmployeeList"
+        runat="server"
+        ErrorMessage="RequiredFieldValidator"
+        ControlToValidate="ddlInitiatingEmp"
+        Text="Please Choose A Valid Option"
+        ForeColor="Red"
+        SetFocusOnError="true"
+        ValidationGroup="SaveGroup"
+        InitialValue="-1"></asp:RequiredFieldValidator>
+
+    <asp:RequiredFieldValidator
+        ID="rfvServiceDate"
+        runat="server"
+        ErrorMessage="RequiredFieldValidator"
+        ControlToValidate="TxtServiceDate"
+        Text="This Field Is Required"
+        ForeColor="Red"
+        SetFocusOnError="true"
+        ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
+
+    <asp:RequiredFieldValidator
+        ID="rfvCompletionDate"
+        runat="server"
+        ErrorMessage="RequiredFieldValidator"
+        ControlToValidate="TxtCompletionDate"
+        Text="This Field Is Required"
+        ForeColor="Red"
+        SetFocusOnError="true"
+        ValidationGroup="SaveGroup"
+        Display="Dynamic"></asp:RequiredFieldValidator>
+
+    <asp:CompareValidator
+        ID="CvDateComapare"
+        runat="server"
+        ErrorMessage="CompareValidator"
+        Display="Dynamic"
+        ControlToValidate="TxtCompletionDate"
+        ControlToCompare="TxtServiceDate"
+        Type="Date"
+        Operator="GreaterThanEqual"
+        Text="Completion Date Must Be After Service Date"
+        ForeColor="Red"
+        SetFocusOnError="true"
+        ValidationGroup="SaveGroup"></asp:CompareValidator>
+
+    <asp:RequiredFieldValidator
+        ID="RfvServiceType"
+        runat="server"
+        ErrorMessage="RequiredFieldValidator"
+        ControlToValidate="DdlServiceType"
+        Text="Please Choose A Valid Option"
+        ForeColor="Red"
+        SetFocusOnError="true"
+        ValidationGroup="SaveGroup"
+        InitialValue="-1"></asp:RequiredFieldValidator>
+
+    <%--<asp:GridView ID="GridAddress"
                     runat="server"
                     DataSourceID="dtasrcAddress"
                     CausesValidation="false"
@@ -258,7 +340,6 @@
                     AutoGenerateDeleteButton="true"
                     DataKeyNames="AddressID"
                     CellPadding="3">
-
                     <Columns>
                         <asp:BoundField DataField="AddressID" Visible="false" />
                         <asp:BoundField DataField="Street" HeaderText="Street" />
@@ -266,209 +347,30 @@
                         <asp:BoundField DataField="State" HeaderText="State" />
                         <asp:BoundField DataField="Zip" HeaderText="Zip" />
                         <asp:BoundField DataField="Description" HeaderText="Description" />
-
                     </Columns>
-                </asp:GridView>
+                </asp:GridView>--%>
 
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell ColumnSpan="2">
-                <asp:Label ID="LblPCA" runat="server" Text="Additional Addresses for Service" Font-Bold="true"></asp:Label>
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label ID="LblStreet"
-                    runat="server"
-                    Text="Street: "></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox ID="TxtStreet"
-                    runat="server"></asp:TextBox>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1"
-                    runat="server"
-                    ControlToValidate="TxtStreet"
-                    Text="Field Cannot Be Blank"
-                    ForeColor="Red"
-                    ValidationGroup="CreateAddress"></asp:RequiredFieldValidator>
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label ID="LblCity"
-                    runat="server"
-                    Text="City: "></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox ID="TxtCity"
-                    runat="server"></asp:TextBox>
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label ID="LblState"
-                    runat="server"
-                    Text="State: "></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox ID="TxtState"
-                    runat="server"></asp:TextBox>
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label ID="LblZip"
-                    runat="server"
-                    Text="Zip Code: "></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox ID="TxtZip"
-                    runat="server"></asp:TextBox>
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label ID="LblDescription"
-                    runat="server"
-                    Text="Description: "></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox ID="TxtDescription"
-                    runat="server"></asp:TextBox>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:Button ID="BtnAddAddress"
-                    runat="server"
-                    Text="Add Address"
-                    OnClick="BtnAddAddress_Click"
-                    CausesValidation="false" />
-            </asp:TableCell>
-        </asp:TableRow>
-    </asp:Table>
-    <asp:Table ID="Table1" runat="server">
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:CheckBox
-                    ID="ChkBoxLookAt"
-                    runat="server"
-                    Text=" Require A Look At?"
-                    AutoPostBack="true"
-                    OnCheckedChanged="ChkBoxLookAt_CheckedChanged" />
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox
-                    ID="TxtLookAtSchedule"
-                    runat="server"
-                    Visible="false"
-                    TextMode="Date"
-                    AutoPostBack="true"></asp:TextBox>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox
-                    ID="TxtLookatScheduleTime"
-                    Visible="false"
-                    AutoPostBack="true"
-                    TextMode="Time"
-                    runat="server"></asp:TextBox>
-            </asp:TableCell>
-        </asp:TableRow>
 
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label
-                    ID="LblDestinationTime"
-                    runat="server"
-                    Text="Destination Time:"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox
-                    ID="TxtDestinationTime"
-                    runat="server" TextMode="Time"></asp:TextBox>
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label ID="LblAdditionalServices" runat="server" Text="Select Additional Services:" Font-Bold="true"></asp:Label>
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:CheckBox ID="ChkBxStorage" runat="server" Text="Storage" />
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:CheckBox ID="ChkBxCleaning" runat="server" Text="Cleaning" />
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:CheckBox ID="ChkBxTrashRemoval" runat="server" Text="Trash Removal" />
+    <div>
+    <asp:Label
+        ID="LblRequestDescription"
+        runat="server"
+        Text=""
+        Font-Bold="true"
+        BackColor="Yellow"></asp:Label>
+    </div>
 
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label
-                    ID="LblCompleted"
-                    runat="server"
-                    Text="Check If Complete:"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:CheckBox
-                    ID="ChkBoxCompleted"
-                    runat="server" />
-            </asp:TableCell>
-        </asp:TableRow>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator1"
+        runat="server"
+        ControlToValidate="TxtStreet"
+        Text="Field Cannot Be Blank"
+        ForeColor="Red"
+        ValidationGroup="CreateAddress"></asp:RequiredFieldValidator>
 
-    </asp:Table>
-    <asp:Table
-        ID="TblAddCustomerBtns"
-        runat="server">
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Button ID="BtnViewServicePage"
-                    runat="server"
-                    Text="View Services ->"
-                    OnClick="BtnViewServicePage_Click" />
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:Button ID="BtnPopulate"
-                    runat="server"
-                    Text="Populate"
-                    OnClick="BtnPopulate_Click"
-                    AutoPostBack="true" />
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:Button
-                    ID="BtnClear"
-                    runat="server"
-                    Text="Clear"
-                    OnClick="BtnClear_Click" />
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:Button
-                    ID="BtnSave"
-                    runat="server"
-                    Text="Save"
-                    OnClick="BtnSave_Click"
-                    ValidationGroup="SaveGroup" />
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:Label
-                    ID="LblSaveStatus"
-                    runat="server"
-                    Text=""></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:Button ID="BtnAuctionInvt" runat="server" Text="Add Auction Inventory ->" OnClick="BtnAuctionInvt_Click" />
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:Button ID="BtnMoveInvt" runat="server" Text="Add Move Inventory ->" OnClick="BtnMoveInvt_Click" />
-            </asp:TableCell>
-        </asp:TableRow>
-
-    </asp:Table>
-
+    <asp:Label
+        ID="LblSaveStatus"
+        runat="server"
+        Text=""></asp:Label>
 
     <asp:SqlDataSource
         ID="dtasrcEmployeeContact"

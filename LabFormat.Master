@@ -54,7 +54,10 @@
                                 <a href="Scheduling.aspx">Scheduling</a>
                             </li>
                             <li>
-                                <a href="AuctionInventory.aspx">Inventory</a>
+                                <a href="AuctionInventory.aspx">Walkthrough</a>
+                            </li>
+                             <li>
+                                <a href="WarehouseAssign.aspx">Assign to Warehouse</a>
                             </li>
                             <li>
                                 <a href="AddNote.aspx">Notes</a>

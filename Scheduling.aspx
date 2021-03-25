@@ -28,6 +28,7 @@
 
 
     <br />
+    <br />
 
     <%--    <fieldset>--%>
     <h4>Schedule New Appointment</h4>
