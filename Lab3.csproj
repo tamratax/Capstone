@@ -77,6 +77,7 @@
     <Content Include="Content\NewTemplate.css" />
     <Content Include="Content\style4.css" />
     <Content Include="Content\UserLogin.css" />
+    <Content Include="EditEquipment.aspx" />
     <Content Include="LookAt.aspx" />
     <Content Include="MoveInventory.aspx" />
     <Content Include="AddServiceRequest.aspx" />
@@ -226,6 +227,13 @@
     </Compile>
     <Compile Include="BootstrapSandBox.aspx.designer.cs">
       <DependentUpon>BootstrapSandBox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditEquipment.aspx.cs">
+      <DependentUpon>EditEquipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditEquipment.aspx.designer.cs">
+      <DependentUpon>EditEquipment.aspx</DependentUpon>
     </Compile>
     <Compile Include="InitialConversation.aspx.cs">
       <DependentUpon>InitialConversation.aspx</DependentUpon>

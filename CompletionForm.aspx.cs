@@ -61,8 +61,11 @@ namespace Lab3
                 }
                 else
                 {
+                    Session["NoCustSelected"] = "true";
+                    Response.Redirect("Navigation.aspx");
 
                 }
+            
 
 
             }
