@@ -3,94 +3,84 @@
 <%-- Coded By: Stuart Walker & Aaron Walsh --%>
 
 <asp:Content ID="myContent" ContentPlaceHolderID="body" runat="server">
+    <link href="Content/AddService.css" rel="stylesheet" />
     <h1>Service Order</h1>
-    <div class="form-group">
-    <label>Initiating Employee:</label>
-    <asp:DropDownList
-        ID="DdlInitiatingEmp"
-        runat="server"
-        DataSourceID="dtasrcEmployeeContact"
-        DataTextField="EmployeeName"
-        DataValueField="EmployeeID"
-        OnDataBound="DdlInitiatingEmp_DataBound" Width="100%">
-    </asp:DropDownList>
-        </div>
+
     <h4>Customer Info:</h4>
-    <div>
-    <asp:Label ID="LblCust" runat="server" Text="Customer Name: "></asp:Label>
-    &nbsp;
+    <div class="groupCust">
+        <asp:Label ID="LblCust" runat="server" Text="Customer Name: "></asp:Label>
+        &nbsp;
     <asp:Label ID="LblCustName" runat="server" Text=""></asp:Label>
-    </div>
-    <div> 
-        <asp:Label
-            ID="LblHomePhone"
-            runat="server"
-            Text="Home Phone: "></asp:Label>
-        
-        <asp:Label ID="LblHomeNumber"
-            runat="server"
-            Text=""
-            Font-Bold="true"></asp:Label>
-        <br />
-        <asp:Label
-            ID="LblCellPhone"
-            runat="server"
-            Text="   Cell Phone: "></asp:Label>
 
-        <asp:Label
-            ID="LblCellNumber"
-            runat="server"
-            Text=""
-            Font-Bold="true"></asp:Label>
-        <br />
-        <asp:Label
-            ID="LblWorkPhone"
-            runat="server"
-            Text="   Work Phone: "></asp:Label>
-
-        <asp:Label
-            ID="LblWorkNumber"
-            runat="server"
-            Text=""
-            Font-Bold="true"></asp:Label>
-        <br />
-        <asp:Label
-            ID="LblEmail"
-            runat="server"
-            Text="Email:"></asp:Label>
-
-        <asp:Label
-            ID="LblEmailText"
-            runat="server"
-            Text=""
-            Font-Bold="true"></asp:Label>
-            </div>
-    <fieldset>
         <div>
-            <asp:GridView ID="GridAddress"
+            <asp:Label
+                ID="LblHomePhone"
                 runat="server"
-                DataSourceID="dtasrcAddress"
-                CausesValidation="false"
-                AutoGenerateColumns="false"
-                DataKeyNames="AddressID"
-                CsssClass="table justify-content-center">
-                <Columns>
-                    <asp:CommandField ShowEditButton="true" ShowDeleteButton="true" ButtonType="Button" />
-                    <asp:BoundField DataField="AddressID" Visible="false" />
-                    <asp:BoundField DataField="Street" HeaderText="Street" />
-                    <asp:BoundField DataField="City" HeaderText="City" />
-                    <asp:BoundField DataField="State" HeaderText="State" />
-                    <asp:BoundField DataField="Zip" HeaderText="Zip" />
-                    <asp:BoundField DataField="Description" HeaderText="Description" />
-                </Columns>
-            </asp:GridView>
+                Text="Home Phone: "></asp:Label>
+
+            <asp:Label ID="LblHomeNumber"
+                runat="server"
+                Text=""
+                Font-Bold="true"></asp:Label>
             <br />
+            <asp:Label
+                ID="LblCellPhone"
+                runat="server"
+                Text="   Cell Phone: "></asp:Label>
+
+            <asp:Label
+                ID="LblCellNumber"
+                runat="server"
+                Text=""
+                Font-Bold="true"></asp:Label>
             <br />
+            <asp:Label
+                ID="LblWorkPhone"
+                runat="server"
+                Text="   Work Phone: "></asp:Label>
+
+            <asp:Label
+                ID="LblWorkNumber"
+                runat="server"
+                Text=""
+                Font-Bold="true"></asp:Label>
+            <br />
+            <asp:Label
+                ID="LblEmail"
+                runat="server"
+                Text="Email:"></asp:Label>
+
+            <asp:Label
+                ID="LblEmailText"
+                runat="server"
+                Text=""
+                Font-Bold="true"></asp:Label>
         </div>
-    </fieldset>
+           <div>
+                <asp:GridView ID="GridAddress"
+                    runat="server"
+                    DataSourceID="dtasrcAddress"
+                    CausesValidation="false"
+                    AutoGenerateColumns="false"
+                    DataKeyNames="AddressID"
+                    CsssClass="table justify-content-center">
+                    <Columns>
+                        <asp:CommandField ShowEditButton="true" ShowDeleteButton="true" ButtonType="Button" />
+                        <asp:BoundField DataField="AddressID" Visible="false" />
+                        <asp:BoundField DataField="Street" HeaderText="Street" />
+                        <asp:BoundField DataField="City" HeaderText="City" />
+                        <asp:BoundField DataField="State" HeaderText="State" />
+                        <asp:BoundField DataField="Zip" HeaderText="Zip" />
+                        <asp:BoundField DataField="Description" HeaderText="Description" />
+                    </Columns>
+                </asp:GridView>
+            </div>
+            <br />
+            <br />
+    </div>
      <h5>Additional Address for Service</h5>
     <div class="form-group">
-        <label for="inputAddress">Address</label>
+        <label for="inputAddress">Street</label>
         <asp:TextBox ID="TxtStreet"
             runat="server"
             Placeholder="1234 Main St"
@@ -133,71 +123,82 @@
             OnClick="BtnAddAddress_Click"
             CausesValidation="false" />
     </div>
-    
+    <br />
+    <div class="form-group">
+        <label>Initiating Employee:</label>
+        <asp:DropDownList
+            ID="DdlInitiatingEmp"
+            runat="server"
+            DataSourceID="dtasrcEmployeeContact"
+            DataTextField="EmployeeName"
+            DataValueField="EmployeeID"
+            OnDataBound="DdlInitiatingEmp_DataBound" Width="100%">
+        </asp:DropDownList>
+    </div>
     <div class="form-row">
         <div class="form-group col-md-6">
-    <label>Potential Date</label>
-    <asp:TextBox ID="TxtPotentialDate" 
-        runat="server" 
-        TextMode="Date" 
-        class="form-control"></asp:TextBox>
-            </div>
+            <label>Potential Date</label>
+            <asp:TextBox ID="TxtPotentialDate"
+                runat="server"
+                TextMode="Date"
+                class="form-control"></asp:TextBox>
+        </div>
         <div class="form-group col-md-6">
             <label>Potential Time</label>
-    <asp:TextBox ID="TxtPotentialTime" 
-        runat="server" 
-        TextMode="Time" 
-        class="form-control"></asp:TextBox>
+            <asp:TextBox ID="TxtPotentialTime"
+                runat="server"
+                TextMode="Time"
+                class="form-control"></asp:TextBox>
+        </div>
     </div>
-        </div>
-
-  <div class="form-row">
-      <div class="form-group col-md-6">
-    <label>Service Date</label>
-    <asp:TextBox
-        ID="TxtServiceDate"
-        runat="server"
-        Text=""
-        TextMode="Date"
-        class="form-control">
-    </asp:TextBox>
-          </div>
-     <div class="form-group col-md-6">
-<label>Completion Date</label>
-    <asp:TextBox
-        ID="TxtCompletionDate"
-        runat="server"
-        Text=""
-        TextMode="Date"
-        class="form-control">
-    </asp:TextBox>
-        </div>
-      </div>
-
 
     <div class="form-row">
-    <div class="form-group col-md-6">
-    <label>Service Type</label>
-    <asp:DropDownList
-        ID="DdlServiceType"
-        runat="server"
-        OnSelectedIndexChanged="DdlServiceType_SelectedIndexChanged"
-        AutoPostBack="true"
-        class="form-control">
-    </asp:DropDownList>
+        <div class="form-group col-md-6">
+            <label>Service Date</label>
+            <asp:TextBox
+                ID="TxtServiceDate"
+                runat="server"
+                Text=""
+                TextMode="Date"
+                class="form-control">
+            </asp:TextBox>
         </div>
-        <div class="form-group col-md-6"></div>
-    <asp:Label
-        ID="LblDestinationTime"
-        runat="server"
-        Text="Destination Time:"></asp:Label>
-
-    <asp:TextBox
-        ID="TxtDestinationTime"
-        runat="server" TextMode="Time"></asp:TextBox>
+        <div class="form-group col-md-6">
+            <label>Completion Date</label>
+            <asp:TextBox
+                ID="TxtCompletionDate"
+                runat="server"
+                Text=""
+                TextMode="Date"
+                class="form-control">
+            </asp:TextBox>
+        </div>
     </div>
-  
-   
+
+
+    <div class="form-group">
+        <label>Service Type</label>
+        <asp:DropDownList
+            ID="DdlServiceType"
+            runat="server"
+            OnSelectedIndexChanged="DdlServiceType_SelectedIndexChanged"
+            AutoPostBack="true"
+            class="form-control">
+        </asp:DropDownList>
+    </div>
+    <div>
+        <div class="form-group col-md-6"></div>
+        <asp:Label
+            ID="LblDestinationTime"
+            runat="server"
+            Text="Destination Time:"></asp:Label>
+
+        <asp:TextBox
+            ID="TxtDestinationTime"
+            runat="server" TextMode="Time"></asp:TextBox>
+    </div>
+
+
     <asp:CheckBox
         ID="ChkBoxLookAt"
         runat="server"
@@ -228,14 +229,14 @@
         <asp:CheckBox ID="ChkBxTrashRemoval" runat="server" Text="Trash Removal" />
     </div>
     <div>
-    <asp:Label
-        ID="LblCompleted"
-        runat="server"
-        Text="Check If Complete:"></asp:Label>
-    
-    <asp:CheckBox
-        ID="ChkBoxCompleted"
-        runat="server" />
+        <asp:Label
+            ID="LblCompleted"
+            runat="server"
+            Text="Check If Complete:"></asp:Label>
+
+        <asp:CheckBox
+            ID="ChkBoxCompleted"
+            runat="server" />
     </div>
 
     <div class="form-row float-left">
@@ -263,14 +264,14 @@
             OnClick="BtnSave_Click"
             ValidationGroup="SaveGroup" />
 
-        <asp:Button ID="BtnAuctionInvt" 
-            runat="server" 
-            Text="Add Auction Inventory ->" 
+        <asp:Button ID="BtnAuctionInvt"
+            runat="server"
+            Text="Add Auction Inventory ->"
             OnClick="BtnAuctionInvt_Click" />
 
-        <asp:Button ID="BtnMoveInvt" 
-            runat="server" 
-            Text="Add Move Inventory ->" 
+        <asp:Button ID="BtnMoveInvt"
+            runat="server"
+            Text="Add Move Inventory ->"
             OnClick="BtnMoveInvt_Click" />
     </div>
 
@@ -352,12 +353,12 @@
 
 
     <div>
-    <asp:Label
-        ID="LblRequestDescription"
-        runat="server"
-        Text=""
-        Font-Bold="true"
-        BackColor="Yellow"></asp:Label>
+        <asp:Label
+            ID="LblRequestDescription"
+            runat="server"
+            Text=""
+            Font-Bold="true"
+            BackColor="Yellow"></asp:Label>
     </div>
 
     <asp:RequiredFieldValidator ID="RequiredFieldValidator1"
