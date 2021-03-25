@@ -1,3 +1,5 @@
+--drop Table MoveAssessment;
+--drop table notes;
 --drop table payment;
 --drop table completed;
 --drop table moveequipment;
@@ -222,8 +224,29 @@ CREATE TABLE PAYMENT(
 	);
 	
 
-	
+create Table MoveAssessment(
+MoveAssessmentID int identity (1,1) Not Null Primary Key,
+MustBeOut varchar (75),
+Range1 varchar (100),
+Range2 varchar (100),
+DestAddress varchar(100),
+DestCity varchar(100),
+DestState varchar(50),
+DestZipCode int,
+MlSListing varchar(10),
+SendPhotos varchar(25),
+Packing varchar(25),
+TrashRemoval varchar(25),
+Donation varchar(25),
+Auction varchar(25),
+CustomerID int references Customer(CustomerID) );
 
+CREATE TABLE NOTES (
+	NoteID		int IDENTITY(1,1) NOT NULL Primary Key,
+	DateCreated	varchar(30),
+	NoteText	varchar(max),
+	CustomerID	int references Customer(CustomerID)
+);
 
 
 

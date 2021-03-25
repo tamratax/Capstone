@@ -20,6 +20,11 @@ namespace Lab3
             {
                 LblCustomerName.Text = Session["SelectedCustomerName"].ToString();
             }
+            else
+            {
+                Session["NoCustSelected"] = "true";
+                Response.Redirect("Navigation.aspx");
+            }
         }
 
         protected void BtnSave_Click(object sender, EventArgs e)

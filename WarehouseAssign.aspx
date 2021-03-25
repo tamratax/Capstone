@@ -47,15 +47,57 @@
              <asp:TableCell>
                 <asp:Label ID="LblLocation" runat="server" Text="Location:"></asp:Label>
             </asp:TableCell>
-            <asp:TableCell>
+<%--            <asp:TableCell>
                 <asp:TextBox ID="TxtLocation" runat="server" TextMode="MultiLine" Rows="5"></asp:TextBox>
+            </asp:TableCell>--%>
+            <asp:TableCell>
+                <asp:DropDownList ID="DdlLocation" runat="server">
+
+                    <asp:ListItem Selected="True">Select</asp:ListItem>
+                    <asp:ListItem>Gallery 3 Bays</asp:ListItem>
+                    <asp:ListItem>Warehouse R1</asp:ListItem>
+                    <asp:ListItem>Warehouse R2</asp:ListItem>
+                    <asp:ListItem>Warehouse R3</asp:ListItem>
+                    <asp:ListItem>Warehouse R4</asp:ListItem>
+                    <asp:ListItem>Warehouse R5</asp:ListItem>
+                    <asp:ListItem>Warehouse L1</asp:ListItem>
+                    <asp:ListItem>Warehouse L2</asp:ListItem>
+                    <asp:ListItem>Warehouse L3</asp:ListItem>
+                    <asp:ListItem>Warehouse L4</asp:ListItem>
+                    <asp:ListItem>Warehouse L5</asp:ListItem>
+                    <asp:ListItem>Trailer 1, Nose</asp:ListItem>
+                    <asp:ListItem>Trailer 1, Middle</asp:ListItem>
+                    <asp:ListItem>Trailer 1, Doors</asp:ListItem>
+                    <asp:ListItem>Trailer 2, Nose</asp:ListItem>
+                    <asp:ListItem>Trailer 2, Middle</asp:ListItem>
+                    <asp:ListItem>Trailer 2, Doors</asp:ListItem>
+                    <asp:ListItem>Trailer 3, Nose</asp:ListItem>
+                    <asp:ListItem>Trailer 3, Middle</asp:ListItem>
+                    <asp:ListItem>Trailer 3, Doors</asp:ListItem>
+                    <asp:ListItem>Trailer 4, Nose</asp:ListItem>
+                    <asp:ListItem>Trailer 4, Middle</asp:ListItem>
+                    <asp:ListItem>Trailer 4, Doors</asp:ListItem>
+                    <asp:ListItem>Trailer 5, Nose</asp:ListItem>
+                    <asp:ListItem>Trailer 5, Middle</asp:ListItem>
+                    <asp:ListItem>Trailer 5, Doors</asp:ListItem>
+                    <asp:ListItem>Trailer 6, Nose</asp:ListItem>
+                    <asp:ListItem>Trailer 6, Middle</asp:ListItem>
+                    <asp:ListItem>Trailer 6, Doors</asp:ListItem>
+                    <asp:ListItem>Trailer 7, Nose</asp:ListItem>
+                    <asp:ListItem>Trailer 7, Middle</asp:ListItem>
+                    <asp:ListItem>Trailer 7, Doors</asp:ListItem>
+                    <asp:ListItem>Trailer 8, Nose</asp:ListItem>
+                    <asp:ListItem>Trailer 8, Middle</asp:ListItem>
+                    <asp:ListItem>Trailer 8, Doors</asp:ListItem>
+                </asp:DropDownList>
             </asp:TableCell>
              <asp:TableCell>
                 <asp:RequiredFieldValidator ID="RfvLocation"
                     runat="server"
-                    ControlToValidate="TxtLocation"
+                    ControlToValidate="DdlLocation"
                     Text="Field Cannot Be Blank"
                     ForeColor="Red"
+                    InitialValue="Select"
                     ValidationGroup="CreateItem"></asp:RequiredFieldValidator>
             </asp:TableCell>
         </asp:TableRow>

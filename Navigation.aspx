@@ -5,6 +5,7 @@
 
 <asp:Content ID="test" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+
 <asp:Content ID="myContent" ContentPlaceHolderID="body" runat="server"> 
     <div class="row justify-content-center">
     <h1 class="display-4">Navigation</h1>
