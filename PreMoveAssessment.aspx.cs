@@ -36,7 +36,7 @@ namespace Lab3
 
             sqlCommand.Parameters.Add(new SqlParameter("@Range1", HttpUtility.HtmlEncode(TxtRange1.Text)));
             sqlCommand.Parameters.Add(new SqlParameter("@Range2", HttpUtility.HtmlEncode(TxtRange2.Text)));
-            sqlCommand.Parameters.Add(new SqlParameter("@Range2", HttpUtility.HtmlEncode(DestAddress.Text)));
+            sqlCommand.Parameters.Add(new SqlParameter("@DestAddress", HttpUtility.HtmlEncode(DestAddressTxt.Text)));
             sqlCommand.Parameters.Add(new SqlParameter("@DestCity", HttpUtility.HtmlEncode(DestCityTxt.Text)));
             sqlCommand.Parameters.Add(new SqlParameter("@DestState", HttpUtility.HtmlEncode(DestStateTxt.Text)));
             sqlCommand.Parameters.Add(new SqlParameter("@DestZipCode", HttpUtility.HtmlEncode(DestZipTxt.Text)));
