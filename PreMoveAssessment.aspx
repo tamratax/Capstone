@@ -8,15 +8,24 @@
          <asp:TextBox ID="DateOutTxt" runat="server" TextMode="Date"
              class="form-control"></asp:TextBox>
          </div>
-    <div class="form-group">
-        <label>Range of Days</label>
+    <div class="form-row">
+    <div class="form-group col-md-6">
+        <label>Range of Days (Start)</label>
+ <asp:TextBox ID="TxtRange1" runat="server" TextMode="Date" class="form-control"></asp:TextBox>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Finish</label>
+    <asp:TextBox ID="TxtRange2" runat="server" TextMode="Date" class="form-control"></asp:TextBox>
+        </div>
+        </div>
+
     <%--<asp:Label ID="DateOutLbl" runat="server" Text="What Day do you have to be Out By:"></asp:Label>--%>
     <%--<asp:TextBox ID="DateOutTxt" runat="server" TextMode="Date"></asp:TextBox>--%>
     <br />
 
-    <asp:Label ID="RangeLbl" runat="server" Text="Range of Days"></asp:Label>
-    <asp:TextBox ID="TxtRange1" runat="server" TextMode="Date"></asp:TextBox>
-    <asp:TextBox ID="TxtRange2" runat="server" TextMode="Date"></asp:TextBox>
+    <%--<asp:Label ID="RangeLbl" runat="server" Text="Range of Days"></asp:Label>--%>
+   <%-- <asp:TextBox ID="TxtRange1" runat="server" TextMode="Date"></asp:TextBox>--%>
+<%--    <asp:TextBox ID="TxtRange2" runat="server" TextMode="Date"></asp:TextBox>--%>
     <asp:CompareValidator 
         ID="CvRangeCompare" 
         runat="server" 
@@ -36,6 +45,7 @@
     <asp:TextBox ID="DestCityTxt" runat="server"></asp:TextBox>
     <asp:TextBox ID="DestStateTxt" runat="server"></asp:TextBox>
     <asp:TextBox ID="DestZipTxt" runat="server"></asp:TextBox>
+    <asp:TextBox ID="DestAddress" runat="server"></asp:TextBox> 
 
     <br />
      
