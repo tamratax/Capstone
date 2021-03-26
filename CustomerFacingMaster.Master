@@ -18,9 +18,6 @@
 <body>
        <form id="form1" runat="server">
     <div class="topnav">
-        <a href="#">Link</a>
-        <a href="#">Link</a>
-        <a href="#">Link</a>
         <div class="custom">
         <asp:Label
             ID="LblActiveUser"

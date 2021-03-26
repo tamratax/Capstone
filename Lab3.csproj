@@ -69,6 +69,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddRoom.aspx" />
     <Content Include="BootstrapSandBox.aspx" />
     <Content Include="Content\AddService.css" />
     <Content Include="Content\CustomerPortal.css" />
@@ -80,6 +81,7 @@
     <Content Include="Content\UserLogin.css" />
     <Content Include="EditEquipment.aspx" />
     <Content Include="LookAt.aspx" />
+    <Content Include="MoveAssessment.aspx" />
     <Content Include="MoveInventory.aspx" />
     <Content Include="AddServiceRequest.aspx" />
     <Content Include="Auction.aspx" />
@@ -225,6 +227,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddRoom.aspx.cs">
+      <DependentUpon>AddRoom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddRoom.aspx.designer.cs">
+      <DependentUpon>AddRoom.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BootstrapSandBox.aspx.cs">
       <DependentUpon>BootstrapSandBox.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -252,6 +261,13 @@
     </Compile>
     <Compile Include="LookAt.aspx.designer.cs">
       <DependentUpon>LookAt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MoveAssessment.aspx.cs">
+      <DependentUpon>MoveAssessment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MoveAssessment.aspx.designer.cs">
+      <DependentUpon>MoveAssessment.aspx</DependentUpon>
     </Compile>
     <Compile Include="MoveInventory.aspx.cs">
       <DependentUpon>MoveInventory.aspx</DependentUpon>
