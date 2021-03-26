@@ -21,6 +21,9 @@
 --drop table auction;
 --drop table Customer;
 --drop table employee;
+--drop table MOVEINFO;
+--drop table SpecialEquipment;
+--drop table Room;
 
 
 --Create tables in database
@@ -226,6 +229,32 @@ CREATE TABLE PAYMENT(
 	[CompleteStatus] [varchar](50) NULL,
 	[ServiceTicketID] [int] NULL
 	);
+CREATE TABLE MOVEINFO(
+	[MoveInfoID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[NumberOfStories] [nvarchar](50) NULL,
+	[DistanceFromTruck] [nvarchar](50) NULL,
+	[TypeOfHome] [nvarchar](50) NULL,
+	[TypeofHomeAdd] [nvarchar](1000) NULL,
+	[TruckAccessibility] [nvarchar](50) NULL,
+	[LoadingDoorWalk] [nvarchar](50) NULL,
+	[StepsToHouse] [nvarchar](50) NULL,
+	[ServiceTicketID] [int] NULL
+	);
+CREATE TABLE ROOM(
+	[RoomID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[RoomType] [varchar](50) NULL,
+	[BlanketNeeded] [varchar](50) NULL,
+	[BlanketNumber] [varchar](50) NULL,
+	[Floor] [varchar](50) NULL,
+	[MoveInfoID] [int] NULL
+	);
+CREATE TABLE SPECIALEQUIPMENT(
+	[SpecialEquipmentID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[EquipmentType] [nvarchar](100) NULL,
+	[Quantity] [int] NULL,
+	[ServiceTicketID] [int] NULL
+	);
+
 	
 
 create Table MoveAssessment(
