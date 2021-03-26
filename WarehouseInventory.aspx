@@ -16,10 +16,8 @@
             <asp:BoundField DataField="WarehouseID" HeaderText=" WarehouseID" Visible="false" />
             <asp:BoundField DataField="CustomerID" HeaderText=" CustomerID" Visible="false" />
             <asp:BoundField DataField="Date" HeaderText=" Date" />
-            <asp:BoundField DataField="Lot" HeaderText=" Lot" />
-            <asp:BoundField DataField="Control" HeaderText="Control"  />
+            <asp:BoundField DataField="Location" HeaderText="Location"  />
             <asp:BoundField DataField="Description" HeaderText=" Description" />
-            <asp:BoundField DataField="Quantity" HeaderText=" Quantity" />
             <asp:BoundField DataField="Name" HeaderText=" Customer" />
         </Columns>
     </asp:GridView>
@@ -30,7 +28,7 @@
      <asp:SqlDataSource ID="DSWarehouse"
         runat="server"
         ConnectionString="<%$ConnectionStrings:Lab3%>"
-        SelectCommand="SELECT warehouse.warehouseID, customer.customerID, warehouse.Date,  warehouse.Lot,  warehouse.Control,  warehouse.Description,  warehouse.Quantity, customer.FirstName + customer.LastName as Name from warehouse, customer order by customer.customerid desc" >     
+        SelectCommand="SELECT warehouse.warehouseID, customer.customerID, warehouse.Date, warehouse.Location,  warehouse.Description, customer.FirstName + customer.LastName as Name from warehouse, customer order by customer.customerid desc" >     
     </asp:SqlDataSource>
     
 </asp:Content>
