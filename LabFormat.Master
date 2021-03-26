@@ -124,6 +124,9 @@
                             <a href="ViewService.aspx">View Services</a>
                         </li>
                         <li>
+                            <a href="ViewMeetings.aspx">View Meetings</a>
+                        </li>
+                        <li>
                             <a href="ViewMoves.aspx"> View Moves
                             </a>
                         </li>
@@ -136,8 +139,6 @@
                             </a>
                         </li>
                         <li>
-
-
                             <a href="LookAt.aspx">Look At Form
                             </a>
                         </li>
