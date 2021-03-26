@@ -112,6 +112,7 @@
         <br />
         </div>
           <div id="divsave" runat="server">
+              <asp:Button ID="BtnAddRoom" runat="server" Text="Proceed to Add Room" OnClick="BtnAddRoom_Click" />
             <asp:Button ID="BtnSave" runat="server" Text="Save Move Form"  OnClick="BtnSave_Click"/>
         <asp:Label ID="LblSuccess" runat="server" Text="" ForeColor="Green"></asp:Label>
         </div>
