@@ -543,6 +543,8 @@
     <br />
     <br />
     <asp:Button ID="btnComplete" runat="server" Text="Complete Service Ticket->" OnClick="btnComplete_Click" />
+
+    <asp:Label ID="LblSaveStatus" runat="server" Text=""></asp:Label>
     <%--<asp:Table ID="Table2" runat="server">
         <asp:TableRow>
             <asp:TableCell>
