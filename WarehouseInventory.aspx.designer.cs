@@ -15,12 +15,21 @@ namespace Lab3
     {
 
         /// <summary>
-        /// LblWarehouse control.
+        /// GrdEquip control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblWarehouse;
+        protected global::System.Web.UI.WebControls.GridView GrdEquip;
+
+        /// <summary>
+        /// DSWarehouse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource DSWarehouse;
     }
 }

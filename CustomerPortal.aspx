@@ -22,7 +22,7 @@
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
-                    <div class="container">
+                    <div class="container ">
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
@@ -34,7 +34,7 @@
                                         <form>
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                                <%--                                                <input class="form-control py-4" id="TxtUsername" type="email" placeholder="Enter email address"--%>
+                                               
                                                 <asp:TextBox
                                                     ID="TxtUsername"
                                                     class="form-control py-4"
@@ -43,7 +43,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputPassword">Password</label>
-                                                <%--                                                <input class="form-control py-4" id="TxtPassword" type="password" placeholder="Enter password" />--%>
+                                               
                                                 <asp:TextBox
                                                     ID="TxtPassword"
                                                     runat="server"
@@ -57,8 +57,7 @@
                                                         ID="LblLoginStatus"
                                                         runat="server"
                                                         Text=""></asp:Label>
-                                                    <%--                                                    <input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" />
-                                                    <label class="custom-control-label" for="rememberPasswordCheck">Remember password</label>--%>
+                                                   
                                                 </div>
                                             </div>
                                             <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
