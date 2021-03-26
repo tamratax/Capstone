@@ -86,7 +86,7 @@
         <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
     </div>--%>
     <div class="form-row">
-         <div class="form-group col-md-4">
+         <div class="form-group col-md-6">
             <label for="inputCity">City</label>
             <asp:TextBox ID="TxtCity"
                 runat="server"
@@ -110,7 +110,7 @@
 
     </div>
         <div class="form-row">
-       <div class="form-group col-md-3">
+       <div class="form-group col-md-4">
             <label for="LblInitialContactDate">Initial Contact</label>
             <%--            <input type="text" class="form-control" id="inputCity" />--%>
             <asp:TextBox ID="TxtInitialContactDate"
@@ -119,7 +119,7 @@
                 Placeholder=""
                 TextMode="Date"></asp:TextBox>
         </div>
-             <div class="form-group col-md-3">
+             <div class="form-group col-md-4">
             <label for="lblDeadlineDate">Deadline Date For Service</label>
             <asp:TextBox ID="TxtDeadlineDate"
                 runat="server"
@@ -135,19 +135,18 @@
                 Placeholder="Ex. From A Friend"></asp:TextBox>
         </div>
        
-    </div>
-      <div class="form-row">
-       
-          <div class="form-group col-md-4">
+    </div>     
+          <div class="form-group">
             <label for="LblPreferredContactMethod">Preferred Contact Method</label>
               <asp:DropDownList 
                   ID="DdlPreferredContactMethod"
-                  runat="server"></asp:DropDownList>
+                  runat="server"
+                  class="form-control"
+                  width="100%"></asp:DropDownList> 
         </div>
        
-    </div>
 
-    <div>
+    <div class="form-group">
         <label>Check if form is complete: </label>
         <asp:CheckBox
             ID="ChkBoxCompleted"
