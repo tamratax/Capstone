@@ -218,6 +218,7 @@
     <Content Include="UserLogin.aspx" />
     <Content Include="ViewAuctions.aspx" />
     <Content Include="ViewCustomer.aspx" />
+    <Content Include="ViewMeetings.aspx" />
     <Content Include="ViewMoves.aspx" />
     <Content Include="ViewNote.aspx" />
     <Content Include="ViewService.aspx" />
@@ -402,6 +403,13 @@
     </Compile>
     <Compile Include="ViewCustomer.aspx.designer.cs">
       <DependentUpon>ViewCustomer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewMeetings.aspx.cs">
+      <DependentUpon>ViewMeetings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewMeetings.aspx.designer.cs">
+      <DependentUpon>ViewMeetings.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewMoves.aspx.cs">
       <DependentUpon>ViewMoves.aspx</DependentUpon>
