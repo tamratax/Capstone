@@ -80,7 +80,7 @@ namespace Lab3
             sqlCommand.Parameters.Add(new SqlParameter("@Date", HttpUtility.HtmlEncode(TxtDate.Text)));
             if(TxtTime != null)
             {
-                String NormalTime = Convert.ToDateTime(TxtTime.Text).ToString("hh:mm tt");
+                String NormalTime = Convert.ToDateTime(TxtTime.Text).ToString("h:mm tt");
                 sqlCommand.Parameters.Add(new SqlParameter("@Time", HttpUtility.HtmlEncode(NormalTime)));
 
             }
