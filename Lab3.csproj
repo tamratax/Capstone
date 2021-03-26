@@ -127,6 +127,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="EditEmployee.aspx" />
+    <Content Include="MoveServiceOrderForm.aspx" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="InitialConversation.aspx" />
     <Content Include="AddNote.aspx" />
@@ -452,6 +453,13 @@
     </Compile>
     <Compile Include="EditEmployee.aspx.designer.cs">
       <DependentUpon>EditEmployee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MoveServiceOrderForm.aspx.cs">
+      <DependentUpon>MoveServiceOrderForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MoveServiceOrderForm.aspx.designer.cs">
+      <DependentUpon>MoveServiceOrderForm.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
