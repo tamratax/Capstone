@@ -150,40 +150,40 @@ namespace Lab3
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divServer;
 
         /// <summary>
-        /// CheckBox1 control.
+        /// ChkBoxHigh control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
+        protected global::System.Web.UI.WebControls.CheckBox ChkBoxHigh;
 
         /// <summary>
-        /// CheckBox2 control.
+        /// ChkBoxSideboard control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox2;
+        protected global::System.Web.UI.WebControls.CheckBox ChkBoxSideboard;
 
         /// <summary>
-        /// CheckBox3 control.
+        /// ChkBoxMirror control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox3;
+        protected global::System.Web.UI.WebControls.CheckBox ChkBoxMirror;
 
         /// <summary>
-        /// CheckBox4 control.
+        /// ChkBoxMarble control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox4;
+        protected global::System.Web.UI.WebControls.CheckBox ChkBoxMarble;
 
         /// <summary>
         /// ChkBoxChina control.
@@ -249,22 +249,22 @@ namespace Lab3
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTable;
 
         /// <summary>
-        /// ChkBoxLeaves control.
+        /// TxtLeaves control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxLeaves;
+        protected global::System.Web.UI.WebControls.TextBox TxtLeaves;
 
         /// <summary>
-        /// ChkBoxChairs control.
+        /// TxtBoxChairs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxChairs;
+        protected global::System.Web.UI.WebControls.TextBox TxtBoxChairs;
 
         /// <summary>
         /// ChkBoxHighValue2 control.
@@ -366,22 +366,22 @@ namespace Lab3
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDen;
 
         /// <summary>
-        /// ChkBoxSofas control.
+        /// TxtSofas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxSofas;
+        protected global::System.Web.UI.WebControls.TextBox TxtSofas;
 
         /// <summary>
-        /// ChkBoxLeather control.
+        /// TxtLeatherSofas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxLeather;
+        protected global::System.Web.UI.WebControls.TextBox TxtLeatherSofas;
 
         /// <summary>
         /// divLivingRoom control.
@@ -393,22 +393,22 @@ namespace Lab3
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLivingRoom;
 
         /// <summary>
-        /// ChkBoxSofas1 control.
+        /// TxtSofas1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxSofas1;
+        protected global::System.Web.UI.WebControls.TextBox TxtSofas1;
 
         /// <summary>
-        /// ChkBoxLeather1 control.
+        /// TxtLeatherSofas1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxLeather1;
+        protected global::System.Web.UI.WebControls.TextBox TxtLeatherSofas1;
 
         /// <summary>
         /// divOtherRoom control.

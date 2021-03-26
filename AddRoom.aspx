@@ -20,6 +20,7 @@
                 <asp:ListItem Value="Den">Den</asp:ListItem>
                 <asp:ListItem Value="Office">Office</asp:ListItem>
                 <asp:ListItem Value="Bedroom">Bedroom</asp:ListItem>
+                <asp:ListItem Value="Library">Library</asp:ListItem>
                 <asp:ListItem Value="Attic">Attic</asp:ListItem>
                 <asp:ListItem Value="Basement">Basement</asp:ListItem>
                 <asp:ListItem Value="Garage">Garage</asp:ListItem>
@@ -72,61 +73,70 @@
         </div>
     </div>
     <div runat="server" id="divDiningRoom">
-            <label>Server</label>
-            <asp:CheckBox ID="ChkBoxServer" runat="server" OnCheckedChanged="ChkBoxServer_CheckedChanged" AutoPostBack="true" />
-            <div runat="server" id="divServer">
-                <div>
+        <label>Server</label>
+        <asp:CheckBox ID="ChkBoxServer" runat="server" OnCheckedChanged="ChkBoxServer_CheckedChanged" AutoPostBack="true" />
+        <div runat="server" id="divServer">
+            <div>
                 <label>High Value?</label>
-                    <asp:CheckBox ID="CheckBox1" runat="server" />
-                    </div>
-                <div>
-                 <label>Sideboard?</label>
-                    <asp:CheckBox ID="CheckBox2" runat="server" />
-                    </div>
-                <div>
-             <label>Mirror Back?</label>
-                    <asp:CheckBox ID="CheckBox3" runat="server" />
-                    </div>
-                <div>
-             <label>Marble Top?</label>
-                    <asp:CheckBox ID="CheckBox4" runat="server" />
-                    </div>
-                </div>
-           <div>
-               <label>China Press</label>
-               <asp:CheckBox ID="ChkBoxChina" runat="server" OnCheckedChanged="ChkBoxChina_CheckedChanged" AutoPostBack="true" />
-           </div>
+                <asp:CheckBox ID="ChkBoxHigh" runat="server" />
+            </div>
+            <div>
+                <label>Sideboard?</label>
+                <asp:CheckBox ID="ChkBoxSideboard" runat="server" />
+            </div>
+            <div>
+                <label>Mirror Back?</label>
+                <asp:CheckBox ID="ChkBoxMirror" runat="server" />
+            </div>
+            <div>
+                <label>Marble Top?</label>
+                <asp:CheckBox ID="ChkBoxMarble" runat="server" />
+            </div>
+        </div>
+        <div>
+            <label>China Press</label>
+            <asp:CheckBox ID="ChkBoxChina" runat="server" OnCheckedChanged="ChkBoxChina_CheckedChanged" AutoPostBack="true" />
+        </div>
         <div runat="server" id="divChinaPress">
-           <div>
-               <label>Bow Front</label>
-               <asp:CheckBox ID="ChkBoxBowFront" runat="server" />
-           </div>
             <div>
-               <label>High Value</label>
+                <label>Bow Front</label>
+                <asp:CheckBox ID="ChkBoxBowFront" runat="server" />
+            </div>
+            <div>
+                <label>High Value</label>
                 <asp:CheckBox ID="ChkBoxHighValue" runat="server" />
-           </div>
+            </div>
             <div>
-               <label>2 Piece</label>
+                <label>2 Piece</label>
                 <asp:CheckBox ID="ChkBox2Piece" runat="server" />
-           </div>
-       </div>
+            </div>
+        </div>
         <div>
             <label>Table</label>
             <asp:CheckBox ID="ChkBoxTable" runat="server" OnCheckedChanged="ChkBoxTable_CheckedChanged" AutoPostBack="true" />
         </div>
         <div runat="server" id="divTable">
+            <div class="form-group">
+                <label># of Leaves</label>
+                <asp:TextBox
+                    ID="TxtLeaves"
+                    runat="server"
+                    Placeholder="1, 2, 3"
+                    Class="form-control"></asp:TextBox>
+            </div>
+            <div class="form-group">
+                <label># of Chairs</label>
+                <asp:TextBox
+                    ID="TxtBoxChairs"
+                    runat="server"
+                    Placeholder="1, 2, 3"
+                    Class="form-control"></asp:TextBox>
+
+            </div>
             <div>
-               <label># of Leaves</label>
-                <asp:CheckBox ID="ChkBoxLeaves" runat="server" />
-           </div>
-            <div>
-               <label># of Chairs</label>
-                <asp:CheckBox ID="ChkBoxChairs" runat="server" />
-           </div>
-            <div>
-               <label>High Value</label>
+                <label>High Value</label>
                 <asp:CheckBox ID="ChkBoxHighValue2" runat="server" />
-           </div>
+            </div>
         </div>
         <div>
             <label>Pedestal Table / Plant Stand</label>
@@ -160,25 +170,42 @@
                 <asp:CheckBox ID="ChkBox2Piece2" runat="server" />
             </div>
         </div>
-        </div>
+    </div>
     <div runat="server" id="divDen">
-        <div>
+        <div class="form-control">
             <label># of Sofas</label>
-            <asp:CheckBox ID="ChkBoxSofas" runat="server" />
+            <asp:TextBox
+                ID="TxtSofas"
+                runat="server"
+                Placeholder="1, 2, 3"
+                Class="form-control"></asp:TextBox>
         </div>
-        <div>
+        <div class="form-control">
             <label>Leather Sofas</label>
-            <asp:CheckBox ID="ChkBoxLeather" runat="server" />
+            <asp:TextBox
+                ID="TxtLeatherSofas"
+                runat="server"
+                Placeholder="1, 2, 3"
+                Class="form-control"></asp:TextBox>
         </div>
     </div>
     <div runat="server" id="divLivingRoom">
-        <div>
+        <div class="form-control">
             <label># of Sofas</label>
-            <asp:CheckBox ID="ChkBoxSofas1" runat="server" />
+            <asp:TextBox
+                ID="TxtSofas1"
+                runat="server"
+                Placeholder="1, 2, 3"
+                Class="form-control"></asp:TextBox>
         </div>
-        <div>
+        <div class="form-control">
             <label>Leather Sofas</label>
-            <asp:CheckBox ID="ChkBoxLeather1" runat="server" />
+            <asp:TextBox
+                ID="TxtLeatherSofas1"
+                runat="server"
+                Placeholder="1, 2, 3"
+                Class="form-control"></asp:TextBox>
+
         </div>
     </div>
     <div runat="server" id="divOtherRoom">
