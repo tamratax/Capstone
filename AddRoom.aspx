@@ -10,7 +10,9 @@
             <asp:DropDownList
                 ID="DDLCreateRoom"
                 runat="server"
-                class="form-control">
+                class="form-control"
+                OnSelectedIndexChanged="DDLCreateRoom_SelectedIndexChanged"
+                AutoPostBack="true">
                 <asp:ListItem Value="Select">Select</asp:ListItem>
                 <asp:ListItem Value="Living Room">Living Room</asp:ListItem>
                 <asp:ListItem Value="Dining Room">Dining Room</asp:ListItem>
@@ -35,21 +37,166 @@
                 Placeholder=" Ex: Master, 1, 2, etc."></asp:TextBox>
         </div>
     </div>
-            <div runat="server" id="divOtherRoom">
-            <div class="form-group">
-                <label>Other Room</label>
-                <asp:TextBox ID="TxtOtherRoom"
-                    runat="server"
-                    class="form-control"
-                    Placeholder="Other room"></asp:TextBox>
+    <div runat="server" id="divOutBuilding">
+        <div>
+            <label>Riding Mower</label>
+            <asp:CheckBox ID="ChkBoxRideMower" runat="server" />
+        </div>
+        <div>
+            <label>Push Mower</label>
+            <asp:CheckBox ID="ChkBoxPushMower" runat="server" />
+        </div>
+        <div>
+            <label>Large Tools</label>
+            <asp:CheckBox ID="ChkLrgTools" runat="server" />
+        </div>
+    </div>
+    <div runat="server" id="divAttic">
+        <div>
+            <label>Accessibility</label>
+            <asp:CheckBox ID="ChkBoxAccess" runat="server" />
+        </div>
+        <div>
+            <label>Pull Down Steps</label>
+            <asp:CheckBox ID="ChkBoxPullDown" runat="server" />
+        </div>
+    </div>
+    <div runat="server" id="divBasement">
+        <div>
+            <label>Outside Entrance</label>
+            <asp:CheckBox ID="ChkBoxEntrance" runat="server" />
+        </div>
+        <div>
+            <label>Get Truck to Door</label>
+            <asp:CheckBox ID="ChkBoxTrucktoDoor" runat="server" />
+        </div>
+    </div>
+    <div runat="server" id="divDiningRoom">
+            <label>Server</label>
+            <asp:CheckBox ID="ChkBoxServer" runat="server" OnCheckedChanged="ChkBoxServer_CheckedChanged" AutoPostBack="true" />
+            <div runat="server" id="divServer">
+                <div>
+                <label>High Value?</label>
+                    <asp:CheckBox ID="CheckBox1" runat="server" />
+                    </div>
+                <div>
+                 <label>Sideboard?</label>
+                    <asp:CheckBox ID="CheckBox2" runat="server" />
+                    </div>
+                <div>
+             <label>Mirror Back?</label>
+                    <asp:CheckBox ID="CheckBox3" runat="server" />
+                    </div>
+                <div>
+             <label>Marble Top?</label>
+                    <asp:CheckBox ID="CheckBox4" runat="server" />
+                    </div>
+                </div>
+           <div>
+               <label>China Press</label>
+               <asp:CheckBox ID="ChkBoxChina" runat="server" OnCheckedChanged="ChkBoxChina_CheckedChanged" AutoPostBack="true" />
+           </div>
+        <div runat="server" id="divChinaPress">
+           <div>
+               <label>Bow Front</label>
+               <asp:CheckBox ID="ChkBoxBowFront" runat="server" />
+           </div>
+            <div>
+               <label>High Value</label>
+                <asp:CheckBox ID="ChkBoxHighValue" runat="server" />
+           </div>
+            <div>
+               <label>2 Piece</label>
+                <asp:CheckBox ID="ChkBox2Piece" runat="server" />
+           </div>
+       </div>
+        <div>
+            <label>Table</label>
+            <asp:CheckBox ID="ChkBoxTable" runat="server" OnCheckedChanged="ChkBoxTable_CheckedChanged" AutoPostBack="true" />
+        </div>
+        <div runat="server" id="divTable">
+            <div>
+               <label># of Leaves</label>
+                <asp:CheckBox ID="ChkBoxLeaves" runat="server" />
+           </div>
+            <div>
+               <label># of Chairs</label>
+                <asp:CheckBox ID="ChkBoxChairs" runat="server" />
+           </div>
+            <div>
+               <label>High Value</label>
+                <asp:CheckBox ID="ChkBoxHighValue2" runat="server" />
+           </div>
+        </div>
+        <div>
+            <label>Pedestal Table / Plant Stand</label>
+            <asp:CheckBox ID="ChkBoxPedestal" runat="server" />
+        </div>
+        <div>
+            <label>Silver Chest</label>
+            <asp:CheckBox ID="ChkBoxSilver" runat="server" OnCheckedChanged="ChkBoxSilver_CheckedChanged" AutoPostBack="true" />
+        </div>
+        <div runat="server" id="divSilver">
+            <div>
+                <label>High Value?</label>
+                <asp:CheckBox ID="ChkBoxHighValue3" runat="server" />
             </div>
         </div>
+        <div>
+            <label>Rug</label>
+            <asp:CheckBox ID="ChkBoxRug" runat="server" />
+        </div>
+        <div>
+            <label>Breakfront</label>
+            <asp:CheckBox ID="ChkBoxBreakfront" runat="server" OnCheckedChanged="ChkBoxBreakfront_CheckedChanged" AutoPostBack="true" />
+        </div>
+        <div runat="server" id="divBreakfront">
+            <div>
+                <label>High Value</label>
+                <asp:CheckBox ID="HighValue5" runat="server" />
+            </div>
+            <div>
+                <label>2 Piece</label>
+                <asp:CheckBox ID="ChkBox2Piece2" runat="server" />
+            </div>
+        </div>
+        </div>
+    <div runat="server" id="divDen">
+        <div>
+            <label># of Sofas</label>
+            <asp:CheckBox ID="ChkBoxSofas" runat="server" />
+        </div>
+        <div>
+            <label>Leather Sofas</label>
+            <asp:CheckBox ID="ChkBoxLeather" runat="server" />
+        </div>
+    </div>
+    <div runat="server" id="divLivingRoom">
+        <div>
+            <label># of Sofas</label>
+            <asp:CheckBox ID="ChkBoxSofas1" runat="server" />
+        </div>
+        <div>
+            <label>Leather Sofas</label>
+            <asp:CheckBox ID="ChkBoxLeather1" runat="server" />
+        </div>
+    </div>
+    <div runat="server" id="divOtherRoom">
+        <div class="form-group">
+            <label>Other Room</label>
+            <asp:TextBox ID="TxtOtherRoom"
+                runat="server"
+                class="form-control"
+                Placeholder="Other Room"></asp:TextBox>
+        </div>
+    </div>
     <div class="form-group">
         <label>Floor</label>
         <asp:DropDownList
             ID="DDLFloor"
             runat="server"
-            class="form-control">
+            class="form-control"
+            OnSelectedIndexChanged="DDLFloor_SelectedIndexChanged" AutoPostBack="true">
             <asp:ListItem Value="Select" Text="Select"> </asp:ListItem>
             <asp:ListItem Value="Ground Floor" Text="Ground Floor"> </asp:ListItem>
             <asp:ListItem Value="2nd Floor" Text="2nd Floor"></asp:ListItem>
@@ -67,9 +214,9 @@
     </div>
     <div>
         <asp:Label ID="BoxLbl" runat="server" Text="Need Boxes? "></asp:Label>
-        <asp:RadioButtonList ID="RBBtnBox" runat="server">
-            <asp:ListItem Text="Yes"> </asp:ListItem>
-            <asp:ListItem Text="No"></asp:ListItem>
+        <asp:RadioButtonList ID="RBBtnBox" runat="server" AutoPostBack="true" OnSelectedIndexChanged="RBBtnBox_SelectedIndexChanged">
+            <asp:ListItem Value="Yes" Text="Yes"> </asp:ListItem>
+            <asp:ListItem Value="Yes" Text="No"></asp:ListItem>
         </asp:RadioButtonList>
     </div>
     <div runat="server" id="divYesBox">
@@ -118,7 +265,7 @@
     </div>
     <br />
     <div class="float-right">
-        <asp:Button ID="BtnAddRoom" runat="server" Text="Add Room" />
-        <asp:Button ID="BtnSave" runat="server" Text="Save" />
+        <asp:Button ID="BtnAddRoom" runat="server" Text="Add Room" AutoPostBack="true" OnClick="BtnAddRoom_Click" />
+        <asp:Button ID="BtnSave" runat="server" Text="Save" AutoPostBack="true" OnClick="BtnSave_Click" />
     </div>
 </asp:Content>
