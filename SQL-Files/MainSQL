@@ -1,4 +1,5 @@
---drop Table AddRoom;
+--drop table Boxes;
+--drop Table Room;
 --drop Table MoveAssessment;
 --drop table notes;
 --drop table payment;
@@ -24,7 +25,6 @@
 --drop table employee;
 --drop table MOVEINFO;
 --drop table SpecialEquipment;
---drop table Room;
 
 
 --Create tables in database
@@ -241,14 +241,14 @@ CREATE TABLE MOVEINFO(
 	[StepsToHouse] [nvarchar](50) NULL,
 	[ServiceTicketID] [int] NULL
 	);
-CREATE TABLE ROOM(
-	[RoomID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	[RoomType] [varchar](50) NULL,
-	[BlanketNeeded] [varchar](50) NULL,
-	[BlanketNumber] [varchar](50) NULL,
-	[Floor] [varchar](50) NULL,
-	[MoveInfoID] [int] NULL
-	);
+--CREATE TABLE ROOM(
+--	[RoomID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
+--	[RoomType] [varchar](50) NULL,
+--	[BlanketNeeded] [varchar](50) NULL,
+--	[BlanketNumber] [varchar](50) NULL,
+--	[Floor] [varchar](50) NULL,
+--	[MoveInfoID] [int] NULL
+--	);
 CREATE TABLE SPECIALEQUIPMENT(
 	[SpecialEquipmentID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[EquipmentType] [nvarchar](100) NULL,
@@ -282,51 +282,27 @@ CREATE TABLE NOTES (
 	CustomerID	int references Customer(CustomerID)
 );
 
-Create Table AddRoom(
-RoomID int Identity(1,1) Not Null Primary Key,
-RoomName varchar(100),
-OtherRoom varchar(100),
-RideMower varchar (50),
-PushMower varchar (50),
-LargeTools varchar (50),
-AtticAccessibility varchar(100),
-PullDownSteps varchar(50),
-BasementEntrance varchar(50),
-TruckToDoor varchar(50),
-DinningServer varchar(25),
-HighValue varchar(50),
-Sideboard varchar(50),
-MirrorBack varchar(50),
-MarbleTop varchar(50),
-ChinaPress varchar(50),
-Bowfront varchar(25),
-HighValue1 varchar(25),
-TwoPiece varchar(50),
-DinningTable varchar (25),
-NumberOfLeaves varchar(25),
-NumberOfChairs varchar(25),
-HighValue2 varchar(25),
-Pedestal varchar(25),
-SilverChest varchar(25),
-HighValue3 varchar(25),
-Rug varchar(25),
-Breakfront varchar (25),
-HighValue4 varchar (25),
-TwoPiece1 varchar (25),
-NumberOfSofas varchar (25),
-LeatherSofas varchar (25),
-NumberOfSofas1 varchar (25),
-LeatherSofas1 varchar (25),
-Identifier varchar (25), 
-RoomFloor varchar(75),
-OtherFloor varchar(75),
-Boxes varchar (25),
-NumberOfBoxes varchar (25),
-BoxType varchar (25),
-Blankets varchar (25),
-Notes varchar (25),
-serviceTicketID int references ServiceTicket(serviceTicketID),
-CustomerID int references Customer(CustomerID)
+Create Table ROOM (
+	RoomID			int Identity(1,1) Not Null Primary Key,
+	RoomName		varchar(100),
+	RoomIdentity	varchar(100),
+	RoomFloor		varchar(100),
+	Blankets		varchar(255),
+	RoomNotes		varchar(max),
+	HighValue		varchar(max),
+	Large			varchar(max),
+	Collectible		varchar(max),
+	Electronics		varchar(max),
+	serviceTicketID int references ServiceTicket(serviceTicketID),
+	CustomerID		int references Customer(CustomerID)
+);
+
+CREATE TABLE BOXES (
+	BoxesID		int Identity(1,1) Not Null Primary Key,
+	RoomID		int references Room(RoomID),
+	BoxType		varchar(255),
+	BoxQuantity	int
+
 );
 
 
