@@ -524,6 +524,9 @@ namespace Lab3
 
             com.ExecuteNonQuery();
             sqlConnect.Close();
+
+            LblSaveStatus.Text = "Service Request Added Successfully";
+            LblSaveStatus.ForeColor = Color.Green;
         }
 
         protected void btnAddEmp_Click(object sender, EventArgs e)
