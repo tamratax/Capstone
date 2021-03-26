@@ -214,6 +214,7 @@
     <Content Include="src\assets\demo\datatables-demo.js" />
     <Content Include="src\assets\img\error-404-monochrome.svg" />
     <Content Include="src\js\scripts.js" />
+    <Content Include="TestSchedule.aspx" />
     <Content Include="UnauthorizedAccess.aspx" />
     <Content Include="UserLogin.aspx" />
     <Content Include="ViewAuctions.aspx" />
@@ -375,6 +376,13 @@
     </Compile>
     <Compile Include="Scheduling.aspx.designer.cs">
       <DependentUpon>Scheduling.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestSchedule.aspx.cs">
+      <DependentUpon>TestSchedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestSchedule.aspx.designer.cs">
+      <DependentUpon>TestSchedule.aspx</DependentUpon>
     </Compile>
     <Compile Include="UnauthorizedAccess.aspx.cs">
       <DependentUpon>UnauthorizedAccess.aspx</DependentUpon>

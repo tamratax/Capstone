@@ -62,6 +62,9 @@
                              <li>
                                 <a href="WarehouseAssign.aspx">Assign to Warehouse</a>
                             </li>
+                             <li>
+                                <a href="MoveAssessment.aspx">Move Assessment</a>
+                            </li>
                             <li>
                                 <a href="AddNote.aspx">Notes</a>
                             </li>
@@ -204,7 +207,7 @@
                         <asp:Label ID="LblSelectedCust" runat="server" Text="" Font-Bold="true" OnPreRender="LblSelectedCust_PreRender" ></asp:Label>
                         &nbsp;
                         <asp:Button ID="BtnClearCust" runat="server" Text="Clear->" OnClick="BtnClearCust_Click" />
-                        </>
+                        </div>
 
                         <div id="divNotes" runat="server" class="container" style="position: fixed; width: 100%; top: 6rem;">
                             <div class="row justify-content-end">
@@ -249,15 +252,12 @@
                                         runat="server"
                                         Text="Back To Navigation ->"
                                         OnClick="BtnNavigation_Click" />--%>
-
-                                    <div class="float-right">
                                     <asp:Button
                                         ID="BtnLogout"
                                         runat="server"
                                         Text="Logout ->"
                                         OnClick="BtnLogout_Click"
                                         CssClass="btn-primary" />
-                                        </div>
                                 </li>
                                 <%--        <li class="nav-item">
                                     <a class="nav-link" href="#">Page</a>

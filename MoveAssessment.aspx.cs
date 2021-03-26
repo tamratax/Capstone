@@ -299,5 +299,10 @@ namespace Lab3
             divvehicles.Visible = false;
             divsave.Visible = false;
         }
+
+        protected void BtnAddRoom_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AddRoom.aspx");
+        }
     }
 }
