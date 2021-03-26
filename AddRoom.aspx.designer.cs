@@ -7,146 +7,164 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Lab2
+namespace Lab3
 {
 
 
-    public partial class Site1
+    public partial class AddRoom
     {
 
         /// <summary>
-        /// head control.
+        /// DDLCreateRoom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.DropDownList DDLCreateRoom;
 
         /// <summary>
-        /// form1 control.
+        /// TxtRoomIdentify control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.TextBox TxtRoomIdentify;
 
         /// <summary>
-        /// LblSelected control.
+        /// divOtherRoom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblSelected;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divOtherRoom;
 
         /// <summary>
-        /// LblSelectedCust control.
+        /// TxtOtherRoom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblSelectedCust;
+        protected global::System.Web.UI.WebControls.TextBox TxtOtherRoom;
 
         /// <summary>
-        /// BtnClearCust control.
+        /// DDLFloor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnClearCust;
+        protected global::System.Web.UI.WebControls.DropDownList DDLFloor;
 
         /// <summary>
-        /// divNotes control.
+        /// divOtherFloor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divNotes;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divOtherFloor;
 
         /// <summary>
-        /// LblNotes control.
+        /// BoxOther control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblNotes;
+        protected global::System.Web.UI.WebControls.TextBox BoxOther;
 
         /// <summary>
-        /// DdlNotes control.
+        /// BoxLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlNotes;
+        protected global::System.Web.UI.WebControls.Label BoxLbl;
 
         /// <summary>
-        /// divNotesContent control.
+        /// RBBtnBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divNotesContent;
+        protected global::System.Web.UI.WebControls.RadioButtonList RBBtnBox;
 
         /// <summary>
-        /// LblNoteDate control.
+        /// divYesBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblNoteDate;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divYesBox;
 
         /// <summary>
-        /// TxtNoteText control.
+        /// DDLType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtNoteText;
+        protected global::System.Web.UI.WebControls.DropDownList DDLType;
 
         /// <summary>
-        /// BtnSaveNote control.
+        /// TxtQty control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSaveNote;
+        protected global::System.Web.UI.WebControls.TextBox TxtQty;
 
         /// <summary>
-        /// BtnLogout control.
+        /// BtnAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnLogout;
+        protected global::System.Web.UI.WebControls.Button BtnAdd;
 
         /// <summary>
-        /// body control.
+        /// RBBlanket control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder body;
+        protected global::System.Web.UI.WebControls.RadioButtonList RBBlanket;
 
         /// <summary>
-        /// dtasrcNotesList control.
+        /// TxtAdditional control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcNotesList;
+        protected global::System.Web.UI.WebControls.TextBox TxtAdditional;
+
+        /// <summary>
+        /// BtnAddRoom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnAddRoom;
+
+        /// <summary>
+        /// BtnSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnSave;
     }
 }
