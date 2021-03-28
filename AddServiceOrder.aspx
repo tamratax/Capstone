@@ -264,7 +264,7 @@
             OnClick="BtnSave_Click"
             ValidationGroup="SaveGroup" />
 
-        <asp:Button ID="BtnAuctionInvt"
+<%--        <asp:Button ID="BtnAuctionInvt"
             runat="server"
             Text="Add Auction Inventory ->"
             OnClick="BtnAuctionInvt_Click" />
@@ -272,7 +272,7 @@
         <asp:Button ID="BtnMoveInvt"
             runat="server"
             Text="Add Move Inventory ->"
-            OnClick="BtnMoveInvt_Click" />
+            OnClick="BtnMoveInvt_Click" />--%>
     </div>
 
     <asp:RequiredFieldValidator
