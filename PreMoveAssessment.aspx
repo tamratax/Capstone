@@ -92,7 +92,8 @@
     </div>
       <div>
         <label>Trash Removal: </label>
-            <asp:CheckBox ID="TrashChk" runat="server" />
+            <asp:CheckBox ID="TrashChk" runat="server"  AutoPostBack="true" OnCheckedChanged="TrashChk_CheckedChanged" />
+            <asp:TextBox ID="TrashDescriptionTxt" runat="server" AutoPostBack="true" TextMode="MultiLine" Visible="false"></asp:TextBox>
     </div>
       <div>
         <label>Donation Hauling: </label>
