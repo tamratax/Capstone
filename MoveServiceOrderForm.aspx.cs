@@ -152,5 +152,10 @@ namespace Lab3
             //Sets drop down list to default Select option
             DdlInitiatingEmp.Items.Insert(0, new ListItem("Select", "-1"));
         }
+
+        protected void BtnAddEmployee_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

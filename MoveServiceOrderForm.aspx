@@ -180,6 +180,7 @@
         Text="Add Another Destination" 
         OnClick="BtnAddDestination_Click" />
     <br />
+    <br />
     <h4>Assign Crew</h4>
      <div class="form-group">
         <label>Employees:</label>
@@ -191,6 +192,10 @@
             DataValueField="EmployeeID"
             OnDataBound="DdlInitiatingEmp_DataBound" Width="100%">
         </asp:DropDownList>
+         <asp:Button ID="BtnAddEmployee" 
+             runat="server" 
+             Text="Add Employee" 
+             OnClick="BtnAddEmployee_Click" />
     </div>
     <asp:GridView ID="GridEmployees" 
         runat="server"
