@@ -127,6 +127,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="EditEmployee.aspx" />
+    <Content Include="MoveServiceOrderForm.aspx" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="InitialConversation.aspx" />
     <Content Include="AddNote.aspx" />
@@ -219,6 +220,7 @@
     <Content Include="UserLogin.aspx" />
     <Content Include="ViewAuctions.aspx" />
     <Content Include="ViewCustomer.aspx" />
+    <Content Include="ViewMeetings.aspx" />
     <Content Include="ViewMoves.aspx" />
     <Content Include="ViewNote.aspx" />
     <Content Include="ViewService.aspx" />
@@ -411,6 +413,13 @@
     <Compile Include="ViewCustomer.aspx.designer.cs">
       <DependentUpon>ViewCustomer.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ViewMeetings.aspx.cs">
+      <DependentUpon>ViewMeetings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewMeetings.aspx.designer.cs">
+      <DependentUpon>ViewMeetings.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewMoves.aspx.cs">
       <DependentUpon>ViewMoves.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -452,6 +461,13 @@
     </Compile>
     <Compile Include="EditEmployee.aspx.designer.cs">
       <DependentUpon>EditEmployee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MoveServiceOrderForm.aspx.cs">
+      <DependentUpon>MoveServiceOrderForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MoveServiceOrderForm.aspx.designer.cs">
+      <DependentUpon>MoveServiceOrderForm.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
