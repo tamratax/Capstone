@@ -50,9 +50,12 @@
                             <li>
                                 <a href="AddServiceOrder.aspx">Add Service</a>
                             </li>
-<%--                            <li>
-                                <a href="https://outlook.live.com/calendar/0/view/month?login_hint=outlook_B7BAC9A1BE036526%40outlook.com" target="_blank" class="article">Scheduling</a>
-                            </li>--%>
+                            <li>
+                                <a href="https://outlook.live.com/calendar/0/view/month?login_hint=outlook_B7BAC9A1BE036526%40outlook.com" target="_blank">Scheduling</a>
+                            </li>
+                            <li>
+                                <a href="AppraisalServiceOrder.aspx">Appraisal Service Order</a>
+                            </li>
                             <li>
                                 <a href="AuctionInventory.aspx">Walkthrough</a>
                             </li>

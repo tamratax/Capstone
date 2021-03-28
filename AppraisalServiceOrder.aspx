@@ -115,9 +115,9 @@
         <div>
             <h5>Size of Appraisal</h5>
         </div>
-        <div>
+        <div class="form-group">
             <%--<label>Size of Appraisal</label>--%>
-            <asp:TextBox ID="TxtAppraisalSize" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TxtAppraisalSize" runat="server" Class="form-control"></asp:TextBox>
         </div>
     </div>
     <br />
@@ -125,9 +125,9 @@
         <div>
             <h5>Inventory</h5>
         </div>
-        <div>
-            <%--<label>Size of Appraisal</label>--%>
-            <asp:TextBox ID="TxtInventory" runat="server" TextMode="MultiLine" Rows="5" Columns="25"></asp:TextBox>
+        <div class="form-group">
+     
+            <asp:TextBox ID="TxtInventory" runat="server" TextMode="MultiLine" Rows="5" Columns="25" Class="form-control"></asp:TextBox>
         </div>
     </div>
     <br />
