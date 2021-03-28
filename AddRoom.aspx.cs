@@ -43,28 +43,11 @@ namespace Lab3
             {
                 divOtherRoom.Visible = true;
             }
-            if (DDLCreateRoom.SelectedValue == "Outbuilding")
+            else
             {
-                divOutBuilding.Visible = true;
+                divOtherFloor.Visible = false;
             }
-            if (DDLCreateRoom.SelectedValue == "Attic")
-            {
-                divAttic.Visible = true;
-            }
-            if (DDLCreateRoom.SelectedValue == "Basement")
-            {
-                divBasement.Visible = true;
-            }
-            if (DDLCreateRoom.SelectedValue == "Dining Room")
-            {
-                divDiningRoom.Visible = true;
-            }
-            if (DDLCreateRoom.SelectedValue == "Den")
-            {
-                divDen.Visible = true;
-            }
-            if (DDLCreateRoom.SelectedValue == "Living Room")
-                divLivingRoom.Visible = true;
+
         }
 
         protected void DDLFloor_SelectedIndexChanged(object sender, EventArgs e)
@@ -72,6 +55,10 @@ namespace Lab3
             if (DDLFloor.SelectedValue == "Other")
             {
                 divOtherFloor.Visible = true;
+            }
+            else
+            {
+                divOtherFloor.Visible = false;
             }
         }
 
@@ -81,54 +68,94 @@ namespace Lab3
             {
                 divYesBox.Visible = true;
             }
+            else
+            {
+                divYesBox.Visible = false;
+            }
         }
 
         protected void BtnAddRoom_Click(object sender, EventArgs e)
         {
-            divOtherRoom.Visible = false;
-            divOtherFloor.Visible = false;
-            divYesBox.Visible = false;
+            try
+            {
+                divOtherRoom.Visible = false;
+                divOtherFloor.Visible = false;
+                divYesBox.Visible = false;
 
-            string query = "INSERT INTO [ROOM] (RoomName, RoomIdentity, RoomFloor, Blankets, RoomNotes, HighValue, Large, Collectible, Electronics, ServiceTicketID, CustomerID) " +
-                "VALUES (@RoomName, @RoomIdentity, @RoomFloor, @Blankets, @RoomNotes, @HighValue, @Large, @Collectible, @Electronics, @ServiceTicketID, @CustomerID)";
+                string query = "INSERT INTO [ROOM] (RoomName, RoomIdentity, RoomFloor, Blankets, RoomNotes, HighValue, Large, Collectible, Electronics, ServiceTicketID, CustomerID) " +
+                    "VALUES (@RoomName, @RoomIdentity, @RoomFloor, @Blankets, @RoomNotes, @HighValue, @Large, @Collectible, @Electronics, @ServiceTicketID, @CustomerID)";
+
+
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                sqlConnect.Open();
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnect);
+
+                //Finds roomName if Other is selected
+                String roomName = DDLCreateRoom.Text;
+                if (roomName == "Other")
+                {
+                    roomName = TxtOtherRoom.Text;
+                }
+
+                //Finds floorName if Other is selected
+                String floorName = DDLFloor.Text;
+                if (floorName == "Other")
+                {
+                    floorName = TxtFloorOther.Text;
+                }
+
+                sqlCommand.Parameters.Add(new SqlParameter("@RoomName", HttpUtility.HtmlEncode(roomName)));
+                sqlCommand.Parameters.Add(new SqlParameter("@RoomIdentity", HttpUtility.HtmlEncode(TxtRoomIdentify.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@RoomFloor", HttpUtility.HtmlEncode(floorName)));
+                sqlCommand.Parameters.Add(new SqlParameter("@Blankets", HttpUtility.HtmlEncode(TxtBlanket.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@RoomNotes", HttpUtility.HtmlEncode(TxtAdditional.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@HighValue", HttpUtility.HtmlEncode(TxtHighValue.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@Large", HttpUtility.HtmlEncode(TxtLargeItems.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@Collectible", HttpUtility.HtmlEncode(TxtCollectibles.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@Electronics", HttpUtility.HtmlEncode(TxtAppliances.Text)));
+                sqlCommand.Parameters.Add(new SqlParameter("@ServiceTicketID", Session["ServiceTicketID"].ToString()));
+                sqlCommand.Parameters.Add(new SqlParameter("@CustomerID", Session["SelectedCustomerID"].ToString()));
+
+
+                // Open your connection, send the query 
+                SqlDataReader queryResults = sqlCommand.ExecuteReader();
+
+                // Close all related connections
+                sqlConnect.Close();
+
+                LblAddRoomStatus.Text = "Room Added Sucessfully!";
+                LblAddRoomStatus.ForeColor = Color.Green;
+
                 
 
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-            sqlConnect.Open();
-            SqlCommand sqlCommand = new SqlCommand(query, sqlConnect);
 
-            //Finds roomName if Other is selected
-            String roomName = DDLCreateRoom.Text;
-            if (roomName == "Other")
+
+
+
+
+                //Clears everything
+                DDLCreateRoom.SelectedIndex = 0;
+                DDLFloor.SelectedIndex = 0;
+                TxtOtherRoom.Text = "";
+                TxtFloorOther.Text = "";
+                TxtRoomIdentify.Text = "";
+                TxtBlanket.Text = "";
+                TxtAdditional.Text = "";
+                TxtHighValue.Text = "";
+                TxtLargeItems.Text = "";
+                TxtCollectibles.Text = "";
+                TxtAppliances.Text = "";
+                DDLType.SelectedIndex = 0;
+                TxtQty.Text = "";
+                RBBtnBox.ClearSelection();
+
+
+            } catch
             {
-                roomName = TxtOtherRoom.Text;
+                LblAddRoomStatus.Text = "Database Error!";
+                LblAddRoomStatus.ForeColor = Color.Red;
             }
 
-            //Finds floorName if Other is selected
-            String floorName = DDLFloor.Text;
-            if (floorName == "Other")
-            {
-                floorName = TxtFloorOther.Text;
-            }
-
-            sqlCommand.Parameters.Add(new SqlParameter("@RoomName", HttpUtility.HtmlEncode(roomName)));
-            sqlCommand.Parameters.Add(new SqlParameter("@RoomIdentity", HttpUtility.HtmlEncode(TxtRoomIdentify.Text)));
-            sqlCommand.Parameters.Add(new SqlParameter("@RoomFloor", HttpUtility.HtmlEncode(floorName)));
-            sqlCommand.Parameters.Add(new SqlParameter("@Blankets", HttpUtility.HtmlEncode(TxtBlanket.Text)));
-            sqlCommand.Parameters.Add(new SqlParameter("@RoomNotes", HttpUtility.HtmlEncode(TxtAdditional.Text)));
-            sqlCommand.Parameters.Add(new SqlParameter("@HighValue", HttpUtility.HtmlEncode(TxtHighValue.Text)));
-            sqlCommand.Parameters.Add(new SqlParameter("@Large", HttpUtility.HtmlEncode(TxtLargeItems.Text)));
-            sqlCommand.Parameters.Add(new SqlParameter("@Collectible", HttpUtility.HtmlEncode(TxtCollectibles.Text)));
-            sqlCommand.Parameters.Add(new SqlParameter("@Electronics", HttpUtility.HtmlEncode(TxtAppliances.Text)));
-            sqlCommand.Parameters.Add(new SqlParameter("@ServiceTicketID", Session["ServiceTicketID"].ToString()));
-            sqlCommand.Parameters.Add(new SqlParameter("@CustomerID", Session["SelectedCustomerID"].ToString()));
-            
-
-            // Open your connection, send the query 
-            SqlDataReader queryResults = sqlCommand.ExecuteReader();
-
-            // Close all related connections
-            sqlConnect.Close();
             
         }
 

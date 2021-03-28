@@ -347,6 +347,7 @@
     </div>
     <br />
     <div class="float-right">
+        <asp:Label ID="LblAddRoomStatus" runat="server" Text=""></asp:Label>
         <asp:Button ID="BtnAddRoom" runat="server" Text="Add Room" AutoPostBack="true" OnClick="BtnAddRoom_Click" />
         <asp:Button ID="BtnReturn" runat="server" Text="Return to Move Assessment" AutoPostBack="true" OnClick="BtnReturn_Click" />
     </div>
