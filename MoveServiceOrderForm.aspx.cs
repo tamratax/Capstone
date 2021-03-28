@@ -15,60 +15,61 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Checks to see if there is a customer selected
-            if (Session["SelectedCustomerID"] == null)
+            if (!IsPostBack)
             {
-                Session["NoCustSelected"] = "true";
-                Response.Redirect("Navigation.aspx");
+                //Checks to see if there is a customer selected
+                if (Session["SelectedCustomerID"] == null)
+                {
+                    Session["NoCustSelected"] = "true";
+                    Response.Redirect("Navigation.aspx");
 
 
+                }
+                //If the user is trying to edit a customer, there will be a customerid in this session data
+                if (Session["SelectedCustomerID"] != null)
+                {
+                    //Pulling in customer's record
+                    String sqlQuery = "Select * from customer where customerid = " + Session["SelectedCustomerID"].ToString();
+
+                    //Establishes the connection between our web form and database
+                    SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+
+                    //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
+                    SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
+
+                    //This creates a datatable and fills it
+                    DataTable dtForSelect = new DataTable();
+                    sqlAdapter.Fill(dtForSelect);
+
+                    LblCustName.Text = Session["SelectedCustomerName"].ToString();
+                    LblHomeNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
+                    LblCellNumber.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
+                    LblWorkNumber.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
+                    LblEmailText.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
+
+
+                    //Populates service Ddl
+                    ddlService.DataTextField = "Services";
+                    ddlService.DataValueField = "ServiceTicketID";
+
+                    String sqlQueryService = "Select ServiceTicketID, ServiceType + ' ' + ServiceDate 'Services' from ServiceTicket where ServiceType = 'Move' AND customerID = " + Session["SelectedCustomerID"].ToString();
+
+
+                    SqlConnection sqlConnectService = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+
+                    SqlDataAdapter sqlAdapterService = new SqlDataAdapter(sqlQueryService, sqlConnectService);
+
+                    DataTable dtForDdlServiceList = new DataTable();
+                    sqlAdapterService.Fill(dtForDdlServiceList);
+
+                    ddlService.DataSource = dtForDdlServiceList;
+                    ddlService.DataBind();
+                }
             }
-            //If the user is trying to edit a customer, there will be a customerid in this session data
-            if (Session["SelectedCustomerID"] != null)
-            {
-                //Pulling in customer's record
-                String sqlQuery = "Select * from customer where customerid = " + Session["SelectedCustomerID"].ToString();
 
-                //Establishes the connection between our web form and database
-                SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
-
-                //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
-                SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
-
-                //This creates a datatable and fills it
-                DataTable dtForSelect = new DataTable();
-                sqlAdapter.Fill(dtForSelect);
-
-                LblCustName.Text = Session["SelectedCustomerName"].ToString();
-                LblHomeNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
-                LblCellNumber.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
-                LblWorkNumber.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
-                LblEmailText.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
-            }
-
-            if (Session["ServiceTicketID"] != null)
-            {
-                //Pulling in customer's record
-                String sqlQuery = "Select * from customer join serviceticket on customer.customerID = serviceticket.customerID where serviceticketID = " + Session["ServiceTicketID"].ToString();
-
-                //Establishes the connection between our web form and database
-                SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
-
-                //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
-                SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
-
-                //This creates a datatable and fills it
-                DataTable dtForSelect = new DataTable();
-                sqlAdapter.Fill(dtForSelect);
-
-                LblHomeNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
-                LblCellNumber.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
-                LblWorkNumber.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
-                LblEmailText.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
-            }
         }
 
-        protected void BtnAddOrgin_Click(object sender, EventArgs e)
+        protected void BtnAddOrigin_Click(object sender, EventArgs e)
         {
             //Concatenate Sql Query Update Statements
             String sqlQuery = "Insert into address values (null, @CustomerID, @Street, @City, @State, @Zip, @Description)";
@@ -155,7 +156,57 @@ namespace Lab3
 
         protected void BtnAddEmployee_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                string query = "INSERT INTO [MOVEEMPLOYEES] (EmployeeID, ServiceTicketID) Values (@EmployeeID, @ServiceTicketID)";
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                sqlConnect.Open();
+                SqlCommand com = new SqlCommand(query, sqlConnect);
+
+                com.Parameters.AddWithValue("EmployeeID", DdlInitiatingEmp.SelectedValue.ToString());
+                com.Parameters.AddWithValue("ServiceTicketID", ddlService.SelectedValue.ToString());
+
+                com.ExecuteNonQuery();
+                sqlConnect.Close();
+
+                //LblStatus.Text = "Item sucessfully added!";
+                GridEmployees.DataBind();
+
+            }
+            catch
+            {
+                //LblStatus.Text = "Database Error!";
+            }
+
+
+        }
+        protected void CheckBoxTrash_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CheckBoxTrash.Checked)
+
+                hiddentext1.Visible = true;
+
+            else
+
+                hiddentext1.Visible = false;
+        }
+
+        protected void GridEmployees_DataBound(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ddlService_DataBound(object sender, EventArgs e)
+        {
+            //Sets Service list ddl to default of select
+            ListItem blankOption = new ListItem("Select", "-1");
+            ddlService.Items.Insert(0, blankOption);
+            ddlService.SelectedIndex = 0;
+        }
+
+        protected void ddlService_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
