@@ -66,6 +66,9 @@
                                 <a href="MoveAssessment.aspx">Move Assessment</a>
                             </li>
                             <li>
+                                <a href="MoveServiceOrderForm.aspx">Move Service Order</a>
+                            </li>
+                            <li>
                                 <a href="AddNote.aspx">Notes</a>
                             </li>
                             <li>
