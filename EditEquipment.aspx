@@ -31,8 +31,8 @@
             runat="server"
             ConnectionString="<%$ConnectionStrings:Lab3%>"
             SelectCommand="Select * from Equipment" 
-            UpdateCommand="UPDATE Equipment SET EquipmentType = @EquipmentType" 
-            DeleteCommand="DELETE Equipment where EquipmentID = @EquipmentID" >        
+            UpdateCommand="UPDATE Equipment SET EquipmentType = @EquipmentType where EquipmentID = @EquipmentID" 
+            DeleteCommand="DELETE Equipment where EquipmentID = @EquipmentID">        
      </asp:SqlDataSource>
 
 

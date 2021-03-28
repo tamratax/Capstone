@@ -1,0 +1,9 @@
+CREATE TRIGGER updateBoxes on ROOM
+
+AFTER INSERT
+AS
+BEGIN
+
+UPDATE BOXES SET RoomID = (SELECT TOP 1 RoomID from ROOM order by RoomID desc) where RoomID IS NULL;
+
+END;
