@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddRoom.aspx" />
+    <Content Include="AppraisalServiceOrder.aspx" />
     <Content Include="BootstrapSandBox.aspx" />
     <Content Include="Content\AddService.css" />
     <Content Include="Content\CustomerPortal.css" />
@@ -233,6 +234,13 @@
     </Compile>
     <Compile Include="AddRoom.aspx.designer.cs">
       <DependentUpon>AddRoom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppraisalServiceOrder.aspx.cs">
+      <DependentUpon>AppraisalServiceOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppraisalServiceOrder.aspx.designer.cs">
+      <DependentUpon>AppraisalServiceOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="BootstrapSandBox.aspx.cs">
       <DependentUpon>BootstrapSandBox.aspx</DependentUpon>
