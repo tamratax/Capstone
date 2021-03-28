@@ -15,6 +15,24 @@ namespace Lab3
     {
 
         /// <summary>
+        /// dtvRoom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DetailsView dtvRoom;
+
+        /// <summary>
+        /// grvRoomBoxes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grvRoomBoxes;
+
+        /// <summary>
         /// DDLCreateRoom control.
         /// </summary>
         /// <remarks>
@@ -42,33 +60,6 @@ namespace Lab3
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divOutBuilding;
 
         /// <summary>
-        /// ChkBoxRideMower control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxRideMower;
-
-        /// <summary>
-        /// ChkBoxPushMower control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxPushMower;
-
-        /// <summary>
-        /// ChkLrgTools control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkLrgTools;
-
-        /// <summary>
         /// divAttic control.
         /// </summary>
         /// <remarks>
@@ -76,24 +67,6 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAttic;
-
-        /// <summary>
-        /// ChkBoxAccess control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxAccess;
-
-        /// <summary>
-        /// ChkBoxPullDown control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxPullDown;
 
         /// <summary>
         /// divBasement control.
@@ -105,24 +78,6 @@ namespace Lab3
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divBasement;
 
         /// <summary>
-        /// ChkBoxEntrance control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxEntrance;
-
-        /// <summary>
-        /// ChkBoxTrucktoDoor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxTrucktoDoor;
-
-        /// <summary>
         /// divDiningRoom control.
         /// </summary>
         /// <remarks>
@@ -130,231 +85,6 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDiningRoom;
-
-        /// <summary>
-        /// ChkBoxServer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxServer;
-
-        /// <summary>
-        /// divServer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divServer;
-
-        /// <summary>
-        /// ChkBoxHigh control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxHigh;
-
-        /// <summary>
-        /// ChkBoxSideboard control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxSideboard;
-
-        /// <summary>
-        /// ChkBoxMirror control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxMirror;
-
-        /// <summary>
-        /// ChkBoxMarble control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxMarble;
-
-        /// <summary>
-        /// ChkBoxChina control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxChina;
-
-        /// <summary>
-        /// divChinaPress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divChinaPress;
-
-        /// <summary>
-        /// ChkBoxBowFront control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxBowFront;
-
-        /// <summary>
-        /// ChkBoxHighValue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxHighValue;
-
-        /// <summary>
-        /// ChkBox2Piece control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBox2Piece;
-
-        /// <summary>
-        /// ChkBoxTable control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxTable;
-
-        /// <summary>
-        /// divTable control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTable;
-
-        /// <summary>
-        /// TxtLeaves control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtLeaves;
-
-        /// <summary>
-        /// TxtBoxChairs control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtBoxChairs;
-
-        /// <summary>
-        /// ChkBoxHighValue2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxHighValue2;
-
-        /// <summary>
-        /// ChkBoxPedestal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxPedestal;
-
-        /// <summary>
-        /// ChkBoxSilver control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxSilver;
-
-        /// <summary>
-        /// divSilver control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSilver;
-
-        /// <summary>
-        /// ChkBoxHighValue3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxHighValue3;
-
-        /// <summary>
-        /// ChkBoxRug control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxRug;
-
-        /// <summary>
-        /// ChkBoxBreakfront control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBoxBreakfront;
-
-        /// <summary>
-        /// divBreakfront control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divBreakfront;
-
-        /// <summary>
-        /// HighValue5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox HighValue5;
-
-        /// <summary>
-        /// ChkBox2Piece2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkBox2Piece2;
 
         /// <summary>
         /// divDen control.
@@ -366,24 +96,6 @@ namespace Lab3
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDen;
 
         /// <summary>
-        /// TxtSofas control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtSofas;
-
-        /// <summary>
-        /// TxtLeatherSofas control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtLeatherSofas;
-
-        /// <summary>
         /// divLivingRoom control.
         /// </summary>
         /// <remarks>
@@ -391,24 +103,6 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLivingRoom;
-
-        /// <summary>
-        /// TxtSofas1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtSofas1;
-
-        /// <summary>
-        /// TxtLeatherSofas1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtLeatherSofas1;
 
         /// <summary>
         /// divOtherRoom control.
@@ -447,13 +141,13 @@ namespace Lab3
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divOtherFloor;
 
         /// <summary>
-        /// BoxOther control.
+        /// TxtFloorOther control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox BoxOther;
+        protected global::System.Web.UI.WebControls.TextBox TxtFloorOther;
 
         /// <summary>
         /// BoxLbl control.
@@ -510,13 +204,31 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Button BtnAdd;
 
         /// <summary>
-        /// RBBlanket control.
+        /// LblStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RBBlanket;
+        protected global::System.Web.UI.WebControls.Label LblStatus;
+
+        /// <summary>
+        /// grvBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grvBox;
+
+        /// <summary>
+        /// TxtBlanket control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtBlanket;
 
         /// <summary>
         /// TxtAdditional control.
@@ -528,6 +240,51 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.TextBox TxtAdditional;
 
         /// <summary>
+        /// TxtHighValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtHighValue;
+
+        /// <summary>
+        /// TxtLargeItems control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtLargeItems;
+
+        /// <summary>
+        /// TxtCollectibles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtCollectibles;
+
+        /// <summary>
+        /// TxtAppliances control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtAppliances;
+
+        /// <summary>
+        /// LblAddRoomStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblAddRoomStatus;
+
+        /// <summary>
         /// BtnAddRoom control.
         /// </summary>
         /// <remarks>
@@ -537,12 +294,39 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Button BtnAddRoom;
 
         /// <summary>
-        /// BtnSave control.
+        /// BtnReturn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSave;
+        protected global::System.Web.UI.WebControls.Button BtnReturn;
+
+        /// <summary>
+        /// grdsrcBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource grdsrcBox;
+
+        /// <summary>
+        /// grdsrcRoomBoxes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource grdsrcRoomBoxes;
+
+        /// <summary>
+        /// dtvsrcRoom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dtvsrcRoom;
     }
 }

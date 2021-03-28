@@ -275,6 +275,17 @@ Donation varchar(25),
 Auction varchar(25),
 CustomerID int references Customer(CustomerID) );
 
+CREATE TABLE MOVECHARGES(
+	[MOVECHARGEID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[MoveEstimate] [float] NULL,
+	[FixedRate] [float] NULL,
+	[PackingFees] [float] NULL,
+	[StorageFees] [float] NULL,
+	[TrashRemovalFee] [float] NULL,
+	[TotalCharges] [float] NULL,
+	[ServiceTicketID] [int] NULL
+	);
+
 CREATE TABLE NOTES (
 	NoteID		int IDENTITY(1,1) NOT NULL Primary Key,
 	DateCreated	varchar(30),
