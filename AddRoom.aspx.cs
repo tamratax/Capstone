@@ -132,11 +132,37 @@ namespace Lab3
             
         }
 
-        protected void BtnSave_Click(object sender, EventArgs e)
+        protected void BtnReturn_Click(object sender, EventArgs e)
         {
             divOtherRoom.Visible = false;
             divOtherFloor.Visible = false;
             divYesBox.Visible = false;
+            Response.Redirect("MoveAssessment.aspx");
+        }
+
+        protected void BtnAdd_Click(object sender, EventArgs e)
+        {
+            //try
+            //{
+                string query = "INSERT INTO [BOXES] (BoxType, BoxQuantity) Values (@BoxType, @BoxQuantity)";
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                sqlConnect.Open();
+                SqlCommand com = new SqlCommand(query, sqlConnect);
+
+                com.Parameters.AddWithValue("@BoxType", DDLType.SelectedValue.ToString());
+                com.Parameters.Add(new SqlParameter("@BoxQuantity", HttpUtility.HtmlEncode(TxtQty.Text)));
+
+                com.ExecuteNonQuery();
+                sqlConnect.Close();
+
+                LblStatus.Text = "Box sucessfully added!";
+                grvBox.DataBind();
+
+            //}
+            //catch
+            //{
+            //    LblStatus.Text = "Database Error";
+            //}
         }
 
         //protected void ChkBoxServer_CheckedChanged(object sender, EventArgs e)
