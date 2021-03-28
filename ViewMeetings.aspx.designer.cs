@@ -11,8 +11,17 @@ namespace Lab3
 {
 
 
-    public partial class WarehouseInventory
+    public partial class ViewMeetings
     {
+
+        /// <summary>
+        /// SearchCustomerLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label SearchCustomerLbl;
 
         /// <summary>
         /// TxtSearch control.
@@ -33,30 +42,48 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Button BtnSearch;
 
         /// <summary>
-        /// LblSearch control.
+        /// BtnLoadAll control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblSearch;
+        protected global::System.Web.UI.WebControls.Button BtnLoadAll;
 
         /// <summary>
-        /// GridViewCustomers control.
+        /// GridviewMeeting control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewCustomers;
+        protected global::System.Web.UI.WebControls.GridView GridviewMeeting;
 
         /// <summary>
-        /// GrdEquip control.
+        /// GRDShowAllMeetings control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GrdEquip;
+        protected global::System.Web.UI.WebControls.GridView GRDShowAllMeetings;
+
+        /// <summary>
+        /// DSMeetings control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource DSMeetings;
+
+        /// <summary>
+        /// DSShowAllMeetings control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource DSShowAllMeetings;
     }
 }
