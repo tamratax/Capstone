@@ -66,9 +66,10 @@ namespace Lab3
                 LblWorkNumber.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
                 LblEmailText.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
             }
+
         }
 
-        protected void BtnAddOrgin_Click(object sender, EventArgs e)
+        protected void BtnAddOrigin_Click(object sender, EventArgs e)
         {
             //Concatenate Sql Query Update Statements
             String sqlQuery = "Insert into address values (null, @CustomerID, @Street, @City, @State, @Zip, @Description)";
@@ -156,6 +157,21 @@ namespace Lab3
         protected void BtnAddEmployee_Click(object sender, EventArgs e)
         {
             
+        }
+        protected void CheckBoxTrash_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CheckBoxTrash.Checked)
+
+                hiddentext1.Visible = true;
+
+            else
+
+                hiddentext1.Visible = false;
+        }
+
+        protected void GridEmployees_DataBound(object sender, EventArgs e)
+        {
+
         }
     }
 }
