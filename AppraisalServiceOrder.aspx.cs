@@ -8,6 +8,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Web.Configuration;
 using System.Drawing;
+using System.Net;
+using System.Net.Mail;
 
 namespace Lab3
 {
@@ -82,12 +84,30 @@ namespace Lab3
      
         protected void BtnOutlook_Click(object sender, EventArgs e)
         {
-           
+            Response.Redirect("https://outlook.live.com/calendar/0/view/month?login_hint=outlook_B7BAC9A1BE036526%40outlook.com");
         }
 
         protected void BtnUploadPhotos_Click(object sender, EventArgs e)
         {
-
+            if (FilesUpload.HasFile)
+                foreach (HttpPostedFile uploadedFile in FilesUpload.PostedFiles)
+                    try
+                    {
+                        uploadedFile.SaveAs(Server.MapPath("~/uploads/") +
+                                            uploadedFile.FileName);
+                        FileUploadedList.Text += "File name: " +
+                           uploadedFile.FileName + "<br>" +
+                           uploadedFile.ContentLength + " kb<br>" +
+                           "Content type: " + uploadedFile.ContentType + "<br><br>";
+                    }
+                    catch (Exception ex)
+                    {
+                        FileUploadedList.Text = "ERROR: " + ex.Message.ToString();
+                    }
+            else
+            {
+                FileUploadedList.Text = "You have not specified a file.";
+            }
         }
 
         protected void BtnSave_Click(object sender, EventArgs e)

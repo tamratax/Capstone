@@ -126,7 +126,7 @@
             <h5>Inventory</h5>
         </div>
         <div class="form-group">
-     
+
             <asp:TextBox ID="TxtInventory" runat="server" TextMode="MultiLine" Rows="5" Columns="25" Class="form-control"></asp:TextBox>
         </div>
     </div>
@@ -150,17 +150,22 @@
             <h5>Links</h5>
         </div>
         <div>
-            <asp:Button ID="BtnUploadPhotos" runat="server" Text="Upload Photos" OnClick="BtnUploadPhotos_Click" />
-
             <asp:Button ID="BtnOutlook" runat="server" Text="Open Outlook" OnClick="BtnOutlook_Click" />
-
-            <asp:Button ID="BtnSave" runat="server" Text="Save" OnClick="BtnSave_Click"/>
-
-            <asp:Label
+             <asp:Button ID="BtnSave" runat="server" Text="Save" OnClick="BtnSave_Click" />
+           <asp:Label
                 ID="LblSaveStatus"
                 runat="server"
                 Text=""></asp:Label>
-        </div>
+           
+
+            </div>
+        <br />
+        <asp:Button ID="BtnUploadPhotos" runat="server" Text="Upload Photos" OnClick="BtnUploadPhotos_Click" />
+            <asp:FileUpload
+                ID="FilesUpload"
+                runat="server"
+                AllowMultiple="true" />
+          <asp:Label ID="FileUploadedList" runat="server" />
     </div>
 
 
