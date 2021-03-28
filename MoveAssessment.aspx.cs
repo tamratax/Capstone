@@ -302,7 +302,9 @@ namespace Lab3
 
         protected void BtnAddRoom_Click(object sender, EventArgs e)
         {
+            Session["ServiceTicketID"] = DDLType.SelectedValue.ToString();
             Response.Redirect("AddRoom.aspx");
+
         }
     }
 }
