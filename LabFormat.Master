@@ -50,8 +50,11 @@
                             <li>
                                 <a href="AddServiceOrder.aspx">Add Service</a>
                             </li>
+                            <%--    <li>
+                                <a href="https://outlook.live.com/calendar/0/view/month?login_hint=outlook_B7BAC9A1BE036526%40outlook.com" target="_blank">Scheduling</a>
+                            </li>--%>
                             <li>
-                                <a href="Scheduling.aspx">Scheduling</a>
+                                <a href="AppraisalServiceOrder.aspx">Appraisal Service Order</a>
                             </li>
                             <li>
                                 <a href="AuctionInventory.aspx">Walkthrough</a>
@@ -59,11 +62,14 @@
                             <li>
                                 <a href="PreMoveAssessment.aspx">Pre-Move Assessment</a>
                             </li>
-                             <li>
+                            <li>
                                 <a href="WarehouseAssign.aspx">Assign to Warehouse</a>
                             </li>
-                             <li>
+                            <li>
                                 <a href="MoveAssessment.aspx">Move Assessment</a>
+                            </li>
+                            <li>
+                                <a href="MoveServiceOrderForm.aspx">Move Service Order</a>
                             </li>
                             <li>
                                 <a href="AddNote.aspx">Notes</a>
@@ -123,15 +129,15 @@
                         <li>
                             <a href="ViewService.aspx">View Services</a>
                         </li>
-                        <li>
+                        <%-- <li>
                             <a href="ViewMeetings.aspx">View Meetings</a>
-                        </li>
+                        </li>--%>
                         <li>
-                            <a href="ViewMoves.aspx"> View Moves
+                            <a href="ViewMoves.aspx">View Moves
                             </a>
                         </li>
                         <li>
-                            <a href="ViewAuctions.aspx"> View Auctions
+                            <a href="ViewAuctions.aspx">View Auctions
                             </a>
                         </li>
                         <li>
@@ -180,10 +186,35 @@
 
                     <ul class="list-unstyled CTAs">
                         <li>
-                            <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+                            <a href="https://outlook.live.com/calendar/0/view/month?login_hint=outlook_B7BAC9A1BE036526%40outlook.com" target="_blank" class="article">Scheduling/Outlook</a>
                         </li>
                         <li>
-                            <a href="http://www.mls.com/Search/Virginia.mvc"  target="_blank" class="article">Go to MLS</a>
+                            <a href="http://www.mls.com/Search/Virginia.mvc" target="_blank" class="article">Go to MLS</a>
+                        </li>
+
+
+                    </ul>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                     <br />
+                    <br />
+                     <br />
+                    <br />
+                    <ul class="list-unstyled CTAs">
+                        <li>
+                            <%--<a href="#" class="download" onclick="BtnLogout_Click">Logout -></a>--%>
+                            <asp:Button
+                                ID="BtnLogout" runat="server" Text="Logout ->" OnClick="BtnLogout_Click" class="btn-danger"  /> <%--BackColor="CornflowerBlue"--%>
                         </li>
                     </ul>
             </nav>
@@ -203,13 +234,13 @@
                         &nbsp;
                         <asp:Label ID="LblSelected" runat="server" Text="Selected Customer:   "></asp:Label>
                         &nbsp;
-                        <asp:Label ID="LblSelectedCust" runat="server" Text="" Font-Bold="true" OnPreRender="LblSelectedCust_PreRender" ></asp:Label>
+                        <asp:Label ID="LblSelectedCust" runat="server" Text="" Font-Bold="true" OnPreRender="LblSelectedCust_PreRender"></asp:Label>
                         &nbsp;
                         <asp:Button ID="BtnClearCust" runat="server" Text="Clear->" OnClick="BtnClearCust_Click" />
 
                         <div id="divNotes" runat="server" class="container" style="position: fixed; width: 100%; top: 6rem;">
                             <div class="row justify-content-end">
-                                <div class="flex-column justify-content-start align-content-start" style="background-color: lightgoldenrodyellow; border-style:solid; border-color: black; border-width: 1px;">
+                                <div class="flex-column justify-content-start align-content-start" style="background-color: lightgoldenrodyellow; border-style: solid; border-color: black; border-width: 1px;">
                                     <asp:Label ID="LblNotes" runat="server" Text="Note:"></asp:Label>
                                     &nbsp;
                             <asp:DropDownList
@@ -227,7 +258,7 @@
                             </div>
 
                             <div class="row justify-content-end" id="divNotesContent" runat="server">
-                                <div class="flex-column justify-content-start align-content-center" style="background-color: lightgoldenrodyellow; border-style:solid; border-color: black; border-width: 1px;">
+                                <div class="flex-column justify-content-start align-content-center" style="background-color: lightgoldenrodyellow; border-style: solid; border-color: black; border-width: 1px;">
                                     <asp:Label ID="LblNoteDate" runat="server" Text=""></asp:Label>
                                     <asp:TextBox ID="TxtNoteText" runat="server" TextMode="MultiLine" Rows="2" Columns="50"></asp:TextBox>
 
@@ -250,12 +281,7 @@
                                         runat="server"
                                         Text="Back To Navigation ->"
                                         OnClick="BtnNavigation_Click" />--%>
-                                    <asp:Button
-                                        ID="BtnLogout"
-                                        runat="server"
-                                        Text="Logout ->"
-                                        OnClick="BtnLogout_Click"
-                                        CssClass="btn-primary" />
+                                    
                                 </li>
                                 <%--        <li class="nav-item">
                                     <a class="nav-link" href="#">Page</a>

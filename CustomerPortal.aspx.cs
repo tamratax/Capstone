@@ -55,7 +55,7 @@ namespace Lab3
                         {
                             LblLoginStatus.Text = "Success!";
                             Session["CustomerUsername"] = HttpUtility.HtmlEncode(TxtUsername.Text);
-                            Response.Redirect("AddServiceRequest.aspx");
+                            Response.Redirect("CustomerServiceChoice.aspx");
                         }
                         else
                             LblLoginStatus.ForeColor = Color.Red;
