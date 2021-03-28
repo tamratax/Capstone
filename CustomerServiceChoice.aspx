@@ -38,14 +38,14 @@
                             <asp:Button
                                 ID="BtnClear"
                                 runat="server"
-                                Text="Auction Appraisal" 
+                                Text="Create Auction Appraisal Request" 
                                 onclick="BtnClear_Click"/>
                         <br />
 
                             <asp:Button
                                 ID="BtnCreateServiceRequest"
                                 runat="server"
-                                Text="Move Service"
+                                Text="Create Move Service Request"
                                 onclick="BtnCreateServiceRequest_Click"/>
                         </div>
                     </div>

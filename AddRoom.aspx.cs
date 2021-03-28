@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Web.Configuration;
 using System.Drawing;
@@ -126,12 +125,6 @@ namespace Lab3
                 LblAddRoomStatus.Text = "Room Added Sucessfully!";
                 LblAddRoomStatus.ForeColor = Color.Green;
 
-                
-
-
-
-
-
 
                 //Clears everything
                 DDLCreateRoom.SelectedIndex = 0;
@@ -149,14 +142,17 @@ namespace Lab3
                 TxtQty.Text = "";
                 RBBtnBox.ClearSelection();
 
+                //Refreshes Detailsview
+                dtvRoom.DataBind();
 
-            } catch
+            }
+            catch
             {
                 LblAddRoomStatus.Text = "Database Error!";
                 LblAddRoomStatus.ForeColor = Color.Red;
             }
 
-            
+
         }
 
         protected void BtnReturn_Click(object sender, EventArgs e)
@@ -169,8 +165,8 @@ namespace Lab3
 
         protected void BtnAdd_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 string query = "INSERT INTO [BOXES] (BoxType, BoxQuantity) Values (@BoxType, @BoxQuantity)";
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                 sqlConnect.Open();
@@ -182,14 +178,31 @@ namespace Lab3
                 com.ExecuteNonQuery();
                 sqlConnect.Close();
 
-                LblStatus.Text = "Box sucessfully added!";
+                LblStatus.Text = "Box successfully added!";
                 grvBox.DataBind();
 
-            //}
-            //catch
-            //{
-            //    LblStatus.Text = "Database Error";
-            //}
+                DDLType.SelectedIndex = 0;
+                TxtQty.Text = "";
+
+            }
+            catch
+            {
+                LblStatus.Text = "Database Error";
+            }
+        }
+
+        protected void dtvRoom_PageIndexChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        protected void dtvRoom_DataBound(object sender, EventArgs e)
+        {
+
+            grvRoomBoxes.DataBind();
+
+
         }
 
         //protected void ChkBoxServer_CheckedChanged(object sender, EventArgs e)
