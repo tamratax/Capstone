@@ -66,6 +66,7 @@ namespace Lab3
                 LblWorkNumber.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
                 LblEmailText.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
             }
+
         }
 
         protected void BtnAddOrigin_Click(object sender, EventArgs e)
@@ -156,6 +157,16 @@ namespace Lab3
         protected void BtnAddEmployee_Click(object sender, EventArgs e)
         {
             
+        }
+        protected void CheckBoxTrash_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CheckBoxTrash.Checked)
+
+                hiddentext1.Visible = true;
+
+            else
+
+                hiddentext1.Visible = false;
         }
 
         protected void GridEmployees_DataBound(object sender, EventArgs e)
