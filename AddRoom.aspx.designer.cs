@@ -123,13 +123,13 @@ namespace Lab3
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divOtherFloor;
 
         /// <summary>
-        /// BoxOther control.
+        /// TxtFloorOther control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox BoxOther;
+        protected global::System.Web.UI.WebControls.TextBox TxtFloorOther;
 
         /// <summary>
         /// BoxLbl control.
@@ -213,40 +213,40 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.TextBox TxtAdditional;
 
         /// <summary>
-        /// TextBox1 control.
+        /// TxtHighValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox TxtHighValue;
 
         /// <summary>
-        /// TextBox2 control.
+        /// TxtLargeItems control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox TxtLargeItems;
 
         /// <summary>
-        /// TextBox3 control.
+        /// TxtCollectibles control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox TxtCollectibles;
 
         /// <summary>
-        /// TextBox4 control.
+        /// TxtAppliances control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.TextBox TxtAppliances;
 
         /// <summary>
         /// BtnAddRoom control.

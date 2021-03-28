@@ -234,7 +234,7 @@
     </div>
     <div runat="server" id="divOtherFloor" class="form-group">
         <label>Other Floor</label>
-        <asp:TextBox ID="BoxOther"
+        <asp:TextBox ID="TxtFloorOther"
             runat="server"
             class="form-control"
             Placeholder="Other floor"></asp:TextBox>
@@ -306,7 +306,7 @@
      <div class="form-group">
         <label>High Values?</label>
         <asp:TextBox
-            ID="TextBox1"
+            ID="TxtHighValue"
             runat="server"
             TextMode="MultiLine"
             Rows="5"
@@ -316,7 +316,7 @@
      <div class="form-group">
         <label>Large/Awkward Items?</label>
         <asp:TextBox
-            ID="TextBox2"
+            ID="TxtLargeItems"
             runat="server"
             TextMode="MultiLine"
             Rows="5"
@@ -326,7 +326,7 @@
      <div class="form-group">
         <label>Collectibles/Curios?</label>
         <asp:TextBox
-            ID="TextBox3"
+            ID="TxtCollectibles"
             runat="server"
             TextMode="MultiLine"
             Rows="5"
@@ -336,7 +336,7 @@
      <div class="form-group">
         <label>Appliances/Electronics?</label>
         <asp:TextBox
-            ID="TextBox4"
+            ID="TxtAppliances"
             runat="server"
             TextMode="MultiLine"
             Rows="5"
