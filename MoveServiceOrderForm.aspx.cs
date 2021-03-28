@@ -154,15 +154,9 @@ namespace Lab3
             DdlInitiatingEmp.Items.Insert(0, new ListItem("Select", "-1"));
         }
 
-        protected void CheckBoxTrash_CheckedChanged(object sender, EventArgs e)
+        protected void BtnAddEmployee_Click(object sender, EventArgs e)
         {
-            if (CheckBoxTrash.Checked)
-
-                hiddentext1.Visible = true;
-
-            else
-
-                hiddentext1.Visible = false;
+            
         }
     }
 }

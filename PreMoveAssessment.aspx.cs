@@ -75,5 +75,14 @@ namespace Lab3
                 LblSaveStatus.ForeColor = Color.Green;
             }
         }
+
+        protected void TrashChk_CheckedChanged(object sender, EventArgs e)
+        {
+            if (TrashChk.Checked)
+            {
+                TrashDescriptionTxt.Visible = true;
+            }
+
+        }
     }
 }

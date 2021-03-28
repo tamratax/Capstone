@@ -15,6 +15,24 @@ namespace Lab3
     {
 
         /// <summary>
+        /// dtvRoom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DetailsView dtvRoom;
+
+        /// <summary>
+        /// grvRoomBoxes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grvRoomBoxes;
+
+        /// <summary>
         /// DDLCreateRoom control.
         /// </summary>
         /// <remarks>
@@ -292,5 +310,23 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource grdsrcBox;
+
+        /// <summary>
+        /// grdsrcRoomBoxes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource grdsrcRoomBoxes;
+
+        /// <summary>
+        /// dtvsrcRoom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dtvsrcRoom;
     }
 }
