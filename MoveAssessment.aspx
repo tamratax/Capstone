@@ -28,9 +28,11 @@
         <asp:Label ID="LblMoveInfo" runat="server" Text="Move Assessment Not Yet Added!" ForeColor="Red" Visible="false"></asp:Label>
 
         <div id="divbuttons" runat="server">
-        <asp:Button ID="BtnGeneralInfo" runat="server" Text="Add General Assessment" OnClick="BtnGeneralInfo_Click"/>&nbsp&nbsp&nbsp&nbsp
-        <asp:Button ID="BtnVehicles" runat="server" Text="Add Vehicles"  OnClick="BtnVehicles_Click"/>&nbsp&nbsp&nbsp&nbsp
-        <asp:Button ID="BtnSpecialEquipment" runat="server" Text="Add Special Equipment"  OnClick="BtnSpecialEquipment_Click"/>&nbsp&nbsp&nbsp&nbsp
+        <asp:Button ID="BtnGeneralInfo" runat="server" Text="General Assessment" OnClick="BtnGeneralInfo_Click"/>&nbsp&nbsp&nbsp&nbsp
+        <asp:Button ID="BtnVehicles" runat="server" Text="Vehicles"  OnClick="BtnVehicles_Click"/>&nbsp&nbsp&nbsp&nbsp
+        <asp:Button ID="BtnSpecialEquipment" runat="server" Text="Special Equipment"  OnClick="BtnSpecialEquipment_Click"/>&nbsp&nbsp&nbsp&nbsp
+        <asp:Button ID="BtnCharge" runat="server" Text="Charges" OnClick="BtnCharge_Click"/>&nbsp&nbsp&nbsp&nbsp
+        <asp:Button ID="BtnAddRoom" runat="server" Text="Proceed to Add Room" OnClick="BtnAddRoom_Click" />
         <br />
         <br />
         
@@ -112,9 +114,28 @@
         <br />
         </div>
           <div id="divsave" runat="server">
-              <asp:Button ID="BtnAddRoom" runat="server" Text="Proceed to Add Room" OnClick="BtnAddRoom_Click" />
+              
             <asp:Button ID="BtnSave" runat="server" Text="Save Move Form"  OnClick="BtnSave_Click"/>
         <asp:Label ID="LblSuccess" runat="server" Text="" ForeColor="Green"></asp:Label>
+              <br />
+              <br />
+        <asp:DetailsView ID="DTLMoveInfo" runat="server" DataSourceID="dtasrcMoveInfo"
+             AutoGenerateEditButton="true"
+             EmptyDataText="No Info"
+             AutoGenerateRows="false"
+             DataKeyNames="MoveInfoID">
+
+            <Fields>
+                <asp:BoundField DataField="MoveInfoID" Visible="false" />
+                <asp:BoundField DataField="NumberOfStories" HeaderText="Number of Stories:" />
+                <asp:BoundField DataField="DistanceFromTruck" HeaderText="Distance From Truck:" />
+                <asp:BoundField DataField="TypeOfHome" HeaderText="Type Of Home:" />
+                <asp:BoundField DataField="TypeofHomeAdd" HeaderText="Additional Home Notes:" />
+                <asp:BoundField DataField="TruckAccessibility" HeaderText="Truck Accessibility:" />
+                <asp:BoundField DataField="LoadingDoorWalk" HeaderText="Loading Conditions:" />
+                <asp:BoundField DataField="StepsToHouse" HeaderText="Steps to House:" />
+            </Fields>
+        </asp:DetailsView>
         </div>
 
         <div id="divspecial" runat="server">
@@ -182,9 +203,57 @@
     </fieldset>
            <asp:Label ID="LblStatus" runat="server" Text=""></asp:Label>
            </div>
+
+            <div id="divcharges" runat="server">
+                <asp:Label ID="LblMoveEstimate" runat="server" Text="Move Estimate: "></asp:Label> &nbsp; &nbsp;
+                <asp:TextBox ID="TxtMoveEstimate" runat="server" PlaceHolder="Enter without $"></asp:TextBox> &nbsp;
+                <asp:Button ID="BtnMoveEstimate" runat="server" Text="Add Charge" ForeColor="ForestGreen" OnClick="BtnMoveEstimate_Click"/>
+                <br />
+                <asp:Label ID="LblFixedRate" runat="server" Text="Fixed Rate "></asp:Label> &nbsp; &nbsp;
+                <asp:TextBox ID="TxtFixedRate" runat="server" PlaceHolder="Enter without $"></asp:TextBox> &nbsp;
+                <asp:Button ID="BtnFixedRate" runat="server" Text="Add Charge" ForeColor="ForestGreen" OnClick="BtnFixedRate_Click"/>
+                <br />
+                <asp:Label ID="LblPackingFee" runat="server" Text="Packing Fee: "></asp:Label> &nbsp; &nbsp;
+                <asp:TextBox ID="TxtPackingFee" runat="server" PlaceHolder="Enter without $"></asp:TextBox> &nbsp;
+                <asp:Button ID="BtnPackingFee" runat="server" Text="Add Charge" ForeColor="ForestGreen" OnClick="BtnPackingFee_Click"/>
+                <br />
+                <asp:Label ID="LblStorageFee" runat="server" Text="Storage Fee: "></asp:Label> &nbsp; &nbsp;
+                <asp:TextBox ID="TxtStorageFee" runat="server" PlaceHolder="Enter without $"></asp:TextBox> &nbsp;
+                <asp:Button ID="BtnStorageFee" runat="server" Text="Add Charge" ForeColor="ForestGreen" OnClick="BtnStorageFee_Click"/>
+                <br />
+                <asp:Label ID="LblTrashRemoval" runat="server" Text="Trash Removal: "></asp:Label> &nbsp; &nbsp;
+                <asp:TextBox ID="TxtTrashRemoval" runat="server" PlaceHolder="Enter without $"></asp:TextBox> &nbsp;
+                <asp:Button ID="BtnTrashRemoval" runat="server" Text="Add Charge" ForeColor="ForestGreen" OnClick="BtnTrashRemoval_Click"/>
+                <br />
+                <br />
+
+               
+                <h2><b>Charges Added:</b></h2>
+                <asp:GridView ID="grdCharges" 
+                     runat="server" 
+                     AutoGenerateColumns="false"
+                     CellPadding="3"
+                     Visible="true"
+                     DataSourceID="dtasrcCharges"
+                     DataKeyNames="MOVECHARGEID">
+            <Columns>
+                <asp:BoundField DataField="MOVECHARGEID" Visible="false" />
+                <asp:BoundField DataField="MoveEstimate"  HeaderText="Move Estimate" />
+                <asp:BoundField DataField="FixedRate"  HeaderText="Fixed Rate" />
+                <asp:BoundField DataField="PackingFees"  HeaderText="Packing Fees" />
+                <asp:BoundField DataField="StorageFees"  HeaderText="Storage Fees" />
+                <asp:BoundField DataField="TrashRemovalFee"  HeaderText="Trash Removal" />
+                <asp:BoundField DataField="TotalCharges"  HeaderText="Total Charges" />
+            </Columns>
+                    
+                    </asp:GridView>
+
+                
+
+
+            </div>
             
-            <br />
-            <br />
+         
       
             
              
@@ -242,6 +311,36 @@
          <SelectParameters>
              <asp:ControlParameter Name="ServiceTicketID" Type="Int64" ControlID="DDLType" />
         </SelectParameters>
+     </asp:SqlDataSource>
+
+    <asp:SqlDataSource ID="dtasrcCharges"
+        runat="server"
+        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        SelectCommand="Select MOVECHARGEID, MoveEstimate, FixedRate, PackingFees, StorageFees, TrashRemovalFee, TotalCharges FROM MOVECHARGES WHERE ServiceTicketID = @ServiceTIcketID"
+        >
+         <SelectParameters>
+             <asp:ControlParameter Name="ServiceTicketID" Type="Int64" ControlID="DDLType" />
+        </SelectParameters>
+     </asp:SqlDataSource>
+
+    <asp:SqlDataSource ID="dtasrcMoveInfo"
+        runat="server"
+        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        SelectCommand="Select MOVEINFOID, NumberOfStories, DistanceFromTruck, TypeOfHome, TypeOfHomeAdd, TruckAccessibility, LoadingDoorWalk, StepsToHouse FROM MOVEINFO WHERE ServiceTicketID = @ServiceTIcketID"
+        UpdateCommand="UPDATE MOVEINFO Set NumberOfStories = @NumberOfStories, DistanceFromTruck = @DistanceFromTruck, TypeofHome = @TypeofHome, TypeOfHomeAdd = @TypeOfHomeAdd, TruckAccessibility = @TruckAccessibility, LoadingDoorWalk = @LoadingDoorWalk, StepsToHouse = @StepsToHouse WHERE ServiceTicketID = @ServiceTicketID">
+         <SelectParameters>
+             <asp:ControlParameter Name="ServiceTicketID" Type="Int64" ControlID="DDLType" />
+        </SelectParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="NumberOfStories" Type="String" />
+            <asp:Parameter Name="DistanceFromTruck" Type="String" />
+            <asp:Parameter Name="TypeOfHome" Type="String" />
+            <asp:Parameter Name="TypeOfHomeAdd" Type="String" />
+            <asp:Parameter Name="TruckAccessibility" Type="String" />
+            <asp:Parameter Name="LoadingDoorWalk" Type="String" />
+            <asp:Parameter Name="StepsToHouse" Type="String" />
+            <asp:ControlParameter Name="ServiceTicketID" Type="Int64" ControlID="DDLType" />
+        </UpdateParameters>
      </asp:SqlDataSource>
 </asp:Content>
 

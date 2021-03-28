@@ -258,15 +258,6 @@ namespace Lab3
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPayment;
 
         /// <summary>
-        /// paymenttable control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table paymenttable;
-
-        /// <summary>
         /// GridPayment control.
         /// </summary>
         /// <remarks>
@@ -375,24 +366,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.GridView GridAddresses;
 
         /// <summary>
-        /// tbladdress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tbladdress;
-
-        /// <summary>
-        /// lblDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescription;
-
-        /// <summary>
         /// TxtDescription control.
         /// </summary>
         /// <remarks>
@@ -402,15 +375,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.TextBox TxtDescription;
 
         /// <summary>
-        /// LblStreet control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblStreet;
-
-        /// <summary>
         /// TxtStreet control.
         /// </summary>
         /// <remarks>
@@ -418,15 +382,6 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtStreet;
-
-        /// <summary>
-        /// LblCity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblCity;
 
         /// <summary>
         /// TxtCity control.
