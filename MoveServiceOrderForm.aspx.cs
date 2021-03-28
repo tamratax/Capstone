@@ -68,7 +68,7 @@ namespace Lab3
             }
         }
 
-        protected void BtnAddOrgin_Click(object sender, EventArgs e)
+        protected void BtnAddOrigin_Click(object sender, EventArgs e)
         {
             //Concatenate Sql Query Update Statements
             String sqlQuery = "Insert into address values (null, @CustomerID, @Street, @City, @State, @Zip, @Description)";
@@ -156,6 +156,11 @@ namespace Lab3
         protected void BtnAddEmployee_Click(object sender, EventArgs e)
         {
             
+        }
+
+        protected void GridEmployees_DataBound(object sender, EventArgs e)
+        {
+
         }
     }
 }
