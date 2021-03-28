@@ -196,8 +196,8 @@
         runat="server"
         DataSourceID="dtasrcEmployeeContact" 
         CausesValidation="false" 
-        DataKeyNames="EmployeeID" C
-        ssClass="table justify-content-center">
+        DataKeyNames="EmployeeID" 
+        CssClass="table justify-content-center">
         <Columns>
 
         </Columns>
@@ -214,8 +214,81 @@
         <label>Is there Trash Removal/Donations?: </label>
         <asp:CheckBox
             ID="CheckBoxTrash"
+            runat="server" AutoPostBack="true" OnCheckedChanged="CheckBoxTrash_CheckedChanged"/>
+    </div>
+ 
+    <div ID="hiddentext1" runat="server" visible="false">
+    <div class="form-row">
+    <label >Do we need a dumpster?</label>
+        &nbsp;
+      <asp:CheckBox
+            ID="Chdunpster"
             runat="server" />
     </div>
+
+    <div class="form-group">
+        <label>Address</label>
+        <%--        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">--%>
+        <asp:TextBox ID="DumpAddress"
+            runat="server"
+            Placeholder=""
+            class="form-control"></asp:TextBox>
+    </div>
+         <div class="form-row">
+         <div class="form-group col-md-6">
+            <label for="inputCity">City</label>
+            <asp:TextBox ID="DumpCity"
+                runat="server"
+                class="form-control"
+                Placeholder="City"></asp:TextBox>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputState">Orgin State</label>
+            <asp:TextBox ID="DumpState"
+                runat="server"
+                class="form-control"
+                Placeholder="State"></asp:TextBox>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Orgin Zip</label>
+            <asp:TextBox ID="Dumpzip"
+                runat="server"
+                class="form-control"
+                Placeholder="Zip"></asp:TextBox>
+        </div>
+        </div>
+            <div class="form-group">
+        <label>How many Employees</label>
+        <asp:TextBox ID="Txtworkers"
+            runat="server"
+            class="form-control"
+            placeholder="" > </asp:TextBox>
+    </div>
+            <div class="form-group">
+        <label>How much are we charging?</label>
+        <asp:TextBox ID="TextBox1"
+            runat="server"
+            class="form-control"
+            placeholder="" > </asp:TextBox>
+    </div>
+    <div class="form-group">
+        <label>Trash Description</label>
+        <asp:TextBox ID="txtdesc"
+            runat="server"
+            class="form-control"
+            placeholder="" > </asp:TextBox>
+    </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
     <div class="form-row">
         <div class="form-group col-md-4">
             <label>Type of Home</label>

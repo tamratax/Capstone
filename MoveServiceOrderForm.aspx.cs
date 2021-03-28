@@ -66,6 +66,7 @@ namespace Lab3
                 LblWorkNumber.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
                 LblEmailText.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
             }
+
         }
 
         protected void BtnAddOrgin_Click(object sender, EventArgs e)
@@ -151,6 +152,17 @@ namespace Lab3
         {
             //Sets drop down list to default Select option
             DdlInitiatingEmp.Items.Insert(0, new ListItem("Select", "-1"));
+        }
+
+        protected void CheckBoxTrash_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CheckBoxTrash.Checked)
+
+                hiddentext1.Visible = true;
+
+            else
+
+                hiddentext1.Visible = false;
         }
     }
 }
