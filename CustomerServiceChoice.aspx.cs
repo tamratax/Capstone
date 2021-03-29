@@ -19,9 +19,10 @@ namespace Lab3
             //Response.Redirect("AppraisalServiceOrder.aspx");
         }
 
-        protected void BtnCreateServiceRequest_Click(object sender, EventArgs e)
+        protected void PreMoveAssessmentBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AddServiceRequest.aspx");
+            Response.Redirect("PreMoveAssessment.aspx");
+
         }
     }
 }
