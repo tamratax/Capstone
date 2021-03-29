@@ -15,21 +15,30 @@ namespace Lab3
     {
 
         /// <summary>
-        /// BtnClear control.
+        /// BtnRequestAppraisal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnClear;
+        protected global::System.Web.UI.WebControls.Button BtnRequestAppraisal;
 
         /// <summary>
-        /// PreMoveAssessmentBtn control.
+        /// BtnRequestMove control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button PreMoveAssessmentBtn;
+        protected global::System.Web.UI.WebControls.Button BtnRequestMove;
+
+        /// <summary>
+        /// BtnRequestAuction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnRequestAuction;
     }
 }
