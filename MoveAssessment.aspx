@@ -277,7 +277,9 @@
 
     </div>
     </div>
-    
+     <div class="form-group float-right">
+        <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click" />
+        </div>
 <asp:SqlDataSource ID="dtasrcCustGrid"
         runat="server"
         ConnectionString="<%$ConnectionStrings:Lab3%>"

@@ -509,5 +509,20 @@ namespace Lab3
             divsave.Visible = false;
             divcharges.Visible = true;
         }
+
+        protected void PopBtn_Click(object sender, EventArgs e)
+        {
+            DDLTypeofHome.SelectedValue = "House";
+            TxtDistance.Text = "25ft";
+            TxtAccessibility.Text = "Yes";
+            TxtSteps.Text = "5"; 
+            TxtConditions.Text = "Gravel driveway, no concerns.";
+
+            TxtMoveEstimate.Text = "250";
+            TxtFixedRate.Text = "75";
+            TxtPackingFee.Text = "50";
+            TxtStorageFee.Text = "50";
+            TxtTrashRemoval.Text = "30";
+        }
     }
 }

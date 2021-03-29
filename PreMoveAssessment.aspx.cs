@@ -111,5 +111,23 @@ namespace Lab3
             }
 
         }
+
+        protected void PopBtn_Click(object sender, EventArgs e)
+        {
+            DateOutTxt.Text = "2021-04-07";
+            TxtRange1.Text = "2021-04-03";
+            TxtRange2.Text = "2021-04-05";
+            DestAddressTxt.Text = "123 S Main St";
+            DestCityTxt.Text = "Harrisonburg";
+            DestStateTxt.Text = "Virginia";
+            DestZipTxt.Text = "22801";
+            MLSBTN.SelectedValue = "Yes";
+            PhotosBtn.SelectedValue = "No";
+            PackingChk.Checked = true;
+
+            
+
+
+        }
     }
 }
