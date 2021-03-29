@@ -200,7 +200,7 @@
                         <li>
                             <%--<a href="#" class="download" onclick="BtnLogout_Click">Logout -></a>--%>
                             <asp:Button
-                                ID="BtnLogout" runat="server" Text="Logout ->" OnClick="BtnLogout_Click" class="btn-danger"  /> <%--BackColor="CornflowerBlue"--%>
+                                ID="BtnLogout" runat="server" Text="Logout ->" OnClick="BtnLogout_Click"  /> <%--BackColor="CornflowerBlue"--%>
                         </li>
                     </ul>
             </nav>

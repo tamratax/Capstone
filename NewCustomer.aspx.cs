@@ -45,9 +45,9 @@ namespace Lab3
                 //If there are any records, user already exists
                 if (dtForDuplicate.Rows.Count > 0)
                 {
-                    //LblCreateStatus.Text = "Customer with that Email/Username already exists!";
-                    //LblCreateStatus.ForeColor = Color.Red;
-                }
+                        LblCreateStatus.Text = "Customer with that Email/Username already exists!";
+                        LblCreateStatus.ForeColor = Color.Red;
+                    }
                 else
                 {
                     //Establishes a new Sql connection to the AUTH database
@@ -75,11 +75,11 @@ namespace Lab3
 
                     sc.Close();
 
-                    //LblCreateStatus.Text = "User committed!";
+                        LblCreateStatus.Text = "User committed!";
 
-                    //Create Customer record
-                    //Concatenate Sql Query Insert Statements
-                    String sqlQuery = "insert into CUSTOMER (FirstName, LastName, WorkPhone, CellPhone, HomePhone, Email, Completed, DateContacted, Downsizing, SettlingEstate, MovingCB, AuctionCB, ConsignmentCB, AppraisalCb) values (@FirstName, @LastName, @WorkPhone, @CellPhone, @HomePhone, @Email, 'False', '" + System.DateTime.Today.ToString("yyyy-MM-dd") + "', 'False', 'False', 'False', 'False', 'False', 'False') ";
+                        //Create Customer record
+                        //Concatenate Sql Query Insert Statements
+                        String sqlQuery = "insert into CUSTOMER (FirstName, LastName, WorkPhone, CellPhone, HomePhone, Email, Completed, DateContacted, Downsizing, SettlingEstate, MovingCB, AuctionCB, ConsignmentCB, AppraisalCb) values (@FirstName, @LastName, @WorkPhone, @CellPhone, @HomePhone, @Email, 'False', '" + System.DateTime.Today.ToString("yyyy-MM-dd") + "', 'False', 'False', 'False', 'False', 'False', 'False') ";
                     //sqlQuery += ", '', '', '', '', '', 0, '" + System.DateTime.Now.Date.ToString("yyyy-MM-dd") + "', '', '', 0)";
 
 
@@ -134,19 +134,19 @@ namespace Lab3
 
                         Session["CustomerCreated"] = "True";
                         Response.Redirect("CustomerPortal.aspx");
-                    //LblCreateStatus.Text = "Customer Added Successfully";
-                    //LblCreateStatus.ForeColor = Color.Green;
-                }
+                        LblCreateStatus.Text = "Customer Added Successfully";
+                        LblCreateStatus.ForeColor = Color.Green;
+                    }
 
                 }
                 catch
                 {
-                    //LblCreateStatus.Text = "Database Error - User not committed.";
+                    LblCreateStatus.Text = "Database Error - User not committed.";
                 }
             }
             else
             {
-                //LblCreateStatus.Text = "Fill all fields.";
+                LblCreateStatus.Text = "Fill all fields.";
 
             }
 
