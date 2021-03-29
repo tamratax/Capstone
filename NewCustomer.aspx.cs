@@ -25,8 +25,8 @@ namespace Lab3
             if (TxtFirstName.Text != "" && TxtLastName.Text != "" && TxtPassword.Text != "" && TxtEmail.Text != "") // all fields must be filled out
             {
                 // COMMIT VALUES
-                try
-                {
+                //try
+                //{
                     //Check to see if customer is already in the database
                     String sqlQueryDuplicate = "Select CustomerID, email from customer WHERE email = '" + HttpUtility.HtmlEncode(TxtEmail.Text) + "'";
 
@@ -79,7 +79,7 @@ namespace Lab3
 
                     //Create Customer record
                     //Concatenate Sql Query Insert Statements
-                    String sqlQuery = "insert into CUSTOMER (FirstName, LastName, WorkPhone, CellPhone, HomePhone, Email, Completed, DateContacted, Downsizing, SettlingEstate, MovingCB, AuctionCB, ConsignmentCB, AppraisalCb) values (@FirstName, @LastName, @WorkPhone, @CellPhone, @HomePhone, @Email, 'False', '" + System.DateTime.Today.ToString("yyyy-MM-dd") + "', 'False', 'False', 'False', 'False', 'False', 'False') ";
+                    String sqlQuery = "insert into CUSTOMER (FirstName, LastName, WorkPhone, CellPhone, HomePhone, Email, Completed, DateContacted, initialcontactdate, deadlinedate, referralchannel, preferredcontactmethod) values (@FirstName, @LastName, @WorkPhone, @CellPhone, @HomePhone, @Email, 'False', '','" + System.DateTime.Today.ToString("yyyy-MM-dd") + "','' , '', '') ";
                     //sqlQuery += ", '', '', '', '', '', 0, '" + System.DateTime.Now.Date.ToString("yyyy-MM-dd") + "', '', '', 0)";
 
 
@@ -134,19 +134,19 @@ namespace Lab3
 
                         Session["CustomerCreated"] = "True";
                         Response.Redirect("CustomerPortal.aspx");
-                    //LblCreateStatus.Text = "Customer Added Successfully";
-                    //LblCreateStatus.ForeColor = Color.Green;
-                }
+                        LblCreateStatus.Text = "Customer Added Successfully";
+                        LblCreateStatus.ForeColor = Color.Green;
+                    }
 
-                }
-                catch
-                {
-                    //LblCreateStatus.Text = "Database Error - User not committed.";
-                }
+                //}
+                //catch
+                //{
+                //    LblCreateStatus.Text = "Database Error - User not committed.";
+                //}
             }
             else
             {
-                //LblCreateStatus.Text = "Fill all fields.";
+                LblCreateStatus.Text = "Fill all fields.";
 
             }
 
