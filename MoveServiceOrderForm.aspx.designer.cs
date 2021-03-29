@@ -114,6 +114,24 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.GridView GridAddress;
 
         /// <summary>
+        /// lblServ control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblServ;
+
+        /// <summary>
+        /// ddlService control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlService;
+
+        /// <summary>
         /// TxtPotentialDate control.
         /// </summary>
         /// <remarks>
@@ -427,6 +445,15 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource dtasrcEmployeeContact;
+
+        /// <summary>
+        /// dtasrcEmployee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcEmployee;
 
         /// <summary>
         /// dtasrcAddress control.
