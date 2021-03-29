@@ -589,5 +589,15 @@ namespace Lab3
             divAddress.Visible = false;
             divVehicle.Visible = false;
         }
+
+        protected void BtnPop_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void BtnClear_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

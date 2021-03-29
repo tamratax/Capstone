@@ -129,5 +129,19 @@ namespace Lab3
 
 
         }
+
+        protected void ClearBtn_Click(object sender, EventArgs e)
+        {
+            DateOutTxt.Text = "";
+            TxtRange1.Text = "";
+            TxtRange2.Text = "";
+            DestAddressTxt.Text = "";
+            DestCityTxt.Text = "";
+            DestStateTxt.Text = "";
+            DestZipTxt.Text = "";
+            MLSBTN.SelectedIndex = -1;
+            PhotosBtn.SelectedIndex = -1;
+            PackingChk.Checked = false;
+        }
     }
 }

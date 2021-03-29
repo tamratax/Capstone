@@ -260,6 +260,8 @@
     <div>
         <asp:Button ID="btnSave" runat="server" Text="Save Form" OnClick="btnSave_Click" />
         <asp:Label ID="lblSaveStatus" runat="server" Text=""></asp:Label>
+        <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click" />
+        <asp:Button ID="ClearBtn" runat="server" Text="Clear" OnClick="ClearBtn_Click" />
     </div>
     <asp:SqlDataSource ID="dtasrcMoveInfo"
         runat="server"
