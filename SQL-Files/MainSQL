@@ -272,6 +272,7 @@ MlSListing varchar(10),
 SendPhotos varchar(25),
 Packing varchar(25),
 TrashRemoval varchar(25),
+TrashRemovalDescription varchar(25),
 Donation varchar(25),
 Auction varchar(25),
 CustomerID int references Customer(CustomerID) );
