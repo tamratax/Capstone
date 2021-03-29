@@ -178,7 +178,6 @@ namespace Lab3
             ChkBoxEstate.Checked = false;
             ChkBoxDeadline.Checked = false;
             DeadlineHidden.Visible = false;
-            TxtDeadline.Visible = false;
             TxtDeadline.Text = "";
             TxtAppraisalSize.Text = "";
             TxtInventory.Text = "";

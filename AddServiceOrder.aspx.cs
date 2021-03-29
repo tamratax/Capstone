@@ -261,8 +261,7 @@ namespace WalkerS_Lab1Part3
             TxtState.Text = "";
             TxtZip.Text = "";
             TxtDescription.Text = "";
-            TxtLookAtSchedule.Visible = false;
-            TxtLookatScheduleTime.Visible = false;
+            
 
             //Reloads data to hide move/auction fields
             DdlServiceType_SelectedIndexChanged(sender, e);
