@@ -84,7 +84,8 @@ namespace Lab3
             // Close all related connections
             sqlConnect1.Close();
 
-
+            LblSaveStatus.Text = "Move Assessment Saved Successfully";
+            LblSaveStatus.ForeColor = Color.Green;
 
 
 
