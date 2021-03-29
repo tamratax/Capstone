@@ -1,9 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LabFormat.Master" AutoEventWireup="true" CodeBehind="MoveServiceOrderForm.aspx.cs" Inherits="Lab3.WebForm2" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <link href="Content/AddService.css" rel="stylesheet" />
-     <h1> Move Service Order</h1>
+    <h1>Move Service Order</h1>
 
     <h4>Customer Info:</h4>
     <div class="groupCust">
@@ -56,40 +57,40 @@
                 Font-Bold="true"></asp:Label>
         </div>
 
-           <div>
-                <asp:GridView ID="GridAddress"
-                    runat="server"
-                    DataSourceID="dtasrcAddress"
-                    CausesValidation="false"
-                    AutoGenerateColumns="false"
-                    DataKeyNames="AddressID"
-                    CsssClass="table justify-content-center">
-                    <Columns>
-                        <asp:CommandField ShowEditButton="true" ShowDeleteButton="true" ButtonType="Button" />
-                        <asp:BoundField DataField="AddressID" Visible="false" />
-                        <asp:BoundField DataField="Street" HeaderText="Street" />
-                        <asp:BoundField DataField="City" HeaderText="City" />
-                        <asp:BoundField DataField="State" HeaderText="State" />
-                        <asp:BoundField DataField="Zip" HeaderText="Zip" />
-                        <asp:BoundField DataField="Description" HeaderText="Description" />
-                    </Columns>
-                </asp:GridView>
-            </div>
-            <br />
-            <br />
-                <div>
-                    <asp:Label ID="lblServ" runat="server" Text="Select Service: "></asp:Label>
-                    <asp:DropDownList
-                    ID="ddlService"
-                    runat="server"
-                     OnDataBound="ddlService_DataBound"
-                    AutoPostBack="true" 
-                    OnSelectedIndexChanged="ddlService_SelectedIndexChanged">
-                </asp:DropDownList>
+        <div>
+            <asp:GridView ID="GridAddress"
+                runat="server"
+                DataSourceID="dtasrcAddress"
+                CausesValidation="false"
+                AutoGenerateColumns="false"
+                DataKeyNames="AddressID"
+                CsssClass="table justify-content-center">
+                <Columns>
+                    <asp:CommandField ShowEditButton="true" ShowDeleteButton="true" ButtonType="Button" />
+                    <asp:BoundField DataField="AddressID" Visible="false" />
+                    <asp:BoundField DataField="Street" HeaderText="Street" />
+                    <asp:BoundField DataField="City" HeaderText="City" />
+                    <asp:BoundField DataField="State" HeaderText="State" />
+                    <asp:BoundField DataField="Zip" HeaderText="Zip" />
+                    <asp:BoundField DataField="Description" HeaderText="Description" />
+                </Columns>
+            </asp:GridView>
+        </div>
+        <br />
+        <br />
+        <div>
+            <asp:Label ID="lblServ" runat="server" Text="Select Service: "></asp:Label>
+            <asp:DropDownList
+                ID="ddlService"
+                runat="server"
+                OnDataBound="ddlService_DataBound"
+                AutoPostBack="true"
+                OnSelectedIndexChanged="ddlService_SelectedIndexChanged">
+            </asp:DropDownList>
         </div>
     </div>
 
-             <div class="form-row">
+    <div class="form-row">
         <div class="form-group col-md-6">
             <label>Potential Date</label>
             <asp:TextBox ID="TxtPotentialDate"
@@ -105,95 +106,55 @@
                 class="form-control"></asp:TextBox>
         </div>
     </div>
- 
-            <div class="form-group">
-        <label>Origin Street</label>
+
+    <div class="form-group">
+        <label>Street</label>
         <%--        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">--%>
         <asp:TextBox ID="TxtStreet"
             runat="server"
             Placeholder=""
             class="form-control"></asp:TextBox>
     </div>
-            <div class="form-row">
-         <div class="form-group col-md-6">
-            <label for="inputCity">Origin City</label>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputCity">City</label>
             <asp:TextBox ID="TxtCity"
                 runat="server"
                 class="form-control"
                 Placeholder="City"></asp:TextBox>
         </div>
         <div class="form-group col-md-4">
-            <label for="inputState">Origin State</label>
+            <label for="inputState">State</label>
             <asp:TextBox ID="TxtState"
                 runat="server"
                 class="form-control"
                 Placeholder="State"></asp:TextBox>
         </div>
         <div class="form-group col-md-2">
-            <label for="inputZip">Origin Zip</label>
+            <label for="inputZip">Zip</label>
             <asp:TextBox ID="TxtZip"
                 runat="server"
                 class="form-control"
                 Placeholder="Zip"></asp:TextBox>
         </div>
     </div>
-     <div class="form-group">
-        <label for="inputDescription">Origin Description</label>
+    <div class="form-group">
+        <label for="inputDescription">Description</label>
         <asp:TextBox ID="TxtDescription"
             runat="server"
             class="form-control"
             placeholder="Description"></asp:TextBox>
     </div>
-    <asp:Button ID="BtnAddOrigin" 
-        runat="server" 
-        Text="Add Another Origin" 
+    <asp:Button ID="BtnAddOrigin"
+        runat="server"
+        Text="Add Address"
         OnClick="BtnAddOrigin_Click" />
-            <div class="form-group">
-        <label>Destination Street</label>
-        <%--        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">--%>
-        <asp:TextBox ID="TxtMoveAddress"
-            runat="server"
-            Placeholder=""
-            class="form-control"></asp:TextBox>
-    </div>
-            <div class="form-row">
-         <div class="form-group col-md-6">
-            <label for="inputCity">Destination City</label>
-            <asp:TextBox ID="TxtMoveCity"
-                runat="server"
-                class="form-control"
-                Placeholder="City"></asp:TextBox>
-        </div>
-        <div class="form-group col-md-4">
-            <label for="inputState">Destination State</label>
-            <asp:TextBox ID="TxtMoveState"
-                runat="server"
-                class="form-control"
-                Placeholder="State"></asp:TextBox>
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">Destination Zip</label>
-            <asp:TextBox ID="TxtMoveZip"
-                runat="server"
-                class="form-control"
-                Placeholder="Zip"></asp:TextBox>
-        </div>
-    </div>
-     <div class="form-group">
-        <label for="inputDescription">Destination Description</label>
-        <asp:TextBox ID="TxtMoveDescription"
-            runat="server"
-            class="form-control"
-            placeholder="Description"></asp:TextBox>
-    </div>
-    <asp:Button ID="BtnAddDestination" 
-        runat="server" 
-        Text="Add Another Destination" 
-        OnClick="BtnAddDestination_Click" />
+
+        
     <br />
     <br />
     <h4>Assign Crew</h4>
-     <div class="form-group">
+    <div class="form-group">
         <label>Employees:</label>
         <asp:DropDownList
             ID="DdlInitiatingEmp"
@@ -203,104 +164,73 @@
             DataValueField="EmployeeID"
             OnDataBound="DdlInitiatingEmp_DataBound" Width="100%">
         </asp:DropDownList>
-         <asp:Button ID="BtnAddEmployee" 
-             runat="server" 
-             Text="Add Employee" 
-             OnClick="BtnAddEmployee_Click" />
+        <asp:Button ID="BtnAddEmployee"
+            runat="server"
+            Text="Add Employee"
+            OnClick="BtnAddEmployee_Click" />
     </div>
-    <asp:GridView ID="GridEmployees" 
+    <asp:GridView ID="GridEmployees"
         runat="server"
-        AutoGenerateColumns="false" 
-        CellPadding="3" 
-        AutoGenerateDeleteButton="true" 
+        AutoGenerateColumns="false"
+        CellPadding="3"
+        AutoGenerateDeleteButton="true"
         DataKeyNames="MoveID"
         Visible="true"
         DataSourceID="dtasrcEmployeeContact" EmptyDataText="No Employees Assigned">
-         <Columns>
-                    <asp:BoundField DataField="MoveID" Visible="false" />
-                    <asp:BoundField DataField="EmployeeName" HeaderText="Employee Name" />
-                </Columns>
+        <Columns>
+            <asp:BoundField DataField="MoveID" Visible="false" />
+            <asp:BoundField DataField="EmployeeName" HeaderText="Employee Name" />
+        </Columns>
     </asp:GridView>
     <div class="form-group">
         <label>Is ther Packing?: </label>
         <asp:CheckBox
-            ID="ChkBoxCompleted"
+            ID="CheckBoxPacking"
             runat="server" />
     </div>
-   
+
 
     <div class="form-group">
         <label>Is there Trash Removal/Donations?: </label>
         <asp:CheckBox
             ID="CheckBoxTrash"
-            runat="server" AutoPostBack="true" OnCheckedChanged="CheckBoxTrash_CheckedChanged"/>
+            runat="server" AutoPostBack="true" OnCheckedChanged="CheckBoxTrash_CheckedChanged" />
     </div>
- 
-    <div ID="hiddentext1" runat="server" visible="false">
-    <div class="form-row">
-    <label >Do we need a dumpster?</label>
-        &nbsp;
+
+    <div id="hiddentext1" runat="server" visible="false">
+        <div class="form-row">
+            <label>Do we need a dumpster?</label>
+            &nbsp;
       <asp:CheckBox
-            ID="Chdunpster"
-            runat="server" />
-    </div>
+          ID="CheckBoxDumpster"
+          runat="server" />
+        </div>
 
-    <div class="form-group">
-        <label>Address</label>
-        <%--        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">--%>
-        <asp:TextBox ID="DumpAddress"
-            runat="server"
-            Placeholder=""
-            class="form-control"></asp:TextBox>
-    </div>
-         <div class="form-row">
-         <div class="form-group col-md-6">
-            <label for="inputCity">City</label>
-            <asp:TextBox ID="DumpCity"
+        
+        <div class="form-group">
+            <label>How many Employees</label>
+            <asp:TextBox ID="TxtNumberEmp"
                 runat="server"
                 class="form-control"
-                Placeholder="City"></asp:TextBox>
+                placeholder=""> </asp:TextBox>
         </div>
-        <div class="form-group col-md-4">
-            <label for="inputState">Orgin State</label>
-            <asp:TextBox ID="DumpState"
+        <div class="form-group">
+            <label>How much are we charging?</label>
+            <asp:TextBox ID="TxtCharging"
                 runat="server"
                 class="form-control"
-                Placeholder="State"></asp:TextBox>
+                placeholder=""> </asp:TextBox>
         </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">Orgin Zip</label>
-            <asp:TextBox ID="Dumpzip"
+        <div class="form-group">
+            <label>Trash Description</label>
+            <asp:TextBox ID="txtdesc"
                 runat="server"
                 class="form-control"
-                Placeholder="Zip"></asp:TextBox>
+                placeholder=""> </asp:TextBox>
         </div>
-        </div>
-            <div class="form-group">
-        <label>How many Employees</label>
-        <asp:TextBox ID="Txtworkers"
-            runat="server"
-            class="form-control"
-            placeholder="" > </asp:TextBox>
-    </div>
-            <div class="form-group">
-        <label>How much are we charging?</label>
-        <asp:TextBox ID="TextBox1"
-            runat="server"
-            class="form-control"
-            placeholder="" > </asp:TextBox>
-    </div>
-    <div class="form-group">
-        <label>Trash Description</label>
-        <asp:TextBox ID="txtdesc"
-            runat="server"
-            class="form-control"
-            placeholder="" > </asp:TextBox>
-    </div>
 
     </div>
 
-</div>
 
 
 
@@ -308,78 +238,65 @@
 
 
 
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            <label>Type of Home</label>
-            <asp:TextBox
-                ID="TypeHome"
-                runat="server"
-                Placeholder=""
-                class="form-control"></asp:TextBox>
-        </div>
-        <div class="form-group col-md-4">
-            <label>Truck Accessibility</label>
-            <asp:TextBox
-                ID="TruckAccess"
-                runat="server"
-                Placeholder=""
-                class="form-control"></asp:TextBox>
-        </div>
-        <div class="form-group col-md-4">
-            <label>Walking Distance</label>
-            <asp:TextBox
-                ID="WalkingDistance"
-                runat="server"
-                Placeholder=""
-                class="form-control"></asp:TextBox>
-        </div>
+    <div>
+        <asp:DetailsView ID="DTLMoveInfo" runat="server" DataSourceID="dtasrcMoveInfo"
+            AutoGenerateEditButton="true"
+            EmptyDataText="No Info"
+            AutoGenerateRows="false"
+            DataKeyNames="MoveInfoID">
+
+            <Fields>
+                <asp:BoundField DataField="MoveInfoID" Visible="false" />
+                <asp:BoundField DataField="NumberOfStories" HeaderText="Number of Stories:" />
+                <asp:BoundField DataField="DistanceFromTruck" HeaderText="Distance From Truck:" />
+                <asp:BoundField DataField="TypeOfHome" HeaderText="Type Of Home:" />
+                <asp:BoundField DataField="TypeofHomeAdd" HeaderText="Additional Home Notes:" />
+                <asp:BoundField DataField="TruckAccessibility" HeaderText="Truck Accessibility:" />
+                <asp:BoundField DataField="LoadingDoorWalk" HeaderText="Loading Conditions:" />
+                <asp:BoundField DataField="StepsToHouse" HeaderText="Steps to House:" />
+            </Fields>
+        </asp:DetailsView>
     </div>
-
-     <div class="form-row">
-        <div class="form-group col-md-4">
-            <label>Number of Steps</label>
-            <asp:TextBox
-                ID="Txtsteps"
-                runat="server"
-                Placeholder=""
-                class="form-control"></asp:TextBox>
-        </div>
-        <div class="form-group col-md-4">
-            <label>Special Equipment</label>
-            <asp:TextBox
-                ID="Txtequp"
-                runat="server"
-                Placeholder=""
-                class="form-control"></asp:TextBox>
-        </div>
-        <div class="form-group col-md-4">
-            <label>Trucks We Are Taking</label>
-            <asp:TextBox
-                ID="txttrucks"
-                runat="server"
-                Placeholder=""
-                class="form-control"></asp:TextBox>
-        </div>
+    <div>
+        <asp:Button ID="btnSave" runat="server" Text="Save Form" OnClick="btnSave_Click" />
+        <asp:Label ID="lblSaveStatus" runat="server" Text=""></asp:Label>
     </div>
- 
+    <asp:SqlDataSource ID="dtasrcMoveInfo"
+        runat="server"
+        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        SelectCommand="Select MOVEINFOID, NumberOfStories, DistanceFromTruck, TypeOfHome, TypeOfHomeAdd, TruckAccessibility, LoadingDoorWalk, StepsToHouse FROM MOVEINFO WHERE ServiceTicketID = @ServiceTicketID"
+        UpdateCommand="UPDATE MOVEINFO Set NumberOfStories = @NumberOfStories, DistanceFromTruck = @DistanceFromTruck, TypeofHome = @TypeofHome, TypeOfHomeAdd = @TypeOfHomeAdd, TruckAccessibility = @TruckAccessibility, LoadingDoorWalk = @LoadingDoorWalk, StepsToHouse = @StepsToHouse WHERE ServiceTicketID = @ServiceTicketID">
+        <SelectParameters>
+            <asp:ControlParameter Name="ServiceTicketID" Type="Int64" ControlID="ddlService" />
+        </SelectParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="NumberOfStories" Type="String" />
+            <asp:Parameter Name="DistanceFromTruck" Type="String" />
+            <asp:Parameter Name="TypeOfHome" Type="String" />
+            <asp:Parameter Name="TypeOfHomeAdd" Type="String" />
+            <asp:Parameter Name="TruckAccessibility" Type="String" />
+            <asp:Parameter Name="LoadingDoorWalk" Type="String" />
+            <asp:Parameter Name="StepsToHouse" Type="String" />
+            <asp:ControlParameter Name="ServiceTicketID" Type="Int64" ControlID="DDLType" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
 
-     <asp:SqlDataSource
+    <asp:SqlDataSource
         ID="dtasrcEmployeeContact"
         runat="server"
         ConnectionString="<%$ConnectionStrings:Lab3%>"
         SelectCommand="Select MoveID, EmpFirstName + ' ' + EmpLastName as EmployeeName from MoveEmployees join Employee on moveemployees.employeeID = employee.employeeID join serviceticket on serviceticket.serviceticketID = moveemployees.serviceticketID where moveemployees.serviceticketID = @ServiceTicketID Order By EmpLastName ASC">
-     <SelectParameters>
-         <asp:ControlParameter Name="ServiceTicketID" ControlID="ddlService" PropertyName="selectedvalue" />
-     </SelectParameters>
-     </asp:SqlDataSource>
-    
+        <SelectParameters>
+            <asp:ControlParameter Name="ServiceTicketID" ControlID="ddlService" PropertyName="selectedvalue" />
+        </SelectParameters>
+    </asp:SqlDataSource>
 
-     <asp:SqlDataSource
+
+    <asp:SqlDataSource
         ID="dtasrcEmployee"
         runat="server"
         ConnectionString="<%$ConnectionStrings:Lab3%>"
-        SelectCommand="Select EmployeeID, EmpFirstName + ' ' + EmpLastName as EmployeeName from Employee Order By EmpLastName ASC">
-     </asp:SqlDataSource>
+        SelectCommand="Select EmployeeID, EmpFirstName + ' ' + EmpLastName as EmployeeName from Employee Order By EmpLastName ASC"></asp:SqlDataSource>
 
 
     <asp:SqlDataSource ID="dtasrcAddress"

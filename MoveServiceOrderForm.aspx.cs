@@ -109,44 +109,7 @@ namespace Lab3
 
         }
 
-        protected void BtnAddDestination_Click(object sender, EventArgs e)
-        {
-            //Concatenate Sql Query Update Statements
-            String sqlQuery = "Insert into address values (null, @CustomerID, @Street, @City, @State, @Zip, @Description)";
 
-            //Define the Connection to the Database
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-
-            // Create the SQL Command object which will send the query
-            SqlCommand sqlCommand = new SqlCommand();
-            sqlCommand.Connection = sqlConnect;
-            sqlCommand.CommandType = CommandType.Text;
-            sqlCommand.CommandText = sqlQuery;
-
-            //Parameterizes all the strings
-            sqlCommand.Parameters.Add(new SqlParameter("@CustomerID", Session["SelectedCustomerID"].ToString()));
-            sqlCommand.Parameters.Add(new SqlParameter("@Street", HttpUtility.HtmlEncode(TxtMoveAddress.Text)));
-            sqlCommand.Parameters.Add(new SqlParameter("@City", HttpUtility.HtmlEncode(TxtMoveCity.Text)));
-            sqlCommand.Parameters.Add(new SqlParameter("@State", HttpUtility.HtmlEncode(TxtMoveState.Text)));
-            sqlCommand.Parameters.Add(new SqlParameter("@Zip", HttpUtility.HtmlEncode(TxtMoveZip.Text)));
-            sqlCommand.Parameters.Add(new SqlParameter("@Description", HttpUtility.HtmlEncode(TxtMoveDescription.Text)));
-
-            // Open your connection, send the query 
-            sqlConnect.Open();
-            SqlDataReader queryResults = sqlCommand.ExecuteReader();
-
-            // Close all related connections
-            queryResults.Close();
-            sqlConnect.Close();
-            GridAddress.DataBind();
-
-            //Clears textboxes
-            TxtMoveAddress.Text = "";
-            TxtMoveCity.Text = "";
-            TxtMoveState.Text = "";
-            TxtMoveZip.Text = "";
-            TxtMoveDescription.Text = "";
-        }
 
         protected void DdlInitiatingEmp_DataBound(object sender, EventArgs e)
         {
@@ -206,7 +169,60 @@ namespace Lab3
 
         protected void ddlService_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (ddlService.SelectedIndex != 0)
+            {
+                String sqlQuery = "Select TrashRemoval, TrashRemovalDescription from MoveAssessment where CustomerID = " + Session["SelectedCustomerID"].ToString();
 
+
+                SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+
+                SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
+
+                DataTable dtForSelect = new DataTable();
+                sqlAdapter.Fill(dtForSelect);
+
+                if (dtForSelect.Rows[0]["TrashRemoval"].ToString() == "True" || dtForSelect.Rows[0]["Donation"].ToString() == "True")
+                {
+                    CheckBoxTrash.Checked = true;
+                    CheckBoxTrash_CheckedChanged(sender, e);
+                    txtdesc.Text = dtForSelect.Rows[0]["TrashRemovalDescription"].ToString();
+                }
+
+            }
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            //Concatenate Sql Query Update Statements
+            String sqlQuery = "Insert into MOVESERVICEORDER values (@PotentialDate, @PotentialTime, @Packing, @Dumpster, @NumberEmp, @Charging)";
+
+            //Define the Connection to the Database
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+            // Create the SQL Command object which will send the query
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = sqlConnect;
+            sqlCommand.CommandType = CommandType.Text;
+            sqlCommand.CommandText = sqlQuery;
+
+            //Parameterizes all the strings
+            sqlCommand.Parameters.Add(new SqlParameter("@PotentialDate", HttpUtility.HtmlEncode(TxtPotentialDate.Text)));
+            sqlCommand.Parameters.Add(new SqlParameter("@PotentialTime", HttpUtility.HtmlEncode(TxtPotentialTime.Text)));
+            sqlCommand.Parameters.Add(new SqlParameter("@Packing", HttpUtility.HtmlEncode(CheckBoxPacking.Checked)));
+            sqlCommand.Parameters.Add(new SqlParameter("@Dumpster", HttpUtility.HtmlEncode(CheckBoxDumpster.Checked)));
+            sqlCommand.Parameters.Add(new SqlParameter("@NumberEmp", HttpUtility.HtmlEncode(TxtNumberEmp.Text)));
+            sqlCommand.Parameters.Add(new SqlParameter("@Charging", HttpUtility.HtmlEncode(TxtCharging.Text)));
+
+            // Open your connection, send the query 
+            sqlConnect.Open();
+            SqlDataReader queryResults = sqlCommand.ExecuteReader();
+
+            // Close all related connections
+            queryResults.Close();
+            sqlConnect.Close();
+
+            lblSaveStatus.Text = "Move Service Order Saved Successfully!";
+            lblSaveStatus.ForeColor = Color.Green;
         }
     }
 }
