@@ -28,7 +28,7 @@ namespace Lab3
 
         protected void SaveBtn_Click(object sender, EventArgs e)
         {
-            String sqlQuery = "insert into MoveAssessment values (@MustBeOut, @Range1, @Range2, @DestAddress, @DestCity, @DestState, @DestZipCode, @MlSListing, @SendPhotos, @Packing,@TrashRemoval, @Donation, @Auction, @CustomerID )";
+            String sqlQuery = "insert into MoveAssessment values (@MustBeOut, @Range1, @Range2, @DestAddress, @DestCity, @DestState, @DestZipCode, @MlSListing, @SendPhotos, @Packing,@TrashRemoval,@TrashRemovalDescription, @Donation, @Auction, @CustomerID )";
             //Define the Connection to the Database
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -50,6 +50,7 @@ namespace Lab3
             sqlCommand.Parameters.Add(new SqlParameter("@SendPhotos", HttpUtility.HtmlEncode(PhotosBtn.SelectedValue)));
             sqlCommand.Parameters.Add(new SqlParameter("@Packing", HttpUtility.HtmlEncode(PackingChk.Checked)));
             sqlCommand.Parameters.Add(new SqlParameter("@TrashRemoval", HttpUtility.HtmlEncode(TrashChk.Checked)));
+            sqlCommand.Parameters.Add(new SqlParameter("@TrashRemovalDescription", HttpUtility.HtmlEncode(TrashChk.Checked)));
             sqlCommand.Parameters.Add(new SqlParameter("@Donation", HttpUtility.HtmlEncode(DonationChk.Checked)));
             sqlCommand.Parameters.Add(new SqlParameter("@Auction", HttpUtility.HtmlEncode(AuctionChk.Checked)));
             sqlCommand.Parameters.Add(new SqlParameter("@CustomerID", Session["SelectedCustomerID"].ToString()));
