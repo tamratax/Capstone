@@ -76,7 +76,7 @@ namespace Lab3
             sqlCommand1.Parameters.Add(new SqlParameter("@CustomerID", Session["SelectedCustomerID"].ToString()));
             sqlCommand1.Parameters.Add(new SqlParameter("@PotentialDate", HttpUtility.HtmlEncode(DateOutTxt.Text)));
             sqlCommand1.Parameters.Add(new SqlParameter("@ServiceType", "Move"));
-            sqlCommand1.Parameters.Add(new SqlParameter("@ServiceDate", DateTime.Now.ToString("dd/MM/yyyy")));
+            sqlCommand1.Parameters.Add(new SqlParameter("@ServiceDate", DateTime.Now.ToString("yyyy-MM-dd")));
 
             sqlConnect1.Open();
             SqlDataReader queryResults1 = sqlCommand1.ExecuteReader();
