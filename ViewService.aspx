@@ -75,10 +75,11 @@
         }
     </script>
 
-
+       <div style="margin-left:auto; margin-right:auto; text-align:center">
        <asp:Label ID="StatBar" runat="server" Text="Service Status Bar" Font-Bold="true" Font-Size="Larger"></asp:Label>
        
        <asp:Label ID="StatusPercent" runat="server" Text="" Font-Bold="true"></asp:Label>
+    </div>
 
 
      
@@ -86,7 +87,7 @@
       <div id="divStatus" runat="server" style="background-color:Green;width:0%;"></div>
      </div>--%>
 
-            <div class="progress" style="width:40%">
+            <div class="progress" style="width:40%; margin-left:auto; margin-right:auto">
   <div id="progressbar" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="70"
   aria-valuemin="0" aria-valuemax="100" style="width:0%" runat="server">
   </div>
