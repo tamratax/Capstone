@@ -42,7 +42,10 @@
                                 onclick="BtnClear_Click"/>
                         <br />
 
-                        <asp:Button ID="PreMoveAssessmentBtn" runat="server" Text="Request a Move" OnClick="PreMoveAssessmentBtn_Click" />
+                        <asp:Button ID="PreMoveAssessmentBtn" 
+                            runat="server" 
+                            Text="Request a Move" 
+                            OnClick="PreMoveAssessmentBtn_Click" />
                         </div>
                     </div>
                 </div>

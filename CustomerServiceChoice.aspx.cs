@@ -21,7 +21,7 @@ namespace Lab3
 
         protected void PreMoveAssessmentBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("PreMoveAssessment.aspx");
+            Response.Redirect("AddServiceRequest.aspx");
 
         }
     }
