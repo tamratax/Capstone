@@ -524,5 +524,20 @@ namespace Lab3
             TxtStorageFee.Text = "50";
             TxtTrashRemoval.Text = "30";
         }
+
+        protected void ClearBtn_Click(object sender, EventArgs e)
+        {
+            DDLTypeofHome.SelectedIndex = -1;
+            TxtDistance.Text = "";
+            TxtAccessibility.Text = "";
+            TxtSteps.Text = "";
+            TxtConditions.Text = "";
+
+            TxtMoveEstimate.Text = "";
+            TxtFixedRate.Text = "";
+            TxtPackingFee.Text = "";
+            TxtStorageFee.Text = "";
+            TxtTrashRemoval.Text = "";
+        }
     }
 }

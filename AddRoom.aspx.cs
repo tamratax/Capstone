@@ -211,6 +211,7 @@ namespace Lab3
             TxtRoomIdentify.Text = "#1";
             DDLFloor.SelectedValue = "Ground Floor";
             RBBtnBox.SelectedValue = "Yes";
+            divYesBox.Visible = true;
             DDLType.SelectedValue = "Medium";
             TxtQty.Text = "2";
             TxtBlanket.Text = "Yes";
@@ -220,6 +221,23 @@ namespace Lab3
             TxtCollectibles.Text = "No";
             TxtAppliances.Text = "Gaming Console";
 
+        }
+
+        protected void BtnClear_Click(object sender, EventArgs e)
+        {
+            DDLCreateRoom.SelectedIndex = -1;
+            TxtRoomIdentify.Text = "";
+            DDLFloor.SelectedIndex = -1;
+            RBBtnBox.SelectedIndex = -1;
+            divYesBox.Visible = false; 
+            DDLType.SelectedIndex = -1;
+            TxtQty.Text = "";
+            TxtBlanket.Text = "";
+            TxtAdditional.Text = "";
+            TxtHighValue.Text = "";
+            TxtLargeItems.Text = "";
+            TxtCollectibles.Text = "";
+            TxtAppliances.Text = "";
         }
 
         //protected void ChkBoxServer_CheckedChanged(object sender, EventArgs e)

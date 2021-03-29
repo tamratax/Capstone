@@ -560,9 +560,12 @@
 
     <br />
     <br />
+    <div class="float-right">
     <asp:Button ID="btnComplete" runat="server" Text="Complete Service Ticket->" OnClick="btnComplete_Click" />
-
     <asp:Label ID="LblSaveStatus" runat="server" Text=""></asp:Label>
+        <asp:Button ID="BtnPop" runat="server" Text="Populate" OnClick="BtnPop_Click" />
+        <asp:Button ID="BtnClear" runat="server" Text="Clear" OnClick="BtnClear_Click" />
+        </div>
     <%--<asp:Table ID="Table2" runat="server">
         <asp:TableRow>
             <asp:TableCell>
