@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddServiceRequest.aspx.cs" Inherits="Lab3.AddServiceRequest" MasterPageFile="~/CustomerFacingMaster.Master" %>
 
 <asp:Content ID="myContent" ContentPlaceHolderID="body" runat="server">
-    <link href="Content/LoginFix.css" rel="stylesheet" />
+    <link href="Content/addRequest.css" rel="stylesheet" />
     <!DOCTYPE html>
     <html lang="en">
 

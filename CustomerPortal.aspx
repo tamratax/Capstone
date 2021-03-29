@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />--%>
-    <link href="Content/LoginFix.css" rel="stylesheet" />
+    <link href="Content/CustLogin.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 <body class="bg-primary">
@@ -91,77 +91,7 @@
                 </footer>
             </div>
         </div>
-        <%--        <div>
-            <div>
-                <h1>Customer Portal</h1>--%>
-        <%--<asp:Table ID="TblLogin" runat="server" CssClass="tableContent">
-                <asp:TableRow>
-                    <asp:TableCell ColumnSpan="3">--%>
-        <%--                <asp:Label
-                    ID="LblLoginHeader"
-                    runat="server"
-                    Text="Please Enter Username & Password"
-                    Font-Bold="true"></asp:Label>--%>
-        <%--class="fadeIn first"--%>
-        <%--</asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow>--%>
-        <%--                    <asp:TableCell>
-                        <asp:Label
-                            ID="LblUsername"
-                            runat="server"
-                            Text="Username:"></asp:Label>
-                    </asp:TableCell>--%>
-        <%--<asp:TableCell ColumnSpan="2">--%>
-        <%--                        <asp:TextBox
-                            ID="TxtUsername"
-                            runat="server"></asp:TextBox>--%>
-        <%--class="fadeIn second"--%>
-        <%--Placeholder="Username"--%>
-        <%--</asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow>--%>
-        <%--                    <asp:TableCell>
-                        <asp:Label
-                            ID="LblPassword"
-                            runat="server"
-                            Text="Pasword:"></asp:Label>
-                    </asp:TableCell>--%>
-        <%--<asp:TableCell>--%>
-        <%--                        <asp:TextBox
-                            ID="TxtPassword"
-                            runat="server"
-                            class="fadeIn third"
-                            Textmode="Password" ></asp:TextBox>--%>
-        <%--Placeholder="Password"--%>
-        <%--</asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell>--%>
-        <%--                        <asp:Button
-                            ID="BtnLogin"
-                            runat="server"
-                            Text="Login"
-                            OnClick="BtnLogin_Click" />--%>
-        <%--class="fadeIn fourth"--%>
-        <%--                    </asp:TableCell>
-                    <asp:TableCell>--%>
-        <%--                <asp:Button
-                    ID="BtnNewUser"
-                    runat="server"
-                    Text="Create Account ->"
-                    OnClick="BtnNewUser_Click" />--%>
-        <%--                    </asp:TableCell>
-                    <asp:TableCell>--%>
-        <%--                <asp:Label
-                    ID="LblLoginStatus"
-                    runat="server"
-                    Text=""></asp:Label>--%>
-        <%--                    </asp:TableCell>
-                </asp:TableRow>
-            </asp:Table>--%>
-        <%--            </div>
-        </div>--%>
+        
     </form>
     <script src="Scripts/jquery-3.5.1.slim.js"></script>
     <script src="Scripts/popper.min.js"></script>

@@ -4,6 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
+using System.Web.Configuration;
+using System.Drawing;
 
 namespace Lab3
 {
@@ -13,15 +17,19 @@ namespace Lab3
         {
 
         }
-
-        protected void BtnClear_Click(object sender, EventArgs e)
+       
+        protected void BtnRequestAppraisal_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("AppraisalServiceOrder.aspx");
+
         }
 
-        protected void PreMoveAssessmentBtn_Click(object sender, EventArgs e)
+        protected void BtnRequestMove_Click(object sender, EventArgs e)
         {
             Response.Redirect("AddServiceRequest.aspx");
+        }
+
+        protected void BtnRequestAuction_Click(object sender, EventArgs e)
+        {
 
         }
     }

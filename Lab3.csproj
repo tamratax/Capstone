@@ -72,12 +72,16 @@
     <Content Include="AddRoom.aspx" />
     <Content Include="AppraisalServiceOrder.aspx" />
     <Content Include="BootstrapSandBox.aspx" />
+    <Content Include="Content\addRequest.css" />
     <Content Include="Content\AddService.css" />
     <Content Include="Content\CustLandingPage.css" />
+    <Content Include="Content\CustLogin.css" />
     <Content Include="Content\CustomerPortal.css" />
+    <Content Include="Content\CustUnauthorized.css" />
     <Content Include="Content\LandingPage.css" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\LoginFix.css" />
+    <Content Include="Content\NewCustomer.css" />
     <Content Include="Content\NewTemplate.css" />
     <Content Include="Content\style4.css" />
     <Content Include="Content\UserLogin.css" />
@@ -85,6 +89,7 @@
     <Content Include="images\background.jpg" />
     <Content Include="images\background2.jfif" />
     <Content Include="images\background3.jpg" />
+    <Content Include="images\background4.jpg" />
     <Content Include="images\GreenValleyFam.PNG" />
     <Content Include="LookAt.aspx" />
     <Content Include="MoveAssessment.aspx" />
