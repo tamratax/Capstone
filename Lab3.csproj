@@ -73,6 +73,7 @@
     <Content Include="AppraisalServiceOrder.aspx" />
     <Content Include="BootstrapSandBox.aspx" />
     <Content Include="Content\AddService.css" />
+    <Content Include="Content\CustLandingPage.css" />
     <Content Include="Content\CustomerPortal.css" />
     <Content Include="Content\LandingPage.css" />
     <Content Include="Content\Login.css" />
@@ -81,6 +82,10 @@
     <Content Include="Content\style4.css" />
     <Content Include="Content\UserLogin.css" />
     <Content Include="EditEquipment.aspx" />
+    <Content Include="images\background.jpg" />
+    <Content Include="images\background2.jfif" />
+    <Content Include="images\background3.jpg" />
+    <Content Include="images\GreenValleyFam.PNG" />
     <Content Include="LookAt.aspx" />
     <Content Include="MoveAssessment.aspx" />
     <Content Include="MoveInventory.aspx" />

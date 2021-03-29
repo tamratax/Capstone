@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-        <link href="Content/LoginFix.css" rel="stylesheet" />
+        <link href="Content/CustLandingPage.css" rel="stylesheet" />
     <!DOCTYPE html>
     <html lang="en">
 
@@ -25,12 +25,13 @@
         <!-- Custom styles for this template-->
         <link href="css/sb-admin-2.min.css" rel="stylesheet">
     </head>
+        <div class="NiceBackground">
     <body class="bg-gradient-primary">
         <div class="container">
 
             <!-- Outer Row -->
             <div class="row justify-content-center">
-                        <h4>Welcome to Green Valley Actions</h4>
+                        <h2 class="display-4">Welcome to Green Valley Auctions</h2>
                 <div class="col-xl-10 col-lg-12 col-md-9">
 
                     <div class="card o-hidden border-0 shadow-lg my-5">
@@ -50,6 +51,7 @@
                     </div>
                 </div>
             </div>
+        </div>
                         <!-- Bootstrap core JavaScript-->
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
