@@ -166,9 +166,23 @@ namespace WalkerS_Lab1Part3
 
             TxtServiceDate.Text = "2021-08-05";
             TxtCompletionDate.Text = "2021-09-07";
-
+            TxtPotentialTime.Text = "10:30";
+            TxtPotentialDate.Text = "2021-08-06";
+            TxtStreet.Text = "1700 North Main Street";
+            TxtCity.Text = "Bridgewater";
+            TxtState.Text = "Virginia";
+            TxtZip.Text = "22812";
+            TxtDescription.Text = "Second drop-off house";
+            ChkBoxLookAt.Checked = true;
+            TxtLookAtSchedule.Visible = true;
+            TxtLookatScheduleTime.Visible = true;
+            TxtLookatScheduleTime.Text = "12:15";
+            TxtLookAtSchedule.Text = "2021-07-06";
+            ChkBxCleaning.Checked = true;
+            ChkBxTrashRemoval.Checked = true;
             DdlServiceType.SelectedIndex = 1;
             TxtDestinationTime.Text = "09:00";
+
 
 
             //Reloads data to show Move fields
@@ -240,6 +254,15 @@ namespace WalkerS_Lab1Part3
             ChkBxCleaning.Checked = false;
             ChkBxStorage.Checked = false;
             ChkBxTrashRemoval.Checked = false;
+            TxtPotentialTime.Text = "";
+            TxtPotentialDate.Text = "";
+            TxtStreet.Text = "";
+            TxtCity.Text = "";
+            TxtState.Text = "";
+            TxtZip.Text = "";
+            TxtDescription.Text = "";
+            TxtLookAtSchedule.Visible = false;
+            TxtLookatScheduleTime.Visible = false;
 
             //Reloads data to hide move/auction fields
             DdlServiceType_SelectedIndexChanged(sender, e);

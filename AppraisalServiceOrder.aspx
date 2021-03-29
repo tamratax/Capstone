@@ -151,11 +151,7 @@
         </div>
         <div>
             <asp:Button ID="BtnOutlook" runat="server" Text="Open Outlook" OnClick="BtnOutlook_Click" />
-             <asp:Button ID="BtnSave" runat="server" Text="Save" OnClick="BtnSave_Click" />
-           <asp:Label
-                ID="LblSaveStatus"
-                runat="server"
-                Text=""></asp:Label>
+            
            
 
             </div>
@@ -166,6 +162,22 @@
                 runat="server"
                 AllowMultiple="true" />
           <asp:Label ID="FileUploadedList" runat="server" />
+        <br />
+        <div><br />
+        <asp:Button ID="BtnPopulate" 
+            runat="server" 
+            Text="Populate" 
+            OnClick="BtnPopulate_Click" />
+            <asp:Button ID="BtnClear" 
+                runat="server" 
+                Text="Clear" 
+                OnClick="BtnClear_Click" />
+             <asp:Button ID="BtnSave" runat="server" Text="Save" OnClick="BtnSave_Click" />
+           <asp:Label
+                ID="LblSaveStatus"
+                runat="server"
+                Text=""></asp:Label>
+            </div>
     </div>
 
 

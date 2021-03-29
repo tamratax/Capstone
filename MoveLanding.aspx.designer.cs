@@ -11,35 +11,17 @@ namespace Lab3
 {
 
 
-    public partial class ItemRecieval
+    public partial class WebForm4
     {
 
         /// <summary>
-        /// LblCustomer control.
+        /// LblService control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblCustomer;
-
-        /// <summary>
-        /// LblCustomerName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblCustomerName;
-
-        /// <summary>
-        /// LblType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblType;
+        protected global::System.Web.UI.WebControls.Label LblService;
 
         /// <summary>
         /// DDLType control.
@@ -51,66 +33,75 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.DropDownList DDLType;
 
         /// <summary>
-        /// RfvServiceTicket control.
+        /// divlanding control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvServiceTicket;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divlanding;
 
         /// <summary>
-        /// TxtNotes control.
+        /// Btnpremove control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtNotes;
+        protected global::System.Web.UI.WebControls.Button Btnpremove;
 
         /// <summary>
-        /// BtnPopulate control.
+        /// BtnMove control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnPopulate;
+        protected global::System.Web.UI.WebControls.Button BtnMove;
 
         /// <summary>
-        /// BtnClear control.
+        /// BtnMoveService control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnClear;
+        protected global::System.Web.UI.WebControls.Button BtnMoveService;
 
         /// <summary>
-        /// BtnSave control.
+        /// BtnComplete control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSave;
+        protected global::System.Web.UI.WebControls.Button BtnComplete;
 
         /// <summary>
-        /// LblSaveStatus control.
+        /// StatBar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblSaveStatus;
+        protected global::System.Web.UI.WebControls.Label StatBar;
 
         /// <summary>
-        /// dtasrcServices control.
+        /// StatusPercent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcServices;
+        protected global::System.Web.UI.WebControls.Label StatusPercent;
+
+        /// <summary>
+        /// progressbar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl progressbar;
     }
 }

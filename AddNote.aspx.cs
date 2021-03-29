@@ -163,6 +163,13 @@ namespace Lab2
         {
             Response.Redirect("ViewNote.aspx");
         }
+
+        protected void BtnPopulate_Click(object sender, EventArgs e)
+        {
+            TxtTitle.Text = "Extremely Urgent";
+            TxtDetails.Text = "This customer is a hoarder! Be extra cautions when suggesting to get rid of something!";
+            DdlNoteCreator.SelectedIndex = 1;
+        }
     }
 
 
