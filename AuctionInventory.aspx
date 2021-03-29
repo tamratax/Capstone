@@ -49,12 +49,21 @@
     <br />
     <br />
     <div class="form-group float-right">
+        <asp:Button ID="BtnPopulate" 
+            runat="server" 
+            Text="Populate" 
+            OnClick="BtnPopulate_Click" />
+        <asp:Button ID="BtnClear" 
+            runat="server" 
+            Text="Clear" 
+            onclick="BtnClear_Click"/>
            <asp:Button
                     ID="BtnSave"
                     runat="server"
                     Text="Save"
                     OnClick="BtnSave_Click"
                     ValidationGroup="SaveGroup" />
+        
         </div>
     <%--<asp:TableRow>
         <asp:TableCell>--%>
