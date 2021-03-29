@@ -58,9 +58,9 @@
                             <li>
                                 <a href="AppraisalServiceOrder.aspx">Appraisal Service Order</a>
                             </li>
-                            <li>
+                            <%--<li>
                                 <a href="AuctionInventory.aspx">Walkthrough</a>
-                            </li>
+                            </li>--%>
                             <li>
                                 <a href="PreMoveAssessment.aspx">Pre-Move Assessment</a>
                             </li>
