@@ -1,3 +1,4 @@
+--drop table Appraisal;
 --drop table Boxes;
 --drop Table Room;
 --drop Table MoveAssessment;
@@ -275,6 +276,17 @@ Donation varchar(25),
 Auction varchar(25),
 CustomerID int references Customer(CustomerID) );
 
+CREATE TABLE MOVECHARGES(
+	[MOVECHARGEID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[MoveEstimate] [float] NULL,
+	[FixedRate] [float] NULL,
+	[PackingFees] [float] NULL,
+	[StorageFees] [float] NULL,
+	[TrashRemovalFee] [float] NULL,
+	[TotalCharges] [float] NULL,
+	[ServiceTicketID] [int] NULL
+	);
+
 CREATE TABLE NOTES (
 	NoteID		int IDENTITY(1,1) NOT NULL Primary Key,
 	DateCreated	varchar(30),
@@ -305,7 +317,18 @@ CREATE TABLE BOXES (
 
 );
 
-
+CREATE TABLE APPRAISAL(
+	AppraisalID		int Identity(1,1) Not Null Primary Key,
+	Estate			varchar(10),
+	FamilyDivision	varchar(10),
+	Deadline		varchar(10),
+	DeadlineDate	varchar(10),
+	AppraisalSize	varchar(100),
+	Inventory		varchar(500),
+	MoveAssessment	varchar(10),
+	AuctionAssessment varchar(10),
+	CustomerID		int references Customer(CustomerID)
+);
 
 ---------------------------------------------
 --Adding data to database--

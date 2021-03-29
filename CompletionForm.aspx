@@ -176,7 +176,6 @@
 
             </asp:GridView>
         </fieldset>
-        <br />
         <div class="form-group">
             <label>Supplies $</label>
             <asp:TextBox
@@ -196,16 +195,16 @@
 
     <br />
     <div runat="server" id="divPayment">
-        <asp:Table ID="paymenttable" runat="server">
+        <%--<asp:Table ID="paymenttable" runat="server">
             <asp:TableRow>
-                <asp:TableCell>
+                <asp:TableCell>--%>
                 <h2>Payment Information</h2>
-                </asp:TableCell>
-            </asp:TableRow>
+              <%--  </asp:TableCell>
+            </asp:TableRow>--%>
 
 
-            <asp:TableRow>
-                <asp:TableCell>
+          <%--  <asp:TableRow>
+                <asp:TableCell>--%>
 
 
                     <asp:GridView ID="GridPayment"
@@ -228,58 +227,68 @@
                         </Columns>
 
                     </asp:GridView>
-                </asp:TableCell>
-            </asp:TableRow>
+               <%-- </asp:TableCell>
+            </asp:TableRow>--%>
 
-            <asp:TableRow>
-                <asp:TableCell>
+            <%--<asp:TableRow>
+                <asp:TableCell>--%>
                     <asp:Label ID="LblPaymentType" runat="server" Text="Type of Payment:"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
+               <%-- </asp:TableCell>
+                <asp:TableCell>--%>
+        <div class="form-group">
                     <asp:DropDownList
                         ID="DDLPaymentType"
                         runat="server"
                         AutoPostBack="true"
                         OnSelectedIndexChanged="DDLPaynentType_SelectedIndexChanged"
+                        class="form-control"
                         OnDataBound="DDLPaynentType_DataBound">
 
                         <asp:ListItem Value="CreditCard"> Credit Card</asp:ListItem>
                         <asp:ListItem Value="Check"> Check </asp:ListItem>
                         <asp:ListItem Value="Cash"> Cash</asp:ListItem>
                     </asp:DropDownList>
-                </asp:TableCell>
+            </div>
+              <%--  </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
-                <asp:TableCell>
+                <asp:TableCell>--%>
                     <asp:Label ID="LblFinalCost" runat="server" Text="Amount: "></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:TextBox ID="TxtFinalCost" runat="server"></asp:TextBox>
-                </asp:TableCell>
+               <%-- </asp:TableCell>
+                <asp:TableCell>--%>
+                <div class="form-group">
+                    <asp:TextBox ID="TxtFinalCost" runat="server" Placeholder="Amount" CssClass="form-control"></asp:TextBox>
+                    </div>
+        <br />
+               <%-- </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
-                <asp:TableCell>
+                <asp:TableCell>--%>
                     <asp:Label ID="LblPayment" runat="server" Text="Payment Recieved:"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
+               <%-- </asp:TableCell>
+                <asp:TableCell>--%>
                     <asp:CheckBox ID="ChkBoxPayment" runat="server" />
-                </asp:TableCell>
+               <%-- </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
-                <asp:TableCell>
+                <asp:TableCell>--%>
+        <br />
+        <br />
                     <asp:Label ID="LblAdditionalExpense" runat="server" Text="Additional Expense:"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:TextBox ID="TxtAdditionalExpense" runat="server" TextMode="MultiLine"></asp:TextBox>
-                </asp:TableCell>
+               <%-- </asp:TableCell>
+                <asp:TableCell>--%>
+                        <div class="form-group">
+                    <asp:TextBox ID="TxtAdditionalExpense" runat="server" Placeholder="Add Additional Expenses" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
+                            </div>
+               <%-- </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
-                <asp:TableCell>
+                <asp:TableCell>--%>
                     <asp:Button ID="btnPayment" runat="server" Text="Add Payment" OnClick="btnPayment_Click" />
-                </asp:TableCell>
+               <%-- </asp:TableCell>
 
             </asp:TableRow>
-        </asp:Table>
+        </asp:Table>--%>
     </div>
     <br />
     <div runat="server" id="divAddress">
@@ -305,66 +314,75 @@
 
             </asp:GridView>
         </fieldset>
-
-        <asp:Table ID="tbladdress" runat="server">
+        
+       <%-- <asp:Table ID="tbladdress" runat="server">
 
             <asp:TableRow>
-                <asp:TableCell>
+                <asp:TableCell>--%>
                 <h1>Add Address:</h1>
-                </asp:TableCell>
+               <%-- </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblDescription" runat="server" Text="Type of Address:"></asp:Label>
                 </asp:TableCell>
-                <asp:TableCell>
-                    <asp:TextBox ID="TxtDescription" runat="server"></asp:TextBox>
-                </asp:TableCell>
+                <asp:TableCell>--%>
+        <div class="form-group">
+            <label>Type of Address</label>
+                    <asp:TextBox ID="TxtDescription" Placeholder="Origin, Destination, Primary, etc." CssClass="form-control" runat="server"></asp:TextBox>
+            </div>
+               <%-- </asp:TableCell>
 
             </asp:TableRow>
             <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="LblStreet" runat="server" Text="Street:"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:TextBox ID="TxtStreet" runat="server"></asp:TextBox>
-                </asp:TableCell>
+                <asp:TableCell>--%>
+<%--                    <asp:Label ID="LblStreet" runat="server" Text="Street:"></asp:Label>--%>
+               <%-- </asp:TableCell>
+                <asp:TableCell>--%>
+        <div class="form-group">
+            <label>Street</label>
+                    <asp:TextBox ID="TxtStreet" Placeholder="Street" CssClass="form-control" runat="server"></asp:TextBox>
+            </div>
+               <%-- </asp:TableCell>
 
             </asp:TableRow>
             <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="LblCity" runat="server" Text="City:"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:TextBox ID="TxtCity" runat="server"></asp:TextBox>
-                </asp:TableCell>
+                <asp:TableCell>--%>
+<%--                    <asp:Label ID="LblCity" runat="server" Text="City:"></asp:Label>--%>
+                <%--</asp:TableCell>
+                <asp:TableCell>--%>
+        <div class="form-group">
+            <label>City</label>
+                    <asp:TextBox ID="TxtCity" Placeholder="City" CssClasss="form-control" runat="server"></asp:TextBox>
+            </div>
+               <%-- </asp:TableCell>
 
             </asp:TableRow>
             <asp:TableRow>
-                <asp:TableCell>
+                <asp:TableCell>--%>
                     <asp:Label ID="LblState" runat="server" Text="State:"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
+               <%-- </asp:TableCell>
+                <asp:TableCell>--%>
                     <asp:TextBox ID="TxtState" runat="server"></asp:TextBox>
-                </asp:TableCell>
+                <%--</asp:TableCell>
 
             </asp:TableRow>
             <asp:TableRow>
-                <asp:TableCell>
+                <asp:TableCell>--%>
                     <asp:Label ID="LblZip" runat="server" Text="Zip: "></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
+               <%-- </asp:TableCell>
+                <asp:TableCell>--%>
                     <asp:TextBox ID="TxtZip" runat="server"></asp:TextBox>
-                </asp:TableCell>
+                <%--</asp:TableCell>
 
             </asp:TableRow>
 
             <asp:TableRow>
-                <asp:TableCell>
+                <asp:TableCell>--%>
                     <asp:Button ID="BtnAddAddress" runat="server" Text="Add Address ->" OnClick="BtnAddAddress_Click" />
-                </asp:TableCell>
+               <%-- </asp:TableCell>
             </asp:TableRow>
-        </asp:Table>
+        </asp:Table>--%>
     </div>
     <br />
 

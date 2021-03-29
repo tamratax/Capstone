@@ -28,7 +28,7 @@ namespace Lab3
 
         protected void SaveBtn_Click(object sender, EventArgs e)
         {
-            String sqlQuery = "insert into MoveAssessment values (@MustBeOut, @Range1, @Range2, @DestAddress, @DestCity, @DestState, @DestZipCode, @MlSListing, @SendPhotos, @Packing,@TrashRemoval, @Donation, @Auction, @CustomerID )";
+            String sqlQuery = "insert into MoveAssessment values (@MustBeOut, @Range1, @Range2, @DestAddress, @DestCity, @DestState, @DestZipCode, @MlSListing, @SendPhotos, @Packing,@TrashRemoval,@TrashRemovalDescription, @Donation, @Auction, @CustomerID )";
             //Define the Connection to the Database
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -50,6 +50,7 @@ namespace Lab3
             sqlCommand.Parameters.Add(new SqlParameter("@SendPhotos", HttpUtility.HtmlEncode(PhotosBtn.SelectedValue)));
             sqlCommand.Parameters.Add(new SqlParameter("@Packing", HttpUtility.HtmlEncode(PackingChk.Checked)));
             sqlCommand.Parameters.Add(new SqlParameter("@TrashRemoval", HttpUtility.HtmlEncode(TrashChk.Checked)));
+            sqlCommand.Parameters.Add(new SqlParameter("@TrashRemovalDescription", HttpUtility.HtmlEncode(TrashChk.Checked)));
             sqlCommand.Parameters.Add(new SqlParameter("@Donation", HttpUtility.HtmlEncode(DonationChk.Checked)));
             sqlCommand.Parameters.Add(new SqlParameter("@Auction", HttpUtility.HtmlEncode(AuctionChk.Checked)));
             sqlCommand.Parameters.Add(new SqlParameter("@CustomerID", Session["SelectedCustomerID"].ToString()));
@@ -62,8 +63,34 @@ namespace Lab3
             // Close all related connections
             sqlConnect.Close();
 
+            string sqlService = "INSERT INTO ServiceTicket (CustomerID, ServiceDate, PotentialDate, ServiceType) VALUES (@CustomerID, @ServiceDate, @PotentialDate, @ServiceType)";
+            //Define the Connection to the Database
+            SqlConnection sqlConnect1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
-            if(AuctionChk.Checked)
+            // Create the SQL Command object which will send the query
+            SqlCommand sqlCommand1 = new SqlCommand();
+            sqlCommand1.Connection = sqlConnect1;
+            sqlCommand1.CommandType = CommandType.Text;
+            sqlCommand1.CommandText = sqlService;
+
+            sqlCommand1.Parameters.Add(new SqlParameter("@CustomerID", Session["SelectedCustomerID"].ToString()));
+            sqlCommand1.Parameters.Add(new SqlParameter("@PotentialDate", HttpUtility.HtmlEncode(DateOutTxt.Text)));
+            sqlCommand1.Parameters.Add(new SqlParameter("@ServiceType", "Move"));
+            sqlCommand1.Parameters.Add(new SqlParameter("@ServiceDate", DateTime.Now.ToString("dd/MM/yyyy")));
+
+            sqlConnect1.Open();
+            SqlDataReader queryResults1 = sqlCommand1.ExecuteReader();
+
+            // Close all related connections
+            sqlConnect1.Close();
+
+
+
+
+
+
+
+            if (AuctionChk.Checked)
             {
                 LblSaveStatus.Text = "Move Assessment Saved Successfully";
                 LblSaveStatus.ForeColor = Color.Green;
