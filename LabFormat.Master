@@ -194,22 +194,8 @@
 
 
                     </ul>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                     <br />
-                    <br />
-                     <br />
-                    <br />
+                  
+                    
                     <ul class="list-unstyled CTAs">
                         <li>
                             <%--<a href="#" class="download" onclick="BtnLogout_Click">Logout -></a>--%>
