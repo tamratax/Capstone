@@ -1,4 +1,5 @@
---drop table Appraisal;
+--drop table MOVESERVICEORDER;
+--drop table movecharges;
 --drop table Boxes;
 --drop Table Room;
 --drop Table MoveAssessment;
@@ -272,6 +273,7 @@ MlSListing varchar(10),
 SendPhotos varchar(25),
 Packing varchar(25),
 TrashRemoval varchar(25),
+TrashRemovalDescription varchar(255),
 Donation varchar(25),
 Auction varchar(25),
 CustomerID int references Customer(CustomerID) );
@@ -317,18 +319,16 @@ CREATE TABLE BOXES (
 
 );
 
-CREATE TABLE APPRAISAL(
-	AppraisalID		int Identity(1,1) Not Null Primary Key,
-	Estate			varchar(10),
-	FamilyDivision	varchar(10),
-	Deadline		varchar(10),
-	DeadlineDate	varchar(10),
-	AppraisalSize	varchar(100),
-	Inventory		varchar(500),
-	MoveAssessment	varchar(10),
-	AuctionAssessment varchar(10),
-	CustomerID		int references Customer(CustomerID)
+CREATE TABLE MOVESERVICEORDER (
+	MoveServiceID	int Identity(1,1) Not Null Primary Key,
+	PotentialDate	varchar(30),
+	PotentialTime	varchar(30),
+	Packing			varchar(10),
+	Dumpster		varchar(10),
+	NumberEmp		varchar(255),
+	Charging		varchar(255)
 );
+
 
 ---------------------------------------------
 --Adding data to database--

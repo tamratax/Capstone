@@ -16,12 +16,13 @@ namespace Lab3
 
         protected void BtnClear_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Auction.aspx");
+            //Response.Redirect("AppraisalServiceOrder.aspx");
         }
 
-        protected void BtnCreateServiceRequest_Click(object sender, EventArgs e)
+        protected void PreMoveAssessmentBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("AddServiceRequest.aspx");
+
         }
     }
 }
