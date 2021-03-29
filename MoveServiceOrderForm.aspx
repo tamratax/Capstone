@@ -183,7 +183,7 @@
         </Columns>
     </asp:GridView>
     <div class="form-group">
-        <label>Is ther Packing?: </label>
+        <label>Is there Packing?: </label>
         <asp:CheckBox
             ID="CheckBoxPacking"
             runat="server" />
