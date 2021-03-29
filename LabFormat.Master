@@ -49,9 +49,9 @@
                         <ul class="collapse list-unstyled" id="pageSubmenu">
                          <%--<ul class="collapse list-unstyled" id="pageSubmenu">--%>
 
-                            <li>
+                            <%--<li>
                                 <a href="AddServiceOrder.aspx">Add Service</a>
-                            </li>
+                            </li>--%>
                             <%--    <li>
                                 <a href="https://outlook.live.com/calendar/0/view/month?login_hint=outlook_B7BAC9A1BE036526%40outlook.com" target="_blank">Scheduling</a>
                             </li>--%>
