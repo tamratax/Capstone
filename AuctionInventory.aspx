@@ -101,7 +101,7 @@
     <asp:SqlDataSource ID="dtasrcServices"
         runat="server"
         ConnectionString="<%$ConnectionStrings:Lab3%>"
-        SelectCommand="Select ServiceTicketID, ServiceType + ' ' + TicketOpenDate 'Service' from ServiceTicket where CustomerID = @CustomerID"
+        SelectCommand="Select ServiceTicketID, ServiceType + ' ' + TicketOpenDate 'Service' from ServiceTicket where CustomerID = @CustomerID AND ServiceType = 'Auction'"
         >
         <SelectParameters>
             <asp:SessionParameter Name="CustomerID" SessionField="SelectedCustomerID" />
