@@ -73,9 +73,9 @@
                             <li>
                                 <a href="WarehouseAssign.aspx">Assign to Warehouse</a>
                             </li>
-                            <li>
+                            <%--<li>
                                 <a href="AddNote.aspx">Notes</a>
-                            </li>
+                            </li>--%>
                             <li>
                                 <a href="CompletionForm.aspx">Completion Form</a>
                             </li>
