@@ -240,7 +240,7 @@ namespace Lab3
             CheckBoxDumpster.Checked = true;
             TxtNumberEmp.Text = "4";
             TxtCharging.Text = "250";
-            txtdesc.Text = "There's a decent amount in and around the outbuilding but that's the only area of concern.";
+          
 
         }
 
