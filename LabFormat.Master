@@ -65,13 +65,13 @@
                                 <a href="PreMoveAssessment.aspx">Pre-Move Assessment</a>
                             </li>
                             <li>
-                                <a href="WarehouseAssign.aspx">Assign to Warehouse</a>
-                            </li>
-                            <li>
                                 <a href="MoveAssessment.aspx">Move Assessment</a>
                             </li>
                             <li>
                                 <a href="MoveServiceOrderForm.aspx">Move Service Order</a>
+                            </li>
+                            <li>
+                                <a href="WarehouseAssign.aspx">Assign to Warehouse</a>
                             </li>
                             <li>
                                 <a href="AddNote.aspx">Notes</a>
