@@ -509,5 +509,35 @@ namespace Lab3
             divsave.Visible = false;
             divcharges.Visible = true;
         }
+
+        protected void PopBtn_Click(object sender, EventArgs e)
+        {
+            DDLTypeofHome.SelectedValue = "House";
+            TxtDistance.Text = "25ft";
+            TxtAccessibility.Text = "Yes";
+            TxtSteps.Text = "5"; 
+            TxtConditions.Text = "Gravel driveway, no concerns.";
+
+            TxtMoveEstimate.Text = "250";
+            TxtFixedRate.Text = "75";
+            TxtPackingFee.Text = "50";
+            TxtStorageFee.Text = "50";
+            TxtTrashRemoval.Text = "30";
+        }
+
+        protected void ClearBtn_Click(object sender, EventArgs e)
+        {
+            DDLTypeofHome.SelectedIndex = -1;
+            TxtDistance.Text = "";
+            TxtAccessibility.Text = "";
+            TxtSteps.Text = "";
+            TxtConditions.Text = "";
+
+            TxtMoveEstimate.Text = "";
+            TxtFixedRate.Text = "";
+            TxtPackingFee.Text = "";
+            TxtStorageFee.Text = "";
+            TxtTrashRemoval.Text = "";
+        }
     }
 }

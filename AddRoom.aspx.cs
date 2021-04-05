@@ -205,6 +205,41 @@ namespace Lab3
 
         }
 
+        protected void BtnPop_Click(object sender, EventArgs e)
+        {
+            DDLCreateRoom.SelectedValue = "Bedroom";
+            TxtRoomIdentify.Text = "#1";
+            DDLFloor.SelectedValue = "Ground Floor";
+            RBBtnBox.SelectedValue = "Yes";
+            divYesBox.Visible = true;
+            DDLType.SelectedValue = "Medium";
+            TxtQty.Text = "2";
+            TxtBlanket.Text = "Yes";
+            TxtAdditional.Text = "1 dresser, mini fridge, bed, full size bed frame, futon.";
+            TxtHighValue.Text = "No";
+            TxtLargeItems.Text = "Futon";
+            TxtCollectibles.Text = "No";
+            TxtAppliances.Text = "Gaming Console";
+
+        }
+
+        protected void BtnClear_Click(object sender, EventArgs e)
+        {
+            DDLCreateRoom.SelectedIndex = -1;
+            TxtRoomIdentify.Text = "";
+            DDLFloor.SelectedIndex = -1;
+            RBBtnBox.SelectedIndex = -1;
+            divYesBox.Visible = false; 
+            DDLType.SelectedIndex = -1;
+            TxtQty.Text = "";
+            TxtBlanket.Text = "";
+            TxtAdditional.Text = "";
+            TxtHighValue.Text = "";
+            TxtLargeItems.Text = "";
+            TxtCollectibles.Text = "";
+            TxtAppliances.Text = "";
+        }
+
         //protected void ChkBoxServer_CheckedChanged(object sender, EventArgs e)
         //{
         //    if (ChkBoxServer.Checked)

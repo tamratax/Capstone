@@ -158,9 +158,30 @@ namespace Lab3
                 LblSaveStatus.Text = "Error Saving Appraisal Service Order";
                 LblSaveStatus.ForeColor = Color.Red;
             }
-            
+
         }
 
-       
+        protected void BtnPopulate_Click(object sender, EventArgs e)
+        {
+            ChkBoxEstate.Checked = true;
+            ChkBoxDeadline.Checked = true;
+            DeadlineHidden.Visible = true;
+            TxtDeadline.Visible = true;
+            TxtDeadline.Text = "2021-03-04";
+            TxtAppraisalSize.Text = "We have a room of old war collectibles! 200 plus items";
+            TxtInventory.Text = "10 guns, 3 helmets, 50 pins, lots of smaller things";
+            ChkBoxMove.Checked = true;
+        }
+
+        protected void BtnClear_Click(object sender, EventArgs e)
+        {
+            ChkBoxEstate.Checked = false;
+            ChkBoxDeadline.Checked = false;
+            DeadlineHidden.Visible = false;
+            TxtDeadline.Text = "";
+            TxtAppraisalSize.Text = "";
+            TxtInventory.Text = "";
+            ChkBoxMove.Checked = false;
+        }
     }
 }

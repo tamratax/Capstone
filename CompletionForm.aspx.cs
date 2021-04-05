@@ -405,7 +405,7 @@ namespace Lab3
                 com.ExecuteNonQuery();
                 sqlConnect.Close();
 
-                LblStatus.Text = "Tracel Log sucessfully updated!";
+                LblStatus.Text = "Travel Log sucessfully updated!";
                 GridTravel.DataBind();
 
             }
@@ -525,7 +525,7 @@ namespace Lab3
             com.ExecuteNonQuery();
             sqlConnect.Close();
 
-            LblSaveStatus.Text = "Service Request Added Successfully";
+            LblSaveStatus.Text = "Completed Successfully";
             LblSaveStatus.ForeColor = Color.Green;
         }
 
@@ -588,6 +588,16 @@ namespace Lab3
             divPayment.Visible = false;
             divAddress.Visible = false;
             divVehicle.Visible = false;
+        }
+
+        protected void BtnPop_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void BtnClear_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -224,5 +224,42 @@ namespace Lab3
             lblSaveStatus.Text = "Move Service Order Saved Successfully!";
             lblSaveStatus.ForeColor = Color.Green;
         }
+
+        protected void PopBtn_Click(object sender, EventArgs e)
+        {
+            TxtPotentialDate.Text = "2021-04-15";
+            TxtPotentialTime.Text = "11:30";
+            TxtStreet.Text = "456 S High St";
+            TxtCity.Text = "Harrisonburg";
+            TxtState.Text = "Virginia";
+            TxtZip.Text = "22801";
+            TxtDescription.Text = "No areas of concern";
+            DdlInitiatingEmp.SelectedIndex = 1;
+            CheckBoxTrash.Checked = true;
+            hiddentext1.Visible = true;
+            CheckBoxDumpster.Checked = true;
+            TxtNumberEmp.Text = "4";
+            TxtCharging.Text = "250";
+          
+
+        }
+
+        protected void ClearBtn_Click(object sender, EventArgs e)
+        {
+            TxtPotentialDate.Text = "";
+            TxtPotentialTime.Text = "";
+            TxtStreet.Text = "";
+            TxtCity.Text = "";
+            TxtState.Text = "";
+            TxtZip.Text = "";
+            TxtDescription.Text = "";
+            DdlInitiatingEmp.SelectedIndex = -1;
+            CheckBoxTrash.Checked = false;
+            hiddentext1.Visible = false;
+            CheckBoxDumpster.Checked = false;
+            TxtNumberEmp.Text = "";
+            TxtCharging.Text = "";
+            txtdesc.Text = "";
+        }
     }
 }

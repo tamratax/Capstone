@@ -70,7 +70,14 @@ namespace Lab3
             DDLType.SelectedIndex = 0;
         }
 
+        protected void BtnPopulate_Click(object sender, EventArgs e)
+        {
+            TxtNotes.Text = "Aaron has a lot of valuble guns and old war relics we can sell! We may have to donate or trash his hat collection!";
+        }
 
-
+        protected void BtnClear_Click(object sender, EventArgs e)
+        {
+            TxtNotes.Text = "";
+        }
     }
 }

@@ -176,6 +176,12 @@
                                     OnClick="BtnAddNote_Click"
                                     ValidationGroup="SaveGroup" />
                             </asp:TableCell>
+                             <asp:TableCell>
+                                 <asp:Button ID="BtnPopulate" 
+                                     runat="server" 
+                                     Text="Populate" 
+                                     OnClick="BtnPopulate_Click" />
+                             </asp:TableCell>
                             <asp:TableCell>
                                 <asp:Button
                                     ID="BtnClear"

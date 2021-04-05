@@ -49,12 +49,21 @@
     <br />
     <br />
     <div class="form-group float-right">
+        <asp:Button ID="BtnPopulate" 
+            runat="server" 
+            Text="Populate" 
+            OnClick="BtnPopulate_Click" />
+        <asp:Button ID="BtnClear" 
+            runat="server" 
+            Text="Clear" 
+            onclick="BtnClear_Click"/>
            <asp:Button
                     ID="BtnSave"
                     runat="server"
                     Text="Save"
                     OnClick="BtnSave_Click"
                     ValidationGroup="SaveGroup" />
+        
         </div>
     <%--<asp:TableRow>
         <asp:TableCell>--%>
@@ -92,7 +101,7 @@
     <asp:SqlDataSource ID="dtasrcServices"
         runat="server"
         ConnectionString="<%$ConnectionStrings:Lab3%>"
-        SelectCommand="Select ServiceTicketID, ServiceType + ' ' + TicketOpenDate 'Service' from ServiceTicket where CustomerID = @CustomerID"
+        SelectCommand="Select ServiceTicketID, ServiceType + ' ' + TicketOpenDate 'Service' from ServiceTicket where CustomerID = @CustomerID AND ServiceType = 'Auction'"
         >
         <SelectParameters>
             <asp:SessionParameter Name="CustomerID" SessionField="SelectedCustomerID" />

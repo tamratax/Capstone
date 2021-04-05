@@ -402,6 +402,8 @@
         <asp:Label ID="LblAddRoomStatus" runat="server" Text=""></asp:Label>
         <asp:Button ID="BtnAddRoom" runat="server" Text="Add Room" AutoPostBack="true" OnClick="BtnAddRoom_Click" />
         <asp:Button ID="BtnReturn" runat="server" Text="Return to Move Assessment" AutoPostBack="true" OnClick="BtnReturn_Click" />
+        <asp:Button ID="BtnPop" runat="server" Text="Populate" OnClick="BtnPop_Click" />
+        <asp:Button ID="BtnClear" runat="server" Text="Clear" OnClick="BtnClear_Click" />
     </div>
     <asp:SqlDataSource ID="grdsrcBox"
         runat="server"

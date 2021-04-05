@@ -115,6 +115,8 @@
     <br />
     <div class="form-group float-right">
     <asp:Button ID="SaveBtn" runat="server" Text="Save" OnClick="SaveBtn_Click" />
+        <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click" />
+        <asp:Button ID="ClearBtn" runat="server" Text="Clear" OnClick="ClearBtn_Click" />
         </div>
     <br />
     <asp:Label ID="LblSaveStatus" runat="server" Text=""></asp:Label>

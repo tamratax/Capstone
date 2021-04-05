@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CustomerFacingMaster.Master" AutoEventWireup="true" CodeBehind="CustomerServiceChoice.aspx.cs" Inherits="Lab3.WebForm3" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-        <link href="Content/CustLandingPage.css" rel="stylesheet" />
+    <link href="Content/CustLandingPage.css" rel="stylesheet" />
     <!DOCTYPE html>
     <html lang="en">
 
@@ -25,42 +26,44 @@
         <!-- Custom styles for this template-->
         <link href="css/sb-admin-2.min.css" rel="stylesheet">
     </head>
-        <div class="NiceBackground">
-    <body class="bg-gradient-primary">
-        <div class="container">
+    <div class="NiceBackground">
+        <body class="bg-gradient-primary">
+            <div class="container">
 
-            <!-- Outer Row -->
-            <div class="row justify-content-center">
-                        <h2 class="display-4">Welcome to Green Valley Auctions</h2>
-                <div class="col-xl-10 col-lg-12 col-md-9">
+                <!-- Outer Row -->
+                <div class="row justify-content-center">
+                    <h2 class="display-4" style="color: #FFFFFF">Welcome to Green Valley Auctions</h2>
+                    <div class="col-xl-10 col-lg-12 col-md-9">
 
-                    <div class="card o-hidden border-0 shadow-lg my-5">
-
+                        <div class="card o-hidden border-0 shadow-lg my-5">
+                            <h4 class="row justify-content-center">Place a Service Request to get Started!</h4>
                             <asp:Button
-                                ID="BtnClear"
+                                ID="BtnRequestAppraisal"
                                 runat="server"
-                                Text="Create Auction Appraisal Request" 
-                                onclick="BtnClear_Click"/>
-                        <br />
-
-                        <asp:Button ID="PreMoveAssessmentBtn" 
-                            runat="server" 
-                            Text="Request a Move" 
-                            OnClick="PreMoveAssessmentBtn_Click" />
+                                Text="Request Appraisal"
+                                OnClick="BtnRequestAppraisal_Click" />
+                            <asp:Button ID="BtnRequestMove"
+                                runat="server"
+                                Text="Request Move"
+                                OnClick="BtnRequestMove_Click" />
+                            <asp:Button ID="BtnRequestAuction" 
+                                runat="server" 
+                                Text="Request Auction" 
+                                OnClick="BtnRequestAuction_Click" />
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-                        <!-- Bootstrap core JavaScript-->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Core plugin JavaScript-->
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-        <!-- Custom scripts for all pages-->
-        <script src="js/sb-admin-2.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
     </body>
     </html>
 </asp:Content>

@@ -84,7 +84,8 @@ namespace Lab3
             // Close all related connections
             sqlConnect1.Close();
 
-
+            LblSaveStatus.Text = "Move Assessment Saved Successfully";
+            LblSaveStatus.ForeColor = Color.Green;
 
 
 
@@ -110,6 +111,38 @@ namespace Lab3
                 TrashDescriptionTxt.Visible = true;
             }
 
+        }
+
+        protected void PopBtn_Click(object sender, EventArgs e)
+        {
+            DateOutTxt.Text = "2021-04-07";
+            TxtRange1.Text = "2021-04-03";
+            TxtRange2.Text = "2021-04-05";
+            DestAddressTxt.Text = "123 S Main St";
+            DestCityTxt.Text = "Harrisonburg";
+            DestStateTxt.Text = "Virginia";
+            DestZipTxt.Text = "22801";
+            MLSBTN.SelectedValue = "Yes";
+            PhotosBtn.SelectedValue = "No";
+            PackingChk.Checked = true;
+
+            
+
+
+        }
+
+        protected void ClearBtn_Click(object sender, EventArgs e)
+        {
+            DateOutTxt.Text = "";
+            TxtRange1.Text = "";
+            TxtRange2.Text = "";
+            DestAddressTxt.Text = "";
+            DestCityTxt.Text = "";
+            DestStateTxt.Text = "";
+            DestZipTxt.Text = "";
+            MLSBTN.SelectedIndex = -1;
+            PhotosBtn.SelectedIndex = -1;
+            PackingChk.Checked = false;
         }
     }
 }
