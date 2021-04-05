@@ -82,6 +82,7 @@
     <Content Include="Content\style4.css" />
     <Content Include="Content\UserLogin.css" />
     <Content Include="EditEquipment.aspx" />
+    <Content Include="FileIOTest.aspx" />
     <Content Include="images\background.jpg" />
     <Content Include="images\background2.jfif" />
     <Content Include="images\background3.jpg" />
@@ -224,6 +225,8 @@
     <Content Include="src\js\scripts.js" />
     <Content Include="TestSchedule.aspx" />
     <Content Include="UnauthorizedAccess.aspx" />
+    <Content Include="uploads\dac.png" />
+    <Content Include="uploads\LookAtWalkthrough2021-03-15.mp4" />
     <Content Include="UserLogin.aspx" />
     <Content Include="ViewAuctions.aspx" />
     <Content Include="ViewCustomer.aspx" />
@@ -263,6 +266,13 @@
     </Compile>
     <Compile Include="EditEquipment.aspx.designer.cs">
       <DependentUpon>EditEquipment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FileIOTest.aspx.cs">
+      <DependentUpon>FileIOTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FileIOTest.aspx.designer.cs">
+      <DependentUpon>FileIOTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="InitialConversation.aspx.cs">
       <DependentUpon>InitialConversation.aspx</DependentUpon>
@@ -546,6 +556,7 @@
     <Content Include="src\scss\variables\_spacing.scss" />
     <Content Include="src\scss\_global.scss" />
     <Content Include="src\scss\_variables.scss" />
+    <Content Include="uploads\BillOfLaden.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -559,9 +570,7 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="uploads\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
