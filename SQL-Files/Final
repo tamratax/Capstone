@@ -315,7 +315,7 @@ create table SERVICETICKET (
 ---------------------------------------------
 --Adding data to database--
 ---------------------------------------------
-insert into PreMoveAssessment values ('2021-05-30', '2021-04-30', '2021-05-15', 'True', 'True', 'True', 'True', 'Large Items', 'True', 'False');
+
 
 insert into MOVESERVICEORDER values ('2021-07-17', '12:30', 'True', 'True', '3', '$265');
 
@@ -375,3 +375,18 @@ insert into AUCTIONINVENTORY values ('Looks to need about 15 boxes, 5 large item
 
 insert into SCHEDULING values (1, 'To Schedule Auction', 'Looking to sell 45 things', '2021-04-01', '12:30', 'In-Person');
 insert into SCHEDULING values (2, 'To Schedule Move', 'Looking to move to Harrisonburg', '2021-04-15', '1:30', 'Staunton');
+
+insert into MoveAssessment values ('', '120 feet', 'House', '', 'Good Accessibility', 'Gravel Driveway', '8 steps');
+
+insert into ServiceTicketEquipment values (1, 1);
+insert into ServiceTicketEquipment values (2, 1);
+insert into ServiceTicketEquipment values (3, 1);
+
+insert into SPECIALEQUIPMENT values ('Extra Blankets', 3, 1);
+insert into SPECIALEQUIPMENT values ('Piano Dolly', 1, 1);
+
+insert into MOVECHARGES values (250, 75, 50, 50, 30, 455, 1);
+
+insert into ROOM values ('Bedroom', 'Master', '2nd Floor', 'Need 4 blankets', 'Master is the green room, has a big armoire.', 'Jewelery box with about $500 worth of jewels', 'Bedframe is 8footx10ft', 'GI Joes', 'Big TV above wall', 1);
+insert into BOXES values(1, 'Large', 10);
+insert into BOXES values(1, 'Medium', 6);
