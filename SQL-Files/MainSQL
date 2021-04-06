@@ -401,3 +401,5 @@ insert into AUCTIONINVENTORY values ('Looks to need about 15 boxes, 5 large item
 
 insert into SCHEDULING values (1, 'To Schedule Auction', 'Looking to sell 45 things', '2021-04-01', '12:30', 'In-Person');
 insert into SCHEDULING values (2, 'To Schedule Move', 'Looking to move to Harrisonburg', '2021-04-15', '1:30', 'Staunton');
+
+insert into MoveAssessment values ('', '120 feet', 'House', '', 'Good Accessibility', 'Gravel Driveway', '8 steps');
