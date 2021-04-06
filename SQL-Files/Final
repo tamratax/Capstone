@@ -182,9 +182,7 @@ CREATE TABLE ServiceTicketEquipment(
 	EquipmentID		int references Equipment(EquipmentID),
 	ServiceTicketID	int references SERVICETICKET(ServiceTicketID),
 	primary key (ServiceTicketID, EquipmentID),
-	[EquipmentType] [nvarchar](50) NULL,
 	[Mileage] [nvarchar](50) NULL,
-	[MoveAssessmentID] [int] references MoveAssessment(MoveAssessmentID)
 	);
 	
 	
@@ -339,7 +337,7 @@ insert into Auction values ('Unassigned');
 insert into Auction values ('2021-02-26');
 insert into Auction values ('2021-03-05');
 
-insert into SERVICETICKET values (1, '2021-01-01', 'Move', 1, 25, '2021-02-25', 1, 1, 1, null, null, null, null);
+insert into SERVICETICKET values (1, '2021-01-01','2021-02-25','08:00','2021-02-01', '2021-02-07', 'Move', '13:30', 'True', '2021-06-30', '1:30', 1, 1, 25,'True','True','True', 'False');
 insert into SERVICETICKET values (2, '2021-01-01','2021-02-25','12:00','2021-02-01', '2021-02-07', 'Auction', '13:30', 'True', '2021-06-30', '2:30', 2, 1, 50,'True','False','True', 'False');
 insert into SERVICETICKET values (3, '2021-01-01','2021-02-25','16:00','2021-02-01', '2021-02-07', 'Move', '13:30', 'True', '2021-06-30', '12:30', 3, 1, 75,'True','False','False', 'False');
 
@@ -348,9 +346,10 @@ insert into SERVICEREQUEST values ('Move', '2021-06-15', 'We have a lot of thing
 insert into SERVICEREQUEST values ('Auction', '2021-06-30', 'We want to sell all of our bowls!', 'Active', 1);
 insert into SERVICEREQUEST values ('Move', '2021-01-31', 'Help us!', 'Active', 1);
 
-insert into Address values (1, '1502 South High Street', 'Harrisonburg','Virginia', '22801', 'Primary Contact Address');
-insert into Address values (2, '1355 Devon Lane', 'Harrisonburg','Virginia', '22801', 'Primary Contact Address');
-insert into Address values (3, '891 Port Republic Road', 'Harrisonburg','Virginia', '22801', 'Primary Contact Address');
+
+insert into Address values (null, 1, 'street', 'city','state ', '123', 'Primary Contact Address');
+insert into Address values (null, 2, 'street', 'city','state ', '123', 'Primary Contact Address');
+insert into Address values (3, 3, 'street', 'city','state ', '123', 'Primary Contact Address');
 
 
 insert into INVENTORY values (1,'Bowl','Blue bowl', 500.23,  2, '2021-05-04');
@@ -374,9 +373,3 @@ insert into AUCTIONINVENTORY values ('Looks to need about 15 boxes, 5 large item
 
 insert into SCHEDULING values (1, 'To Schedule Auction', 'Looking to sell 45 things', '2021-04-01', '12:30', 'In-Person');
 insert into SCHEDULING values (2, 'To Schedule Move', 'Looking to move to Harrisonburg', '2021-04-15', '1:30', 'Staunton');
-
-insert into MoveAssessment values ('', '120 feet', 'House', '', 'Good Accessibility', 'Gravel Driveway', '8 steps');
-
-insert into ServiceTicketEquipment values (1, 1);
-insert into ServiceTicketEquipment values (2, 1);
-insert into ServiceTicketEquipment values (3, 1);
