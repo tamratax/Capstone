@@ -317,6 +317,7 @@ create table SERVICETICKET (
 ---------------------------------------------
 --Adding data to database--
 ---------------------------------------------
+insert into PreMoveAssessment values ('2021-05-30', '2021-04-30', '2021-05-15', 'True', 'True', 'True', 'True', 'Large Items', 'True', 'False');
 
 insert into EMPLOYEE values ('Jack', 'Frost');
 insert into EMPLOYEE values ('Professor', 'Ezell');
