@@ -319,6 +319,8 @@ insert into PreMoveAssessment values ('2021-05-30', '2021-04-30', '2021-05-15', 
 
 insert into MOVESERVICEORDER values ('2021-07-17', '12:30', 'True', 'True', '3', '$265');
 
+insert into ServiceTicketEmployee values (1, 1, 3.5, 12.50, 43.75);
+
 insert into EMPLOYEE values ('Jack', 'Frost');
 insert into EMPLOYEE values ('Professor', 'Ezell');
 insert into EMPLOYEE values ('Camille', 'Wood');
