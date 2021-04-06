@@ -322,7 +322,7 @@ Create Table AUCTIONINVENTORY(
 ---------------------------------------------
 --Adding data to database--
 ---------------------------------------------
-
+insert into PreMoveAssessment values ('2021-05-30', '2021-04-30', '2021-05-15', 'True', 'True', 'True', 'True', 'Large Items', 'True', 'False');
 
 insert into MOVESERVICEORDER values ('2021-07-17', '12:30', 'True', 'True', '3', '$265');
 
@@ -354,9 +354,9 @@ insert into SERVICEREQUEST values ('Auction', '2021-06-30', 'We want to sell all
 insert into SERVICEREQUEST values ('Move', '2021-01-31', 'Help us!', 'Active', 1);
 
 
-insert into Address values (null, 1, 'street', 'city','state ', '123', 'Primary Contact Address');
-insert into Address values (null, 2, 'street', 'city','state ', '123', 'Primary Contact Address');
-insert into Address values (3, 3, 'street', 'city','state ', '123', 'Primary Contact Address');
+insert into Address values (1, '1502 South High Street', 'Harrisonburg','Virginia', '22801', 'Primary Contact Address');
+insert into Address values (2, '1355 Devon Lane', 'Harrisonburg','Virginia', '22801', 'Primary Contact Address');
+insert into Address values (3, '891 Port Republic Road', 'Harrisonburg','Virginia', '22801', 'Primary Contact Address');
 
 
 insert into INVENTORY values (1,'Bowl','Blue bowl', 500.23,  2, '2021-05-04');
