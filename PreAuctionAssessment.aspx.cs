@@ -60,6 +60,7 @@ namespace Lab3
             else
             {
                 rblLookat.Visible = false;
+                rblLookat.ClearSelection();
             }
         }
 
@@ -74,17 +75,32 @@ namespace Lab3
             {
                 lblTrashDescription.Visible = false;
                 txtTrashDescription.Visible = false;
+                txtTrashDescription.Text = "";
             }
         }
 
         protected void btnPopulate_Click(object sender, EventArgs e)
         {
+            txtWhatToSell.Text = "I have some collectibles and big drawers and bowls";
+            ddlWhy.SelectedIndex = 1;
+            txtDeadline.Text = "2021-04-07";
+            ChkbxBringin.Checked = true;
+            ChkbxAuctionWalkthrough.Checked = true;
+            ChkbxAuctionWalkthrough_CheckedChanged(sender, e);
+            rblLookat.SelectedIndex = 0;
+            ChkbxPickup.Checked = true;
+            ChkbxTrash.Checked = true;
+            ChkbxTrash_CheckedChanged(sender, e);
+            txtTrashDescription.Text = "There's a ton of broken plywood by our dumpster";
+            ChkbxPhotos.Checked = true;
+            ChkbxItems.Checked = true;
 
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            String sqlQuery = "insert into PreAuctionAssessment values ()";
+            String sqlQuery = "insert into PreAuctionAssessment values " +
+                "(@HaveToSell, @Reason, @Deadline, @BringInCB, @AuctionWalkCB, @RequestLookat, @PickupCB, @TrashCB, @TrashDesc, @PhotosCB, @ItemCB)";
             //Define the Connection to the Database
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -93,17 +109,25 @@ namespace Lab3
             sqlCommand.Connection = sqlConnect;
             sqlCommand.CommandType = CommandType.Text;
             sqlCommand.CommandText = sqlQuery;
-            //sqlCommand.Parameters.Add(new SqlParameter("@PotentialDate", HttpUtility.HtmlEncode(DateOutTxt.Text)));
-            //sqlCommand.Parameters.Add(new SqlParameter("@MustBeOut", HttpUtility.HtmlEncode(DateOutTxt.Text)));
-            //sqlCommand.Parameters.Add(new SqlParameter("@Range1", HttpUtility.HtmlEncode(TxtRange1.Text)));
-            //sqlCommand.Parameters.Add(new SqlParameter("@Range2", HttpUtility.HtmlEncode(TxtRange2.Text)));
-            //sqlCommand.Parameters.Add(new SqlParameter("@MlSListing", HttpUtility.HtmlEncode(MLSBTN.SelectedValue)));
-            //sqlCommand.Parameters.Add(new SqlParameter("@SendPhotos", HttpUtility.HtmlEncode(PhotosBtn.SelectedValue)));
-            //sqlCommand.Parameters.Add(new SqlParameter("@Packing", HttpUtility.HtmlEncode(PackingChk.Checked)));
-            //sqlCommand.Parameters.Add(new SqlParameter("@TrashRemoval", HttpUtility.HtmlEncode(TrashChk.Checked)));
-            //sqlCommand.Parameters.Add(new SqlParameter("@TrashRemovalDescription", HttpUtility.HtmlEncode(TrashDescriptionTxt.Text)));
-            //sqlCommand.Parameters.Add(new SqlParameter("@Donation", HttpUtility.HtmlEncode(DonationChk.Checked)));
-            //sqlCommand.Parameters.Add(new SqlParameter("@Auction", HttpUtility.HtmlEncode(AuctionChk.Checked)));
+            sqlCommand.Parameters.Add(new SqlParameter("@HaveToSell", HttpUtility.HtmlEncode(txtWhatToSell.Text)));
+            sqlCommand.Parameters.Add(new SqlParameter("@Reason", HttpUtility.HtmlEncode(ddlWhy.SelectedItem.Text.ToString())));
+            sqlCommand.Parameters.Add(new SqlParameter("@Deadline", HttpUtility.HtmlEncode(txtDeadline.Text)));
+            sqlCommand.Parameters.Add(new SqlParameter("@BringInCB", HttpUtility.HtmlEncode(ChkbxBringin.Checked)));
+            sqlCommand.Parameters.Add(new SqlParameter("@AuctionWalkCB", HttpUtility.HtmlEncode(ChkbxAuctionWalkthrough.Checked)));
+            if (rblLookat.SelectedIndex == 0 || rblLookat.SelectedIndex == 1)
+            {
+                sqlCommand.Parameters.Add(new SqlParameter("@RequestLookat", HttpUtility.HtmlEncode(rblLookat.SelectedItem.Text.ToString())));
+            }
+            else
+            {
+                sqlCommand.Parameters.Add(new SqlParameter("@RequestLookat", ""));
+            }
+            
+            sqlCommand.Parameters.Add(new SqlParameter("@PickupCB", HttpUtility.HtmlEncode(ChkbxPickup.Checked)));
+            sqlCommand.Parameters.Add(new SqlParameter("@TrashCB", HttpUtility.HtmlEncode(ChkbxTrash.Checked)));
+            sqlCommand.Parameters.Add(new SqlParameter("@TrashDesc", HttpUtility.HtmlEncode(txtTrashDescription.Text)));
+            sqlCommand.Parameters.Add(new SqlParameter("@PhotosCB", HttpUtility.HtmlEncode(ChkbxPhotos.Checked)));
+            sqlCommand.Parameters.Add(new SqlParameter("@ItemCB", HttpUtility.HtmlEncode(ChkbxItems.Checked)));
 
 
             // Open your connection, send the query 
@@ -113,7 +137,7 @@ namespace Lab3
             // Close all related connections
             sqlConnect.Close();
 
-            string sqlService = "INSERT INTO ServiceTicket (CustomerID, TicketOpenDate, ServiceType, PreMoveAssessmentID) VALUES (@CustomerID, @TicketOpenDate, @ServiceType, (Select TOP 1 PreMoveAssessmentID from PreMoveAssessment order by PreMoveAssessmentID desc))";
+            string sqlService = "INSERT INTO ServiceTicket (CustomerID, TicketOpenDate, ServiceType, PreAuctionAssessmentID) VALUES (@CustomerID, @TicketOpenDate, @ServiceType, (Select TOP 1 PreAuctionAssessmentID from PreAuctionAssessment order by PreAuctionAssessmentID desc))";
             //Define the Connection to the Database
             SqlConnection sqlConnect1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -124,7 +148,7 @@ namespace Lab3
             sqlCommand1.CommandText = sqlService;
 
             sqlCommand1.Parameters.Add(new SqlParameter("@CustomerID", Session["SelectedCustomerID"].ToString()));
-            sqlCommand1.Parameters.Add(new SqlParameter("@ServiceType", "Move"));
+            sqlCommand1.Parameters.Add(new SqlParameter("@ServiceType", "Auction"));
             sqlCommand1.Parameters.Add(new SqlParameter("@TicketOpenDate", DateTime.Now.ToString("yyyy-MM-dd")));
 
             sqlConnect1.Open();
@@ -135,6 +159,23 @@ namespace Lab3
 
             lblSaveStatus.Text = "Pre-Auction Assessment Saved Successfully";
             lblSaveStatus.ForeColor = Color.Green;
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            txtWhatToSell.Text = "";
+            ddlWhy.SelectedIndex = 0;
+            txtDeadline.Text = "";
+            ChkbxBringin.Checked = false;
+            ChkbxAuctionWalkthrough.Checked = false;
+            ChkbxAuctionWalkthrough_CheckedChanged(sender, e);
+            rblLookat.ClearSelection();
+            ChkbxPickup.Checked = false;
+            ChkbxTrash.Checked = false;
+            ChkbxTrash_CheckedChanged(sender, e);
+            txtTrashDescription.Text = "";
+            ChkbxPhotos.Checked = false;
+            ChkbxItems.Checked = false;
         }
     }
 }

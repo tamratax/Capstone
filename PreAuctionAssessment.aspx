@@ -162,9 +162,11 @@
     <asp:CheckBox ID="ChkbxItems" runat="server" />
 
     <br />
-
+    <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn-danger" OnClick="btnClear_Click" />
     <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
     <asp:Label ID="lblSaveStatus" runat="server" Text=""></asp:Label>
+
+    
 
         <asp:SqlDataSource ID="dtasrcAddress"
             runat="server"
