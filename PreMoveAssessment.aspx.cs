@@ -77,7 +77,7 @@ namespace Lab3
             // Close all related connections
             sqlConnect1.Close();
 
-            LblSaveStatus.Text = "Move Assessment Saved Successfully";
+            LblSaveStatus.Text = "Pre-Move Assessment Saved Successfully";
             LblSaveStatus.ForeColor = Color.Green;
 
 

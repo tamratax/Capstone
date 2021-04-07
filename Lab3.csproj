@@ -112,6 +112,7 @@
     <Content Include="AuctionInventory.aspx" />
     <Content Include="LabFormat.Master" />
     <Content Include="CustomerFacingMaster.Master" />
+    <Content Include="PreAuctionAssessment.aspx" />
     <Content Include="PreMoveAssessment.aspx" />
     <Content Include="Scheduling.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -393,6 +394,13 @@
       <DependentUpon>NewCustomer.aspx</DependentUpon>
     </Compile>
     <Compile Include="PasswordHash.cs" />
+    <Compile Include="PreAuctionAssessment.aspx.cs">
+      <DependentUpon>PreAuctionAssessment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PreAuctionAssessment.aspx.designer.cs">
+      <DependentUpon>PreAuctionAssessment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PreMoveAssessment.aspx.cs">
       <DependentUpon>PreMoveAssessment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
