@@ -28,7 +28,7 @@ namespace Lab3
 
         protected void SaveBtn_Click(object sender, EventArgs e)
         {
-            String sqlQuery = "insert into MoveAssessment values (@MustBeOut, @Range1, @Range2, @DestAddress, @DestCity, @DestState, @DestZipCode, @MlSListing, @SendPhotos, @Packing,@TrashRemoval,@TrashRemovalDescription, @Donation, @Auction, @CustomerID )";
+            String sqlQuery = "insert into PreMoveAssessment values (@PotentialDate, @MustBeOut, @Range1, @Range2, @MlSListing, @SendPhotos, @Packing, @TrashRemoval, @TrashRemovalDescription, @Donation, @Auction)";
             //Define the Connection to the Database
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -37,15 +37,10 @@ namespace Lab3
             sqlCommand.Connection = sqlConnect;
             sqlCommand.CommandType = CommandType.Text;
             sqlCommand.CommandText = sqlQuery;
+            sqlCommand.Parameters.Add(new SqlParameter("@PotentialDate", HttpUtility.HtmlEncode(DateOutTxt.Text)));
             sqlCommand.Parameters.Add(new SqlParameter("@MustBeOut", HttpUtility.HtmlEncode(DateOutTxt.Text)));
-          
-
             sqlCommand.Parameters.Add(new SqlParameter("@Range1", HttpUtility.HtmlEncode(TxtRange1.Text)));
             sqlCommand.Parameters.Add(new SqlParameter("@Range2", HttpUtility.HtmlEncode(TxtRange2.Text)));
-            sqlCommand.Parameters.Add(new SqlParameter("@DestAddress", HttpUtility.HtmlEncode(DestAddressTxt.Text)));
-            sqlCommand.Parameters.Add(new SqlParameter("@DestCity", HttpUtility.HtmlEncode(DestCityTxt.Text)));
-            sqlCommand.Parameters.Add(new SqlParameter("@DestState", HttpUtility.HtmlEncode(DestStateTxt.Text)));
-            sqlCommand.Parameters.Add(new SqlParameter("@DestZipCode", HttpUtility.HtmlEncode(DestZipTxt.Text)));
             sqlCommand.Parameters.Add(new SqlParameter("@MlSListing", HttpUtility.HtmlEncode(MLSBTN.SelectedValue)));
             sqlCommand.Parameters.Add(new SqlParameter("@SendPhotos", HttpUtility.HtmlEncode(PhotosBtn.SelectedValue)));
             sqlCommand.Parameters.Add(new SqlParameter("@Packing", HttpUtility.HtmlEncode(PackingChk.Checked)));
@@ -53,7 +48,6 @@ namespace Lab3
             sqlCommand.Parameters.Add(new SqlParameter("@TrashRemovalDescription", HttpUtility.HtmlEncode(TrashDescriptionTxt.Text)));
             sqlCommand.Parameters.Add(new SqlParameter("@Donation", HttpUtility.HtmlEncode(DonationChk.Checked)));
             sqlCommand.Parameters.Add(new SqlParameter("@Auction", HttpUtility.HtmlEncode(AuctionChk.Checked)));
-            sqlCommand.Parameters.Add(new SqlParameter("@CustomerID", Session["SelectedCustomerID"].ToString()));
 
 
             // Open your connection, send the query 
@@ -63,7 +57,7 @@ namespace Lab3
             // Close all related connections
             sqlConnect.Close();
 
-            string sqlService = "INSERT INTO ServiceTicket (CustomerID, ServiceDate, PotentialDate, ServiceType) VALUES (@CustomerID, @ServiceDate, @PotentialDate, @ServiceType)";
+            string sqlService = "INSERT INTO ServiceTicket (CustomerID, TicketOpenDate, ServiceType, PreMoveAssessmentID) VALUES (@CustomerID, @TicketOpenDate, @ServiceType, (Select TOP 1 PreMoveAssessmentID from PreMoveAssessment order by PreMoveAssessmentID desc))";
             //Define the Connection to the Database
             SqlConnection sqlConnect1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -73,10 +67,9 @@ namespace Lab3
             sqlCommand1.CommandType = CommandType.Text;
             sqlCommand1.CommandText = sqlService;
 
-            sqlCommand1.Parameters.Add(new SqlParameter("@CustomerID", Session["SelectedCustomerID"].ToString()));
-            sqlCommand1.Parameters.Add(new SqlParameter("@PotentialDate", HttpUtility.HtmlEncode(DateOutTxt.Text)));
+            sqlCommand1.Parameters.Add(new SqlParameter("@CustomerID", Session["SelectedCustomerID"].ToString()));   
             sqlCommand1.Parameters.Add(new SqlParameter("@ServiceType", "Move"));
-            sqlCommand1.Parameters.Add(new SqlParameter("@ServiceDate", DateTime.Now.ToString("yyyy-MM-dd")));
+            sqlCommand1.Parameters.Add(new SqlParameter("@TicketOpenDate", DateTime.Now.ToString("yyyy-MM-dd")));
 
             sqlConnect1.Open();
             SqlDataReader queryResults1 = sqlCommand1.ExecuteReader();

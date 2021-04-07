@@ -4,19 +4,19 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <h1>Moving Completion Form:</h1>
-   <%-- <asp:Table ID="TblSelection" runat="server">--%>
-       <%-- <asp:TableRow>
+    <%-- <asp:Table ID="TblSelection" runat="server">--%>
+    <%-- <asp:TableRow>
             <asp:TableCell>--%>
-                <asp:Label ID="LblCustomer" runat="server" Text="Select Customer:"></asp:Label>
-            <%--</asp:TableCell>
+    <asp:Label ID="LblCustomer" runat="server" Text="Select Customer:"></asp:Label>
+    <%--</asp:TableCell>
             <asp:TableCell>--%>
-                <asp:Label ID="LblSelected" runat="server" Text=""></asp:Label>
-            <%--</asp:TableCell>
+    <asp:Label ID="LblSelected" runat="server" Text=""></asp:Label>
+    <%--</asp:TableCell>
             <asp:TableCell>--%>
-                <asp:Label ID="LblID" runat="server" Text="" Visible="false"></asp:Label>
-           <%-- </asp:TableCell>--%>
+    <asp:Label ID="LblID" runat="server" Text="" Visible="false"></asp:Label>
+    <%-- </asp:TableCell>--%>
 
-            <%-- <asp:TableCell>
+    <%-- <asp:TableCell>
                 <asp:DropDownList ID="DDLCust"
                     DataSourceID="dtasrcCustomerList"
                     DataTextField="CustomerName"
@@ -27,68 +27,68 @@
                     AutoPostBack="true">
                 </asp:DropDownList>
             </asp:TableCell>--%>
-       <%-- </asp:TableRow>
+    <%-- </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>--%>
-                <asp:Label ID="LblType" runat="server" Text="Select Service:"></asp:Label>
-            <%--</asp:TableCell>
+    <asp:Label ID="LblType" runat="server" Text="Select Service:"></asp:Label>
+    <%--</asp:TableCell>
             <asp:TableCell>--%>
-                <asp:DropDownList
-                    ID="DDLType"
-                    runat="server"
-                    OnDataBound="DDLType_DataBound"
-                    AutoPostBack="true"
-                    OnSelectedIndexChanged="DDLType_SelectedIndexChanged">
-                </asp:DropDownList>
-           <%-- </asp:TableCell>
+    <asp:DropDownList
+        ID="DDLType"
+        runat="server"
+        OnDataBound="DDLType_DataBound"
+        AutoPostBack="true"
+        OnSelectedIndexChanged="DDLType_SelectedIndexChanged">
+    </asp:DropDownList>
+    <%-- </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell ColumnSpan="3">--%>
-                <asp:GridView ID="GridCust"
-                    runat="server"
-                    DataSourceID="dtasrcCustGrid"
-                    CausesValidation="false"
-                    AutoGenerateColumns="false"
-                    DataKeyNames="CustomerID"
-                    CellPadding="3"
-                    Visible="false">
+    <asp:GridView ID="GridCust"
+        runat="server"
+        DataSourceID="dtasrcCustGrid"
+        CausesValidation="false"
+        AutoGenerateColumns="false"
+        DataKeyNames="CustomerID"
+        CellPadding="3"
+        Visible="false">
 
-                    <Columns>
-                        <asp:BoundField DataField="CustomerID" Visible="false" />
-                        <asp:BoundField DataField="CustomerName" HeaderText="Customer Name" />
-                        <asp:BoundField DataField="CellPhone" HeaderText="CellPhone" />
-                        <asp:BoundField DataField="WorkPhone" HeaderText="WorkPhone" />
-                        <asp:BoundField DataField="HomePhone" HeaderText="HomePhone" />
-                        <asp:BoundField DataField="Email" HeaderText="Email" />
+        <Columns>
+            <asp:BoundField DataField="CustomerID" Visible="false" />
+            <asp:BoundField DataField="CustomerName" HeaderText="Customer Name" />
+            <asp:BoundField DataField="CellPhone" HeaderText="CellPhone" />
+            <asp:BoundField DataField="WorkPhone" HeaderText="WorkPhone" />
+            <asp:BoundField DataField="HomePhone" HeaderText="HomePhone" />
+            <asp:BoundField DataField="Email" HeaderText="Email" />
 
 
-                    </Columns>
-                </asp:GridView>
-            <%--</asp:TableCell>
+        </Columns>
+    </asp:GridView>
+    <%--</asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>--%>
-            <%--<asp:TableCell ColumnSpan="3">--%>
-                <asp:GridView ID="GridAddress"
-                    runat="server"
-                    DataSourceID="dtasrcAddresses"
-                    CausesValidation="false"
-                    AutoGenerateColumns="false"
-                    DataKeyNames="AddressID"
-                    CellPadding="3"
-                    Visible="false">
+    <%--<asp:TableCell ColumnSpan="3">--%>
+    <asp:GridView ID="GridAddress"
+        runat="server"
+        DataSourceID="dtasrcAddresses"
+        CausesValidation="false"
+        AutoGenerateColumns="false"
+        DataKeyNames="AddressID"
+        CellPadding="3"
+        Visible="false">
 
-                    <Columns>
-                        <asp:BoundField DataField="AddressID" Visible="false" />
-                        <asp:BoundField DataField="Street" HeaderText="Street" />
-                        <asp:BoundField DataField="City" HeaderText="City" />
-                        <asp:BoundField DataField="State" HeaderText="State" />
-                        <asp:BoundField DataField="Zip" HeaderText="Zip" />
-                        <asp:BoundField DataField="Description" HeaderText="Description" />
+        <Columns>
+            <asp:BoundField DataField="AddressID" Visible="false" />
+            <asp:BoundField DataField="Street" HeaderText="Street" />
+            <asp:BoundField DataField="City" HeaderText="City" />
+            <asp:BoundField DataField="State" HeaderText="State" />
+            <asp:BoundField DataField="Zip" HeaderText="Zip" />
+            <asp:BoundField DataField="Description" HeaderText="Description" />
 
 
-                    </Columns>
-                </asp:GridView>
-            <%--</asp:TableCell>
+        </Columns>
+    </asp:GridView>
+    <%--</asp:TableCell>
         </asp:TableRow>
     </asp:Table>--%>
     <asp:Button ID="btnAddEmp" runat="server" Text="Add Employees" OnClick="btnAddEmp_Click" />
@@ -122,10 +122,10 @@
                 CellPadding="3"
                 AutoGenerateDeleteButton="true"
                 DataSourceID="dtasrcMoveEmployees"
-                DataKeyNames="MoveID"
+                DataKeyNames="EmployeeID"
                 Visible="true">
                 <Columns>
-                    <asp:BoundField DataField="MoveID" Visible="false" />
+                    <asp:BoundField DataField="EmployeeID" Visible="false" />
                     <asp:BoundField DataField="EmployeeName" HeaderText="Employee Name" />
                 </Columns>
 
@@ -198,94 +198,94 @@
         <%--<asp:Table ID="paymenttable" runat="server">
             <asp:TableRow>
                 <asp:TableCell>--%>
-                <h2>Payment Information</h2>
-              <%--  </asp:TableCell>
+        <h2>Payment Information</h2>
+        <%--  </asp:TableCell>
             </asp:TableRow>--%>
 
 
-          <%--  <asp:TableRow>
+        <%--  <asp:TableRow>
                 <asp:TableCell>--%>
 
 
-                    <asp:GridView ID="GridPayment"
-                        runat="server"
-                        AutoGenerateColumns="false"
-                        CellPadding="3"
-                        AutoGenerateDeleteButton="true"
-                        AutoGenerateEditButton="true"
-                        Visible="true"
-                        DataSourceID="dtasrcPayment"
-                        DataKeyNames="PaymentID">
-                        <Columns>
-                            <asp:BoundField DataField="PaymentID" Visible="false" />
-                            <asp:BoundField DataField="PaymentType" HeaderText="Payment Type" />
-                            <asp:BoundField DataField="Cost" HeaderText="Amount" />
-                            <asp:BoundField DataField="AdditionalExpenses" HeaderText="Add. Expenses" />
-                            <asp:BoundField DataField="CompleteStatus" HeaderText="Completed Status" />
+        <asp:GridView ID="GridPayment"
+            runat="server"
+            AutoGenerateColumns="false"
+            CellPadding="3"
+            AutoGenerateDeleteButton="true"
+            AutoGenerateEditButton="true"
+            Visible="true"
+            DataSourceID="dtasrcPayment"
+            DataKeyNames="PaymentID">
+            <Columns>
+                <asp:BoundField DataField="PaymentID" Visible="false" />
+                <asp:BoundField DataField="PaymentType" HeaderText="Payment Type" />
+                <asp:BoundField DataField="Cost" HeaderText="Amount" />
+                <asp:BoundField DataField="AdditionalExpenses" HeaderText="Add. Expenses" />
+                <asp:BoundField DataField="CompleteStatus" HeaderText="Completed Status" />
 
 
-                        </Columns>
+            </Columns>
 
-                    </asp:GridView>
-               <%-- </asp:TableCell>
+        </asp:GridView>
+        <%-- </asp:TableCell>
             </asp:TableRow>--%>
 
-            <%--<asp:TableRow>
+        <%--<asp:TableRow>
                 <asp:TableCell>--%>
-                    <asp:Label ID="LblPaymentType" runat="server" Text="Type of Payment:"></asp:Label>
-               <%-- </asp:TableCell>
+        <asp:Label ID="LblPaymentType" runat="server" Text="Type of Payment:"></asp:Label>
+        <%-- </asp:TableCell>
                 <asp:TableCell>--%>
         <div class="form-group">
-                    <asp:DropDownList
-                        ID="DDLPaymentType"
-                        runat="server"
-                        AutoPostBack="true"
-                        OnSelectedIndexChanged="DDLPaynentType_SelectedIndexChanged"
-                        class="form-control"
-                        OnDataBound="DDLPaynentType_DataBound">
+            <asp:DropDownList
+                ID="DDLPaymentType"
+                runat="server"
+                AutoPostBack="true"
+                OnSelectedIndexChanged="DDLPaynentType_SelectedIndexChanged"
+                class="form-control"
+                OnDataBound="DDLPaynentType_DataBound">
 
-                        <asp:ListItem Value="CreditCard"> Credit Card</asp:ListItem>
-                        <asp:ListItem Value="Check"> Check </asp:ListItem>
-                        <asp:ListItem Value="Cash"> Cash</asp:ListItem>
-                    </asp:DropDownList>
-            </div>
-              <%--  </asp:TableCell>
+                <asp:ListItem Value="CreditCard"> Credit Card</asp:ListItem>
+                <asp:ListItem Value="Check"> Check </asp:ListItem>
+                <asp:ListItem Value="Cash"> Cash</asp:ListItem>
+            </asp:DropDownList>
+        </div>
+        <%--  </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>--%>
-                    <asp:Label ID="LblFinalCost" runat="server" Text="Amount: "></asp:Label>
-               <%-- </asp:TableCell>
+        <asp:Label ID="LblFinalCost" runat="server" Text="Amount: "></asp:Label>
+        <%-- </asp:TableCell>
                 <asp:TableCell>--%>
-                <div class="form-group">
-                    <asp:TextBox ID="TxtFinalCost" runat="server" Placeholder="Amount" CssClass="form-control"></asp:TextBox>
-                    </div>
+        <div class="form-group">
+            <asp:TextBox ID="TxtFinalCost" runat="server" Placeholder="Amount" CssClass="form-control"></asp:TextBox>
+        </div>
         <br />
-               <%-- </asp:TableCell>
+        <%-- </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>--%>
-                    <asp:Label ID="LblPayment" runat="server" Text="Payment Recieved:"></asp:Label>
-               <%-- </asp:TableCell>
+        <asp:Label ID="LblPayment" runat="server" Text="Payment Recieved:"></asp:Label>
+        <%-- </asp:TableCell>
                 <asp:TableCell>--%>
-                    <asp:CheckBox ID="ChkBoxPayment" runat="server" />
-               <%-- </asp:TableCell>
+        <asp:CheckBox ID="ChkBoxPayment" runat="server" />
+        <%-- </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>--%>
         <br />
         <br />
-                    <asp:Label ID="LblAdditionalExpense" runat="server" Text="Additional Expense:"></asp:Label>
-               <%-- </asp:TableCell>
+        <asp:Label ID="LblAdditionalExpense" runat="server" Text="Additional Expense:"></asp:Label>
+        <%-- </asp:TableCell>
                 <asp:TableCell>--%>
-                        <div class="form-group">
-                    <asp:TextBox ID="TxtAdditionalExpense" runat="server" Placeholder="Add Additional Expenses" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
-                            </div>
-               <%-- </asp:TableCell>
+        <div class="form-group">
+            <asp:TextBox ID="TxtAdditionalExpense" runat="server" Placeholder="Add Additional Expenses" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
+        </div>
+        <%-- </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>--%>
-                    <asp:Button ID="btnPayment" runat="server" Text="Add Payment" OnClick="btnPayment_Click" />
-               <%-- </asp:TableCell>
+        <asp:Button ID="btnPayment" runat="server" Text="Add Payment" OnClick="btnPayment_Click" />
+        <%-- </asp:TableCell>
 
             </asp:TableRow>
         </asp:Table>--%>
@@ -314,13 +314,13 @@
 
             </asp:GridView>
         </fieldset>
-        
-       <%-- <asp:Table ID="tbladdress" runat="server">
+
+        <%-- <asp:Table ID="tbladdress" runat="server">
 
             <asp:TableRow>
                 <asp:TableCell>--%>
-                <h1>Add Address:</h1>
-               <%-- </asp:TableCell>
+        <h1>Add Address:</h1>
+        <%-- </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
@@ -329,58 +329,58 @@
                 <asp:TableCell>--%>
         <div class="form-group">
             <label>Type of Address</label>
-                    <asp:TextBox ID="TxtDescription" Placeholder="Origin, Destination, Primary, etc." CssClass="form-control" runat="server"></asp:TextBox>
-            </div>
-               <%-- </asp:TableCell>
+            <asp:TextBox ID="TxtDescription" Placeholder="Origin, Destination, Primary, etc." CssClass="form-control" runat="server"></asp:TextBox>
+        </div>
+        <%-- </asp:TableCell>
 
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>--%>
-<%--                    <asp:Label ID="LblStreet" runat="server" Text="Street:"></asp:Label>--%>
-               <%-- </asp:TableCell>
+        <%--                    <asp:Label ID="LblStreet" runat="server" Text="Street:"></asp:Label>--%>
+        <%-- </asp:TableCell>
                 <asp:TableCell>--%>
         <div class="form-group">
             <label>Street</label>
-                    <asp:TextBox ID="TxtStreet" Placeholder="Street" CssClass="form-control" runat="server"></asp:TextBox>
-            </div>
-               <%-- </asp:TableCell>
+            <asp:TextBox ID="TxtStreet" Placeholder="Street" CssClass="form-control" runat="server"></asp:TextBox>
+        </div>
+        <%-- </asp:TableCell>
 
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>--%>
-<%--                    <asp:Label ID="LblCity" runat="server" Text="City:"></asp:Label>--%>
-                <%--</asp:TableCell>
+        <%--                    <asp:Label ID="LblCity" runat="server" Text="City:"></asp:Label>--%>
+        <%--</asp:TableCell>
                 <asp:TableCell>--%>
         <div class="form-group">
             <label>City</label>
-                    <asp:TextBox ID="TxtCity" Placeholder="City" CssClasss="form-control" runat="server"></asp:TextBox>
-            </div>
-               <%-- </asp:TableCell>
+            <asp:TextBox ID="TxtCity" Placeholder="City" CssClasss="form-control" runat="server"></asp:TextBox>
+        </div>
+        <%-- </asp:TableCell>
 
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>--%>
-                    <asp:Label ID="LblState" runat="server" Text="State:"></asp:Label>
-               <%-- </asp:TableCell>
+        <asp:Label ID="LblState" runat="server" Text="State:"></asp:Label>
+        <%-- </asp:TableCell>
                 <asp:TableCell>--%>
-                    <asp:TextBox ID="TxtState" runat="server"></asp:TextBox>
-                <%--</asp:TableCell>
+        <asp:TextBox ID="TxtState" runat="server"></asp:TextBox>
+        <%--</asp:TableCell>
 
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>--%>
-                    <asp:Label ID="LblZip" runat="server" Text="Zip: "></asp:Label>
-               <%-- </asp:TableCell>
+        <asp:Label ID="LblZip" runat="server" Text="Zip: "></asp:Label>
+        <%-- </asp:TableCell>
                 <asp:TableCell>--%>
-                    <asp:TextBox ID="TxtZip" runat="server"></asp:TextBox>
-                <%--</asp:TableCell>
+        <asp:TextBox ID="TxtZip" runat="server"></asp:TextBox>
+        <%--</asp:TableCell>
 
             </asp:TableRow>
 
             <asp:TableRow>
                 <asp:TableCell>--%>
-                    <asp:Button ID="BtnAddAddress" runat="server" Text="Add Address ->" OnClick="BtnAddAddress_Click" />
-               <%-- </asp:TableCell>
+        <asp:Button ID="BtnAddAddress" runat="server" Text="Add Address ->" OnClick="BtnAddAddress_Click" />
+        <%-- </asp:TableCell>
             </asp:TableRow>
         </asp:Table>--%>
     </div>
@@ -431,9 +431,9 @@
                 AutoGenerateDeleteButton="true"
                 Visible="true"
                 DataSourceID="grdsrcVehicle"
-                DataKeyNames="MoveEquipmentID">
+                DataKeyNames="EquipmentID">
                 <Columns>
-                    <asp:BoundField DataField="MoveEquipmentID" Visible="false" />
+                    <asp:BoundField DataField="EquipmentID" Visible="false" />
                     <asp:BoundField DataField="EquipmentType" HeaderText="Equipment" />
                     <asp:BoundField DataField="Mileage" HeaderText="Mileage" />
                 </Columns>
@@ -561,11 +561,11 @@
     <br />
     <br />
     <div class="float-right">
-    <asp:Button ID="btnComplete" runat="server" Text="Complete Service Ticket->" OnClick="btnComplete_Click" />
-    <asp:Label ID="LblSaveStatus" runat="server" Text=""></asp:Label>
-       <%-- <asp:Button ID="BtnPop" runat="server" Text="Populate" OnClick="BtnPop_Click" />--%>
+        <asp:Button ID="btnComplete" runat="server" Text="Complete Service Ticket->" OnClick="btnComplete_Click" />
+        <asp:Label ID="LblSaveStatus" runat="server" Text=""></asp:Label>
+        <%-- <asp:Button ID="BtnPop" runat="server" Text="Populate" OnClick="BtnPop_Click" />--%>
         <asp:Button ID="BtnClear" runat="server" Text="Clear" OnClick="BtnClear_Click" />
-        </div>
+    </div>
     <%--<asp:Table ID="Table2" runat="server">
         <asp:TableRow>
             <asp:TableCell>
@@ -623,11 +623,14 @@
     <asp:SqlDataSource ID="dtasrcMoveEmployees"
         runat="server"
         ConnectionString="<%$ConnectionStrings:Lab3%>"
-        SelectCommand="Select MoveID, EmployeeName FROM MOVEEMPLOYEES WHERE ServiceTicketID = @ServiceID"
-        DeleteCommand="DELETE MOVEEMPLOYEES where MoveID = @MoveID">
+        SelectCommand="Select e.EmployeeID, EmpFirstName + ' ' + EmpLastName EmployeeName FROM ServiceTicketEmployee ste join Employee e on ste.Employeeid = e.Employeeid WHERE ServiceTicketID = @ServiceID"
+        DeleteCommand="DELETE ServiceTicketEmployee where EmployeeID = @EmployeeID AND ServiceTicketID = @ServiceID">
         <SelectParameters>
             <asp:ControlParameter Name="ServiceID" Type="Int64" ControlID="DDLType" />
         </SelectParameters>
+        <DeleteParameters>
+            <asp:ControlParameter Name="ServiceID" Type="Int64" ControlID="DDLType" />
+        </DeleteParameters>
     </asp:SqlDataSource>
 
     <asp:SqlDataSource ID="dtasrcCharges"

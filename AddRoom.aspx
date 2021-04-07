@@ -7,8 +7,6 @@
     <div>
         <asp:DetailsView ID="dtvRoom"
             runat="server"
-            Height="50px"
-            Width="125px"
             DataSourceID="dtvsrcRoom"
             AutoGenerateRows="false"
             AutoGenerateEditButton="true"
@@ -36,7 +34,8 @@
                 <asp:BoundField DataField="Electronics" HeaderText="Appliances/Electronics" />
             </Fields>
         </asp:DetailsView>
-
+        <br />
+        <br />
         <asp:GridView ID="grvRoomBoxes"
             runat="server"
             AutoGenerateColumns="false"
@@ -53,7 +52,7 @@
                 <asp:BoundField DataField="BoxQuantity" HeaderText="Quantity" />
             </Columns>
         </asp:GridView>
-
+        <br />
     </div>
     <div class="row">
         <div class="form-group col-md-6">

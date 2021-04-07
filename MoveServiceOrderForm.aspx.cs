@@ -52,7 +52,7 @@ namespace Lab3
                     ddlService.DataTextField = "Services";
                     ddlService.DataValueField = "ServiceTicketID";
 
-                    String sqlQueryService = "Select ServiceTicketID, ServiceType + ' ' + ServiceDate 'Services' from ServiceTicket where ServiceType = 'Move' AND customerID = " + Session["SelectedCustomerID"].ToString();
+                    String sqlQueryService = "Select ServiceTicketID, ServiceType + ' ' + TicketOpenDate 'Services' from ServiceTicket where ServiceType = 'Move' AND customerID = " + Session["SelectedCustomerID"].ToString();
 
 
                     SqlConnection sqlConnectService = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
@@ -72,7 +72,7 @@ namespace Lab3
         protected void BtnAddOrigin_Click(object sender, EventArgs e)
         {
             //Concatenate Sql Query Update Statements
-            String sqlQuery = "Insert into address values (null, @CustomerID, @Street, @City, @State, @Zip, @Description)";
+            String sqlQuery = "Insert into address values (@CustomerID, @Street, @City, @State, @Zip, @Description)";
 
             //Define the Connection to the Database
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -121,7 +121,7 @@ namespace Lab3
         {
             try
             {
-                string query = "INSERT INTO [MOVEEMPLOYEES] (EmployeeID, ServiceTicketID) Values (@EmployeeID, @ServiceTicketID)";
+                string query = "INSERT INTO [ServiceTicketEmployee] (EmployeeID, ServiceTicketID) Values (@EmployeeID, @ServiceTicketID)";
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                 sqlConnect.Open();
                 SqlCommand com = new SqlCommand(query, sqlConnect);
@@ -138,7 +138,7 @@ namespace Lab3
             }
             catch
             {
-                //LblStatus.Text = "Database Error!";
+                LblStatus.Text = "Database Error!";
             }
 
 
@@ -171,7 +171,7 @@ namespace Lab3
         {
             if (ddlService.SelectedIndex != 0)
             {
-                String sqlQuery = "Select TrashRemoval, TrashRemovalDescription from MoveAssessment where CustomerID = " + Session["SelectedCustomerID"].ToString();
+                String sqlQuery = "Select pma.PreMoveAssessmentID, TrashRemoval, TrashRemovalDescription, Donation from PreMoveAssessment pma join serviceticket st on st.PreMoveAssessmentID = pma.PreMoveAssessmentID where ServiceTicketID = " + ddlService.SelectedValue.ToString();
 
 
                 SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
@@ -220,6 +220,22 @@ namespace Lab3
             // Close all related connections
             queryResults.Close();
             sqlConnect.Close();
+
+          
+
+
+
+            //Add form ID to serviceTicket
+            string query1 = "UPDATE Serviceticket set MoveServiceID = (select TOP 1 MoveServiceID from MoveServiceOrder order by MoveServiceID desc) where ServiceTicketID = " + ddlService.SelectedValue.ToString();
+
+            SqlConnection sqlConnect1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            sqlConnect1.Open();
+            SqlCommand com1 = new SqlCommand(query1, sqlConnect1);
+
+
+            com1.ExecuteNonQuery();
+            sqlConnect1.Close();
+
 
             lblSaveStatus.Text = "Move Service Order Saved Successfully!";
             lblSaveStatus.ForeColor = Color.Green;

@@ -146,10 +146,10 @@
                             <a href="WarehouseInventory.aspx">Warehouse
                             </a>
                         </li>
-                        <li>
+                        <%--<li>
                             <a href="LookAt.aspx">Look At Form
                             </a>
-                        </li>
+                        </li>--%>
                         <%-- <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             <i class="fas fa-copy"></i>
                             Pages
@@ -166,12 +166,12 @@
                             </li>
                         </ul>
                     </li>--%>
-                        <li>
+                        <%--<li>
 
                             <a href="#">Reports
                             </a>
 
-                        </li>
+                        </li>--%>
                         <%--                    <li>
                         <a href="#">
                             <i class="fas fa-question"></i>
