@@ -72,7 +72,14 @@ itemCB varchar(50)
 );
 
 Create table AuctionAssessment(
-AuctionAssessmentID int Identity (1, 1) Primary Key not null
+AuctionAssessmentID int Identity (1, 1) Primary Key not null,
+	[NumberOfStories] [nvarchar](50) NULL,
+	[DistanceFromTruck] [nvarchar](50) NULL,
+	[TypeOfHome] [nvarchar](50) NULL,
+	[TypeofHomeAdd] [nvarchar](1000) NULL,
+	[TruckAccessibility] [nvarchar](50) NULL,
+	[LoadingDoorWalk] [nvarchar](50) NULL,
+	[StepsToHouse] [nvarchar](50) NULL
 );
 
 Create table AuctionServiceOrder(
