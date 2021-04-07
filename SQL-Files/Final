@@ -57,8 +57,18 @@ create table CUSTOMER (
 
 
 Create table PreAuctionAssessment(
-PreAuctionAssessmentID int Identity (1, 1) Primary Key not null
-
+PreAuctionAssessmentID int Identity (1, 1) Primary Key not null,
+haveToSell varchar (250),
+reason varchar (50),
+deadline varchar(75),
+bringinCB varchar(50),
+AuctionWalkCB varchar (50),
+requestLookAt varchar(50),
+PickupCB varchar(50),
+TrashCB varchar(50),
+trashDesc varchar(250),
+photoCB varchar(50),
+itemCB varchar(50)
 );
 
 Create table AuctionAssessment(
