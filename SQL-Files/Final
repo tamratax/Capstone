@@ -1,6 +1,6 @@
---drop table movecharges;
 --drop table boxes;
 --drop table room;
+--drop table movecharges;
 --drop table specialequipment;
 --drop table auctionInventory;
 --drop table serviceticketemployee;
@@ -11,6 +11,7 @@
 --drop table serviceticketequipment;
 --drop table payment;
 --drop table serviceticketaddress;
+--drop table SERVICETICKET;
 --drop table appraisal;
 --drop table moveserviceorder;
 --drop table notes;
@@ -26,7 +27,7 @@
 --drop table PreAuctionAssessment;
 --drop table customer;
 --drop table employee;
---drop table SERVICETICKET;
+
 
 --Create tables in database
 create table EMPLOYEE (
