@@ -1,73 +1,152 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LabFormat.Master" AutoEventWireup="true" CodeBehind="MoveAssessment.aspx.cs" Inherits="Lab3.MoveAssessment" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LabFormat.Master" AutoEventWireup="true" CodeBehind="AuctionAssessment.aspx.cs" Inherits="Lab3.AuctionAssessment" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <div>
-    <h2><b>Move Assessment Form</b></h2>
-       
-        <asp:Label ID="lblCust" runat="server" Text="Customer Name: "></asp:Label>
-        <asp:Label ID="lblselected" runat="server" />
-        <asp:Label ID="LblID" runat="server" Visible="false"></asp:Label>
-        <asp:Label ID="LblMoveID" runat="server" Visible="false"></asp:Label>
 
-        <br />
+    <h1>Auction Assessment</h1>
 
+    <h4>Customer Info:</h4>
+    <fieldset>
+        <div class="groupCust">
+            <asp:Label ID="LblCust" runat="server" Text="Customer Name: "></asp:Label>
+            &nbsp;
+    <asp:Label ID="LblCustName" runat="server" Text=""></asp:Label>
+
+            <div>
+                <asp:Label
+                    ID="LblHomePhone"
+                    runat="server"
+                    Text="Home Phone: "></asp:Label>
+
+                <asp:Label ID="LblHomeNumber"
+                    runat="server"
+                    Text=""
+                    Font-Bold="true"></asp:Label>
+                <br />
+                <asp:Label
+                    ID="LblCellPhone"
+                    runat="server"
+                    Text="   Cell Phone: "></asp:Label>
+
+                <asp:Label
+                    ID="LblCellNumber"
+                    runat="server"
+                    Text=""
+                    Font-Bold="true"></asp:Label>
+                <br />
+                <asp:Label
+                    ID="LblWorkPhone"
+                    runat="server"
+                    Text="   Work Phone: "></asp:Label>
+
+                <asp:Label
+                    ID="LblWorkNumber"
+                    runat="server"
+                    Text=""
+                    Font-Bold="true"></asp:Label>
+                <br />
+                <asp:Label
+                    ID="LblEmail"
+                    runat="server"
+                    Text="Email:"></asp:Label>
+
+                <asp:Label
+                    ID="LblEmailText"
+                    runat="server"
+                    Text=""
+                    Font-Bold="true"></asp:Label>
+            </div>
+
+            <div>
+                <asp:GridView ID="GridAddress"
+                    runat="server"
+                    DataSourceID="dtasrcAddress"
+                    CausesValidation="false"
+                    AutoGenerateColumns="false"
+                    DataKeyNames="AddressID"
+                    CsssClass="table justify-content-center">
+                    <Columns>
+                        <asp:CommandField ShowEditButton="true" ShowDeleteButton="true" ButtonType="Button" />
+                        <asp:BoundField DataField="AddressID" Visible="false" />
+                        <asp:BoundField DataField="Street" HeaderText="Street" />
+                        <asp:BoundField DataField="City" HeaderText="City" />
+                        <asp:BoundField DataField="State" HeaderText="State" />
+                        <asp:BoundField DataField="Zip" HeaderText="Zip" />
+                        <asp:BoundField DataField="Description" HeaderText="Description" />
+                    </Columns>
+                </asp:GridView>
+            </div>
+        </div>
+    </fieldset>
+    <br />
+    <asp:DropDownList
+        ID="DDLType"
+        runat="server"
+        OnDataBound="DDLType_DataBound"
+        AutoPostBack="true"
+        OnSelectedIndexChanged="DDLType_SelectedIndexChanged">
+    </asp:DropDownList>
+    <asp:Button ID="BtnMoveInfo" runat="server" Text="Add Auction Assessment" OnClick="BtnMoveInfo_Click" Visible="false"/>
+        <asp:Label ID="LblMoveInfo" runat="server" Text="Auction Assessment Not Yet Added!" ForeColor="Red" Visible="false"></asp:Label>
+    <br />
+    <br />
 
     
-        <asp:DropDownList
-                    ID="DDLType"
-                    runat="server"
-                    OnDataBound="DDLType_DataBound"
-                    AutoPostBack="true" 
-                    OnSelectedIndexChanged="DDLType_SelectedIndexChanged">
-                </asp:DropDownList>
-         <br />
-
-        
-        <asp:Button ID="BtnMoveInfo" runat="server" Text="Add Move Assessment" OnClick="LblMoveInfo_Click" Visible="false"/>
-        <asp:Label ID="LblMoveInfo" runat="server" Text="Move Assessment Not Yet Added!" ForeColor="Red" Visible="false"></asp:Label>
-
-        <div id="divbuttons" runat="server">
+    <div id="divbuttons" runat="server">
+        <asp:Button ID="btnInventory" runat="server" Text="Inventory" OnClick="btnInventory_Click" />
         <asp:Button ID="BtnGeneralInfo" runat="server" Text="General Assessment" OnClick="BtnGeneralInfo_Click"/>&nbsp&nbsp&nbsp&nbsp
         <asp:Button ID="BtnVehicles" runat="server" Text="Vehicles"  OnClick="BtnVehicles_Click"/>&nbsp&nbsp&nbsp&nbsp
         <asp:Button ID="BtnSpecialEquipment" runat="server" Text="Special Equipment"  OnClick="BtnSpecialEquipment_Click"/>&nbsp&nbsp&nbsp&nbsp
         <asp:Button ID="BtnCharge" runat="server" Text="Charges" OnClick="BtnCharge_Click"/>&nbsp&nbsp&nbsp&nbsp
-        <asp:Button ID="BtnAddRoom" runat="server" Text="Proceed to Add Room" OnClick="BtnAddRoom_Click" />
+        <asp:Button ID="BtnAddRoom" runat="server" Text="Boxes" OnClick="BtnAddRoom_Click" />
         <br />
         <br />
         
             </div>
-      
 
 
 
-        <asp:GridView ID="GridCust"
-                    runat="server"
-                    DataSourceID="dtasrcCustGrid"
-                    CausesValidation="false"
-                    AutoGenerateColumns="false"                  
-                    DataKeyNames="CustomerID"
-                    CellPadding="3"
-                    Visible="false">
-
-                     <Columns>
-                        <asp:BoundField DataField="CustomerID" Visible="false" />
-                        <asp:BoundField DataField="CustomerName"  HeaderText="Customer Name" />  
-                        <asp:BoundField DataField="CellPhone" HeaderText="CellPhone" />
-                        <asp:BoundField DataField="WorkPhone" HeaderText="WorkPhone" />
-                        <asp:BoundField DataField="HomePhone"  HeaderText="HomePhone" />  
-                        <asp:BoundField DataField="Email"  HeaderText="Email"/>
-              
-                        
-                    </Columns>
-                    </asp:GridView>
-
+    <br />
+    <div id="divInventory" runat="server" visible="false">
+        <h5>Inventory</h5>
+        <asp:GridView ID="gridInventory"
+            runat="server"
+            DataSourceID="dtasrcInventory"
+            DataKeyNames="ItemID"
+            EmptyDataText="No Items Added"
+            AutoGenerateColumns="false"
+            AutoGenerateEditButton="true"
+            AutoGenerateDeleteButton="true">
+            <Columns>
+                <asp:BoundField DataField="ItemID" HeaderText="ItemID" Visible="false" />
+                <asp:BoundField DataField="ItemName" HeaderText=" Item Name " />
+                <asp:BoundField DataField="ItemDescription" HeaderText=" Item Description " />
+                <asp:BoundField DataField="ItemCost" HeaderText=" Item Cost " />
+            </Columns>
+        </asp:GridView>
         <br />
+        <asp:Label ID="lblItemName" runat="server" Text="Item Name:"></asp:Label>
+        <asp:TextBox ID="txtItemName" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="lblItemDescription" runat="server" Text="Item Description: "></asp:Label>
+        <asp:TextBox ID="txtItemDescription" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="lblItemCost" runat="server" Text="Item Cost: "></asp:Label>
+        <asp:TextBox ID="txtItemCost" runat="server"></asp:TextBox>
+        <br />
+        <asp:Button ID="btnAddItem" runat="server" Text="Add Item" OnClick="btnAddItem_Click" />
+        <asp:Label ID="lblItemStatus" runat="server" Text=""></asp:Label>
 
-        <div runat="server" id="moveinfodiv" >
+    </div>
+
+
+    <div runat="server" id="moveinfodiv" >
         <div id="divgeneralinfo" runat="server">
         <asp:Label ID="LblHomeType" runat="server" Text="Type of Home: "></asp:Label>
-        <asp:DropDownList ID="DDLTypeofHome" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DDLTypeofHome_SelectedIndexChanged">
+        <asp:DropDownList ID="DDLTypeofHome" runat="server" 
+            AutoPostBack="true" 
+            OnSelectedIndexChanged="DDLTypeofHome_SelectedIndexChanged">
             <asp:ListItem>Apartment</asp:ListItem>
             <asp:ListItem>House</asp:ListItem>
             <asp:ListItem>Storage Unit</asp:ListItem>
@@ -119,7 +198,8 @@
         <asp:Label ID="LblSuccess" runat="server" Text="" ForeColor="Green"></asp:Label>
               <br />
               <br />
-        <asp:DetailsView ID="DTLMoveInfo" runat="server" DataSourceID="dtasrcMoveInfo"
+        <asp:DetailsView ID="DTLMoveInfo" runat="server" 
+            DataSourceID="dtasrcMoveInfo"
              AutoGenerateEditButton="true"
              EmptyDataText="No Info"
              AutoGenerateRows="false"
@@ -252,19 +332,41 @@
 
 
             </div>
+        <div id="divBoxes" runat="server" visible="false">
+            <h5>Boxes</h5>
+
+        </div>
             
     </div>
-    </div>
-     <div class="form-group float-right">
-        <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click" />
-         <asp:Button ID="ClearBtn" runat="server" Text="Clear" OnClick="ClearBtn_Click" />
-        </div>
-<asp:SqlDataSource ID="dtasrcCustGrid"
+
+    <asp:SqlDataSource ID="dtasrcAddress"
+        runat="server"
+        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        SelectCommand="SELECT * from Address join customer on Customer.CustomerID = Address.CustomerID where Customer.CustomerID = @CustomerID"
+        DeleteCommand="DELETE ADDRESS where AddressID = @AddressID"
+        UpdateCommand="UPDATE ADDRESS set Street = @Street, City = @City, State = @State, Zip = @Zip, Description = @Description where AddressID = @AddressID">
+        <SelectParameters>
+            <asp:SessionParameter Name="CustomerID" SessionField="SelectedCustomerID" DefaultValue="" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+
+    <asp:SqlDataSource ID="dtasrcInventory"
+        runat="server"
+        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        SelectCommand="SELECT ItemID, ItemName, ItemDescription, ItemCost from Inventory where ServiceTicketID = @ServiceTicketID"
+        DeleteCommand="DELETE Inventory where ItemID = @ItemID"
+        UpdateCommand="UPDATE Inventory set ItemName = @ItemName, ItemDescription = @ItemDescription, ItemCost = @ItemCost where ItemID = @ItemID">
+        <SelectParameters>
+            <asp:ControlParameter Name="ServiceTicketID" ControlID="DDLType" PropertyName="selectedvalue" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+
+    <asp:SqlDataSource ID="dtasrcCustGrid"
         runat="server"
         ConnectionString="<%$ConnectionStrings:Lab3%>"
         SelectCommand="Select CustomerID, FirstName + ' ' + LastName as CustomerName, CellPhone, HomePhone, WorkPhone, Email FROM CUSTOMER WHERE customerID = @CustomerID">
          <SelectParameters>
-            <asp:ControlParameter Name="CustomerID" Type="Int64" ControlID="LblID" />
+            <asp:SessionParameter Name="CustomerID" SessionField="SelectedCustomerID" />
         </SelectParameters>
      </asp:SqlDataSource>
 
@@ -330,4 +432,3 @@
         </UpdateParameters>
      </asp:SqlDataSource>
 </asp:Content>
-

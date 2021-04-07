@@ -137,9 +137,7 @@ namespace Lab3
             //Sets Service list ddl to default of select
             ListItem blankOption = new ListItem("Select", "-1");
             DDLType.Items.Insert(0, blankOption);
-            DDLType.SelectedIndex = 0;
-
-            
+            DDLType.SelectedIndex = 0;           
 
 
         }

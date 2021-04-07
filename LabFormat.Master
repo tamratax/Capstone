@@ -82,6 +82,9 @@
                             <li>
                                 <a href="PreAuctionAssessment.aspx">Pre-Auction Assessment</a>
                             </li>
+                            <li>
+                                <a href="AuctionAssessment.aspx">Auction Assessment</a>
+                            </li>
                             <%--                        </ul>--%>
                             <%--                        <ul class="collapse list-unstyled" id="homeSubmenu">
                             <li>
