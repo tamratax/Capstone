@@ -651,11 +651,14 @@
     <asp:SqlDataSource ID="grdsrcVehicle"
         runat="server"
         ConnectionString="<%$ConnectionStrings:Lab3%>"
-        SelectCommand="Select MoveEquipmentID, EquipmentType, Mileage FROM MOVEEQUIPMENT WHERE ServiceTicketID = @ServiceTicketID"
-        DeleteCommand="DELETE MOVEEQUIPMENT where MoveEquipmentID = @MoveEquipmentID">
+        SelectCommand="Select e.EquipmentID, EquipmentType, Mileage FROM equipment e join ServiceTicketEquipment ste on e.EquipmentID = ste.EquipmentID WHERE ServiceTicketID = @ServiceTicketID"
+        DeleteCommand="DELETE ServiceTicketEquipment where EquipmentID = @EquipmentID AND ServiceTicketID = @ServiceTicketID">
         <SelectParameters>
             <asp:ControlParameter Name="ServiceTicketID" Type="Int64" ControlID="DDLType" />
         </SelectParameters>
+        <DeleteParameters>
+            <asp:ControlParameter Name="ServiceTicketID" Type="Int64" ControlID="DDLType" />
+        </DeleteParameters>
     </asp:SqlDataSource>
 
     <asp:SqlDataSource ID="grdsrcTravel"
