@@ -84,10 +84,6 @@ AuctionAssessmentID int Identity (1, 1) Primary Key not null,
 	[StepsToHouse] [nvarchar](50) NULL
 );
 
-Create table AuctionServiceOrder(
-AuctionServiceOrderID int Identity (1, 1) Primary Key not null
-);
-
 
 
 Create table Address(
@@ -157,18 +153,18 @@ CREATE TABLE MOVEAssessment(
 	
 
 create Table PreMoveAssessment(
-PreMoveAssessmentID int identity (1,1) Not Null Primary Key,
-PotentialDate varchar(100),
-MustBeOut varchar (75),
-Range1 varchar (100),
-Range2 varchar (100),
-MlSListing varchar(10),
-SendPhotos varchar(25),
-Packing varchar(25),
-TrashRemoval varchar(25),
-TrashRemovalDescription varchar(255),
-Donation varchar(25),
-Auction varchar(25));
+	PreMoveAssessmentID int identity (1,1) Not Null Primary Key,
+	PotentialDate varchar(100),
+	MustBeOut varchar (75),
+	Range1 varchar (100),
+	Range2 varchar (100),
+	MlSListing varchar(10),
+	SendPhotos varchar(25),
+	Packing varchar(25),
+	TrashRemoval varchar(25),
+	TrashRemovalDescription varchar(255),
+	Donation varchar(25),
+	Auction varchar(25));
 
 
 
@@ -203,6 +199,18 @@ CREATE TABLE APPRAISAL(
 	MoveAssessment	varchar(10),
 	AuctionAssessment varchar(10),
 );
+
+Create table AuctionServiceOrder(
+	AuctionServiceOrderID int Identity (1, 1) Primary Key not null,
+	PotentialDate	 varchar(30),
+	PotentialTime	 varchar(30),
+	Dumpster		 varchar(10),
+	NumberEmp		 varchar(255),
+	Charging		 varchar(255),
+	TrashDescription varchar(255),
+
+);
+
 
 create table SERVICETICKET (
 	ServiceTicketID	int not null identity(1, 1) primary key,
@@ -355,6 +363,8 @@ CREATE TABLE AuctionBoxes (
 	BoxQuantity			int
 
 );
+
+
 
 ---------------------------------------------
 --Adding data to database--
