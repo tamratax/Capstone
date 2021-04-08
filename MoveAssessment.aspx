@@ -75,7 +75,7 @@
             </asp:DropDownList>
 
         <div id ="divapartment" runat="server">
-           <asp:Label ID="LblNumberofStories" runat="server" Text="# of Stories: "></asp:Label>
+           <asp:Label ID="LblNumberofStories" runat="server" Text="Which floor?: "></asp:Label>
         <asp:TextBox ID="TxtNumberofStories" runat="server"></asp:TextBox>
         <br />
         <asp:Label ID="LblElevator" runat="server" Text="Is there an Elevator?: "></asp:Label>

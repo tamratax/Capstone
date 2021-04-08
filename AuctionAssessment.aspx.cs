@@ -171,12 +171,6 @@ namespace Lab3
                 sqlConnect.Close();
 
             }
-
-
-
-
-
-
             catch
             {
 
@@ -269,24 +263,24 @@ namespace Lab3
             string additionalinfo = "";
             //try
             //{
-            string query = "UPDATE [MOVEAssessment] SET NumberOfStories = @NumberofStories, DistanceFromTruck = @DistanceFromTruck, TypeOfHome = @TypeofHome, TypeofHomeAdd = @TypeAdd, TruckAccessibility = @TruckAccessibility, LoadingDoorWalk = @LoadingDoorWalk, StepsToHouse = @StepsToHouse from MOVEAssessment join ServiceTicket on MoveAssessment.MoveAssessmentID = ServiceTicket.MoveAssessmentID WHERE ServiceTicketID = @ServiceTicketID";
+            string query = "UPDATE [AuctionAssessment] SET NumberOfStories = @NumberofStories, DistanceFromTruck = @DistanceFromTruck, TypeOfHome = @TypeofHome, TypeofHomeAdd = @TypeAdd, TruckAccessibility = @TruckAccessibility, LoadingDoorWalk = @LoadingDoorWalk, StepsToHouse = @StepsToHouse from AuctionAssessment join ServiceTicket on AuctionAssessment.AuctionAssessmentID = ServiceTicket.AuctionAssessmentID WHERE ServiceTicketID = @ServiceTicketID";
 
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             sqlConnect.Open();
             SqlCommand com = new SqlCommand(query, sqlConnect);
 
-            com.Parameters.AddWithValue("NumberOfStories", TxtNumberofStories.Text);
+            com.Parameters.AddWithValue("NumberOfStories", txtStories.Text);
             com.Parameters.AddWithValue("DistanceFromTruck", TxtDistance.Text);
             com.Parameters.AddWithValue("TypeOfHome", DDLTypeofHome.SelectedValue);
-            if (divapartment.Visible == true)
+            if (DDLTypeofHome.SelectedIndex == 1)
             {
-                additionalinfo = TxtNumberofStories.Text + " " + TxtElevator.Text + " " + TxtElevatorWalk.Text;
+                additionalinfo = "Apartment Floor:" + txtWhichFloor.Text + "\nElevator?: " + TxtElevator.Text + "\nWalk to Elevator:" + TxtElevatorWalk.Text;
             }
-            if (divstorageinfo.Visible == true)
+            else if (DDLTypeofHome.SelectedIndex == 3)
             {
                 additionalinfo = TxtStorage.Text;
             }
-            if (divbusiness.Visible == true)
+            else if (DDLTypeofHome.SelectedIndex == 4)
             {
                 additionalinfo = TxtBusiness.Text;
             }
@@ -304,9 +298,9 @@ namespace Lab3
             com.ExecuteNonQuery();
             sqlConnect.Close();
 
-            DTLMoveInfo.DataBind();
+            DTLAuctionInfo.DataBind();
 
-            LblSuccess.Text = "Move Info Added";
+            LblSuccess.Text = "Auction Information Added";
 
             //}
             //catch
@@ -317,48 +311,64 @@ namespace Lab3
 
         protected void DDLSpecial_DataBound(object sender, EventArgs e)
         {
-
+            ListItem blankOption = new ListItem("Select", "-1");
+            DDLSpecial.Items.Insert(0, blankOption);
+            DDLSpecial.SelectedIndex = 0;
         }
 
         protected void BtnSpecial_Click(object sender, EventArgs e)
         {
+            string query = "INSERT INTO [SPECIALEQUIPMENT] (EquipmentType, Quantity, ServiceTicketID) Values (@EquipmentType, @Quantity, @ServiceTicketID)";
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            sqlConnect.Open();
+            SqlCommand com = new SqlCommand(query, sqlConnect);
 
+            com.Parameters.AddWithValue("EquipmentType", DDLSpecial.SelectedValue.ToString());
+            com.Parameters.AddWithValue("Quantity", TxtQuantitySpecial.Text);
+            com.Parameters.AddWithValue("ServiceTicketID", DDLType.SelectedValue.ToString());
+
+            com.ExecuteNonQuery();
+            sqlConnect.Close();
+
+
+            grvEquip.DataBind();
         }
 
         protected void DDLVehicle_DataBound(object sender, EventArgs e)
         {
-
+            ListItem blankOption = new ListItem("Select", "-1");
+            DDLVehicle.Items.Insert(0, blankOption);
+            DDLVehicle.SelectedIndex = 0;
         }
 
         protected void BtnAddCar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string query = "INSERT INTO [ServiceTicketEQUIPMENT] (EquipmentID, ServiceTicketID) Values (@EquipmentID, @ServiceTicketID)";
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                sqlConnect.Open();
+                SqlCommand com = new SqlCommand(query, sqlConnect);
 
+                com.Parameters.AddWithValue("EquipmentID", DDLVehicle.SelectedValue.ToString());
+                com.Parameters.AddWithValue("ServiceTicketID", DDLType.SelectedValue.ToString());
+
+                com.ExecuteNonQuery();
+                sqlConnect.Close();
+
+                LblStatus.ForeColor = Color.Green;
+                LblStatus.Text = "Vehicle sucessfully added!";
+                grdvwvehicles.DataBind();
+
+            }
+            catch
+            {
+                LblStatus.ForeColor = Color.Red;
+                LblStatus.Text = "Vehicle Already Added!";
+            }
         }
 
-        protected void BtnMoveEstimate_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        protected void BtnFixedRate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void BtnPackingFee_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void BtnStorageFee_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void BtnTrashRemoval_Click(object sender, EventArgs e)
-        {
-
-        }
 
         protected void BtnMoveInfo_Click(object sender, EventArgs e)
         {
@@ -387,7 +397,7 @@ namespace Lab3
             sqlConnect1.Close();
 
 
-            string query2 = "INSERT INTO [MOVECHARGES] (ServiceTicketID) VALUES (@ServiceTicketID)";
+            string query2 = "INSERT INTO [AUCTIONCHARGES] (ServiceTicketID) VALUES (@ServiceTicketID)";
 
             SqlConnection sqlConnect2 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             sqlConnect2.Open();
@@ -398,11 +408,67 @@ namespace Lab3
             com2.ExecuteNonQuery();
             sqlConnect2.Close();
 
+            grdCharges.DataBind();
 
 
             BtnMoveInfo.Visible = false;
             LblMoveInfo.Visible = false;
             divbuttons.Visible = true;
+        }
+
+        protected void btnChargesSave_Click(object sender, EventArgs e)
+        {
+            //Calculate Total Charges
+            double totalCharges = Convert.ToDouble(txtPickupFee.Text) + Convert.ToDouble(txtConsignmentRate.Text) + Convert.ToDouble(TxtTrashRemoval.Text) +
+               Convert.ToDouble(txtAdditionalFees.Text);
+
+
+            string query = "UPDATE AUCTIONCHARGES SET PickupFee = @PickupFee, ConsignmentRate = @ConsignmentRate, TrashRemovalFee = @TrashRemovalFee, AdditionalFees = @AdditionalFees, TotalCharges = @TotalCharges WHERE ServiceTicketID = @ServiceTicketID";
+
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            sqlConnect.Open();
+            SqlCommand com = new SqlCommand(query, sqlConnect);
+
+            com.Parameters.AddWithValue("ServiceTicketID", DDLType.SelectedValue.ToString());
+            com.Parameters.Add(new SqlParameter("@PickupFee", HttpUtility.HtmlEncode(txtPickupFee.Text)));
+            com.Parameters.Add(new SqlParameter("@ConsignmentRate", HttpUtility.HtmlEncode(txtConsignmentRate.Text)));
+            com.Parameters.Add(new SqlParameter("@TrashRemovalFee", HttpUtility.HtmlEncode(TxtTrashRemoval.Text)));
+            com.Parameters.Add(new SqlParameter("@AdditionalFees", HttpUtility.HtmlEncode(txtAdditionalFees.Text)));
+            com.Parameters.Add(new SqlParameter("@TotalCharges", totalCharges.ToString()));
+
+            com.ExecuteNonQuery();
+            sqlConnect.Close();
+            grdCharges.DataBind();
+
+        }
+
+        protected void btnAddBox_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string query = "INSERT INTO [AuctionBOXES] (BoxType, BoxQuantity, ServiceTicketID) Values (@BoxType, @BoxQuantity, @ServiceTicketID)";
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                sqlConnect.Open();
+                SqlCommand com = new SqlCommand(query, sqlConnect);
+
+                com.Parameters.AddWithValue("@BoxType", ddlBoxType.SelectedValue.ToString());
+                com.Parameters.Add(new SqlParameter("@BoxQuantity", HttpUtility.HtmlEncode(TxtQty.Text)));
+                com.Parameters.AddWithValue("@ServiceTicketID", DDLType.SelectedValue.ToString());
+
+                com.ExecuteNonQuery();
+                sqlConnect.Close();
+
+                LblStatus.Text = "Box successfully added!";
+                grvRoomBoxes.DataBind();
+
+                ddlBoxType.SelectedIndex = 0;
+                TxtQty.Text = "";
+
+            }
+            catch
+            {
+                LblStatus.Text = "Database Error";
+            }
         }
     }
 
