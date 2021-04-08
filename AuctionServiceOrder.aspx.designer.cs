@@ -330,15 +330,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.GridView grvEquip;
 
         /// <summary>
-        /// grdvwvehicles control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdvwvehicles;
-
-        /// <summary>
         /// LblAuctionDate control.
         /// </summary>
         /// <remarks>
@@ -373,6 +364,15 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource grdsrcRoomBoxes;
+
+        /// <summary>
+        /// dtasrcEmployee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcEmployee;
 
         /// <summary>
         /// dtasrcEmployeeContact control.

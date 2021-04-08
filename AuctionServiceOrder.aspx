@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <link href="Content/AddService.css" rel="stylesheet" />
-    <h1>Move Service Order</h1>
+    <h1>Auction Service Order</h1>
 
     <h4>Customer Info:</h4>
     <div class="groupCust">
@@ -303,7 +303,7 @@
     </div>
     <div>
         <b>Vehicles Used</b>
-                <asp:GridView ID="grdvwvehicles"
+<%--                <asp:GridView ID="grdvwvehicles"
                     runat="server"
                     AutoGenerateColumns="false"
                     CellPadding="3"
@@ -316,7 +316,7 @@
                         <asp:BoundField DataField="EquipmentType" HeaderText="Equipment" />
                     </Columns>
 
-                </asp:GridView>
+                </asp:GridView>--%>
     </div>
     <asp:Label ID="LblAuctionDate" runat="server" Text="Final Auction Date:"></asp:Label>
     <asp:TextBox ID="TxtAuctionDate" runat="server" TextMode="Date"></asp:TextBox>
@@ -352,7 +352,12 @@
         </SelectParameters>
     </asp:SqlDataSource>
 
-     <asp:SqlDataSource
+<asp:SqlDataSource
+        ID="dtasrcEmployee"
+        runat="server"
+        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        SelectCommand="Select EmployeeID, EmpFirstName + ' ' + EmpLastName as EmployeeName from Employee Order By EmpLastName ASC"></asp:SqlDataSource>
+    <asp:SqlDataSource
         ID="dtasrcEmployeeContact"
         runat="server"
         ConnectionString="<%$ConnectionStrings:Lab3%>"
@@ -407,6 +412,7 @@
         <DeleteParameters>
             <asp:ControlParameter Name="ServiceTicketID" Type="Int64" ControlID="DDLType" />
         </DeleteParameters>
+
     </asp:SqlDataSource>
 
         <asp:SqlDataSource ID="grdsrcVehicle"
