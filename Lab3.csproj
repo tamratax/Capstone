@@ -72,6 +72,7 @@
     <Content Include="AddRoom.aspx" />
     <Content Include="AppraisalServiceOrder.aspx" />
     <Content Include="AuctionAssessment.aspx" />
+    <Content Include="AuctionServiceOrder.aspx" />
     <Content Include="BootstrapSandBox.aspx" />
     <Content Include="Content\addRequest.css" />
     <Content Include="Content\AddService.css" />
@@ -267,6 +268,13 @@
     </Compile>
     <Compile Include="AuctionAssessment.aspx.designer.cs">
       <DependentUpon>AuctionAssessment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AuctionServiceOrder.aspx.cs">
+      <DependentUpon>AuctionServiceOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuctionServiceOrder.aspx.designer.cs">
+      <DependentUpon>AuctionServiceOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="BootstrapSandBox.aspx.cs">
       <DependentUpon>BootstrapSandBox.aspx</DependentUpon>
