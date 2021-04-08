@@ -1,5 +1,7 @@
+--drop table AuctionBoxes;
 --drop table boxes;
 --drop table room;
+--drop table AuctionCharges;
 --drop table movecharges;
 --drop table specialequipment;
 --drop table auctionInventory;
@@ -313,6 +315,16 @@ CREATE TABLE MOVECHARGES(
 	[TotalCharges] [float] NULL,
 	ServiceTicketID int references ServiceTicket(ServiceTicketID)
 	);
+
+	CREATE TABLE AuctionCharges(
+	[AuctionCHARGEID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	PickupFee		float,
+	ConsignmentRate float,
+	TrashRemovalFee float,
+	AdditionalFees	float,
+	TotalCharges	float,
+	ServiceTicketID int references ServiceTicket(ServiceTicketID)
+	);
 Create Table ROOM (
 	RoomID			int Identity(1,1) Not Null Primary Key,
 	RoomName		varchar(100),
@@ -333,6 +345,14 @@ CREATE TABLE BOXES (
 	RoomID		int references Room(RoomID),
 	BoxType		varchar(255),
 	BoxQuantity	int
+
+);
+
+CREATE TABLE AuctionBoxes (
+	BoxesID				int Identity(1,1) Not Null Primary Key,
+	ServiceTicketID		int references ServiceTicket(ServiceTicketID),
+	BoxType				varchar(255),
+	BoxQuantity			int
 
 );
 
