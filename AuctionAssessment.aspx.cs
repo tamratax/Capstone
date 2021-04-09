@@ -269,12 +269,12 @@ namespace Lab3
             sqlConnect.Open();
             SqlCommand com = new SqlCommand(query, sqlConnect);
 
-            com.Parameters.AddWithValue("NumberOfStories", txtStories.Text);
-            com.Parameters.AddWithValue("DistanceFromTruck", TxtDistance.Text);
+            com.Parameters.AddWithValue("NumberOfStories", HttpUtility.HtmlEncode(txtStories.Text));
+            com.Parameters.AddWithValue("DistanceFromTruck", HttpUtility.HtmlEncode(TxtDistance.Text));
             com.Parameters.AddWithValue("TypeOfHome", DDLTypeofHome.SelectedValue);
             if (DDLTypeofHome.SelectedIndex == 1)
             {
-                additionalinfo = "Apartment Floor:" + txtWhichFloor.Text + "\nElevator?: " + TxtElevator.Text + "\nWalk to Elevator:" + TxtElevatorWalk.Text;
+                additionalinfo = "Apartment Floor:" + txtWhichFloor.Text + ". Elevator?: " + TxtElevator.Text + ". Walk to Elevator:" + TxtElevatorWalk.Text;
             }
             else if (DDLTypeofHome.SelectedIndex == 3)
             {
@@ -288,11 +288,11 @@ namespace Lab3
             {
                 additionalinfo = "";
             }
-            com.Parameters.AddWithValue("TypeAdd", additionalinfo);
+            com.Parameters.AddWithValue("TypeAdd", HttpUtility.HtmlEncode(additionalinfo));
 
-            com.Parameters.AddWithValue("TruckAccessibility", TxtAccessibility.Text);
-            com.Parameters.AddWithValue("LoadingDoorWalk", TxtConditions.Text);
-            com.Parameters.AddWithValue("StepsToHouse", TxtSteps.Text);
+            com.Parameters.AddWithValue("TruckAccessibility", HttpUtility.HtmlEncode(TxtAccessibility.Text));
+            com.Parameters.AddWithValue("LoadingDoorWalk", HttpUtility.HtmlEncode(TxtConditions.Text));
+            com.Parameters.AddWithValue("StepsToHouse", HttpUtility.HtmlEncode(TxtSteps.Text));
             com.Parameters.AddWithValue("ServiceTicketID", DDLType.SelectedValue.ToString());
 
             com.ExecuteNonQuery();
@@ -324,7 +324,7 @@ namespace Lab3
             SqlCommand com = new SqlCommand(query, sqlConnect);
 
             com.Parameters.AddWithValue("EquipmentType", DDLSpecial.SelectedValue.ToString());
-            com.Parameters.AddWithValue("Quantity", TxtQuantitySpecial.Text);
+            com.Parameters.AddWithValue("Quantity", HttpUtility.HtmlEncode(TxtQuantitySpecial.Text));
             com.Parameters.AddWithValue("ServiceTicketID", DDLType.SelectedValue.ToString());
 
             com.ExecuteNonQuery();

@@ -91,7 +91,7 @@ namespace Lab3
             ChkbxPickup.Checked = true;
             ChkbxTrash.Checked = true;
             ChkbxTrash_CheckedChanged(sender, e);
-            txtTrashDescription.Text = "There's a ton of broken plywood by our dumpster";
+            txtTrashDescription.Text = "Theres a ton of broken plywood by our dumpster";
             ChkbxPhotos.Checked = true;
             ChkbxItems.Checked = true;
 

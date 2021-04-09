@@ -303,13 +303,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.TextBox txtdesc;
 
         /// <summary>
-        /// DTLMoveInfo control.
+        /// DTLAuctionInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView DTLMoveInfo;
+        protected global::System.Web.UI.WebControls.DetailsView DTLAuctionInfo;
 
         /// <summary>
         /// grdCharges control.
@@ -348,6 +348,42 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.TextBox TxtAuctionDate;
 
         /// <summary>
+        /// lblAuctionTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAuctionTime;
+
+        /// <summary>
+        /// txtAuctionTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAuctionTime;
+
+        /// <summary>
+        /// btnSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSave;
+
+        /// <summary>
+        /// lblSaveStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSaveStatus;
+
+        /// <summary>
         /// dtasrcAddress control.
         /// </summary>
         /// <remarks>
@@ -384,13 +420,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.SqlDataSource dtasrcEmployeeContact;
 
         /// <summary>
-        /// dtasrcMoveInfo control.
+        /// dtasrcAuctionInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcMoveInfo;
+        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcAuctionInfo;
 
         /// <summary>
         /// dtasrcCharges control.
