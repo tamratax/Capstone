@@ -208,6 +208,8 @@ Create table AuctionServiceOrder(
 	NumberEmp		 varchar(255),
 	Charging		 varchar(255),
 	TrashDescription varchar(255),
+	FinalDate	 varchar(30),
+	FinalTime	 varchar(30),
 
 );
 
