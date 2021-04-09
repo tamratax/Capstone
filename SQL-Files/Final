@@ -75,13 +75,13 @@ itemCB varchar(50)
 
 Create table AuctionAssessment(
 AuctionAssessmentID int Identity (1, 1) Primary Key not null,
-	[NumberOfStories] [nvarchar](50) NULL,
-	[DistanceFromTruck] [nvarchar](50) NULL,
-	[TypeOfHome] [nvarchar](50) NULL,
+	[NumberOfStories] [nvarchar](500) NULL,
+	[DistanceFromTruck] [nvarchar](500) NULL,
+	[TypeOfHome] [nvarchar](500) NULL,
 	[TypeofHomeAdd] [nvarchar](1000) NULL,
-	[TruckAccessibility] [nvarchar](50) NULL,
-	[LoadingDoorWalk] [nvarchar](50) NULL,
-	[StepsToHouse] [nvarchar](50) NULL
+	[TruckAccessibility] [nvarchar](500) NULL,
+	[LoadingDoorWalk] [nvarchar](500) NULL,
+	[StepsToHouse] [nvarchar](500) NULL
 );
 
 
@@ -138,13 +138,13 @@ Create Table SCHEDULING(
 
 CREATE TABLE MOVEAssessment(
 	[MoveAssessmentID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	[NumberOfStories] [nvarchar](50) NULL,
-	[DistanceFromTruck] [nvarchar](50) NULL,
-	[TypeOfHome] [nvarchar](50) NULL,
+	[NumberOfStories] [nvarchar](500) NULL,
+	[DistanceFromTruck] [nvarchar](500) NULL,
+	[TypeOfHome] [nvarchar](500) NULL,
 	[TypeofHomeAdd] [nvarchar](1000) NULL,
-	[TruckAccessibility] [nvarchar](50) NULL,
-	[LoadingDoorWalk] [nvarchar](50) NULL,
-	[StepsToHouse] [nvarchar](50) NULL,
+	[TruckAccessibility] [nvarchar](500) NULL,
+	[LoadingDoorWalk] [nvarchar](500) NULL,
+	[StepsToHouse] [nvarchar](500) NULL,
 	
 	);
 
@@ -208,6 +208,8 @@ Create table AuctionServiceOrder(
 	NumberEmp		 varchar(255),
 	Charging		 varchar(255),
 	TrashDescription varchar(255),
+	FinalDate	 varchar(30),
+	FinalTime	 varchar(30),
 
 );
 
