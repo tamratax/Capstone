@@ -191,7 +191,7 @@ namespace Lab3
         {
             //try
             //{
-            string query = "INSERT INTO [CHARGES] (Hours, Amount, Total, ServiceTicketID) Values (@Hours, @Amount, @Total, @ServiceTicketID)";
+            string query = "INSERT INTO [ServiceTicketEmployee] (Hours, Amount, Total, ServiceTicketID) Values (@Hours, @Amount, @Total, @ServiceTicketID)";
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             sqlConnect.Open();
             SqlCommand com = new SqlCommand(query, sqlConnect);

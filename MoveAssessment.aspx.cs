@@ -24,7 +24,7 @@ namespace Lab3
                     lblselected.Text = Session["SelectedCustomerName"].ToString();
 
                     //Pulling in customer's record
-                    String sqlQuery = "Select FirstName + ' ' + LastName as Name from customer where customerid = " + Session["SelectedCustomerID"].ToString();
+                    String sqlQuery = "Select * from customer where customerid = " + Session["SelectedCustomerID"].ToString();
 
                     //Establishes the connection between our web form and database
                     SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
@@ -35,8 +35,14 @@ namespace Lab3
                     //This creates a datatable and fills it
                     DataTable dtForSelect = new DataTable();
                     sqlAdapter.Fill(dtForSelect);
+                    LblCustName.Text = Session["SelectedCustomerName"].ToString();
+                    LblHomeNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
+                    LblCellNumber.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
+                    LblWorkNumber.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
+                    LblEmailText.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
 
-                    lblselected.Text = Convert.ToString(dtForSelect.Rows[0]["Name"]);
+
+                    //lblselected.Text = Convert.ToString(dtForSelect.Rows[0]["Name"]);
                     LblID.Text = Session["SelectedCustomerID"].ToString();
 
                     //Populates service Ddl

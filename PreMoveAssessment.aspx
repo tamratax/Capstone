@@ -3,6 +3,79 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <h1>Preliminary Move Assessment</h1>
+    <h4>Customer Info:</h4>
+    <fieldset>
+        <div class="groupCust">
+            <asp:Label ID="Label1" runat="server" Text="Customer Name: "></asp:Label>
+            &nbsp;
+    <asp:Label ID="LblCustName" runat="server" Text=""></asp:Label>
+
+            <div>
+                <asp:Label
+                    ID="LblHomePhone"
+                    runat="server"
+                    Text="Home Phone: "></asp:Label>
+
+                <asp:Label ID="LblHomeNumber"
+                    runat="server"
+                    Text=""
+                    Font-Bold="true"></asp:Label>
+                <br />
+                <asp:Label
+                    ID="LblCellPhone"
+                    runat="server"
+                    Text="   Cell Phone: "></asp:Label>
+
+                <asp:Label
+                    ID="LblCellNumber"
+                    runat="server"
+                    Text=""
+                    Font-Bold="true"></asp:Label>
+                <br />
+                <asp:Label
+                    ID="LblWorkPhone"
+                    runat="server"
+                    Text="   Work Phone: "></asp:Label>
+
+                <asp:Label
+                    ID="LblWorkNumber"
+                    runat="server"
+                    Text=""
+                    Font-Bold="true"></asp:Label>
+                <br />
+                <asp:Label
+                    ID="LblEmail"
+                    runat="server"
+                    Text="Email:"></asp:Label>
+
+                <asp:Label
+                    ID="LblEmailText"
+                    runat="server"
+                    Text=""
+                    Font-Bold="true"></asp:Label>
+            </div>
+
+            <div>
+                <asp:GridView ID="GridAddress"
+                    runat="server"
+                    DataSourceID="dtasrcAddress"
+                    CausesValidation="false"
+                    AutoGenerateColumns="false"
+                    DataKeyNames="AddressID"
+                    CsssClass="table justify-content-center">
+                    <Columns>
+                        <asp:CommandField ShowEditButton="true" ShowDeleteButton="true" ButtonType="Button" />
+                        <asp:BoundField DataField="AddressID" Visible="false" />
+                        <asp:BoundField DataField="Street" HeaderText="Street" />
+                        <asp:BoundField DataField="City" HeaderText="City" />
+                        <asp:BoundField DataField="State" HeaderText="State" />
+                        <asp:BoundField DataField="Zip" HeaderText="Zip" />
+                        <asp:BoundField DataField="Description" HeaderText="Description" />
+                    </Columns>
+                </asp:GridView>
+            </div>
+        </div>
+    </fieldset>
      <div class="form-group">
         <label>What day do you have to be out by?</label>
          <asp:TextBox ID="DateOutTxt" runat="server" TextMode="Date"
@@ -122,7 +195,16 @@
     <asp:Label ID="LblSaveStatus" runat="server" Text=""></asp:Label>
 
 
-
+    <asp:SqlDataSource ID="dtasrcAddress"
+        runat="server"
+        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        SelectCommand="SELECT * from Address join customer on Customer.CustomerID = Address.CustomerID where Customer.CustomerID = @CustomerID"
+        DeleteCommand="DELETE ADDRESS where AddressID = @AddressID"
+        UpdateCommand="UPDATE ADDRESS set Street = @Street, City = @City, State = @State, Zip = @Zip, Description = @Description where AddressID = @AddressID">
+        <SelectParameters>
+            <asp:SessionParameter Name="CustomerID" SessionField="SelectedCustomerID" DefaultValue="" />
+        </SelectParameters>
+    </asp:SqlDataSource>
 
 
 
