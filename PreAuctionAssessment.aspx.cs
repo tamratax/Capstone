@@ -178,11 +178,12 @@ namespace Lab3
             txtTrashDescription.Text = "";
             ChkbxPhotos.Checked = false;
             ChkbxItems.Checked = false;
+            ddlInitiating.SelectedIndex = 0;
         }
 
         protected void ddlInitiating_DataBound(object sender, EventArgs e)
         {
-            //Sets Service list ddl to default of select
+            //Sets emp list ddl to default of select
             ListItem blankOption = new ListItem("Select", "-1");
             ddlInitiating.Items.Insert(0, blankOption);
             ddlInitiating.SelectedIndex = 0;

@@ -84,7 +84,7 @@ namespace Lab3
             // Close all related connections
             sqlConnect.Close();
 
-            string sqlService = "INSERT INTO ServiceTicket (CustomerID, TicketOpenDate, ServiceType, PreMoveAssessmentID) VALUES (@CustomerID, @TicketOpenDate, @ServiceType, (Select TOP 1 PreMoveAssessmentID from PreMoveAssessment order by PreMoveAssessmentID desc))";
+            string sqlService = "INSERT INTO ServiceTicket (CustomerID, TicketOpenDate, ServiceType, PreMoveAssessmentID, InitiatingEmp) VALUES (@CustomerID, @TicketOpenDate, @ServiceType, (Select TOP 1 PreMoveAssessmentID from PreMoveAssessment order by PreMoveAssessmentID desc), @InitiatingEmp)";
             //Define the Connection to the Database
             SqlConnection sqlConnect1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -97,6 +97,7 @@ namespace Lab3
             sqlCommand1.Parameters.Add(new SqlParameter("@CustomerID", Session["SelectedCustomerID"].ToString()));   
             sqlCommand1.Parameters.Add(new SqlParameter("@ServiceType", "Move"));
             sqlCommand1.Parameters.Add(new SqlParameter("@TicketOpenDate", DateTime.Now.ToString("yyyy-MM-dd")));
+            sqlCommand1.Parameters.Add(new SqlParameter("@InitiatingEmp", ddlInitiating.SelectedValue.ToString()));
 
             sqlConnect1.Open();
             SqlDataReader queryResults1 = sqlCommand1.ExecuteReader();
@@ -145,8 +146,8 @@ namespace Lab3
             MLSBTN.SelectedValue = "Yes";
             PhotosBtn.SelectedValue = "No";
             PackingChk.Checked = true;
+            ddlInitiating.SelectedIndex = 1;
 
-            
 
 
         }
@@ -163,6 +164,15 @@ namespace Lab3
             MLSBTN.SelectedIndex = -1;
             PhotosBtn.SelectedIndex = -1;
             PackingChk.Checked = false;
+            ddlInitiating.SelectedIndex = 0;
+        }
+
+        protected void ddlInitiating_DataBound(object sender, EventArgs e)
+        {
+            //Sets emp list ddl to default of select
+            ListItem blankOption = new ListItem("Select", "-1");
+            ddlInitiating.Items.Insert(0, blankOption);
+            ddlInitiating.SelectedIndex = 0;
         }
     }
 }
