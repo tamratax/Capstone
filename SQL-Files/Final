@@ -1,3 +1,4 @@
+--drop table Feedback;
 --drop table AuctionBoxes;
 --drop table boxes;
 --drop table room;
@@ -366,6 +367,12 @@ CREATE TABLE AuctionBoxes (
 
 );
 
+Create Table Feedback(
+	FeedbackID int Identity(1,1) Not Null Primary Key,
+	ServiceTicketID		int references ServiceTicket(ServiceTicketID),
+	feedback			varchar(75),
+	comments			varchar(255)
+);
 
 
 ---------------------------------------------
