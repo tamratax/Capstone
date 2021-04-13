@@ -331,97 +331,57 @@
             <label>Type of Address</label>
             <asp:TextBox ID="TxtDescription" Placeholder="Origin, Destination, Primary, etc." CssClass="form-control" runat="server"></asp:TextBox>
         </div>
-        <%-- </asp:TableCell>
-
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>--%>
-        <%--                    <asp:Label ID="LblStreet" runat="server" Text="Street:"></asp:Label>--%>
-        <%-- </asp:TableCell>
-                <asp:TableCell>--%>
         <div class="form-group">
             <label>Street</label>
             <asp:TextBox ID="TxtStreet" Placeholder="Street" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
-        <%-- </asp:TableCell>
-
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>--%>
-        <%--                    <asp:Label ID="LblCity" runat="server" Text="City:"></asp:Label>--%>
-        <%--</asp:TableCell>
-                <asp:TableCell>--%>
         <div class="form-group">
             <label>City</label>
-            <asp:TextBox ID="TxtCity" Placeholder="City" CssClasss="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TxtCity"
+                Placeholder="City"
+                CssClasss="form-control"
+                runat="server"></asp:TextBox>
         </div>
-        <%-- </asp:TableCell>
-
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>--%>
-        <asp:Label ID="LblState" runat="server" Text="State:"></asp:Label>
-        <%-- </asp:TableCell>
-                <asp:TableCell>--%>
-        <asp:TextBox ID="TxtState" runat="server"></asp:TextBox>
-        <%--</asp:TableCell>
-
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>--%>
-        <asp:Label ID="LblZip" runat="server" Text="Zip: "></asp:Label>
-        <%-- </asp:TableCell>
-                <asp:TableCell>--%>
-        <asp:TextBox ID="TxtZip" runat="server"></asp:TextBox>
-        <%--</asp:TableCell>
-
-            </asp:TableRow>
-
-            <asp:TableRow>
-                <asp:TableCell>--%>
+        <div class="form-group">
+            <label>State</label>
+            <asp:TextBox ID="TxtState"
+                Placeholder="State"
+                CssClass="form-control"
+                runat="server"></asp:TextBox>
+        </div>
+        <div class="form-group">
+            <label>Zip</label>
+            <asp:TextBox ID="TxtZip"
+                Placeholder="Zip"
+                CssClass="form-control"
+                runat="server"></asp:TextBox>
+        </div>
         <asp:Button ID="BtnAddAddress" runat="server" Text="Add Address ->" OnClick="BtnAddAddress_Click" />
-        <%-- </asp:TableCell>
-            </asp:TableRow>
-        </asp:Table>--%>
     </div>
     <br />
 
     <div runat="server" id="divVehicle">
-        <asp:Table ID="tblvehicle" runat="server">
-            <asp:TableRow>
-                <asp:TableCell>
-                <h2>Vehicle Information</h2>
-                </asp:TableCell>
+        <h2>Vehicle Information</h2>
+        <div class="form-group">
+            <label>Mileage</label>
+            <asp:TextBox ID="TxtMileage" Placeholder="Mileage" CssClass="form-control" runat="server"></asp:TextBox>
+        </div>
+        <div class="form-group">
+            <label>Trucks Used</label>
+            <asp:DropDownList
+                ID="DDLVehicle"
+                runat="server"
+                class="form-control"
+                OnDataBound="DDLVehicle_DataBound"
+                DataSourceID="datasrcVehicle"
+                DataTextField="EquipmentType"
+                DataValueField="EquipmentID">
+            </asp:DropDownList>
+        </div>
+        <asp:Button ID="BtnAddVehicle" runat="server" Text="Add Vehicle ->" OnClick="BtnAddVehicle_Click" />
+        <%--                </asp:TableCell>
             </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="LblMileage" runat="server" Text="Mileage:"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:TextBox ID="TxtMileage" runat="server"></asp:TextBox>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="LblTrucks" runat="server" Text="Trucks Used:"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:DropDownList
-                        ID="DDLVehicle"
-                        runat="server"
-                        OnDataBound="DDLVehicle_DataBound"
-                        DataSourceID="datasrcVehicle"
-                        DataTextField="EquipmentType"
-                        DataValueField="EquipmentID">
-                    </asp:DropDownList>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Button ID="BtnAddVehicle" runat="server" Text="Add Vehicle ->" OnClick="BtnAddVehicle_Click" />
-                </asp:TableCell>
-            </asp:TableRow>
-        </asp:Table>
+        </asp:Table>--%>
         <fieldset>
             <legend>Vehicles Used</legend>
             <asp:GridView ID="grdvwvehicles"
@@ -478,8 +438,11 @@
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
+        <div class="form-group">
+            <label>Select an Option Below</label>
                     <asp:DropDownList
                         ID="DDLTravel"
+                        class="form-control"
                         runat="server"
                         AutoPostBack="true"
                         OnSelectedIndexChanged="DDLTravel_SelectedIndexChanged"
@@ -489,6 +452,7 @@
                         <asp:ListItem Value="LoadTime"> Load Time </asp:ListItem>
                         <asp:ListItem Value="UnloadTime"> Unload Time </asp:ListItem>
                     </asp:DropDownList>
+            </div>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
