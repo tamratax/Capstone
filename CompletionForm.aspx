@@ -186,8 +186,6 @@
                 <asp:BoundField DataField="Cost" HeaderText="Amount" DataFormatString="{0:C}" />
                 <asp:BoundField DataField="AdditionalExpenses" HeaderText="Add. Expenses" DataFormatString="{0:C}" />
                 <asp:BoundField DataField="CompleteStatus" HeaderText="Completed Status" />
-
-
             </Columns>
 
         </asp:GridView>
@@ -204,11 +202,10 @@
                 ID="DDLPaymentType"
                 runat="server"
                 AutoPostBack="true"
-                OnSelectedIndexChanged="DDLPaynentType_SelectedIndexChanged"
-                class="form-control"
-                OnDataBound="DDLPaynentType_DataBound">
+                class="form-control">
 
-                <asp:ListItem Value="CreditCard"> Credit Card</asp:ListItem>
+                <asp:ListItem Value="-1">Select</asp:ListItem>
+                <asp:ListItem Value="Credit Card"> Credit Card</asp:ListItem>
                 <asp:ListItem Value="Check"> Check </asp:ListItem>
                 <asp:ListItem Value="Cash"> Cash</asp:ListItem>
             </asp:DropDownList>

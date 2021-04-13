@@ -65,14 +65,14 @@ namespace Lab3
                     Response.Redirect("Navigation.aspx");
 
                 }
-            
+
 
 
             }
             if (!IsPostBack)
             {
                 divEmp.Visible = false;
-               
+
                 divPayment.Visible = false;
                 divAddress.Visible = false;
                 divVehicle.Visible = false;
@@ -80,44 +80,6 @@ namespace Lab3
             }
         }
 
-        //protected void DDLCust_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (DDLCust.SelectedValue != "-1")
-        //        {
-        //            //Populates service Ddl
-        //            DDLType.DataTextField = "Services";
-        //            DDLType.DataValueField = "ServiceTicketID";
-
-        //            String sqlQueryService = "Select ServiceTicketID, ServiceType + ' ' + ServiceDate 'Services' from ServiceTicket where ServiceType = 'Move' AND customerID = " + Session["SelectedCustomerID"].ToString();
-
-
-        //            SqlConnection sqlConnectService = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
-
-        //            SqlDataAdapter sqlAdapterService = new SqlDataAdapter(sqlQueryService, sqlConnectService);
-
-        //            DataTable dtForDdlServiceList = new DataTable();
-        //            sqlAdapterService.Fill(dtForDdlServiceList);
-
-        //            DDLType.DataSource = dtForDdlServiceList;
-        //            DDLType.DataBind();
-        //        }
-
-        //    }
-        //    catch
-        //    {
-        //        LblStatus.Text = "Database Error!";
-        //    }
-        //}
-
-        //protected void DDLCust_DataBound(object sender, EventArgs e)
-        //{
-        //    //Sets Service list ddl to default of select
-        //    ListItem blankOption = new ListItem("Select", "-1");
-        //    DDLCust.Items.Insert(0, blankOption);
-        //    DDLCust.SelectedIndex = 0;
-        //}
 
         protected void DDLType_DataBound(object sender, EventArgs e)
         {
@@ -176,22 +138,7 @@ namespace Lab3
             {
                 LblStatus.Text = "Database Error!";
             }
-
-
-
         }
-
-        protected void DDLPaynentType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void DDLPaynentType_DataBound(object sender, EventArgs e)
-        {
-
-        }
-
-
 
         protected void DDLVehicle_DataBound(object sender, EventArgs e)
         {
@@ -228,7 +175,7 @@ namespace Lab3
             }
         }
 
-       
+
 
         protected void BtnAddAddress_Click(object sender, EventArgs e)
         {
@@ -316,7 +263,7 @@ namespace Lab3
 
         protected void DDLTravel_DataBound(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void btntravel_Click(object sender, EventArgs e)
@@ -333,7 +280,7 @@ namespace Lab3
                 com.Parameters.AddWithValue("EndTime", Txtend.Text);
                 com.Parameters.AddWithValue("Hours", txthrs.Text);
                 com.Parameters.AddWithValue("ServiceID", DDLType.SelectedValue.ToString());
-        
+
 
                 com.ExecuteNonQuery();
                 sqlConnect.Close();
@@ -374,7 +321,7 @@ namespace Lab3
 
             }
 
-           
+
             sqlConnect.Close();
         }
 
@@ -382,33 +329,33 @@ namespace Lab3
         {
             //try
             //{
-                string query = "INSERT INTO [PAYMENT] (PaymentType, Cost, AdditionalExpenses, CompleteStatus, ServiceTicketID) Values (@PaymentType, @Cost, @AdditionalExpenses, @CompleteStatus, @ServiceID)";
-                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-                sqlConnect.Open();
-                SqlCommand com = new SqlCommand(query, sqlConnect);
+            string query = "INSERT INTO [PAYMENT] (PaymentType, Cost, AdditionalExpenses, CompleteStatus, ServiceTicketID) Values (@PaymentType, @Cost, @AdditionalExpenses, @CompleteStatus, @ServiceID)";
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            sqlConnect.Open();
+            SqlCommand com = new SqlCommand(query, sqlConnect);
 
-                com.Parameters.AddWithValue("PaymentType", DDLPaymentType.SelectedValue.ToString());
-                com.Parameters.AddWithValue("Cost", TxtFinalCost.Text);
-                com.Parameters.AddWithValue("AdditionalExpenses", TxtAdditionalExpense.Text);
-                string completed = "";
-                if (ChkBoxPayment.Checked)
-                {
-                    completed = "Yes";
-                }
-                else
-                {
-                    completed = "No";
-                }
-                com.Parameters.AddWithValue("CompleteStatus", completed);
-                com.Parameters.AddWithValue("ServiceID", DDLType.SelectedValue.ToString());
+            com.Parameters.AddWithValue("PaymentType", DDLPaymentType.SelectedValue.ToString());
+            com.Parameters.AddWithValue("Cost", TxtFinalCost.Text);
+            com.Parameters.AddWithValue("AdditionalExpenses", TxtAdditionalExpense.Text);
+            string completed = "";
+            if (ChkBoxPayment.Checked)
+            {
+                completed = "Yes";
+            }
+            else
+            {
+                completed = "No";
+            }
+            com.Parameters.AddWithValue("CompleteStatus", completed);
+            com.Parameters.AddWithValue("ServiceID", DDLType.SelectedValue.ToString());
 
 
-                com.ExecuteNonQuery();
-                sqlConnect.Close();
+            com.ExecuteNonQuery();
+            sqlConnect.Close();
 
-                LblStatus.Text = "Payment sucessfully added!";
+            LblStatus.Text = "Payment sucessfully added!";
 
-                GridPayment.DataBind();
+            GridPayment.DataBind();
 
 
 
