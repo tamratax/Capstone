@@ -173,7 +173,7 @@ namespace Lab2
 
         protected void GridViewCustomers_SelectedIndexChanged(System.Object sender, System.EventArgs e)
         {
-            String sqlQuery = "Select SERVICETICKETID, ServiceDate, CompletionDate, ServiceType from ServiceTicket WHERE CustomerID = @CustomerID";
+            String sqlQuery = "Select SERVICETICKETID, TicketOpenDate, CompletedDate, ServiceType from ServiceTicket WHERE CustomerID = @CustomerID";
             SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
             SqlCommand com = new SqlCommand();
@@ -225,8 +225,8 @@ namespace Lab2
 
             //Equipment Table 
             String sqlQuery2 = "select equipment.EquipmentID, equipmenttype as 'Type' ";
-            sqlQuery2 += "from EQUIPMENT join ASSIGNMENT on EQUIPMENT.EquipmentID = ASSIGNMENT.EquipmentID ";
-            sqlQuery2 += "join ServiceTicket st on ASSIGNMENT.ServiceTicketID = st.ServiceTicketID ";
+            sqlQuery2 += "from EQUIPMENT join ServiceTicketEquipment on EQUIPMENT.EquipmentID = ServiceTicketEquipment.EquipmentID ";
+            sqlQuery2 += "join ServiceTicket st on ServiceTicketEquipment.ServiceTicketID = st.ServiceTicketID ";
             sqlQuery2 += "where st.ServiceTicketID = @ServiceID";
 
             SqlConnection sqlConnect2 = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");

@@ -35,7 +35,8 @@
             </Fields>
             <PagerStyle ForeColor="Blue" Font-Underline="true" />
         </asp:DetailsView>
-
+        <br />
+        <br />
         <asp:GridView ID="grvRoomBoxes"
             runat="server"
             AutoGenerateColumns="false"
@@ -52,7 +53,7 @@
                 <asp:BoundField DataField="BoxQuantity" HeaderText="Quantity" />
             </Columns>
         </asp:GridView>
-
+        <br />
     </div>
     <div class="row">
         <div class="form-group col-md-6">

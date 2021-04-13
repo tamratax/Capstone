@@ -75,22 +75,28 @@ namespace WalkerS_Lab1Part3
                 //LstBoxServiceRequests.DataSource = dtForListBox2;
                 //LstBoxServiceRequests.DataBind();
 
+
+
+
+
+
+
                 //Populates Unfinished Service Ticket listbox
-                LstBoxIncompleteServiceTickets.DataTextField = "Service Ticket";
-                LstBoxIncompleteServiceTickets.DataValueField = "ServiceTicketID";
+                //LstBoxIncompleteServiceTickets.DataTextField = "Service Ticket";
+                //LstBoxIncompleteServiceTickets.DataValueField = "ServiceTicketID";
 
-                String sqlQueryTicket = "Select ServiceTicketID, FirstName + ' ' + LastName + ': ' + ServiceType + ' on '+ ServiceDate +' ->' as 'Service Ticket' from ServiceTicket join Customer on ServiceTicket.CustomerID = Customer.CustomerID where ServiceTicket.Completed = 'False'";
+                //String sqlQueryTicket = "Select ServiceTicketID, FirstName + ' ' + LastName + ': ' + ServiceType + ' on '+ ServiceDate +' ->' as 'Service Ticket' from ServiceTicket join Customer on ServiceTicket.CustomerID = Customer.CustomerID where ServiceTicket.Completed = 'False'";
 
 
-                SqlConnection sqlConnectTicket = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+                //SqlConnection sqlConnectTicket = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
-                SqlDataAdapter sqlAdapterTicket = new SqlDataAdapter(sqlQueryTicket, sqlConnectTicket);
+                //SqlDataAdapter sqlAdapterTicket = new SqlDataAdapter(sqlQueryTicket, sqlConnectTicket);
 
-                DataTable dtForListBox3 = new DataTable();
-                sqlAdapterTicket.Fill(dtForListBox3);
+                //DataTable dtForListBox3 = new DataTable();
+                //sqlAdapterTicket.Fill(dtForListBox3);
 
-                LstBoxIncompleteServiceTickets.DataSource = dtForListBox3;
-                LstBoxIncompleteServiceTickets.DataBind();
+                //LstBoxIncompleteServiceTickets.DataSource = dtForListBox3;
+                //LstBoxIncompleteServiceTickets.DataBind();
             }
         }
 

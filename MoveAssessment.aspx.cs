@@ -24,7 +24,7 @@ namespace Lab3
                     lblselected.Text = Session["SelectedCustomerName"].ToString();
 
                     //Pulling in customer's record
-                    String sqlQuery = "Select FirstName + ' ' + LastName as Name from customer where customerid = " + Session["SelectedCustomerID"].ToString();
+                    String sqlQuery = "Select * from customer where customerid = " + Session["SelectedCustomerID"].ToString();
 
                     //Establishes the connection between our web form and database
                     SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
@@ -35,15 +35,21 @@ namespace Lab3
                     //This creates a datatable and fills it
                     DataTable dtForSelect = new DataTable();
                     sqlAdapter.Fill(dtForSelect);
+                    LblCustName.Text = Session["SelectedCustomerName"].ToString();
+                    LblHomeNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
+                    LblCellNumber.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
+                    LblWorkNumber.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
+                    LblEmailText.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
 
-                    lblselected.Text = Convert.ToString(dtForSelect.Rows[0]["Name"]);
+
+                    //lblselected.Text = Convert.ToString(dtForSelect.Rows[0]["Name"]);
                     LblID.Text = Session["SelectedCustomerID"].ToString();
 
                     //Populates service Ddl
                     DDLType.DataTextField = "Services";
                     DDLType.DataValueField = "ServiceTicketID";
 
-                    String sqlQueryService = "Select ServiceTicketID, ServiceType + ' ' + ServiceDate 'Services' from ServiceTicket where ServiceType = 'Move' AND customerID = " + Session["SelectedCustomerID"].ToString();
+                    String sqlQueryService = "Select ServiceTicketID, ServiceType + ' ' + TicketOPenDate 'Services' from ServiceTicket where ServiceType = 'Move' AND customerID = " + Session["SelectedCustomerID"].ToString();
 
 
                     SqlConnection sqlConnectService = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
@@ -88,7 +94,9 @@ namespace Lab3
         {
             try
             {
-                String sqlQueryService = "SELECT * FROM MOVEINFO WHERE ServiceTicketID = @ServiceTicketID";
+                //String sqlQueryService = "SELECT * FROM MoveAssessment WHERE ServiceTicketID = @ServiceTicketID";
+                String sqlQueryService = "SELECT * FROM ServiceTicket WHERE ServiceTicketID = @ServiceTicketID";
+
 
 
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -103,8 +111,7 @@ namespace Lab3
                 DataTable dtforMoveInfo = new DataTable();
                 sqlAdapterService.Fill(dtforMoveInfo);
 
-
-                if (dtforMoveInfo.Rows.Count > 0)
+                if (dtforMoveInfo.Rows[0]["MoveAssessmentID"].ToString() != "")
                 {
                     divbuttons.Visible = true;
                 }
@@ -136,9 +143,7 @@ namespace Lab3
             //Sets Service list ddl to default of select
             ListItem blankOption = new ListItem("Select", "-1");
             DDLType.Items.Insert(0, blankOption);
-            DDLType.SelectedIndex = 0;
-
-            
+            DDLType.SelectedIndex = 0;           
 
 
         }
@@ -154,34 +159,35 @@ namespace Lab3
         {
             try
             {
-                string query = "INSERT INTO [MOVEEQUIPMENT] (EquipmentID, EquipmentType, ServiceTicketID) Values (@EquipmentID, @EquipmentType, @ServiceTicketID)";
+                string query = "INSERT INTO [ServiceTicketEQUIPMENT] (EquipmentID, ServiceTicketID) Values (@EquipmentID, @ServiceTicketID)";
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                 sqlConnect.Open();
                 SqlCommand com = new SqlCommand(query, sqlConnect);
 
                 com.Parameters.AddWithValue("EquipmentID", DDLVehicle.SelectedValue.ToString());
-                com.Parameters.AddWithValue("EquipmentType", DDLVehicle.SelectedItem.ToString());
                 com.Parameters.AddWithValue("ServiceTicketID", DDLType.SelectedValue.ToString());
 
                 com.ExecuteNonQuery();
                 sqlConnect.Close();
 
+                LblStatus.ForeColor = Color.Green;
                 LblStatus.Text = "Vehicle sucessfully added!";
                 grdvwvehicles.DataBind();
 
-            }
+        }
             catch
             {
-                LblStatus.Text = "Database Error";
+                LblStatus.ForeColor = Color.Red;
+                LblStatus.Text = "Vehicle Already Added!";
             }
-        }
+}
 
         protected void BtnSave_Click(object sender, EventArgs e)
         {
             string additionalinfo = "";
-            try
-            {
-                string query = "UPDATE [MOVEINFO] SET NumberOfStories = @NumberofStories, DistanceFromTruck = @DistanceFromTruck, TypeOfHome = @TypeofHome, TypeofHomeAdd = @TypeAdd, TruckAccessibility = @TruckAccessibility, LoadingDoorWalk = @LoadingDoorWalk, StepsToHouse = @StepsToHouse WHERE ServiceTicketID = @ServiceTicketID";
+            //try
+            //{
+                string query = "UPDATE [MOVEAssessment] SET NumberOfStories = @NumberofStories, DistanceFromTruck = @DistanceFromTruck, TypeOfHome = @TypeofHome, TypeofHomeAdd = @TypeAdd, TruckAccessibility = @TruckAccessibility, LoadingDoorWalk = @LoadingDoorWalk, StepsToHouse = @StepsToHouse from MOVEAssessment join ServiceTicket on MoveAssessment.MoveAssessmentID = ServiceTicket.MoveAssessmentID WHERE ServiceTicketID = @ServiceTicketID";
                 
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                 sqlConnect.Open();
@@ -220,11 +226,11 @@ namespace Lab3
 
             LblSuccess.Text = "Move Info Added";
 
-            }
-            catch
-            {
-
-            }
+            //}
+            //catch
+            //{
+            //    LblSuccess.Text = "Database Error!";
+            //}
         }
 
         protected void DDLTypeofHome_SelectedIndexChanged(object sender, EventArgs e)
@@ -281,27 +287,41 @@ namespace Lab3
 
         protected void LblMoveInfo_Click(object sender, EventArgs e)
         {
-            string query = "INSERT INTO [MOVEINFO] (ServiceTicketID) VALUES (@ServiceTicketID)";
+            //creates blank moveassessment
+            string query = "INSERT INTO [MOVEAssessment] (stepstohouse) VALUES (' ')";
+
+
 
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             sqlConnect.Open();
             SqlCommand com = new SqlCommand(query, sqlConnect);
 
-            com.Parameters.AddWithValue("ServiceTicketID", DDLType.SelectedValue.ToString());
 
             com.ExecuteNonQuery();
             sqlConnect.Close();
 
-            string query1 = "INSERT INTO [MOVECHARGES] (ServiceTicketID) VALUES (@ServiceTicketID)";
+            //Adds moveassessment id to serviceticket
+            string query1 = "UPDATE Serviceticket set MoveassessmentID = (select TOP 1 MoveassessmentID from MoveAssessment order by MoveassessmentID desc) where ServiceTIcketID = " + DDLType.SelectedValue.ToString();
 
             SqlConnection sqlConnect1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             sqlConnect1.Open();
             SqlCommand com1 = new SqlCommand(query1, sqlConnect1);
 
-            com1.Parameters.AddWithValue("ServiceTicketID", DDLType.SelectedValue.ToString());
 
             com1.ExecuteNonQuery();
             sqlConnect1.Close();
+
+
+            string query2 = "INSERT INTO [MOVECHARGES] (ServiceTicketID) VALUES (@ServiceTicketID)";
+
+            SqlConnection sqlConnect2 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            sqlConnect2.Open();
+            SqlCommand com2 = new SqlCommand(query2, sqlConnect2);
+
+            com2.Parameters.AddWithValue("ServiceTicketID", DDLType.SelectedValue.ToString());
+
+            com2.ExecuteNonQuery();
+            sqlConnect2.Close();
 
 
 

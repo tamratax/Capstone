@@ -49,23 +49,20 @@
                         <ul class="collapse list-unstyled" id="pageSubmenu">
                          <%--<ul class="collapse list-unstyled" id="pageSubmenu">--%>
 
-                            <li>
+                            <%--<li>
                                 <a href="AddServiceOrder.aspx">Add Service</a>
-                            </li>
+                            </li>--%>
                             <%--    <li>
                                 <a href="https://outlook.live.com/calendar/0/view/month?login_hint=outlook_B7BAC9A1BE036526%40outlook.com" target="_blank">Scheduling</a>
                             </li>--%>
                             <li>
                                 <a href="AppraisalServiceOrder.aspx">Appraisal Service Order</a>
                             </li>
-                            <li>
+                            <%--<li>
                                 <a href="AuctionInventory.aspx">Walkthrough</a>
-                            </li>
+                            </li>--%>
                             <li>
                                 <a href="PreMoveAssessment.aspx">Pre-Move Assessment</a>
-                            </li>
-                            <li>
-                                <a href="WarehouseAssign.aspx">Assign to Warehouse</a>
                             </li>
                             <li>
                                 <a href="MoveAssessment.aspx">Move Assessment</a>
@@ -74,10 +71,22 @@
                                 <a href="MoveServiceOrderForm.aspx">Move Service Order</a>
                             </li>
                             <li>
-                                <a href="AddNote.aspx">Notes</a>
+                                <a href="WarehouseAssign.aspx">Assign to Warehouse</a>
                             </li>
+                            <%--<li>
+                                <a href="AddNote.aspx">Notes</a>
+                            </li>--%>
                             <li>
                                 <a href="CompletionForm.aspx">Completion Form</a>
+                            </li>
+                            <li>
+                                <a href="PreAuctionAssessment.aspx">Pre-Auction Assessment</a>
+                            </li>
+                            <li>
+                                <a href="AuctionAssessment.aspx">Auction Assessment</a>
+                            </li>
+                              <li>
+                                <a href="AuctionServiceOrder.aspx">Auction Service Order</a>
                             </li>
                             <%--                        </ul>--%>
                             <%--                        <ul class="collapse list-unstyled" id="homeSubmenu">
@@ -146,10 +155,10 @@
                             <a href="WarehouseInventory.aspx">Warehouse
                             </a>
                         </li>
-                        <li>
+                        <%--<li>
                             <a href="LookAt.aspx">Look At Form
                             </a>
-                        </li>
+                        </li>--%>
                         <%-- <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             <i class="fas fa-copy"></i>
                             Pages
@@ -166,12 +175,12 @@
                             </li>
                         </ul>
                     </li>--%>
-                        <li>
+                        <%--<li>
 
                             <a href="#">Reports
                             </a>
 
-                        </li>
+                        </li>--%>
                         <%--                    <li>
                         <a href="#">
                             <i class="fas fa-question"></i>

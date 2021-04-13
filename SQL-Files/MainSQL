@@ -1,3 +1,4 @@
+--drop table Appraisal;
 --drop table MOVESERVICEORDER;
 --drop table movecharges;
 --drop table Boxes;
@@ -329,6 +330,18 @@ CREATE TABLE MOVESERVICEORDER (
 	Charging		varchar(255)
 );
 
+CREATE TABLE APPRAISAL(
+	AppraisalID		int Identity(1,1) Not Null Primary Key,
+	Estate			varchar(10),
+	FamilyDivision	varchar(10),
+	Deadline		varchar(10),
+	DeadlineDate	varchar(10),
+	AppraisalSize	varchar(100),
+	Inventory		varchar(500),
+	MoveAssessment	varchar(10),
+	AuctionAssessment varchar(10),
+	CustomerID		int references Customer(CustomerID)
+);
 
 ---------------------------------------------
 --Adding data to database--
@@ -388,3 +401,5 @@ insert into AUCTIONINVENTORY values ('Looks to need about 15 boxes, 5 large item
 
 insert into SCHEDULING values (1, 'To Schedule Auction', 'Looking to sell 45 things', '2021-04-01', '12:30', 'In-Person');
 insert into SCHEDULING values (2, 'To Schedule Move', 'Looking to move to Harrisonburg', '2021-04-15', '1:30', 'Staunton');
+
+insert into MoveAssessment values ('', '120 feet', 'House', '', 'Good Accessibility', 'Gravel Driveway', '8 steps');

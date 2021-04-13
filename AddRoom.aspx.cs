@@ -81,8 +81,8 @@ namespace Lab3
                 divOtherFloor.Visible = false;
                 divYesBox.Visible = false;
 
-                string query = "INSERT INTO [ROOM] (RoomName, RoomIdentity, RoomFloor, Blankets, RoomNotes, HighValue, Large, Collectible, Electronics, ServiceTicketID, CustomerID) " +
-                    "VALUES (@RoomName, @RoomIdentity, @RoomFloor, @Blankets, @RoomNotes, @HighValue, @Large, @Collectible, @Electronics, @ServiceTicketID, @CustomerID)";
+                string query = "INSERT INTO [ROOM] (RoomName, RoomIdentity, RoomFloor, Blankets, RoomNotes, HighValue, Large, Collectible, Electronics, ServiceTicketID) " +
+                    "VALUES (@RoomName, @RoomIdentity, @RoomFloor, @Blankets, @RoomNotes, @HighValue, @Large, @Collectible, @Electronics, @ServiceTicketID)";
 
 
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);

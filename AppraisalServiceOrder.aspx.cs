@@ -158,7 +158,7 @@ namespace Lab3
                 LblSaveStatus.Text = "Error Saving Appraisal Service Order";
                 LblSaveStatus.ForeColor = Color.Red;
             }
-            
+
         }
 
         protected void BtnPopulate_Click(object sender, EventArgs e)
@@ -178,7 +178,6 @@ namespace Lab3
             ChkBoxEstate.Checked = false;
             ChkBoxDeadline.Checked = false;
             DeadlineHidden.Visible = false;
-            TxtDeadline.Visible = false;
             TxtDeadline.Text = "";
             TxtAppraisalSize.Text = "";
             TxtInventory.Text = "";

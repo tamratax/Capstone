@@ -59,8 +59,8 @@
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" ButtonType="Button" />
                     <asp:BoundField DataField="ServiceTicketID" HeaderText="ServiceTicketID" Visible="false" />
-                    <asp:BoundField DataField="ServiceDate" HeaderText="Service Date" />
-                    <asp:BoundField DataField="CompletionDate" HeaderText="Completion Date" />
+                    <asp:BoundField DataField="TicketOpenDate" HeaderText="Service Date" />
+                    <asp:BoundField DataField="CompletedDate" HeaderText="Completion Date" />
                     <asp:BoundField DataField="ServiceType" HeaderText="Service Type" />
                 </Columns>
 

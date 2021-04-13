@@ -1,0 +1,434 @@
+--drop table AuctionBoxes;
+--drop table boxes;
+--drop table room;
+--drop table AuctionCharges;
+--drop table movecharges;
+--drop table specialequipment;
+--drop table auctionInventory;
+--drop table serviceticketemployee;
+--drop table LookAt;
+--drop table tickethistory;
+--drop table inventory;
+--drop table travel;
+--drop table serviceticketequipment;
+--drop table payment;
+--drop table serviceticketaddress;
+--drop table SERVICETICKET;
+--drop table appraisal;
+--drop table moveserviceorder;
+--drop table notes;
+--drop table premoveassessment;
+--drop table moveassessment;
+--drop table scheduling;
+--drop table warehouse;
+--drop table equipment;
+--drop table SERVICEREQUEST;
+--drop table address;
+--drop table AuctionServiceOrder;
+--drop table AuctionAssessment;
+--drop table PreAuctionAssessment;
+--drop table customer;
+--drop table employee;
+
+
+--Create tables in database
+create table EMPLOYEE (
+	EmployeeID		int identity(1, 1) primary key,
+	EmpFirstName	varchar(255),
+	EmpLastName		varchar(255)
+);
+
+create table CUSTOMER (
+	CustomerID		int not null identity(1, 1) primary key,
+	FirstName		varchar(255),
+	LastName		varchar(255),
+	CellPhone			varchar(15),
+	WorkPhone			varchar(15),
+	HomePhone			varchar(15),
+	Email			varchar(255),
+	CompletedByEmp	int references EMPLOYEE(EmployeeID),
+	DateContacted	nvarchar(20),
+	InitialContactDate nvarchar(20),
+	DeadlineDate	nvarchar(20),
+	ReferralChannel varchar(20),
+	PreferredContactMethod varchar(20),
+	Completed		varchar(10)
+);
+
+
+
+
+Create table PreAuctionAssessment(
+PreAuctionAssessmentID int Identity (1, 1) Primary Key not null,
+haveToSell varchar (250),
+reason varchar (50),
+deadline varchar(75),
+bringinCB varchar(50),
+AuctionWalkCB varchar (50),
+requestLookAt varchar(50),
+PickupCB varchar(50),
+TrashCB varchar(50),
+trashDesc varchar(250),
+photoCB varchar(50),
+itemCB varchar(50)
+);
+
+Create table AuctionAssessment(
+AuctionAssessmentID int Identity (1, 1) Primary Key not null,
+	[NumberOfStories] [nvarchar](500) NULL,
+	[DistanceFromTruck] [nvarchar](500) NULL,
+	[TypeOfHome] [nvarchar](500) NULL,
+	[TypeofHomeAdd] [nvarchar](1000) NULL,
+	[TruckAccessibility] [nvarchar](500) NULL,
+	[LoadingDoorWalk] [nvarchar](500) NULL,
+	[StepsToHouse] [nvarchar](500) NULL
+);
+
+
+
+Create table Address(
+AddressID int identity (1, 1) Primary Key,
+CustomerID		int references Customer(CustomerID),
+Street	varchar(255),
+City		varchar(255),
+State		varchar(255),
+Zip		varchar(20),
+Description		varchar(200)
+);
+
+
+
+create table SERVICEREQUEST	(
+	ServiceRequestID    int not null identity(1, 1) primary key,
+	ServiceType		    char(20),
+	ServiceDate		    varchar(20),
+	RequestDescription  varchar(500),
+	RequestStatus		varchar(10),
+	CustomerID		int references Customer(CustomerID)
+);
+
+
+
+
+create table EQUIPMENT (
+	EquipmentID		int not null identity(1, 1) primary key,
+	EquipmentType	varchar(255)
+);
+
+
+CREATE TABLE WAREHOUSE(
+	WarehouseID int IDENTITY(1,1) NOT NULL primary key,
+	Date varchar(30) NULL,
+	Location varchar(255),
+	Description varchar(max) NULL,
+	CustomerID int NULL
+	);
+	
+	
+Create Table SCHEDULING(
+	SchedulingID int not null identity(1, 1) primary key,
+	CustomerID		int references Customer(CustomerID),
+	Purpose		    varchar(255),
+	Description		varchar(255),
+	Date			varchar(50),
+	Time			varchar(50),
+	MeetingLocation	varchar(255)
+);
+
+
+CREATE TABLE MOVEAssessment(
+	[MoveAssessmentID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[NumberOfStories] [nvarchar](500) NULL,
+	[DistanceFromTruck] [nvarchar](500) NULL,
+	[TypeOfHome] [nvarchar](500) NULL,
+	[TypeofHomeAdd] [nvarchar](1000) NULL,
+	[TruckAccessibility] [nvarchar](500) NULL,
+	[LoadingDoorWalk] [nvarchar](500) NULL,
+	[StepsToHouse] [nvarchar](500) NULL,
+	
+	);
+
+
+
+	
+
+create Table PreMoveAssessment(
+	PreMoveAssessmentID int identity (1,1) Not Null Primary Key,
+	PotentialDate varchar(100),
+	MustBeOut varchar (75),
+	Range1 varchar (100),
+	Range2 varchar (100),
+	MlSListing varchar(10),
+	SendPhotos varchar(25),
+	Packing varchar(25),
+	TrashRemoval varchar(25),
+	TrashRemovalDescription varchar(255),
+	Donation varchar(25),
+	Auction varchar(25));
+
+
+
+CREATE TABLE NOTES (
+	NoteID		int IDENTITY(1,1) NOT NULL Primary Key,
+	DateCreated	varchar(30),
+	NoteText	varchar(max),
+	CustomerID	int references Customer(CustomerID)
+);
+
+
+
+CREATE TABLE MOVESERVICEORDER (
+	MoveServiceID	int Identity(1,1) Not Null Primary Key,
+	PotentialDate	varchar(30),
+	PotentialTime	varchar(30),
+	Packing			varchar(10),
+	Dumpster		varchar(10),
+	NumberEmp		varchar(255),
+	Charging		varchar(255)
+
+);
+
+CREATE TABLE APPRAISAL(
+	AppraisalID		int Identity(1,1) Not Null Primary Key,
+	Estate			varchar(10),
+	FamilyDivision	varchar(10),
+	Deadline		varchar(10),
+	DeadlineDate	varchar(10),
+	AppraisalSize	varchar(100),
+	Inventory		varchar(500),
+	MoveAssessment	varchar(10),
+	AuctionAssessment varchar(10),
+);
+
+Create table AuctionServiceOrder(
+	AuctionServiceOrderID int Identity (1, 1) Primary Key not null,
+	PotentialDate	 varchar(30),
+	PotentialTime	 varchar(30),
+	Dumpster		 varchar(10),
+	NumberEmp		 varchar(255),
+	Charging		 varchar(255),
+	TrashDescription varchar(255),
+	FinalDate	 varchar(30),
+	FinalTime	 varchar(30),
+
+);
+
+
+create table SERVICETICKET (
+	ServiceTicketID	int not null identity(1, 1) primary key,
+	CustomerID		int references Customer(CustomerID),
+	TicketOpenDate	varchar(20),
+	ServiceType		char(20),
+	InitiatingEmp	int references EMPLOYEE(EmployeeID),
+	Status_Service	int,
+	[CompletedDate] [varchar](50),
+	PreMoveAssessmentID		int references PreMoveAssessment(PreMoveAssessmentID),
+	MoveAssessmentID int references MoveAssessment(MoveAssessmentID),
+	MoveServiceID int references MoveServiceOrder(MoveServiceID),
+	PreAuctionAssessmentID int references PreAuctionAssessment(PreAuctionAssessmentID),
+	AuctionAssessmentID int references AuctionAssessment(AuctionAssessmentID),
+	AuctionServiceOrderID int references AuctionServiceOrder(AuctionServiceOrderID),
+	AppraisalID int references Appraisal(AppraisalID)
+);
+
+Create table ServiceTicketAddress(
+AddressID int references Address(AddressID),
+ServiceTicketID int references ServiceTicket(ServiceTicketID), 
+Primary Key(AddressID,ServiceTicketID),
+Description varchar(55) 
+);
+
+CREATE TABLE PAYMENT(
+	[PaymentID] [int] IDENTITY(1,1) NOT NULL Primary Key,
+	[PaymentType] [varchar](50) NULL,
+	[Cost] [float] NULL,
+	[AdditionalExpenses] [nvarchar](50) NULL,
+	[CompleteStatus] [varchar](50) NULL,
+	[ServiceTicketID] [int] references ServiceTicket(ServiceTicketID)
+	);
+
+CREATE TABLE ServiceTicketEquipment(
+	EquipmentID		int references Equipment(EquipmentID),
+	ServiceTicketID	int references SERVICETICKET(ServiceTicketID),
+	primary key (ServiceTicketID, EquipmentID),
+	[Mileage] [nvarchar](50) NULL,
+	);
+
+CREATE TABLE TRAVEL(
+	[TravelID] [int] IDENTITY(1,1) NOT NULL Primary Key,
+	[Description] [varchar](100) NULL,
+	[StartTime] [nvarchar](50) NULL,
+	[EndTime] [nvarchar](50) NULL,
+	[Hours] [float] NULL,
+	ServiceTicketID int references SERVICETICKET(ServiceTicketID)
+	);
+
+create table INVENTORY (
+	ItemID			int not null identity(1, 1) primary key,
+	ServiceTicketID	int references SERVICETICKET(ServiceTicketID),
+	ItemName varchar(50),
+	ItemDescription	varchar(255),
+	ItemCost		float,
+	Quantity int,
+	AddedDate		varchar(255)
+);
+
+create table TICKETHISTORY (
+	TicketHistoryID	int not null identity(1, 1) primary key,
+	TicketChangeDate	varchar(20),
+	NoteTitle		varchar(255),
+	NoteDetails		varchar(500),
+	ServiceTicketID int references SERVICETICKET(ServiceTicketID),
+	EmployeeID	int references Employee(EmployeeID)
+);
+
+create Table LookAt(
+LookAtID int identity(1, 1)  Not Null Primary Key,
+TruckAccess varchar(1000),
+Supplies varchar (1000),
+Boxes varchar(1000),
+Crew varchar(1000),
+Trucks varchar(1000),
+ServiceTicketID int references SERVICETICKET(ServiceTicketID),
+CustomerID int references Customer(CustomerID)
+);
+
+CREATE TABLE ServiceTicketEmployee(
+	EmployeeID int references Employee(EmployeeID),
+	ServiceTicketID int references ServiceTicket(ServiceTicketID), 
+	Primary Key(EmployeeID,ServiceTicketID),
+	Hours float NULL,
+	Amount float NULL,
+	Total float NULL
+);
+
+	
+Create Table AUCTIONINVENTORY(
+	AuctionInventoryID int not null identity(1, 1) primary key,
+	AuctionNotes		varchar(200),
+	ServiceTicketID	int references SERVICETICKET(ServiceTicketID)
+);
+
+CREATE TABLE SPECIALEQUIPMENT(
+	[SpecialEquipmentID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[EquipmentType] [nvarchar](100) NULL,
+	[Quantity] [int] NULL,
+	ServiceTicketID int references ServiceTicket(ServiceTicketID)
+	);
+CREATE TABLE MOVECHARGES(
+	[MOVECHARGEID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[MoveEstimate] [float] NULL,
+	[FixedRate] [float] NULL,
+	[PackingFees] [float] NULL,
+	[StorageFees] [float] NULL,
+	[TrashRemovalFee] [float] NULL,
+	[TotalCharges] [float] NULL,
+	ServiceTicketID int references ServiceTicket(ServiceTicketID)
+	);
+
+	CREATE TABLE AuctionCharges(
+	[AuctionCHARGEID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	PickupFee		float,
+	ConsignmentRate float,
+	TrashRemovalFee float,
+	AdditionalFees	float,
+	TotalCharges	float,
+	ServiceTicketID int references ServiceTicket(ServiceTicketID)
+	);
+Create Table ROOM (
+	RoomID			int Identity(1,1) Not Null Primary Key,
+	RoomName		varchar(100),
+	RoomIdentity	varchar(100),
+	RoomFloor		varchar(100),
+	Blankets		varchar(255),
+	RoomNotes		varchar(max),
+	HighValue		varchar(max),
+	Large			varchar(max),
+	Collectible		varchar(max),
+	Electronics		varchar(max),
+	ServiceTicketID int references ServiceTicket(ServiceTicketID)
+
+);
+
+CREATE TABLE BOXES (
+	BoxesID		int Identity(1,1) Not Null Primary Key,
+	RoomID		int references Room(RoomID),
+	BoxType		varchar(255),
+	BoxQuantity	int
+
+);
+
+CREATE TABLE AuctionBoxes (
+	BoxesID				int Identity(1,1) Not Null Primary Key,
+	ServiceTicketID		int references ServiceTicket(ServiceTicketID),
+	BoxType				varchar(255),
+	BoxQuantity			int
+
+);
+
+
+
+---------------------------------------------
+--Adding data to database--
+---------------------------------------------
+insert into PreMoveAssessment values ('2021-05-12', '2021-05-30', '2021-04-30', '2021-05-15', 'True', 'True', 'True', 'True', 'Large Items', 'True', 'False');
+
+insert into MOVESERVICEORDER values ('2021-07-17', '12:30', 'True', 'True', '3', '$265');
+
+
+
+insert into EMPLOYEE values ('Jack', 'Frost');
+insert into EMPLOYEE values ('Professor', 'Ezell');
+insert into EMPLOYEE values ('Camille', 'Wood');
+
+insert into CUSTOMER values ('Aaron', 'Walsh', '1234567822','123456789', '123456789','walsh@dukes.com', 1, '2021-03-07', '2021-03-05', '2021-03-30', 'From a friend', 'Call Cell', 'False' );
+insert into CUSTOMER values ('Jared', 'Clatterbuck', '1234567890','', '','Clat@dukes.com', 2, '2021-03-07', '2021-03-05', '2021-04-30', 'From a friend', 'Call Home', 'False' );
+insert into CUSTOMER values ('Stu', 'Guy', '','', '1234567890','Guy@dukes.com', 1,'2021-03-07', '2021-03-05', '2021-05-30', 'From a friend', 'Call Work', 'False' );
+
+insert into EQUIPMENT values ('Pickup Truck #1');
+insert into EQUIPMENT values ('Pickup Truck #2');
+insert into EQUIPMENT values ('Forklift');
+insert into EQUIPMENT values ('Box Truck');
+insert into EQUIPMENT values ('Pallet Jack');
+
+
+
+insert into SERVICEREQUEST values ('Move', '2021-06-15', 'We have a lot of things to move this day and will need plenty of help!','Active', 1);
+insert into SERVICEREQUEST values ('Auction', '2021-06-30', 'We want to sell all of our bowls!', 'Active', 1);
+insert into SERVICEREQUEST values ('Move', '2021-01-31', 'Help us!', 'Active', 1);
+
+
+insert into Address values (1, '1502 South High Street', 'Harrisonburg','Virginia', '22801', 'Primary Contact Address');
+insert into Address values (2, '1355 Devon Lane', 'Harrisonburg','Virginia', '22801', 'Primary Contact Address');
+insert into Address values (3, '891 Port Republic Road', 'Harrisonburg','Virginia', '22801', 'Primary Contact Address');
+
+
+insert into SCHEDULING values (1, 'To Schedule Auction', 'Looking to sell 45 things', '2021-04-01', '12:30', 'In-Person');
+insert into SCHEDULING values (2, 'To Schedule Move', 'Looking to move to Harrisonburg', '2021-04-15', '1:30', 'Staunton');
+
+insert into MoveAssessment values ('', '120 feet', 'House', '', 'Good Accessibility', 'Gravel Driveway', '8 steps');
+
+insert into SERVICETICKET values (1, '2021-01-01', 'Move', 1, 25, '2021-02-25', 1, 1, 1, null, null, null, null);
+
+insert into TICKETHISTORY values ('2021-01-01','Fragile','Customer says be careful with his small bowl',1,1);
+insert into TICKETHISTORY values ('2021-01-03','Big Fragile','Customer also says be careful with his big bowl',1,2);
+
+insert into AUCTIONINVENTORY values ('Looks to need about 15 boxes, 5 large items, going to need 4 men and 3 trucks', 1);
+
+insert into ServiceTicketEquipment values (1, 1, '');
+insert into ServiceTicketEquipment values (2, 1, '');
+insert into ServiceTicketEquipment values (3, 1, '');
+
+insert into SPECIALEQUIPMENT values ('Extra Blankets', 3, 1);
+insert into SPECIALEQUIPMENT values ('Piano Dolly', 1, 1);
+
+insert into MOVECHARGES values (250, 75, 50, 50, 30, 455, 1);
+
+insert into ROOM values ('Bedroom', 'Master', '2nd Floor', 'Need 4 blankets', 'Master is the green room, has a big armoire.', 'Jewelery box with about $500 worth of jewels', 'Bedframe is 8footx10ft', 'GI Joes', 'Big TV above wall', 1);
+insert into BOXES values(1, 'Large', 10);
+insert into BOXES values(1, 'Medium', 6);
+
+insert into ServiceTicketEmployee values (1, 1, 3.5, 12.50, 43.75);
+
+insert into INVENTORY values (1,'Bowl','Blue bowl', 500.23,  2, '2021-05-04');
+insert into INVENTORY values (1,'TV','Red bowl', 10000,  3, '2021-05-04');

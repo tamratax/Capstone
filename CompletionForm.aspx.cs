@@ -46,7 +46,7 @@ namespace Lab3
                     DDLType.DataTextField = "Services";
                     DDLType.DataValueField = "ServiceTicketID";
 
-                    String sqlQueryService = "Select ServiceTicketID, ServiceType + ' ' + ServiceDate 'Services' from ServiceTicket where ServiceType = 'Move' AND customerID = " + Session["SelectedCustomerID"].ToString();
+                    String sqlQueryService = "Select ServiceTicketID, ServiceType + ' ' + TicketOpenDate 'Services' from ServiceTicket where ServiceType = 'Move' AND customerID = " + Session["SelectedCustomerID"].ToString();
 
 
                     SqlConnection sqlConnectService = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
@@ -153,19 +153,18 @@ namespace Lab3
         {
             try
             {
-                string query = "INSERT INTO [MOVEEMPLOYEES] (EmployeeID, EmployeeName, ServiceTicketID) Values (@EmployeeID, @EmployeeName, @ServiceTicketID)";
+                string query = "INSERT INTO [SERVICETICKETEMPLOYEE] (EmployeeID, ServiceTicketID) Values (@EmployeeID, @ServiceTicketID)";
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                 sqlConnect.Open();
                 SqlCommand com = new SqlCommand(query, sqlConnect);
 
                 com.Parameters.AddWithValue("EmployeeID", Drplst.SelectedValue.ToString());
-                com.Parameters.AddWithValue("EmployeeName", Drplst.SelectedItem.ToString());
                 com.Parameters.AddWithValue("ServiceTicketID", DDLType.SelectedValue.ToString());
 
                 com.ExecuteNonQuery();
                 sqlConnect.Close();
 
-                LblStatus.Text = "Item sucessfully added!";
+                LblStatus.Text = "Employee sucessfully added!";
                 GridEmployee.DataBind();
 
             }
@@ -192,7 +191,7 @@ namespace Lab3
         {
             //try
             //{
-            string query = "INSERT INTO [CHARGES] (Hours, Amount, Total, ServiceTicketID) Values (@Hours, @Amount, @Total, @ServiceTicketID)";
+            string query = "INSERT INTO [ServiceTicketEmployee] (Hours, Amount, Total, ServiceTicketID) Values (@Hours, @Amount, @Total, @ServiceTicketID)";
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             sqlConnect.Open();
             SqlCommand com = new SqlCommand(query, sqlConnect);
@@ -271,13 +270,12 @@ namespace Lab3
         {
             try
             {
-                string query = "INSERT INTO [MOVEEQUIPMENT] (EquipmentID, EquipmentType, Mileage, ServiceTicketID) Values (@EquipmentID, @EquipmentType, @Mileage, @ServiceTicketID)";
+                string query = "INSERT INTO [SERVICETICKETEQUIPMENT] (EquipmentID, Mileage, ServiceTicketID) Values (@EquipmentID, @Mileage, @ServiceTicketID)";
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                 sqlConnect.Open();
                 SqlCommand com = new SqlCommand(query, sqlConnect);
 
                 com.Parameters.AddWithValue("EquipmentID", DDLVehicle.SelectedValue.ToString());
-                com.Parameters.AddWithValue("EquipmentType", DDLVehicle.SelectedItem.ToString());
                 com.Parameters.AddWithValue("Mileage", TxtMileage.Text);
                 com.Parameters.AddWithValue("ServiceTicketID", DDLType.SelectedValue.ToString());
 
@@ -300,13 +298,12 @@ namespace Lab3
         {
             try
             {
-                string query = "INSERT INTO [ADDRESS] (CustomerID, ServiceTicketID, Street, City, State, Zip, Description) Values (@CustomerID, @ServiceID, @Street, @City, @State, @Zip, @Description)";
+                string query = "INSERT INTO [ADDRESS] (CustomerID, Street, City, State, Zip, Description) Values (@CustomerID, @Street, @City, @State, @Zip, @Description)";
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                 sqlConnect.Open();
                 SqlCommand com = new SqlCommand(query, sqlConnect);
 
                 com.Parameters.AddWithValue("CustomerID", Session["SelectedCustomerID"].ToString());
-                com.Parameters.AddWithValue("ServiceID", DDLType.SelectedValue.ToString());
                 com.Parameters.AddWithValue("Street", TxtStreet.Text);
                 com.Parameters.AddWithValue("City", TxtCity.Text);
                 com.Parameters.AddWithValue("State", TxtState.Text);
@@ -405,7 +402,7 @@ namespace Lab3
                 com.ExecuteNonQuery();
                 sqlConnect.Close();
 
-                LblStatus.Text = "Tracel Log sucessfully updated!";
+                LblStatus.Text = "Travel Log sucessfully updated!";
                 GridTravel.DataBind();
 
             }
@@ -490,14 +487,16 @@ namespace Lab3
 
         protected void btnComplete_Click(object sender, EventArgs e)
         {
-            string query = "INSERT INTO [COMPLETED] (CompletedDate, ServiceTicketID, CustomerID) Values (@CompletedDate, @ServiceTicketID, @CustomerID)";
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-            sqlConnect.Open();
-            SqlCommand com = new SqlCommand(query, sqlConnect);
+            //Add form ID to serviceTicket
+            string query1 = "UPDATE Serviceticket set CompletedDate = '" + System.DateTime.Today.ToString("yyyy-MM-dd") + "', Status_Service = 100 where ServiceTicketID = " + DDLType.SelectedValue.ToString();
 
-            com.Parameters.AddWithValue("CompletedDate", System.DateTime.Today.ToString("yyyy-MM-dd"));
-            com.Parameters.AddWithValue("ServiceTicketID", DDLType.SelectedValue);
-            com.Parameters.AddWithValue("CustomerID", Session["SelectedCustomerID"].ToString());
+            SqlConnection sqlConnect1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            sqlConnect1.Open();
+            SqlCommand com1 = new SqlCommand(query1, sqlConnect1);
+
+
+            com1.ExecuteNonQuery();
+            sqlConnect1.Close();
 
             var fromAddress = new MailAddress("RoCoConsulting1@gmail.com", "From RoCoConsulting");
             var toAddress = new MailAddress("meharida@dukes.jmu.edu", "To Name");
@@ -522,10 +521,7 @@ namespace Lab3
             }
 
 
-            com.ExecuteNonQuery();
-            sqlConnect.Close();
-
-            LblSaveStatus.Text = "Service Request Added Successfully";
+            LblSaveStatus.Text = "Completed Successfully";
             LblSaveStatus.ForeColor = Color.Green;
         }
 
