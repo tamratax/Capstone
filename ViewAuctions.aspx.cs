@@ -20,18 +20,18 @@ namespace Lab3
 
         protected void BtnSearch_Click(object sender, EventArgs e)
         {
-            string sqlQueryDuplicate = "Select Customer.CustomerID, Firstname +' '+ Lastname as Name, TicketOpenDate as OpenDate, EmpFirstName + ' ' + EmpLastName as InitiatingEmployee from ServiceTicket join customer on ServiceTicket.CustomerID = Customer.CustomerID join employee on employee.employeeID = ServiceTicket.InitiatingEmp where ServiceType = 'Auction' AND  Firstname +' '+ Lastname Like @name order by TicketOpenDate DESC";
+            //    string sqlQueryDuplicate = "Select Customer.CustomerID, Firstname +' '+ Lastname as Name, TicketOpenDate as OpenDate, EmpFirstName + ' ' + EmpLastName as InitiatingEmployee from ServiceTicket join customer on ServiceTicket.CustomerID = Customer.CustomerID join employee on employee.employeeID = ServiceTicket.InitiatingEmp where ServiceType = 'Auction' AND  Firstname +' '+ Lastname Like @name order by TicketOpenDate DESC";
 
-            SqlConnection sqlConnectDuplicate = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
-            sqlConnectDuplicate.Open();
+            //    SqlConnection sqlConnectDuplicate = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+            //    sqlConnectDuplicate.Open();
 
-            SqlCommand sqlCommandInsert = new SqlCommand();
-            sqlCommandInsert.Connection = sqlConnectDuplicate;
-            sqlCommandInsert.CommandType = CommandType.Text;
-            sqlCommandInsert.CommandText = sqlQueryDuplicate;
-            sqlCommandInsert.Parameters.Add(new SqlParameter("@Name", "%" + HttpUtility.HtmlEncode(TxtSearch.Text) + "%"));
+            //    SqlCommand sqlCommandInsert = new SqlCommand();
+            //    sqlCommandInsert.Connection = sqlConnectDuplicate;
+            //    sqlCommandInsert.CommandType = CommandType.Text;
+            //    sqlCommandInsert.CommandText = sqlQueryDuplicate;
+            //    sqlCommandInsert.Parameters.Add(new SqlParameter("@Name", "%" + HttpUtility.HtmlEncode(TxtSearch.Text) + "%"));
 
-            SqlDataAdapter sqlAdapterDuplicate = new SqlDataAdapter(sqlCommandInsert);
+            //    SqlDataAdapter sqlAdapterDuplicate = new SqlDataAdapter(sqlCommandInsert);
             //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
             //SqlDataAdapter sqlAdapterDuplicate = new SqlDataAdapter(sqlQueryDuplicate, sqlConnectDuplicate); <- This is how we originally did it with a DataAdapter
 
@@ -44,14 +44,21 @@ namespace Lab3
             //GridviewMoves.DataBind();
             //GridviewMoves.Visible = true;
 
-            DataSet ds = new DataSet();
+            //DataSet ds = new DataSet();
 
-            sqlAdapterDuplicate.Fill(ds);
+            //sqlAdapterDuplicate.Fill(ds);
 
-            GridviewAuction.DataSource = ds;
+            //GridviewAuction.DataSource = ds;
 
-            GridviewAuction.DataBind();
+            //GridviewAuction.DataBind();
             GridviewAuction.Visible = true;
+            GvShowAll.Visible = false;
+        }
+
+        protected void BtnLoadAll_Click(object sender, EventArgs e)
+        {
+            GridviewAuction.Visible = false;
+            GvShowAll.Visible = true;
         }
     }
 }

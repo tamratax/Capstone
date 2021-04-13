@@ -28,7 +28,7 @@
                  <asp:CommandField ButtonType="Button" />
                     <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" Visible="false" />
                     <asp:BoundField DataField="FirstName" HeaderText="First Name" />
-                    <asp:BoundField DataField="LastName" HeaderText="Last Name" />
+                    <asp:BoundField DataField="LastName" HeaderText="Last Name" SortExpression="LastName" />
                     <asp:BoundField DataField="CellPhone" HeaderText="Cell Phone " />
                     <asp:BoundField DataField="WorkPhone" HeaderText="Work Phone" />
                     <asp:BoundField DataField="HomePhone" HeaderText="HomePhone " />
@@ -54,7 +54,7 @@
                  <asp:CommandField ButtonType="Button" />
                     <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" Visible="false" />
                     <asp:BoundField DataField="FirstName" HeaderText="First Name" />
-                    <asp:BoundField DataField="LastName" HeaderText="Last Name" />
+                    <asp:BoundField DataField="LastName" HeaderText="Last Name" SortExpression="LastName" />
                     <asp:BoundField DataField="CellPhone" HeaderText="Cell Phone " />
                     <asp:BoundField DataField="WorkPhone" HeaderText="Work Phone" />
                     <asp:BoundField DataField="HomePhone" HeaderText="HomePhone " />
