@@ -65,14 +65,14 @@ namespace Lab3
                     Response.Redirect("Navigation.aspx");
 
                 }
-            
+
 
 
             }
             if (!IsPostBack)
             {
                 divEmp.Visible = false;
-                divCharge.Visible = false;
+
                 divPayment.Visible = false;
                 divAddress.Visible = false;
                 divVehicle.Visible = false;
@@ -80,44 +80,6 @@ namespace Lab3
             }
         }
 
-        //protected void DDLCust_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (DDLCust.SelectedValue != "-1")
-        //        {
-        //            //Populates service Ddl
-        //            DDLType.DataTextField = "Services";
-        //            DDLType.DataValueField = "ServiceTicketID";
-
-        //            String sqlQueryService = "Select ServiceTicketID, ServiceType + ' ' + ServiceDate 'Services' from ServiceTicket where ServiceType = 'Move' AND customerID = " + Session["SelectedCustomerID"].ToString();
-
-
-        //            SqlConnection sqlConnectService = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
-
-        //            SqlDataAdapter sqlAdapterService = new SqlDataAdapter(sqlQueryService, sqlConnectService);
-
-        //            DataTable dtForDdlServiceList = new DataTable();
-        //            sqlAdapterService.Fill(dtForDdlServiceList);
-
-        //            DDLType.DataSource = dtForDdlServiceList;
-        //            DDLType.DataBind();
-        //        }
-
-        //    }
-        //    catch
-        //    {
-        //        LblStatus.Text = "Database Error!";
-        //    }
-        //}
-
-        //protected void DDLCust_DataBound(object sender, EventArgs e)
-        //{
-        //    //Sets Service list ddl to default of select
-        //    ListItem blankOption = new ListItem("Select", "-1");
-        //    DDLCust.Items.Insert(0, blankOption);
-        //    DDLCust.SelectedIndex = 0;
-        //}
 
         protected void DDLType_DataBound(object sender, EventArgs e)
         {
@@ -136,10 +98,6 @@ namespace Lab3
 
         }
 
-        protected void Drplst_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         protected void Drplst_DataBound(object sender, EventArgs e)
         {
@@ -153,13 +111,17 @@ namespace Lab3
         {
             try
             {
-                string query = "INSERT INTO [SERVICETICKETEMPLOYEE] (EmployeeID, ServiceTicketID) Values (@EmployeeID, @ServiceTicketID)";
+                string query = "INSERT INTO [SERVICETICKETEMPLOYEE] (EmployeeID, ServiceTicketID, Hours, Amount, Total) Values (@EmployeeID, @ServiceTicketID, @Hours, @Amount, @Total)";
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                 sqlConnect.Open();
                 SqlCommand com = new SqlCommand(query, sqlConnect);
 
                 com.Parameters.AddWithValue("EmployeeID", Drplst.SelectedValue.ToString());
                 com.Parameters.AddWithValue("ServiceTicketID", DDLType.SelectedValue.ToString());
+                com.Parameters.AddWithValue("Hours", HttpUtility.HtmlEncode(TxtAmount.Text));
+                com.Parameters.AddWithValue("Amount", HttpUtility.HtmlEncode(TxtCharge.Text));
+                double totalWage = Convert.ToDouble(TxtAmount.Text) * Convert.ToDouble(TxtCharge.Text);
+                com.Parameters.AddWithValue("Total", HttpUtility.HtmlEncode(totalWage.ToString()));
 
                 com.ExecuteNonQuery();
                 sqlConnect.Close();
@@ -167,94 +129,15 @@ namespace Lab3
                 LblStatus.Text = "Employee sucessfully added!";
                 GridEmployee.DataBind();
 
+                TxtAmount.Text = "";
+                TxtCharge.Text = "";
+                Drplst.SelectedIndex = 0;
+
             }
             catch
             {
                 LblStatus.Text = "Database Error!";
             }
-
-
-
-        }
-
-        protected void DDLPaynentType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void DDLPaynentType_DataBound(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void BtnCalculate_Click(object sender, EventArgs e)
-        {
-            //try
-            //{
-            string query = "INSERT INTO [ServiceTicketEmployee] (Hours, Amount, Total, ServiceTicketID) Values (@Hours, @Amount, @Total, @ServiceTicketID)";
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-            sqlConnect.Open();
-            SqlCommand com = new SqlCommand(query, sqlConnect);
-
-            com.Parameters.AddWithValue("Hours", HttpUtility.HtmlEncode(TxtCharge.Text.ToString()));
-            com.Parameters.AddWithValue("Amount", HttpUtility.HtmlEncode(TxtAmount.Text.ToString()));
-            com.Parameters.AddWithValue("ServiceTicketID", DDLType.SelectedValue.ToString());
-            double total = Convert.ToDouble(TxtCharge.Text) * Convert.ToDouble(TxtAmount.Text);
-            com.Parameters.AddWithValue("Total", total);
-
-            com.ExecuteNonQuery();
-            sqlConnect.Close();
-
-            LblStatus.Text = "Item sucessfully added!";
-            GridCharges.DataBind();
-
-            //}
-            //catch
-            //{
-            //    LblStatus.Text = "Database Error!";
-            //}
-        }
-
-        protected void BtnSupplies_Click(object sender, EventArgs e)
-        {
-            //try
-            //{
-
-            //Pulling in customer's record
-            string query2 = "SELECT SUM(Total) sum FROM CHARGES WHERE ServiceTicketID = " + DDLType.SelectedValue.ToString();
-
-            //Establishes the connection between our web form and database
-            SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
-
-            //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
-            SqlDataAdapter sqlAdapter = new SqlDataAdapter(query2, sqlConnect);
-
-            //This creates a datatable and fills it
-            DataTable dtForSelect = new DataTable();
-            sqlAdapter.Fill(dtForSelect);
-
-
-
-            double queryresults = Convert.ToDouble(dtForSelect.Rows[0]["sum"]);
-            if (TxtSupplies.Text == "")
-            {
-                TxtSupplies.Text = "0";
-            }
-            double trueTotal = Convert.ToDouble(TxtSupplies.Text) + Convert.ToDouble(queryresults);
-            LblCalculate.Text = "$"+trueTotal.ToString();
-
-
-
-            sqlConnect.Close();
-
-            LblStatus.Text = "Item sucessfully added!";
-
-
-            //}
-            //catch
-            //{
-            //    LblStatus.Text = "Database Error!";
-            //}
         }
 
         protected void DDLVehicle_DataBound(object sender, EventArgs e)
@@ -292,7 +175,7 @@ namespace Lab3
             }
         }
 
-       
+
 
         protected void BtnAddAddress_Click(object sender, EventArgs e)
         {
@@ -380,7 +263,7 @@ namespace Lab3
 
         protected void DDLTravel_DataBound(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void btntravel_Click(object sender, EventArgs e)
@@ -397,7 +280,7 @@ namespace Lab3
                 com.Parameters.AddWithValue("EndTime", Txtend.Text);
                 com.Parameters.AddWithValue("Hours", txthrs.Text);
                 com.Parameters.AddWithValue("ServiceID", DDLType.SelectedValue.ToString());
-        
+
 
                 com.ExecuteNonQuery();
                 sqlConnect.Close();
@@ -438,7 +321,7 @@ namespace Lab3
 
             }
 
-           
+
             sqlConnect.Close();
         }
 
@@ -446,33 +329,33 @@ namespace Lab3
         {
             //try
             //{
-                string query = "INSERT INTO [PAYMENT] (PaymentType, Cost, AdditionalExpenses, CompleteStatus, ServiceTicketID) Values (@PaymentType, @Cost, @AdditionalExpenses, @CompleteStatus, @ServiceID)";
-                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-                sqlConnect.Open();
-                SqlCommand com = new SqlCommand(query, sqlConnect);
+            string query = "INSERT INTO [PAYMENT] (PaymentType, Cost, AdditionalExpenses, CompleteStatus, ServiceTicketID) Values (@PaymentType, @Cost, @AdditionalExpenses, @CompleteStatus, @ServiceID)";
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            sqlConnect.Open();
+            SqlCommand com = new SqlCommand(query, sqlConnect);
 
-                com.Parameters.AddWithValue("PaymentType", DDLPaymentType.SelectedValue.ToString());
-                com.Parameters.AddWithValue("Cost", TxtFinalCost.Text);
-                com.Parameters.AddWithValue("AdditionalExpenses", TxtAdditionalExpense.Text);
-                string completed = "";
-                if (ChkBoxPayment.Checked)
-                {
-                    completed = "Yes";
-                }
-                else
-                {
-                    completed = "No";
-                }
-                com.Parameters.AddWithValue("CompleteStatus", completed);
-                com.Parameters.AddWithValue("ServiceID", DDLType.SelectedValue.ToString());
+            com.Parameters.AddWithValue("PaymentType", DDLPaymentType.SelectedValue.ToString());
+            com.Parameters.AddWithValue("Cost", TxtFinalCost.Text);
+            com.Parameters.AddWithValue("AdditionalExpenses", TxtAdditionalExpense.Text);
+            string completed = "";
+            if (ChkBoxPayment.Checked)
+            {
+                completed = "Yes";
+            }
+            else
+            {
+                completed = "No";
+            }
+            com.Parameters.AddWithValue("CompleteStatus", completed);
+            com.Parameters.AddWithValue("ServiceID", DDLType.SelectedValue.ToString());
 
 
-                com.ExecuteNonQuery();
-                sqlConnect.Close();
+            com.ExecuteNonQuery();
+            sqlConnect.Close();
 
-                LblStatus.Text = "Payment sucessfully added!";
+            LblStatus.Text = "Payment sucessfully added!";
 
-                GridPayment.DataBind();
+            GridPayment.DataBind();
 
 
 
@@ -528,7 +411,6 @@ namespace Lab3
         protected void btnAddEmp_Click(object sender, EventArgs e)
         {
             divEmp.Visible = true;
-            divCharge.Visible = false;
             divPayment.Visible = false;
             divAddress.Visible = false;
             divVehicle.Visible = false;
@@ -538,7 +420,6 @@ namespace Lab3
 
         protected void btnCharges_Click(object sender, EventArgs e)
         {
-            divCharge.Visible = true;
             divEmp.Visible = false;
             divPayment.Visible = false;
             divAddress.Visible = false;
@@ -550,7 +431,6 @@ namespace Lab3
         {
             divPayment.Visible = true;
             divEmp.Visible = false;
-            divCharge.Visible = false;
             divAddress.Visible = false;
             divVehicle.Visible = false;
             divTravel.Visible = false;
@@ -560,7 +440,6 @@ namespace Lab3
         {
             divAddress.Visible = true;
             divEmp.Visible = false;
-            divCharge.Visible = false;
             divPayment.Visible = false;
             divVehicle.Visible = false;
             divTravel.Visible = false;
@@ -570,7 +449,6 @@ namespace Lab3
         {
             divVehicle.Visible = true;
             divEmp.Visible = false;
-            divCharge.Visible = false;
             divPayment.Visible = false;
             divAddress.Visible = false;
             divTravel.Visible = false;
@@ -580,7 +458,6 @@ namespace Lab3
         {
             divTravel.Visible = true;
             divEmp.Visible = false;
-            divCharge.Visible = false;
             divPayment.Visible = false;
             divAddress.Visible = false;
             divVehicle.Visible = false;
