@@ -7,8 +7,6 @@
     <div>
         <asp:DetailsView ID="dtvRoom"
             runat="server"
-            Height="50px"
-            Width="125px"
             DataSourceID="dtvsrcRoom"
             AutoGenerateRows="false"
             AutoGenerateEditButton="true"
@@ -35,6 +33,7 @@
                 <asp:BoundField DataField="Collectible" HeaderText="Collectibles/Curios" />
                 <asp:BoundField DataField="Electronics" HeaderText="Appliances/Electronics" />
             </Fields>
+            <PagerStyle ForeColor="Blue" Font-Underline="true" />
         </asp:DetailsView>
 
         <asp:GridView ID="grvRoomBoxes"

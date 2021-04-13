@@ -171,7 +171,7 @@ namespace Lab3
         {
             if (ddlService.SelectedIndex != 0)
             {
-                String sqlQuery = "Select TrashRemoval, TrashRemovalDescription from MoveAssessment where CustomerID = " + Session["SelectedCustomerID"].ToString();
+                String sqlQuery = "Select TrashRemoval, TrashRemovalDescription, Donation from MoveAssessment where CustomerID = " + Session["SelectedCustomerID"].ToString();
 
 
                 SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
