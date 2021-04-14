@@ -12,14 +12,8 @@
     <div class="row justify-content-center">
         <h1 class="display-4">Assign to Warehouse</h1>
     </div>
-    <%-- <asp:Table ID="table1" runat="server">
-
-    </asp:Table>--%>
     <br />
     <br />
-    <%-- <asp:Table ID="gridtable" runat="server">
-         <asp:TableRow>
-            <asp:TableCell ColumnSpan="3">--%>
     <div class="row justify-content-center">
     <asp:GridView ID="GridWarehouse"
         runat="server"
@@ -42,21 +36,12 @@
     </asp:GridView>
         </div>
 
-    <%--</asp:TableCell>
-        </asp:TableRow>
-         </asp:Table>--%>
     <br />
     <br />
     <br />
-    <%-- <asp:Table ID="table2" runat="server">
-        <asp:TableRow>
-             <asp:TableCell>--%>
+
     <asp:Label ID="LblLocation" runat="server" Text="Location:"></asp:Label>
-    <%-- </asp:TableCell>--%>
-    <%--            <asp:TableCell>
-                <asp:TextBox ID="TxtLocation" runat="server" TextMode="MultiLine" Rows="5"></asp:TextBox>
-            </asp:TableCell>--%>
-    <%--<asp:TableCell>--%>
+
     <div class="form-group">
         <asp:DropDownList ID="DdlLocation" CssClass="form-control" runat="server">
 
@@ -98,8 +83,7 @@
             <asp:ListItem>Trailer 8, Doors</asp:ListItem>
         </asp:DropDownList>
     </div>
-    <%-- </asp:TableCell>
-             <asp:TableCell>--%>
+
     <asp:RequiredFieldValidator ID="RfvLocation"
         runat="server"
         ControlToValidate="DdlLocation"
@@ -107,28 +91,18 @@
         ForeColor="Red"
         InitialValue="Select"
         ValidationGroup="CreateItem"></asp:RequiredFieldValidator>
-    <%--</asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-             <asp:TableCell>--%>
-    <%--                <asp:Label ID="LblDescription" runat="server" Text="Description:"></asp:Label>--%>
     <div class="form-group">
         <label>Description</label>
         <asp:TextBox ID="TxtDescription" runat="server" Placeholder="Description" CssClass="form-control" TextMode="MultiLine" Rows="5"></asp:TextBox>
     </div>
-    <%-- </asp:TableCell>
-             <asp:TableCell>--%>
+
     <asp:RequiredFieldValidator ID="RequiredFieldValidator2"
         runat="server"
         ControlToValidate="TxtDescription"
         Text="Field Cannot Be Blank"
         ForeColor="Red"
         ValidationGroup="CreateItem"></asp:RequiredFieldValidator>
-    <%--</asp:TableCell>
-        </asp:TableRow>
-                <asp:TableRow>
-            <asp:TableCell>--%>
-<%--    <asp:Label ID="LblDate" runat="server" Text="Date:" />--%>
+
     <div class="form-group">
         <label>Date</label>
         <asp:TextBox ID="TxtDate" TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
@@ -145,7 +119,6 @@
         runat="server"
         ForeColor="Green"></asp:Label>
         </div>
-
     <asp:SqlDataSource ID="dtasrcWarehouse"
         runat="server"
         ConnectionString="<%$ConnectionStrings:Lab3%>"
