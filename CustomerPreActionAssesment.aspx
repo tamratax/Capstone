@@ -9,18 +9,12 @@
     <div class="row justify-content-center">
     <h1 class="display-4">Pre-Auction Assessment</h1>
     </div>
-
     <br />
     <div class="float-right">
     <asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" />
         </div>
-
-    <div class="float-left">
-        <asp:Button ID="BackBtn" runat="server" Text="Home" OnClick="BackBtn_Click" />
-    </div>
     <br />
     <div class="form-group">
-
     </div>
     <div class="form-group">
         <asp:Label ID="lblSell"
@@ -30,22 +24,32 @@
             runat="server"
             TextMode="MultiLine"
             Rows="5" CssClass="form-control"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtWhatToSell" Text="Required" ForeColor="Red" ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
     </div>
 
     <div class="form-row">
         <div class="form-group col-md-6">
-          
             <label>Why are you considering Auction services?</label>
             <asp:DropDownList ID="ddlWhy" runat="server" CssClass="form-control">
-                <asp:ListItem>Select</asp:ListItem>
+                <asp:ListItem Value="-1"> Select</asp:ListItem>
                 <asp:ListItem>Settling an estate</asp:ListItem>
                 <asp:ListItem>Moving and need to downsize</asp:ListItem>
                 <asp:ListItem>Getting rid of some stuff</asp:ListItem>
             </asp:DropDownList>
+        <asp:RequiredFieldValidator
+        ID="RfvCompletedByEmp"
+        runat="server"
+        ErrorMessage="RequiredFieldValidator"
+        ControlToValidate="ddlWhy"
+        Text="This Field Is Required"
+        ForeColor="Red"
+        SetFocusOnError="true"
+        ValidationGroup="SaveGroup"
+        Display="Dynamic"
+        InitialValue="-1"></asp:RequiredFieldValidator>
         </div>
         <br />
         <div class="form-group col-md-6">
-          
             <label>Do you have a deadline?</label>
             <asp:TextBox ID="txtDeadline" runat="server" TextMode="Date" CssClass="form-control"></asp:TextBox>
         </div>
@@ -106,27 +110,9 @@
     <br />
        <div class="text-center">
     <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn-danger" OnClick="btnClear_Click1" />
-    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" CssClass="btn-success" />
+    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" CssClass="btn-success" ValidationGroup="SaveGroup" />
     <asp:Label ID="lblSaveStatus" runat="server" Text=""></asp:Label>
     </div>
        </div>
 
- <%--   <asp:SqlDataSource ID="dtasrcAddress"
-        runat="server"
-        ConnectionString="<%$ConnectionStrings:Lab3%>"
-        SelectCommand="SELECT * from Address join customer on Customer.CustomerID = Address.CustomerID where Customer.CustomerID = @CustomerID"
-        DeleteCommand="DELETE ADDRESS where AddressID = @AddressID"
-        UpdateCommand="UPDATE ADDRESS set Street = @Street, City = @City, State = @State, Zip = @Zip, Description = @Description where AddressID = @AddressID">
-        <SelectParameters>
-            <asp:SessionParameter Name="CustomerID" SessionField="SelectedCustomerID" DefaultValue="" />
-        </SelectParameters>
-    </asp:SqlDataSource>
-
-    <asp:SqlDataSource
-        ID="dtasrcInitiating"
-        runat="server"
-        ConnectionString="<%$ConnectionStrings:Lab3%>"
-        SelectCommand="Select EmployeeID, EmpFirstName + ' ' + EmpLastName as EmployeeName
-                    from Employee Order By EmpLastName ASC"></asp:SqlDataSource>
-</body>--%>
 </asp:Content>

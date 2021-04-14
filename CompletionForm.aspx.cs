@@ -323,9 +323,9 @@ namespace Lab3
 
         protected void btnPayment_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            string query = "INSERT INTO [PAYMENT] (PaymentType, Cost, AdditionalExpenses, CompleteStatus, ServiceTicketID) Values (@PaymentType, @Cost, @AdditionalExpenses, @CompleteStatus, @ServiceID)";
+            try
+            {
+                string query = "INSERT INTO [PAYMENT] (PaymentType, Cost, AdditionalExpenses, CompleteStatus, ServiceTicketID) Values (@PaymentType, @Cost, @AdditionalExpenses, @CompleteStatus, @ServiceID)";
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             sqlConnect.Open();
             SqlCommand com = new SqlCommand(query, sqlConnect);
@@ -357,11 +357,11 @@ namespace Lab3
 
 
 
-            //}
-            //catch
-            //{
-            //    LblStatus.Text = "Database Error!";
-            //}
+            }
+            catch
+            {
+                LblStatus.Text = "Database Error!";
+            }
         }
 
         protected void btnComplete_Click(object sender, EventArgs e)

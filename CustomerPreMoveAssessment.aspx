@@ -12,12 +12,10 @@
     <div class="float-right">
         <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click"/>
         </div>
-    <div class="float-left">
-        <asp:Button ID="BackBtn" runat="server" Text="Home" OnClick="BackBtn_Click" />
-    </div>
-
+ 
     <br />
     <div class="form-group">
+
     </div>
      <div class="form-group">
         <label>What day do you have to be out by?</label>
@@ -91,7 +89,6 @@
         </div>
     </div>
 
-
     <br />
     <asp:Label ID="MlsLbl" runat="server" Text="Is there a MLS listing? "></asp:Label>
     <asp:RadioButtonList ID="MLSBTN" runat="server">
@@ -132,10 +129,6 @@
         </div>
     <br />
     <asp:Label ID="LblSaveStatus" runat="server" Text=""></asp:Label>
-
-
-
-
 
     </div>
 

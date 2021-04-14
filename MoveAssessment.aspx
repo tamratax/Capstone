@@ -91,6 +91,7 @@
         <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click" />
     </div>
         <br />
+        <div class="text-center">
         <asp:Label ID="lblCust" runat="server" Text="Customer Name: "></asp:Label>
         <asp:Label ID="lblselected" runat="server" />
         <asp:Label ID="LblID" runat="server" Visible="false"></asp:Label>
@@ -103,7 +104,9 @@
             AutoPostBack="true"
             OnSelectedIndexChanged="DDLType_SelectedIndexChanged">
         </asp:DropDownList>
-        <br />
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="DDLType" InitialValue="-1" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+        </div>
+            <br />
 
 
         <asp:Button ID="BtnMoveInfo" runat="server" Text="Add Move Assessment" OnClick="LblMoveInfo_Click" Visible="false" />
@@ -156,6 +159,7 @@
                     <asp:ListItem>Storage Unit</asp:ListItem>
                     <asp:ListItem>Place of Business</asp:ListItem>
                 </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="DDLTypeofHome" Text="Required" ForeColor="Red" ValidationGroup="Save" InitialValue="-1"></asp:RequiredFieldValidator>
                 </div>
         <div id ="divapartment" runat="server">
             <div class="form-row">
@@ -275,8 +279,10 @@
                     DataTextField="EquipmentType"
                     DataValueField="EquipmentID">
                 </asp:DropDownList>
+
                 &nbsp;
-            <asp:Button ID="BtnAddCar" runat="server" Text="Add Vehicle" OnClick="BtnAddCar_Click" />
+            <asp:Button ID="BtnAddCar" runat="server" Text="Add Vehicle" OnClick="BtnAddCar_Click" ValidationGroup="AddVehicle" />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="DDLVehicle" Text="Required" ForeColor="Red" ValidationGroup="AddVehicle" InitialValue="-1"></asp:RequiredFieldValidator>
                 <br />
                 <fieldset>
                     <legend><b>Vehicles Used</b></legend>
@@ -303,31 +309,38 @@
                 &nbsp; &nbsp;
                 <asp:TextBox ID="TxtMoveEstimate" runat="server" PlaceHolder="Enter without $"></asp:TextBox>
                 &nbsp;
-                <asp:Button ID="BtnMoveEstimate" runat="server" Text="Add Charge" ForeColor="ForestGreen" OnClick="BtnMoveEstimate_Click" />
+                
+                <asp:Button ID="BtnMoveEstimate" runat="server" Text="Add Charge" ForeColor="ForestGreen" OnClick="BtnMoveEstimate_Click" ValidationGroup="Move" />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtMoveEstimate" Text="Required" ForeColor="Red" ValidationGroup="Move"></asp:RequiredFieldValidator>
                 <br />
                 <asp:Label ID="LblFixedRate" runat="server" Text="Fixed Rate "></asp:Label>
                 &nbsp; &nbsp;
                 <asp:TextBox ID="TxtFixedRate" runat="server" PlaceHolder="Enter without $"></asp:TextBox>
                 &nbsp;
-                <asp:Button ID="BtnFixedRate" runat="server" Text="Add Charge" ForeColor="ForestGreen" OnClick="BtnFixedRate_Click" />
+               
+                <asp:Button ID="BtnFixedRate" runat="server" Text="Add Charge" ForeColor="ForestGreen" OnClick="BtnFixedRate_Click" ValidationGroup="Fixed" />
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtFixedRate" Text="Required" ForeColor="Red" ValidationGroup="Fixed"></asp:RequiredFieldValidator>
                 <br />
                 <asp:Label ID="LblPackingFee" runat="server" Text="Packing Fee: "></asp:Label>
                 &nbsp; &nbsp;
                 <asp:TextBox ID="TxtPackingFee" runat="server" PlaceHolder="Enter without $"></asp:TextBox>
                 &nbsp;
-                <asp:Button ID="BtnPackingFee" runat="server" Text="Add Charge" ForeColor="ForestGreen" OnClick="BtnPackingFee_Click" />
+                <asp:Button ID="BtnPackingFee" runat="server" Text="Add Charge" ForeColor="ForestGreen" OnClick="BtnPackingFee_Click" ValidationGroup="Packing" />
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtPackingFee" Text="Required" ForeColor="Red" ValidationGroup="Packing"></asp:RequiredFieldValidator>
                 <br />
                 <asp:Label ID="LblStorageFee" runat="server" Text="Storage Fee: "></asp:Label>
                 &nbsp; &nbsp;
                 <asp:TextBox ID="TxtStorageFee" runat="server" PlaceHolder="Enter without $"></asp:TextBox>
                 &nbsp;
-                <asp:Button ID="BtnStorageFee" runat="server" Text="Add Charge" ForeColor="ForestGreen" OnClick="BtnStorageFee_Click" />
+                <asp:Button ID="BtnStorageFee" runat="server" Text="Add Charge" ForeColor="ForestGreen" OnClick="BtnStorageFee_Click" ValidationGroup="Storage" />
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtStorageFee" Text="Required" ForeColor="Red" ValidationGroup="Storage"></asp:RequiredFieldValidator>
                 <br />
                 <asp:Label ID="LblTrashRemoval" runat="server" Text="Trash Removal: "></asp:Label>
                 &nbsp; &nbsp;
                 <asp:TextBox ID="TxtTrashRemoval" runat="server" PlaceHolder="Enter without $"></asp:TextBox>
                 &nbsp;
-                <asp:Button ID="BtnTrashRemoval" runat="server" Text="Add Charge" ForeColor="ForestGreen" OnClick="BtnTrashRemoval_Click" />
+                <asp:Button ID="BtnTrashRemoval" runat="server" Text="Add Charge" ForeColor="ForestGreen" OnClick="BtnTrashRemoval_Click" ValidationGroup="Trash" />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtTrashRemoval" Text="Required" ForeColor="Red" ValidationGroup="Trash"></asp:RequiredFieldValidator>
                 <br />
                 <br />
 
@@ -361,7 +374,7 @@
     </div>
     <div class="text-center">
         <asp:Button ID="ClearBtn" runat="server" class="btn btn-danger" Text="Clear" OnClick="ClearBtn_Click" />        
-        <asp:Button ID="BtnSave" runat="server" class="btn btn-success" Text="Save Move Form" OnClick="BtnSave_Click" />
+        <asp:Button ID="BtnSave" runat="server" class="btn btn-success" Text="Save Move Form" OnClick="BtnSave_Click" ValidationGroup="Save" />
         <asp:Label ID="LblSuccess" runat="server" Text="" ForeColor="Green"></asp:Label>
     </div>
     <asp:SqlDataSource ID="dtasrcAddress"

@@ -94,11 +94,13 @@
         DataValueField="EmployeeID"
         OnDataBound="ddlInitiating_DataBound" Width="100%">
     </asp:DropDownList>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" Text="Required" ControlToValidate="ddlInitiating" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
     </div>
      <div class="form-group">
         <label>What day do you have to be out by?</label>
          <asp:TextBox ID="DateOutTxt" runat="server" TextMode="Date"
              class="form-control"></asp:TextBox>
+         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="DateOutTxt" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
          </div>
     <div class="form-row">
     <div class="form-group col-md-6">
@@ -110,11 +112,7 @@
     <asp:TextBox ID="TxtRange2" runat="server" TextMode="Date" class="form-control"></asp:TextBox>
         </div>
         </div>
-    <%--<asp:Label ID="DateOutLbl" runat="server" Text="What Day do you have to be Out By:"></asp:Label>--%>
-    <%--<asp:TextBox ID="DateOutTxt" runat="server" TextMode="Date"></asp:TextBox>--%>
-    <%--<asp:Label ID="RangeLbl" runat="server" Text="Range of Days"></asp:Label>--%>
-   <%-- <asp:TextBox ID="TxtRange1" runat="server" TextMode="Date"></asp:TextBox>--%>
-<%--    <asp:TextBox ID="TxtRange2" runat="server" TextMode="Date"></asp:TextBox>--%>
+   
     <asp:CompareValidator 
         ID="CvRangeCompare" 
         runat="server" 
@@ -131,6 +129,7 @@
     <asp:TextBox ID="DestAddressTxt" runat="server"
         Placeholder="1234 Main St"
         class="form-control"></asp:TextBox>
+         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ValidationGroup="Save" ControlToValidate="DestAddressTxt" Text="Required" ForeColor="Red"></asp:RequiredFieldValidator>
          </div>
      <div class="form-row">
         <div class="form-group col-md-6">
@@ -139,6 +138,8 @@
                 runat="server"
                 class="form-control"
                 Placeholder="City"></asp:TextBox>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator" ValidationGroup="Save" ControlToValidate="DestCityTxt" Text="Required" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="CompareValidator" ValidationGroup="Save" ControlToValidate="DestCityTxt" Operator="DataTypeCheck" Type="String" Text="Please only input letters" ForeColor="Red"></asp:CompareValidator>
         </div>
         <div class="form-group col-md-4">
             <label>State</label>
@@ -146,6 +147,9 @@
                 runat="server"
                 class="form-control"
                 Placeholder="State"></asp:TextBox>
+              <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="RequiredFieldValidator" ValidationGroup="Save" ControlToValidate="DestStateTxt" Text="Required" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:CompareValidator ID="CompareValidator3" runat="server" ErrorMessage="CompareValidator" ValidationGroup="Save" ControlToValidate="DestStateTxt" Operator="DataTypeCheck" Type="String" Text="Please only input letters" ForeColor="Red"></asp:CompareValidator>
+        
         </div>
         <div class="form-group col-md-2">
             <label>Zip</label>
@@ -153,15 +157,11 @@
                 runat="server"
                 class="form-control"
                 Placeholder="Zip"></asp:TextBox>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator" ValidationGroup="Save" ControlToValidate="DestZipTxt" Text="Required" ForeColor="Red"></asp:RequiredFieldValidator>
+
+            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator" ValidationGroup="Save" ControlToValidate="DestZipTxt" Operator="DataTypeCheck" Type="Integer" ForeColor="Red" Text="Please only use letters"></asp:CompareValidator>
         </div>
     </div>
-
-
-<%--    <asp:Label ID="DestinationLbl" runat="server" Text="Destination Address:"></asp:Label>--%>
-<%--    <asp:TextBox ID="DestCityTxt" runat="server"></asp:TextBox>
-    <asp:TextBox ID="DestStateTxt" runat="server"></asp:TextBox>
-    <asp:TextBox ID="DestZipTxt" runat="server"></asp:TextBox>--%>
-<%--    <asp:TextBox ID="DestAddress" runat="server"></asp:TextBox> --%>
 
     <br />
     <asp:Label ID="MlsLbl" runat="server" Text="Is there a MLS listing? "></asp:Label>
@@ -169,12 +169,16 @@
         <asp:ListItem Text="Yes"> </asp:ListItem>
         <asp:ListItem Text="No"></asp:ListItem>
     </asp:RadioButtonList>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator" ValidationGroup="Save" ControlToValidate="MLSBTN" Text="Required" ForeColor="Red"></asp:RequiredFieldValidator>
+
      <br />
      <asp:Label ID="PhotosLbl" runat="server" Text="Can you send Photos? "></asp:Label>
     <asp:RadioButtonList ID="PhotosBtn" runat="server">
         <asp:ListItem Text="Yes"> </asp:ListItem>
         <asp:ListItem Text="No"></asp:ListItem>
     </asp:RadioButtonList>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" ValidationGroup="Save" ControlToValidate="PhotosBtn" Text="Required" ForeColor="Red"></asp:RequiredFieldValidator>
+
     <br />
     <asp:Label ID="AddOnLbl" runat="server" Text="Add on Services"></asp:Label>
     <br />
@@ -195,20 +199,11 @@
         <label>Auction Service: </label>
             <asp:CheckBox ID="AuctionChk" runat="server" />
     </div>
-<%--    <asp:CheckBox ID="PackingChk" runat="server" />--%>
-<%--    <br />
-    <asp:CheckBox ID="TrashChk" runat="server" Text="Trash Removal" />
-    <br />
-    <asp:CheckBox ID="DonationChk" runat="server" Text="Donation Hauling" />
-    <br />
-    <asp:Label ID="AuctionLbl" runat="server" Text="Auction Service:"></asp:Label>
-    <br />
-    <asp:CheckBox ID="AuctionChk" runat="server" />--%>
     <br />
     <div class="text-center">
         <asp:Button ID="ClearBtn" runat="server" Text="Clear" class="btn btn-danger" OnClick="ClearBtn_Click" />
-            <asp:Button ID="SaveBtn" runat="server" Text="Save" class="btn btn-success" OnClick="SaveBtn_Click" />
-        <asp:Label ID="LblSaveStatus" runat="server" Text=""></asp:Label>
+            <asp:Button ID="SaveBtn" runat="server" Text="Save" class="btn btn-success" OnClick="SaveBtn_Click" ValidationGroup="Save" />
+        <asp:Label ID="LblSaveStatus" runat="server" Text="" ></asp:Label>
         </div>
 
     <asp:SqlDataSource ID="dtasrcAddress"

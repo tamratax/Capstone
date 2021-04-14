@@ -30,7 +30,7 @@ namespace Lab2
                 System.Data.SqlClient.SqlCommand findPass = new System.Data.SqlClient.SqlCommand();
                 findPass.Connection = sc;
                 // SELECT PASSWORD STRING WHERE THE ENTERED USERNAME MATCHES
-                findPass.CommandText = "SELECT PasswordHash FROM Pass WHERE Username = @Username";
+                findPass.CommandText = "SELECT PasswordHash, PersonType FROM Pass join Person on Pass.Username = Person.Username WHERE Pass.Username = @Username AND PersonType = 'Employee'";
                 findPass.Parameters.Add(new SqlParameter("@Username", HttpUtility.HtmlEncode(TxtUsername.Text)));
 
                 SqlDataReader reader = findPass.ExecuteReader(); // create a reader
@@ -40,6 +40,8 @@ namespace Lab2
                     while (reader.Read()) // this will read the single record that matches the entered username
                     {
                         string storedHash = reader["PasswordHash"].ToString(); // store the database password into this variable
+
+
 
                         if (PasswordHash.ValidatePassword(TxtPassword.Text, storedHash)) // if the entered password matches what is stored, it will show success
                         {

@@ -2,15 +2,44 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-
-    <body>
-        <link href="Content/AddService.css" rel="stylesheet" />
-    <h1>Appraisal Service Order</h1>
-
+     <link href="Content/AddService.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" />
+   <div class="groupAuction">
+    <div class="row justify-content-center">
+    <h1 class="display-4">Appraisal Service Order</h1>
+    </div>
+    
+       
+    
 
     <br />
 
-    <h2>Create Appraisal Service</h2>
+            
+        <%--<div>
+            <asp:GridView ID="GridAddress"
+                runat="server"
+                DataSourceID="dtasrcAddress"
+                CausesValidation="false"
+                AutoGenerateColumns="false"
+                DataKeyNames="AddressID"
+                CsssClass="table justify-content-center">
+                <Columns>
+                    <asp:CommandField ShowEditButton="true" ShowDeleteButton="true" ButtonType="Button" />
+                    <asp:BoundField DataField="AddressID" Visible="false" />
+                    <asp:BoundField DataField="Street" HeaderText="Street" />
+                    <asp:BoundField DataField="City" HeaderText="City" />
+                    <asp:BoundField DataField="State" HeaderText="State" />
+                    <asp:BoundField DataField="Zip" HeaderText="Zip" />
+                    <asp:BoundField DataField="Description" HeaderText="Description" />
+                </Columns>
+            </asp:GridView>
+        </div>--%>
+        <br />
+        <br />
+    
+    <br />
+
+    
         <div class="float-right">
          <asp:Button ID="BtnPopulate"
                 runat="server"
@@ -45,7 +74,8 @@
 
         <div runat="server" id="DeadlineHidden">
             <label>When is it?</label>
-            <asp:TextBox ID="TxtDeadline" runat="server" TextMode="Date"></asp:TextBox>
+            <asp:TextBox ID="TxtDeadline" runat="server" TextMode="Date" CssClass="form-control"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtDeadline" Text="Required" ForeColor="Red" ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
         </div>
 
     </div>
@@ -55,10 +85,8 @@
             <h5>Size of Appraisal</h5>
         </div>
         <div class="form-group">
-        
             <asp:TextBox ID="TxtAppraisalSize" Placeholder="Size of Appraisal" runat="server" Class="form-control"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtAppraisalSize" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
-
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtAppraisalSize" Text="Required" ForeColor="Red" ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
         </div>
     </div>
     <br />
@@ -69,8 +97,7 @@
         <div class="form-group">
 
             <asp:TextBox ID="TxtInventory" runat="server" Placeholder="Inventory" TextMode="MultiLine" Rows="5" Columns="25" Class="form-control"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtInventory" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
-
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtInventory" Text="Required" ForeColor="Red" ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
         </div>
     </div>
     <br />
@@ -104,22 +131,13 @@
                 runat="server"
                 Text="Clear"
                 OnClick="BtnClear_Click" class="btn btn-danger" />
-            <asp:Button ID="BtnSave" BackColor="LimeGreen" runat="server" Text="Save" OnClick="BtnSave_Click" class="btn btn-success" ValidationGroup="Save"/>
+            <asp:Button ID="BtnSave" BackColor="LimeGreen" runat="server" Text="Save" OnClick="BtnSave_Click" class="btn btn-success" ValidationGroup="SaveGroup" />
             <asp:Label
                 ID="LblSaveStatus"
                 runat="server"
                 Text=""></asp:Label>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-  </body>
+  
 
 </asp:Content>
