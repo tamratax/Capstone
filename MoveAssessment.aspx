@@ -221,13 +221,13 @@
 
                     <Fields>
                         <asp:BoundField DataField="MoveAssessmentID" Visible="false" />
-                        <asp:BoundField DataField="NumberOfStories" HeaderText="Number of Stories:" />
-                        <asp:BoundField DataField="DistanceFromTruck" HeaderText="Distance From Truck:" />
-                        <asp:BoundField DataField="TypeOfHome" HeaderText="Type Of Home:" />
-                        <asp:BoundField DataField="TypeofHomeAdd" HeaderText="Additional Home Notes:" />
-                        <asp:BoundField DataField="TruckAccessibility" HeaderText="Truck Accessibility:" />
-                        <asp:BoundField DataField="LoadingDoorWalk" HeaderText="Loading Conditions:" />
-                        <asp:BoundField DataField="StepsToHouse" HeaderText="Steps to House:" />
+                        <asp:BoundField DataField="NumberOfStories" NullDisplayText="N/A" HeaderText="Number of Stories:" />
+                        <asp:BoundField DataField="DistanceFromTruck" NullDisplayText="N/A" HeaderText="Distance From Truck:" />
+                        <asp:BoundField DataField="TypeOfHome" NullDisplayText="N/A" HeaderText="Type Of Home:" />
+                        <asp:BoundField DataField="TypeofHomeAdd" NullDisplayText="N/A" HeaderText="Additional Home Notes:" />
+                        <asp:BoundField DataField="TruckAccessibility" NullDisplayText="N/A" HeaderText="Truck Accessibility:" />
+                        <asp:BoundField DataField="LoadingDoorWalk" NullDisplayText="N/A" HeaderText="Loading Conditions:" />
+                        <asp:BoundField DataField="StepsToHouse" NullDisplayText="N/A" HeaderText="Steps to House:" />
                     </Fields>
                 </asp:DetailsView>
             </div>
@@ -258,8 +258,8 @@
                     DataKeyNames="SpecialEquipmentID">
                     <Columns>
                         <asp:BoundField DataField="SpecialEquipmentID" Visible="false" />
-                        <asp:BoundField DataField="EquipmentType" HeaderText="Type of Equipment" />
-                        <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
+                        <asp:BoundField DataField="EquipmentType" NullDisplayText="N/A" HeaderText="Type of Equipment" />
+                        <asp:BoundField DataField="Quantity" NullDisplayText="N/A" HeaderText="Quantity" />
                     </Columns>
 
                 </asp:GridView>
@@ -342,12 +342,12 @@
                     DataKeyNames="MOVECHARGEID">
                     <Columns>
                         <asp:BoundField DataField="MOVECHARGEID" Visible="false" />
-                        <asp:BoundField DataField="MoveEstimate" HeaderText="Move Estimate" />
-                        <asp:BoundField DataField="FixedRate" HeaderText="Fixed Rate" />
-                        <asp:BoundField DataField="PackingFees" HeaderText="Packing Fees" />
-                        <asp:BoundField DataField="StorageFees" HeaderText="Storage Fees" />
-                        <asp:BoundField DataField="TrashRemovalFee" HeaderText="Trash Removal" />
-                        <asp:BoundField DataField="TotalCharges" HeaderText="Total Charges" />
+                        <asp:BoundField DataField="MoveEstimate" NullDisplayText="N/A" HeaderText="Move Estimate" />
+                        <asp:BoundField DataField="FixedRate" NullDisplayText="N/A" HeaderText="Fixed Rate" />
+                        <asp:BoundField DataField="PackingFees" NullDisplayText="N/A" HeaderText="Packing Fees" />
+                        <asp:BoundField DataField="StorageFees" NullDisplayText="N/A" HeaderText="Storage Fees" />
+                        <asp:BoundField DataField="TrashRemovalFee" NullDisplayText="N/A" HeaderText="Trash Removal" />
+                        <asp:BoundField DataField="TotalCharges" NullDisplayText="N/A" HeaderText="Total Charges" />
                     </Columns>
 
                 </asp:GridView>
