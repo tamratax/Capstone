@@ -205,9 +205,6 @@
         <br />
         
           <div id="divsave" runat="server">
-              
-            <asp:Button ID="BtnSave" runat="server" BackColor="#32CD32" Text="Save Move Form"  OnClick="BtnSave_Click"/>
-        <asp:Label ID="LblSuccess" runat="server" Text="" ForeColor="Green"></asp:Label>
               <br />
               <br />
         <asp:DetailsView ID="DTLMoveInfo" runat="server" DataSourceID="dtasrcMoveInfo"
