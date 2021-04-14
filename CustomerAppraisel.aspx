@@ -2,10 +2,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-
-    <body>
-        <link href="Content/AddService.css" rel="stylesheet" />
-    <h1>Appraisal Service Order</h1>
+     <link href="Content/AddService.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" />
+   <div class="groupAuction">
+    <div class="row justify-content-center">
+    <h1 class="display-4">Appraisal Service Order</h1>
+    </div>
+    
+       
+    
 
 <%--    <h4>Customer Info:</h4>
     <div class="groupCust">
@@ -81,7 +86,7 @@
     </div>--%>
     <br />
 
-    <h2>Create Appraisal Service</h2>
+    
         <div class="float-right">
          <asp:Button ID="BtnPopulate"
                 runat="server"
@@ -113,7 +118,7 @@
 
         <div runat="server" id="DeadlineHidden">
             <label>When is it?</label>
-            <asp:TextBox ID="TxtDeadline" runat="server" TextMode="Date"></asp:TextBox>
+            <asp:TextBox ID="TxtDeadline" runat="server" TextMode="Date" CssClass="form-control"></asp:TextBox>
         </div>
 
     </div>
@@ -175,7 +180,7 @@
                 Text=""></asp:Label>
         </div>
     </div>
-
+       </div>
 
 
 
@@ -196,6 +201,6 @@
 
 
 
-  </body>
+  
 
 </asp:Content>
