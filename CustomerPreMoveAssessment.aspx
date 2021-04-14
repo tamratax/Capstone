@@ -12,92 +12,10 @@
     <div class="float-right">
         <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click"/>
         </div>
-  <%--  <asp:Label ID="SignedInLbl" runat="server" Text="Signed in as: "></asp:Label>
-    <asp:TextBox ID="SignedInTxt" runat="server" Text=""></asp:TextBox>--%>
-    <%--<h4>Customer Info:</h4>
-    <fieldset>
-        <div class="groupCust">
-            <asp:Label ID="Label1" runat="server" Text="Customer Name: "></asp:Label>
-            &nbsp;
-    <asp:Label ID="LblCustName" runat="server" Text=""></asp:Label>
-
-            <div>
-                <asp:Label
-                    ID="LblHomePhone"
-                    runat="server"
-                    Text="Home Phone: "></asp:Label>
-
-                <asp:Label ID="LblHomeNumber"
-                    runat="server"
-                    Text=""
-                    Font-Bold="true"></asp:Label>
-                <br />
-                <asp:Label
-                    ID="LblCellPhone"
-                    runat="server"
-                    Text="   Cell Phone: "></asp:Label>
-
-                <asp:Label
-                    ID="LblCellNumber"
-                    runat="server"
-                    Text=""
-                    Font-Bold="true"></asp:Label>
-                <br />
-                <asp:Label
-                    ID="LblWorkPhone"
-                    runat="server"
-                    Text="   Work Phone: "></asp:Label>
-
-                <asp:Label
-                    ID="LblWorkNumber"
-                    runat="server"
-                    Text=""
-                    Font-Bold="true"></asp:Label>
-                <br />
-                <asp:Label
-                    ID="LblEmail"
-                    runat="server"
-                    Text="Email:"></asp:Label>
-
-                <asp:Label
-                    ID="LblEmailText"
-                    runat="server"
-                    Text=""
-                    Font-Bold="true"></asp:Label>
-            </div>--%>
-
-            <%--<div>
-                <asp:GridView ID="GridAddress"
-                    runat="server"
-                    DataSourceID="dtasrcAddress"
-                    CausesValidation="false"
-                    AutoGenerateColumns="false"
-                    DataKeyNames="AddressID"
-                    CsssClass="table justify-content-center">
-                    <Columns>
-                        <asp:CommandField ShowEditButton="true" ShowDeleteButton="true" ButtonType="Button" />
-                        <asp:BoundField DataField="AddressID" Visible="false" />
-                        <asp:BoundField DataField="Street" HeaderText="Street" />
-                        <asp:BoundField DataField="City" HeaderText="City" />
-                        <asp:BoundField DataField="State" HeaderText="State" />
-                        <asp:BoundField DataField="Zip" HeaderText="Zip" />
-                        <asp:BoundField DataField="Description" HeaderText="Description" />
-                    </Columns>
-                </asp:GridView>
-            </div>--%>
-       <%-- </div>--%>
-    <%--</fieldset>--%>
+ 
     <br />
     <div class="form-group">
-<%--    <asp:Label ID="lblInitiating" runat="server" Text="Initiating Employee:"></asp:Label>--%>
-<%--    <asp:DropDownList
-        ID="ddlInitiating"
-        runat="server"
-        DataSourceID="dtasrcInitiating"
-        DataTextField="EmployeeName"
-        DataValueField="EmployeeID"
-         OnDataBound="ddlInitiating_DataBound" Width="100%">
-    </asp:DropDownList>--%>
+
     </div>
      <div class="form-group">
         <label>What day do you have to be out by?</label>
@@ -114,11 +32,7 @@
     <asp:TextBox ID="TxtRange2" runat="server" TextMode="Date" class="form-control"></asp:TextBox>
         </div>
         </div>
-    <%--<asp:Label ID="DateOutLbl" runat="server" Text="What Day do you have to be Out By:"></asp:Label>--%>
-    <%--<asp:TextBox ID="DateOutTxt" runat="server" TextMode="Date"></asp:TextBox>--%>
-    <%--<asp:Label ID="RangeLbl" runat="server" Text="Range of Days"></asp:Label>--%>
-   <%-- <asp:TextBox ID="TxtRange1" runat="server" TextMode="Date"></asp:TextBox>--%>
-<%--    <asp:TextBox ID="TxtRange2" runat="server" TextMode="Date"></asp:TextBox>--%>
+
     <asp:CompareValidator 
         ID="CvRangeCompare" 
         runat="server" 
@@ -160,13 +74,6 @@
         </div>
     </div>
 
-
-<%--    <asp:Label ID="DestinationLbl" runat="server" Text="Destination Address:"></asp:Label>--%>
-<%--    <asp:TextBox ID="DestCityTxt" runat="server"></asp:TextBox>
-    <asp:TextBox ID="DestStateTxt" runat="server"></asp:TextBox>
-    <asp:TextBox ID="DestZipTxt" runat="server"></asp:TextBox>--%>
-<%--    <asp:TextBox ID="DestAddress" runat="server"></asp:TextBox> --%>
-
     <br />
     <asp:Label ID="MlsLbl" runat="server" Text="Is there a MLS listing? "></asp:Label>
     <asp:RadioButtonList ID="MLSBTN" runat="server">
@@ -199,15 +106,7 @@
         <label>Auction Service: </label>
             <asp:CheckBox ID="AuctionChk" runat="server" />
     </div>
-<%--    <asp:CheckBox ID="PackingChk" runat="server" />--%>
-<%--    <br />
-    <asp:CheckBox ID="TrashChk" runat="server" Text="Trash Removal" />
-    <br />
-    <asp:CheckBox ID="DonationChk" runat="server" Text="Donation Hauling" />
-    <br />
-    <asp:Label ID="AuctionLbl" runat="server" Text="Auction Service:"></asp:Label>
-    <br />
-    <asp:CheckBox ID="AuctionChk" runat="server" />--%>
+
     <br />
     <div class="text-center">
         <asp:Button ID="ClearBtn" runat="server" Text="Clear" OnClick="ClearBtn_Click" CssClass="btn-danger" />
@@ -215,26 +114,6 @@
         </div>
     <br />
     <asp:Label ID="LblSaveStatus" runat="server" Text=""></asp:Label>
-
-
- <%--   <asp:SqlDataSource ID="dtasrcAddress"
-        runat="server"
-        ConnectionString="<%$ConnectionStrings:Lab3%>"
-        SelectCommand="SELECT * from Address join customer on Customer.CustomerID = Address.CustomerID where Customer.CustomerID = @CustomerID"
-        DeleteCommand="DELETE ADDRESS where AddressID = @AddressID"
-        UpdateCommand="UPDATE ADDRESS set Street = @Street, City = @City, State = @State, Zip = @Zip, Description = @Description where AddressID = @AddressID">
-        <SelectParameters>
-            <asp:SessionParameter Name="CustomerID" SessionField="SelectedCustomerID" DefaultValue="" />
-        </SelectParameters>
-    </asp:SqlDataSource>--%>
-
-    <%--<asp:SqlDataSource
-        ID="dtasrcInitiating"
-        runat="server"
-        ConnectionString="<%$ConnectionStrings:Lab3%>"
-        SelectCommand="Select EmployeeID, EmpFirstName + ' ' + EmpLastName as EmployeeName
-                    from Employee Order By EmpLastName ASC"></asp:SqlDataSource>--%>
-
 
     </div>
 
