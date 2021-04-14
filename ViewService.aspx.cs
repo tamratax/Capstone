@@ -167,6 +167,7 @@ namespace Lab2
             GridViewCustomers.DataSource = dtForDuplicate;
             GridViewCustomers.DataBind();
             GridViewCustomers.Visible = true;
+            GrdServices.Visible = false;
 
         }
 
@@ -190,10 +191,30 @@ namespace Lab2
             DataTable dtForDuplicate = new DataTable();
             sqlAdapterDuplicate.Fill(dtForDuplicate);
 
+            //Fill in Customer Name for Active Service Tickets
+            String sqlQuery1 = "Select FirstName + ' ' + LastName as Name From Customer WHERE CustomerID = @CustomerID";
+            SqlConnection sqlConnect1 = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
+            SqlCommand com1 = new SqlCommand();
+            com1.Connection = sqlConnect1;
+            com1.CommandType = CommandType.Text;
+            com1.CommandText = sqlQuery1;
+            com1.Parameters.Add(new SqlParameter("@CustomerID", GridViewCustomers.SelectedDataKey.Value.ToString()));
+
+            SqlDataAdapter sqlAdapterDuplicate1 = new SqlDataAdapter(com1);
+            //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
+            //SqlDataAdapter sqlAdapterDuplicate = new SqlDataAdapter(sqlQueryDuplicate, sqlConnectDuplicate); <- This is how we originally did it with a DataAdapter
+
+            //This creates a datatable and fills it
+            DataTable dtForDuplicate1 = new DataTable();
+            sqlAdapterDuplicate1.Fill(dtForDuplicate1);
+
+            LblActive.Text = dtForDuplicate1.Rows[0]["Name"].ToString() + "'s Active Service Tickets";
             GrdServices.DataSource = dtForDuplicate;
             GrdServices.DataBind();
             GrdServices.Visible = true;
+            GridViewCustomers.Visible = false;
+
 
 
         }
@@ -264,7 +285,7 @@ namespace Lab2
             GrdNotes.DataSource = dtFornote;
             GrdNotes.DataBind();
 
-            String sqlQueryBar = "select status_service from serviceticket where serviceticketID = " + GrdServices.SelectedValue.ToString();
+            String sqlQueryBar = "select ServiceType, status_service from serviceticket where serviceticketID = " + GrdServices.SelectedValue.ToString();
 
             SqlConnection sqlConnectBar = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
@@ -272,23 +293,34 @@ namespace Lab2
 
             DataTable dtForGridViewBar = new DataTable();
             sqlAdapterBar.Fill(dtForGridViewBar);
-            int Status_Service = Convert.ToInt32(dtForGridViewBar.Rows[0]["Status_Service"]);
+            double Status_Service = Convert.ToDouble(dtForGridViewBar.Rows[0]["Status_Service"]);
 
             progressbar.Style.Value = "width:" + Status_Service + "%;";
+            String testVar = dtForGridViewBar.Rows[0]["ServiceType"].ToString();
+            if (dtForGridViewBar.Rows[0]["ServiceType"].ToString().Trim() == "Move") { 
             String StatusStep = "";
             switch (Status_Service)
             {
-                case 15:
-                    StatusStep = "Order Form in Progress";
+                case 12.5:
+                    StatusStep = "Initial Contact/Contact Information Gathered";
                     break;
                 case 25:
-                    StatusStep = "Order Form Complete";
+                    StatusStep = "Ready To Schedule Move Assessment";
+                    break;
+                case 37.5:
+                    StatusStep = "Move Assessment Scheduled";
                     break;
                 case 50:
-                    StatusStep = "Scheduling Set";
+                    StatusStep = "Initial Estimate Sent";
+                    break;
+                case 62.5:
+                    StatusStep = "Waiting for Response from Customer";
                     break;
                 case 75:
-                    StatusStep = "Order In Progress";
+                    StatusStep = "Ready to Schedule Move Service";
+                    break;
+                case 87.5:
+                    StatusStep = "Move Service Scheduled";
                     break;
                 case 100:
                     StatusStep = "Service Completed";
@@ -296,6 +328,77 @@ namespace Lab2
             }
 
             StatusPercent.Text = "[" + Status_Service.ToString() + "%] " + StatusStep;
+
+                DDLServices.Items.Insert(0, new ListItem("Initial Contact/Contact Information Gathered", "12.5"));
+                DDLServices.Items.Insert(1, new ListItem("Ready To Schedule Move Assessment", "25"));
+                DDLServices.Items.Insert(2, new ListItem("Move Assessment Scheduled", "37.5"));
+                DDLServices.Items.Insert(3, new ListItem("Initial Estimate Sent", "50"));
+                DDLServices.Items.Insert(4, new ListItem("Waiting for Response from Customer", "62.5"));
+                DDLServices.Items.Insert(5, new ListItem("Ready to Schedule Move Service", "75"));
+                DDLServices.Items.Insert(6, new ListItem("Move Service Scheduled", "87.5"));
+                DDLServices.Items.Insert(7, new ListItem("Service Completed", "100"));
+                
+            }
+
+            else
+            {
+                if (dtForGridViewBar.Rows[0]["ServiceType"].ToString().Trim() == "Auction")
+                {
+                    String StatusStep = "";
+                    switch (Status_Service)
+                    {
+                        case 9.09:
+                            StatusStep = "Initial Contact/Contact Information Gathered";
+                            break;
+                        case 18:
+                            StatusStep = "Ready To Schedule Auction";
+                            break;
+                        case 27:
+                            StatusStep = "Auction Assessment Scheduled";
+                            break;
+                        case 36:
+                            StatusStep = "Present Auction Service Proposal";
+                            break;
+                        case 45:
+                            StatusStep = "Waiting for Response from Customer";
+                            break;
+                        case 54:
+                            StatusStep = "Ready to Schedule Auction Service";
+                            break;
+                        case 63:
+                            StatusStep = "Auction Pick Up Scheduled";
+                            break;
+                        case 72:
+                            StatusStep = "Trash Removal Scheduled";
+                            break;
+                        case 81:
+                            StatusStep = "Items in Storage";
+                            break;
+                        case 90:
+                            StatusStep = "Auction Scheduled";
+                            break;
+                        case 100:
+                            StatusStep = "Service Completed";
+                            break;
+                    }
+
+                    StatusPercent.Text = "[" + Status_Service.ToString() + "%] " + StatusStep;
+
+                    DDLServices.Items.Insert(0, new ListItem("Initial Contact/Contact Information Gathered", "9.09"));
+                    DDLServices.Items.Insert(1, new ListItem("Ready To Schedule Auction", "18"));
+                    DDLServices.Items.Insert(2, new ListItem("Auction Assessment Scheduled", "27"));
+                    DDLServices.Items.Insert(3, new ListItem("Present Auction Service Proposal", "36"));
+                    DDLServices.Items.Insert(4, new ListItem("Waiting for Response from Customer", "45"));
+                    DDLServices.Items.Insert(5, new ListItem("Ready to Schedule Auction Service", "54"));
+                    DDLServices.Items.Insert(6, new ListItem("Auction Pick Up Scheduled", "63"));
+                    DDLServices.Items.Insert(7, new ListItem("Trash Removal Scheduled", "72"));
+                    DDLServices.Items.Insert(7, new ListItem("Items in Storage", "81"));
+                    DDLServices.Items.Insert(7, new ListItem("Auction Scheduled", "90"));
+                    DDLServices.Items.Insert(7, new ListItem("Service Completed", "100"));
+
+              
+                }
+            }
 
 
 
@@ -335,6 +438,118 @@ namespace Lab2
 
             
         }
+
+        protected void DDLServices_DataBound(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void BtnServices_Click(object sender, EventArgs e)
+        {
+            string query = "UPDATE [ServiceTicket] SET Status_Service = @StatusService Where ServiceTicketID = @ServiceTicketID";
+
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            sqlConnect.Open();
+            SqlCommand com = new SqlCommand(query, sqlConnect);
+
+            com.Parameters.AddWithValue("ServiceTicketID", GrdServices.SelectedDataKey.Value.ToString());
+            com.Parameters.AddWithValue("StatusService", DDLServices.SelectedValue.ToString());
+
+            com.ExecuteNonQuery();
+            sqlConnect.Close();
+
+            String sqlQueryBar = "select ServiceType, status_service from serviceticket where serviceticketID = " + GrdServices.SelectedDataKey.Value.ToString();
+
+            SqlConnection sqlConnectBar = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+
+            SqlDataAdapter sqlAdapterBar = new SqlDataAdapter(sqlQueryBar, sqlConnectBar);
+
+            DataTable dtForGridViewBar = new DataTable();
+            sqlAdapterBar.Fill(dtForGridViewBar);
+            double Status_Service = Convert.ToDouble(dtForGridViewBar.Rows[0]["Status_Service"]);
+
+            progressbar.Style.Value = "width:" + Status_Service + "%;";
+            if (dtForGridViewBar.Rows[0]["ServiceType"].ToString().Trim() == "Move")
+            {
+                String StatusStep = "";
+                switch (Status_Service)
+                {
+                    case 12.5:
+                        StatusStep = "Initial Contact/Contact Information Gathered";
+                        break;
+                    case 25:
+                        StatusStep = "Ready To Schedule Move Assessment";
+                        break;
+                    case 37.5:
+                        StatusStep = "Move Assessment Scheduled";
+                        break;
+                    case 50:
+                        StatusStep = "Initial Estimate Sent";
+                        break;
+                    case 62.5:
+                        StatusStep = "Waiting for Response from Customer";
+                        break;
+                    case 75:
+                        StatusStep = "Ready to Schedule Move Service";
+                        break;
+                    case 87.5:
+                        StatusStep = "Move Service Scheduled";
+                        break;
+                    case 100:
+                        StatusStep = "Service Completed";
+                        break;
+                }
+
+                StatusPercent.Text = "[" + Status_Service.ToString() + "%] " + StatusStep;
+            }
+            else
+            {
+                if (dtForGridViewBar.Rows[0]["ServiceType"].ToString().Trim() == "Auction")
+                {
+                    String StatusStep = "";
+                    switch (Status_Service)
+                    {
+                        case 9.09:
+                            StatusStep = "Initial Contact/Contact Information Gathered";
+                            break;
+                        case 18:
+                            StatusStep = "Ready To Schedule Auction";
+                            break;
+                        case 27:
+                            StatusStep = "Auction Assessment Scheduled";
+                            break;
+                        case 36:
+                            StatusStep = "Present Auction Service Proposal";
+                            break;
+                        case 45:
+                            StatusStep = "Waiting for Response from Customer";
+                            break;
+                        case 54:
+                            StatusStep = "Ready to Schedule Auction Service";
+                            break;
+                        case 63:
+                            StatusStep = "Auction Pick Up Scheduled";
+                            break;
+                        case 72:
+                            StatusStep = "Trash Removal Scheduled";
+                            break;
+                        case 81:
+                            StatusStep = "Items in Storage";
+                            break;
+                        case 90:
+                            StatusStep = "Auction Scheduled";
+                            break;
+                        case 100:
+                            StatusStep = "Service Completed";
+                            break;
+                    }
+                    StatusPercent.Text = "[" + Status_Service.ToString() + "%] " + StatusStep;
+                }
+            }
+                
+           
+
+            }
     }
 }
 

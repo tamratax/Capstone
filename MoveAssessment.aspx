@@ -151,56 +151,70 @@
                     <asp:ListItem>Place of Business</asp:ListItem>
                 </asp:DropDownList>
 
-                <div id="divapartment" runat="server">
-                    <asp:Label ID="LblNumberofStories" runat="server" Text="Which floor?: "></asp:Label>
-                    <asp:TextBox ID="TxtNumberofStories" runat="server"></asp:TextBox>
-                    <br />
-                    <asp:Label ID="LblElevator" runat="server" Text="Is there an Elevator?: "></asp:Label>
-                    <asp:TextBox ID="TxtElevator" runat="server"></asp:TextBox>
-                    <br />
-                    <asp:Label ID="LblElevatorWalk" runat="server" Text="How Far is walk from elevator to apartment?: "></asp:Label>
-                    <asp:TextBox ID="TxtElevatorWalk" runat="server" TextMode="MultiLine"></asp:TextBox>
-                    <br />
-                </div>
-
-                <div id="divstorageinfo" runat="server">
-                    <asp:Label ID="LblStorage" runat="server" Text="What Type of Unit?: "></asp:Label>
-                    <asp:TextBox ID="TxtStorage" runat="server"></asp:TextBox>
-                    <br />
-                </div>
-
-                <div id="divbusiness" runat="server">
-                    <asp:Label ID="LblBusiness" runat="server" Text="Name of Business: "></asp:Label>
-                    <asp:TextBox ID="TxtBusiness" runat="server" TextMode="MultiLine"></asp:TextBox>
-                    <br />
-                </div>
-
-
-
-                <asp:Label ID="LblDistance" runat="server" Text="Distance From Truck: "></asp:Label>
-                <asp:TextBox ID="TxtDistance" runat="server"></asp:TextBox>
-                <br />
-                <asp:Label ID="LblAccessibility" runat="server" Text="Driveway Accessibility: "></asp:Label>
-                <asp:TextBox ID="TxtAccessibility" runat="server"></asp:TextBox>
-                <br />
-                <asp:Label ID="LblSteps" runat="server" Text="Steps To House: "></asp:Label>
-                <asp:TextBox ID="TxtSteps" runat="server"></asp:TextBox>
-                <br />
-                <asp:Label ID="LblConditions" runat="server" Text="Loading Conditions:  "></asp:Label>
-                <asp:TextBox ID="TxtConditions" runat="server" TextMode="MultiLine"></asp:TextBox>
-                <br />
+        <div id ="divapartment" runat="server">
+            <div class="form-row">
+        <div class="form-group col-md-4">
+           <asp:Label ID="LblNumberofStories" runat="server" Text="Which floor?: "></asp:Label>
+        <asp:TextBox ID="TxtNumberofStories" runat="server" CssClass="form-control"></asp:TextBox>
             </div>
-            <div id="divsave" runat="server">
+                <div class="form-group col-md-4">
+        <asp:Label ID="LblElevator" runat="server" Text="Is there an Elevator?: "></asp:Label>
+        <asp:TextBox ID="TxtElevator" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div>
+                
+           <div class="form-group col-md-4"> 
+        <asp:Label ID="LblElevatorWalk" runat="server" Text="Distance from elevator to apartment?: "></asp:Label>
+        <asp:TextBox ID="TxtElevatorWalk" runat="server"  CssClass="form-control"></asp:TextBox>
+               </div>
+        </div>
+            </div>
 
-                <%--            <asp:Button ID="BtnSave" runat="server" class="btn btn-success" Text="Save Move Form"  OnClick="BtnSave_Click"/>
-        <asp:Label ID="LblSuccess" runat="server" Text="" ForeColor="Green"></asp:Label>--%>
-                <br />
-                <br />
-                <asp:DetailsView ID="DTLMoveInfo" runat="server" DataSourceID="dtasrcMoveInfo"
-                    AutoGenerateEditButton="true"
-                    EmptyDataText="No Info"
-                    AutoGenerateRows="false"
-                    DataKeyNames="MoveAssessmentID">
+        <div id="divstorageinfo" runat="server">
+           <asp:Label ID="LblStorage" runat="server" Text="What Type of Unit?: "></asp:Label>
+        <asp:TextBox ID="TxtStorage" runat="server" CssClass="form-control"></asp:TextBox>
+        <br />
+        </div>
+
+        <div id="divbusiness" runat="server">
+            <asp:Label ID="LblBusiness" runat="server" Text="Name of Business: "></asp:Label>
+        <asp:TextBox ID="TxtBusiness" runat="server"  CssClass="form-control"></asp:TextBox>
+        </div>
+
+
+        <div class="form-row">
+            <div class="form-group col-md-6"> 
+        <asp:Label ID="LblDistance" runat="server" Text="Distance From Truck: "></asp:Label>
+        <asp:TextBox ID="TxtDistance" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+        <br />
+            <div class="form-group col-md-6"> 
+        <asp:Label ID="LblAccessibility" runat="server" Text="Driveway Accessibility: "></asp:Label>
+        <asp:TextBox ID="TxtAccessibility" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="form-group col-md-6">
+        <asp:Label ID="LblSteps" runat="server" Text="Steps To House: "></asp:Label>
+        <asp:TextBox ID="TxtSteps" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+            <div class="form-group col-md-6">
+        <asp:Label ID="LblConditions" runat="server" Text="Loading Conditions:  "></asp:Label>
+        <asp:TextBox ID="TxtConditions" runat="server" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
+                </div>
+            </div>
+            </div>
+            
+        <br />
+        
+          <div id="divsave" runat="server">
+              
+            <asp:Button ID="BtnSave" runat="server" BackColor="#32CD32" Text="Save Move Form"  OnClick="BtnSave_Click"/>
+        <asp:Label ID="LblSuccess" runat="server" Text="" ForeColor="Green"></asp:Label>
+              <br />
+              <br />
+        <asp:DetailsView ID="DTLMoveInfo" runat="server" DataSourceID="dtasrcMoveInfo"
+             AutoGenerateEditButton="true"
+             EmptyDataText="No Info"
+             AutoGenerateRows="false"
+             DataKeyNames="MoveAssessmentID">
 
                     <Fields>
                         <asp:BoundField DataField="MoveAssessmentID" Visible="false" />
