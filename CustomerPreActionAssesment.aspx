@@ -2,8 +2,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-<body>
- <h1>Pre-Auction Assessment</h1>
+<link href="Content/AddService.css" rel="stylesheet" />
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" />
+   <div class="groupAuction">
+    <div class="row justify-content-center">
+    <h1 class="display-4">Pre-Auction Assessment</h1>
+    </div>
+
 
 <%--    <h4>Customer Info:</h4>
     <fieldset>
@@ -79,7 +85,9 @@
         </div>
     </fieldset>--%>
     <br />
+    <div class="float-right">
     <asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" />
+        </div>
     <br />
     <div class="form-group">
         <%--<asp:Label ID="lblInitiating" runat="server" Text="Initiating Employee:"></asp:Label>
@@ -175,11 +183,12 @@
         <asp:CheckBox ID="ChkbxItems" runat="server" />
     </div>
     <br />
+       <div class="text-center">
     <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn-danger" OnClick="btnClear_Click1" />
-    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
+    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" CssClass="btn-success" />
     <asp:Label ID="lblSaveStatus" runat="server" Text=""></asp:Label>
-
-
+    </div>
+       </div>
 
  <%--   <asp:SqlDataSource ID="dtasrcAddress"
         runat="server"

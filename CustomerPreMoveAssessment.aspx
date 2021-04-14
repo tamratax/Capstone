@@ -2,13 +2,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-     <body>
-         
-    
-    <h1>Preliminary Move Assessment</h1>
+    <link href="Content/AddService.css" rel="stylesheet" />
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" />
+   <div class="groupAuction">
+    <div class="row justify-content-center">
+    <h1 class="display-4">Pre-Move Assessment</h1>
+    </div>
 <div>
-    <asp:Label ID="SignedInLbl" runat="server" Text="Signed in as: "></asp:Label>
-    <asp:TextBox ID="SignedInTxt" runat="server" Text=""></asp:TextBox>
+    <div class="float-right">
+        <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click"/>
+        </div>
+  <%--  <asp:Label ID="SignedInLbl" runat="server" Text="Signed in as: "></asp:Label>
+    <asp:TextBox ID="SignedInTxt" runat="server" Text=""></asp:TextBox>--%>
     <%--<h4>Customer Info:</h4>
     <fieldset>
         <div class="groupCust">
@@ -184,7 +189,7 @@
       <div>
         <label>Trash Removal: </label>
             <asp:CheckBox ID="TrashChk" runat="server"  AutoPostBack="true" OnCheckedChanged="TrashChk_CheckedChanged" />
-            <asp:TextBox ID="TrashDescriptionTxt" runat="server" AutoPostBack="true" TextMode="MultiLine" Visible="false"></asp:TextBox>
+            <asp:TextBox ID="TrashDescriptionTxt" runat="server" AutoPostBack="true" TextMode="MultiLine" Visible="false" CssClass="form-control"></asp:TextBox>
     </div>
       <div>
         <label>Donation Hauling: </label>
@@ -204,11 +209,9 @@
     <br />
     <asp:CheckBox ID="AuctionChk" runat="server" />--%>
     <br />
-    <div>
-    <asp:Button ID="SaveBtn" runat="server" Text="Save" OnClick="SaveBtn_Click"/>
-        
-        <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click"/>
-        <asp:Button ID="ClearBtn" runat="server" Text="Clear" OnClick="ClearBtn_Click" />
+    <div class="text-center">
+        <asp:Button ID="ClearBtn" runat="server" Text="Clear" OnClick="ClearBtn_Click" CssClass="btn-danger" />
+    <asp:Button ID="SaveBtn" runat="server" Text="Save" OnClick="SaveBtn_Click" CssClass="btn-success"/>
         </div>
     <br />
     <asp:Label ID="LblSaveStatus" runat="server" Text=""></asp:Label>
@@ -233,8 +236,8 @@
                     from Employee Order By EmpLastName ASC"></asp:SqlDataSource>--%>
 
 
-
+    </div>
 
 </div>
-         </body>
+        
 </asp:Content>
