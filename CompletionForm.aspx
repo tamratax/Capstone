@@ -19,6 +19,7 @@
         AutoPostBack="true"
         OnSelectedIndexChanged="DDLType_SelectedIndexChanged">
     </asp:DropDownList>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="DDLType" Text="Required" ForeColor="Red" InitialValue="-1"></asp:RequiredFieldValidator>
 
     <asp:GridView ID="GridCust"
         runat="server"
@@ -86,6 +87,7 @@
                 DataValueField="EmployeeID"
                 class="form-control">
             </asp:DropDownList>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Drplst" ErrorMessage="RequiredFieldValidator" InitialValue="-1" Text="Please select an Employee" ForeColor="Red" ValidationGroup="EmpValid"></asp:RequiredFieldValidator>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label>Amount of Hours Worked</label>
@@ -95,6 +97,8 @@
                         Placeholder="Hours worked"
                         class="form-control">
                     </asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtAmount" Text="Required" ForeColor="Red" ValidationGroup="EmpValid"></asp:RequiredFieldValidator>
+                    <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator" ControlToValidate="TxtAmount" Text="Please only Enter Numbers" ForeColor="Red" Operator="DataTypeCheck" Type="Integer" ValidationGroup="EmpValid"></asp:CompareValidator>
                 </div>
                 <div class="form-group col-md-6">
                     <label>Wage per Hour</label>
@@ -104,10 +108,12 @@
                         Placeholder="Per hour"
                         class="form-control">
                     </asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtCharge" Text="Required" ForeColor="Red" ValidationGroup="EmpValid"></asp:RequiredFieldValidator>
+
                 </div>
             </div>
         </div>
-        <asp:Button ID="BtnAddEmployee" runat="server" Text="Add Employee" OnClick="BtnAddEmployee_Click" />
+        <asp:Button ID="BtnAddEmployee" runat="server" Text="Add Employee" OnClick="BtnAddEmployee_Click" ValidationGroup="EmpValid" />
         <fieldset>
             <legend>Employees Added:</legend>
             <asp:GridView ID="GridEmployee"
@@ -167,12 +173,16 @@
                 <asp:ListItem Value="Check"> Check </asp:ListItem>
                 <asp:ListItem Value="Cash"> Cash</asp:ListItem>
             </asp:DropDownList>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="DDLPaymentType" Text="Required" ForeColor="Red" InitialValue="-1" ValidationGroup="payment"></asp:RequiredFieldValidator>
+
         </div>
 
         <asp:Label ID="LblFinalCost" runat="server" Text="Amount: "></asp:Label>
 
         <div class="form-group">
             <asp:TextBox ID="TxtFinalCost" runat="server" Placeholder="Amount" CssClass="form-control"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtFinalCost" Text="Required" ForeColor="Red" ValidationGroup="payment"></asp:RequiredFieldValidator>
+
         </div>
         <br />
 
@@ -188,7 +198,7 @@
             <asp:TextBox ID="TxtAdditionalExpense" runat="server" Placeholder="Add Additional Expenses" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
         </div>
 
-        <asp:Button ID="btnPayment" runat="server" Text="Add Payment" OnClick="btnPayment_Click" />
+        <asp:Button ID="btnPayment" runat="server" Text="Add Payment" OnClick="btnPayment_Click" ValidationGroup="payment" />
 
     </div>
     <div runat="server" id="divAddress">
@@ -253,6 +263,8 @@
         <div class="form-group">
             <label>Mileage</label>
             <asp:TextBox ID="TxtMileage" Placeholder="Mileage" CssClass="form-control" runat="server"></asp:TextBox>
+             <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtMileage" Text="Required" ForeColor="Red" ValidationGroup="equipment"></asp:RequiredFieldValidator>
+            <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="CompareValidator" ControlToValidate="TxtMileage" Text="Must be a Number" ForeColor="Red" Operator="DataTypeCheck" Type="Integer" ValidationGroup="equipment"></asp:CompareValidator>
         </div>
         <div class="form-group">
             <label>Trucks Used</label>
@@ -265,8 +277,9 @@
                 DataTextField="EquipmentType"
                 DataValueField="EquipmentID">
             </asp:DropDownList>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="DDLVehicle" Text="Required" ForeColor="Red" InitialValue="-1" ValidationGroup="equipment"></asp:RequiredFieldValidator>
         </div>
-        <asp:Button ID="BtnAddVehicle" runat="server" Text="Add Vehicle ->" OnClick="BtnAddVehicle_Click" />
+        <asp:Button ID="BtnAddVehicle" runat="server" Text="Add Vehicle ->" OnClick="BtnAddVehicle_Click" ValidationGroup="equipment" />
 
         <fieldset>
             <legend>Vehicles Used</legend>
@@ -305,6 +318,7 @@
                 <asp:ListItem Value="LoadTime"> Load Time </asp:ListItem>
                 <asp:ListItem Value="UnloadTime"> Unload Time </asp:ListItem>
             </asp:DropDownList>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="DDLTravel" ForeColor="Red" Text="Required" InitialValue="-1" ValidationGroup="travel"></asp:RequiredFieldValidator>
         </div>
         <asp:Table ID="tbltravel" runat="server">
             <asp:TableRow>
@@ -317,6 +331,7 @@
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="TxtStart" runat="server" Visible="false" TextMode="Time"></asp:TextBox>
+
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -325,6 +340,7 @@
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="Txtend" runat="server" Visible="false" TextMode="Time"></asp:TextBox>
+
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -333,11 +349,12 @@
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txthrs" runat="server" Visible="false"></asp:TextBox>
+
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Button ID="btntravel" runat="server" Text="Add Travel Time ->" OnClick="btntravel_Click" />
+                    <asp:Button ID="btntravel" runat="server" Text="Add Travel Time ->" OnClick="btntravel_Click" ValidationGroup="travel" />
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -382,7 +399,7 @@
     <br />
     <div class="text-center">
         <asp:Button ID="BtnClear" runat="server" class="btn btn-danger" Text="Clear" OnClick="BtnClear_Click" />
-        <asp:Button ID="btnComplete" runat="server" class="btn btn-success" Text="Complete Service Ticket" OnClick="btnComplete_Click" />
+        <asp:Button ID="btnComplete" runat="server" class="btn btn-success" Text="Complete Service Ticket" OnClick="btnComplete_Click" ValidationGroup="Save" />
         <asp:Label ID="LblSaveStatus" runat="server" Text=""></asp:Label>
     </div>
 
