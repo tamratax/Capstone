@@ -3,9 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-
-    <h1>Auction Assessment</h1>
-
+    <link href="Content/AddService.css" rel="stylesheet" />
+    <div class="row justify-content-center">
+    <h1 class="display-4">Auction Assessment</h1>
+        </div>
     <h4>Customer Info:</h4>
     <fieldset>
         <div class="groupCust">

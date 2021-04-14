@@ -26,15 +26,15 @@
 
             <Fields>
                 <asp:BoundField DataField="RoomID" Visible="false" HeaderText="RoomID" />
-                <asp:BoundField DataField="RoomName" HeaderText="Room Name" />
-                <asp:BoundField DataField="RoomIdentity" HeaderText="Identifier" />
-                <asp:BoundField DataField="RoomFloor" HeaderText="Floor" />
-                <asp:BoundField DataField="Blankets" HeaderText="Blankets" />
-                <asp:BoundField DataField="RoomNotes" HeaderText="Notes" />
-                <asp:BoundField DataField="HighValue" HeaderText="High Value" />
-                <asp:BoundField DataField="Large" HeaderText="Large/Awkward Items" />
-                <asp:BoundField DataField="Collectible" HeaderText="Collectibles/Curios" />
-                <asp:BoundField DataField="Electronics" HeaderText="Appliances/Electronics" />
+                <asp:BoundField DataField="RoomName" NullDisplayText="N/A" HeaderText="Room Name" />
+                <asp:BoundField DataField="RoomIdentity" NullDisplayText="N/A" HeaderText="Identifier" />
+                <asp:BoundField DataField="RoomFloor" NullDisplayText="N/A" HeaderText="Floor" />
+                <asp:BoundField DataField="Blankets" NullDisplayText="N/A" HeaderText="Blankets" />
+                <asp:BoundField DataField="RoomNotes" NullDisplayText="N/A" HeaderText="Notes" />
+                <asp:BoundField DataField="HighValue" NullDisplayText="N/A" HeaderText="High Value" />
+                <asp:BoundField DataField="Large" NullDisplayText="N/A" HeaderText="Large/Awkward Items" />
+                <asp:BoundField DataField="Collectible" NullDisplayText="N/A" HeaderText="Collectibles/Curios" />
+                <asp:BoundField DataField="Electronics" NullDisplayText="N/A" HeaderText="Appliances/Electronics" />
             </Fields>
             <PagerStyle ForeColor="Blue" Font-Underline="true" />
         </asp:DetailsView>
@@ -52,8 +52,8 @@
             EmptyDataText="No Boxes Added to this Room!">
             <Columns>
                 <asp:BoundField DataField="BoxesID" Visible="false" />
-                <asp:BoundField DataField="BoxType" HeaderText="Type" />
-                <asp:BoundField DataField="BoxQuantity" HeaderText="Quantity" />
+                <asp:BoundField DataField="BoxType" NullDisplayText="N/A" HeaderText="Type" />
+                <asp:BoundField DataField="BoxQuantity" NullDisplayText="N/A" HeaderText="Quantity" />
             </Columns>
         </asp:GridView>
         <br />

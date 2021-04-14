@@ -4,9 +4,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <link href="Content/AddService.css" rel="stylesheet" />
-    <h1>Move Service Order</h1>
-    <div class="float-right">
-        <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click" />
+    <div class="row justify-content-center">
+    <h1 class="display-4">Move Service Order</h1>
     </div>
     <h4>Customer Info:</h4>
     <div class="groupCust">
@@ -91,7 +90,11 @@
             </asp:DropDownList>
         </div>
     </div>
-
+    <br />
+    <div class="float-right">
+        <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click" />
+    </div>
+    <br />
     <div class="form-row">
         <div class="form-group col-md-6">
             <label>Potential Date</label>

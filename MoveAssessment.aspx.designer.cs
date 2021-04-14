@@ -15,15 +15,6 @@ namespace Lab3
     {
 
         /// <summary>
-        /// PopBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button PopBtn;
-
-        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -121,6 +112,15 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridAddress;
+
+        /// <summary>
+        /// PopBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button PopBtn;
 
         /// <summary>
         /// lblCust control.
@@ -762,6 +762,15 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.GridView grdCharges;
 
         /// <summary>
+        /// ClearBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ClearBtn;
+
+        /// <summary>
         /// BtnSave control.
         /// </summary>
         /// <remarks>
@@ -778,15 +787,6 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LblSuccess;
-
-        /// <summary>
-        /// ClearBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ClearBtn;
 
         /// <summary>
         /// dtasrcAddress control.

@@ -3,11 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <div class="float-right">
-        <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click" />
-    </div>
+    
+    <link href="Content/AddService.css" rel="stylesheet" />
+    
     <div>
-        <h2><b>Move Assessment Form</b></h2>
+        <div class="row justify-content-center">
+        <h1 class="display-4">Move Assessment Form</h1>
+            </div>
         <h4>Customer Info:</h4>
         <fieldset>
             <div class="groupCust">
@@ -82,15 +84,18 @@
             </div>
         </fieldset>
 
+        
+
+        <br />
+        <div class="float-right">
+        <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click" />
+    </div>
+        <br />
         <asp:Label ID="lblCust" runat="server" Text="Customer Name: "></asp:Label>
         <asp:Label ID="lblselected" runat="server" />
         <asp:Label ID="LblID" runat="server" Visible="false"></asp:Label>
         <asp:Label ID="LblMoveID" runat="server" Visible="false"></asp:Label>
-
         <br />
-
-
-
         <asp:DropDownList
             ID="DDLType"
             runat="server"
@@ -104,11 +109,11 @@
         <asp:Button ID="BtnMoveInfo" runat="server" Text="Add Move Assessment" OnClick="LblMoveInfo_Click" Visible="false" />
         <asp:Label ID="LblMoveInfo" runat="server" Text="Move Assessment Not Yet Added!" ForeColor="Red" Visible="false"></asp:Label>
 
-        <div id="divbuttons" runat="server">
-            <asp:Button ID="BtnGeneralInfo" runat="server" Text="General Assessment" OnClick="BtnGeneralInfo_Click" />&nbsp&nbsp&nbsp&nbsp
-        <asp:Button ID="BtnVehicles" runat="server" Text="Vehicles" OnClick="BtnVehicles_Click" />&nbsp&nbsp&nbsp&nbsp
-        <asp:Button ID="BtnSpecialEquipment" runat="server" Text="Special Equipment" OnClick="BtnSpecialEquipment_Click" />&nbsp&nbsp&nbsp&nbsp
-        <asp:Button ID="BtnCharge" runat="server" Text="Charges" OnClick="BtnCharge_Click" />&nbsp&nbsp&nbsp&nbsp
+        <div id="divbuttons" runat="server" class="text-center">
+            <asp:Button ID="BtnGeneralInfo" runat="server" Text="General Assessment" OnClick="BtnGeneralInfo_Click" />
+        <asp:Button ID="BtnVehicles" runat="server" Text="Vehicles" OnClick="BtnVehicles_Click" />
+        <asp:Button ID="BtnSpecialEquipment" runat="server" Text="Special Equipment" OnClick="BtnSpecialEquipment_Click" />
+        <asp:Button ID="BtnCharge" runat="server" Text="Charges" OnClick="BtnCharge_Click" />
         <asp:Button ID="BtnAddRoom" runat="server" Text="Proceed to Add Room" OnClick="BtnAddRoom_Click" />
             <br />
             <br />
@@ -216,13 +221,13 @@
 
                     <Fields>
                         <asp:BoundField DataField="MoveAssessmentID" Visible="false" />
-                        <asp:BoundField DataField="NumberOfStories" HeaderText="Number of Stories:" />
-                        <asp:BoundField DataField="DistanceFromTruck" HeaderText="Distance From Truck:" />
-                        <asp:BoundField DataField="TypeOfHome" HeaderText="Type Of Home:" />
-                        <asp:BoundField DataField="TypeofHomeAdd" HeaderText="Additional Home Notes:" />
-                        <asp:BoundField DataField="TruckAccessibility" HeaderText="Truck Accessibility:" />
-                        <asp:BoundField DataField="LoadingDoorWalk" HeaderText="Loading Conditions:" />
-                        <asp:BoundField DataField="StepsToHouse" HeaderText="Steps to House:" />
+                        <asp:BoundField DataField="NumberOfStories" NullDisplayText="N/A" HeaderText="Number of Stories:" />
+                        <asp:BoundField DataField="DistanceFromTruck" NullDisplayText="N/A" HeaderText="Distance From Truck:" />
+                        <asp:BoundField DataField="TypeOfHome" NullDisplayText="N/A" HeaderText="Type Of Home:" />
+                        <asp:BoundField DataField="TypeofHomeAdd" NullDisplayText="N/A" HeaderText="Additional Home Notes:" />
+                        <asp:BoundField DataField="TruckAccessibility" NullDisplayText="N/A" HeaderText="Truck Accessibility:" />
+                        <asp:BoundField DataField="LoadingDoorWalk" NullDisplayText="N/A" HeaderText="Loading Conditions:" />
+                        <asp:BoundField DataField="StepsToHouse" NullDisplayText="N/A" HeaderText="Steps to House:" />
                     </Fields>
                 </asp:DetailsView>
             </div>
@@ -253,8 +258,8 @@
                     DataKeyNames="SpecialEquipmentID">
                     <Columns>
                         <asp:BoundField DataField="SpecialEquipmentID" Visible="false" />
-                        <asp:BoundField DataField="EquipmentType" HeaderText="Type of Equipment" />
-                        <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
+                        <asp:BoundField DataField="EquipmentType" NullDisplayText="N/A" HeaderText="Type of Equipment" />
+                        <asp:BoundField DataField="Quantity" NullDisplayText="N/A" HeaderText="Quantity" />
                     </Columns>
 
                 </asp:GridView>
@@ -337,12 +342,12 @@
                     DataKeyNames="MOVECHARGEID">
                     <Columns>
                         <asp:BoundField DataField="MOVECHARGEID" Visible="false" />
-                        <asp:BoundField DataField="MoveEstimate" HeaderText="Move Estimate" />
-                        <asp:BoundField DataField="FixedRate" HeaderText="Fixed Rate" />
-                        <asp:BoundField DataField="PackingFees" HeaderText="Packing Fees" />
-                        <asp:BoundField DataField="StorageFees" HeaderText="Storage Fees" />
-                        <asp:BoundField DataField="TrashRemovalFee" HeaderText="Trash Removal" />
-                        <asp:BoundField DataField="TotalCharges" HeaderText="Total Charges" />
+                        <asp:BoundField DataField="MoveEstimate" NullDisplayText="N/A" HeaderText="Move Estimate" />
+                        <asp:BoundField DataField="FixedRate" NullDisplayText="N/A" HeaderText="Fixed Rate" />
+                        <asp:BoundField DataField="PackingFees" NullDisplayText="N/A" HeaderText="Packing Fees" />
+                        <asp:BoundField DataField="StorageFees" NullDisplayText="N/A" HeaderText="Storage Fees" />
+                        <asp:BoundField DataField="TrashRemovalFee" NullDisplayText="N/A" HeaderText="Trash Removal" />
+                        <asp:BoundField DataField="TotalCharges" NullDisplayText="N/A" HeaderText="Total Charges" />
                     </Columns>
 
                 </asp:GridView>
@@ -355,9 +360,9 @@
         </div>
     </div>
     <div class="text-center">
+        <asp:Button ID="ClearBtn" runat="server" class="btn btn-danger" Text="Clear" OnClick="ClearBtn_Click" />        
         <asp:Button ID="BtnSave" runat="server" class="btn btn-success" Text="Save Move Form" OnClick="BtnSave_Click" />
         <asp:Label ID="LblSuccess" runat="server" Text="" ForeColor="Green"></asp:Label>
-        <asp:Button ID="ClearBtn" runat="server" class="btn btn-danger" Text="Clear" OnClick="ClearBtn_Click" />
     </div>
     <asp:SqlDataSource ID="dtasrcAddress"
         runat="server"

@@ -2,7 +2,9 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <h1>View Services</h1>
+    <div class="row justify-content-center">
+    <h1 class="display-4">View Services</h1>
+        </div>
     <fieldset>
         <legend>Select Customer to View Services:</legend>
         <asp:Label ID="LblCustomerName" runat="server" Text="Customer Name: "></asp:Label>
@@ -33,11 +35,11 @@
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" ButtonType="Button" />
                     <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" Visible="false" />
-                    <asp:BoundField DataField="Name" HeaderText="Customer Name" />
-                    <asp:BoundField DataField="Email" HeaderText="Email" />
-                    <asp:BoundField DataField="homephone" HeaderText="Home" />
-                    <asp:BoundField DataField="Workphone" HeaderText="Work" />
-                    <asp:BoundField DataField="Cellphone" HeaderText="Cell" />
+                    <asp:BoundField DataField="Name" NullDisplayText="N/A" HeaderText="Customer Name" />
+                    <asp:BoundField DataField="Email" NullDisplayText="N/A" HeaderText="Email" />
+                    <asp:BoundField DataField="homephone" NullDisplayText="N/A" HeaderText="Home" />
+                    <asp:BoundField DataField="Workphone" NullDisplayText="N/A" HeaderText="Work" />
+                    <asp:BoundField DataField="Cellphone" NullDisplayText="N/A" HeaderText="Cell" />
                 </Columns>
 
             </asp:GridView>

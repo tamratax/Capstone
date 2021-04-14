@@ -2,7 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <h1>Preliminary Move Assessment</h1>
+    <link href="Content/AddService.css" rel="stylesheet" />
+    <div class="row justify-content-center">
+    <h1 class="display-4">Preliminary Move Assessment</h1>
+        </div>
     <h4>Customer Info:</h4>
     <fieldset>
         <div class="groupCust">
@@ -77,9 +80,10 @@
         </div>
     </fieldset>
     <br />
-    <div class="float-left">
+    <div class="float-right">
     <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click" />
         </div>
+    <br />
     <div class="form-group">
     <asp:Label ID="lblInitiating" runat="server" Text="Initiating Employee:"></asp:Label>
     <asp:DropDownList
@@ -181,7 +185,7 @@
       <div>
         <label>Trash Removal: </label>
             <asp:CheckBox ID="TrashChk" runat="server"  AutoPostBack="true" OnCheckedChanged="TrashChk_CheckedChanged" />
-            <asp:TextBox ID="TrashDescriptionTxt" runat="server" AutoPostBack="true" TextMode="MultiLine" Visible="false"></asp:TextBox>
+            <asp:TextBox ID="TrashDescriptionTxt" runat="server" Placeholder="Description" CssClass="form-control" AutoPostBack="true" TextMode="MultiLine" Visible="false"></asp:TextBox>
     </div>
       <div>
         <label>Donation Hauling: </label>

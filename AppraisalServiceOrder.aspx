@@ -4,8 +4,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
 
     <link href="Content/AddService.css" rel="stylesheet" />
-    <h1>Appraisal Service Order</h1>
-
+    <div class="row justify-content-center">
+    <h1 class="display-4">Appraisal Service Order</h1>
+        </div>
     <h4>Customer Info:</h4>
     <div class="groupCust">
         <asp:Label ID="LblCust" runat="server" Text="Customer Name: "></asp:Label>
@@ -63,7 +64,7 @@
                 CausesValidation="false"
                 AutoGenerateColumns="false"
                 DataKeyNames="AddressID"
-                CsssClass="table justify-content-center">
+                CssClass="table justify-content-center">
                 <Columns>
                     <asp:CommandField ShowEditButton="true" ShowDeleteButton="true" ButtonType="Button" />
                     <asp:BoundField DataField="AddressID" Visible="false" />

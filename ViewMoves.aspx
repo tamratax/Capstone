@@ -2,7 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <h1>View Moves</h1>
+    <div class="row justify-content-center">
+    <h1 class="display-4">View Moves</h1>
+        </div>
         <div>
             <asp:Label ID="SearchCustomerLbl" runat="server" Text="Searh for a Customer:"></asp:Label>
             <asp:TextBox ID="TxtSearch" runat="server"></asp:TextBox>
