@@ -376,7 +376,7 @@ namespace WalkerS_Lab1Part3
                     sqlConnect3.Open();
 
                     //Concatenate Sql Query Insert Statements
-                    String query1 = "Insert into Address values(null, "+CustomerID+", @Street, @City, @State, @Zip, 'Primary Contact Address')";
+                    String query1 = "Insert into Address values("+CustomerID+", @Street, @City, @State, @Zip, 'Primary Contact Address')";
                     
 
                     // Create the SQL Command object which will send the query

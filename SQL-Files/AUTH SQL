@@ -24,7 +24,7 @@ Insert into Person values ('John', 'Smith', 'Smith@dukes.com', 'Customer');
 Insert into Person values ('Jake', 'Brown', 'Brown@dukes.com', 'Customer');
 Insert into Person values ('Prof', 'Ezell', 'Ezell@dukes.com', 'Employee');
 Insert into Person values ('Jack', 'Frost', 'Frost@dukes.com', 'Employee');
-Insert into Person values ('Admin', 'Admin', 'admin', 'Customer');
+Insert into Person values ('Admin', 'Admin', 'admin', 'Employee');
 
 
 --Add Values To Pass Table
