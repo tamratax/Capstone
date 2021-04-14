@@ -159,27 +159,6 @@
                 Text=""></asp:Label>
         </div>
     </div>
-       </div>
-
-
-
-
-    <%--<asp:Label ID="LblSelectedSessionID" runat="server" Text="" Visible="false"></asp:Label>--%>
-
-
-   <%-- <asp:SqlDataSource ID="dtasrcAddress"
-        runat="server"
-        ConnectionString="<%$ConnectionStrings:Lab3%>"
-        SelectCommand="SELECT * from Address join customer on Customer.CustomerID = Address.CustomerID where Customer.CustomerID = @CustomerID"
-        DeleteCommand="DELETE ADDRESS where AddressID = @AddressID"
-        UpdateCommand="UPDATE ADDRESS set Street = @Street, City = @City, State = @State, Zip = @Zip, Description = @Description where AddressID = @AddressID">
-        <SelectParameters>
-            <asp:SessionParameter Name="CustomerID" SessionField="SelectedCustomerID" DefaultValue="" />
-        </SelectParameters>
-    </asp:SqlDataSource>--%>
-
-
-
   
 
 </asp:Content>
