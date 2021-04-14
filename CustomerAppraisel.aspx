@@ -7,78 +7,6 @@
         <link href="Content/AddService.css" rel="stylesheet" />
     <h1>Appraisal Service Order</h1>
 
-<%--    <h4>Customer Info:</h4>
-    <div class="groupCust">
-        <asp:Label ID="LblCust" runat="server" Text="Customer Name: "></asp:Label>
-        &nbsp;
-    <asp:Label ID="LblCustName" runat="server" Text=""></asp:Label>
-
-        <div>
-            <asp:Label
-                ID="LblHomePhone"
-                runat="server"
-                Text="Home Phone: "></asp:Label>
-
-            <asp:Label ID="LblHomeNumber"
-                runat="server"
-                Text=""
-                Font-Bold="true"></asp:Label>
-            <br />
-            <asp:Label
-                ID="LblCellPhone"
-                runat="server"
-                Text="   Cell Phone: "></asp:Label>
-
-            <asp:Label
-                ID="LblCellNumber"
-                runat="server"
-                Text=""
-                Font-Bold="true"></asp:Label>
-            <br />
-            <asp:Label
-                ID="LblWorkPhone"
-                runat="server"
-                Text="   Work Phone: "></asp:Label>
-
-            <asp:Label
-                ID="LblWorkNumber"
-                runat="server"
-                Text=""
-                Font-Bold="true"></asp:Label>
-            <br />
-            <asp:Label
-                ID="LblEmail"
-                runat="server"
-                Text="Email:"></asp:Label>
-
-            <asp:Label
-                ID="LblEmailText"
-                runat="server"
-                Text=""
-                Font-Bold="true"></asp:Label>
-        </div>
-        <div>
-            <asp:GridView ID="GridAddress"
-                runat="server"
-                DataSourceID="dtasrcAddress"
-                CausesValidation="false"
-                AutoGenerateColumns="false"
-                DataKeyNames="AddressID"
-                CsssClass="table justify-content-center">
-                <Columns>
-                    <asp:CommandField ShowEditButton="true" ShowDeleteButton="true" ButtonType="Button" />
-                    <asp:BoundField DataField="AddressID" Visible="false" />
-                    <asp:BoundField DataField="Street" HeaderText="Street" />
-                    <asp:BoundField DataField="City" HeaderText="City" />
-                    <asp:BoundField DataField="State" HeaderText="State" />
-                    <asp:BoundField DataField="Zip" HeaderText="Zip" />
-                    <asp:BoundField DataField="Description" HeaderText="Description" />
-                </Columns>
-            </asp:GridView>
-        </div>
-        <br />
-        <br />
-    </div>--%>
     <br />
 
     <h2>Create Appraisal Service</h2>
@@ -123,7 +51,6 @@
             <h5>Size of Appraisal</h5>
         </div>
         <div class="form-group">
-            <%--<label>Size of Appraisal</label>--%>
             <asp:TextBox ID="TxtAppraisalSize" Placeholder="Size of Appraisal" runat="server" Class="form-control"></asp:TextBox>
         </div>
     </div>
@@ -175,26 +102,6 @@
                 Text=""></asp:Label>
         </div>
     </div>
-
-
-
-
-
-    <%--<asp:Label ID="LblSelectedSessionID" runat="server" Text="" Visible="false"></asp:Label>--%>
-
-
-   <%-- <asp:SqlDataSource ID="dtasrcAddress"
-        runat="server"
-        ConnectionString="<%$ConnectionStrings:Lab3%>"
-        SelectCommand="SELECT * from Address join customer on Customer.CustomerID = Address.CustomerID where Customer.CustomerID = @CustomerID"
-        DeleteCommand="DELETE ADDRESS where AddressID = @AddressID"
-        UpdateCommand="UPDATE ADDRESS set Street = @Street, City = @City, State = @State, Zip = @Zip, Description = @Description where AddressID = @AddressID">
-        <SelectParameters>
-            <asp:SessionParameter Name="CustomerID" SessionField="SelectedCustomerID" DefaultValue="" />
-        </SelectParameters>
-    </asp:SqlDataSource>--%>
-
-
 
   </body>
 
