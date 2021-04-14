@@ -4,11 +4,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <h1>Moving Completion Form:</h1>
-
-    <asp:Label ID="LblCustomer" runat="server" Text="Select Customer:"></asp:Label>
-
-    <asp:Label ID="LblSelected" runat="server" Text=""></asp:Label>
-
+    <%-- <asp:Table ID="TblSelection" runat="server">--%>
+    <%-- <asp:TableRow>
+            <asp:TableCell>--%>
+    <%--</asp:TableCell>
+            <asp:TableCell>--%>
+    <asp:Label ID="LblSelected" runat="server" Text="" Visible="false"></asp:Label>
+    <%--</asp:TableCell>
+            <asp:TableCell>--%>
     <asp:Label ID="LblID" runat="server" Text="" Visible="false"></asp:Label>
 
     <asp:Label ID="LblType" runat="server" Text="Select Service:"></asp:Label>
@@ -62,7 +65,11 @@
 
         </Columns>
     </asp:GridView>
-
+    <%--</asp:TableCell>
+        </asp:TableRow>
+    </asp:Table>--%>
+    <asp:Button ID="BtnPop" runat="server" Text="Populate" OnClick="BtnPop_Click" />
+    <br />
     <asp:Button ID="btnAddEmp" runat="server" Text="Add Employees" OnClick="btnAddEmp_Click" />
     <asp:Button ID="btnPay" runat="server" Text="Payment Info" OnClick="btnPay_Click" />
     <asp:Button ID="btnAddress" runat="server" Text="Address Info" OnClick="btnAddress_Click" />
@@ -83,25 +90,25 @@
                 class="form-control">
             </asp:DropDownList>
             <div class="form-row">
-            <div class="form-group col-md-6">
-                <label>Amount of Hours Worked</label>
-                <asp:TextBox
-                    ID="TxtAmount"
-                    runat="server"
-                    Placeholder="Hours worked"
-                    class="form-control">
-                </asp:TextBox>
+                <div class="form-group col-md-6">
+                    <label>Amount of Hours Worked</label>
+                    <asp:TextBox
+                        ID="TxtAmount"
+                        runat="server"
+                        Placeholder="Hours worked"
+                        class="form-control">
+                    </asp:TextBox>
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Wage per Hour</label>
+                    <asp:TextBox
+                        ID="TxtCharge"
+                        runat="server"
+                        Placeholder="Per hour"
+                        class="form-control">
+                    </asp:TextBox>
+                </div>
             </div>
-            <div class="form-group col-md-6">
-                <label>Wage per Hour</label>
-                <asp:TextBox
-                    ID="TxtCharge"
-                    runat="server"
-                    Placeholder="Per hour"
-                    class="form-control">
-                </asp:TextBox>
-            </div>
-        </div>
         </div>
         <asp:Button ID="BtnAddEmployee" runat="server" Text="Add Employee" OnClick="BtnAddEmployee_Click" />
         <fieldset>
@@ -120,14 +127,14 @@
                     <asp:BoundField DataField="EmployeeName" HeaderText="Employee Name" />
                     <asp:BoundField DataField="Hours" HeaderText="Hours" />
                     <asp:BoundField DataField="Amount" HeaderText="Wage per hour" DataFormatString="{0:C}" />
-                    <asp:BoundField DataField="Total" HeaderText="Total" DataFormatString="{0:C}"/>
+                    <asp:BoundField DataField="Total" HeaderText="Total" DataFormatString="{0:C}" />
                 </Columns>
 
             </asp:GridView>
         </fieldset>
     </div>
     <br />
-    
+
 
     <br />
     <div runat="server" id="divPayment">
@@ -371,9 +378,9 @@
                         class="form-control"
                         runat="server"
                         AutoPostBack="true"
-                        OnSelectedIndexChanged="DDLTravel_SelectedIndexChanged"
-                        OnDataBound="DDLTravel_DataBound">
+                        OnSelectedIndexChanged="DDLTravel_SelectedIndexChanged">
 
+                        <asp:ListItem Value="-1"> Select </asp:ListItem>
                         <asp:ListItem Value="TravelTime"> Travel Time </asp:ListItem>
                         <asp:ListItem Value="LoadTime"> Load Time </asp:ListItem>
                         <asp:ListItem Value="UnloadTime"> Unload Time </asp:ListItem>
@@ -389,7 +396,7 @@
                     <asp:Label ID="lblStart" runat="server" Text="" Visible="false"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="TxtStart" runat="server" Visible="false"></asp:TextBox>
+                    <asp:TextBox ID="TxtStart" runat="server" Visible="false" TextMode="Time"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -397,7 +404,7 @@
                     <asp:Label ID="lblEnd" runat="server" Text="" Visible="false"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="Txtend" runat="server" Visible="false"></asp:TextBox>
+                    <asp:TextBox ID="Txtend" runat="server" Visible="false" TextMode="Time"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -456,7 +463,7 @@
     <div class="float-right">
         <asp:Button ID="btnComplete" runat="server" Text="Complete Service Ticket->" OnClick="btnComplete_Click" />
         <asp:Label ID="LblSaveStatus" runat="server" Text=""></asp:Label>
-        <%-- <asp:Button ID="BtnPop" runat="server" Text="Populate" OnClick="BtnPop_Click" />--%>
+        
         <asp:Button ID="BtnClear" runat="server" Text="Clear" OnClick="BtnClear_Click" />
     </div>
     <%--<asp:Table ID="Table2" runat="server">
