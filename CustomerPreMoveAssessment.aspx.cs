@@ -167,5 +167,10 @@ namespace Lab3
                 TrashDescriptionTxt.Visible = true;
             }
         }
+
+        protected void BackBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CustomerServiceChoice.aspx");
+        }
     }
 }

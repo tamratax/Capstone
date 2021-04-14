@@ -132,11 +132,12 @@ namespace Lab3
                 LblSaveStatus.Text = "Appraisal Service Order Saved Successfully";
                 LblSaveStatus.ForeColor = Color.Green;
             }
-            //catch
-            //{
-            //    LblSaveStatus.Text = "Error Saving Appraisal Service Order";
-            //    LblSaveStatus.ForeColor = Color.Red;
-            //}
 
+        protected void BackBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CustomerServiceChoice.aspx");
         }
+
+
+    }
     }
