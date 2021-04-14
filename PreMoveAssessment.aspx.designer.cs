@@ -114,6 +114,15 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.GridView GridAddress;
 
         /// <summary>
+        /// PopBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button PopBtn;
+
+        /// <summary>
         /// lblInitiating control.
         /// </summary>
         /// <remarks>
@@ -294,24 +303,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.CheckBox AuctionChk;
 
         /// <summary>
-        /// SaveBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SaveBtn;
-
-        /// <summary>
-        /// PopBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button PopBtn;
-
-        /// <summary>
         /// ClearBtn control.
         /// </summary>
         /// <remarks>
@@ -319,6 +310,15 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ClearBtn;
+
+        /// <summary>
+        /// SaveBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button SaveBtn;
 
         /// <summary>
         /// LblSaveStatus control.

@@ -77,6 +77,7 @@
         </div>
     </fieldset>
     <br />
+    <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click" />
     <div class="form-group">
     <asp:Label ID="lblInitiating" runat="server" Text="Initiating Employee:"></asp:Label>
     <asp:DropDownList
@@ -198,14 +199,11 @@
     <br />
     <asp:CheckBox ID="AuctionChk" runat="server" />--%>
     <br />
-    <div class="form-group float-right">
-    <asp:Button ID="SaveBtn" runat="server" Text="Save" OnClick="SaveBtn_Click" />
-        <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click" />
-        <asp:Button ID="ClearBtn" runat="server" Text="Clear" OnClick="ClearBtn_Click" />
+    <div class="text-center">
+        <asp:Button ID="ClearBtn" runat="server" Text="Clear" class="btn btn-danger" OnClick="ClearBtn_Click" />
+            <asp:Button ID="SaveBtn" runat="server" Text="Save" class="btn btn-success" OnClick="SaveBtn_Click" />
+        <asp:Label ID="LblSaveStatus" runat="server" Text=""></asp:Label>
         </div>
-    <br />
-    <asp:Label ID="LblSaveStatus" runat="server" Text=""></asp:Label>
-
 
     <asp:SqlDataSource ID="dtasrcAddress"
         runat="server"
