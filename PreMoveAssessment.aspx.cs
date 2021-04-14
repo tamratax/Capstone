@@ -26,7 +26,7 @@ namespace Lab3
             }
             else
             {
-                //lblselected.Text = Session["SelectedCustomerName"].ToString();
+                
 
                 //Pulling in customer's record
                 String sqlQuery = "Select * from customer where customerid = " + Session["SelectedCustomerID"].ToString();
@@ -45,11 +45,7 @@ namespace Lab3
                 LblCellNumber.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
                 LblWorkNumber.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
                 LblEmailText.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
-
-
-                //lblselected.Text = Convert.ToString(dtForSelect.Rows[0]["Name"]);
-                //LblID.Text = Session["SelectedCustomerID"].ToString();
-
+                               
             }
         }
 
