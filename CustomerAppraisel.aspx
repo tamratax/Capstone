@@ -2,14 +2,71 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-
-    <body>
-        <link href="Content/AddService.css" rel="stylesheet" />
-    <h1>Appraisal Service Order</h1>
+     <link href="Content/AddService.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" />
+   <div class="groupAuction">
+    <div class="row justify-content-center">
+    <h1 class="display-4">Appraisal Service Order</h1>
+    </div>
+    
+       
+    
 
     <br />
 
-    <h2>Create Appraisal Service</h2>
+            <asp:Label
+                ID="LblCellNumber"
+                runat="server"
+                Text=""
+                Font-Bold="true"></asp:Label>
+            <br />
+            <asp:Label
+                ID="LblWorkPhone"
+                runat="server"
+                Text="   Work Phone: "></asp:Label>
+
+            <asp:Label
+                ID="LblWorkNumber"
+                runat="server"
+                Text=""
+                Font-Bold="true"></asp:Label>
+            <br />
+            <asp:Label
+                ID="LblEmail"
+                runat="server"
+                Text="Email:"></asp:Label>
+
+            <asp:Label
+                ID="LblEmailText"
+                runat="server"
+                Text=""
+                Font-Bold="true"></asp:Label>
+        </div>
+        <div>
+            <asp:GridView ID="GridAddress"
+                runat="server"
+                DataSourceID="dtasrcAddress"
+                CausesValidation="false"
+                AutoGenerateColumns="false"
+                DataKeyNames="AddressID"
+                CsssClass="table justify-content-center">
+                <Columns>
+                    <asp:CommandField ShowEditButton="true" ShowDeleteButton="true" ButtonType="Button" />
+                    <asp:BoundField DataField="AddressID" Visible="false" />
+                    <asp:BoundField DataField="Street" HeaderText="Street" />
+                    <asp:BoundField DataField="City" HeaderText="City" />
+                    <asp:BoundField DataField="State" HeaderText="State" />
+                    <asp:BoundField DataField="Zip" HeaderText="Zip" />
+                    <asp:BoundField DataField="Description" HeaderText="Description" />
+                </Columns>
+            </asp:GridView>
+        </div>
+        <br />
+        <br />
+    </div>--%>
+    <br />
+
+    
         <div class="float-right">
          <asp:Button ID="BtnPopulate"
                 runat="server"
@@ -41,7 +98,7 @@
 
         <div runat="server" id="DeadlineHidden">
             <label>When is it?</label>
-            <asp:TextBox ID="TxtDeadline" runat="server" TextMode="Date"></asp:TextBox>
+            <asp:TextBox ID="TxtDeadline" runat="server" TextMode="Date" CssClass="form-control"></asp:TextBox>
         </div>
 
     </div>
@@ -102,7 +159,27 @@
                 Text=""></asp:Label>
         </div>
     </div>
+       </div>
 
-  </body>
+
+
+
+    <%--<asp:Label ID="LblSelectedSessionID" runat="server" Text="" Visible="false"></asp:Label>--%>
+
+
+   <%-- <asp:SqlDataSource ID="dtasrcAddress"
+        runat="server"
+        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        SelectCommand="SELECT * from Address join customer on Customer.CustomerID = Address.CustomerID where Customer.CustomerID = @CustomerID"
+        DeleteCommand="DELETE ADDRESS where AddressID = @AddressID"
+        UpdateCommand="UPDATE ADDRESS set Street = @Street, City = @City, State = @State, Zip = @Zip, Description = @Description where AddressID = @AddressID">
+        <SelectParameters>
+            <asp:SessionParameter Name="CustomerID" SessionField="SelectedCustomerID" DefaultValue="" />
+        </SelectParameters>
+    </asp:SqlDataSource>--%>
+
+
+
+  
 
 </asp:Content>
