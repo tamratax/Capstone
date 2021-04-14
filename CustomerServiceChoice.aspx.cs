@@ -20,6 +20,7 @@ namespace Lab3
        
         protected void BtnRequestAppraisal_Click(object sender, EventArgs e)
         {
+            Response.Redirect("CustomerAppraisel.aspx");
 
         }
 
