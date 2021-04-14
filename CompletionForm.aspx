@@ -391,14 +391,7 @@
         <br />
     </div>
     <div runat="server" id="divTravel">
-        <asp:Table ID="tbltravel" runat="server">
-            <asp:TableRow>
-                <asp:TableCell>
                 <h2>Travel Information</h2>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
         <div class="form-group">
             <label>Select an Option Below</label>
                     <asp:DropDownList
@@ -414,6 +407,9 @@
                         <asp:ListItem Value="UnloadTime"> Unload Time </asp:ListItem>
                     </asp:DropDownList>
             </div>
+                <asp:Table ID="tbltravel" runat="server">
+            <asp:TableRow>
+                <asp:TableCell>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>

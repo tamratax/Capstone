@@ -117,7 +117,7 @@
         </div>
         <div class="form-group">
             <%--<label>Size of Appraisal</label>--%>
-            <asp:TextBox ID="TxtAppraisalSize" runat="server" Class="form-control"></asp:TextBox>
+            <asp:TextBox ID="TxtAppraisalSize" Placeholder="Size of Appraisal" runat="server" Class="form-control"></asp:TextBox>
         </div>
     </div>
     <br />
@@ -127,7 +127,7 @@
         </div>
         <div class="form-group">
 
-            <asp:TextBox ID="TxtInventory" runat="server" TextMode="MultiLine" Rows="5" Columns="25" Class="form-control"></asp:TextBox>
+            <asp:TextBox ID="TxtInventory" runat="server" Placeholder="Inventory" TextMode="MultiLine" Rows="5" Columns="25" Class="form-control"></asp:TextBox>
         </div>
     </div>
     <br />
@@ -151,33 +151,34 @@
         </div>
         <div>
             <asp:Button ID="BtnOutlook" runat="server" Text="Open Outlook" OnClick="BtnOutlook_Click" />
-            
-           
 
-            </div>
+
+
+        </div>
         <br />
         <asp:Button ID="BtnUploadPhotos" runat="server" Text="Upload Photos" OnClick="BtnUploadPhotos_Click" />
-            <asp:FileUpload
-                ID="FilesUpload"
-                runat="server"
-                AllowMultiple="true" />
-          <asp:Label ID="FileUploadedList" runat="server" />
+        <asp:FileUpload
+            ID="FilesUpload"
+            runat="server"
+            AllowMultiple="true" />
+        <asp:Label ID="FileUploadedList" runat="server" />
         <br />
-        <div><br />
-        <asp:Button ID="BtnPopulate" 
-            runat="server" 
-            Text="Populate" 
-            OnClick="BtnPopulate_Click" />
-            <asp:Button ID="BtnClear" 
-                runat="server" 
-                Text="Clear" 
+        <div>
+            <br />
+            <asp:Button ID="BtnPopulate"
+                runat="server"
+                Text="Populate"
+                OnClick="BtnPopulate_Click" />
+            <asp:Button ID="BtnClear"
+                runat="server"
+                Text="Clear"
                 OnClick="BtnClear_Click" />
-             <asp:Button ID="BtnSave" runat="server" Text="Save" OnClick="BtnSave_Click" />
-           <asp:Label
+            <asp:Button ID="BtnSave" runat="server" Text="Save" OnClick="BtnSave_Click" />
+            <asp:Label
                 ID="LblSaveStatus"
                 runat="server"
                 Text=""></asp:Label>
-            </div>
+        </div>
     </div>
 
 
