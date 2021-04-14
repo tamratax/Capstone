@@ -176,9 +176,11 @@
         <asp:CheckBox ID="ChkbxItems" runat="server" />
     </div>
     <br />
-    <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn-danger" OnClick="btnClear_Click" />
-    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
+    <div class="text-center">
+    <asp:Button ID="btnClear" runat="server" class="btn btn-danger" Text="Clear" OnClick="btnClear_Click" />
+    <asp:Button ID="btnSave" runat="server" class="btn btn-success" Text="Save" OnClick="btnSave_Click" />
     <asp:Label ID="lblSaveStatus" runat="server" Text=""></asp:Label>
+        </div>
 
 
 

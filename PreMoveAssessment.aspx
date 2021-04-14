@@ -77,7 +77,9 @@
         </div>
     </fieldset>
     <br />
+    <div class="float-left">
     <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click" />
+        </div>
     <div class="form-group">
     <asp:Label ID="lblInitiating" runat="server" Text="Initiating Employee:"></asp:Label>
     <asp:DropDownList
