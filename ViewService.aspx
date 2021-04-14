@@ -46,7 +46,8 @@
     </fieldset>
     <br />
     <fieldset>
-        <legend><b>Active Service Tickets </b></legend>
+        <legend><b>
+            <asp:Label ID="LblActive" runat="server" Text=""></asp:Label></b></legend>
        
         <div>
             <asp:GridView ID="GrdServices"
@@ -91,10 +92,18 @@
   <div id="progressbar" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="70"
   aria-valuemin="0" aria-valuemax="100" style="width:0%" runat="server">
   </div>
+    
+   
+
 </div>
+
     <br />
     </fieldset>
     <br />
+         <div>
+        <asp:DropDownList ID="DDLServices" runat="server" OnDataBound="DDLServices_DataBound"></asp:DropDownList> <br />
+        <asp:Button ID="BtnServices" runat="server" Text="Change Status" OnClick="BtnServices_Click" />
+    </div>
 
         
     </fieldset>

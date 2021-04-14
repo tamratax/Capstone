@@ -60,6 +60,15 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.GridView GridViewCustomers;
 
         /// <summary>
+        /// LblActive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblActive;
+
+        /// <summary>
         /// GrdServices control.
         /// </summary>
         /// <remarks>
@@ -94,6 +103,24 @@ namespace Lab2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl progressbar;
+
+        /// <summary>
+        /// DDLServices control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDLServices;
+
+        /// <summary>
+        /// BtnServices control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnServices;
 
         /// <summary>
         /// Table1 control.
