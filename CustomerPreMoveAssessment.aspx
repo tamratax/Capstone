@@ -9,6 +9,9 @@
     <h1 class="display-4">Pre-Move Assessment</h1>
     </div>
 <div>
+    <div class="float-left">
+        <asp:Button ID="homeBtn" runat="server" Text="Home" OnClick="homeBtn_Click"/>
+        </div>
     <div class="float-right">
         <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click"/>
         </div>

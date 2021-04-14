@@ -38,7 +38,12 @@
         <br />
     
     <br />
-
+       <div class="float-left">
+         <asp:Button ID="homeBtn"
+                runat="server"
+                Text="Home"
+                 OnClick="homeBtn_Click"/>
+    </div>
     
         <div class="float-right">
          <asp:Button ID="BtnPopulate"
