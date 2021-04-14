@@ -42,7 +42,7 @@ namespace Lab3
                     LblEmailText.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
 
 
-                    //lblselected.Text = Convert.ToString(dtForSelect.Rows[0]["Name"]);
+                   
                     LblID.Text = Session["SelectedCustomerID"].ToString();
 
                     //Populates service Ddl
@@ -76,7 +76,7 @@ namespace Lab3
                     divcharges.Visible = false;
 
 
-                    //Blankoption
+                    //Blank option for Home DDL
                     ListItem blankOption = new ListItem("Select", "-1");
                     DDLTypeofHome.Items.Insert(0, blankOption);
                     DDLTypeofHome.SelectedIndex = 0;
@@ -94,10 +94,8 @@ namespace Lab3
         {
             try
             {
-                //String sqlQueryService = "SELECT * FROM MoveAssessment WHERE ServiceTicketID = @ServiceTicketID";
+                //Selects Service Ticket record based off of what is selected in the DDL
                 String sqlQueryService = "SELECT * FROM ServiceTicket WHERE ServiceTicketID = @ServiceTicketID";
-
-
 
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                 sqlConnect.Open();
@@ -111,6 +109,7 @@ namespace Lab3
                 DataTable dtforMoveInfo = new DataTable();
                 sqlAdapterService.Fill(dtforMoveInfo);
 
+                //If Move Assessment doesn't exist for Service Ticket, Makes User create one. 
                 if (dtforMoveInfo.Rows[0]["MoveAssessmentID"].ToString() != "")
                 {
                     divbuttons.Visible = true;
@@ -126,12 +125,6 @@ namespace Lab3
                 sqlConnect.Close();
 
             }
-
-
-
-
-
-
             catch
             {
 
@@ -150,6 +143,7 @@ namespace Lab3
 
         protected void DDLVehicle_DataBound(object sender, EventArgs e)
         {
+            //Adds Blank Options for the Vehicle DDL
             ListItem blankOption = new ListItem("Select", "-1");
             DDLVehicle.Items.Insert(0, blankOption);
             DDLVehicle.SelectedIndex = 0;
@@ -159,6 +153,7 @@ namespace Lab3
         {
             try
             {
+                //Query that adds Service Vehicles to the associated Service Ticket 
                 string query = "INSERT INTO [ServiceTicketEQUIPMENT] (EquipmentID, ServiceTicketID) Values (@EquipmentID, @ServiceTicketID)";
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                 sqlConnect.Open();
@@ -185,8 +180,9 @@ namespace Lab3
         protected void BtnSave_Click(object sender, EventArgs e)
         {
             string additionalinfo = "";
-            //try
-            //{
+            try
+            {
+                //Query that updates Move Assessment table with information customer provides
                 string query = "UPDATE [MOVEAssessment] SET NumberOfStories = @NumberofStories, DistanceFromTruck = @DistanceFromTruck, TypeOfHome = @TypeofHome, TypeofHomeAdd = @TypeAdd, TruckAccessibility = @TruckAccessibility, LoadingDoorWalk = @LoadingDoorWalk, StepsToHouse = @StepsToHouse from MOVEAssessment join ServiceTicket on MoveAssessment.MoveAssessmentID = ServiceTicket.MoveAssessmentID WHERE ServiceTicketID = @ServiceTicketID";
                 
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -196,9 +192,11 @@ namespace Lab3
                 com.Parameters.AddWithValue("NumberOfStories", TxtNumberofStories.Text);
                 com.Parameters.AddWithValue("DistanceFromTruck", TxtDistance.Text);
                 com.Parameters.AddWithValue("TypeOfHome", DDLTypeofHome.SelectedValue);
+               
+                //Fill additional info string based on type of building selected
                 if (divapartment.Visible == true)
                 {
-                    additionalinfo = TxtNumberofStories.Text + " " + TxtElevator.Text + " " + TxtElevatorWalk.Text;
+                    additionalinfo = TxtNumberofStories.Text + "  " + TxtElevator.Text + "  " + TxtElevatorWalk.Text;
                 }
                 if (divstorageinfo.Visible == true)
                 {
@@ -213,28 +211,28 @@ namespace Lab3
                     additionalinfo = "";
                 }
                 com.Parameters.AddWithValue("TypeAdd", additionalinfo);
-                
                 com.Parameters.AddWithValue("TruckAccessibility", TxtAccessibility.Text);   
                 com.Parameters.AddWithValue("LoadingDoorWalk", TxtConditions.Text);
                 com.Parameters.AddWithValue("StepsToHouse", TxtSteps.Text);
                 com.Parameters.AddWithValue("ServiceTicketID", DDLType.SelectedValue.ToString());
 
-            com.ExecuteNonQuery();
+                com.ExecuteNonQuery();
                 sqlConnect.Close();
 
                 DTLMoveInfo.DataBind();
 
-            LblSuccess.Text = "Move Info Added";
+                LblSuccess.Text = "Move Info Added";
 
-            //}
-            //catch
-            //{
-            //    LblSuccess.Text = "Database Error!";
-            //}
+            }
+            catch
+            {
+                LblSuccess.Text = "Database Error!";
+            }
         }
 
         protected void DDLTypeofHome_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Changes what textboxes are shown based on type of building selected
             if (DDLTypeofHome.SelectedIndex == 1)
             {
                 divapartment.Visible = true;
@@ -261,7 +259,7 @@ namespace Lab3
 
         protected void DDLSpecial_DataBound(object sender, EventArgs e)
         {
-
+            //Blank Option for Special Equipment DDL
             ListItem blankOption = new ListItem("Select", "-1");
             DDLSpecial.Items.Insert(0, blankOption);
             DDLSpecial.SelectedIndex = 0;
@@ -269,6 +267,7 @@ namespace Lab3
 
         protected void BtnSpecial_Click(object sender, EventArgs e)
         {
+            //Query that inserts data into SpecialEquipment Table 
             string query = "INSERT INTO [SPECIALEQUIPMENT] (EquipmentType, Quantity, ServiceTicketID) Values (@EquipmentType, @Quantity, @ServiceTicketID)";
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             sqlConnect.Open();
@@ -281,15 +280,14 @@ namespace Lab3
             com.ExecuteNonQuery();
             sqlConnect.Close();
 
-
+            //Binds the gridview with the Special Equipment associated with the Move 
             grvEquip.DataBind();
         }
 
         protected void LblMoveInfo_Click(object sender, EventArgs e)
         {
-            //creates blank moveassessment
+            //Creates blank moveassessment if one is not generated for the service ticket already 
             string query = "INSERT INTO [MOVEAssessment] (stepstohouse) VALUES (' ')";
-
 
 
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -311,7 +309,7 @@ namespace Lab3
             com1.ExecuteNonQuery();
             sqlConnect1.Close();
 
-
+            //Creates a Move Charges record associated with the Service Ticket
             string query2 = "INSERT INTO [MOVECHARGES] (ServiceTicketID) VALUES (@ServiceTicketID)";
 
             SqlConnection sqlConnect2 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -323,8 +321,7 @@ namespace Lab3
             com2.ExecuteNonQuery();
             sqlConnect2.Close();
 
-
-
+            //Makes form accessible once a move assessment has been generated for the service ticket 
             BtnMoveInfo.Visible = false;
             LblMoveInfo.Visible = false;
             divbuttons.Visible = true;
@@ -332,6 +329,7 @@ namespace Lab3
 
         protected void BtnGeneralInfo_Click(object sender, EventArgs e)
         {
+            //Shows the General Information for a Move Assessment 
             divgeneralinfo.Visible = true;
             divspecial.Visible = false;
             divvehicles.Visible = false;
@@ -341,6 +339,7 @@ namespace Lab3
 
         protected void BtnVehicles_Click(object sender, EventArgs e)
         {
+            //Shows the Vehicle Information for the Move Assessment 
             divgeneralinfo.Visible = false;
             divspecial.Visible = false;
             divvehicles.Visible = true;
@@ -350,6 +349,7 @@ namespace Lab3
 
         protected void BtnSpecialEquipment_Click(object sender, EventArgs e)
         {
+            //Shows the Special Equipment for the Move Assessment 
             divgeneralinfo.Visible = false;
             divspecial.Visible = true;
             divvehicles.Visible = false;
@@ -359,6 +359,7 @@ namespace Lab3
 
         protected void BtnAddRoom_Click(object sender, EventArgs e)
         {
+            //Takes user to the Add Room form related to the Move Assessment 
             Session["ServiceTicketID"] = DDLType.SelectedValue.ToString();
             Response.Redirect("AddRoom.aspx");
 
@@ -366,6 +367,7 @@ namespace Lab3
 
         protected void BtnMoveEstimate_Click(object sender, EventArgs e)
         {
+            //Query that updates the moveestimate for the Move Assessment 
             string query = "UPDATE MOVECHARGES SET MoveEstimate = @MoveEstimate WHERE ServiceTicketID = @ServiceTicketID";
 
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -380,6 +382,7 @@ namespace Lab3
 
             TxtMoveEstimate.Text = "";
 
+            //Query that updates the totalcharges for the Move Assessment 
             string query1 = "UPDATE MOVECHARGES SET TotalCharges = (COALESCE(MoveEstimate, 0) + COALESCE(FixedRate, 0) + COALESCE(PackingFees, 0) + COALESCE(StorageFees, 0) + COALESCE(TrashRemovalFee, 0)) WHERE ServiceTicketID = @ServiceTicketID";
 
             SqlConnection sqlConnect1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -397,6 +400,7 @@ namespace Lab3
 
         protected void BtnFixedRate_Click(object sender, EventArgs e)
         {
+            //Query that updates the fixed rate for the Move Assessment 
             string query = "UPDATE MOVECHARGES SET FixedRate = @FixedRate WHERE ServiceTicketID = @ServiceTicketID";
 
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -428,6 +432,7 @@ namespace Lab3
 
         protected void BtnPackingFee_Click(object sender, EventArgs e)
         {
+            //Query that updates the Packing fees for the Move Assessment 
             string query = "UPDATE MOVECHARGES SET PackingFees = @PackingFees WHERE ServiceTicketID = @ServiceTicketID";
 
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -459,6 +464,7 @@ namespace Lab3
 
         protected void BtnStorageFee_Click(object sender, EventArgs e)
         {
+            //Query that updates the Storage Fees for the Move Assessment 
             string query = "UPDATE MOVECHARGES SET StorageFees = @StorageFees WHERE ServiceTicketID = @ServiceTicketID";
 
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -492,6 +498,7 @@ namespace Lab3
 
         protected void BtnTrashRemoval_Click(object sender, EventArgs e)
         {
+            //Query that updates the Trash Removal Fee for the Move Assessment 
             string query = "UPDATE MOVECHARGES SET TrashRemovalFee = @TrashRemoval WHERE ServiceTicketID = @ServiceTicketID";
 
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -523,6 +530,7 @@ namespace Lab3
 
         protected void BtnCharge_Click(object sender, EventArgs e)
         {
+            //Displays the Charges information of the Move Assessment 
             divgeneralinfo.Visible = false;
             divspecial.Visible = false;
             divvehicles.Visible = false;
@@ -532,6 +540,7 @@ namespace Lab3
 
         protected void PopBtn_Click(object sender, EventArgs e)
         {
+            //Populates generic data for the page
             DDLTypeofHome.SelectedValue = "House";
             TxtDistance.Text = "25ft";
             TxtAccessibility.Text = "Yes";
@@ -547,6 +556,7 @@ namespace Lab3
 
         protected void ClearBtn_Click(object sender, EventArgs e)
         {
+            //Clears textboxes of the Move Assessment 
             DDLTypeofHome.SelectedIndex = -1;
             TxtDistance.Text = "";
             TxtAccessibility.Text = "";
