@@ -51,6 +51,9 @@
                 Text="Populate"
                 OnClick="BtnPopulate_Click" />
     </div>
+        <div class="float-left">
+            <asp:Button ID="BackBtn" runat="server" Text="Home" OnClick="BackBtn_Click" />
+        </div>
     <div runat="server" id="divOutBuilding">
         <div>
             <h5>Purpose of Appraisal</h5>
@@ -77,6 +80,7 @@
         <div runat="server" id="DeadlineHidden">
             <label>When is it?</label>
             <asp:TextBox ID="TxtDeadline" runat="server" TextMode="Date" CssClass="form-control"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtDeadline" Text="Required" ForeColor="Red" ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
         </div>
 
     </div>
@@ -87,6 +91,7 @@
         </div>
         <div class="form-group">
             <asp:TextBox ID="TxtAppraisalSize" Placeholder="Size of Appraisal" runat="server" Class="form-control"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtAppraisalSize" Text="Required" ForeColor="Red" ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
         </div>
     </div>
     <br />
@@ -97,6 +102,7 @@
         <div class="form-group">
 
             <asp:TextBox ID="TxtInventory" runat="server" Placeholder="Inventory" TextMode="MultiLine" Rows="5" Columns="25" Class="form-control"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtInventory" Text="Required" ForeColor="Red" ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
         </div>
     </div>
     <br />
@@ -130,7 +136,7 @@
                 runat="server"
                 Text="Clear"
                 OnClick="BtnClear_Click" class="btn btn-danger" />
-            <asp:Button ID="BtnSave" BackColor="LimeGreen" runat="server" Text="Save" OnClick="BtnSave_Click" class="btn btn-success" />
+            <asp:Button ID="BtnSave" BackColor="LimeGreen" runat="server" Text="Save" OnClick="BtnSave_Click" class="btn btn-success" ValidationGroup="SaveGroup" />
             <asp:Label
                 ID="LblSaveStatus"
                 runat="server"

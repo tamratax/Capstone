@@ -24,15 +24,21 @@
         <label>What day do you have to be out by?</label>
          <asp:TextBox ID="DateOutTxt" runat="server" TextMode="Date"
              class="form-control"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="DateOutTxt" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+
          </div>
     <div class="form-row">
     <div class="form-group col-md-6">
         <label>Range of Days (Start)</label>
- <asp:TextBox ID="TxtRange1" runat="server" TextMode="Date" class="form-control"></asp:TextBox>
+        <asp:TextBox ID="TxtRange1" runat="server" TextMode="Date" class="form-control"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtRange1" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+
         </div>
         <div class="form-group col-md-6">
             <label>Finish</label>
     <asp:TextBox ID="TxtRange2" runat="server" TextMode="Date" class="form-control"></asp:TextBox>
+     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtRange2" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+
         </div>
         </div>
 
@@ -52,6 +58,8 @@
     <asp:TextBox ID="DestAddressTxt" runat="server"
         Placeholder="1234 Main St"
         class="form-control"></asp:TextBox>
+     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="DestAddressTxt" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+
          </div>
      <div class="form-row">
         <div class="form-group col-md-6">
@@ -60,6 +68,8 @@
                 runat="server"
                 class="form-control"
                 Placeholder="City"></asp:TextBox>
+     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="DestCityTxt" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+
         </div>
         <div class="form-group col-md-4">
             <label>State</label>
@@ -67,6 +77,8 @@
                 runat="server"
                 class="form-control"
                 Placeholder="State"></asp:TextBox>
+     <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="DestStateTxt" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+
         </div>
         <div class="form-group col-md-2">
             <label>Zip</label>
@@ -74,6 +86,9 @@
                 runat="server"
                 class="form-control"
                 Placeholder="Zip"></asp:TextBox>
+     <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="DestZipTxt" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+     <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator" ValidationGroup="Save" ControlToValidate="DestZipTxt" Operator="DataTypeCheck" Type="Integer" ForeColor="Red" Text="Please only use numbers"></asp:CompareValidator>
+     
         </div>
     </div>
 
@@ -113,7 +128,7 @@
     <br />
     <div class="text-center">
         <asp:Button ID="ClearBtn" runat="server" Text="Clear" OnClick="ClearBtn_Click" CssClass="btn-danger" />
-    <asp:Button ID="SaveBtn" runat="server" Text="Save" OnClick="SaveBtn_Click" CssClass="btn-success"/>
+    <asp:Button ID="SaveBtn" runat="server" Text="Save" OnClick="SaveBtn_Click" CssClass="btn-success" ValidationGroup="Save"/>
         </div>
     <br />
     <asp:Label ID="LblSaveStatus" runat="server" Text=""></asp:Label>

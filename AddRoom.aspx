@@ -6,8 +6,10 @@
      <div class="float-right">
         <asp:Button ID="BtnPop" runat="server" Text="Populate" OnClick="BtnPop_Click" />
     </div>
+    <div class="text-center">
     <h1 class="display-6">Room Information</h1>
-    <div>
+        </div>
+    <div class="justify-content-center">
         <asp:DetailsView ID="dtvRoom"
             runat="server"
             DataSourceID="dtvsrcRoom"
@@ -38,6 +40,8 @@
             </Fields>
             <PagerStyle ForeColor="Blue" Font-Underline="true" />
         </asp:DetailsView>
+    </div>
+
         <br />
         <br />
         <asp:GridView ID="grvRoomBoxes"
@@ -57,7 +61,6 @@
             </Columns>
         </asp:GridView>
         <br />
-    </div>
     <div class="row">
         <div class="form-group col-md-6">
             <label>Select Room</label>
@@ -67,7 +70,7 @@
                 class="form-control"
                 OnSelectedIndexChanged="DDLCreateRoom_SelectedIndexChanged"
                 AutoPostBack="true">
-                <asp:ListItem Value="Select">Select</asp:ListItem>
+                <asp:ListItem Value="-1">Select</asp:ListItem>
                 <asp:ListItem Value="Living Room">Living Room</asp:ListItem>
                 <asp:ListItem Value="Dining Room">Dining Room</asp:ListItem>
                 <asp:ListItem Value="Kitchen">Kitchen</asp:ListItem>
@@ -82,6 +85,7 @@
                 <asp:ListItem Value="Outbuilding">Outbuilding</asp:ListItem>
                 <asp:ListItem Value="Other">Other</asp:ListItem>
             </asp:DropDownList>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="DDLCreateRoom" Text="Required" ForeColor="Red" ValidationGroup="AddRoom" InitialValue="-1"></asp:RequiredFieldValidator>
         </div>
         <div class="form-group col-md-6">
             <label>Room Identifier</label>
@@ -403,7 +407,7 @@
     <br />
     <div class="text-center">
         <asp:Label ID="LblAddRoomStatus" runat="server" Text=""></asp:Label>
-        <asp:Button ID="BtnAddRoom" runat="server" class="btn btn-success" Text="Add Room" AutoPostBack="true" OnClick="BtnAddRoom_Click" />
+        <asp:Button ID="BtnAddRoom" runat="server" class="btn btn-success" Text="Add Room" AutoPostBack="true" OnClick="BtnAddRoom_Click" ValidationGroup="AddRoom" />
         <asp:Button ID="BtnReturn" class="btn btn-secondary" runat="server" Text="Return to Move Assessment" AutoPostBack="true" OnClick="BtnReturn_Click" />
     </div>
     <asp:SqlDataSource ID="grdsrcBox"

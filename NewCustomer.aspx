@@ -168,6 +168,7 @@
                                                             class="form-control py-4"
                                                             placeholder="Confirm password"
                                                             TextMode="Password"></asp:TextBox>
+                                                        <asp:CompareValidator ID="cvConfirmPassword" runat="server" ControlToValidate="TxtPassword" ControlToCompare="TxtConfirm" Operator="Equal" ValueToCompare="Text" Text="Passwords are not the same!" ForeColor="Red"></asp:CompareValidator>
                                                     </div>
                                                 </div>
                                             </div>
