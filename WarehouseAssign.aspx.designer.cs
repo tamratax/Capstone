@@ -33,24 +33,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Label LblCustomerSelected;
 
         /// <summary>
-        /// table1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table table1;
-
-        /// <summary>
-        /// gridtable control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table gridtable;
-
-        /// <summary>
         /// GridWarehouse control.
         /// </summary>
         /// <remarks>
@@ -58,15 +40,6 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridWarehouse;
-
-        /// <summary>
-        /// table2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table table2;
 
         /// <summary>
         /// LblLocation control.
@@ -96,15 +69,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvLocation;
 
         /// <summary>
-        /// LblDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblDescription;
-
-        /// <summary>
         /// TxtDescription control.
         /// </summary>
         /// <remarks>
@@ -121,15 +85,6 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-
-        /// <summary>
-        /// LblDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblDate;
 
         /// <summary>
         /// TxtDate control.

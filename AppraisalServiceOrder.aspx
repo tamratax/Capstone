@@ -64,7 +64,7 @@
                 CausesValidation="false"
                 AutoGenerateColumns="false"
                 DataKeyNames="AddressID"
-                CsssClass="table justify-content-center">
+                CssClass="table justify-content-center">
                 <Columns>
                     <asp:CommandField ShowEditButton="true" ShowDeleteButton="true" ButtonType="Button" />
                     <asp:BoundField DataField="AddressID" Visible="false" />
