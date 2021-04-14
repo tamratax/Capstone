@@ -125,6 +125,7 @@
         <div class="form-group">
             <%--<label>Size of Appraisal</label>--%>
             <asp:TextBox ID="TxtAppraisalSize" Placeholder="Size of Appraisal" runat="server" Class="form-control"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtAppraisalSize" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
         </div>
     </div>
     <br />
@@ -135,6 +136,8 @@
         <div class="form-group">
 
             <asp:TextBox ID="TxtInventory" runat="server" Placeholder="Inventory" TextMode="MultiLine" Rows="5" Columns="25" Class="form-control"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtAppraisalSize" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+
         </div>
     </div>
     <br />
@@ -176,7 +179,7 @@
                 runat="server"
                 Text="Clear"
                 OnClick="BtnClear_Click" class="btn btn-danger" />
-            <asp:Button ID="BtnSave" BackColor="LimeGreen" runat="server" Text="Save" OnClick="BtnSave_Click" class="btn btn-success" />
+            <asp:Button ID="BtnSave" BackColor="LimeGreen" runat="server" Text="Save" OnClick="BtnSave_Click" class="btn btn-success" ValidationGroup="Save" />
             <asp:Label
                 ID="LblSaveStatus"
                 runat="server"
