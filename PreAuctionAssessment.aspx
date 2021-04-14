@@ -125,11 +125,22 @@
             <%--   <asp:Label ID="lblWhy" runat="server" Text="Why are you considering Auction services?"></asp:Label>--%>
             <label>Why are you considering Auction services?</label>
             <asp:DropDownList ID="ddlWhy" runat="server" CssClass="form-control">
-                <asp:ListItem>Select</asp:ListItem>
+                <asp:ListItem Value="-1">Select</asp:ListItem>
                 <asp:ListItem>Settling an estate</asp:ListItem>
                 <asp:ListItem>Moving and need to downsize</asp:ListItem>
                 <asp:ListItem>Getting rid of some stuff</asp:ListItem>
             </asp:DropDownList>
+                    <asp:RequiredFieldValidator
+        ID="RequiredFieldValidator2"
+        runat="server"
+        ErrorMessage="RequiredFieldValidator"
+        ControlToValidate="ddlWhy"
+        Text="This Field Is Required"
+        ForeColor="Red"
+        SetFocusOnError="true"
+        ValidationGroup="SaveGroup"
+        Display="Dynamic"
+        InitialValue="-1"></asp:RequiredFieldValidator>
         </div>
         <br />
         <div class="form-group col-md-6">
