@@ -30,7 +30,7 @@ namespace Lab3
 
         protected void BtnRequestAuction_Click(object sender, EventArgs e)
         {
-            Response.Redirect("CustomerPreAuctionAssessment.aspx");
+            Response.Redirect("CustomerPreActionAssesment.aspx");
         }
     }
 }

@@ -94,13 +94,13 @@ namespace Lab3
             txtTrashDescription.Text = "Theres a ton of broken plywood by our dumpster";
             ChkbxPhotos.Checked = true;
             ChkbxItems.Checked = true;
-            ddlInitiating.SelectedIndex = 1;
+            //ddlInitiating.SelectedIndex = 1;
         }
 
-        protected void btnClear_Click(object sender, EventArgs e)
+        protected void btnSave_Click(object sender, EventArgs e)
         {
             String sqlQuery = "insert into PreAuctionAssessment values " +
-                "(@HaveToSell, @Reason, @Deadline, @BringInCB, @AuctionWalkCB, @RequestLookat, @PickupCB, @TrashCB, @TrashDesc, @PhotosCB, @ItemCB)";
+               "(@HaveToSell, @Reason, @Deadline, @BringInCB, @AuctionWalkCB, @RequestLookat, @PickupCB, @TrashCB, @TrashDesc, @PhotosCB, @ItemCB)";
             //Define the Connection to the Database
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -137,7 +137,7 @@ namespace Lab3
             // Close all related connections
             sqlConnect.Close();
 
-            string sqlService = "INSERT INTO ServiceTicket (CustomerID, TicketOpenDate, ServiceType, PreAuctionAssessmentID, InitiatingEmp) VALUES (@CustomerID, @TicketOpenDate, @ServiceType, (Select TOP 1 PreAuctionAssessmentID from PreAuctionAssessment order by PreAuctionAssessmentID desc), @InitiatingEmp)";
+            string sqlService = "INSERT INTO ServiceTicket (CustomerID, TicketOpenDate, ServiceType, PreAuctionAssessmentID) VALUES (@CustomerID, @TicketOpenDate, @ServiceType, (Select TOP 1 PreAuctionAssessmentID from PreAuctionAssessment order by PreAuctionAssessmentID desc))";
             //Define the Connection to the Database
             SqlConnection sqlConnect1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -150,7 +150,6 @@ namespace Lab3
             sqlCommand1.Parameters.Add(new SqlParameter("@CustomerID", Session["SelectedCustomerID"].ToString()));
             sqlCommand1.Parameters.Add(new SqlParameter("@ServiceType", "Auction"));
             sqlCommand1.Parameters.Add(new SqlParameter("@TicketOpenDate", DateTime.Now.ToString("yyyy-MM-dd")));
-            sqlCommand1.Parameters.Add(new SqlParameter("@InitiatingEmp", ddlInitiating.SelectedValue.ToString()));
 
             sqlConnect1.Open();
             SqlDataReader queryResults1 = sqlCommand1.ExecuteReader();
@@ -162,7 +161,7 @@ namespace Lab3
             lblSaveStatus.ForeColor = Color.Green;
         }
 
-        protected void btnSave_Click(object sender, EventArgs e)
+        protected void btnClear_Click1(object sender, EventArgs e)
         {
             txtWhatToSell.Text = "";
             ddlWhy.SelectedIndex = 0;
@@ -177,14 +176,13 @@ namespace Lab3
             txtTrashDescription.Text = "";
             ChkbxPhotos.Checked = false;
             ChkbxItems.Checked = false;
-            ddlInitiating.SelectedIndex = 0;
         }
-        protected void ddlInitiating_DataBound(object sender, EventArgs e)
-        {
-            //Sets emp list ddl to default of select
-            ListItem blankOption = new ListItem("Select", "-1");
-            ddlInitiating.Items.Insert(0, blankOption);
-            ddlInitiating.SelectedIndex = 0;
-        }
+        //protected void ddlInitiating_DataBound(object sender, EventArgs e)
+        //{
+        //    //Sets emp list ddl to default of select
+        //    ListItem blankOption = new ListItem("Select", "-1");
+        //    ddlInitiating.Items.Insert(0, blankOption);
+        //    ddlInitiating.SelectedIndex = 0;
+        //}
     }
 }
