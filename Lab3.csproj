@@ -88,6 +88,7 @@
     <Content Include="Content\style4.css" />
     <Content Include="Content\UserLogin.css" />
     <Content Include="EditEquipment.aspx" />
+    <Content Include="Feedback.aspx" />
     <Content Include="FileIOTest.aspx" />
     <Content Include="images\background.jpg" />
     <Content Include="images\background2.jfif" />
@@ -289,6 +290,13 @@
     </Compile>
     <Compile Include="EditEquipment.aspx.designer.cs">
       <DependentUpon>EditEquipment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Feedback.aspx.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Feedback.aspx.designer.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
     </Compile>
     <Compile Include="FileIOTest.aspx.cs">
       <DependentUpon>FileIOTest.aspx</DependentUpon>
