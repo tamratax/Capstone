@@ -19,10 +19,6 @@ namespace Lab3
         {
             if (!IsPostBack)
             {
-                //Sets Vehicle list ddl to default of select
-                ListItem blankOption = new ListItem("Select", "-1");
-                DDLTravel.Items.Insert(0, blankOption);
-                DDLTravel.SelectedIndex = 0;
 
                 if (Session["SelectedCustomerID"] != null)
                 {
@@ -71,8 +67,8 @@ namespace Lab3
             }
             if (!IsPostBack)
             {
+                //Hides all toggleable divs on load
                 divEmp.Visible = false;
-
                 divPayment.Visible = false;
                 divAddress.Visible = false;
                 divVehicle.Visible = false;
@@ -111,6 +107,7 @@ namespace Lab3
         {
             try
             {
+                //Adds employee and charges into serviceticketemployee table
                 string query = "INSERT INTO [SERVICETICKETEMPLOYEE] (EmployeeID, ServiceTicketID, Hours, Amount, Total) Values (@EmployeeID, @ServiceTicketID, @Hours, @Amount, @Total)";
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                 sqlConnect.Open();
@@ -153,6 +150,7 @@ namespace Lab3
         {
             try
             {
+                //Adds selected equipment/vehicles into serviceticketequipment
                 string query = "INSERT INTO [SERVICETICKETEQUIPMENT] (EquipmentID, Mileage, ServiceTicketID) Values (@EquipmentID, @Mileage, @ServiceTicketID)";
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                 sqlConnect.Open();
@@ -181,6 +179,7 @@ namespace Lab3
         {
             try
             {
+                //Adds address into customer's list of addresses
                 string query = "INSERT INTO [ADDRESS] (CustomerID, Street, City, State, Zip, Description) Values (@CustomerID, @Street, @City, @State, @Zip, @Description)";
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                 sqlConnect.Open();
@@ -261,15 +260,12 @@ namespace Lab3
             }
         }
 
-        protected void DDLTravel_DataBound(object sender, EventArgs e)
-        {
-
-        }
 
         protected void btntravel_Click(object sender, EventArgs e)
         {
             try
             {
+                //Adds travel times to service
                 string query = "INSERT INTO [TRAVEL] (Description, StartTime, EndTime, Hours, ServiceTicketID) Values (@Description, @StartTime, @EndTime, @Hours, @ServiceID)";
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                 sqlConnect.Open();
@@ -418,14 +414,6 @@ namespace Lab3
 
         }
 
-        protected void btnCharges_Click(object sender, EventArgs e)
-        {
-            divEmp.Visible = false;
-            divPayment.Visible = false;
-            divAddress.Visible = false;
-            divVehicle.Visible = false;
-            divTravel.Visible = false;
-        }
 
         protected void btnPay_Click(object sender, EventArgs e)
         {
@@ -465,11 +453,74 @@ namespace Lab3
 
         protected void BtnPop_Click(object sender, EventArgs e)
         {
+            divEmp.Visible = true;
+            divPayment.Visible = true;
+            divAddress.Visible = true;
+            divVehicle.Visible = true;
+            divTravel.Visible = true;
 
+            Drplst.DataBind();
+            Drplst.SelectedIndex = 1;
+            TxtAmount.Text = "5";
+            TxtCharge.Text = "10";
+            DDLPaymentType.DataBind();
+            DDLPaymentType.SelectedIndex = 1;
+            TxtFinalCost.Text = "450.26";
+            TxtAdditionalExpense.Text = "24.00";
+            TxtDescription.Text = "Origin";
+            TxtStreet.Text = "14504 Glenwood Ave";
+            TxtCity.Text = "Richmond";
+            TxtState.Text = "VA";
+            TxtZip.Text = "23060";
+            TxtMileage.Text = "134";
+            DDLVehicle.DataBind();
+            DDLVehicle.SelectedIndex = 1;
+            DDLTravel.DataBind();
+            DDLTravel.SelectedIndex = 1;
+            DDLTravel_SelectedIndexChanged(sender, e);
+            TxtStart.Text = "08:00";
+            Txtend.Text = "12:00";
+            txthrs.Text = "4";
+
+            divEmp.Visible = true;
+            divPayment.Visible = false;
+            divAddress.Visible = false;
+            divVehicle.Visible = false;
+            divTravel.Visible = false;
         }
 
         protected void BtnClear_Click(object sender, EventArgs e)
         {
+            divEmp.Visible = true;
+            divPayment.Visible = true;
+            divAddress.Visible = true;
+            divVehicle.Visible = true;
+            divTravel.Visible = true;
+
+            Drplst.SelectedIndex = 0;
+            TxtAmount.Text = "";
+            TxtCharge.Text = "";
+            DDLPaymentType.SelectedIndex = 0;
+            TxtFinalCost.Text = "";
+            ChkBoxPayment.Checked = false;
+            TxtAdditionalExpense.Text = "";
+            TxtDescription.Text = "";
+            TxtStreet.Text = "";
+            TxtCity.Text = "";
+            TxtState.Text = "";
+            TxtZip.Text = "";
+            TxtMileage.Text = "";
+            DDLVehicle.SelectedIndex = 0;
+            DDLTravel.SelectedIndex = 0;
+            TxtStart.Text = "";
+            Txtend.Text = "";
+            txthrs.Text = "";
+
+            divEmp.Visible = true;
+            divPayment.Visible = false;
+            divAddress.Visible = false;
+            divVehicle.Visible = false;
+            divTravel.Visible = false;
 
         }
     }

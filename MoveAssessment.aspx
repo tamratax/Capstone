@@ -143,14 +143,15 @@
 
         <div runat="server" id="moveinfodiv">
             <div id="divgeneralinfo" runat="server">
+                <div class="form-group">
                 <asp:Label ID="LblHomeType" runat="server" Text="Type of Home: "></asp:Label>
-                <asp:DropDownList ID="DDLTypeofHome" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DDLTypeofHome_SelectedIndexChanged">
+                <asp:DropDownList ID="DDLTypeofHome" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DDLTypeofHome_SelectedIndexChanged" CssClass="form-control">
                     <asp:ListItem>Apartment</asp:ListItem>
                     <asp:ListItem>House</asp:ListItem>
                     <asp:ListItem>Storage Unit</asp:ListItem>
                     <asp:ListItem>Place of Business</asp:ListItem>
                 </asp:DropDownList>
-
+                </div>
         <div id ="divapartment" runat="server">
             <div class="form-row">
         <div class="form-group col-md-4">

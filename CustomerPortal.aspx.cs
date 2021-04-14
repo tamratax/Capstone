@@ -55,6 +55,32 @@ namespace Lab3
                         {
                             LblLoginStatus.Text = "Success!";
                             Session["CustomerUsername"] = HttpUtility.HtmlEncode(TxtUsername.Text);
+
+                            String sqlQueryDuplicate = "Select CustomerID from customer WHERE email = @email";
+
+
+
+                            //Establishes the connection between our web form and database
+                            SqlConnection sqlConnectDuplicate = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+
+                            //Creates sqlcommand with query and email parameter for security
+                            SqlCommand sqlCommandInsert = new SqlCommand();
+                            sqlCommandInsert.Connection = sqlConnectDuplicate;
+                            sqlCommandInsert.CommandType = CommandType.Text;
+                            sqlCommandInsert.CommandText = sqlQueryDuplicate;
+                            sqlCommandInsert.Parameters.Add(new SqlParameter("@email", HttpUtility.HtmlEncode(TxtUsername.Text)));
+
+
+                            SqlDataAdapter sqlAdapterDuplicate = new SqlDataAdapter(sqlCommandInsert);
+                            //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
+                            //SqlDataAdapter sqlAdapterDuplicate = new SqlDataAdapter(sqlQueryDuplicate, sqlConnectDuplicate); <- This is how we originally did it with a DataAdapter
+
+                            //This creates a datatable and fills it
+                            DataTable dtForDuplicate = new DataTable();
+                            sqlAdapterDuplicate.Fill(dtForDuplicate);
+
+                            Session["SelectedCustomerID"] = dtForDuplicate.Rows[0]["CustomerID"].ToString();
+
                             Response.Redirect("CustomerServiceChoice.aspx");
                         }
                         else
@@ -74,7 +100,7 @@ namespace Lab3
             }
 
 
-
+          
 
         }
 

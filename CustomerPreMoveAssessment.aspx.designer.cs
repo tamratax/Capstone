@@ -11,223 +11,223 @@ namespace Lab3
 {
 
 
-    public partial class WebForm5
+    public partial class CustomerPreMoveAssessment
     {
 
         /// <summary>
-        /// btnPopulate control.
+        /// SignedInLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPopulate;
+        protected global::System.Web.UI.WebControls.Label SignedInLbl;
 
         /// <summary>
-        /// lblSell control.
+        /// SignedInTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSell;
+        protected global::System.Web.UI.WebControls.TextBox SignedInTxt;
 
         /// <summary>
-        /// txtWhatToSell control.
+        /// DateOutTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtWhatToSell;
+        protected global::System.Web.UI.WebControls.TextBox DateOutTxt;
 
         /// <summary>
-        /// ddlWhy control.
+        /// TxtRange1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlWhy;
+        protected global::System.Web.UI.WebControls.TextBox TxtRange1;
 
         /// <summary>
-        /// txtDeadline control.
+        /// TxtRange2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDeadline;
+        protected global::System.Web.UI.WebControls.TextBox TxtRange2;
 
         /// <summary>
-        /// lblWhatToSchedule control.
+        /// CvRangeCompare control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblWhatToSchedule;
+        protected global::System.Web.UI.WebControls.CompareValidator CvRangeCompare;
 
         /// <summary>
-        /// Label1 control.
+        /// DestAddressTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox DestAddressTxt;
 
         /// <summary>
-        /// ChkbxBringin control.
+        /// DestCityTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkbxBringin;
+        protected global::System.Web.UI.WebControls.TextBox DestCityTxt;
 
         /// <summary>
-        /// Label2 control.
+        /// DestStateTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.TextBox DestStateTxt;
 
         /// <summary>
-        /// ChkbxAuctionWalkthrough control.
+        /// DestZipTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkbxAuctionWalkthrough;
+        protected global::System.Web.UI.WebControls.TextBox DestZipTxt;
 
         /// <summary>
-        /// rblLookat control.
+        /// MlsLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblLookat;
+        protected global::System.Web.UI.WebControls.Label MlsLbl;
 
         /// <summary>
-        /// Label3 control.
+        /// MLSBTN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.RadioButtonList MLSBTN;
 
         /// <summary>
-        /// ChkbxPickup control.
+        /// PhotosLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkbxPickup;
+        protected global::System.Web.UI.WebControls.Label PhotosLbl;
 
         /// <summary>
-        /// Label4 control.
+        /// PhotosBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.RadioButtonList PhotosBtn;
 
         /// <summary>
-        /// ChkbxTrash control.
+        /// AddOnLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkbxTrash;
+        protected global::System.Web.UI.WebControls.Label AddOnLbl;
 
         /// <summary>
-        /// lblTrashDescription control.
+        /// PackingChk control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTrashDescription;
+        protected global::System.Web.UI.WebControls.CheckBox PackingChk;
 
         /// <summary>
-        /// txtTrashDescription control.
+        /// TrashChk control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTrashDescription;
+        protected global::System.Web.UI.WebControls.CheckBox TrashChk;
 
         /// <summary>
-        /// lblPhotos control.
+        /// TrashDescriptionTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPhotos;
+        protected global::System.Web.UI.WebControls.TextBox TrashDescriptionTxt;
 
         /// <summary>
-        /// ChkbxPhotos control.
+        /// DonationChk control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkbxPhotos;
+        protected global::System.Web.UI.WebControls.CheckBox DonationChk;
 
         /// <summary>
-        /// lblItems control.
+        /// AuctionChk control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblItems;
+        protected global::System.Web.UI.WebControls.CheckBox AuctionChk;
 
         /// <summary>
-        /// ChkbxItems control.
+        /// SaveBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkbxItems;
+        protected global::System.Web.UI.WebControls.Button SaveBtn;
 
         /// <summary>
-        /// btnClear control.
+        /// PopBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClear;
+        protected global::System.Web.UI.WebControls.Button PopBtn;
 
         /// <summary>
-        /// btnSave control.
+        /// ClearBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
+        protected global::System.Web.UI.WebControls.Button ClearBtn;
 
         /// <summary>
-        /// lblSaveStatus control.
+        /// LblSaveStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSaveStatus;
+        protected global::System.Web.UI.WebControls.Label LblSaveStatus;
     }
 }

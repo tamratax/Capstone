@@ -5,7 +5,7 @@
 <body>
  <h1>Pre-Auction Assessment</h1>
 
-    <h4>Customer Info:</h4>
+<%--    <h4>Customer Info:</h4>
     <fieldset>
         <div class="groupCust">
             <asp:Label ID="LblCust" runat="server" Text="Customer Name: "></asp:Label>
@@ -74,15 +74,15 @@
                         <asp:BoundField DataField="Zip" HeaderText="Zip" />
                         <asp:BoundField DataField="Description" HeaderText="Description" />
                     </Columns>
-                </asp:GridView>
-            </div>
+                </asp:GridView>--%>
+  <%--          </div>
         </div>
-    </fieldset>
+    </fieldset>--%>
     <br />
     <asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" />
     <br />
     <div class="form-group">
-        <asp:Label ID="lblInitiating" runat="server" Text="Initiating Employee:"></asp:Label>
+        <%--<asp:Label ID="lblInitiating" runat="server" Text="Initiating Employee:"></asp:Label>
         <asp:DropDownList
             ID="ddlInitiating"
             runat="server"
@@ -91,7 +91,7 @@
             DataValueField="EmployeeID"
             OnDataBound="ddlInitiating_DataBound"
             Width="100%">
-        </asp:DropDownList>
+        </asp:DropDownList>--%>
     </div>
     <div class="form-group">
         <asp:Label ID="lblSell"
@@ -175,13 +175,13 @@
         <asp:CheckBox ID="ChkbxItems" runat="server" />
     </div>
     <br />
-    <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn-danger" OnClick="btnClear_Click" />
+    <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn-danger" OnClick="btnClear_Click1" />
     <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
     <asp:Label ID="lblSaveStatus" runat="server" Text=""></asp:Label>
 
 
 
-    <asp:SqlDataSource ID="dtasrcAddress"
+ <%--   <asp:SqlDataSource ID="dtasrcAddress"
         runat="server"
         ConnectionString="<%$ConnectionStrings:Lab3%>"
         SelectCommand="SELECT * from Address join customer on Customer.CustomerID = Address.CustomerID where Customer.CustomerID = @CustomerID"
@@ -198,5 +198,5 @@
         ConnectionString="<%$ConnectionStrings:Lab3%>"
         SelectCommand="Select EmployeeID, EmpFirstName + ' ' + EmpLastName as EmployeeName
                     from Employee Order By EmpLastName ASC"></asp:SqlDataSource>
-</body>
+</body>--%>
 </asp:Content>
