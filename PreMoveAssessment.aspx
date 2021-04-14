@@ -185,7 +185,7 @@
       <div>
         <label>Trash Removal: </label>
             <asp:CheckBox ID="TrashChk" runat="server"  AutoPostBack="true" OnCheckedChanged="TrashChk_CheckedChanged" />
-            <asp:TextBox ID="TrashDescriptionTxt" runat="server" AutoPostBack="true" TextMode="MultiLine" Visible="false"></asp:TextBox>
+            <asp:TextBox ID="TrashDescriptionTxt" runat="server" Placeholder="Description" CssClass="form-control" AutoPostBack="true" TextMode="MultiLine" Visible="false"></asp:TextBox>
     </div>
       <div>
         <label>Donation Hauling: </label>

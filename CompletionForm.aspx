@@ -3,7 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <h1>Moving Completion Form:</h1>
+    <div class="row justify-content-center">
+        <h1 class="display-4">Moving Completion Form</h1>
+    </div>
     <%-- <asp:Table ID="TblSelection" runat="server">--%>
     <%-- <asp:TableRow>
             <asp:TableCell>--%>
@@ -70,11 +72,14 @@
     </asp:Table>--%>
     <asp:Button ID="BtnPop" runat="server" Text="Populate" OnClick="BtnPop_Click" />
     <br />
+    <br />
+    <div class="text-center">
     <asp:Button ID="btnAddEmp" runat="server" Text="Add Employees" OnClick="btnAddEmp_Click" />
     <asp:Button ID="btnPay" runat="server" Text="Payment Info" OnClick="btnPay_Click" />
     <asp:Button ID="btnAddress" runat="server" Text="Address Info" OnClick="btnAddress_Click" />
     <asp:Button ID="btnVehicle" runat="server" Text="Vehicle Info" OnClick="btnVehicle_Click" />
     <asp:Button ID="btnTravel1" runat="server" Text="Travel Info" OnClick="btnTravel1_Click" />
+        </div>
     <br />
     <div runat="server" id="divEmp">
         <h2>Add Employees</h2>
@@ -133,10 +138,6 @@
             </asp:GridView>
         </fieldset>
     </div>
-    <br />
-
-
-    <br />
     <div runat="server" id="divPayment">
         <%--<asp:Table ID="paymenttable" runat="server">
             <asp:TableRow>
@@ -230,7 +231,6 @@
             </asp:TableRow>
         </asp:Table>--%>
     </div>
-    <br />
     <div runat="server" id="divAddress">
         <fieldset>
             <legend>Addresses:</legend>
@@ -298,8 +298,6 @@
         </div>
         <asp:Button ID="BtnAddAddress" runat="server" Text="Add Address ->" OnClick="BtnAddAddress_Click" />
     </div>
-    <br />
-
     <div runat="server" id="divVehicle">
         <h2>Vehicle Information</h2>
         <div class="form-group">
@@ -340,8 +338,7 @@
 
             </asp:GridView>
         </fieldset>
-        <asp:Label ID="LblStatus" runat="server" Text=""></asp:Label>
-        <br />
+        <asp:Label ID="LblStatus" runat="server" Text=""></asp:Label> 
 
         <%--  <asp:Table ID="TblCompletion4" runat="server">
         <asp:TableRow>
@@ -367,26 +364,25 @@
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>--%>
-        <br />
     </div>
     <div runat="server" id="divTravel">
-                <h2>Travel Information</h2>
+        <h2>Travel Information</h2>
         <div class="form-group">
             <label>Select an Option Below</label>
-                    <asp:DropDownList
-                        ID="DDLTravel"
-                        class="form-control"
-                        runat="server"
-                        AutoPostBack="true"
-                        OnSelectedIndexChanged="DDLTravel_SelectedIndexChanged">
+            <asp:DropDownList
+                ID="DDLTravel"
+                class="form-control"
+                runat="server"
+                AutoPostBack="true"
+                OnSelectedIndexChanged="DDLTravel_SelectedIndexChanged">
 
-                        <asp:ListItem Value="-1"> Select </asp:ListItem>
-                        <asp:ListItem Value="TravelTime"> Travel Time </asp:ListItem>
-                        <asp:ListItem Value="LoadTime"> Load Time </asp:ListItem>
-                        <asp:ListItem Value="UnloadTime"> Unload Time </asp:ListItem>
-                    </asp:DropDownList>
-            </div>
-                <asp:Table ID="tbltravel" runat="server">
+                <asp:ListItem Value="-1"> Select </asp:ListItem>
+                <asp:ListItem Value="TravelTime"> Travel Time </asp:ListItem>
+                <asp:ListItem Value="LoadTime"> Load Time </asp:ListItem>
+                <asp:ListItem Value="UnloadTime"> Unload Time </asp:ListItem>
+            </asp:DropDownList>
+        </div>
+        <asp:Table ID="tbltravel" runat="server">
             <asp:TableRow>
                 <asp:TableCell>
                 </asp:TableCell>
@@ -460,11 +456,10 @@
 
     <br />
     <br />
-    <div class="float-right">
-        <asp:Button ID="btnComplete" runat="server" Text="Complete Service Ticket->" OnClick="btnComplete_Click" />
+    <div class="text-center">
+        <asp:Button ID="BtnClear" runat="server" class="btn btn-danger" Text="Clear" OnClick="BtnClear_Click" />
+        <asp:Button ID="btnComplete" runat="server" class="btn btn-success" Text="Complete Service Ticket" OnClick="btnComplete_Click" />
         <asp:Label ID="LblSaveStatus" runat="server" Text=""></asp:Label>
-        
-        <asp:Button ID="BtnClear" runat="server" Text="Clear" OnClick="BtnClear_Click" />
     </div>
     <%--<asp:Table ID="Table2" runat="server">
         <asp:TableRow>
