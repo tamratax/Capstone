@@ -4,8 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <link href="Content/AddService.css" rel="stylesheet" />
-    <h1>Auction Service Order</h1>
-
+    <div class="row justify-content-center">
+    <h1 class="display-4">Auction Service Order</h1>
+        </div>
     <h4>Customer Info:</h4>
     <div class="groupCust">
         <asp:Label ID="LblCust" runat="server" Text="Customer Name: "></asp:Label>
