@@ -18,34 +18,34 @@ namespace Lab3
             if (!IsPostBack)
             {
                 //Checks to see if there is a customer selected
-                if (Session["CustomerName"] == null)
+                if (Session["CustomerUsername"] == null)
                 {
-                    Session["NoCustSelected"] = "true";
+                    //Session["NoCustSelected"] = "true";
                     Response.Redirect("CustomerPortal.aspx");
 
 
                 }
                 //If the user is trying to edit a customer, there will be a customerid in this session data
-                if (Session["CustomerName"] != null)
+                if (Session["CustomerUsername"] != null)
                 {
-                    //Pulling in customer's record
-                    String sqlQuery = "Select * from customer where customerid = " + Session["SelectedCustomerID"].ToString();
+                    ////Pulling in customer's record
+                    //String sqlQuery = "Select * from customer where customerid = " + Session["SelectedCustomerID"].ToString();
 
-                    //Establishes the connection between our web form and database
-                    SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+                    ////Establishes the connection between our web form and database
+                    //SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
-                    //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
-                    SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
+                    ////The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
+                    //SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
 
-                    //This creates a datatable and fills it
-                    DataTable dtForSelect = new DataTable();
-                    sqlAdapter.Fill(dtForSelect);
+                    ////This creates a datatable and fills it
+                    //DataTable dtForSelect = new DataTable();
+                    //sqlAdapter.Fill(dtForSelect);
 
-                    LblCustName.Text = Session["SelectedCustomerName"].ToString();
-                    LblHomeNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
-                    LblCellNumber.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
-                    LblWorkNumber.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
-                    LblEmailText.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
+                    //LblCustName.Text = Session["SelectedCustomerName"].ToString();
+                    //LblHomeNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
+                    //LblCellNumber.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
+                    //LblWorkNumber.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
+                    //LblEmailText.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
                 }
             }
         }
