@@ -64,15 +64,15 @@
                 DataKeyNames="CustomerID"
                 AutoGenerateColumns="false"
                 OnSelectedIndexChanged="GridViewCustomers_SelectedIndexChanged"
-                CssClass="table justify-content-center">
+                CssClass="table justify-content-center" nulldisplaytext="N/A">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" ButtonType="Button" />
                     <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" Visible="false" />
-                    <asp:BoundField DataField="Name" HeaderText="Customer Name" />
-                    <asp:BoundField DataField="Email" HeaderText="Email" />
-                    <asp:BoundField DataField="homephone" HeaderText="Home" />
-                    <asp:BoundField DataField="Workphone" HeaderText="Work" />
-                    <asp:BoundField DataField="Cellphone" HeaderText="Cell" />
+                    <asp:BoundField DataField="Name" HeaderText="Customer Name" NullDisplayText="N/A" />
+                    <asp:BoundField DataField="Email" HeaderText="Email" NullDisplayText="N/A" />
+                    <asp:BoundField DataField="homephone" HeaderText="Home" NullDisplayText="N/A" />
+                    <asp:BoundField DataField="Workphone" HeaderText="Work" NullDisplayText="N/A" />
+                    <asp:BoundField DataField="Cellphone" HeaderText="Cell" NullDisplayText="N/A" />
                 </Columns>
 
             </asp:GridView>

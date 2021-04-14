@@ -4,8 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <link href="Content/AddService.css" rel="stylesheet" />
-    <h1>Auction Service Order</h1>
-
+    <div class="row justify-content-center">
+    <h1 class="display-4">Auction Service Order</h1>
+        </div>
     <h4>Customer Info:</h4>
     <div class="groupCust">
         <asp:Label ID="LblCust" runat="server" Text="Customer Name: "></asp:Label>
@@ -245,22 +246,22 @@
     </div>
     <div>
         <asp:DetailsView ID="DTLAuctionInfo" runat="server"
-                DataSourceID="dtasrcAuctionInfo"
-                AutoGenerateEditButton="true"
-                AutoGenerateRows="false"
-                DataKeyNames="AuctionAssessmentID">
+            DataSourceID="dtasrcAuctionInfo"
+            AutoGenerateEditButton="true"
+            AutoGenerateRows="false"
+            DataKeyNames="AuctionAssessmentID">
 
-                <Fields>
-                    <asp:BoundField DataField="AuctionAssessmentID" Visible="false" />                    
-                    <asp:BoundField DataField="TypeOfHome" HeaderText="Type Of Home:" />
-                    <asp:BoundField DataField="TypeofHomeAdd" HeaderText="Additional Home Notes:" />
-                    <asp:BoundField DataField="NumberOfStories" HeaderText="Number of Stories:" />
-                    <asp:BoundField DataField="DistanceFromTruck" HeaderText="Distance From Truck:" />
-                    <asp:BoundField DataField="TruckAccessibility" HeaderText="Truck Accessibility:" />
-                    <asp:BoundField DataField="LoadingDoorWalk" HeaderText="Loading Conditions:" />
-                    <asp:BoundField DataField="StepsToHouse" HeaderText="Steps to House:" />
-                </Fields>
-            </asp:DetailsView>
+            <Fields>
+                <asp:BoundField DataField="AuctionAssessmentID" Visible="false" />
+                <asp:BoundField DataField="TypeOfHome" HeaderText="Type Of Home:" />
+                <asp:BoundField DataField="TypeofHomeAdd" HeaderText="Additional Home Notes:" />
+                <asp:BoundField DataField="NumberOfStories" HeaderText="Number of Stories:" />
+                <asp:BoundField DataField="DistanceFromTruck" HeaderText="Distance From Truck:" />
+                <asp:BoundField DataField="TruckAccessibility" HeaderText="Truck Accessibility:" />
+                <asp:BoundField DataField="LoadingDoorWalk" HeaderText="Loading Conditions:" />
+                <asp:BoundField DataField="StepsToHouse" HeaderText="Steps to House:" />
+            </Fields>
+        </asp:DetailsView>
     </div>
     <div>
 
@@ -311,8 +312,10 @@
     <asp:Label ID="lblAuctionTime" runat="server" Text="Final Auction Time:"></asp:Label>
     <asp:TextBox ID="txtAuctionTime" runat="server" TextMode="Time"></asp:TextBox>
     <br />
-    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
-    <asp:Label ID="lblSaveStatus" runat="server" Text=""></asp:Label>
+    <div class="text-center">
+        <asp:Button ID="btnSave" runat="server" class="btn btn-success" Text="Save" OnClick="btnSave_Click" />
+        <asp:Label ID="lblSaveStatus" runat="server" Text=""></asp:Label>
+    </div>
 
 
 

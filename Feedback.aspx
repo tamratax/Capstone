@@ -2,6 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
+    <link href="Content/AddService.css" rel="stylesheet" />
+    <div class="row justify-content-center">
+    <h1 class="display-4">Feedback</h1>
+        </div>
     <h4>Customer Info:</h4>
     <div class="groupCust">
     <div>
@@ -54,7 +58,7 @@
                 Font-Bold="true"></asp:Label>
             <br />
             </div>
-        </div>
+        
             <div>
                 <asp:GridView ID="GridAddress"
                     runat="server"
@@ -74,7 +78,7 @@
                     </Columns>
                 </asp:GridView>
             </div>
-      
+      </div>
         <br />
         <br />
         <div class="form-group">

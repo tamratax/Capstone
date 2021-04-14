@@ -2,7 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <h1>View Auctions</h1>
+    <div class="row justify-content-center">
+    <h1 class="display-4">View Auctions</h1>
+        </div>
     <div>
        
 

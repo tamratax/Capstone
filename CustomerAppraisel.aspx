@@ -1,13 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LabFormat.Master" AutoEventWireup="true" CodeBehind="AppraisalServiceOrder.aspx.cs" Inherits="Lab3.AppraisalServiceOrder" %>
-
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CustomerFacingMaster.Master" AutoEventWireup="true" CodeBehind="CustomerAppraisel.aspx.cs" Inherits="Lab3.CustomerAppraisel" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
 
-    <link href="Content/AddService.css" rel="stylesheet" />
-    <div class="row justify-content-center">
-    <h1 class="display-4">Appraisal Service Order</h1>
-        </div>
-    <h4>Customer Info:</h4>
+    <body>
+        <link href="Content/AddService.css" rel="stylesheet" />
+    <h1>Appraisal Service Order</h1>
+
+<%--    <h4>Customer Info:</h4>
     <div class="groupCust">
         <asp:Label ID="LblCust" runat="server" Text="Customer Name: "></asp:Label>
         &nbsp;
@@ -64,7 +64,7 @@
                 CausesValidation="false"
                 AutoGenerateColumns="false"
                 DataKeyNames="AddressID"
-                CssClass="table justify-content-center">
+                CsssClass="table justify-content-center">
                 <Columns>
                     <asp:CommandField ShowEditButton="true" ShowDeleteButton="true" ButtonType="Button" />
                     <asp:BoundField DataField="AddressID" Visible="false" />
@@ -78,7 +78,7 @@
         </div>
         <br />
         <br />
-    </div>
+    </div>--%>
     <br />
 
     <h2>Create Appraisal Service</h2>
@@ -153,15 +153,7 @@
     </div>
     <br />
     <div runat="server" id="div5">
-        <div>
-            <h5>Links</h5>
-        </div>
-        <div>
-            <asp:Button ID="BtnOutlook" runat="server" Text="Open Outlook" OnClick="BtnOutlook_Click" />
-
-
-
-        </div>
+       
         <br />
         <asp:Button ID="BtnUploadPhotos" runat="server" Text="Upload Photos" OnClick="BtnUploadPhotos_Click" />
         <asp:FileUpload
@@ -191,7 +183,7 @@
     <%--<asp:Label ID="LblSelectedSessionID" runat="server" Text="" Visible="false"></asp:Label>--%>
 
 
-    <asp:SqlDataSource ID="dtasrcAddress"
+   <%-- <asp:SqlDataSource ID="dtasrcAddress"
         runat="server"
         ConnectionString="<%$ConnectionStrings:Lab3%>"
         SelectCommand="SELECT * from Address join customer on Customer.CustomerID = Address.CustomerID where Customer.CustomerID = @CustomerID"
@@ -200,6 +192,10 @@
         <SelectParameters>
             <asp:SessionParameter Name="CustomerID" SessionField="SelectedCustomerID" DefaultValue="" />
         </SelectParameters>
-    </asp:SqlDataSource>
+    </asp:SqlDataSource>--%>
+
+
+
+  </body>
 
 </asp:Content>

@@ -4,8 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <link href="Content/AddService.css" rel="stylesheet" />
-    <h1>Move Service Order</h1>
-
+    <div class="row justify-content-center">
+    <h1 class="display-4">Move Service Order</h1>
+    </div>
     <h4>Customer Info:</h4>
     <div class="groupCust">
         <asp:Label ID="LblCust" runat="server" Text="Customer Name: "></asp:Label>
@@ -89,7 +90,11 @@
             </asp:DropDownList>
         </div>
     </div>
-
+    <br />
+    <div class="float-right">
+        <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click" />
+    </div>
+    <br />
     <div class="form-row">
         <div class="form-group col-md-6">
             <label>Potential Date</label>
@@ -258,11 +263,10 @@
             </Fields>
         </asp:DetailsView>
     </div>
-    <div>
-        <asp:Button ID="btnSave" runat="server" Text="Save Form" OnClick="btnSave_Click" />
+    <div class="text-center">
+        <asp:Button ID="ClearBtn" runat="server" Text="Clear" class="btn btn-danger" OnClick="ClearBtn_Click" />
+        <asp:Button ID="btnSave" runat="server" Text="Save Form" class="btn btn-success" OnClick="btnSave_Click" />
         <asp:Label ID="lblSaveStatus" runat="server" Text=""></asp:Label>
-        <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click" />
-        <asp:Button ID="ClearBtn" runat="server" Text="Clear" OnClick="ClearBtn_Click" />
     </div>
 
 
@@ -292,7 +296,7 @@
         ConnectionString="<%$ConnectionStrings:Lab3%>"
         SelectCommand="Select e.EmployeeID, EmpFirstName + ' ' + EmpLastName as EmployeeName from ServiceTicketEmployee ste join Employee e on ste.employeeID = e.employeeID where ste.serviceticketID = @ServiceTicketID Order By EmpLastName ASC"
         DeleteCommand="DELETE ServiceTicketEmployee where employeeID = @EmployeeID AND ServiceTicketID = @ServiceTicketID">
-        
+
         <SelectParameters>
             <asp:ControlParameter Name="ServiceTicketID" ControlID="ddlService" PropertyName="selectedvalue" />
         </SelectParameters>

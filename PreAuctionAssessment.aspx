@@ -3,8 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-
-    <h1>Pre-Auction Assessment</h1>
+    <link href="Content/AddService.css" rel="stylesheet" />
+    <div class="row justify-content-center">
+    <h1 class="display-4">Pre-Auction Assessment</h1>
+    </div>
 
     <h4>Customer Info:</h4>
     <fieldset>
@@ -80,7 +82,9 @@
         </div>
     </fieldset>
     <br />
+    <div class="float-right">
     <asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" />
+        </div>
     <br />
     <div class="form-group">
         <asp:Label ID="lblInitiating" runat="server" Text="Initiating Employee:"></asp:Label>
@@ -176,9 +180,11 @@
         <asp:CheckBox ID="ChkbxItems" runat="server" />
     </div>
     <br />
-    <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn-danger" OnClick="btnClear_Click" />
-    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
+    <div class="text-center">
+    <asp:Button ID="btnClear" runat="server" class="btn btn-danger" Text="Clear" OnClick="btnClear_Click" />
+    <asp:Button ID="btnSave" runat="server" class="btn btn-success" Text="Save" OnClick="btnSave_Click" />
     <asp:Label ID="lblSaveStatus" runat="server" Text=""></asp:Label>
+        </div>
 
 
 

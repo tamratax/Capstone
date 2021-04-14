@@ -1,12 +1,20 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LabFormat.Master" AutoEventWireup="true" CodeBehind="PreMoveAssessment.aspx.cs" Inherits="Lab3.PreMoveAssessment" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CustomerFacingMaster.Master" AutoEventWireup="true" CodeBehind="CustomerPreMoveAssessment.aspx.cs" Inherits="Lab3.CustomerPreMoveAssessment" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <link href="Content/AddService.css" rel="stylesheet" />
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" />
+   <div class="groupAuction">
     <div class="row justify-content-center">
-    <h1 class="display-4">Preliminary Move Assessment</h1>
+    <h1 class="display-4">Pre-Move Assessment</h1>
+    </div>
+<div>
+    <div class="float-right">
+        <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click"/>
         </div>
-    <h4>Customer Info:</h4>
+  <%--  <asp:Label ID="SignedInLbl" runat="server" Text="Signed in as: "></asp:Label>
+    <asp:TextBox ID="SignedInTxt" runat="server" Text=""></asp:TextBox>--%>
+    <%--<h4>Customer Info:</h4>
     <fieldset>
         <div class="groupCust">
             <asp:Label ID="Label1" runat="server" Text="Customer Name: "></asp:Label>
@@ -56,9 +64,9 @@
                     runat="server"
                     Text=""
                     Font-Bold="true"></asp:Label>
-            </div>
+            </div>--%>
 
-            <div>
+            <%--<div>
                 <asp:GridView ID="GridAddress"
                     runat="server"
                     DataSourceID="dtasrcAddress"
@@ -76,24 +84,20 @@
                         <asp:BoundField DataField="Description" HeaderText="Description" />
                     </Columns>
                 </asp:GridView>
-            </div>
-        </div>
-    </fieldset>
-    <br />
-    <div class="float-right">
-    <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click" />
-        </div>
+            </div>--%>
+       <%-- </div>--%>
+    <%--</fieldset>--%>
     <br />
     <div class="form-group">
-    <asp:Label ID="lblInitiating" runat="server" Text="Initiating Employee:"></asp:Label>
-    <asp:DropDownList
+<%--    <asp:Label ID="lblInitiating" runat="server" Text="Initiating Employee:"></asp:Label>--%>
+<%--    <asp:DropDownList
         ID="ddlInitiating"
         runat="server"
         DataSourceID="dtasrcInitiating"
         DataTextField="EmployeeName"
         DataValueField="EmployeeID"
-        OnDataBound="ddlInitiating_DataBound" Width="100%">
-    </asp:DropDownList>
+         OnDataBound="ddlInitiating_DataBound" Width="100%">
+    </asp:DropDownList>--%>
     </div>
      <div class="form-group">
         <label>What day do you have to be out by?</label>
@@ -185,7 +189,7 @@
       <div>
         <label>Trash Removal: </label>
             <asp:CheckBox ID="TrashChk" runat="server"  AutoPostBack="true" OnCheckedChanged="TrashChk_CheckedChanged" />
-            <asp:TextBox ID="TrashDescriptionTxt" runat="server" Placeholder="Description" CssClass="form-control" AutoPostBack="true" TextMode="MultiLine" Visible="false"></asp:TextBox>
+            <asp:TextBox ID="TrashDescriptionTxt" runat="server" AutoPostBack="true" TextMode="MultiLine" Visible="false" CssClass="form-control"></asp:TextBox>
     </div>
       <div>
         <label>Donation Hauling: </label>
@@ -206,12 +210,14 @@
     <asp:CheckBox ID="AuctionChk" runat="server" />--%>
     <br />
     <div class="text-center">
-        <asp:Button ID="ClearBtn" runat="server" Text="Clear" class="btn btn-danger" OnClick="ClearBtn_Click" />
-            <asp:Button ID="SaveBtn" runat="server" Text="Save" class="btn btn-success" OnClick="SaveBtn_Click" />
-        <asp:Label ID="LblSaveStatus" runat="server" Text=""></asp:Label>
+        <asp:Button ID="ClearBtn" runat="server" Text="Clear" OnClick="ClearBtn_Click" CssClass="btn-danger" />
+    <asp:Button ID="SaveBtn" runat="server" Text="Save" OnClick="SaveBtn_Click" CssClass="btn-success"/>
         </div>
+    <br />
+    <asp:Label ID="LblSaveStatus" runat="server" Text=""></asp:Label>
 
-    <asp:SqlDataSource ID="dtasrcAddress"
+
+ <%--   <asp:SqlDataSource ID="dtasrcAddress"
         runat="server"
         ConnectionString="<%$ConnectionStrings:Lab3%>"
         SelectCommand="SELECT * from Address join customer on Customer.CustomerID = Address.CustomerID where Customer.CustomerID = @CustomerID"
@@ -220,14 +226,18 @@
         <SelectParameters>
             <asp:SessionParameter Name="CustomerID" SessionField="SelectedCustomerID" DefaultValue="" />
         </SelectParameters>
-    </asp:SqlDataSource>
+    </asp:SqlDataSource>--%>
 
-    <asp:SqlDataSource
+    <%--<asp:SqlDataSource
         ID="dtasrcInitiating"
         runat="server"
         ConnectionString="<%$ConnectionStrings:Lab3%>"
         SelectCommand="Select EmployeeID, EmpFirstName + ' ' + EmpLastName as EmployeeName
-                    from Employee Order By EmpLastName ASC"></asp:SqlDataSource>
+                    from Employee Order By EmpLastName ASC"></asp:SqlDataSource>--%>
 
 
+    </div>
+
+</div>
+        
 </asp:Content>

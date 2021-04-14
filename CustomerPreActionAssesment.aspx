@@ -2,10 +2,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-<body>
- <h1>Pre-Auction Assessment</h1>
+<link href="Content/AddService.css" rel="stylesheet" />
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" />
+   <div class="groupAuction">
+    <div class="row justify-content-center">
+    <h1 class="display-4">Pre-Auction Assessment</h1>
+    </div>
 
-    <h4>Customer Info:</h4>
+
+<%--    <h4>Customer Info:</h4>
     <fieldset>
         <div class="groupCust">
             <asp:Label ID="LblCust" runat="server" Text="Customer Name: "></asp:Label>
@@ -74,15 +80,17 @@
                         <asp:BoundField DataField="Zip" HeaderText="Zip" />
                         <asp:BoundField DataField="Description" HeaderText="Description" />
                     </Columns>
-                </asp:GridView>
-            </div>
+                </asp:GridView>--%>
+  <%--          </div>
         </div>
-    </fieldset>
+    </fieldset>--%>
     <br />
+    <div class="float-right">
     <asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" />
+        </div>
     <br />
     <div class="form-group">
-        <asp:Label ID="lblInitiating" runat="server" Text="Initiating Employee:"></asp:Label>
+        <%--<asp:Label ID="lblInitiating" runat="server" Text="Initiating Employee:"></asp:Label>
         <asp:DropDownList
             ID="ddlInitiating"
             runat="server"
@@ -91,7 +99,7 @@
             DataValueField="EmployeeID"
             OnDataBound="ddlInitiating_DataBound"
             Width="100%">
-        </asp:DropDownList>
+        </asp:DropDownList>--%>
     </div>
     <div class="form-group">
         <asp:Label ID="lblSell"
@@ -175,13 +183,14 @@
         <asp:CheckBox ID="ChkbxItems" runat="server" />
     </div>
     <br />
-    <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn-danger" OnClick="btnClear_Click" />
-    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
+       <div class="text-center">
+    <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn-danger" OnClick="btnClear_Click1" />
+    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" CssClass="btn-success" />
     <asp:Label ID="lblSaveStatus" runat="server" Text=""></asp:Label>
+    </div>
+       </div>
 
-
-
-    <asp:SqlDataSource ID="dtasrcAddress"
+ <%--   <asp:SqlDataSource ID="dtasrcAddress"
         runat="server"
         ConnectionString="<%$ConnectionStrings:Lab3%>"
         SelectCommand="SELECT * from Address join customer on Customer.CustomerID = Address.CustomerID where Customer.CustomerID = @CustomerID"
@@ -198,5 +207,5 @@
         ConnectionString="<%$ConnectionStrings:Lab3%>"
         SelectCommand="Select EmployeeID, EmpFirstName + ' ' + EmpLastName as EmployeeName
                     from Employee Order By EmpLastName ASC"></asp:SqlDataSource>
-</body>
+</body>--%>
 </asp:Content>

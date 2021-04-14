@@ -20,17 +20,18 @@ namespace Lab3
        
         protected void BtnRequestAppraisal_Click(object sender, EventArgs e)
         {
+            Response.Redirect("CustomerAppraisel.aspx");
 
         }
 
         protected void BtnRequestMove_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AddServiceRequest.aspx");
+            Response.Redirect("CustomerPreMoveAssessment.aspx");
         }
 
         protected void BtnRequestAuction_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("CustomerPreActionAssesment.aspx");
         }
     }
 }
