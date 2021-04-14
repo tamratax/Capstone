@@ -8,7 +8,7 @@
     
     <div>
         <div class="row justify-content-center">
-        <h1 class="display-4"><b>Move Assessment Form</b></h1>
+        <h1 class="display-4">Move Assessment Form</h1>
             </div>
         <h4>Customer Info:</h4>
         <fieldset>

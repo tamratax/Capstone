@@ -3,8 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-
-    <h1>Pre-Auction Assessment</h1>
+    <link href="Content/AddService.css" rel="stylesheet" />
+    <div class="row justify-content-center">
+    <h1 class="display-4">Pre-Auction Assessment</h1>
+    </div>
 
     <h4>Customer Info:</h4>
     <fieldset>
@@ -80,7 +82,9 @@
         </div>
     </fieldset>
     <br />
+    <div class="float-right">
     <asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" />
+        </div>
     <br />
     <div class="form-group">
         <asp:Label ID="lblInitiating" runat="server" Text="Initiating Employee:"></asp:Label>
