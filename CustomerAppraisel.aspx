@@ -14,35 +14,8 @@
 
     <br />
 
-            <asp:Label
-                ID="LblCellNumber"
-                runat="server"
-                Text=""
-                Font-Bold="true"></asp:Label>
-            <br />
-            <asp:Label
-                ID="LblWorkPhone"
-                runat="server"
-                Text="   Work Phone: "></asp:Label>
-
-            <asp:Label
-                ID="LblWorkNumber"
-                runat="server"
-                Text=""
-                Font-Bold="true"></asp:Label>
-            <br />
-            <asp:Label
-                ID="LblEmail"
-                runat="server"
-                Text="Email:"></asp:Label>
-
-            <asp:Label
-                ID="LblEmailText"
-                runat="server"
-                Text=""
-                Font-Bold="true"></asp:Label>
-        </div>
-        <div>
+            
+        <%--<div>
             <asp:GridView ID="GridAddress"
                 runat="server"
                 DataSourceID="dtasrcAddress"
@@ -60,10 +33,10 @@
                     <asp:BoundField DataField="Description" HeaderText="Description" />
                 </Columns>
             </asp:GridView>
-        </div>
+        </div>--%>
         <br />
         <br />
-    </div>--%>
+    
     <br />
 
     
