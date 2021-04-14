@@ -2,7 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-  <h1>Warehouse Inventory</h1>
+    <div class="row justify-content-center">
+  <h1 class="display-4">Warehouse Inventory</h1>
+        </div>
     <br />
        <asp:TextBox 
             ID="TxtSearch"
@@ -31,11 +33,11 @@
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" ButtonType="Button" />
                     <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" Visible="false" />
-                    <asp:BoundField DataField="Name" HeaderText="Customer Name" />
-                    <asp:BoundField DataField="Email" HeaderText="Email" />
-                    <asp:BoundField DataField="homephone" HeaderText="Home" />
-                    <asp:BoundField DataField="Workphone" HeaderText="Work" />
-                    <asp:BoundField DataField="Cellphone" HeaderText="Cell" />
+                    <asp:BoundField DataField="Name" NullDisplayText="N/A" HeaderText="Customer Name" />
+                    <asp:BoundField DataField="Email" NullDisplayText="N/A" HeaderText="Email" />
+                    <asp:BoundField DataField="homephone" NullDisplayText="N/A" HeaderText="Home" />
+                    <asp:BoundField DataField="Workphone" NullDisplayText="N/A" HeaderText="Work" />
+                    <asp:BoundField DataField="Cellphone" NullDisplayText="N/A" HeaderText="Cell" />
                 </Columns>
 
             </asp:GridView>
@@ -52,9 +54,9 @@
         <Columns>
             <asp:BoundField DataField="WarehouseID" HeaderText=" WarehouseID" Visible="false" />
             <asp:BoundField DataField="CustomerID" HeaderText=" CustomerID" Visible="false" />
-            <asp:BoundField DataField="Date" HeaderText=" Date" />
-            <asp:BoundField DataField="Location" HeaderText="Location"  />
-            <asp:BoundField DataField="Description" HeaderText=" Description" />
+            <asp:BoundField DataField="Date" NullDisplayText="N/A" HeaderText=" Date" />
+            <asp:BoundField DataField="Location" NullDisplayText="N/A" HeaderText="Location"  />
+            <asp:BoundField DataField="Description" NullDisplayText="N/A" HeaderText=" Description" />
         </Columns>
     </asp:GridView>
     <br />

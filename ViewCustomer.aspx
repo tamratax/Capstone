@@ -2,13 +2,16 @@
 <%-- Coded By: Stuart Walker & Aaron Walsh --%>
 
 <asp:Content ID="myContent" ContentPlaceHolderID="body" runat="server">
-    <h1>View Customers</h1>
+    <div class="row justify-content-center">
+    <h1 class="display-4">View Customers</h1>
+        </div>
      <fieldset>
          <div>
             <asp:Label ID="SearchCustomerLbl" runat="server" Text="Searh for a Customer:"></asp:Label>
             <asp:TextBox ID="TxtSearch" runat="server"></asp:TextBox>
             <asp:Button ID="BtnSearch" runat="server" Text="Search" OnClick="BtnSearch_Click" />
              <asp:Button ID="BtnLoadAll" runat="server" Text="Show All" OnClick="BtnLoadAll_Click"/>
+             <br />
              <br />
            <asp:GridView ID="GridviewCusts" 
             runat="server" 
@@ -27,12 +30,12 @@
             <Columns>
                  <asp:CommandField ButtonType="Button" />
                     <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" Visible="false" />
-                    <asp:BoundField DataField="FirstName" HeaderText="First Name" />
-                    <asp:BoundField DataField="LastName" HeaderText="Last Name" SortExpression="LastName" />
-                    <asp:BoundField DataField="CellPhone" HeaderText="Cell Phone " />
-                    <asp:BoundField DataField="WorkPhone" HeaderText="Work Phone" />
-                    <asp:BoundField DataField="HomePhone" HeaderText="HomePhone " />
-                    <asp:BoundField DataField="Email" HeaderText="Email" />                   
+                    <asp:BoundField DataField="FirstName" NullDisplayText="N/A" HeaderText="First Name" />
+                    <asp:BoundField DataField="LastName" NullDisplayText="N/A" HeaderText="Last Name" SortExpression="LastName" />
+                    <asp:BoundField DataField="CellPhone" NullDisplayText="N/A" HeaderText="Cell Phone " />
+                    <asp:BoundField DataField="WorkPhone" NullDisplayText="N/A" HeaderText="Work Phone" />
+                    <asp:BoundField DataField="HomePhone" NullDisplayText="N/A" HeaderText="HomePhone " />
+                    <asp:BoundField DataField="Email" NullDisplayText="N/A" HeaderText="Email" />                   
             </Columns>
         </asp:GridView>
 
@@ -53,12 +56,12 @@
             <Columns>
                  <asp:CommandField ButtonType="Button" />
                     <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" Visible="false" />
-                    <asp:BoundField DataField="FirstName" HeaderText="First Name" />
-                    <asp:BoundField DataField="LastName" HeaderText="Last Name" SortExpression="LastName" />
-                    <asp:BoundField DataField="CellPhone" HeaderText="Cell Phone " />
-                    <asp:BoundField DataField="WorkPhone" HeaderText="Work Phone" />
-                    <asp:BoundField DataField="HomePhone" HeaderText="HomePhone " />
-                    <asp:BoundField DataField="Email" HeaderText="Email" />                   
+                    <asp:BoundField DataField="FirstName" NullDisplayText="N/A" HeaderText="First Name" />
+                    <asp:BoundField DataField="LastName" NullDisplayText="N/A" HeaderText="Last Name" SortExpression="LastName" />
+                    <asp:BoundField DataField="CellPhone" NullDisplayText="N/A" HeaderText="Cell Phone " />
+                    <asp:BoundField DataField="WorkPhone" NullDisplayText="N/A" HeaderText="Work Phone" />
+                    <asp:BoundField DataField="HomePhone" NullDisplayText="N/A" HeaderText="HomePhone " />
+                    <asp:BoundField DataField="Email" NullDisplayText="N/A" HeaderText="Email" />                   
             </Columns>
         </asp:GridView>
 
