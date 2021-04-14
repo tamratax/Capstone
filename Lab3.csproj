@@ -146,6 +146,7 @@
     <Content Include="MoveServiceOrderForm.aspx" />
     <Content Include="CustomerServiceChoice.aspx" />
     <Content Include="MoveLanding.aspx" />
+    <Content Include="CustomerPreActionAssesment.aspx" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="InitialConversation.aspx" />
     <Content Include="AddNote.aspx" />
@@ -544,6 +545,13 @@
     </Compile>
     <Compile Include="MoveLanding.aspx.designer.cs">
       <DependentUpon>MoveLanding.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerPreActionAssesment.aspx.cs">
+      <DependentUpon>CustomerPreActionAssesment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerPreActionAssesment.aspx.designer.cs">
+      <DependentUpon>CustomerPreActionAssesment.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

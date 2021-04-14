@@ -20,18 +20,3 @@
 </body>
 </html>
 
-<%--</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-            <br />
-            <asp:Button ID="Button1" runat="server" Text="Button" class="btn-success"/>
-        </div>
-        <div class="container">
-            <section class="col">
-                <asp:Image ID="Image1" runat="server" ImageUrl="/images/GVA_logo.png" />
-            </section>
-        </div>
-    </form>--%>
