@@ -6,14 +6,8 @@
     <div class="row justify-content-center">
         <h1 class="display-4">Moving Completion Form</h1>
     </div>
-    <%-- <asp:Table ID="TblSelection" runat="server">--%>
-    <%-- <asp:TableRow>
-            <asp:TableCell>--%>
-    <%--</asp:TableCell>
-            <asp:TableCell>--%>
     <asp:Label ID="LblSelected" runat="server" Text="" Visible="false"></asp:Label>
-    <%--</asp:TableCell>
-            <asp:TableCell>--%>
+
     <asp:Label ID="LblID" runat="server" Text="" Visible="false"></asp:Label>
 
     <asp:Label ID="LblType" runat="server" Text="Select Service:"></asp:Label>
@@ -67,9 +61,7 @@
 
         </Columns>
     </asp:GridView>
-    <%--</asp:TableCell>
-        </asp:TableRow>
-    </asp:Table>--%>
+
     <asp:Button ID="BtnPop" runat="server" Text="Populate" OnClick="BtnPop_Click" />
     <br />
     <br />
@@ -139,17 +131,8 @@
         </fieldset>
     </div>
     <div runat="server" id="divPayment">
-        <%--<asp:Table ID="paymenttable" runat="server">
-            <asp:TableRow>
-                <asp:TableCell>--%>
+
         <h2>Payment Information</h2>
-        <%--  </asp:TableCell>
-            </asp:TableRow>--%>
-
-
-        <%--  <asp:TableRow>
-                <asp:TableCell>--%>
-
 
         <asp:GridView ID="GridPayment"
             runat="server"
@@ -169,14 +152,9 @@
             </Columns>
 
         </asp:GridView>
-        <%-- </asp:TableCell>
-            </asp:TableRow>--%>
 
-        <%--<asp:TableRow>
-                <asp:TableCell>--%>
         <asp:Label ID="LblPaymentType" runat="server" Text="Type of Payment:"></asp:Label>
-        <%-- </asp:TableCell>
-                <asp:TableCell>--%>
+
         <div class="form-group">
             <asp:DropDownList
                 ID="DDLPaymentType"
@@ -190,46 +168,28 @@
                 <asp:ListItem Value="Cash"> Cash</asp:ListItem>
             </asp:DropDownList>
         </div>
-        <%--  </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>--%>
+
         <asp:Label ID="LblFinalCost" runat="server" Text="Amount: "></asp:Label>
-        <%-- </asp:TableCell>
-                <asp:TableCell>--%>
+
         <div class="form-group">
             <asp:TextBox ID="TxtFinalCost" runat="server" Placeholder="Amount" CssClass="form-control"></asp:TextBox>
         </div>
         <br />
-        <%-- </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>--%>
+
         <asp:Label ID="LblPayment" runat="server" Text="Payment Recieved:"></asp:Label>
-        <%-- </asp:TableCell>
-                <asp:TableCell>--%>
+
         <asp:CheckBox ID="ChkBoxPayment" runat="server" />
-        <%-- </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>--%>
+
         <br />
         <br />
         <asp:Label ID="LblAdditionalExpense" runat="server" Text="Additional Expense:"></asp:Label>
-        <%-- </asp:TableCell>
-                <asp:TableCell>--%>
+
         <div class="form-group">
             <asp:TextBox ID="TxtAdditionalExpense" runat="server" Placeholder="Add Additional Expenses" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
         </div>
-        <%-- </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>--%>
-        <asp:Button ID="btnPayment" runat="server" Text="Add Payment" OnClick="btnPayment_Click" />
-        <%-- </asp:TableCell>
 
-            </asp:TableRow>
-        </asp:Table>--%>
+        <asp:Button ID="btnPayment" runat="server" Text="Add Payment" OnClick="btnPayment_Click" />
+
     </div>
     <div runat="server" id="divAddress">
         <fieldset>
@@ -255,18 +215,8 @@
             </asp:GridView>
         </fieldset>
 
-        <%-- <asp:Table ID="tbladdress" runat="server">
-
-            <asp:TableRow>
-                <asp:TableCell>--%>
         <h1>Add Address:</h1>
-        <%-- </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="lblDescription" runat="server" Text="Type of Address:"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>--%>
+
         <div class="form-group">
             <label>Type of Address</label>
             <asp:TextBox ID="TxtDescription" Placeholder="Origin, Destination, Primary, etc." CssClass="form-control" runat="server"></asp:TextBox>
@@ -317,9 +267,7 @@
             </asp:DropDownList>
         </div>
         <asp:Button ID="BtnAddVehicle" runat="server" Text="Add Vehicle ->" OnClick="BtnAddVehicle_Click" />
-        <%--                </asp:TableCell>
-            </asp:TableRow>
-        </asp:Table>--%>
+
         <fieldset>
             <legend>Vehicles Used</legend>
             <asp:GridView ID="grdvwvehicles"
@@ -340,30 +288,6 @@
         </fieldset>
         <asp:Label ID="LblStatus" runat="server" Text=""></asp:Label> 
 
-        <%--  <asp:Table ID="TblCompletion4" runat="server">
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label ID="LblAdditionalNotes" runat="server" Text="Additional Notes:"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox ID="TxtAdditionalNotes" runat="server" TextMode="MultiLine"></asp:TextBox>
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Button ID="BtnClear" runat="server" Text="Clear Form ->" />
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:Button ID="BtnSave" runat="server" Text="Save Form ->" />
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:Button ID="BtnSubmit" runat="server" Text="Submit Form ->" />
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:Label ID="LblStatus" runat="server" Text=""></asp:Label>
-            </asp:TableCell>
-        </asp:TableRow>
-    </asp:Table>--%>
     </div>
     <div runat="server" id="divTravel">
         <h2>Travel Information</h2>
@@ -461,35 +385,6 @@
         <asp:Button ID="btnComplete" runat="server" class="btn btn-success" Text="Complete Service Ticket" OnClick="btnComplete_Click" />
         <asp:Label ID="LblSaveStatus" runat="server" Text=""></asp:Label>
     </div>
-    <%--<asp:Table ID="Table2" runat="server">
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label ID="Label3" runat="server" Text="Additional Notes:"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox ID="TextBox2" runat="server" TextMode="MultiLine"></asp:TextBox>
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Button ID="Button2" runat="server" Text="Clear Form ->" />
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:Button ID="Button3" runat="server" Text="Save Form ->" />
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:Button ID="Button4" runat="server" Text="Submit Form ->" OnClick="SubmitButton_Click" />
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:Label ID="Label4" runat="server" Text=""></asp:Label>
-            </asp:TableCell>
-        </asp:TableRow>
-    </asp:Table>--%>
-
-    <%--<asp:SqlDataSource ID="dtasrcCustomerList"
-        runat="server"
-        ConnectionString="<%$ConnectionStrings:Lab3%>"
-        SelectCommand="Select CustomerID, FirstName + ' ' + LastName as CustomerName from Customer Order By LastName ASC"></asp:SqlDataSource>--%>
 
     <asp:SqlDataSource ID="dtasrcCustGrid"
         runat="server"
