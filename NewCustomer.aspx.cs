@@ -136,7 +136,9 @@ namespace Lab3
                         Response.Redirect("CustomerPortal.aspx");
                         LblCreateStatus.Text = "Customer Added Successfully";
                         LblCreateStatus.ForeColor = Color.Green;
-                    }
+                    Session["CustomerName"] = TxtFirstName.ToString();
+
+                }
 
                 //}
                 //catch
@@ -149,7 +151,6 @@ namespace Lab3
                 LblCreateStatus.Text = "Fill all fields.";
 
             }
-
 
 
         }

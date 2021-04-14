@@ -321,15 +321,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.TextBox TxtCity;
 
         /// <summary>
-        /// LblState control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblState;
-
-        /// <summary>
         /// TxtState control.
         /// </summary>
         /// <remarks>
@@ -337,15 +328,6 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtState;
-
-        /// <summary>
-        /// LblZip control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblZip;
 
         /// <summary>
         /// TxtZip control.
@@ -375,24 +357,6 @@ namespace Lab3
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divVehicle;
 
         /// <summary>
-        /// tblvehicle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblvehicle;
-
-        /// <summary>
-        /// LblMileage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblMileage;
-
-        /// <summary>
         /// TxtMileage control.
         /// </summary>
         /// <remarks>
@@ -400,15 +364,6 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtMileage;
-
-        /// <summary>
-        /// LblTrucks control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblTrucks;
 
         /// <summary>
         /// DDLVehicle control.
@@ -456,15 +411,6 @@ namespace Lab3
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTravel;
 
         /// <summary>
-        /// tbltravel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tbltravel;
-
-        /// <summary>
         /// DDLTravel control.
         /// </summary>
         /// <remarks>
@@ -472,6 +418,15 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDLTravel;
+
+        /// <summary>
+        /// tbltravel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table tbltravel;
 
         /// <summary>
         /// lblStart control.
