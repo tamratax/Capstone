@@ -99,6 +99,7 @@
         <label>What day do you have to be out by?</label>
          <asp:TextBox ID="DateOutTxt" runat="server" TextMode="Date"
              class="form-control"></asp:TextBox>
+         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="DateOutTxt" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
          </div>
     <div class="form-row">
     <div class="form-group col-md-6">
@@ -153,6 +154,7 @@
                 runat="server"
                 class="form-control"
                 Placeholder="Zip"></asp:TextBox>
+            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator" ValidationGroup="Save" ControlToValidate="DestZipTxt" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
         </div>
     </div>
 
@@ -207,8 +209,8 @@
     <br />
     <div class="text-center">
         <asp:Button ID="ClearBtn" runat="server" Text="Clear" class="btn btn-danger" OnClick="ClearBtn_Click" />
-            <asp:Button ID="SaveBtn" runat="server" Text="Save" class="btn btn-success" OnClick="SaveBtn_Click" />
-        <asp:Label ID="LblSaveStatus" runat="server" Text=""></asp:Label>
+            <asp:Button ID="SaveBtn" runat="server" Text="Save" class="btn btn-success" OnClick="SaveBtn_Click" ValidationGroup="Save" />
+        <asp:Label ID="LblSaveStatus" runat="server" Text="" ></asp:Label>
         </div>
 
     <asp:SqlDataSource ID="dtasrcAddress"
