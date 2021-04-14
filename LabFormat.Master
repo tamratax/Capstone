@@ -88,6 +88,9 @@
                               <li>
                                 <a href="AuctionServiceOrder.aspx">Auction Service Order</a>
                             </li>
+                            <li>
+                                <a href="Feedback.aspx">Feedback</a>
+                            </li>
                             <%--                        </ul>--%>
                             <%--                        <ul class="collapse list-unstyled" id="homeSubmenu">
                             <li>

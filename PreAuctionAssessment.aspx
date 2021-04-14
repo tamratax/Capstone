@@ -82,94 +82,99 @@
     <br />
     <asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" />
     <br />
-    <asp:Label ID="lblInitiating" runat="server" Text="Initiating Employee:"></asp:Label>
-    <asp:DropDownList
-        ID="ddlInitiating"
-        runat="server"
-        DataSourceID="dtasrcInitiating"
-        DataTextField="EmployeeName"
-        DataValueField="EmployeeID"
-        OnDataBound="ddlInitiating_DataBound">
-    </asp:DropDownList>
+    <div class="form-group">
+        <asp:Label ID="lblInitiating" runat="server" Text="Initiating Employee:"></asp:Label>
+        <asp:DropDownList
+            ID="ddlInitiating"
+            runat="server"
+            DataSourceID="dtasrcInitiating"
+            DataTextField="EmployeeName"
+            DataValueField="EmployeeID"
+            OnDataBound="ddlInitiating_DataBound"
+            Width="100%">
+        </asp:DropDownList>
+    </div>
+    <div class="form-group">
+        <asp:Label ID="lblSell"
+            runat="server"
+            Text="What do you have to sell?"></asp:Label>
+        <asp:TextBox ID="txtWhatToSell"
+            runat="server"
+            TextMode="MultiLine"
+            Rows="5" CssClass="form-control"></asp:TextBox>
+    </div>
 
-    <asp:Label ID="lblSell"
-        runat="server"
-        Text="What do you have to sell?"></asp:Label>
-    <asp:TextBox ID="txtWhatToSell"
-        runat="server"
-        TextMode="MultiLine"
-        Rows="5"></asp:TextBox>
-
-    <br />
-
-    <asp:Label ID="lblWhy" runat="server" Text="Why are you considering Auction services?"></asp:Label>
-    <asp:DropDownList ID="ddlWhy" runat="server">
-        <asp:ListItem>Select</asp:ListItem>
-        <asp:ListItem>Settling an estate</asp:ListItem>
-        <asp:ListItem>Moving and need to downsize</asp:ListItem>
-        <asp:ListItem>Getting rid of some stuff</asp:ListItem>
-    </asp:DropDownList>
-
-    <br />
-
-    <asp:Label ID="lblDeadline" runat="server" Text="Do you have a deadline?"></asp:Label>
-    <asp:TextBox ID="txtDeadline" runat="server" TextMode="Date"></asp:TextBox>
-
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <%--   <asp:Label ID="lblWhy" runat="server" Text="Why are you considering Auction services?"></asp:Label>--%>
+            <label>Why are you considering Auction services?</label>
+            <asp:DropDownList ID="ddlWhy" runat="server" CssClass="form-control">
+                <asp:ListItem>Select</asp:ListItem>
+                <asp:ListItem>Settling an estate</asp:ListItem>
+                <asp:ListItem>Moving and need to downsize</asp:ListItem>
+                <asp:ListItem>Getting rid of some stuff</asp:ListItem>
+            </asp:DropDownList>
+        </div>
+        <br />
+        <div class="form-group col-md-6">
+            <%-- <asp:Label ID="lblDeadline" runat="server" Text="Do you have a deadline?"></asp:Label>--%>
+            <label>Do you have a deadline?</label>
+            <asp:TextBox ID="txtDeadline" runat="server" TextMode="Date" CssClass="form-control"></asp:TextBox>
+        </div>
+    </div>
     <br />
     <asp:Label ID="lblWhatToSchedule" runat="server" Text="What needs to be scheduled?"></asp:Label>
-
-    <asp:Label ID="Label1" runat="server" Text="Bring-in"></asp:Label>
-    <asp:CheckBox ID="ChkbxBringin" runat="server" />
-
-    <asp:Label ID="Label2" runat="server" Text="Auction Walkthrough"></asp:Label>
-    <asp:CheckBox ID="ChkbxAuctionWalkthrough"
-        runat="server"
-        OnCheckedChanged="ChkbxAuctionWalkthrough_CheckedChanged"
-        AutoPostBack="true" />
-
+    <br />
+    <div>
+        <asp:Label ID="Label1" runat="server" Text="Bring-in: "></asp:Label>
+        <asp:CheckBox ID="ChkbxBringin" runat="server" />
+    </div>
+    <div>
+        <asp:Label ID="Label2" runat="server" Text="Auction Walkthrough: "></asp:Label>
+        <asp:CheckBox ID="ChkbxAuctionWalkthrough"
+            runat="server"
+            OnCheckedChanged="ChkbxAuctionWalkthrough_CheckedChanged"
+            AutoPostBack="true" />
+    </div>
     <asp:RadioButtonList ID="rblLookat"
         runat="server"
         Visible="false">
         <asp:ListItem>Customer Requests Auction Look-at</asp:ListItem>
         <asp:ListItem>Green Valley Required Auction Look-at</asp:ListItem>
     </asp:RadioButtonList>
+    <div>
+        <asp:Label ID="Label3" runat="server" Text="Pick-up: "></asp:Label>
+        <asp:CheckBox ID="ChkbxPickup" runat="server" />
+    </div>
+    <div>
+        <asp:Label ID="Label4" runat="server" Text="Trash Removal/Donation Hauling: "></asp:Label>
+        <asp:CheckBox ID="ChkbxTrash"
+            runat="server"
+            OnCheckedChanged="ChkbxTrash_CheckedChanged"
+            AutoPostBack="true" />
+    </div>
+    <div class="form-group">
+        <asp:Label ID="lblTrashDescription"
+            runat="server"
+            Text="Trash/Donation Description"
+            Visible="false"></asp:Label>
 
-    <asp:Label ID="Label3" runat="server" Text="Pick-up"></asp:Label>
-    <asp:CheckBox ID="ChkbxPickup" runat="server" />
-
-    <asp:Label ID="Label4" runat="server" Text="Trash Removal/Donation Hauling"></asp:Label>
-    <asp:CheckBox ID="ChkbxTrash"
-        runat="server"
-        OnCheckedChanged="ChkbxTrash_CheckedChanged"
-        AutoPostBack="true" />
-
-    <asp:Label ID="lblTrashDescription"
-        runat="server"
-        Text="Trash/Donation Description"
-        Visible="false"></asp:Label>
-
-    <asp:TextBox ID="txtTrashDescription"
-        runat="server"
-        TextMode="MultiLine"
-        Rows="5"
-        Visible="false"></asp:TextBox>
-
-    <br />
-
-
-    <br />
-
+        <asp:TextBox ID="txtTrashDescription"
+            runat="server"
+            TextMode="MultiLine"
+            Rows="5"
+            Visible="false" CssClass="form-control"></asp:TextBox>
+    </div>
 
     <br />
-
-    <asp:Label ID="lblPhotos" runat="server" Text="Have we asked for photos?"></asp:Label>
-    <asp:CheckBox ID="ChkbxPhotos" runat="server" />
-
-    <br />
-
-    <asp:Label ID="lblItems" runat="server" Text="Have we asked for a list of items?"></asp:Label>
-    <asp:CheckBox ID="ChkbxItems" runat="server" />
-
+    <div>
+        <asp:Label ID="lblPhotos" runat="server" Text="Have we asked for photos?"></asp:Label>
+        <asp:CheckBox ID="ChkbxPhotos" runat="server" />
+    </div>
+    <div>
+        <asp:Label ID="lblItems" runat="server" Text="Have we asked for a list of items?"></asp:Label>
+        <asp:CheckBox ID="ChkbxItems" runat="server" />
+    </div>
     <br />
     <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn-danger" OnClick="btnClear_Click" />
     <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />

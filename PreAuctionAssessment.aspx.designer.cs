@@ -159,15 +159,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.TextBox txtWhatToSell;
 
         /// <summary>
-        /// lblWhy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblWhy;
-
-        /// <summary>
         /// ddlWhy control.
         /// </summary>
         /// <remarks>
@@ -175,15 +166,6 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlWhy;
-
-        /// <summary>
-        /// lblDeadline control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDeadline;
 
         /// <summary>
         /// txtDeadline control.
