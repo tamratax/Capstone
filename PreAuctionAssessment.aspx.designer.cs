@@ -123,6 +123,24 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Button btnPopulate;
 
         /// <summary>
+        /// lblInitiating control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblInitiating;
+
+        /// <summary>
+        /// ddlInitiating control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlInitiating;
+
+        /// <summary>
         /// lblSell control.
         /// </summary>
         /// <remarks>
@@ -141,15 +159,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.TextBox txtWhatToSell;
 
         /// <summary>
-        /// lblWhy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblWhy;
-
-        /// <summary>
         /// ddlWhy control.
         /// </summary>
         /// <remarks>
@@ -157,15 +166,6 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlWhy;
-
-        /// <summary>
-        /// lblDeadline control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDeadline;
 
         /// <summary>
         /// txtDeadline control.
@@ -355,5 +355,14 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource dtasrcAddress;
+
+        /// <summary>
+        /// dtasrcInitiating control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcInitiating;
     }
 }

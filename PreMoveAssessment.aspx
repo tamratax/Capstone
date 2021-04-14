@@ -76,6 +76,18 @@
             </div>
         </div>
     </fieldset>
+    <br />
+    <div class="form-group">
+    <asp:Label ID="lblInitiating" runat="server" Text="Initiating Employee:"></asp:Label>
+    <asp:DropDownList
+        ID="ddlInitiating"
+        runat="server"
+        DataSourceID="dtasrcInitiating"
+        DataTextField="EmployeeName"
+        DataValueField="EmployeeID"
+        OnDataBound="ddlInitiating_DataBound" Width="100%">
+    </asp:DropDownList>
+    </div>
      <div class="form-group">
         <label>What day do you have to be out by?</label>
          <asp:TextBox ID="DateOutTxt" runat="server" TextMode="Date"
@@ -206,7 +218,12 @@
         </SelectParameters>
     </asp:SqlDataSource>
 
-
+    <asp:SqlDataSource
+        ID="dtasrcInitiating"
+        runat="server"
+        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        SelectCommand="Select EmployeeID, EmpFirstName + ' ' + EmpLastName as EmployeeName
+                    from Employee Order By EmpLastName ASC"></asp:SqlDataSource>
 
 
 </asp:Content>

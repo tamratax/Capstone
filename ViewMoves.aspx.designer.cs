@@ -42,6 +42,15 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Button BtnSearch;
 
         /// <summary>
+        /// BtnLoadAll control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnLoadAll;
+
+        /// <summary>
         /// GridviewMoves control.
         /// </summary>
         /// <remarks>
@@ -49,5 +58,32 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridviewMoves;
+
+        /// <summary>
+        /// GridviewShowAll control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridviewShowAll;
+
+        /// <summary>
+        /// dtasrcMoves control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcMoves;
+
+        /// <summary>
+        /// dsShowAll control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dsShowAll;
     }
 }

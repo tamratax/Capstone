@@ -1,4 +1,4 @@
-//Coded By: Stuart Walker & Aaron Walsh
+//Coded By: RoCo Consulting
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,33 +36,6 @@ namespace WalkerS_Lab1Part3
                 LblDestinationTime.Visible = false;
                 TxtDestinationTime.Visible = false;
 
-                //if (Session["ServiceRequestID"] != null)
-                //{
-                //    //Pulling in customer's record
-                //    String sqlQuery = "Select * from ServiceRequest where ServiceRequestID = " + Session["ServiceRequestID"].ToString();
-
-                //    //Establishes the connection between our web form and database
-                //    SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
-
-                //    //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
-                //    SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
-
-                //    //This creates a datatable and fills it
-                //    DataTable dtForSelect = new DataTable();
-                //    sqlAdapter.Fill(dtForSelect);
-
-
-                //    //Populates service fields with request data
-                //    TxtServiceDate.Text = Convert.ToString(dtForSelect.Rows[0]["ServiceDate"]);
-
-                //    if (Convert.ToString(dtForSelect.Rows[0]["ServiceType"]) != "")
-                //    {
-                //        DdlServiceType.SelectedValue = DdlServiceType.Items.FindByText(Convert.ToString(dtForSelect.Rows[0]["ServiceType"]).Trim()).Value;
-                //        DdlServiceType_SelectedIndexChanged(sender, e);
-                //    }
-                //    ddlCustomerList.SelectedValue = Convert.ToString(dtForSelect.Rows[0]["CustomerID"]);
-                //    LblRequestDescription.Text = "Request Description: " + Convert.ToString(dtForSelect.Rows[0]["RequestDescription"]);
-                //}
 
                 if (Session["ServiceTicketID"] != null)
                 {
@@ -92,14 +65,10 @@ namespace WalkerS_Lab1Part3
                     ChkBoxLookAt_CheckedChanged(sender, e);
                     TxtLookAtSchedule.Text = Convert.ToString(dtForSelect.Rows[0]["LookAtDate"]);
                     TxtLookatScheduleTime.Text = Convert.ToString(dtForSelect.Rows[0]["LookAtTime"]);
-
                     ChkBxCleaning.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["CleaningCB"]);
                     ChkBxStorage.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["StorageCB"]); ;
                     ChkBxTrashRemoval.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["TrashCB"]);
                     ChkBoxCompleted.Checked = Convert.ToBoolean(dtForSelect.Rows[0]["Completed"]);
-
-
-
 
                 }
                 //If the user is trying to edit a customer, there will be a customerid in this session data
