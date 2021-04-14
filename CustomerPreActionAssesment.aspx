@@ -1,10 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LabFormat.Master" AutoEventWireup="true" CodeBehind="PreAuctionAssessment.aspx.cs" Inherits="Lab3.PreAuctionAssessment" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CustomerFacingMaster.Master" AutoEventWireup="true" CodeBehind="CustomerPreActionAssesment.aspx.cs" Inherits="Lab3.WebForm5" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-
-    <h1>Pre-Auction Assessment</h1>
+<body>
+ <h1>Pre-Auction Assessment</h1>
 
     <h4>Customer Info:</h4>
     <fieldset>
@@ -176,11 +175,9 @@
         <asp:CheckBox ID="ChkbxItems" runat="server" />
     </div>
     <br />
-    <div class="text-center">
-    <asp:Button ID="btnClear" runat="server" class="btn btn-danger" Text="Clear" OnClick="btnClear_Click" />
-    <asp:Button ID="btnSave" runat="server" class="btn btn-success" Text="Save" OnClick="btnSave_Click" />
+    <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn-danger" OnClick="btnClear_Click" />
+    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
     <asp:Label ID="lblSaveStatus" runat="server" Text=""></asp:Label>
-        </div>
 
 
 
@@ -201,4 +198,5 @@
         ConnectionString="<%$ConnectionStrings:Lab3%>"
         SelectCommand="Select EmployeeID, EmpFirstName + ' ' + EmpLastName as EmployeeName
                     from Employee Order By EmpLastName ASC"></asp:SqlDataSource>
+</body>
 </asp:Content>

@@ -114,15 +114,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.GridView GridAddress;
 
         /// <summary>
-        /// lblServ control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblServ;
-
-        /// <summary>
         /// ddlService1 control.
         /// </summary>
         /// <remarks>
@@ -132,15 +123,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.DropDownList ddlService1;
 
         /// <summary>
-        /// Feedback1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Feedback1;
-
-        /// <summary>
         /// ddlFeedback control.
         /// </summary>
         /// <remarks>
@@ -148,15 +130,6 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlFeedback;
-
-        /// <summary>
-        /// CommentsLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CommentsLbl;
 
         /// <summary>
         /// Commentstxt control.

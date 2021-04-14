@@ -4,35 +4,15 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <h1>Moving Completion Form:</h1>
-    <%-- <asp:Table ID="TblSelection" runat="server">--%>
-    <%-- <asp:TableRow>
-            <asp:TableCell>--%>
-    <asp:Label ID="LblCustomer" runat="server" Text="Select Customer:"></asp:Label>
-    <%--</asp:TableCell>
-            <asp:TableCell>--%>
-    <asp:Label ID="LblSelected" runat="server" Text=""></asp:Label>
-    <%--</asp:TableCell>
-            <asp:TableCell>--%>
-    <asp:Label ID="LblID" runat="server" Text="" Visible="false"></asp:Label>
-    <%-- </asp:TableCell>--%>
 
-    <%-- <asp:TableCell>
-                <asp:DropDownList ID="DDLCust"
-                    DataSourceID="dtasrcCustomerList"
-                    DataTextField="CustomerName"
-                    DataValueField="CustomerID"
-                    runat="server"
-                    OnSelectedIndexChanged="DDLCust_SelectedIndexChanged"
-                    OnDataBound="DDLCust_DataBound"
-                    AutoPostBack="true">
-                </asp:DropDownList>
-            </asp:TableCell>--%>
-    <%-- </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>--%>
+    <asp:Label ID="LblCustomer" runat="server" Text="Select Customer:"></asp:Label>
+
+    <asp:Label ID="LblSelected" runat="server" Text=""></asp:Label>
+
+    <asp:Label ID="LblID" runat="server" Text="" Visible="false"></asp:Label>
+
     <asp:Label ID="LblType" runat="server" Text="Select Service:"></asp:Label>
-    <%--</asp:TableCell>
-            <asp:TableCell>--%>
+
     <asp:DropDownList
         ID="DDLType"
         runat="server"
@@ -40,10 +20,7 @@
         AutoPostBack="true"
         OnSelectedIndexChanged="DDLType_SelectedIndexChanged">
     </asp:DropDownList>
-    <%-- </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell ColumnSpan="3">--%>
+
     <asp:GridView ID="GridCust"
         runat="server"
         DataSourceID="dtasrcCustGrid"
@@ -64,10 +41,7 @@
 
         </Columns>
     </asp:GridView>
-    <%--</asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>--%>
-    <%--<asp:TableCell ColumnSpan="3">--%>
+
     <asp:GridView ID="GridAddress"
         runat="server"
         DataSourceID="dtasrcAddresses"
@@ -88,9 +62,7 @@
 
         </Columns>
     </asp:GridView>
-    <%--</asp:TableCell>
-        </asp:TableRow>
-    </asp:Table>--%>
+
     <asp:Button ID="btnAddEmp" runat="server" Text="Add Employees" OnClick="btnAddEmp_Click" />
     <asp:Button ID="btnPay" runat="server" Text="Payment Info" OnClick="btnPay_Click" />
     <asp:Button ID="btnAddress" runat="server" Text="Address Info" OnClick="btnAddress_Click" />
@@ -99,7 +71,7 @@
     <br />
     <div runat="server" id="divEmp">
         <h2>Add Employees</h2>
-        <%--<asp:Label ID="LblMoveEmployees" runat="server" Text="Move Employees:"></asp:Label>--%>
+
         <div class="form-group">
             <label>Move Employees</label>
             <asp:DropDownList ID="Drplst"

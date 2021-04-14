@@ -81,6 +81,12 @@
     <br />
 
     <h2>Create Appraisal Service</h2>
+        <div class="float-right">
+         <asp:Button ID="BtnPopulate"
+                runat="server"
+                Text="Populate"
+                OnClick="BtnPopulate_Click" />
+    </div>
     <div runat="server" id="divOutBuilding">
         <div>
             <h5>Purpose of Appraisal</h5>
@@ -163,17 +169,13 @@
             AllowMultiple="true" />
         <asp:Label ID="FileUploadedList" runat="server" />
         <br />
-        <div>
+        <div class="text-center">
             <br />
-            <asp:Button ID="BtnPopulate"
-                runat="server"
-                Text="Populate"
-                OnClick="BtnPopulate_Click" />
             <asp:Button ID="BtnClear"
                 runat="server"
                 Text="Clear"
-                OnClick="BtnClear_Click" />
-            <asp:Button ID="BtnSave" runat="server" Text="Save" OnClick="BtnSave_Click" />
+                OnClick="BtnClear_Click" class="btn btn-danger" />
+            <asp:Button ID="BtnSave" BackColor="LimeGreen" runat="server" Text="Save" OnClick="BtnSave_Click" class="btn btn-success" />
             <asp:Label
                 ID="LblSaveStatus"
                 runat="server"

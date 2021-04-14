@@ -77,28 +77,31 @@
       
         <br />
         <br />
-        <div>
-            <asp:Label ID="lblServ" runat="server" Text="Select Service: "></asp:Label>
+        <div class="form-group">
+            <label>Select Service</label>
+<%--            <asp:Label ID="lblServ" runat="server" Text="Select Service: "></asp:Label>--%>
             <asp:DropDownList ID="ddlService1" 
                 runat="server"
                  AutoPostBack="true"
+                 class="form-control"
                   OnDataBound="ddlService_DataBound"
                 ></asp:DropDownList>
             </div>
-        <div>
-        <asp:Label ID="Feedback1" runat="server" Text="How was your service?: "></asp:Label>
+        <div class="form-group">
+            <label>How was your service?</label>
+<%--        <asp:Label ID="Feedback1" runat="server" Text="How was your service?: "></asp:Label>--%>
             <asp:DropDownList ID="ddlFeedback" 
                 runat="server"
+                class="form-control"
                 AutoPostBack="true">
                  <asp:ListItem Value="Positive">Positive</asp:ListItem>
                  <asp:ListItem Value="Negative">Negative</asp:ListItem>
             </asp:DropDownList>
          </div>
-     <div>
-            <asp:Label ID="CommentsLbl" runat="server" Text="Comments: "></asp:Label>
-            <asp:TextBox ID="Commentstxt" runat="server" TextMode="MultiLine" Columns="3"></asp:TextBox>
-        
-
+     <div class="form-group">
+         <label>Comments</label>
+<%--            <asp:Label ID="CommentsLbl" runat="server" Text="Comments: "></asp:Label>--%>
+            <asp:TextBox ID="Commentstxt" runat="server" Placeholder="Comments" class="form-control" TextMode="MultiLine" Rows="5"></asp:TextBox>
         </div>
         <div>
             <asp:Button ID="SubmitFeed" runat="server" Text="Submit" OnClick="SubmitFeed_Click1" />

@@ -3,6 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
+     <div class="float-right">
+        <asp:Button ID="BtnPop" runat="server" Text="Populate" OnClick="BtnPop_Click" />
+    </div>
     <h1 class="display-6">Room Information</h1>
     <div>
         <asp:DetailsView ID="dtvRoom"
@@ -398,12 +401,10 @@
             Placeholder="Enter additional notes"></asp:TextBox>
     </div>
     <br />
-    <div class="float-right">
+    <div class="text-center">
         <asp:Label ID="LblAddRoomStatus" runat="server" Text=""></asp:Label>
-        <asp:Button ID="BtnAddRoom" runat="server" Text="Add Room" AutoPostBack="true" OnClick="BtnAddRoom_Click" />
-        <asp:Button ID="BtnReturn" runat="server" Text="Return to Move Assessment" AutoPostBack="true" OnClick="BtnReturn_Click" />
-        <asp:Button ID="BtnPop" runat="server" Text="Populate" OnClick="BtnPop_Click" />
-        <asp:Button ID="BtnClear" runat="server" Text="Clear" OnClick="BtnClear_Click" />
+        <asp:Button ID="BtnAddRoom" runat="server" class="btn btn-success" Text="Add Room" AutoPostBack="true" OnClick="BtnAddRoom_Click" />
+        <asp:Button ID="BtnReturn" class="btn btn-secondary" runat="server" Text="Return to Move Assessment" AutoPostBack="true" OnClick="BtnReturn_Click" />
     </div>
     <asp:SqlDataSource ID="grdsrcBox"
         runat="server"

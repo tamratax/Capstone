@@ -15,6 +15,15 @@ namespace Lab3
     {
 
         /// <summary>
+        /// PopBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button PopBtn;
+
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -474,24 +483,6 @@ namespace Lab3
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divsave;
 
         /// <summary>
-        /// BtnSave control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSave;
-
-        /// <summary>
-        /// LblSuccess control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblSuccess;
-
-        /// <summary>
         /// DTLMoveInfo control.
         /// </summary>
         /// <remarks>
@@ -771,13 +762,22 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.GridView grdCharges;
 
         /// <summary>
-        /// PopBtn control.
+        /// BtnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button PopBtn;
+        protected global::System.Web.UI.WebControls.Button BtnSave;
+
+        /// <summary>
+        /// LblSuccess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblSuccess;
 
         /// <summary>
         /// ClearBtn control.
