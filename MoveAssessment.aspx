@@ -3,11 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <div class="float-right">
-        <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click" />
-    </div>
+    
+    <link href="Content/AddService.css" rel="stylesheet" />
+    
     <div>
-        <h2><b>Move Assessment Form</b></h2>
+        <div class="row justify-content-center">
+        <h1 class="display-4"><b>Move Assessment Form</b></h1>
+            </div>
         <h4>Customer Info:</h4>
         <fieldset>
             <div class="groupCust">
@@ -82,15 +84,18 @@
             </div>
         </fieldset>
 
+        
+
+        <br />
+        <div class="float-right">
+        <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click" />
+    </div>
+        <br />
         <asp:Label ID="lblCust" runat="server" Text="Customer Name: "></asp:Label>
         <asp:Label ID="lblselected" runat="server" />
         <asp:Label ID="LblID" runat="server" Visible="false"></asp:Label>
         <asp:Label ID="LblMoveID" runat="server" Visible="false"></asp:Label>
-
         <br />
-
-
-
         <asp:DropDownList
             ID="DDLType"
             runat="server"
