@@ -97,6 +97,17 @@
             OnDataBound="ddlInitiating_DataBound"
             Width="100%">
         </asp:DropDownList>
+        <asp:RequiredFieldValidator
+        ID="RfvCompletedByEmp"
+        runat="server"
+        ErrorMessage="RequiredFieldValidator"
+        ControlToValidate="ddlInitiating"
+        Text="This Field Is Required"
+        ForeColor="Red"
+        SetFocusOnError="true"
+        ValidationGroup="SaveGroup"
+        Display="Dynamic"
+        InitialValue="-1"></asp:RequiredFieldValidator>
     </div>
     <div class="form-group">
         <asp:Label ID="lblSell"
@@ -106,6 +117,7 @@
             runat="server"
             TextMode="MultiLine"
             Rows="5" CssClass="form-control"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtWhatToSell" Text="Required" ForeColor="Red" ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
     </div>
 
     <div class="form-row">
@@ -182,7 +194,9 @@
     <br />
     <div class="text-center">
     <asp:Button ID="btnClear" runat="server" class="btn btn-danger" Text="Clear" OnClick="btnClear_Click" />
-    <asp:Button ID="btnSave" runat="server" class="btn btn-success" Text="Save" OnClick="btnSave_Click" />
+
+    <asp:Button ID="btnSave" runat="server" class="btn btn-success" Text="Save" OnClick="btnSave_Click" ValidationGroup="SaveGroup"/>
+
     <asp:Label ID="lblSaveStatus" runat="server" Text=""></asp:Label>
         </div>
 
