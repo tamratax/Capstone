@@ -65,38 +65,11 @@
                     ValidationGroup="SaveGroup" />
         
         </div>
-    <%--<asp:TableRow>
-        <asp:TableCell>--%>
-<%--            <asp:Label ID="NoteLbl" runat="server" Text="Auction Notes:"></asp:Label>--%>
-       <%-- </asp:TableCell>
-        <asp:TableCell>--%>
-<%--            <asp:TextBox ID="TxtNotes" runat="server" TextMode="MultiLine" Rows="5"></asp:TextBox>--%>
-       <%-- </asp:TableCell>
-    </asp:TableRow>--%>
-
-<%--    <br />
-
-    <br />
-
-    <br />--%>
-    <%--<asp:Table ID="Table3" runat="server">
-        <asp:TableRow>
-            <asp:TableCell>--%>
-                <%--<asp:Button
-                    ID="BtnSave"
-                    runat="server"
-                    Text="Save"
-                    OnClick="BtnSave_Click"
-                    ValidationGroup="SaveGroup" />--%>
-           <%-- </asp:TableCell>
-            <asp:TableCell>--%>
                 <asp:Label
                     ID="LblSaveStatus"
                     runat="server"
                     Text=""></asp:Label>
-           <%-- </asp:TableCell>
-        </asp:TableRow>
-    </asp:Table>--%>
+
 
     <asp:SqlDataSource ID="dtasrcServices"
         runat="server"

@@ -33,6 +33,7 @@
                 <asp:BoundField DataField="Collectible" HeaderText="Collectibles/Curios" />
                 <asp:BoundField DataField="Electronics" HeaderText="Appliances/Electronics" />
             </Fields>
+            <PagerStyle ForeColor="Blue" Font-Underline="true" />
         </asp:DetailsView>
         <br />
         <br />

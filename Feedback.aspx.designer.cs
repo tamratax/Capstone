@@ -7,218 +7,164 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Lab2
+namespace Lab3
 {
 
 
-    public partial class ViewService
+    public partial class Feedback
     {
 
         /// <summary>
-        /// LblCustomerName control.
+        /// LblCust control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblCustomerName;
+        protected global::System.Web.UI.WebControls.Label LblCust;
 
         /// <summary>
-        /// TxtSearch control.
+        /// LblCustName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtSearch;
+        protected global::System.Web.UI.WebControls.Label LblCustName;
 
         /// <summary>
-        /// BtnSearch control.
+        /// LblHomePhone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSearch;
+        protected global::System.Web.UI.WebControls.Label LblHomePhone;
 
         /// <summary>
-        /// LblSearch control.
+        /// LblHomeNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblSearch;
+        protected global::System.Web.UI.WebControls.Label LblHomeNumber;
 
         /// <summary>
-        /// GridViewCustomers control.
+        /// LblCellPhone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewCustomers;
+        protected global::System.Web.UI.WebControls.Label LblCellPhone;
 
         /// <summary>
-        /// LblActive control.
+        /// LblCellNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblActive;
+        protected global::System.Web.UI.WebControls.Label LblCellNumber;
 
         /// <summary>
-        /// GrdServices control.
+        /// LblWorkPhone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GrdServices;
+        protected global::System.Web.UI.WebControls.Label LblWorkPhone;
 
         /// <summary>
-        /// StatBar control.
+        /// LblWorkNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label StatBar;
+        protected global::System.Web.UI.WebControls.Label LblWorkNumber;
 
         /// <summary>
-        /// StatusPercent control.
+        /// LblEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label StatusPercent;
+        protected global::System.Web.UI.WebControls.Label LblEmail;
 
         /// <summary>
-        /// progressbar control.
+        /// LblEmailText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl progressbar;
+        protected global::System.Web.UI.WebControls.Label LblEmailText;
 
         /// <summary>
-        /// DDLServices control.
+        /// GridAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLServices;
+        protected global::System.Web.UI.WebControls.GridView GridAddress;
 
         /// <summary>
-        /// BtnServices control.
+        /// ddlService1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnServices;
+        protected global::System.Web.UI.WebControls.DropDownList ddlService1;
 
         /// <summary>
-        /// Table1 control.
+        /// ddlFeedback control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlFeedback;
 
         /// <summary>
-        /// LblWorkflow control.
+        /// Commentstxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblWorkflow;
+        protected global::System.Web.UI.WebControls.TextBox Commentstxt;
 
         /// <summary>
-        /// LblEquipment control.
+        /// SubmitFeed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblEquipment;
+        protected global::System.Web.UI.WebControls.Button SubmitFeed;
 
         /// <summary>
-        /// LblInventory control.
+        /// LblSaveStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblInventory;
+        protected global::System.Web.UI.WebControls.Label LblSaveStatus;
 
         /// <summary>
-        /// GrdEmployeeResults control.
+        /// dtasrcAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GrdEmployeeResults;
-
-        /// <summary>
-        /// lblSpacing control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSpacing;
-
-        /// <summary>
-        /// GrdEquipmentResults control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GrdEquipmentResults;
-
-        /// <summary>
-        /// LblSpacing2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblSpacing2;
-
-        /// <summary>
-        /// GrdNotes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GrdNotes;
-
-        /// <summary>
-        /// notespacing control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label notespacing;
-
-        /// <summary>
-        /// lbldescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbldescription;
+        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcAddress;
     }
 }

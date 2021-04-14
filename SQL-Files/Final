@@ -221,7 +221,7 @@ create table SERVICETICKET (
 	TicketOpenDate	varchar(20),
 	ServiceType		char(20),
 	InitiatingEmp	int references EMPLOYEE(EmployeeID),
-	Status_Service	int,
+	Status_Service	float,
 	[CompletedDate] [varchar](50),
 	PreMoveAssessmentID		int references PreMoveAssessment(PreMoveAssessmentID),
 	MoveAssessmentID int references MoveAssessment(MoveAssessmentID),
@@ -374,29 +374,58 @@ Create Table Feedback(
 	comments			varchar(255)
 );
 
-
 ---------------------------------------------
 --Adding data to database--
 ---------------------------------------------
 insert into PreMoveAssessment values ('2021-05-12', '2021-05-30', '2021-04-30', '2021-05-15', 'True', 'True', 'True', 'True', 'Large Items', 'True', 'False');
+insert into PreMoveAssessment values ('2021-05-14', '2021-05-30', '2021-05-01', '2021-05-20', 'True', 'True', 'True', 'True', 'Many Bowls', 'True', 'False');
+insert into PreMoveAssessment values ('2021-06-01', '2021-06-30', '2021-05-25', '2021-06-15', 'True', 'True', 'True', 'False', '', 'True', 'False');
+insert into PreMoveAssessment values ('2021-06-22', '2021-06-30', '2021-06-14', '2021-06-28', 'True', 'True', 'True', 'True', 'Small couch', 'True', 'False');
+insert into PreMoveAssessment values ('2021-07-17', '2021-07-30', '2021-07-12', '2021-07-25', 'True', 'True', 'True', 'True', 'Lots of trash', 'True', 'False');
+insert into PreMoveAssessment values ('2021-07-29', '2021-07-30', '2021-07-15', '2021-07-28', 'True', 'True', 'True', 'True', 'Trash in every room', 'True', 'False');
 
-insert into MOVESERVICEORDER values ('2021-07-17', '12:30', 'True', 'True', '3', '$265');
 
+insert into MOVESERVICEORDER values ('2021-05-12', '12:30', 'True', 'True', '3', '$265');
+insert into MOVESERVICEORDER values ('2021-05-14', '1:30', 'True', 'True', '5', '$505');
+insert into MOVESERVICEORDER values ('2021-06-01', '2:30', 'False', 'False', '2', '$800');
+insert into MOVESERVICEORDER values ('2021-06-22', '3:45', 'True', 'True', '1', '$162');
+insert into MOVESERVICEORDER values ('2021-07-17', '1:50', 'True', 'True', '3', '$375');
+insert into MOVESERVICEORDER values ('2021-07-29', '2:15', 'True', 'True', '4', '$484');
 
+insert into PreAuctionAssessment values ('10 Items', 'Not enough space', '2021-07-25', 'False', 'False', 'True', 'False', 'True', 'Trash in every room', 'False', 'False');
+insert into PreAuctionAssessment values ('15 Items', 'Not enough space', '2021-07-28', 'False', 'False', 'True', 'False', 'True', 'Trash in the main room only', 'False', 'False');
+
+insert into AUCTIONSERVICEORDER values ('2021-04-13', '2:15', 'True', '4', '$484', 'Trash in every room', '2021-04-13', '2:15');
+insert into AUCTIONSERVICEORDER values ('2021-04-13', '1:15', 'True', '4', '$484', 'Trash in the main room only', '2021-04-13', '1:15');
 
 insert into EMPLOYEE values ('Jack', 'Frost');
 insert into EMPLOYEE values ('Professor', 'Ezell');
 insert into EMPLOYEE values ('Camille', 'Wood');
+insert into EMPLOYEE values ('Jack', 'Brown');
+insert into EMPLOYEE values ('Dan', 'Hartman');
+insert into EMPLOYEE values ('Joe', 'Sheldon');
+insert into EMPLOYEE values ('Barry', 'Smith');
+insert into EMPLOYEE values ('Larry', 'Garry');
+insert into EMPLOYEE values ('Michael', 'Johnson');
 
-insert into CUSTOMER values ('Aaron', 'Walsh', '1234567822','123456789', '123456789','walsh@dukes.com', 1, '2021-03-07', '2021-03-05', '2021-03-30', 'From a friend', 'Call Cell', 'False' );
-insert into CUSTOMER values ('Jared', 'Clatterbuck', '1234567890','', '','Clat@dukes.com', 2, '2021-03-07', '2021-03-05', '2021-04-30', 'From a friend', 'Call Home', 'False' );
-insert into CUSTOMER values ('Stu', 'Guy', '','', '1234567890','Guy@dukes.com', 1,'2021-03-07', '2021-03-05', '2021-05-30', 'From a friend', 'Call Work', 'False' );
+insert into CUSTOMER values ('Aaron', 'Walsh', '1234567822','123456789', '123456789','walsh@dukes.com', 1, '2021-02-07', '2021-02-05', '2021-03-30', 'From a friend', 'Call Cell', 'False' );
+insert into CUSTOMER values ('Jared', 'Clatterbuck', '1234567890','5413770248', '','Clat@dukes.com', 2, '2021-02-17', '2021-02-10', '2021-04-30', 'From a Neighbor', 'Call Home', 'False' );
+insert into CUSTOMER values ('Ryan', 'Reynolds', '','', '1234567890','Ryan@dukes.com', 7,'2021-03-07', '2021-03-06', '2021-03-20', 'From a friend', 'Call Work', 'False' );
+insert into CUSTOMER values ('Michael', 'Perry', '3528642398','', '1234567890','Michael@dukes.com', 3,'2021-02-27', '2021-02-27', '2021-05-30', 'Newspaper', 'Call Cell', 'False' );
+insert into CUSTOMER values ('Arthur', 'Roberts', '5409963402','2032972448', '1234567890','Arthur@dukes.com', 4,'2021-03-01', '2021-03-01', '2021-05-20', 'Ad', 'Call Work', 'False' );
+insert into CUSTOMER values ('Sherman', 'Duncan', '6086851297','4074258695', '1234567890','Sherman@dukes.com', 5,'2021-03-03', '2021-03-03', '2021-04-25', 'From Co-Worker', 'Call Home', 'False' );
+insert into CUSTOMER values ('Larry', 'Park', '6065843655','9163976210', '1234567890','Larry@dukes.com', 6,'2021-03-14', '2021-03-10', '2021-03-30', 'From a friend', 'Call Cell', 'False' );
+insert into CUSTOMER values ('Marcia', 'Richardson', '','8035091048', '1234567890','Marcia@dukes.com', 8,'2021-03-15', '2021-03-05', '2021-04-17', 'Newspaper', 'Call Work', 'False' );
+insert into CUSTOMER values ('Ada', 'Thomas', '','', '7816318660','Ada@dukes.com', 9,'2021-03-20', '2021-03-20', '2021-03-28', 'Tv', 'Call Home', 'False' );
 
-insert into EQUIPMENT values ('Pickup Truck #1');
-insert into EQUIPMENT values ('Pickup Truck #2');
-insert into EQUIPMENT values ('Forklift');
-insert into EQUIPMENT values ('Box Truck');
-insert into EQUIPMENT values ('Pallet Jack');
+
+
+insert into EQUIPMENT values ('2015');
+insert into EQUIPMENT values ('2011');
+insert into EQUIPMENT values ('Cube');
+insert into EQUIPMENT values ('Enclosed Trailer');
+insert into EQUIPMENT values ('Open Trailer');
+insert into EQUIPMENT values ('Van');
 
 
 
@@ -414,28 +443,76 @@ insert into SCHEDULING values (1, 'To Schedule Auction', 'Looking to sell 45 thi
 insert into SCHEDULING values (2, 'To Schedule Move', 'Looking to move to Harrisonburg', '2021-04-15', '1:30', 'Staunton');
 
 insert into MoveAssessment values ('', '120 feet', 'House', '', 'Good Accessibility', 'Gravel Driveway', '8 steps');
+insert into MoveAssessment values ('', '150 feet', 'Apartment', '', 'Narrow Driveway', 'Brick Driveway', '15 steps');
+insert into MoveAssessment values ('', '10 feet', 'House', '', 'Good Accessibility', 'Stone Driveway', '20 steps');
+insert into MoveAssessment values ('', '20 feet', 'House', '', 'Good Accessibility', 'Stone Driveway', '3 steps');
+insert into MoveAssessment values ('', '20 feet', 'House', '', 'Good Accessibility', 'Stone Driveway', '3 steps');
 
-insert into SERVICETICKET values (1, '2021-01-01', 'Move', 1, 25, '2021-02-25', 1, 1, 1, null, null, null, null);
+insert into AuctionAssessment values ('', '20 feet', 'House', '', 'Good Accessibility', 'Stone Driveway', '3 steps');
+insert into AuctionAssessment values ('', '50 feet', 'House', '', 'Poor Accessibility', 'Stone Driveway', '3 steps');
 
-insert into TICKETHISTORY values ('2021-01-01','Fragile','Customer says be careful with his small bowl',1,1);
-insert into TICKETHISTORY values ('2021-01-03','Big Fragile','Customer also says be careful with his big bowl',1,2);
+insert into SERVICETICKET values (1, '2021-02-05', 'Move', 1, 25, '2021-02-25', 1, 1, 1, null, null, null, null);
+insert into SERVICETICKET values (2, '2021-02-17', 'Move', 2, 25, '2021-03-05', 2, 2, 2, null, null, null, null);
+insert into SERVICETICKET values (3, '2021-02-20', 'Move', 3, 62.5, '2021-03-15', 3, 3, 3, null, null, null, null);
+insert into SERVICETICKET values (4, '2021-02-70', 'Move', 2, 75, '2021-03-25', 4, 4, 4, null, null, null, null);
+insert into SERVICETICKET values (5, '2021-03-05', 'Auction', 4, 27, '2021-04-13', null, null, null, 1, 1, 1, null);
+insert into SERVICETICKET values (6, '2021-03-07', 'Auction', 4, 63, '2021-04-13', null, null, null, 2, 2, 2, null);
 
-insert into AUCTIONINVENTORY values ('Looks to need about 15 boxes, 5 large items, going to need 4 men and 3 trucks', 1);
 
-insert into ServiceTicketEquipment values (1, 1, '');
-insert into ServiceTicketEquipment values (2, 1, '');
-insert into ServiceTicketEquipment values (3, 1, '');
 
-insert into SPECIALEQUIPMENT values ('Extra Blankets', 3, 1);
+insert into TICKETHISTORY values ('2021-02-15','Fragile','Customer says be careful with his small bowl',1,1);
+insert into TICKETHISTORY values ('2021-02-23','Big Fragile','Customer also says be careful with his big bowl',1,2);
+
+insert into AUCTIONINVENTORY values ('Looks to need about 15 boxes, 5 large items, going to need 4 men and 3 trucks', 5);
+insert into AUCTIONINVENTORY values ('Looks to need about 10 boxes, 3 large items, going to need 8 men and 4 trucks', 6);
+
+insert into ServiceTicketEquipment values (1, 1, '20');
+insert into ServiceTicketEquipment values (2, 1, '50');
+insert into ServiceTicketEquipment values (3, 1, '100');
+
+insert into SPECIALEQUIPMENT values ('Appliance cart', 3, 1);
 insert into SPECIALEQUIPMENT values ('Piano Dolly', 1, 1);
+insert into SPECIALEQUIPMENT values ('Piano Board', 1, 1);
+insert into SPECIALEQUIPMENT values ('Gun safe cart', 1, 1);
+insert into SPECIALEQUIPMENT values ('Extra blankets', 1, 1);
+
 
 insert into MOVECHARGES values (250, 75, 50, 50, 30, 455, 1);
+insert into MOVECHARGES values (375, 75, 50, 20, 30, 550, 2);
+insert into MOVECHARGES values (150, 75, 50, 30, 30, 335, 3);
+insert into MOVECHARGES values (350, 75, 50, 75, 30, 580, 4);
+
 
 insert into ROOM values ('Bedroom', 'Master', '2nd Floor', 'Need 4 blankets', 'Master is the green room, has a big armoire.', 'Jewelery box with about $500 worth of jewels', 'Bedframe is 8footx10ft', 'GI Joes', 'Big TV above wall', 1);
+
 insert into BOXES values(1, 'Large', 10);
 insert into BOXES values(1, 'Medium', 6);
 
-insert into ServiceTicketEmployee values (1, 1, 3.5, 12.50, 43.75);
+insert into ServiceTicketEmployee values (1, 1, 12, 12.50, 150.0);
+insert into ServiceTicketEmployee values (2, 2, 12, 12.50, 150.0);
+insert into ServiceTicketEmployee values (3, 3, 10, 12.50, 125.0);
+insert into ServiceTicketEmployee values (5, 4, 8, 12.50, 100);
 
-insert into INVENTORY values (1,'Bowl','Blue bowl', 500.23,  2, '2021-05-04');
-insert into INVENTORY values (1,'TV','Red bowl', 10000,  3, '2021-05-04');
+insert into INVENTORY values (5,'Bowl','Blue bowl', 50,  10, '2021-03-05');
+insert into INVENTORY values (5,'TV','Large TV', 350,  1, '2021-03-05');
+insert into INVENTORY values (6,'Microwave','Red', 150,  1, '2021-03-07');
+insert into INVENTORY values (6,'Spoon','Absolutely Massive Spoon', 55,  1, '2021-03-07');
+
+insert into Feedback values (1, 'Positive', 'Service was fast');
+insert into Feedback values (2, 'Positive', 'Great Customer Service');
+insert into Feedback values (3, 'Positive', 'A lot of great services');
+insert into Feedback values (4, 'Negative', 'Took Green Valley a while to get back to me with quote');
+
+insert into Travel values ('Load', '10:00', '12:00', 2, 1);
+insert into Travel values ('Unload', '11:00', '4:00', 5, 1);
+insert into Travel values ('Travel', '12:00', '1:00', 2, 1);
+insert into Travel values ('Load', '9:00', '12:00', 2, 2);
+insert into Travel values ('Unload', '11:00', '3:00', 5, 2);
+insert into Travel values ('Travel', '8:00', '9:00', 2, 2);
+insert into Travel values ('Load', '10:00', '12:00', 2, 3);
+insert into Travel values ('Unload', '1:00', '4:00', 5, 3);
+insert into Travel values ('Travel', '12:00', '1:00', 2, 3);
+insert into Travel values ('Load', '10:00', '12:00', 2, 4);
+insert into Travel values ('Unload', '4:00', '5:00', 5, 4);
+insert into Travel values ('Travel', '12:00', '1:00', 2, 4);
+
