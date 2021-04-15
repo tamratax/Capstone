@@ -21,7 +21,7 @@
             DataSourceID="dtasrcEmpList"
             DataTextField="EmpName"
             DataValueField="EmployeeID"
-            OnDataBound="DdlCompletedByEmp_DataBound" Width="100%">
+            OnDataBound="DdlCompletedByEmp_DataBound" Width="100%" CssClass="form-control">
         </asp:DropDownList>
             <asp:RequiredFieldValidator
         ID="RfvCompletedByEmp"

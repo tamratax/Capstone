@@ -113,7 +113,10 @@
 
     <br />
     <div id="divInventory" runat="server" visible="false">
+        <div class="row justify-content-center">
         <h5>Inventory</h5>
+            </div>
+            <div class="row justify-content-center">
         <asp:GridView ID="gridInventory"
             runat="server"
             DataSourceID="dtasrcInventory"
@@ -129,17 +132,18 @@
                 <asp:BoundField DataField="ItemCost" HeaderText=" Item Cost " />
             </Columns>
         </asp:GridView>
+            </div>
         <br />
         <asp:Label ID="lblItemName" runat="server" Text="Item Name:"></asp:Label>
-        <asp:TextBox ID="txtItemName" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtItemName" runat="server" CssClass="form-control"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtItemName" Text="Required" ForeColor="Red" ValidationGroup="ItemGroup"></asp:RequiredFieldValidator>
         <br />
         <asp:Label ID="lblItemDescription" runat="server" Text="Item Description: "></asp:Label>
-        <asp:TextBox ID="txtItemDescription" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtItemDescription" runat="server" CssClass="form-control"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtItemDescription" Text="Required" ForeColor="Red" ValidationGroup="ItemGroup"></asp:RequiredFieldValidator>
         <br />
         <asp:Label ID="lblItemCost" runat="server" Text="Item Cost: "></asp:Label>
-        <asp:TextBox ID="txtItemCost" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtItemCost" runat="server" CssClass="form-control"></asp:TextBox>
         <asp:CompareValidator ID="CompareValidator1" runat="server" Operator="DataTypeCheck" Type="Integer" ErrorMessage="Must be a number" ControlToValidate="txtItemCost" ForeColor="Red" ValidationGroup="ItemGroup"></asp:CompareValidator>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtItemCost" Text="Required" ForeColor="Red" ValidationGroup="ItemGroup"></asp:RequiredFieldValidator>
         <br />
@@ -151,10 +155,11 @@
 
     <div runat="server" id="moveinfodiv">
         <div id="divgeneralinfo" runat="server">
+            <div class="form-group">
             <asp:Label ID="LblHomeType" runat="server" Text="Type of Home: "></asp:Label>
             <asp:DropDownList ID="DDLTypeofHome" runat="server"
                 AutoPostBack="true"
-                OnSelectedIndexChanged="DDLTypeofHome_SelectedIndexChanged">
+                OnSelectedIndexChanged="DDLTypeofHome_SelectedIndexChanged" CssClass="form-control">
                 <asp:ListItem>Apartment</asp:ListItem>
                 <asp:ListItem>House</asp:ListItem>
                 <asp:ListItem>Storage Unit</asp:ListItem>
@@ -171,55 +176,71 @@
         ValidationGroup="MoveGroup"
         Display="Dynamic"
         InitialValue="-1"></asp:RequiredFieldValidator>
-
-            <asp:Label ID="lblStories" runat="server" Text="How Many Stories?: "></asp:Label>
-            <asp:TextBox ID="txtStories" runat="server"></asp:TextBox>
-        <asp:CompareValidator ID="CompareValidator2" runat="server" Operator="DataTypeCheck" Type="Integer" ErrorMessage="Must Be Number" ControlToValidate="txtStories" ForeColor="Red" ValidationGroup="MoveGroup"></asp:CompareValidator>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtStories" Text="Required" ForeColor="Red" ValidationGroup="MoveGroup"></asp:RequiredFieldValidator>
+            </div>
+            
 
             <div id="divapartment" runat="server">
+                <div class="form-row">
+                     <div class="form-group col-md-4">
                 <asp:Label ID="lblWhichFloor" runat="server" Text="Which floor?: "></asp:Label>
-                <asp:TextBox ID="txtWhichFloor" runat="server"></asp:TextBox>
-                <br />
+                <asp:TextBox ID="txtWhichFloor" runat="server" CssClass="form-control"></asp:TextBox>
+                         </div>
+                    
+                        <div class="form-group col-md-4">
                 <asp:Label ID="LblElevator" runat="server" Text="Is there an Elevator?: "></asp:Label>
-                <asp:TextBox ID="TxtElevator" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TxtElevator" runat="server" CssClass="form-control"></asp:TextBox>
+                            </div>
                 <br />
-                <asp:Label ID="LblElevatorWalk" runat="server" Text="How Far is walk from elevator to apartment?: "></asp:Label>
-                <asp:TextBox ID="TxtElevatorWalk" runat="server" TextMode="MultiLine"></asp:TextBox>
-                <br />
-            </div>
+                        <div class="form-group col-md-4">
+                <asp:Label ID="LblElevatorWalk" runat="server" Text="Distance from elevator to apartment?: "></asp:Label>
+                <asp:TextBox ID="TxtElevatorWalk" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+                    </div>
+                                 
+                </div>
 
             <div id="divstorageinfo" runat="server">
                 <asp:Label ID="LblStorage" runat="server" Text="What Type of Unit?: "></asp:Label>
-                <asp:TextBox ID="TxtStorage" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TxtStorage" runat="server" CssClass="form-control"></asp:TextBox>
                 <br />
             </div>
 
             <div id="divbusiness" runat="server">
                 <asp:Label ID="LblBusiness" runat="server" Text="Name of Business: "></asp:Label>
-                <asp:TextBox ID="TxtBusiness" runat="server" TextMode="MultiLine"></asp:TextBox>
+                <asp:TextBox ID="TxtBusiness" runat="server" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
                 <br />
             </div>
 
 
-
+            <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <asp:Label ID="lblStories" runat="server" Text="How Many Stories?: "></asp:Label>
+            <asp:TextBox ID="txtStories" runat="server" CssClass="form-control"></asp:TextBox>                            
+        <asp:CompareValidator ID="CompareValidator2" runat="server" Operator="DataTypeCheck" Type="Integer" ErrorMessage="Must Be Number" ControlToValidate="txtStories" ForeColor="Red" ValidationGroup="MoveGroup"></asp:CompareValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtStories" Text="Required" ForeColor="Red" ValidationGroup="MoveGroup"></asp:RequiredFieldValidator>
+                        </div>
+                        <div class="form-group col-md-6">
             <asp:Label ID="LblDistance" runat="server" Text="Distance From Truck: "></asp:Label>
-            <asp:TextBox ID="TxtDistance" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TxtDistance" runat="server" CssClass="form-control"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtDistance" Text="Required" ForeColor="Red" ValidationGroup="MoveGroup"></asp:RequiredFieldValidator>
-            <br />
+            </div>
+                <div class="form-group col-md-6">
             <asp:Label ID="LblAccessibility" runat="server" Text="Driveway Accessibility: "></asp:Label>
-            <asp:TextBox ID="TxtAccessibility" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TxtAccessibility" runat="server" CssClass="form-control"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtAccessibility" Text="Required" ForeColor="Red" ValidationGroup="MoveGroup"></asp:RequiredFieldValidator>
-            <br />
+            </div>
+                    
+                <div class="form-group col-md-6">
             <asp:Label ID="LblSteps" runat="server" Text="Steps To House: "></asp:Label>
-            <asp:TextBox ID="TxtSteps" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TxtSteps" runat="server" CssClass="form-control"></asp:TextBox>
         <asp:CompareValidator ID="CompareValidator3" runat="server" Operator="DataTypeCheck" Type="Integer" ErrorMessage="Must Be Number" ControlToValidate="TxtSteps" ForeColor="Red" ValidationGroup="MoveGroup"></asp:CompareValidator>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtSteps" Text="Required" ForeColor="Red" ValidationGroup="MoveGroup"></asp:RequiredFieldValidator>
-            <br />
+            </div>                   
             <asp:Label ID="LblConditions" runat="server" Text="Loading Conditions:  "></asp:Label>
-            <asp:TextBox ID="TxtConditions" runat="server" TextMode="MultiLine"></asp:TextBox>
+            <asp:TextBox ID="TxtConditions" runat="server" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtConditions" Text="Required" ForeColor="Red" ValidationGroup="MoveGroup"></asp:RequiredFieldValidator>
-            <br />
+            
+                </div>
         </div>
         <div id="divsave" runat="server">
 

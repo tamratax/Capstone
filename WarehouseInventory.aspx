@@ -6,6 +6,7 @@
   <h1 class="display-4">Warehouse Inventory</h1>
         </div>
     <br />
+    <div class="row justify-content-center">
        <asp:TextBox 
             ID="TxtSearch"
             runat="server"></asp:TextBox>
@@ -19,6 +20,7 @@
             Text="Search First And/Or Last Name"
             BackColor="Yellow">
         </asp:Label>
+        </div>
         <br />
         <br />
 
