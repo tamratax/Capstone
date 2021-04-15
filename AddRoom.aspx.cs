@@ -244,44 +244,5 @@ namespace Lab3
             TxtAppliances.Text = "";
         }
 
-        //protected void ChkBoxServer_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    if (ChkBoxServer.Checked)
-        //    {
-        //        divServer.Visible = true;
-        //    }
-        //}
-
-        //protected void ChkBoxChina_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    if (ChkBoxChina.Checked)
-        //    {
-        //        divChinaPress.Visible = true;
-        //    }
-        //}
-
-        //protected void ChkBoxTable_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    if (ChkBoxTable.Checked)
-        //    {
-        //        divTable.Visible = true;
-        //    }
-        //}
-
-        //protected void ChkBoxSilver_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    if (ChkBoxSilver.Checked)
-        //    {
-        //        divSilver.Visible = true;
-        //    }
-        //}
-
-        //protected void ChkBoxBreakfront_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    if (ChkBoxBreakfront.Checked)
-        //    {
-        //        divBreakfront.Visible = true;
-        //    }
-        //}
     }
 }
