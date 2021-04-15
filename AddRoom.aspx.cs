@@ -144,6 +144,8 @@ namespace Lab3
 
                 //Refreshes Detailsview
                 dtvRoom.DataBind();
+                grvBox.DataBind();
+                grdsrcRoomBoxes.DataBind();
 
             }
             catch
@@ -193,7 +195,8 @@ namespace Lab3
 
         protected void dtvRoom_PageIndexChanged(object sender, EventArgs e)
         {
-
+            grvRoomBoxes.DataBind();
+            grvBox.DataBind();
 
         }
 
@@ -201,6 +204,7 @@ namespace Lab3
         {
 
             grvRoomBoxes.DataBind();
+            grvBox.DataBind();
 
 
         }
