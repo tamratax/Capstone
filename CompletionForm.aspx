@@ -397,7 +397,7 @@
 
     <br />
     <br />
-    <div class="text-center">
+    <div id="divClearSave" runat="server" class="text-center">
         <asp:Button ID="BtnClear" runat="server" class="btn btn-danger" Text="Clear" OnClick="BtnClear_Click" />
         <asp:Button ID="btnComplete" runat="server" class="btn btn-success" Text="Complete Service Ticket" OnClick="btnComplete_Click" ValidationGroup="Save" />
         <asp:Label ID="LblSaveStatus" runat="server" Text=""></asp:Label>
