@@ -38,7 +38,12 @@
         <br />
     
     <br />
-
+       <div class="float-left">
+         <asp:Button ID="homeBtn"
+                runat="server"
+                Text="Home"
+                 OnClick="homeBtn_Click"/>
+    </div>
     
         <div class="float-right">
          <asp:Button ID="BtnPopulate"
@@ -46,6 +51,9 @@
                 Text="Populate"
                 OnClick="BtnPopulate_Click" />
     </div>
+        <div class="float-left">
+            <asp:Button ID="BackBtn" runat="server" Text="Home" OnClick="BackBtn_Click" />
+        </div>
     <div runat="server" id="divOutBuilding">
         <div>
             <h5>Purpose of Appraisal</h5>

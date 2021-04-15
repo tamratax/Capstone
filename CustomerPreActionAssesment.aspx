@@ -10,6 +10,9 @@
     <h1 class="display-4">Pre-Auction Assessment</h1>
     </div>
     <br />
+    <div class="float-left">
+    <asp:Button ID="homeBtn" runat="server" Text="Home" OnClick="homeBtn_Click" />
+        </div>
     <div class="float-right">
     <asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" />
         </div>
