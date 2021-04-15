@@ -12,7 +12,6 @@
         <asp:Label ID="LblCust" runat="server" Text="Customer Name: "></asp:Label>
         &nbsp;
     <asp:Label ID="LblCustName" runat="server" Text=""></asp:Label>
-
         <div>
             <asp:Label
                 ID="LblHomePhone"
@@ -57,6 +56,7 @@
                 Text=""
                 Font-Bold="true"></asp:Label>
         </div>
+
         <div>
             <asp:GridView ID="GridAddress"
                 runat="server"
@@ -91,6 +91,18 @@
     <div runat="server" id="divOutBuilding">
         <div>
             <h5>Purpose of Appraisal</h5>
+        </div>
+                <div>
+     <asp:Label ID="lblInitiating" runat="server" Text="Initiating Employee:"></asp:Label>
+    <asp:DropDownList
+        ID="ddlInitiating"
+        runat="server"
+        DataSourceID="dtasrcInitiating"
+        DataTextField="EmployeeName"
+        DataValueField="EmployeeID"
+        OnDataBound="ddlInitiating_DataBound" Width="100%">
+    </asp:DropDownList>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" Text="Required" ControlToValidate="ddlInitiating" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
         </div>
         <div>
             <asp:CheckBox ID="ChkBoxEstate" runat="server" />
@@ -204,5 +216,12 @@
             <asp:SessionParameter Name="CustomerID" SessionField="SelectedCustomerID" DefaultValue="" />
         </SelectParameters>
     </asp:SqlDataSource>
+
+        <asp:SqlDataSource
+        ID="dtasrcInitiating"
+        runat="server"
+        ConnectionString="<%$ConnectionStrings:Lab3%>"
+        SelectCommand="Select EmployeeID, EmpFirstName + ' ' + EmpLastName as EmployeeName
+                    from Employee Order By EmpLastName ASC"></asp:SqlDataSource>
 
 </asp:Content>

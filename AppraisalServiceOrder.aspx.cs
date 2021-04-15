@@ -183,5 +183,12 @@ namespace Lab3
             TxtInventory.Text = "";
             ChkBoxMove.Checked = false;
         }
+        protected void ddlInitiating_DataBound(object sender, EventArgs e)
+        {
+            //Sets emp list ddl to default of select
+            ListItem blankOption = new ListItem("Select", "-1");
+            ddlInitiating.Items.Insert(0, blankOption);
+            ddlInitiating.SelectedIndex = 0;
+        }
     }
 }
