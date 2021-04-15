@@ -86,6 +86,8 @@ namespace Lab3
                     Session["NoCustSelected"] = "true";
                     Response.Redirect("Navigation.aspx");
                 }
+
+                divClearSave.Visible = false;
                 
             }
         }
@@ -349,6 +351,7 @@ namespace Lab3
             divvehicles.Visible = false;
             divsave.Visible = true;
             divcharges.Visible = false;
+            divClearSave.Visible = true;
         }
 
         protected void BtnVehicles_Click(object sender, EventArgs e)
@@ -359,6 +362,7 @@ namespace Lab3
             divvehicles.Visible = true;
             divsave.Visible = false;
             divcharges.Visible = false;
+            divClearSave.Visible = false;
         }
 
         protected void BtnSpecialEquipment_Click(object sender, EventArgs e)
@@ -369,6 +373,7 @@ namespace Lab3
             divvehicles.Visible = false;
             divsave.Visible = false;
             divcharges.Visible = false;
+            divClearSave.Visible = false;
         }
 
         protected void BtnAddRoom_Click(object sender, EventArgs e)
@@ -550,6 +555,8 @@ namespace Lab3
             divvehicles.Visible = false;
             divsave.Visible = false;
             divcharges.Visible = true;
+            divClearSave.Visible = false;
+
         }
 
         protected void PopBtn_Click(object sender, EventArgs e)

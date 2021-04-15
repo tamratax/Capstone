@@ -372,7 +372,7 @@
 
         </div>
     </div>
-    <div class="text-center">
+    <div id="divClearSave" runat="server" class="text-center">
         <asp:Button ID="ClearBtn" runat="server" class="btn btn-danger" Text="Clear" OnClick="ClearBtn_Click" />        
         <asp:Button ID="BtnSave" runat="server" class="btn btn-success" Text="Save Move Form" OnClick="BtnSave_Click" ValidationGroup="Save" />
         <asp:Label ID="LblSuccess" runat="server" Text="" ForeColor="Green"></asp:Label>
