@@ -78,21 +78,21 @@ namespace WalkerS_Lab1Part3
         protected global::System.Web.UI.WebControls.ListBox LstBoxCustomerRequests;
 
         /// <summary>
-        /// LblIncompleteServiceTickets control.
+        /// lblOnlineRequests control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblIncompleteServiceTickets;
+        protected global::System.Web.UI.WebControls.Label lblOnlineRequests;
 
         /// <summary>
-        /// LstBoxIncompleteServiceTickets control.
+        /// lstboxOnlineRequests control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox LstBoxIncompleteServiceTickets;
+        protected global::System.Web.UI.WebControls.ListBox lstboxOnlineRequests;
     }
 }

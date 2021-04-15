@@ -51,6 +51,24 @@ namespace WalkerS_Lab1Part3
                 LstBoxCustomerRequests.DataBind();
 
 
+                //Populates Online Service Request listbox
+                lstboxOnlineRequests.DataTextField = "Request";
+                lstboxOnlineRequests.DataValueField = "ServiceTicketID";
+
+                String sqlQueryOnline = "Select ServiceTicketID, FirstName + ' ' + LastName + ' - ' + TRIM(ServiceType) + ' (' + TicketOpenDate + ')' as Request from Customer join serviceticket on customer.CustomerID = serviceticket.CustomerID where InitiatingEmp IS null";
+
+
+                SqlConnection sqlConnectOnline = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+
+                SqlDataAdapter sqlAdapterOnline = new SqlDataAdapter(sqlQueryOnline, sqlConnectOnline);
+
+                DataTable dtForOnlineLB = new DataTable();
+                sqlAdapterOnline.Fill(dtForOnlineLB);
+
+                lstboxOnlineRequests.DataSource = dtForOnlineLB;
+                lstboxOnlineRequests.DataBind();
+
+
             }
         }
 
@@ -94,12 +112,6 @@ namespace WalkerS_Lab1Part3
             Response.Redirect("InitialConversation.aspx");
         }
 
-
-        protected void LstBoxIncompleteServiceTickets_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Session["ServiceTicketID"] = LstBoxIncompleteServiceTickets.SelectedValue.ToString();
-            Response.Redirect("AddServiceOrder.aspx");
-        }
 
         protected void BtnAuctions_Click(object sender, EventArgs e)
         {
@@ -183,5 +195,9 @@ namespace WalkerS_Lab1Part3
                    phoneNumber.Substring(6));
         }
 
+        protected void lstboxOnlineRequests_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

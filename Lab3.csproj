@@ -119,6 +119,7 @@
     <Content Include="CustomerFacingMaster.Master" />
     <Content Include="PreAuctionAssessment.aspx" />
     <Content Include="PreMoveAssessment.aspx" />
+    <Content Include="Reports.aspx" />
     <Content Include="Scheduling.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -238,8 +239,6 @@
     <Content Include="src\js\scripts.js" />
     <Content Include="TestSchedule.aspx" />
     <Content Include="UnauthorizedAccess.aspx" />
-    <Content Include="uploads\dac.png" />
-    <Content Include="uploads\LookAtWalkthrough2021-03-15.mp4" />
     <Content Include="UserLogin.aspx" />
     <Content Include="ViewAuctions.aspx" />
     <Content Include="ViewCustomer.aspx" />
@@ -450,6 +449,13 @@
       <DependentUpon>PreMoveAssessment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports.aspx.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports.aspx.designer.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Scheduling.aspx.cs">
       <DependentUpon>Scheduling.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -625,7 +631,6 @@
     <Content Include="src\scss\variables\_spacing.scss" />
     <Content Include="src\scss\_global.scss" />
     <Content Include="src\scss\_variables.scss" />
-    <Content Include="uploads\BillOfLaden.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -639,7 +644,9 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="uploads\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

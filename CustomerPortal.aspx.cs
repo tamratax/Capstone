@@ -29,8 +29,8 @@ namespace Lab3
         protected void BtnLogin_Click(object sender, EventArgs e)
         {
             // connect to database to retrieve stored password string
-            try
-            {
+            //try
+            //{
                 SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString.ToString());
                 LblLoginStatus.Text = "Database Connection Successful";
 
@@ -93,11 +93,11 @@ namespace Lab3
                 LblLoginStatus.Text = "Email and Password combination incorrect!";
 
                 sc.Close();
-            }
-            catch
-            {
-                LblLoginStatus.Text = "Database Error.";
-            }
+            //}
+            //catch
+            //{
+            //    LblLoginStatus.Text = "Database Error.";
+            //}
 
 
           
