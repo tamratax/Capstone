@@ -153,7 +153,6 @@
             <asp:DropDownList ID="DDLTypeofHome" runat="server"
                 AutoPostBack="true"
                 OnSelectedIndexChanged="DDLTypeofHome_SelectedIndexChanged">
-                <asp:ListItem Value="-1">Select</asp:ListItem>
                 <asp:ListItem>Apartment</asp:ListItem>
                 <asp:ListItem>House</asp:ListItem>
                 <asp:ListItem>Storage Unit</asp:ListItem>

@@ -1,4 +1,4 @@
-﻿ <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="InitialConversation.aspx.cs" Inherits="WalkerS_Lab1Part3.AddCustomer" MasterPageFile="LabFormat.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="InitialConversation.aspx.cs" Inherits="WalkerS_Lab1Part3.AddCustomer" MasterPageFile="LabFormat.Master" %>
 
 <%-- Coded By: RoCo Consulting --%>
 
@@ -6,6 +6,11 @@
 
     <h1 class="display-6">Initial Conversation</h1>
     <div class="form-group">
+        <asp:Button ID="BtnPopulate"
+            runat="server"
+            Text="Populate"
+            OnClick="BtnPopulate_Click" />
+        <br />
         <label>Created By: </label>
         <asp:DropDownList
             ID="DdlCompletedByEmp"
@@ -178,10 +183,7 @@
             Text="View Customers ->"
             OnClick="BtnViewCustomerPage_Click" />
 
-        <asp:Button ID="BtnPopulate"
-            runat="server"
-            Text="Populate"
-            OnClick="BtnPopulate_Click" />
+        
 
         <asp:Button
             ID="BtnClear"

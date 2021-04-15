@@ -56,6 +56,9 @@
                                 <a href="https://outlook.live.com/calendar/0/view/month?login_hint=outlook_B7BAC9A1BE036526%40outlook.com" target="_blank">Scheduling</a>
                             </li>--%>
                             <li>
+                                <a href="ViewService.aspx">Customer Information</a>
+                            </li>
+                            <li>
                                 <a href="AppraisalServiceOrder.aspx">Appraisal Service Order</a>
                             </li>
                             <%--<li>
@@ -140,9 +143,9 @@
                         <li>
                             <a href="ViewCUstomer.aspx">View Customers</a>
                         </li>
-                        <li>
+                        <%--<li>
                             <a href="ViewService.aspx">View Services</a>
-                        </li>
+                        </li>--%>
                         <%-- <li>
                             <a href="ViewMeetings.aspx">View Meetings</a>
                         </li>--%>
