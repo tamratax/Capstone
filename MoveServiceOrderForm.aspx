@@ -120,7 +120,7 @@
             runat="server"
             Placeholder=""
             class="form-control"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtStreet" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtStreet" Text="Required" ForeColor="Red" ValidationGroup="addy"></asp:RequiredFieldValidator>
 
     </div>
     <div class="form-row">
@@ -130,7 +130,7 @@
                 runat="server"
                 class="form-control"
                 Placeholder="City"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtCity" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtCity" Text="Required" ForeColor="Red" ValidationGroup="addy"></asp:RequiredFieldValidator>
 
         </div>
         <div class="form-group col-md-4">
@@ -139,7 +139,7 @@
                 runat="server"
                 class="form-control"
                 Placeholder="State"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtState" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtState" Text="Required" ForeColor="Red" ValidationGroup="addy"></asp:RequiredFieldValidator>
 
         </div>
         <div class="form-group col-md-2">
@@ -148,8 +148,8 @@
                 runat="server"
                 class="form-control"
                 Placeholder="Zip"></asp:TextBox>
-          <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtZip" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
-          <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator" ValidationGroup="Save" ControlToValidate="TxtZip" Operator="DataTypeCheck" Type="Integer" ForeColor="Red" Text="Please only use numbers"></asp:CompareValidator>
+          <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtZip" Text="Required" ForeColor="Red" ValidationGroup="addy"></asp:RequiredFieldValidator>
+          <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator" ValidationGroup="addy" ControlToValidate="TxtZip" Operator="DataTypeCheck" Type="Integer" ForeColor="Red" Text="Please only use numbers"></asp:CompareValidator>
 
           
           
@@ -162,13 +162,14 @@
             runat="server"
             class="form-control"
             placeholder="Description"></asp:TextBox>
-       <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtDescription" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+       <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtDescription" Text="Required" ForeColor="Red" ValidationGroup="addy"></asp:RequiredFieldValidator>
 
     </div>
     <asp:Button ID="BtnAddOrigin"
         runat="server"
         Text="Add Address"
-        OnClick="BtnAddOrigin_Click" />
+        OnClick="BtnAddOrigin_Click"
+         ValidationGroup="addy"/>
 
 
 

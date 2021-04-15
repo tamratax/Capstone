@@ -129,7 +129,6 @@
     <asp:TextBox ID="DestAddressTxt" runat="server"
         Placeholder="1234 Main St"
         class="form-control"></asp:TextBox>
-         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ValidationGroup="Save" ControlToValidate="DestAddressTxt" Text="Required" ForeColor="Red"></asp:RequiredFieldValidator>
          </div>
      <div class="form-row">
         <div class="form-group col-md-6">
@@ -138,8 +137,6 @@
                 runat="server"
                 class="form-control"
                 Placeholder="City"></asp:TextBox>
-                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator" ValidationGroup="Save" ControlToValidate="DestCityTxt" Text="Required" ForeColor="Red"></asp:RequiredFieldValidator>
-                    <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="CompareValidator" ValidationGroup="Save" ControlToValidate="DestCityTxt" Operator="DataTypeCheck" Type="String" Text="Please only input letters" ForeColor="Red"></asp:CompareValidator>
         </div>
         <div class="form-group col-md-4">
             <label>State</label>
@@ -147,8 +144,6 @@
                 runat="server"
                 class="form-control"
                 Placeholder="State"></asp:TextBox>
-              <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="RequiredFieldValidator" ValidationGroup="Save" ControlToValidate="DestStateTxt" Text="Required" ForeColor="Red"></asp:RequiredFieldValidator>
-                    <asp:CompareValidator ID="CompareValidator3" runat="server" ErrorMessage="CompareValidator" ValidationGroup="Save" ControlToValidate="DestStateTxt" Operator="DataTypeCheck" Type="String" Text="Please only input letters" ForeColor="Red"></asp:CompareValidator>
         
         </div>
         <div class="form-group col-md-2">
@@ -157,9 +152,8 @@
                 runat="server"
                 class="form-control"
                 Placeholder="Zip"></asp:TextBox>
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator" ValidationGroup="Save" ControlToValidate="DestZipTxt" Text="Required" ForeColor="Red"></asp:RequiredFieldValidator>
 
-            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator" ValidationGroup="Save" ControlToValidate="DestZipTxt" Operator="DataTypeCheck" Type="Integer" ForeColor="Red" Text="Please only use letters"></asp:CompareValidator>
+            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator" ValidationGroup="Save" ControlToValidate="DestZipTxt" Operator="DataTypeCheck" Type="Integer" ForeColor="Red" Text="Invalid Zip"></asp:CompareValidator>
         </div>
     </div>
 
