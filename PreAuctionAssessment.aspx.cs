@@ -138,7 +138,7 @@ namespace Lab3
             // Close all related connections
             sqlConnect.Close();
 
-            string sqlService = "INSERT INTO ServiceTicket (CustomerID, TicketOpenDate, ServiceType, PreAuctionAssessmentID, InitiatingEmp) VALUES (@CustomerID, @TicketOpenDate, @ServiceType, (Select TOP 1 PreAuctionAssessmentID from PreAuctionAssessment order by PreAuctionAssessmentID desc), @InitiatingEmp)";
+            string sqlService = "INSERT INTO ServiceTicket (CustomerID, TicketOpenDate, ServiceType, PreAuctionAssessmentID, InitiatingEmp, Status_Service) VALUES (@CustomerID, @TicketOpenDate, @ServiceType, (Select TOP 1 PreAuctionAssessmentID from PreAuctionAssessment order by PreAuctionAssessmentID desc), @InitiatingEmp, @Status)";
             //Define the Connection to the Database
             SqlConnection sqlConnect1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -152,7 +152,7 @@ namespace Lab3
             sqlCommand1.Parameters.Add(new SqlParameter("@ServiceType", "Auction"));
             sqlCommand1.Parameters.Add(new SqlParameter("@TicketOpenDate", DateTime.Now.ToString("yyyy-MM-dd")));
             sqlCommand1.Parameters.Add(new SqlParameter("@InitiatingEmp", ddlInitiating.SelectedValue.ToString()));
-
+            sqlCommand1.Parameters.Add(new SqlParameter("@Status", "27"));
             sqlConnect1.Open();
             SqlDataReader queryResults1 = sqlCommand1.ExecuteReader();
 
