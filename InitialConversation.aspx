@@ -3,13 +3,16 @@
 <%-- Coded By: RoCo Consulting --%>
 
 <asp:Content ID="myContent" ContentPlaceHolderID="body" runat="server">
-
-    <h1 class="display-6">Initial Conversation</h1>
-    <div class="form-group">
+    <div class="text-center">
+    <h1 class="display-4">Initial Conversation</h1>
+        </div>
+    <br />
+    <div class="form-group float-right">
         <asp:Button ID="BtnPopulate"
             runat="server"
             Text="Populate"
             OnClick="BtnPopulate_Click" />
+        </div>
         <br />
         <label>Created By: </label>
         <asp:DropDownList
@@ -31,7 +34,7 @@
         ValidationGroup="SaveGroup"
         Display="Dynamic"
         InitialValue="-1"></asp:RequiredFieldValidator>
-    </div>
+    <br />
     <div class="form-row">
         <div class="form-group col-md-6">
             <label>First Name</label>
@@ -173,7 +176,7 @@
     </div>
     <br />
     <br />
-    <div class="form-row float-right">
+    <div class="row justify-content-center">
         <asp:Label
             ID="LblSaveStatus"
             runat="server"
@@ -189,21 +192,21 @@
             ID="BtnClear"
             runat="server"
             Text="Clear"
-            OnClick="BtnClear_Click" />
+            OnClick="BtnClear_Click" CssClass="btn-danger"/>
 
         <asp:Button
             ID="BtnSave"
             runat="server"
             Text="Save"
             OnClick="BtnSave_Click"
-            ValidationGroup="SaveGroup" />
-
-        <asp:Button
+            ValidationGroup="SaveGroup" CssClass="btn-success" />
+        </div>
+        <%--<asp:Button
             ID="BtnProceed"
             runat="server"
             Text="Proceed to Service Order Form"
             OnClick="BtnProceed_Click" />
-    </div>
+    </div>--%>
 
 
 
