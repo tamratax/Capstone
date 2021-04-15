@@ -113,7 +113,10 @@
 
     <br />
     <div id="divInventory" runat="server" visible="false">
+        <div class="row justify-content-center">
         <h5>Inventory</h5>
+            </div>
+            <div class="row justify-content-center">
         <asp:GridView ID="gridInventory"
             runat="server"
             DataSourceID="dtasrcInventory"
@@ -129,17 +132,18 @@
                 <asp:BoundField DataField="ItemCost" HeaderText=" Item Cost " />
             </Columns>
         </asp:GridView>
+            </div>
         <br />
         <asp:Label ID="lblItemName" runat="server" Text="Item Name:"></asp:Label>
-        <asp:TextBox ID="txtItemName" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtItemName" runat="server" CssClass="form-control"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtItemName" Text="Required" ForeColor="Red" ValidationGroup="ItemGroup"></asp:RequiredFieldValidator>
         <br />
         <asp:Label ID="lblItemDescription" runat="server" Text="Item Description: "></asp:Label>
-        <asp:TextBox ID="txtItemDescription" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtItemDescription" runat="server" CssClass="form-control"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtItemDescription" Text="Required" ForeColor="Red" ValidationGroup="ItemGroup"></asp:RequiredFieldValidator>
         <br />
         <asp:Label ID="lblItemCost" runat="server" Text="Item Cost: "></asp:Label>
-        <asp:TextBox ID="txtItemCost" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtItemCost" runat="server" CssClass="form-control"></asp:TextBox>
         <asp:CompareValidator ID="CompareValidator1" runat="server" Operator="DataTypeCheck" Type="Integer" ErrorMessage="Must be a number" ControlToValidate="txtItemCost" ForeColor="Red" ValidationGroup="ItemGroup"></asp:CompareValidator>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtItemCost" Text="Required" ForeColor="Red" ValidationGroup="ItemGroup"></asp:RequiredFieldValidator>
         <br />
