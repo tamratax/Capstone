@@ -6,8 +6,12 @@
      <div class="float-right">
         <asp:Button ID="BtnPop" runat="server" Text="Populate" OnClick="BtnPop_Click" />
     </div>
-    <h1 class="display-6">Room Information</h1>
-    <div>
+    <br />
+    <br />
+    <div class="row justify-content-center">
+    <h1 class="display-4">Room Information</h1>
+        </div>
+    <div class="row justify-content-center">
         <asp:DetailsView ID="dtvRoom"
             runat="server"
             DataSourceID="dtvsrcRoom"
@@ -38,8 +42,10 @@
             </Fields>
             <PagerStyle ForeColor="Blue" Font-Underline="true" />
         </asp:DetailsView>
+        </div>
         <br />
         <br />
+        <div class="row justify-content-center">
         <asp:GridView ID="grvRoomBoxes"
             runat="server"
             AutoGenerateColumns="false"
@@ -49,15 +55,16 @@
             DataSourceID="grdsrcRoomBoxes"
             DataKeyNames="BoxesID"
             AutoGenerateEditButton="true"
-            EmptyDataText="No Boxes Added to this Room!">
+            EmptyDataText="No Boxes Added to this Room!" >
             <Columns>
                 <asp:BoundField DataField="BoxesID" Visible="false" />
-                <asp:BoundField DataField="BoxType" NullDisplayText="N/A" HeaderText="Type" />
-                <asp:BoundField DataField="BoxQuantity" NullDisplayText="N/A" HeaderText="Quantity" />
+                <asp:BoundField DataField="BoxType" NullDisplayText="N/A" HeaderText="Box Type" />
+                <asp:BoundField DataField="BoxQuantity" NullDisplayText="N/A" HeaderText="Box Quantity" />
             </Columns>
         </asp:GridView>
+            </div>
         <br />
-    </div>
+    </>
     <div class="row">
         <div class="form-group col-md-6">
             <label>Select Room</label>
