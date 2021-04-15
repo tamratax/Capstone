@@ -113,8 +113,8 @@ namespace Lab3
         protected void BtnSave_Click(object sender, EventArgs e)
         {
 
-            //try
-            //{
+            try
+            {
                 //Inserts service order
                 String sqlQuery = "insert into Appraisal values (@Estate, @FamilyDivision, @Deadline, @DeadlineDate, @AppraisalSize, @Inventory, @MoveAssessment, @AuctionAssessment)";
 
@@ -171,16 +171,16 @@ namespace Lab3
             // Close all related connections
             sqlConnect1.Close();
 
-            //    LblSaveStatus.Text = "Appraisal Service Order Saved Successfully";
-            //    LblSaveStatus.ForeColor = Color.Green;
-            ////}
-            ////catch
-            ////{
-            //    LblSaveStatus.Text = "Error Saving Appraisal Service Order";
-            //    LblSaveStatus.ForeColor = Color.Red;
-            //}
-
+            LblSaveStatus.Text = "Appraisal Service Order Saved Successfully";
+            LblSaveStatus.ForeColor = Color.Green;
+            }
+            catch
+            {
+                LblSaveStatus.Text = "Error Saving Appraisal Service Order";
+            LblSaveStatus.ForeColor = Color.Red;
         }
+
+    }
 
         protected void BtnPopulate_Click(object sender, EventArgs e)
         {

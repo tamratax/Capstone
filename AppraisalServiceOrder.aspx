@@ -178,7 +178,7 @@
 
         </div>
         <br />
-        <asp:Button ID="BtnUploadPhotos" runat="server" Text="Upload Photos" OnClick="BtnUploadPhotos_Click" />
+        <asp:Button ID="BtnUploadPhotos" runat="server" Text="Upload Files" OnClick="BtnUploadPhotos_Click" />
         <asp:FileUpload
             ID="FilesUpload"
             runat="server"

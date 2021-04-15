@@ -129,7 +129,7 @@ namespace Lab3
                 queryResults.Close();
                 sqlConnect.Close();
 
-            string sqlService = "INSERT INTO ServiceTicket (CustomerID, TicketOpenDate, ServiceType, AppraisalID, InitiatingEmp, Status_Service) VALUES (@CustomerID, @TicketOpenDate, @ServiceType, (Select TOP 1 PreMoveAssessmentID from PreMoveAssessment order by PreMoveAssessmentID desc), @InitiatingEmp, @Status)";
+            string sqlService = "INSERT INTO ServiceTicket (CustomerID, TicketOpenDate, ServiceType, AppraisalID, InitiatingEmp, Status_Service) VALUES (@CustomerID, @TicketOpenDate, @ServiceType, (Select TOP 1 AppraisalID from Appraisal order by AppraisalID desc), @InitiatingEmp, @Status)";
             //Define the Connection to the Database
             SqlConnection sqlConnect1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
