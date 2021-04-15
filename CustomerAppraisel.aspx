@@ -1,70 +1,28 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LabFormat.Master" AutoEventWireup="true" CodeBehind="AppraisalServiceOrder.aspx.cs" Inherits="Lab3.AppraisalServiceOrder" %>
-
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CustomerFacingMaster.Master" AutoEventWireup="true" CodeBehind="CustomerAppraisel.aspx.cs" Inherits="Lab3.CustomerAppraisel" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-
-    <link href="Content/AddService.css" rel="stylesheet" />
+     <link href="Content/AddService.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" />
+   <div class="groupAuction">
     <div class="row justify-content-center">
     <h1 class="display-4">Appraisal Service Order</h1>
-        </div>
-    <h4>Customer Info:</h4>
-    <div class="groupCust">
-        <asp:Label ID="LblCust" runat="server" Text="Customer Name: "></asp:Label>
-        &nbsp;
-    <asp:Label ID="LblCustName" runat="server" Text=""></asp:Label>
+    </div>
+    
+       
+    
 
-        <div>
-            <asp:Label
-                ID="LblHomePhone"
-                runat="server"
-                Text="Home Phone: "></asp:Label>
+    <br />
 
-            <asp:Label ID="LblHomeNumber"
-                runat="server"
-                Text=""
-                Font-Bold="true"></asp:Label>
-            <br />
-            <asp:Label
-                ID="LblCellPhone"
-                runat="server"
-                Text="   Cell Phone: "></asp:Label>
-
-            <asp:Label
-                ID="LblCellNumber"
-                runat="server"
-                Text=""
-                Font-Bold="true"></asp:Label>
-            <br />
-            <asp:Label
-                ID="LblWorkPhone"
-                runat="server"
-                Text="   Work Phone: "></asp:Label>
-
-            <asp:Label
-                ID="LblWorkNumber"
-                runat="server"
-                Text=""
-                Font-Bold="true"></asp:Label>
-            <br />
-            <asp:Label
-                ID="LblEmail"
-                runat="server"
-                Text="Email:"></asp:Label>
-
-            <asp:Label
-                ID="LblEmailText"
-                runat="server"
-                Text=""
-                Font-Bold="true"></asp:Label>
-        </div>
-        <div>
+            
+        <%--<div>
             <asp:GridView ID="GridAddress"
                 runat="server"
                 DataSourceID="dtasrcAddress"
                 CausesValidation="false"
                 AutoGenerateColumns="false"
                 DataKeyNames="AddressID"
-                CssClass="table justify-content-center">
+                CsssClass="table justify-content-center">
                 <Columns>
                     <asp:CommandField ShowEditButton="true" ShowDeleteButton="true" ButtonType="Button" />
                     <asp:BoundField DataField="AddressID" Visible="false" />
@@ -75,20 +33,27 @@
                     <asp:BoundField DataField="Description" HeaderText="Description" />
                 </Columns>
             </asp:GridView>
-        </div>
+        </div>--%>
         <br />
         <br />
-    </div>
+    
     <br />
-
-    <h2>Create Appraisal Service</h2>
+       <div class="float-left">
+         <asp:Button ID="homeBtn"
+                runat="server"
+                Text="Home"
+                 OnClick="homeBtn_Click"/>
+    </div>
+    
         <div class="float-right">
          <asp:Button ID="BtnPopulate"
                 runat="server"
                 Text="Populate"
                 OnClick="BtnPopulate_Click" />
     </div>
+<br />
     <div runat="server" id="divOutBuilding">
+        <br />
         <div>
             <h5>Purpose of Appraisal</h5>
         </div>
@@ -113,7 +78,8 @@
 
         <div runat="server" id="DeadlineHidden">
             <label>When is it?</label>
-            <asp:TextBox ID="TxtDeadline" runat="server" TextMode="Date"></asp:TextBox>
+            <asp:TextBox ID="TxtDeadline" runat="server" TextMode="Date" CssClass="form-control"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtDeadline" Text="Required" ForeColor="Red" ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
         </div>
 
     </div>
@@ -123,9 +89,8 @@
             <h5>Size of Appraisal</h5>
         </div>
         <div class="form-group">
-            <%--<label>Size of Appraisal</label>--%>
             <asp:TextBox ID="TxtAppraisalSize" Placeholder="Size of Appraisal" runat="server" Class="form-control"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtAppraisalSize" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtAppraisalSize" Text="Required" ForeColor="Red" ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
         </div>
     </div>
     <br />
@@ -136,8 +101,7 @@
         <div class="form-group">
 
             <asp:TextBox ID="TxtInventory" runat="server" Placeholder="Inventory" TextMode="MultiLine" Rows="5" Columns="25" Class="form-control"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtAppraisalSize" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
-
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtInventory" Text="Required" ForeColor="Red" ValidationGroup="SaveGroup"></asp:RequiredFieldValidator>
         </div>
     </div>
     <br />
@@ -156,15 +120,7 @@
     </div>
     <br />
     <div runat="server" id="div5">
-        <div>
-            <h5>Links</h5>
-        </div>
-        <div>
-            <asp:Button ID="BtnOutlook" runat="server" Text="Open Outlook" OnClick="BtnOutlook_Click" />
-
-
-
-        </div>
+       
         <br />
         <asp:Button ID="BtnUploadPhotos" runat="server" Text="Upload Photos" OnClick="BtnUploadPhotos_Click" />
         <asp:FileUpload
@@ -179,30 +135,13 @@
                 runat="server"
                 Text="Clear"
                 OnClick="BtnClear_Click" class="btn btn-danger" />
-            <asp:Button ID="BtnSave" BackColor="LimeGreen" runat="server" Text="Save" OnClick="BtnSave_Click" class="btn btn-success" ValidationGroup="Save" />
+            <asp:Button ID="BtnSave" BackColor="LimeGreen" runat="server" Text="Save" OnClick="BtnSave_Click" class="btn btn-success" ValidationGroup="SaveGroup" />
             <asp:Label
                 ID="LblSaveStatus"
                 runat="server"
                 Text=""></asp:Label>
         </div>
     </div>
-
-
-
-
-
-    <%--<asp:Label ID="LblSelectedSessionID" runat="server" Text="" Visible="false"></asp:Label>--%>
-
-
-    <asp:SqlDataSource ID="dtasrcAddress"
-        runat="server"
-        ConnectionString="<%$ConnectionStrings:Lab3%>"
-        SelectCommand="SELECT * from Address join customer on Customer.CustomerID = Address.CustomerID where Customer.CustomerID = @CustomerID"
-        DeleteCommand="DELETE ADDRESS where AddressID = @AddressID"
-        UpdateCommand="UPDATE ADDRESS set Street = @Street, City = @City, State = @State, Zip = @Zip, Description = @Description where AddressID = @AddressID">
-        <SelectParameters>
-            <asp:SessionParameter Name="CustomerID" SessionField="SelectedCustomerID" DefaultValue="" />
-        </SelectParameters>
-    </asp:SqlDataSource>
+  
 
 </asp:Content>

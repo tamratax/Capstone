@@ -132,6 +132,15 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.TextBox TxtConfirm;
 
         /// <summary>
+        /// cvConfirmPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cvConfirmPassword;
+
+        /// <summary>
         /// LblCreateStatus control.
         /// </summary>
         /// <remarks>

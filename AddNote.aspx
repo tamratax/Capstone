@@ -30,38 +30,6 @@
                                     Text=""></asp:Label>
                             </asp:TableCell>
                         </asp:TableRow>
-                     <%--   <asp:TableRow>
-                            <asp:TableCell>
-                                <asp:Label
-                                    ID="LblCustomerDropDown"
-                                    runat="server"
-                                    Text="Select Customer:"></asp:Label>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:DropDownList
-                                    ID="DdlCustomerList"
-                                    runat="server"
-                                    DataSourceID="dtasrcCustomerList"
-                                    DataTextField="CustomerName"
-                                    DataValueField="CustomerID"
-                                    AutoPostBack="true"
-                                    OnDataBound="DdlCustomerList_DataBound"
-                                    OnSelectedIndexChanged="DdlCustomerList_SelectedIndexChanged">
-                                </asp:DropDownList>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:RequiredFieldValidator
-                                    ID="RfvCustomerList"
-                                    runat="server"
-                                    ErrorMessage="RequiredFieldValidator"
-                                    ControlToValidate="DdlCustomerList"
-                                    Text="Please Choose A Valid Option"
-                                    ForeColor="Red"
-                                    SetFocusOnError="true"
-                                    ValidationGroup="SaveGroup"
-                                    InitialValue="-1"></asp:RequiredFieldValidator>
-                            </asp:TableCell>
-                        </asp:TableRow>--%>
                         <asp:TableRow>
                             <asp:TableCell>
                                 <asp:Label
@@ -208,14 +176,6 @@
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
-
-    <%--<asp:SqlDataSource
-        ID="dtasrcCustomerList"
-        runat="server"
-        ConnectionString="<%$ConnectionStrings:Lab3%>"
-        SelectCommand="Select CustomerID, FirstName + ' ' + LastName as CustomerName
-                    from Customer Order By LastName ASC"></asp:SqlDataSource>--%>
-
     <asp:SqlDataSource
         ID="dtasrcEmployeeContact"
         runat="server"

@@ -408,14 +408,14 @@ insert into EMPLOYEE values ('Barry', 'Smith');
 insert into EMPLOYEE values ('Larry', 'Garry');
 insert into EMPLOYEE values ('Michael', 'Johnson');
 
-insert into CUSTOMER values ('Aaron', 'Walsh', '1234567822','123456789', '123456789','walsh@dukes.com', 1, '2021-02-07', '2021-02-05', '2021-03-30', 'From a friend', 'Call Cell', 'False' );
-insert into CUSTOMER values ('Jared', 'Clatterbuck', '1234567890','5413770248', '','Clat@dukes.com', 2, '2021-02-17', '2021-02-10', '2021-04-30', 'From a Neighbor', 'Call Home', 'False' );
-insert into CUSTOMER values ('Ryan', 'Reynolds', '','', '1234567890','Ryan@dukes.com', 7,'2021-03-07', '2021-03-06', '2021-03-20', 'From a friend', 'Call Work', 'False' );
-insert into CUSTOMER values ('Michael', 'Perry', '3528642398','', '1234567890','Michael@dukes.com', 3,'2021-02-27', '2021-02-27', '2021-05-30', 'Newspaper', 'Call Cell', 'False' );
-insert into CUSTOMER values ('Arthur', 'Roberts', '5409963402','2032972448', '1234567890','Arthur@dukes.com', 4,'2021-03-01', '2021-03-01', '2021-05-20', 'Ad', 'Call Work', 'False' );
-insert into CUSTOMER values ('Sherman', 'Duncan', '6086851297','4074258695', '1234567890','Sherman@dukes.com', 5,'2021-03-03', '2021-03-03', '2021-04-25', 'From Co-Worker', 'Call Home', 'False' );
-insert into CUSTOMER values ('Larry', 'Park', '6065843655','9163976210', '1234567890','Larry@dukes.com', 6,'2021-03-14', '2021-03-10', '2021-03-30', 'From a friend', 'Call Cell', 'False' );
-insert into CUSTOMER values ('Marcia', 'Richardson', '','8035091048', '1234567890','Marcia@dukes.com', 8,'2021-03-15', '2021-03-05', '2021-04-17', 'Newspaper', 'Call Work', 'False' );
+insert into CUSTOMER values ('Aaron', 'Walsh', '1234567822','2025550144', '2025550118','walsh@dukes.com', 1, '2021-02-07', '2021-02-05', '2021-03-30', 'From a friend', 'Call Cell', 'False' );
+insert into CUSTOMER values ('Jared', 'Clatterbuck', '9412422284','5413770248', '','Clat@dukes.com', 2, '2021-02-17', '2021-02-10', '2021-04-30', 'From a Neighbor', 'Call Home', 'False' );
+insert into CUSTOMER values ('Ryan', 'Reynolds', '','', '3959911450','Ryan@dukes.com', 7,'2021-03-07', '2021-03-06', '2021-03-20', 'From a friend', 'Call Work', 'False' );
+insert into CUSTOMER values ('Michael', 'Perry', '3528642398','', '1040152294','Michael@dukes.com', 3,'2021-02-27', '2021-02-27', '2021-05-30', 'Newspaper', 'Call Cell', 'False' );
+insert into CUSTOMER values ('Arthur', 'Roberts', '5409963402','2032972448', '1004739816','Arthur@dukes.com', 4,'2021-03-01', '2021-03-01', '2021-05-20', 'Ad', 'Call Work', 'False' );
+insert into CUSTOMER values ('Sherman', 'Duncan', '6086851297','4074258695', '3906934736','Sherman@dukes.com', 5,'2021-03-03', '2021-03-03', '2021-04-25', 'From Co-Worker', 'Call Home', 'False' );
+insert into CUSTOMER values ('Larry', 'Park', '6065843655','9163976210', '5991147538','Larry@dukes.com', 6,'2021-03-14', '2021-03-10', '2021-03-30', 'From a friend', 'Call Cell', 'False' );
+insert into CUSTOMER values ('Marcia', 'Richardson', '','8035091048', '6947248468','Marcia@dukes.com', 8,'2021-03-15', '2021-03-05', '2021-04-17', 'Newspaper', 'Call Work', 'False' );
 insert into CUSTOMER values ('Ada', 'Thomas', '','', '7816318660','Ada@dukes.com', 9,'2021-03-20', '2021-03-20', '2021-03-28', 'Tv', 'Call Home', 'False' );
 
 

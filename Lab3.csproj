@@ -87,6 +87,7 @@
     <Content Include="Content\NewTemplate.css" />
     <Content Include="Content\style4.css" />
     <Content Include="Content\UserLogin.css" />
+    <Content Include="CustomerAppraisel.aspx" />
     <Content Include="CustomerPreMoveAssessment.aspx" />
     <Content Include="EditEquipment.aspx" />
     <Content Include="Feedback.aspx" />
@@ -285,6 +286,13 @@
     </Compile>
     <Compile Include="BootstrapSandBox.aspx.designer.cs">
       <DependentUpon>BootstrapSandBox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerAppraisel.aspx.cs">
+      <DependentUpon>CustomerAppraisel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerAppraisel.aspx.designer.cs">
+      <DependentUpon>CustomerAppraisel.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomerPreMoveAssessment.aspx.cs">
       <DependentUpon>CustomerPreMoveAssessment.aspx</DependentUpon>
