@@ -3,7 +3,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div class="row justify-content-center">
-    <h1 class="display-4">View Services</h1>
+    <h1 class="display-4">Customer Information</h1>
         </div>
     <%--<fieldset>
         <legend>Select Customer to View Services:</legend>

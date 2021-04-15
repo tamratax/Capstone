@@ -16,6 +16,9 @@ p {
     color: #999;
 }
 
+testcolor {
+    color: goldenrod;
+}
 a,
 a:hover,
 a:focus {

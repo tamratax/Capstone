@@ -17,7 +17,7 @@
     <!-- Font Awesome JS -->
     <script defer="" src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer="" src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
-    
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -38,33 +38,108 @@
                         <a href="Navigation.aspx">Home
                         </a>
                     </li>
-                    <li class="active">
-                        <%--                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                            Customer
-                        </a>--%>
-                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                            <%--                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">--%>
-                            Customer
+                    <li>
+                        <a href="InitialConversation.aspx">Add Customer
                         </a>
-                        <ul class="collapse list-unstyled" id="pageSubmenu">
-                         <%--<ul class="collapse list-unstyled" id="pageSubmenu">--%>
-
-                            <%--<li>
-                                <a href="AddServiceOrder.aspx">Add Service</a>
-                            </li>--%>
-                            <%--    <li>
-                                <a href="https://outlook.live.com/calendar/0/view/month?login_hint=outlook_B7BAC9A1BE036526%40outlook.com" target="_blank">Scheduling</a>
-                            </li>--%>
-                            <li>
-                                <a href="ViewService.aspx">Customer Information</a>
-                            </li>
+                    </li>
+                    <li class="active">
+                        <a class="text-center"><b><u>Customer</u></b></a>
+                        <li>
+                            <a href="ViewService.aspx">Customer Information</a>
+                        </li>
+                        <li>
+                            <a href="#moveSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Move Forms</a>
+                            <ul class="collapse list-unstyled" id="moveSubmenu">
+                                <li>
+                                    <a href="PreMoveAssessment.aspx">Pre-Move Assessment</a>
+                                </li>
+                                <li>
+                                    <a href="MoveAssessment.aspx">Move Assessment</a>
+                                </li>
+                                <li>
+                                    <a href="MoveServiceOrderForm.aspx">Move Service Order</a>
+                                </li>
+                                <li>
+                                    <a href="CompletionForm.aspx">Completion Form</a>
+                                </li>
+                            </ul>
+                            <a href="#auctionSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Auction Forms
+                            </a>
+                            <ul class="collapse list-unstyled" id="auctionSubmenu">
+                                <li>
+                                    <a href="PreAuctionAssessment.aspx">Pre-Auction Assessment</a>
+                                </li>
+                                <li>
+                                    <a href="AuctionAssessment.aspx">Auction Assessment</a>
+                                </li>
+                                <li>
+                                    <a href="AuctionServiceOrder.aspx">Auction Service Order</a>
+                                </li>
+                            </ul>
                             <li>
                                 <a href="AppraisalServiceOrder.aspx">Appraisal Service Order</a>
                             </li>
-                            <%--<li>
-                                <a href="AuctionInventory.aspx">Walkthrough</a>
-                            </li>--%>
                             <li>
+                                <a href="WarehouseAssign.aspx">Assign to Warehouse</a>
+                            </li>
+                            <li>
+                                <a href="Feedback.aspx">Feedback</a>
+                            </li>
+                            <li class="active">
+                                <a class="text-center"><b><u>Summaries</u></b></a>
+                                <li>
+                                    <a href="#viewSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Summary Forms
+                                    </a>
+                                    <ul class="collapse list-unstyled" id="viewSubmenu">
+                                        <li>
+                                            <a href="ViewCUstomer.aspx">View Customers</a>
+                                        </li>
+                                        <li>
+                                            <a href="ViewMoves.aspx">View Moves
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="ViewAuctions.aspx">View Auctions
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="WarehouseInventory.aspx">View Warehouse
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                </li>
+                            </li>
+                        </li>
+                    <li>
+                        <a href="X">Reports</a>
+                    </li>
+                                <%--                        <li>
+                            <a href="WarehouseAssign.aspx">Assign to Warehouse</a>
+                        </li>
+                        <li>
+                            <a href="Feedback.aspx">Feedback</a>
+                        </li>--%>
+                                <%--<a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">--%>
+                                    <%--                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">--%>
+                           <%-- Customer
+                                </a>
+                                <ul class="collapse list-unstyled" id="homeSubmenu">--%>
+                                    <%--<ul class="collapse list-unstyled" id="pageSubmenu">--%>
+
+                                    <%--<li>
+                                <a href="AddServiceOrder.aspx">Add Service</a>
+                            </li>--%>
+                                    <%--    <li>
+                                <a href="https://outlook.live.com/calendar/0/view/month?login_hint=outlook_B7BAC9A1BE036526%40outlook.com" target="_blank">Scheduling</a>
+                            </li>--%>
+                                    <%--<li>
+                                        <a href="ViewService.aspx">Customer Information</a>
+                                    </li>--%>
+                                    <%--                            <li>
+                                <a href="AppraisalServiceOrder.aspx">Appraisal Service Order</a>
+                            </li>--%>
+                                    <%-- <li>
                                 <a href="PreMoveAssessment.aspx">Pre-Move Assessment</a>
                             </li>
                             <li>
@@ -72,30 +147,30 @@
                             </li>
                             <li>
                                 <a href="MoveServiceOrderForm.aspx">Move Service Order</a>
-                            </li>
-                            <li>
+                            </li>--%>
+                                    <%--<li>
                                 <a href="WarehouseAssign.aspx">Assign to Warehouse</a>
-                            </li>
-                            <%--<li>
+                            </li>--%>
+                                    <%--<li>
                                 <a href="AddNote.aspx">Notes</a>
                             </li>--%>
-                            <li>
+                                    <%--<li>
                                 <a href="CompletionForm.aspx">Completion Form</a>
-                            </li>
-                            <li>
+                            </li>--%>
+                                    <%--<li>
                                 <a href="PreAuctionAssessment.aspx">Pre-Auction Assessment</a>
                             </li>
                             <li>
                                 <a href="AuctionAssessment.aspx">Auction Assessment</a>
                             </li>
-                              <li>
-                                <a href="AuctionServiceOrder.aspx">Auction Service Order</a>
-                            </li>
                             <li>
+                                <a href="AuctionServiceOrder.aspx">Auction Service Order</a>
+                            </li>--%>
+                                    <%--<li>
                                 <a href="Feedback.aspx">Feedback</a>
-                            </li>
-                            <%--                        </ul>--%>
-                            <%--                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            </li>--%>
+                                    <%--                        </ul>--%>
+                                    <%--                        <ul class="collapse list-unstyled" id="homeSubmenu">
                             <li>
                                 <a href="AddServiceOrder.aspx">Add Service</a>
                             </li>
@@ -112,11 +187,11 @@
                                 <a href="CompletionForm.aspx">Completion Form</a>
                             </li>
                         </ul>--%>
-                            <%--                                <a href="#">Notes</a>
+                                    <%--                                <a href="#">Notes</a>
                             </li>--%>
-                        </ul>
+                                </ul>
 
-                        <%--                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                                <%--                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             <i class="fas fa-copy"></i>
                             Customer
                         </a>
@@ -134,60 +209,68 @@
                                 <a href="#">Notes</a>
                             </li>
                         </ul>--%>
-                        <li>
+                                <%--<li>
 
-                            <a href="InitialConversation.aspx">Add Customer
-                            </a>
+                                    <a href="InitialConversation.aspx">Add Customer
+                                    </a>
 
-                        </li>
-                        <li>
-                            <a href="ViewCUstomer.aspx">View Customers</a>
-                        </li>
-                        <%--<li>
-                            <a href="ViewService.aspx">View Services</a>
+                                </li>
+                                <li>
+                                    <a href="ViewCUstomer.aspx">View Customers</a>
+                                </li>
+                                <li>
+                                    <a href="ViewMoves.aspx">View Moves
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="ViewAuctions.aspx">View Auctions
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="WarehouseInventory.aspx">Warehouse
+                                    </a>
+                                </li>--%>
+                                <%--<li>
+                            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                            <ul class="collapse list-unstyled" id="pageSubmenu">
+                                <li>
+                                    <a href="#">Page 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Page 2</a>
+                                </li>
+                                <li>
+                                    <a href="#">Page 3</a>
+                                </li>
+                            </ul>
                         </li>--%>
-                        <%-- <li>
-                            <a href="ViewMeetings.aspx">View Meetings</a>
-                        </li>--%>
-                        <li>
-                            <a href="ViewMoves.aspx">View Moves
-                            </a>
-                        </li>
-                        <li>
-                            <a href="ViewAuctions.aspx">View Auctions
-                            </a>
-                        </li>
-                        <li>
-                            <a href="WarehouseInventory.aspx">Warehouse
-                            </a>
-                        </li>
-                        <%--<li>
+                                <%--<li>
                             <a href="LookAt.aspx">Look At Form
                             </a>
                         </li>--%>
-                        <%-- <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                            <i class="fas fa-copy"></i>
-                            Pages
-                    </a>
-                        <ul class="collapse list-unstyled" id="pageSubmenu">
-                            <li>
-                                <a href="#">Page 1</a>
-                            </li>
-                            <li>
-                                <a href="#">Page 2</a>
-                            </li>
-                            <li>
-                                <a href="#">Page 3</a>
-                            </li>
-                        </ul>
-                    </li>--%>
-                        <%--<li>
+                                <%--<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                                    <i class="fas fa-copy"></i>
+                                    Pages
+                                </a>
+                                <ul class="collapse list-unstyled" id="pageSubmenu">
+                                    <li>
+                                        <a href="#">Page 1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Page 2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Page 3</a>
+                                    </li>
+                                </ul>
+                            </li>--%>
+                            <%--<li>
 
                             <a href="#">Reports
                             </a>
 
                         </li>--%>
-                        <%--                    <li>
+                            <%--                    <li>
                         <a href="#">
                             <i class="fas fa-question"></i>
                             FAQ
@@ -199,31 +282,31 @@
                             Contact
                     </a>
                     </li>--%>
-                    </li>
-
-                    <ul class="list-unstyled CTAs">
-                        <li>
-                            <a href="https://outlook.live.com/calendar/0/view/month?login_hint=outlook_B7BAC9A1BE036526%40outlook.com" target="_blank" class="article">Scheduling/Outlook</a>
-                        </li>
-                        <li>
-                            <a href="http://www.mls.com/Search/Virginia.mvc" target="_blank" class="article">Go to MLS</a>
                         </li>
 
+                        <ul class="list-unstyled CTAs">
+                            <li>
+                                <a href="https://outlook.live.com/calendar/0/view/month?login_hint=outlook_B7BAC9A1BE036526%40outlook.com" target="_blank" class="article">Scheduling/Outlook</a>
+                            </li>
+                            <li>
+                                <a href="http://www.mls.com/Search/Virginia.mvc" target="_blank" class="article">Go to MLS</a>
+                            </li>
 
-                    </ul>
-                  
-                  
-                    <ul class="list-unstyled CTAs">
-                        <li>
-                            
-                            <%--<a href="#" class="download" onclick="BtnLogout_Click">Logout -></a>--%>
-                            <asp:Button
-                                ID="BtnLogout" runat="server" Text="Logout ->" OnClick="BtnLogout_Click"  /> <%--BackColor="CornflowerBlue"--%>
-                        </li>
-                    </ul>
-                        
+
+                        </ul>
+
+
+                        <ul class="list-unstyled CTAs">
+                            <li>
+
+                                <%--<a href="#" class="download" onclick="BtnLogout_Click">Logout -></a>--%>
+                                <asp:Button
+                                    ID="BtnLogout" runat="server" Text="Logout ->" OnClick="BtnLogout_Click" />
+                                <%--BackColor="CornflowerBlue"--%>
+                            </li>
+                        </ul>
             </nav>
-            
+
 
             <!-- Page Content  -->
             <div id="content">
