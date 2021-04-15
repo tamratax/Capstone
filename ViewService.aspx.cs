@@ -20,7 +20,7 @@ namespace Lab2
             
             if (Session["SelectedCustomerName"] != null)
             {
-                String sqlQuery = "Select SERVICETICKETID, TicketOpenDate, CompletedDate, ServiceType from ServiceTicket WHERE CustomerID = @CustomerID";
+                String sqlQuery = "Select SERVICETICKETID, TicketOpenDate, CompletedDate, ServiceType from ServiceTicket WHERE ServiceType = 'Move' OR ServiceType = 'Auction' AND CustomerID = @CustomerID";
                 SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
                 SqlCommand com = new SqlCommand();
@@ -253,10 +253,9 @@ namespace Lab2
         protected void GrdServices_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Employee Table 
-            String sqlQuery1 = "select emp.EmployeeID, EmpFirstName + ' ' + EmpLastName as EmployeeName, ";
-            sqlQuery1 += "TicketChangeDate as 'Ticket Change Date' from employee emp join tickethistory th on emp.EmployeeID = th.EmployeeID ";
-            sqlQuery1 += "join serviceticket st on st.ServiceTicketID = th.ServiceTicketID ";
-            sqlQuery1 += "where st.ServiceTicketID = @ServiceID";
+            String sqlQuery1 = "select semp.EmployeeID, semp.ServiceTicketID, emp.EmpFirstName + ' ' + emp.EmpLastName as EmployeeName";
+            sqlQuery1 += " from serviceticketemployee semp join employee emp on emp.EmployeeID = semp.EmployeeID ";
+            sqlQuery1 += "where semp.ServiceTicketID = @ServiceID";
 
             SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
