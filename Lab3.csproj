@@ -239,8 +239,6 @@
     <Content Include="src\js\scripts.js" />
     <Content Include="TestSchedule.aspx" />
     <Content Include="UnauthorizedAccess.aspx" />
-    <Content Include="uploads\dac.png" />
-    <Content Include="uploads\LookAtWalkthrough2021-03-15.mp4" />
     <Content Include="UserLogin.aspx" />
     <Content Include="ViewAuctions.aspx" />
     <Content Include="ViewCustomer.aspx" />
@@ -633,7 +631,6 @@
     <Content Include="src\scss\variables\_spacing.scss" />
     <Content Include="src\scss\_global.scss" />
     <Content Include="src\scss\_variables.scss" />
-    <Content Include="uploads\BillOfLaden.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -647,7 +644,9 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="uploads\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
