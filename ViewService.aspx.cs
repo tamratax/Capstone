@@ -20,7 +20,7 @@ namespace Lab2
             
             if (Session["SelectedCustomerName"] != null)
             {
-                String sqlQuery = "Select SERVICETICKETID, TicketOpenDate, CompletedDate, ServiceType from ServiceTicket WHERE ServiceType = 'Move' OR ServiceType = 'Auction' AND CustomerID = @CustomerID";
+                String sqlQuery = "Select SERVICETICKETID, TicketOpenDate, CompletedDate, ServiceType from ServiceTicket WHERE CustomerID = @CustomerID";
                 SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
 
                 SqlCommand com = new SqlCommand();
@@ -418,6 +418,15 @@ namespace Lab2
 
               
                 }
+                else
+                {
+                    if (dtForGridViewBar.Rows[0]["ServiceType"].ToString().Trim() == "Appraisal")
+                    {
+                        StatusPercent.Text = "100% Appraisal Created";
+                        DDLServices.Items.Clear();
+
+                    }
+                }
             }
 
 
@@ -531,6 +540,14 @@ namespace Lab2
                             break;
                     }
                     StatusPercent.Text = "[" + Status_Service.ToString() + "%] " + StatusStep;
+                }
+                else
+                {
+                    if (dtForGridViewBar.Rows[0]["ServiceType"].ToString().Trim() == "Appraisal")
+                    {
+                        StatusPercent.Text = "100% Appraisal Created";
+                        DDLServices.Items.Clear();
+                    }
                 }
             }
                 

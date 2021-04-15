@@ -129,7 +129,28 @@ namespace Lab3
                 queryResults.Close();
                 sqlConnect.Close();
 
-                LblSaveStatus.Text = "Appraisal Service Order Saved Successfully";
+            string sqlService = "INSERT INTO ServiceTicket (CustomerID, TicketOpenDate, ServiceType, AppraisalID, InitiatingEmp, Status_Service) VALUES (@CustomerID, @TicketOpenDate, @ServiceType, (Select TOP 1 PreMoveAssessmentID from PreMoveAssessment order by PreMoveAssessmentID desc), @InitiatingEmp, @Status)";
+            //Define the Connection to the Database
+            SqlConnection sqlConnect1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+            // Create the SQL Command object which will send the query
+            SqlCommand sqlCommand1 = new SqlCommand();
+            sqlCommand1.Connection = sqlConnect1;
+            sqlCommand1.CommandType = CommandType.Text;
+            sqlCommand1.CommandText = sqlService;
+
+            sqlCommand1.Parameters.Add(new SqlParameter("@CustomerID", Session["SelectedCustomerID"].ToString()));
+            sqlCommand1.Parameters.Add(new SqlParameter("@ServiceType", "Appraisal"));
+            sqlCommand1.Parameters.Add(new SqlParameter("@TicketOpenDate", DateTime.Now.ToString("yyyy-MM-dd")));
+
+            sqlCommand1.Parameters.Add(new SqlParameter("@Status", "0"));
+            sqlConnect1.Open();
+            SqlDataReader queryResults1 = sqlCommand1.ExecuteReader();
+
+            // Close all related connections
+            sqlConnect1.Close();
+
+            LblSaveStatus.Text = "Appraisal Service Order Saved Successfully";
                 LblSaveStatus.ForeColor = Color.Green;
             //catch
             //{

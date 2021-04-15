@@ -113,10 +113,10 @@ namespace Lab3
         protected void BtnSave_Click(object sender, EventArgs e)
         {
 
-            try
-            {
+            //try
+            //{
                 //Inserts service order
-                String sqlQuery = "insert into Appraisal values (@Estate, @FamilyDivision, @Deadline, @DeadlineDate, @AppraisalSize, @Inventory, @MoveAssessment, @AuctionAssessment, @CustomerID)";
+                String sqlQuery = "insert into Appraisal values (@Estate, @FamilyDivision, @Deadline, @DeadlineDate, @AppraisalSize, @Inventory, @MoveAssessment, @AuctionAssessment)";
 
                 //Define the Connection to the Database
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -139,7 +139,7 @@ namespace Lab3
                 sqlCommand.Parameters.Add(new SqlParameter("@Inventory", HttpUtility.HtmlEncode(TxtInventory.Text)));
                 sqlCommand.Parameters.Add(new SqlParameter("@MoveAssessment", ChkBoxMove.Checked.ToString()));
                 sqlCommand.Parameters.Add(new SqlParameter("@AuctionAssessment", ChkBoxAuction.Checked.ToString()));
-                sqlCommand.Parameters.Add(new SqlParameter("@CustomerID", Session["SelectedCustomerID"].ToString()));
+               
 
 
                 // Open your connection, send the query 
@@ -150,14 +150,35 @@ namespace Lab3
                 queryResults.Close();
                 sqlConnect.Close();
 
-                LblSaveStatus.Text = "Appraisal Service Order Saved Successfully";
-                LblSaveStatus.ForeColor = Color.Green;
-            }
-            catch
-            {
-                LblSaveStatus.Text = "Error Saving Appraisal Service Order";
-                LblSaveStatus.ForeColor = Color.Red;
-            }
+            string sqlService = "INSERT INTO ServiceTicket (CustomerID, TicketOpenDate, ServiceType, AppraisalID, InitiatingEmp, Status_Service) VALUES (@CustomerID, @TicketOpenDate, @ServiceType, (Select TOP 1 AppraisalID from Appraisal order by AppraisalID desc), @InitiatingEmp, @Status)";
+            //Define the Connection to the Database
+            SqlConnection sqlConnect1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+            // Create the SQL Command object which will send the query
+            SqlCommand sqlCommand1 = new SqlCommand();
+            sqlCommand1.Connection = sqlConnect1;
+            sqlCommand1.CommandType = CommandType.Text;
+            sqlCommand1.CommandText = sqlService;
+
+            sqlCommand1.Parameters.Add(new SqlParameter("@CustomerID", Session["SelectedCustomerID"].ToString()));
+            sqlCommand1.Parameters.Add(new SqlParameter("@ServiceType", "Appraisal"));
+            sqlCommand1.Parameters.Add(new SqlParameter("@TicketOpenDate", DateTime.Now.ToString("yyyy-MM-dd")));
+            sqlCommand1.Parameters.Add(new SqlParameter("@InitiatingEmp", ddlInitiating.SelectedValue.ToString()));
+            sqlCommand1.Parameters.Add(new SqlParameter("@Status", "0"));
+            sqlConnect1.Open();
+            SqlDataReader queryResults1 = sqlCommand1.ExecuteReader();
+
+            // Close all related connections
+            sqlConnect1.Close();
+
+            //    LblSaveStatus.Text = "Appraisal Service Order Saved Successfully";
+            //    LblSaveStatus.ForeColor = Color.Green;
+            ////}
+            ////catch
+            ////{
+            //    LblSaveStatus.Text = "Error Saving Appraisal Service Order";
+            //    LblSaveStatus.ForeColor = Color.Red;
+            //}
 
         }
 
