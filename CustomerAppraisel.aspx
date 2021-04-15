@@ -51,10 +51,9 @@
                 Text="Populate"
                 OnClick="BtnPopulate_Click" />
     </div>
-        <div class="float-left">
-            <asp:Button ID="BackBtn" runat="server" Text="Home" OnClick="BackBtn_Click" />
-        </div>
+<br />
     <div runat="server" id="divOutBuilding">
+        <br />
         <div>
             <h5>Purpose of Appraisal</h5>
         </div>
