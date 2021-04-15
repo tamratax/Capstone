@@ -230,10 +230,13 @@
         <div class="form-group">
             <label>Type of Address</label>
             <asp:TextBox ID="TxtDescription" Placeholder="Origin, Destination, Primary, etc." CssClass="form-control" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtDescription" Text="Required" ForeColor="Red" ValidationGroup="addy"></asp:RequiredFieldValidator>
         </div>
         <div class="form-group">
             <label>Street</label>
             <asp:TextBox ID="TxtStreet" Placeholder="Street" CssClass="form-control" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtStreet" Text="Required" ForeColor="Red" ValidationGroup="addy"></asp:RequiredFieldValidator>
+
         </div>
         <div class="form-group">
             <label>City</label>
@@ -241,6 +244,8 @@
                 Placeholder="City"
                 CssClasss="form-control"
                 runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtCity" Text="Required" ForeColor="Red" ValidationGroup="addy"></asp:RequiredFieldValidator>
+
         </div>
         <div class="form-group">
             <label>State</label>
@@ -248,6 +253,8 @@
                 Placeholder="State"
                 CssClass="form-control"
                 runat="server"></asp:TextBox>
+                  <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtState" Text="Required" ForeColor="Red" ValidationGroup="addy"></asp:RequiredFieldValidator>
+
         </div>
         <div class="form-group">
             <label>Zip</label>
@@ -255,8 +262,10 @@
                 Placeholder="Zip"
                 CssClass="form-control"
                 runat="server"></asp:TextBox>
+               <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtZip" Text="Required" ForeColor="Red" ValidationGroup="addy"></asp:RequiredFieldValidator>
+            <asp:CompareValidator ID="CompareValidator3" runat="server" ErrorMessage="CompareValidator" ValidationGroup="addy" ControlToValidate="TxtZip" Text="Invalid Zip" ForeColor="Red"></asp:CompareValidator>
         </div>
-        <asp:Button ID="BtnAddAddress" runat="server" Text="Add Address ->" OnClick="BtnAddAddress_Click" />
+        <asp:Button ID="BtnAddAddress" runat="server" Text="Add Address ->" OnClick="BtnAddAddress_Click" ValidationGroup="addy" />
     </div>
     <div runat="server" id="divVehicle">
         <h2>Vehicle Information</h2>
