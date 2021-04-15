@@ -151,6 +151,7 @@ namespace WalkerS_Lab1Part3
             TxtDeadlineDate.Text = "";
             TxtReferralChannel.Text = "";
             DdlPreferredContactMethod.SelectedIndex = -1;
+            LblSaveStatus.Visible = false;
 
 
             //Stops the edit function
