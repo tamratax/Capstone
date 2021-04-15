@@ -90,6 +90,7 @@
                  class="form-control"
                   OnDataBound="ddlService_DataBound"
                 ></asp:DropDownList>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlService1" Text="Required" ForeColor="Red" InitialValue="-1" ValidationGroup="feedback"></asp:RequiredFieldValidator>
             </div>
         <div class="form-group">
             <label>How was your service?</label>
@@ -98,17 +99,22 @@
                 runat="server"
                 class="form-control"
                 AutoPostBack="true">
+                <asp:ListItem Value="-1">Select</asp:ListItem>
                  <asp:ListItem Value="Positive">Positive</asp:ListItem>
                  <asp:ListItem Value="Negative">Negative</asp:ListItem>
             </asp:DropDownList>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="ddlFeedback" Text="Required" ForeColor="Red" InitialValue="-1" ValidationGroup="feedback"></asp:RequiredFieldValidator>
+
          </div>
      <div class="form-group">
          <label>Comments</label>
 <%--            <asp:Label ID="CommentsLbl" runat="server" Text="Comments: "></asp:Label>--%>
             <asp:TextBox ID="Commentstxt" runat="server" Placeholder="Comments" class="form-control" TextMode="MultiLine" Rows="5"></asp:TextBox>
-        </div>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="Commentstxt" Text="Required" ForeColor="Red"  ValidationGroup="feedback"></asp:RequiredFieldValidator>
+
+     </div>
         <div>
-            <asp:Button ID="SubmitFeed" runat="server" Text="Submit" OnClick="SubmitFeed_Click1" />
+            <asp:Button ID="SubmitFeed" runat="server" Text="Submit" OnClick="SubmitFeed_Click1" ValidationGroup="feedback" />
             <asp:Label ID="LblSaveStatus" runat="server" Text=""></asp:Label>
         </div>
 
