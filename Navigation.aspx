@@ -107,16 +107,16 @@
                 <br />
                 <br />
                 <asp:Label
-                    ID="LblIncompleteServiceTickets"
+                    ID="lblOnlineRequests"
                     runat="server"
-                    Text="Incomplete Service Tickets:"
+                    Text="New Online Requests:"
                     CssClass="table justify-content-center"></asp:Label>
                 <br />
 
                 <asp:ListBox
-                    ID="LstBoxIncompleteServiceTickets"
+                    ID="lstboxOnlineRequests"
                     runat="server"
-                    OnSelectedIndexChanged="LstBoxIncompleteServiceTickets_SelectedIndexChanged"
+                    OnSelectedIndexChanged="lstboxOnlineRequests_SelectedIndexChanged"
                     AutoPostBack="true"
                     CssClass="table justify-content-center"></asp:ListBox>
 
@@ -133,4 +133,8 @@
 
         </div>
     </div>
+
+
+
+
 </asp:Content>
