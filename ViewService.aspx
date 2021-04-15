@@ -142,8 +142,8 @@
                 CssClass="table justify-content-center">
                 <Columns>
                     <asp:BoundField DataField="EmployeeID" HeaderText="EmployeeID" Visible="false" />
+                    <asp:BoundField DataField="ServiceTicketID" HeaderText="ServiceTicketID" Visible="false" />
                     <asp:BoundField DataField="EmployeeName" HeaderText="Employee" />
-                    <asp:BoundField DataField="Ticket Change Date" HeaderText="Ticket Date" />
 
                 </Columns>
 
