@@ -110,6 +110,7 @@
         
     </fieldset>
     <br />
+    <div class="row justify-content-center">
     <fieldset>
         <legend><b>Selected Service Details: </b> </legend>
   
@@ -172,7 +173,6 @@
             </asp:TableRow>
         </asp:Table>
     </fieldset>
-    
 
    
 </asp:Content>

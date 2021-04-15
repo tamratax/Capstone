@@ -335,47 +335,79 @@
             </fieldset>
             <asp:Label ID="LblStatus" runat="server" Text=""></asp:Label>
         </div>
-
+        
         <div id="divcharges" runat="server">
+            <asp:Table runat="server" HorizontalAlign="Center">
+                <asp:TableRow>
+                    <asp:TableCell>
             <asp:Label ID="lblPickupFee" runat="server" Text="Pickup Fee: "></asp:Label>
-            &nbsp; &nbsp;
+                        </asp:TableCell>
+                    <asp:TableCell>
                 <asp:TextBox ID="txtPickupFee" runat="server" PlaceHolder="Enter without $"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
        <asp:CompareValidator ID="CompareValidator4" runat="server" Operator="DataTypeCheck" Type="Integer" ErrorMessage="Must Be Number" ControlToValidate="txtPickupFee" ForeColor="Red" ValidationGroup="CharGroup"></asp:CompareValidator>
+                    </asp:TableCell>
+                    <asp:TableCell>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPickupFee" Text="Required" ForeColor="Red" ValidationGroup="CharGroup"></asp:RequiredFieldValidator>
-            &nbsp;
-                
-                <br />
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
             <asp:Label ID="lblConsignmentRate" runat="server" Text="Consignment Rate: "></asp:Label>
-            &nbsp; &nbsp;
+                </asp:TableCell>
+                    <asp:TableCell>
                 <asp:TextBox ID="txtConsignmentRate" runat="server" PlaceHolder="Enter without $"></asp:TextBox>
+                </asp:TableCell>
+                    <asp:TableCell>
        <asp:CompareValidator ID="CompareValidator5" runat="server" Operator="DataTypeCheck" Type="Integer" ErrorMessage="Must Be Number" ControlToValidate="txtConsignmentRate" ForeColor="Red" ValidationGroup="CharGroup"></asp:CompareValidator>
+                </asp:TableCell>
+                    <asp:TableCell>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtConsignmentRate" Text="Required" ForeColor="Red" ValidationGroup="CharGroup"></asp:RequiredFieldValidator>
-            &nbsp;
-                
-                <br />
+                </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
             <asp:Label ID="LblTrashRemoval" runat="server" Text="Trash Removal Fee: "></asp:Label>
-            &nbsp; &nbsp;
+                </asp:TableCell>
+                    <asp:TableCell>
                 <asp:TextBox ID="TxtTrashRemoval" runat="server" PlaceHolder="Enter without $"></asp:TextBox>
+                </asp:TableCell>
+                    <asp:TableCell>
        <asp:CompareValidator ID="CompareValidator6" runat="server" Operator="DataTypeCheck" Type="Integer" ErrorMessage="Must Be Number" ControlToValidate="TxtTrashRemoval" ForeColor="Red" ValidationGroup="CharGroup"></asp:CompareValidator>
+                </asp:TableCell>
+                    <asp:TableCell>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtTrashRemoval" Text="Required" ForeColor="Red" ValidationGroup="CharGroup"></asp:RequiredFieldValidator>
-            &nbsp;
-                <br />
-
+                </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
             <asp:Label ID="lblAdditionalFees" runat="server" Text="Additional Fees: "></asp:Label>
-            &nbsp; &nbsp;
+                </asp:TableCell>
+                    <asp:TableCell>
                 <asp:TextBox ID="txtAdditionalFees" runat="server" PlaceHolder="Enter without $"></asp:TextBox>
+                </asp:TableCell>
+                    <asp:TableCell>
        <asp:CompareValidator ID="CompareValidator7" runat="server" Operator="DataTypeCheck" Type="Integer" ErrorMessage="Must Be Number" ControlToValidate="txtAdditionalFees" ForeColor="Red" ValidationGroup="CharGroup"></asp:CompareValidator>
+                </asp:TableCell>
+                    <asp:TableCell>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAdditionalFees" Text="Required" ForeColor="Red" ValidationGroup="CharGroup"></asp:RequiredFieldValidator>
-            &nbsp;
-                
-                
-                <br />
-
+                </asp:TableCell>
+                </asp:TableRow>
+<%--                <asp:TableRow>
+                    <asp:TableCell>
             <asp:Button ID="btnChargesSave" runat="server" Text="Save Charges" ForeColor="ForestGreen" OnClick="btnChargesSave_Click" ValidationGroup="CharGroup" />
+                </asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>--%>
+                </asp:Table>
             <br />
             <br />
-
-
+            <div class="text-center">
+               <asp:Button ID="btnChargesSave" runat="server" Text="Save Charges" ForeColor="ForestGreen" OnClick="btnChargesSave_Click" ValidationGroup="CharGroup" />
+            </div>
+            <br />
+            <br />
             <h2><b>Charges Added:</b></h2>
             <asp:GridView ID="grdCharges"
                 runat="server"
