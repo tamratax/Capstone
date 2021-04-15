@@ -81,6 +81,7 @@
         </div>
     </fieldset>
     <br />
+    <div class="text-center">
     <asp:Label ID="lblSelectService" runat="server" Text="Select Service:"></asp:Label>
     <asp:DropDownList
         ID="DDLType"
@@ -91,16 +92,17 @@
     </asp:DropDownList>
     <asp:Button ID="BtnMoveInfo" runat="server" Text="Add Auction Assessment" OnClick="BtnMoveInfo_Click" Visible="false" />
     <asp:Label ID="LblMoveInfo" runat="server" Text="Auction Assessment Not Yet Added!" ForeColor="Red" Visible="false"></asp:Label>
+        </div>
     <br />
     <br />
 
 
-    <div id="divbuttons" runat="server">
+    <div id="divbuttons" class="text-center" runat="server">
         <asp:Button ID="btnInventory" runat="server" Text="Inventory" OnClick="btnInventory_Click" />
-        <asp:Button ID="BtnGeneralInfo" runat="server" Text="General Assessment" OnClick="BtnGeneralInfo_Click" />&nbsp&nbsp&nbsp&nbsp
-        <asp:Button ID="BtnVehicles" runat="server" Text="Vehicles" OnClick="BtnVehicles_Click" />&nbsp&nbsp&nbsp&nbsp
-        <asp:Button ID="BtnSpecialEquipment" runat="server" Text="Special Equipment" OnClick="BtnSpecialEquipment_Click" />&nbsp&nbsp&nbsp&nbsp
-        <asp:Button ID="BtnCharge" runat="server" Text="Charges" OnClick="BtnCharge_Click" />&nbsp&nbsp&nbsp&nbsp
+        <asp:Button ID="BtnGeneralInfo" runat="server" Text="General Assessment" OnClick="BtnGeneralInfo_Click" />
+        <asp:Button ID="BtnVehicles" runat="server" Text="Vehicles" OnClick="BtnVehicles_Click" />
+        <asp:Button ID="BtnSpecialEquipment" runat="server" Text="Special Equipment" OnClick="BtnSpecialEquipment_Click" />
+        <asp:Button ID="BtnCharge" runat="server" Text="Charges" OnClick="BtnCharge_Click" />
         <asp:Button ID="BtnAddRoom" runat="server" Text="Boxes" OnClick="BtnAddRoom_Click" />
         <br />
         <br />
