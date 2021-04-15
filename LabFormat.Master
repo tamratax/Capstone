@@ -38,12 +38,12 @@
                         <a href="Navigation.aspx">Home
                         </a>
                     </li>
-                    <li>
+                    <li class="active">
+                        <a class="text-center"><b><u>Customer</u></b></a>
+                        <li>
                         <a href="InitialConversation.aspx">Add Customer
                         </a>
                     </li>
-                    <li class="active">
-                        <a class="text-center"><b><u>Customer</u></b></a>
                         <li>
                             <a href="ViewService.aspx">Customer Information</a>
                         </li>
@@ -112,7 +112,7 @@
                             </li>
                         </li>
                     <li>
-                        <a href="X">Reports</a>
+                        <a href="Reports.aspx">Reports</a>
                     </li>
                                 <%--                        <li>
                             <a href="WarehouseAssign.aspx">Assign to Warehouse</a>
@@ -300,8 +300,10 @@
                             <li>
 
                                 <%--<a href="#" class="download" onclick="BtnLogout_Click">Logout -></a>--%>
+                                <div class="text-center">
                                 <asp:Button
-                                    ID="BtnLogout" runat="server" Text="Logout ->" OnClick="BtnLogout_Click" />
+                                    ID="BtnLogout" runat="server" Text="Logout ->" OnClick="BtnLogout_Click" class="btn btn-light"/>
+                                    </div>
                                 <%--BackColor="CornflowerBlue"--%>
                             </li>
                         </ul>

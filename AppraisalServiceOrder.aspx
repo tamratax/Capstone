@@ -90,7 +90,7 @@
     </div>
     <div runat="server" id="divOutBuilding">
         <div>
-            <h5>Purpose of Appraisal</h5>
+            <h5><u>Purpose of Appraisal</u></h5>
         </div>
                 <div>
      <asp:Label ID="lblInitiating" runat="server" Text="Initiating Employee:"></asp:Label>
@@ -116,7 +116,7 @@
     <br />
     <div runat="server" id="div1">
         <div>
-            <h5>Deadline</h5>
+            <h5><u>Deadline</u></h5>
         </div>
         <div>
             <asp:CheckBox ID="ChkBoxDeadline" runat="server" OnCheckedChanged="ChkBoxDeadline_CheckedChanged" AutoPostBack="true" />
@@ -132,7 +132,7 @@
     <br />
     <div runat="server" id="div2">
         <div>
-            <h5>Size of Appraisal</h5>
+            <h5><u>Size of Appraisal</u></h5>
         </div>
         <div class="form-group">
             <%--<label>Size of Appraisal</label>--%>
@@ -143,7 +143,7 @@
     <br />
     <div runat="server" id="div3">
         <div>
-            <h5>Inventory</h5>
+            <h5><u>Inventory</u></h5>
         </div>
         <div class="form-group">
 
@@ -155,7 +155,7 @@
     <br />
     <div runat="server" id="div4">
         <div>
-            <h5>Additional Services</h5>
+            <h5><u>Additional Services</u></h5>
         </div>
         <div>
             <asp:CheckBox ID="ChkBoxMove" runat="server" />
@@ -169,7 +169,7 @@
     <br />
     <div runat="server" id="div5">
         <div>
-            <h5>Links</h5>
+            <h5><u>Links</u></h5>
         </div>
         <div>
             <asp:Button ID="BtnOutlook" runat="server" Text="Open Outlook" OnClick="BtnOutlook_Click" />

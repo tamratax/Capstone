@@ -127,8 +127,8 @@
 
     <br />
     <div class="text-center">
-        <asp:Button ID="ClearBtn" runat="server" Text="Clear" OnClick="ClearBtn_Click" CssClass="btn-danger" />
-    <asp:Button ID="SaveBtn" runat="server" Text="Save" OnClick="SaveBtn_Click" CssClass="btn-success" ValidationGroup="Save"/>
+        <asp:Button ID="ClearBtn" runat="server" Text="Clear" OnClick="ClearBtn_Click" class="btn btn-danger" />
+    <asp:Button ID="SaveBtn" runat="server" Text="Save" OnClick="SaveBtn_Click" class="btn btn-success" ValidationGroup="Save"/>
         </div>
     <br />
     <asp:Label ID="LblSaveStatus" runat="server" Text=""></asp:Label>

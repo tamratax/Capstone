@@ -55,7 +55,7 @@
     <div runat="server" id="divOutBuilding">
         <br />
         <div>
-            <h5>Purpose of Appraisal</h5>
+            <h5><b><u>Purpose of Appraisal</u></b></h5>
         </div>
         <div>
             <asp:CheckBox ID="ChkBoxEstate" runat="server" />
@@ -69,7 +69,7 @@
     <br />
     <div runat="server" id="div1">
         <div>
-            <h5>Deadline</h5>
+            <h5><b><u>Deadline</u></b></h5>
         </div>
         <div>
             <asp:CheckBox ID="ChkBoxDeadline" runat="server" OnCheckedChanged="ChkBoxDeadline_CheckedChanged" AutoPostBack="true" />
@@ -86,7 +86,7 @@
     <br />
     <div runat="server" id="div2">
         <div>
-            <h5>Size of Appraisal</h5>
+            <h5><b><u>Size of Appraisal</u></b></h5>
         </div>
         <div class="form-group">
             <asp:TextBox ID="TxtAppraisalSize" Placeholder="Size of Appraisal" runat="server" Class="form-control"></asp:TextBox>
@@ -96,7 +96,7 @@
     <br />
     <div runat="server" id="div3">
         <div>
-            <h5>Inventory</h5>
+            <h5><b><u>Inventory</u></b></h5>
         </div>
         <div class="form-group">
 
@@ -107,7 +107,7 @@
     <br />
     <div runat="server" id="div4">
         <div>
-            <h5>Additional Services</h5>
+            <h5><b><u>Additional Services</u></b></h5>
         </div>
         <div>
             <asp:CheckBox ID="ChkBoxMove" runat="server" />

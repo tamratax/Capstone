@@ -71,17 +71,6 @@
                     </div>
                 </main>
             </div>
-            <div id="layoutAuthentication_footer">
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">RoCo Consulting</div>
-                            <div>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
         </div>
         
     </form>

@@ -27,7 +27,7 @@
             ID="BtnLogout"
             runat="server"
             Text="Logout ->"
-            OnClick="BtnLogout_Click" />
+            OnClick="BtnLogout_Click" Font-Bold="true"/>
             </div>
     </div>
 

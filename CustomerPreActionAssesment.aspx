@@ -58,7 +58,7 @@
         </div>
     </div>
     <br />
-    <asp:Label ID="lblWhatToSchedule" runat="server" Text="What needs to be scheduled?"></asp:Label>
+    <asp:Label ID="lblWhatToSchedule" runat="server" Text="What needs to be scheduled?" Font-Bold="true" Font-Underline="true"></asp:Label>
     <br />
     <div>
         <asp:Label ID="Label1" runat="server" Text="Bring-in: "></asp:Label>
@@ -112,8 +112,8 @@
     </div>
     <br />
        <div class="text-center">
-    <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn-danger" OnClick="btnClear_Click1" />
-    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" CssClass="btn-success" ValidationGroup="SaveGroup" />
+    <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-danger" OnClick="btnClear_Click1" />
+    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" CssClass="btn btn-success" ValidationGroup="SaveGroup" />
     <asp:Label ID="lblSaveStatus" runat="server" Text=""></asp:Label>
     </div>
        </div>
