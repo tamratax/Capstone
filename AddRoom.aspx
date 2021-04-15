@@ -34,7 +34,8 @@
             PagerSettings-NextPageText="Next"
             PagerSettings-PreviousPageText="Previous"
             PagerSettings-Position="Bottom"
-            PagerStyle-BorderStyle="Solid">
+            PagerStyle-BorderStyle="Solid"
+            EmptyDataText="No Rooms Added Yet!">
 
             <Fields>
                 <asp:BoundField DataField="RoomID" Visible="false" HeaderText="RoomID" />
@@ -324,13 +325,14 @@
                 ID="DDLType"
                 runat="server"
                 class="form-control">
-                <asp:ListItem Value="Select">Select</asp:ListItem>
+                <asp:ListItem Value="-1">Select</asp:ListItem>
                 <asp:ListItem Value="Small">Small</asp:ListItem>
                 <asp:ListItem Value="Medium">Medium</asp:ListItem>
                 <asp:ListItem Value="Large">Large</asp:ListItem>
                 <asp:ListItem Value="Wardrobe">Wardrobe</asp:ListItem>
                 <asp:ListItem Value="Art">Art</asp:ListItem>
             </asp:DropDownList>
+            <asp:RequiredFieldValidator ID="rfvBoxType" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="DDLType" InitialValue="-1" ValidationGroup="AddBoxGroup" Text="Choose box type!" ForeColor="Red"></asp:RequiredFieldValidator>
         </div>
         <div class="form-group">
             <label>Quantity</label>
@@ -339,10 +341,13 @@
                 runat="server"
                 class="form-control"
                 Placeholder="1, 2, 3"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtQty" ValidationGroup="AddBoxGroup" Text="Add box quantity!" ForeColor="Red"></asp:RequiredFieldValidator>
         </div>
         <div>
-            <asp:Button ID="BtnAdd" runat="server" Text="Add" OnClick="BtnAdd_Click" />
+            
+            <asp:Button ID="BtnAdd" runat="server" Text="Add Box" OnClick="BtnAdd_Click" ValidationGroup="AddBoxGroup" />
             <asp:Label ID="LblStatus" runat="server" Text=""></asp:Label>
+            <br />
         </div>
         <div>
             <asp:GridView ID="grvBox"
@@ -360,6 +365,7 @@
                     <asp:BoundField DataField="BoxQuantity" HeaderText="Quantity" />
                 </Columns>
             </asp:GridView>
+            <br />
         </div>
     </div>
     <div class="form-group">
