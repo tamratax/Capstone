@@ -186,6 +186,13 @@ namespace Lab3
                 divstorageinfo.Visible = false;
                 divbusiness.Visible = false;
             }
+            if (DDLTypeofHome.SelectedIndex == 2)
+            {
+                divstorageinfo.Visible = false;
+                divapartment.Visible = false;
+
+                divbusiness.Visible = false;
+            }
             if (DDLTypeofHome.SelectedIndex == 3)
             {
                 divstorageinfo.Visible = true;
