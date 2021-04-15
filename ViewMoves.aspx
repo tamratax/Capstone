@@ -6,12 +6,13 @@
     <h1 class="display-4">View Moves</h1>
         </div>
         <div>
-            <asp:Label ID="SearchCustomerLbl" runat="server" Text="Searh for a Customer:"></asp:Label>
+            <div class="row justify-content-center">
+            <asp:Label ID="SearchCustomerLbl" runat="server" Text="Search for a Customer:"></asp:Label>
             <asp:TextBox ID="TxtSearch" runat="server"></asp:TextBox>
             <asp:Button ID="BtnSearch" runat="server" Text="Search" OnClick="BtnSearch_Click" />
             <asp:Button ID="BtnLoadAll" runat="server" Text="Show All" OnClick="BtnLoadAll_Click"/>
-
-
+            </div>
+            <br />
         <asp:GridView ID="GridviewMoves" 
             runat="server" 
              Visible="false"
