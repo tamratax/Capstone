@@ -3,13 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    
+
     <link href="Content/AddService.css" rel="stylesheet" />
-    
+
     <div>
         <div class="row justify-content-center">
-        <h1 class="display-4">Move Assessment Form</h1>
-            </div>
+            <h1 class="display-4">Move Assessment Form</h1>
+        </div>
         <h4>Customer Info:</h4>
         <fieldset>
             <div class="groupCust">
@@ -84,29 +84,29 @@
             </div>
         </fieldset>
 
-        
+
 
         <br />
         <div class="float-right">
-        <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click" />
-    </div>
+            <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click" />
+        </div>
         <br />
         <div class="text-center">
-        <asp:Label ID="lblCust" runat="server" Text="Customer Name: "></asp:Label>
-        <asp:Label ID="lblselected" runat="server" />
-        <asp:Label ID="LblID" runat="server" Visible="false"></asp:Label>
-        <asp:Label ID="LblMoveID" runat="server" Visible="false"></asp:Label>
-        <br />
-        <asp:DropDownList
-            ID="DDLType"
-            runat="server"
-            OnDataBound="DDLType_DataBound"
-            AutoPostBack="true"
-            OnSelectedIndexChanged="DDLType_SelectedIndexChanged">
-        </asp:DropDownList>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="DDLType" InitialValue="-1" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
-        </div>
+            <asp:Label ID="lblCust" runat="server" Text="Customer Name: "></asp:Label>
+            <asp:Label ID="lblselected" runat="server" />
+            <asp:Label ID="LblID" runat="server" Visible="false"></asp:Label>
+            <asp:Label ID="LblMoveID" runat="server" Visible="false"></asp:Label>
             <br />
+            <asp:DropDownList
+                ID="DDLType"
+                runat="server"
+                OnDataBound="DDLType_DataBound"
+                AutoPostBack="true"
+                OnSelectedIndexChanged="DDLType_SelectedIndexChanged">
+            </asp:DropDownList>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="DDLType" InitialValue="-1" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+        </div>
+        <br />
 
 
         <asp:Button ID="BtnMoveInfo" runat="server" Text="Add Move Assessment" OnClick="LblMoveInfo_Click" Visible="false" />
@@ -114,10 +114,10 @@
 
         <div id="divbuttons" runat="server" class="text-center">
             <asp:Button ID="BtnGeneralInfo" runat="server" Text="General Assessment" OnClick="BtnGeneralInfo_Click" />
-        <asp:Button ID="BtnVehicles" runat="server" Text="Vehicles" OnClick="BtnVehicles_Click" />
-        <asp:Button ID="BtnSpecialEquipment" runat="server" Text="Special Equipment" OnClick="BtnSpecialEquipment_Click" />
-        <asp:Button ID="BtnCharge" runat="server" Text="Charges" OnClick="BtnCharge_Click" />
-        <asp:Button ID="BtnAddRoom" runat="server" Text="Proceed to Add Room" OnClick="BtnAddRoom_Click" />
+            <asp:Button ID="BtnVehicles" runat="server" Text="Vehicles" OnClick="BtnVehicles_Click" />
+            <asp:Button ID="BtnSpecialEquipment" runat="server" Text="Special Equipment" OnClick="BtnSpecialEquipment_Click" />
+            <asp:Button ID="BtnCharge" runat="server" Text="Charges" OnClick="BtnCharge_Click" />
+            <asp:Button ID="BtnAddRoom" runat="server" Text="Proceed to Add Room" OnClick="BtnAddRoom_Click" />
             <br />
             <br />
 
@@ -152,76 +152,76 @@
         <div runat="server" id="moveinfodiv">
             <div id="divgeneralinfo" runat="server">
                 <div class="form-group">
-                <asp:Label ID="LblHomeType" runat="server" Text="Type of Home: "></asp:Label>
-                <asp:DropDownList ID="DDLTypeofHome" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DDLTypeofHome_SelectedIndexChanged" CssClass="form-control">
-                    <asp:ListItem>Apartment</asp:ListItem>
-                    <asp:ListItem>House</asp:ListItem>
-                    <asp:ListItem>Storage Unit</asp:ListItem>
-                    <asp:ListItem>Place of Business</asp:ListItem>
-                </asp:DropDownList>
+                    <asp:Label ID="LblHomeType" runat="server" Text="Type of Home: "></asp:Label>
+                    <asp:DropDownList ID="DDLTypeofHome" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DDLTypeofHome_SelectedIndexChanged" CssClass="form-control">
+                        <asp:ListItem>Apartment</asp:ListItem>
+                        <asp:ListItem>House</asp:ListItem>
+                        <asp:ListItem>Storage Unit</asp:ListItem>
+                        <asp:ListItem>Place of Business</asp:ListItem>
+                    </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="DDLTypeofHome" Text="Required" ForeColor="Red" ValidationGroup="Save" InitialValue="-1"></asp:RequiredFieldValidator>
                 </div>
-        <div id ="divapartment" runat="server">
-            <div class="form-row">
-        <div class="form-group col-md-4">
-           <asp:Label ID="LblNumberofStories" runat="server" Text="Which floor?: "></asp:Label>
-        <asp:TextBox ID="TxtNumberofStories" runat="server" CssClass="form-control"></asp:TextBox>
-            </div>
-                <div class="form-group col-md-4">
-        <asp:Label ID="LblElevator" runat="server" Text="Is there an Elevator?: "></asp:Label>
-        <asp:TextBox ID="TxtElevator" runat="server" CssClass="form-control"></asp:TextBox>
+                <div id="divapartment" runat="server">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <asp:Label ID="LblNumberofStories" runat="server" Text="Which floor?: "></asp:Label>
+                            <asp:TextBox ID="TxtNumberofStories" runat="server" CssClass="form-control"></asp:TextBox>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <asp:Label ID="LblElevator" runat="server" Text="Is there an Elevator?: "></asp:Label>
+                            <asp:TextBox ID="TxtElevator" runat="server" CssClass="form-control"></asp:TextBox>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <asp:Label ID="LblElevatorWalk" runat="server" Text="Distance from elevator to apartment?: "></asp:Label>
+                            <asp:TextBox ID="TxtElevatorWalk" runat="server" CssClass="form-control"></asp:TextBox>
+                        </div>
                     </div>
-                
-           <div class="form-group col-md-4"> 
-        <asp:Label ID="LblElevatorWalk" runat="server" Text="Distance from elevator to apartment?: "></asp:Label>
-        <asp:TextBox ID="TxtElevatorWalk" runat="server"  CssClass="form-control"></asp:TextBox>
-               </div>
-        </div>
-            </div>
-
-        <div id="divstorageinfo" runat="server">
-           <asp:Label ID="LblStorage" runat="server" Text="What Type of Unit?: "></asp:Label>
-        <asp:TextBox ID="TxtStorage" runat="server" CssClass="form-control"></asp:TextBox>
-        <br />
-        </div>
-
-        <div id="divbusiness" runat="server">
-            <asp:Label ID="LblBusiness" runat="server" Text="Name of Business: "></asp:Label>
-        <asp:TextBox ID="TxtBusiness" runat="server"  CssClass="form-control"></asp:TextBox>
-        </div>
-
-
-        <div class="form-row">
-            <div class="form-group col-md-6"> 
-        <asp:Label ID="LblDistance" runat="server" Text="Distance From Truck: "></asp:Label>
-        <asp:TextBox ID="TxtDistance" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-        <br />
-            <div class="form-group col-md-6"> 
-        <asp:Label ID="LblAccessibility" runat="server" Text="Driveway Accessibility: "></asp:Label>
-        <asp:TextBox ID="TxtAccessibility" runat="server" CssClass="form-control"></asp:TextBox>
-            </div>
-            <div class="form-group col-md-6">
-        <asp:Label ID="LblSteps" runat="server" Text="Steps To House: "></asp:Label>
-        <asp:TextBox ID="TxtSteps" runat="server" CssClass="form-control"></asp:TextBox>
+
+                <div id="divstorageinfo" runat="server">
+                    <asp:Label ID="LblStorage" runat="server" Text="What Type of Unit?: "></asp:Label>
+                    <asp:TextBox ID="TxtStorage" runat="server" CssClass="form-control"></asp:TextBox>
+                    <br />
                 </div>
-            <div class="form-group col-md-6">
-        <asp:Label ID="LblConditions" runat="server" Text="Loading Conditions:  "></asp:Label>
-        <asp:TextBox ID="TxtConditions" runat="server" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
+
+                <div id="divbusiness" runat="server">
+                    <asp:Label ID="LblBusiness" runat="server" Text="Name of Business: "></asp:Label>
+                    <asp:TextBox ID="TxtBusiness" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <asp:Label ID="LblDistance" runat="server" Text="Distance From Truck: "></asp:Label>
+                        <asp:TextBox ID="TxtDistance" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div>
+                    <br />
+                    <div class="form-group col-md-6">
+                        <asp:Label ID="LblAccessibility" runat="server" Text="Driveway Accessibility: "></asp:Label>
+                        <asp:TextBox ID="TxtAccessibility" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <asp:Label ID="LblSteps" runat="server" Text="Steps To House: "></asp:Label>
+                        <asp:TextBox ID="TxtSteps" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <asp:Label ID="LblConditions" runat="server" Text="Loading Conditions:  "></asp:Label>
+                        <asp:TextBox ID="TxtConditions" runat="server" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
+                    </div>
                 </div>
             </div>
-            </div>
-            
-        <br />
-        
-          <div id="divsave" runat="server">
-              <br />
-              <br />
-        <asp:DetailsView ID="DTLMoveInfo" runat="server" DataSourceID="dtasrcMoveInfo"
-             AutoGenerateEditButton="true"
-             EmptyDataText="No Info"
-             AutoGenerateRows="false"
-             DataKeyNames="MoveAssessmentID">
+
+            <br />
+
+            <div id="divsave" runat="server">
+                <br />
+                <br />
+                <asp:DetailsView ID="DTLMoveInfo" runat="server" DataSourceID="dtasrcMoveInfo"
+                    AutoGenerateEditButton="true"
+                    EmptyDataText="No Info"
+                    AutoGenerateRows="false"
+                    DataKeyNames="MoveAssessmentID">
 
                     <Fields>
                         <asp:BoundField DataField="MoveAssessmentID" Visible="false" />
@@ -248,8 +248,9 @@
                 &nbsp
         <asp:Label ID="LblQuantitySpecial" runat="server" Text="Quantity: " Font-Bold="true"></asp:Label>
                 <asp:TextBox ID="TxtQuantitySpecial" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="RequiredFieldValidator" Text="Required" ValidationGroup="quantity" ControlToValidate="TxtQuantitySpecial" ForeColor="Red"></asp:RequiredFieldValidator>
                 <br />
-                <asp:Button ID="BtnSpecial" runat="server" Text="Add Equipment" OnClick="BtnSpecial_Click" />
+                <asp:Button ID="BtnSpecial" runat="server" Text="Add Equipment" ValidationGroup="quantity" OnClick="BtnSpecial_Click" />
                 <br />
                 <b>Special Equipment Used</b>
                 <asp:GridView ID="grvEquip"
@@ -305,43 +306,79 @@
             </div>
 
             <div id="divcharges" runat="server">
-                <asp:Label ID="LblMoveEstimate" runat="server" Text="Move Estimate: "></asp:Label>
-                &nbsp; &nbsp;
-                <asp:TextBox ID="TxtMoveEstimate" runat="server" PlaceHolder="Enter without $"></asp:TextBox>
-                &nbsp;
-                
-                <asp:Button ID="BtnMoveEstimate" runat="server" Text="Add Charge" ForeColor="ForestGreen" OnClick="BtnMoveEstimate_Click" ValidationGroup="Move" />
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtMoveEstimate" Text="Required" ForeColor="Red" ValidationGroup="Move"></asp:RequiredFieldValidator>
-                <br />
-                <asp:Label ID="LblFixedRate" runat="server" Text="Fixed Rate "></asp:Label>
-                &nbsp; &nbsp;
+                <asp:Table ID="Table1" runat="server" HorizontalAlign="Center">
+                    <asp:TableRow>
+                        <asp:TableCell>
+                            <asp:Label ID="LblMoveEstimate" runat="server" Text="Move Estimate: "></asp:Label>
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:TextBox ID="TxtMoveEstimate" runat="server" PlaceHolder="Enter without $"></asp:TextBox>
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Button ID="BtnMoveEstimate" runat="server" Text="Add Charge" OnClick="BtnMoveEstimate_Click" ValidationGroup="Move" />
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtMoveEstimate" Text="Required" ForeColor="Red" ValidationGroup="Move"></asp:RequiredFieldValidator>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell>
+                    <asp:Label ID="LblFixedRate" runat="server" Text="Fixed Rate "></asp:Label>
+                            </asp:TableCell>
+                        <asp:TableCell>
                 <asp:TextBox ID="TxtFixedRate" runat="server" PlaceHolder="Enter without $"></asp:TextBox>
-                &nbsp;
-               
-                <asp:Button ID="BtnFixedRate" runat="server" Text="Add Charge" ForeColor="ForestGreen" OnClick="BtnFixedRate_Click" ValidationGroup="Fixed" />
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtFixedRate" Text="Required" ForeColor="Red" ValidationGroup="Fixed"></asp:RequiredFieldValidator>
-                <br />
-                <asp:Label ID="LblPackingFee" runat="server" Text="Packing Fee: "></asp:Label>
-                &nbsp; &nbsp;
+                        </asp:TableCell>
+                        <asp:TableCell>
+                <asp:Button ID="BtnFixedRate" runat="server" Text="Add Charge" OnClick="BtnFixedRate_Click" ValidationGroup="Fixed" />
+                        </asp:TableCell>
+                        <asp:TableCell>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtFixedRate" Text="Required" ForeColor="Red" ValidationGroup="Fixed"></asp:RequiredFieldValidator>
+                        </asp:TableCell>
+                        </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell>
+                    <asp:Label ID="LblPackingFee" runat="server" Text="Packing Fee: "></asp:Label>
+                    </asp:TableCell>
+                   <asp:TableCell>
                 <asp:TextBox ID="TxtPackingFee" runat="server" PlaceHolder="Enter without $"></asp:TextBox>
-                &nbsp;
-                <asp:Button ID="BtnPackingFee" runat="server" Text="Add Charge" ForeColor="ForestGreen" OnClick="BtnPackingFee_Click" ValidationGroup="Packing" />
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtPackingFee" Text="Required" ForeColor="Red" ValidationGroup="Packing"></asp:RequiredFieldValidator>
-                <br />
-                <asp:Label ID="LblStorageFee" runat="server" Text="Storage Fee: "></asp:Label>
-                &nbsp; &nbsp;
+                    </asp:TableCell>
+                        <asp:TableCell>
+                <asp:Button ID="BtnPackingFee" runat="server" Text="Add Charge" OnClick="BtnPackingFee_Click" ValidationGroup="Packing" />
+                    </asp:TableCell>
+                        <asp:TableCell>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtPackingFee" Text="Required" ForeColor="Red" ValidationGroup="Packing"></asp:RequiredFieldValidator>
+                    </asp:TableCell>
+                        </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell>
+                    <asp:Label ID="LblStorageFee" runat="server" Text="Storage Fee: "></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
                 <asp:TextBox ID="TxtStorageFee" runat="server" PlaceHolder="Enter without $"></asp:TextBox>
-                &nbsp;
-                <asp:Button ID="BtnStorageFee" runat="server" Text="Add Charge" ForeColor="ForestGreen" OnClick="BtnStorageFee_Click" ValidationGroup="Storage" />
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtStorageFee" Text="Required" ForeColor="Red" ValidationGroup="Storage"></asp:RequiredFieldValidator>
-                <br />
-                <asp:Label ID="LblTrashRemoval" runat="server" Text="Trash Removal: "></asp:Label>
-                &nbsp; &nbsp;
+                    </asp:TableCell>
+                    <asp:TableCell>
+                <asp:Button ID="BtnStorageFee" runat="server" Text="Add Charge" OnClick="BtnStorageFee_Click" ValidationGroup="Storage" />
+                    </asp:TableCell>
+                        <asp:TableCell>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtStorageFee" Text="Required" ForeColor="Red" ValidationGroup="Storage"></asp:RequiredFieldValidator>
+                            </asp:TableCell>
+                        </asp:TableRow>
+                        <asp:TableRow>
+                            <asp:TableCell>
+                    <asp:Label ID="LblTrashRemoval" runat="server" Text="Trash Removal: "></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
                 <asp:TextBox ID="TxtTrashRemoval" runat="server" PlaceHolder="Enter without $"></asp:TextBox>
-                &nbsp;
-                <asp:Button ID="BtnTrashRemoval" runat="server" Text="Add Charge" ForeColor="ForestGreen" OnClick="BtnTrashRemoval_Click" ValidationGroup="Trash" />
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtTrashRemoval" Text="Required" ForeColor="Red" ValidationGroup="Trash"></asp:RequiredFieldValidator>
-                <br />
+                    </asp:TableCell>
+                    <asp:TableCell>
+                <asp:Button ID="BtnTrashRemoval" runat="server" Text="Add Charge" OnClick="BtnTrashRemoval_Click" ValidationGroup="Trash" />
+                    </asp:TableCell>
+                            <asp:TableCell>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtTrashRemoval" Text="Required" ForeColor="Red" ValidationGroup="Trash"></asp:RequiredFieldValidator>
+                    </asp:TableCell>
+                            </asp:TableRow>
+                </asp:Table>
+                    <br />
                 <br />
 
 
@@ -373,7 +410,7 @@
         </div>
     </div>
     <div id="divClearSave" runat="server" class="text-center">
-        <asp:Button ID="ClearBtn" runat="server" class="btn btn-danger" Text="Clear" OnClick="ClearBtn_Click" />        
+        <asp:Button ID="ClearBtn" runat="server" class="btn btn-danger" Text="Clear" OnClick="ClearBtn_Click" />
         <asp:Button ID="BtnSave" runat="server" class="btn btn-success" Text="Save Move Form" OnClick="BtnSave_Click" ValidationGroup="Save" />
         <asp:Label ID="LblSuccess" runat="server" Text="" ForeColor="Green"></asp:Label>
     </div>
