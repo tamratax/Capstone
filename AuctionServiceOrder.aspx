@@ -163,7 +163,7 @@
     <asp:Button ID="BtnAddOrigin"
         runat="server"
         Text="Add Address"
-        OnClick="BtnAddOrigin_Click" />
+        OnClick="BtnAddOrigin_Click" ValidationGroup="Save" />
 
     <div>
         <h5>Boxes</h5>
@@ -326,16 +326,16 @@
     </div>
     <asp:Label ID="LblAuctionDate" runat="server" Text="Final Auction Date:"></asp:Label>
     <asp:TextBox ID="TxtAuctionDate" runat="server" TextMode="Date"></asp:TextBox>
-    <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtAuctionDate" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtAuctionDate" Text="Required" ForeColor="Red" ValidationGroup="Saver"></asp:RequiredFieldValidator>
 
     <br />
     <asp:Label ID="lblAuctionTime" runat="server" Text="Final Auction Time:"></asp:Label>
     <asp:TextBox ID="txtAuctionTime" runat="server" TextMode="Time"></asp:TextBox>
-    <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAuctionTime" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAuctionTime" Text="Required" ForeColor="Red" ValidationGroup="Saver"></asp:RequiredFieldValidator>
 
     <br />
     <div class="text-center">
-        <asp:Button ID="btnSave" runat="server" class="btn btn-success" Text="Save" OnClick="btnSave_Click" ValidationGroup="Save" />
+        <asp:Button ID="btnSave" runat="server" class="btn btn-success" Text="Save" OnClick="btnSave_Click" ValidationGroup="Saver" />
         <asp:Label ID="lblSaveStatus" runat="server" Text=""></asp:Label>
     </div>
 

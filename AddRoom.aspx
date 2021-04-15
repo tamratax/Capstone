@@ -26,7 +26,15 @@
             HeaderText="View All Rooms Added"
             HeaderStyle-Font-Bold="true"
             HeaderStyle-HorizontalAlign="Center"
-            OnDataBound="dtvRoom_DataBound">
+            OnDataBound="dtvRoom_DataBound"
+            PagerStyle-HorizontalAlign="Center"
+            PagerSettings-Mode="NextPreviousFirstLast"
+            PagerSettings-FirstPageText="<< First"
+            PagerSettings-LastPageText="Last >>"
+            PagerSettings-NextPageText="Next"
+            PagerSettings-PreviousPageText="Previous"
+            PagerSettings-Position="Bottom"
+            PagerStyle-BorderStyle="Solid">
 
             <Fields>
                 <asp:BoundField DataField="RoomID" Visible="false" HeaderText="RoomID" />
@@ -418,7 +426,8 @@
         runat="server"
         ConnectionString="<%$ConnectionStrings:Lab3%>"
         SelectCommand="Select BoxesID, BoxType, BoxQuantity FROM BOXES WHERE RoomID IS NULL"
-        DeleteCommand="DELETE Boxes where BoxesID = @BoxesID" UpdateCommand="UPDATE Boxes SET BoxType = @BoxType, BoxQuantity = @BoxQuantity WHERE BoxesID = @BoxesID"></asp:SqlDataSource>
+        DeleteCommand="DELETE Boxes where BoxesID = @BoxesID" 
+        UpdateCommand="UPDATE Boxes SET BoxType = @BoxType, BoxQuantity = @BoxQuantity WHERE BoxesID = @BoxesID"></asp:SqlDataSource>
 
     <asp:SqlDataSource ID="grdsrcRoomBoxes"
         runat="server"

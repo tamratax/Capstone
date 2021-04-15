@@ -73,6 +73,7 @@ namespace Lab3
                 divAddress.Visible = false;
                 divVehicle.Visible = false;
                 divTravel.Visible = false;
+                divClearSave.Visible = false;
             }
         }
 
@@ -411,6 +412,7 @@ namespace Lab3
             divAddress.Visible = false;
             divVehicle.Visible = false;
             divTravel.Visible = false;
+            divClearSave.Visible = false;
 
         }
 
@@ -422,6 +424,8 @@ namespace Lab3
             divAddress.Visible = false;
             divVehicle.Visible = false;
             divTravel.Visible = false;
+            divClearSave.Visible = false;
+
         }
 
         protected void btnAddress_Click(object sender, EventArgs e)
@@ -431,6 +435,8 @@ namespace Lab3
             divPayment.Visible = false;
             divVehicle.Visible = false;
             divTravel.Visible = false;
+            divClearSave.Visible = false;
+
         }
 
         protected void btnVehicle_Click(object sender, EventArgs e)
@@ -440,6 +446,8 @@ namespace Lab3
             divPayment.Visible = false;
             divAddress.Visible = false;
             divTravel.Visible = false;
+            divClearSave.Visible = false;
+
         }
 
         protected void btnTravel1_Click(object sender, EventArgs e)
@@ -449,6 +457,8 @@ namespace Lab3
             divPayment.Visible = false;
             divAddress.Visible = false;
             divVehicle.Visible = false;
+            divClearSave.Visible = true;
+
         }
 
         protected void BtnPop_Click(object sender, EventArgs e)
