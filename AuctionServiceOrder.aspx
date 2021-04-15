@@ -98,6 +98,8 @@
                 runat="server"
                 TextMode="Date"
                 class="form-control"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtPotentialDate" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+
         </div>
         <div class="form-group col-md-6">
             <label>Potential Time</label>
@@ -105,15 +107,18 @@
                 runat="server"
                 TextMode="Time"
                 class="form-control"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtPotentialTime" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+
         </div>
     </div>
     <div class="form-group">
         <label>Street</label>
-        <%--        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">--%>
         <asp:TextBox ID="TxtStreet"
             runat="server"
             Placeholder=""
             class="form-control"></asp:TextBox>
+               <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtStreet" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
@@ -122,6 +127,8 @@
                 runat="server"
                 class="form-control"
                 Placeholder="City"></asp:TextBox>
+               <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtCity" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+
         </div>
         <div class="form-group col-md-4">
             <label for="inputState">State</label>
@@ -129,6 +136,8 @@
                 runat="server"
                 class="form-control"
                 Placeholder="State"></asp:TextBox>
+               <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtState" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+
         </div>
         <div class="form-group col-md-2">
             <label for="inputZip">Zip</label>
@@ -136,6 +145,10 @@
                 runat="server"
                 class="form-control"
                 Placeholder="Zip"></asp:TextBox>
+               <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtZip" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+          <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator" ValidationGroup="Save" ControlToValidate="TxtZip" Operator="DataTypeCheck" Type="Integer" ForeColor="Red" Text="Please only use numbers"></asp:CompareValidator>
+               
+
         </div>
     </div>
     <div class="form-group">
@@ -144,6 +157,8 @@
             runat="server"
             class="form-control"
             placeholder="Description"></asp:TextBox>
+               <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtDescription" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+
     </div>
     <asp:Button ID="BtnAddOrigin"
         runat="server"
@@ -183,10 +198,13 @@
                 DataValueField="EmployeeID"
                 OnDataBound="DdlInitiatingEmp_DataBound" Width="100%">
             </asp:DropDownList>
+          <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="DdlInitiatingEmp" InitialValue="-1" Text="Add Employees" ForeColor="Red" ValidationGroup="Employees"></asp:RequiredFieldValidator>
+
             <asp:Button ID="BtnAddEmployee"
                 runat="server"
                 Text="Add Employee"
-                OnClick="BtnAddEmployee_Click" />
+                OnClick="BtnAddEmployee_Click" 
+                ValidationGroup="Employees"/>
             <asp:Label ID="LblStatus" runat="server" Text=""></asp:Label>
         </div>
         <asp:GridView ID="GridEmployees"
@@ -308,12 +326,16 @@
     </div>
     <asp:Label ID="LblAuctionDate" runat="server" Text="Final Auction Date:"></asp:Label>
     <asp:TextBox ID="TxtAuctionDate" runat="server" TextMode="Date"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtAuctionDate" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+
     <br />
     <asp:Label ID="lblAuctionTime" runat="server" Text="Final Auction Time:"></asp:Label>
     <asp:TextBox ID="txtAuctionTime" runat="server" TextMode="Time"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtAuctionTime" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+
     <br />
     <div class="text-center">
-        <asp:Button ID="btnSave" runat="server" class="btn btn-success" Text="Save" OnClick="btnSave_Click" />
+        <asp:Button ID="btnSave" runat="server" class="btn btn-success" Text="Save" OnClick="btnSave_Click" ValidationGroup="Save" />
         <asp:Label ID="lblSaveStatus" runat="server" Text=""></asp:Label>
     </div>
 

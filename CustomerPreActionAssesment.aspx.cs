@@ -177,6 +177,11 @@ namespace Lab3
             ChkbxPhotos.Checked = false;
             ChkbxItems.Checked = false;
         }
+
+        protected void homeBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CustomerServiceChoice.aspx");
+        }
         //protected void ddlInitiating_DataBound(object sender, EventArgs e)
         //{
         //    //Sets emp list ddl to default of select

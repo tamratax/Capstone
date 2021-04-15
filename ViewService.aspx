@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
     <h1 class="display-4">View Services</h1>
         </div>
-    <fieldset>
+    <%--<fieldset>
         <legend>Select Customer to View Services:</legend>
         <asp:Label ID="LblCustomerName" runat="server" Text="Customer Name: "></asp:Label>
         <asp:TextBox 
@@ -45,7 +45,7 @@
             </asp:GridView>
         </div>
 
-    </fieldset>
+    </fieldset>--%>
     <br />
     <fieldset>
         <legend><b>
@@ -131,13 +131,6 @@
                         Font-Bold="true"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell></asp:TableCell>
-                <asp:TableCell>
-                    <asp:Label
-                        ID="LblInventory" 
-                        runat="server"
-                        Text="Notes"
-                        Font-Bold="true"></asp:Label>
-                </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
@@ -175,42 +168,6 @@
                 </Columns>
 
             </asp:GridView>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:Label
-                        ID="LblSpacing2"
-                        runat="server"
-                        Text="---------"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:GridView ID="GrdNotes"
-                runat="server"
-                EmptyDataText="No Notes Added"
-                DataKeyNames="TicketHistoryID"
-                OnSelectedIndexChanged="GrdNotes_SelectedIndexChanged"
-                AutoGenerateColumns="false"
-                CssClass="table justify-content-center">
-                <Columns>
-                    <asp:CommandField ShowSelectButton="True" ButtonType="Button" />
-                    <asp:BoundField DataField="TicketHistoryID" HeaderText="TicketHistoryID" Visible="false" />
-                    <asp:BoundField DataField="TicketChangeDate" HeaderText="Note Date" />   
-                    <asp:BoundField DataField="Note Title" HeaderText="Note Title" />   
-                </Columns>
-
-            </asp:GridView>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:Label
-                        ID="notespacing"
-                        runat="server"
-                        Visible="false"
-                        Text="---------> Description: "></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:Label
-                        ID="lbldescription"
-                        runat="server"
-                        Text=""></asp:Label>
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
