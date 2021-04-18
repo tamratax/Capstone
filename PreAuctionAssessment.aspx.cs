@@ -42,9 +42,9 @@ namespace Lab3
                     sqlAdapter.Fill(dtForSelect);
 
                     LblCustName.Text = Session["SelectedCustomerName"].ToString();
-                    LblHomeNumber.Text = Convert.ToString(dtForSelect.Rows[0]["HomePhone"]);
-                    LblCellNumber.Text = Convert.ToString(dtForSelect.Rows[0]["CellPhone"]);
-                    LblWorkNumber.Text = Convert.ToString(dtForSelect.Rows[0]["WorkPhone"]);
+                    LblHomeNumber.Text = FormatPhoneNumber(Convert.ToString(dtForSelect.Rows[0]["HomePhone"])).ToString();
+                    LblCellNumber.Text = FormatPhoneNumber(Convert.ToString(dtForSelect.Rows[0]["CellPhone"])).ToString();
+                    LblWorkNumber.Text = FormatPhoneNumber(Convert.ToString(dtForSelect.Rows[0]["WorkPhone"])).ToString();
                     LblEmailText.Text = Convert.ToString(dtForSelect.Rows[0]["Email"]);
                 }
             }
@@ -187,6 +187,21 @@ namespace Lab3
             ListItem blankOption = new ListItem("Select", "-1");
             ddlInitiating.Items.Insert(0, blankOption);
             ddlInitiating.SelectedIndex = 0;
+        }
+
+        public object FormatPhoneNumber(string phoneNumber)
+        {
+            // return nothing if the string is null
+            if (String.IsNullOrEmpty(phoneNumber))
+            {
+                return "N/A";
+            }
+
+            // if the int is valid, return the formatted phone number
+            return string.Format("({0}) {1}-{2}",
+                   phoneNumber.Substring(0, 3),
+                   phoneNumber.Substring(3, 3),
+                   phoneNumber.Substring(6));
         }
     }
 }

@@ -533,5 +533,20 @@ namespace Lab3
             divTravel.Visible = false;
 
         }
+
+        public object FormatPhoneNumber(string phoneNumber)
+        {
+            // return nothing if the string is null
+            if (String.IsNullOrEmpty(phoneNumber))
+            {
+                return "N/A";
+            }
+
+            // if the int is valid, return the formatted phone number
+            return string.Format("({0}) {1}-{2}",
+                   phoneNumber.Substring(0, 3),
+                   phoneNumber.Substring(3, 3),
+                   phoneNumber.Substring(6));
+        }
     }
 }
