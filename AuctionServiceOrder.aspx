@@ -79,7 +79,10 @@
         </div>
         <br />
         <br />
-        <div>
+        
+    </div>
+    <br />
+    <div class="row justify-content-center">
             <asp:Label ID="lblServ" runat="server" Text="Select Service: "></asp:Label>
             <asp:DropDownList
                 ID="ddlService"
@@ -89,8 +92,6 @@
                 OnSelectedIndexChanged="ddlService_SelectedIndexChanged">
             </asp:DropDownList>
         </div>
-    </div>
-
     <div class="form-row">
         <div class="form-group col-md-6">
             <label>Potential Date</label>
