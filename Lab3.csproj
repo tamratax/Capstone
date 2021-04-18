@@ -73,7 +73,6 @@
     <Content Include="AppraisalServiceOrder.aspx" />
     <Content Include="AuctionAssessment.aspx" />
     <Content Include="AuctionServiceOrder.aspx" />
-    <Content Include="BootstrapSandBox.aspx" />
     <Content Include="Content\addRequest.css" />
     <Content Include="Content\AddService.css" />
     <Content Include="Content\CustLandingPage.css" />
@@ -89,7 +88,6 @@
     <Content Include="Content\UserLogin.css" />
     <Content Include="CustomerAppraisel.aspx" />
     <Content Include="CustomerPreMoveAssessment.aspx" />
-    <Content Include="EditEquipment.aspx" />
     <Content Include="Feedback.aspx" />
     <Content Include="FileIOTest.aspx" />
     <Content Include="images\background.jpg" />
@@ -97,11 +95,7 @@
     <Content Include="images\background3.jpg" />
     <Content Include="images\background4.jpg" />
     <Content Include="images\GreenValleyFam.PNG" />
-    <Content Include="LookAt.aspx" />
     <Content Include="MoveAssessment.aspx" />
-    <Content Include="MoveInventory.aspx" />
-    <Content Include="AddServiceRequest.aspx" />
-    <Content Include="Auction.aspx" />
     <Content Include="CompletionForm.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -114,13 +108,11 @@
     <Content Include="images\favicon.png" />
     <Content Include="images\GVA_logo.png" />
     <Content Include="images\GVM_logo.png" />
-    <Content Include="AuctionInventory.aspx" />
     <Content Include="LabFormat.Master" />
     <Content Include="CustomerFacingMaster.Master" />
     <Content Include="PreAuctionAssessment.aspx" />
     <Content Include="PreMoveAssessment.aspx" />
     <Content Include="Reports.aspx" />
-    <Content Include="Scheduling.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -145,14 +137,11 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="EditEmployee.aspx" />
     <Content Include="MoveServiceOrderForm.aspx" />
     <Content Include="CustomerServiceChoice.aspx" />
-    <Content Include="MoveLanding.aspx" />
     <Content Include="CustomerPreActionAssesment.aspx" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="InitialConversation.aspx" />
-    <Content Include="AddNote.aspx" />
     <Content Include="AddServiceOrder.aspx" />
     <Content Include="Navigation.aspx" />
     <Content Include="NewCustomer.aspx" />
@@ -237,14 +226,11 @@
     <Content Include="src\assets\demo\datatables-demo.js" />
     <Content Include="src\assets\img\error-404-monochrome.svg" />
     <Content Include="src\js\scripts.js" />
-    <Content Include="TestSchedule.aspx" />
     <Content Include="UnauthorizedAccess.aspx" />
     <Content Include="UserLogin.aspx" />
     <Content Include="ViewAuctions.aspx" />
     <Content Include="ViewCustomer.aspx" />
-    <Content Include="ViewMeetings.aspx" />
     <Content Include="ViewMoves.aspx" />
-    <Content Include="ViewNote.aspx" />
     <Content Include="ViewService.aspx" />
     <Content Include="WarehouseAssign.aspx" />
     <Content Include="WarehouseInventory.aspx" />
@@ -279,13 +265,6 @@
     <Compile Include="AuctionServiceOrder.aspx.designer.cs">
       <DependentUpon>AuctionServiceOrder.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BootstrapSandBox.aspx.cs">
-      <DependentUpon>BootstrapSandBox.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="BootstrapSandBox.aspx.designer.cs">
-      <DependentUpon>BootstrapSandBox.aspx</DependentUpon>
-    </Compile>
     <Compile Include="CustomerAppraisel.aspx.cs">
       <DependentUpon>CustomerAppraisel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -299,13 +278,6 @@
     </Compile>
     <Compile Include="CustomerPreMoveAssessment.aspx.designer.cs">
       <DependentUpon>CustomerPreMoveAssessment.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EditEquipment.aspx.cs">
-      <DependentUpon>EditEquipment.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EditEquipment.aspx.designer.cs">
-      <DependentUpon>EditEquipment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Feedback.aspx.cs">
       <DependentUpon>Feedback.aspx</DependentUpon>
@@ -328,13 +300,6 @@
     <Compile Include="InitialConversation.aspx.designer.cs">
       <DependentUpon>InitialConversation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LookAt.aspx.cs">
-      <DependentUpon>LookAt.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LookAt.aspx.designer.cs">
-      <DependentUpon>LookAt.aspx</DependentUpon>
-    </Compile>
     <Compile Include="MoveAssessment.aspx.cs">
       <DependentUpon>MoveAssessment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -342,40 +307,12 @@
     <Compile Include="MoveAssessment.aspx.designer.cs">
       <DependentUpon>MoveAssessment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="MoveInventory.aspx.cs">
-      <DependentUpon>MoveInventory.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MoveInventory.aspx.designer.cs">
-      <DependentUpon>MoveInventory.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AddNote.aspx.cs">
-      <DependentUpon>AddNote.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AddNote.aspx.designer.cs">
-      <DependentUpon>AddNote.aspx</DependentUpon>
-    </Compile>
     <Compile Include="AddServiceOrder.aspx.cs">
       <DependentUpon>AddServiceOrder.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AddServiceOrder.aspx.designer.cs">
       <DependentUpon>AddServiceOrder.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AddServiceRequest.aspx.cs">
-      <DependentUpon>AddServiceRequest.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AddServiceRequest.aspx.designer.cs">
-      <DependentUpon>AddServiceRequest.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Auction.aspx.cs">
-      <DependentUpon>Auction.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Auction.aspx.designer.cs">
-      <DependentUpon>Auction.aspx</DependentUpon>
     </Compile>
     <Compile Include="CompletionForm.aspx.cs">
       <DependentUpon>CompletionForm.aspx</DependentUpon>
@@ -404,13 +341,6 @@
     </Compile>
     <Compile Include="CustomerUnauthorized.aspx.designer.cs">
       <DependentUpon>CustomerUnauthorized.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AuctionInventory.aspx.cs">
-      <DependentUpon>AuctionInventory.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AuctionInventory.aspx.designer.cs">
-      <DependentUpon>AuctionInventory.aspx</DependentUpon>
     </Compile>
     <Compile Include="LabFormat.Master.cs">
       <DependentUpon>LabFormat.Master</DependentUpon>
@@ -456,20 +386,6 @@
     <Compile Include="Reports.aspx.designer.cs">
       <DependentUpon>Reports.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Scheduling.aspx.cs">
-      <DependentUpon>Scheduling.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Scheduling.aspx.designer.cs">
-      <DependentUpon>Scheduling.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TestSchedule.aspx.cs">
-      <DependentUpon>TestSchedule.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TestSchedule.aspx.designer.cs">
-      <DependentUpon>TestSchedule.aspx</DependentUpon>
-    </Compile>
     <Compile Include="UnauthorizedAccess.aspx.cs">
       <DependentUpon>UnauthorizedAccess.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -498,26 +414,12 @@
     <Compile Include="ViewCustomer.aspx.designer.cs">
       <DependentUpon>ViewCustomer.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewMeetings.aspx.cs">
-      <DependentUpon>ViewMeetings.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ViewMeetings.aspx.designer.cs">
-      <DependentUpon>ViewMeetings.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ViewMoves.aspx.cs">
       <DependentUpon>ViewMoves.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewMoves.aspx.designer.cs">
       <DependentUpon>ViewMoves.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ViewNote.aspx.cs">
-      <DependentUpon>ViewNote.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ViewNote.aspx.designer.cs">
-      <DependentUpon>ViewNote.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewService.aspx.cs">
       <DependentUpon>ViewService.aspx</DependentUpon>
@@ -540,13 +442,6 @@
     <Compile Include="WarehouseInventory.aspx.designer.cs">
       <DependentUpon>WarehouseInventory.aspx</DependentUpon>
     </Compile>
-    <Compile Include="EditEmployee.aspx.cs">
-      <DependentUpon>EditEmployee.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EditEmployee.aspx.designer.cs">
-      <DependentUpon>EditEmployee.aspx</DependentUpon>
-    </Compile>
     <Compile Include="MoveServiceOrderForm.aspx.cs">
       <DependentUpon>MoveServiceOrderForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -560,13 +455,6 @@
     </Compile>
     <Compile Include="CustomerServiceChoice.aspx.designer.cs">
       <DependentUpon>CustomerServiceChoice.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MoveLanding.aspx.cs">
-      <DependentUpon>MoveLanding.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MoveLanding.aspx.designer.cs">
-      <DependentUpon>MoveLanding.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomerPreActionAssesment.aspx.cs">
       <DependentUpon>CustomerPreActionAssesment.aspx</DependentUpon>

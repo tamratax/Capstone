@@ -454,7 +454,7 @@ insert into AuctionAssessment values ('', '50 feet', 'House', '', 'Poor Accessib
 insert into SERVICETICKET values (1, '2021-02-05', 'Move', 1, 25, '2021-02-25', 1, 1, 1, null, null, null, null);
 insert into SERVICETICKET values (2, '2021-02-17', 'Move', 2, 25, '2021-03-05', 2, 2, 2, null, null, null, null);
 insert into SERVICETICKET values (3, '2021-02-20', 'Move', 3, 62.5, '2021-03-15', 3, 3, 3, null, null, null, null);
-insert into SERVICETICKET values (4, '2021-02-70', 'Move', 2, 75, '2021-03-25', 4, 4, 4, null, null, null, null);
+insert into SERVICETICKET values (4, '2021-03-01', 'Move', 2, 75, '2021-03-25', 4, 4, 4, null, null, null, null);
 insert into SERVICETICKET values (5, '2021-03-05', 'Auction', 4, 27, '2021-04-13', null, null, null, 1, 1, 1, null);
 insert into SERVICETICKET values (6, '2021-03-07', 'Auction', 4, 63, '2021-04-13', null, null, null, 2, 2, 2, null);
 

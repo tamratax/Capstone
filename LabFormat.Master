@@ -301,6 +301,7 @@
 
                                 <%--<a href="#" class="download" onclick="BtnLogout_Click">Logout -></a>--%>
                                 <div class="text-center">
+                                    <asp:Label ID="LblActiveUser" runat="server" Text=""></asp:Label>
                                 <asp:Button
                                     ID="BtnLogout" runat="server" Text="Logout ->" OnClick="BtnLogout_Click" class="btn btn-light"/>
                                     </div>
