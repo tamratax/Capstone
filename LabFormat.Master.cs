@@ -17,14 +17,14 @@ namespace Lab2
         protected void Page_Load(object sender, EventArgs e)
         {
             ////If not logged in, will kick user to Unauthorized page
-            //if (Session["User"] == null)
-            //{
-            //    Response.Redirect("UnauthorizedAccess.aspx");
-            //}
-            //else
-            //{
-            //    LblActiveUser.Text = "You Are Logged In As: " + Session["User"].ToString();
-            //}
+            if (Session["User"] == null)
+            {
+                Response.Redirect("UnauthorizedAccess.aspx");
+            }
+            else
+            {
+                LblActiveUser.Text = "You Are Logged In As: " + Session["User"].ToString();
+            }
 
             if (Session["SelectedCustomerID"] != null)
             {
