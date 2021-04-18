@@ -33,32 +33,24 @@ namespace WalkerS_Lab1Part3
 
         protected void BtnLoadAll_Click(object sender, EventArgs e)
         {
-            //string sqlQueryDuplicate = "Select CustomerID, Firstname, Lastname, CellPhone, WorkPhone, HomePhone,Email from customer";
-
-            //SqlConnection sqlConnectDuplicate = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
-            //sqlConnectDuplicate.Open();
-
-            //SqlCommand sqlCommandInsert = new SqlCommand();
-            //sqlCommandInsert.Connection = sqlConnectDuplicate;
-            //sqlCommandInsert.CommandType = CommandType.Text;
-            //sqlCommandInsert.CommandText = sqlQueryDuplicate;
-            //sqlCommandInsert.Parameters.Add(new SqlParameter("@FirstName", "%" + HttpUtility.HtmlEncode(TxtSearch.Text) + "%"));
-            //sqlCommandInsert.Parameters.Add(new SqlParameter("@LastName", "%" + HttpUtility.HtmlEncode(TxtSearch.Text) + "%"));
-
-            //SqlDataAdapter sqlAdapterDuplicate = new SqlDataAdapter(sqlCommandInsert);
-
-
-            //DataSet ds = new DataSet();
-
-            //sqlAdapterDuplicate.Fill(DSCust);
-
-            //GridviewCusts.DataSource = DSCust;
-
-            //GridviewCusts.DataBind();
-            //GridviewCusts.Visible = true;
             GridviewCusts.Visible = false;
             GRDShowAllCust.Visible = true;
 
+        }
+
+        public object FormatPhoneNumber(string phoneNumber)
+        {
+            // return nothing if the string is null
+            if (String.IsNullOrEmpty(phoneNumber))
+            {
+                return "N/A";
+            }
+
+            // if the int is valid, return the formatted phone number
+            return string.Format("({0}) {1}-{2}",
+                   phoneNumber.Substring(0, 3),
+                   phoneNumber.Substring(3, 3),
+                   phoneNumber.Substring(6));
         }
     }
 }
