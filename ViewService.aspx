@@ -77,7 +77,7 @@
             progressbar.style.width = value + "%";
         }
     </script>
-
+<div id="divService" runat="server">
        <div style="margin-left:auto; margin-right:auto; text-align:center">
        <asp:Label ID="StatBar" runat="server" Text="Service Status Bar" Font-Bold="true" Font-Size="Larger"></asp:Label>
        
@@ -173,6 +173,8 @@
             </asp:TableRow>
         </asp:Table>
     </fieldset>
+        </div>
+    </div>
 
    
 </asp:Content>

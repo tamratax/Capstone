@@ -1,11 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LabFormat.Master" AutoEventWireup="true" CodeBehind="PreMoveAssessment.aspx.cs" Inherits="Lab3.PreMoveAssessment" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <link href="Content/AddService.css" rel="stylesheet" />
     <div class="row justify-content-center">
-    <h1 class="display-4">Preliminary Move Assessment</h1>
-        </div>
+        <h1 class="display-4">Preliminary Move Assessment</h1>
+    </div>
     <h4>Customer Info:</h4>
     <fieldset>
         <div class="groupCust">
@@ -81,41 +82,41 @@
     </fieldset>
     <br />
     <div class="float-right">
-    <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click" />
-        </div>
+        <asp:Button ID="PopBtn" runat="server" Text="Populate" OnClick="PopBtn_Click" />
+    </div>
     <br />
     <div class="form-group">
-    <asp:Label ID="lblInitiating" runat="server" Text="Initiating Employee:"></asp:Label>
-    <asp:DropDownList
-        ID="ddlInitiating"
-        runat="server"
-        DataSourceID="dtasrcInitiating"
-        DataTextField="EmployeeName"
-        DataValueField="EmployeeID"
-        OnDataBound="ddlInitiating_DataBound" Width="100%">
-    </asp:DropDownList>
+        <asp:Label ID="lblInitiating" runat="server" Text="Initiating Employee:"></asp:Label>
+        <asp:DropDownList
+            ID="ddlInitiating"
+            runat="server"
+            DataSourceID="dtasrcInitiating"
+            DataTextField="EmployeeName"
+            DataValueField="EmployeeID"
+            OnDataBound="ddlInitiating_DataBound" Width="100%">
+        </asp:DropDownList>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" Text="Required" ControlToValidate="ddlInitiating" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
     </div>
-     <div class="form-group">
+    <div class="form-group">
         <label>What day do you have to be out by?</label>
-         <asp:TextBox ID="DateOutTxt" runat="server" TextMode="Date"
-             class="form-control"></asp:TextBox>
-         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="DateOutTxt" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
-         </div>
+        <asp:TextBox ID="DateOutTxt" runat="server" TextMode="Date"
+            class="form-control"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="DateOutTxt" Text="Required" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+    </div>
     <div class="form-row">
-    <div class="form-group col-md-6">
-        <label>Range of Days (Start)</label>
- <asp:TextBox ID="TxtRange1" runat="server" TextMode="Date" class="form-control"></asp:TextBox>
+        <div class="form-group col-md-6">
+            <label>Range of Days (Start)</label>
+            <asp:TextBox ID="TxtRange1" runat="server" TextMode="Date" class="form-control"></asp:TextBox>
         </div>
         <div class="form-group col-md-6">
             <label>Finish</label>
-    <asp:TextBox ID="TxtRange2" runat="server" TextMode="Date" class="form-control"></asp:TextBox>
+            <asp:TextBox ID="TxtRange2" runat="server" TextMode="Date" class="form-control"></asp:TextBox>
         </div>
-        </div>
-   
-    <asp:CompareValidator 
-        ID="CvRangeCompare" 
-        runat="server" 
+    </div>
+
+    <asp:CompareValidator
+        ID="CvRangeCompare"
+        runat="server"
         ErrorMessage="CompareValidator"
         ControlToValidate="TxtRange2"
         ControlToCompare="TxtRange1"
@@ -124,13 +125,13 @@
         Text="Deadline End Must Be After Deadline Start"
         ForeColor="Red"
         SetFocusOnError="true"></asp:CompareValidator>
-     <div class="form-group">
+    <div class="form-group">
         <label>Address</label>
-    <asp:TextBox ID="DestAddressTxt" runat="server"
-        Placeholder="1234 Main St"
-        class="form-control"></asp:TextBox>
-         </div>
-     <div class="form-row">
+        <asp:TextBox ID="DestAddressTxt" runat="server"
+            Placeholder="1234 Main St"
+            class="form-control"></asp:TextBox>
+    </div>
+    <div class="form-row">
         <div class="form-group col-md-6">
             <label>City</label>
             <asp:TextBox ID="DestCityTxt"
@@ -144,7 +145,7 @@
                 runat="server"
                 class="form-control"
                 Placeholder="State"></asp:TextBox>
-        
+
         </div>
         <div class="form-group col-md-2">
             <label>Zip</label>
@@ -165,8 +166,8 @@
     </asp:RadioButtonList>
     <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator" ValidationGroup="Save" ControlToValidate="MLSBTN" Text="Required" ForeColor="Red"></asp:RequiredFieldValidator>
 
-     <br />
-     <asp:Label ID="PhotosLbl" runat="server" Text="Can you send Photos? "></asp:Label>
+    <br />
+    <asp:Label ID="PhotosLbl" runat="server" Text="Can you send Photos? "></asp:Label>
     <asp:RadioButtonList ID="PhotosBtn" runat="server">
         <asp:ListItem Text="Yes"> </asp:ListItem>
         <asp:ListItem Text="No"></asp:ListItem>
@@ -178,27 +179,27 @@
     <br />
     <div>
         <label>Packing: </label>
-            <asp:CheckBox ID="PackingChk" runat="server" />
+        <asp:CheckBox ID="PackingChk" runat="server" />
     </div>
-      <div>
+    <div>
         <label>Trash Removal: </label>
-            <asp:CheckBox ID="TrashChk" runat="server"  AutoPostBack="true" OnCheckedChanged="TrashChk_CheckedChanged" />
-            <asp:TextBox ID="TrashDescriptionTxt" runat="server" Placeholder="Description" CssClass="form-control" AutoPostBack="true" TextMode="MultiLine" Visible="false"></asp:TextBox>
+        <asp:CheckBox ID="TrashChk" runat="server" AutoPostBack="true" OnCheckedChanged="TrashChk_CheckedChanged" />
+        <asp:TextBox ID="TrashDescriptionTxt" runat="server" Placeholder="Description" CssClass="form-control" AutoPostBack="true" TextMode="MultiLine" Visible="false"></asp:TextBox>
     </div>
-      <div>
+    <div>
         <label>Donation Hauling: </label>
-            <asp:CheckBox ID="DonationChk" runat="server" />
+        <asp:CheckBox ID="DonationChk" runat="server" />
     </div>
-      <div>
+    <div>
         <label>Auction Service: </label>
-            <asp:CheckBox ID="AuctionChk" runat="server" />
+        <asp:CheckBox ID="AuctionChk" runat="server" />
     </div>
     <br />
     <div class="text-center">
         <asp:Button ID="ClearBtn" runat="server" Text="Clear" class="btn btn-danger" OnClick="ClearBtn_Click" />
-            <asp:Button ID="SaveBtn" runat="server" Text="Save" class="btn btn-success" OnClick="SaveBtn_Click" ValidationGroup="Save" />
-        <asp:Label ID="LblSaveStatus" runat="server" Text="" ></asp:Label>
-        </div>
+        <asp:Button ID="SaveBtn" runat="server" Text="Save" class="btn btn-success" OnClick="SaveBtn_Click" ValidationGroup="Save" />
+        <asp:Label ID="LblSaveStatus" runat="server" Text=""></asp:Label>
+    </div>
 
     <asp:SqlDataSource ID="dtasrcAddress"
         runat="server"

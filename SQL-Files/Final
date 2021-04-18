@@ -122,7 +122,7 @@ CREATE TABLE WAREHOUSE(
 	Date varchar(30) NULL,
 	Location varchar(255),
 	Description varchar(max) NULL,
-	CustomerID int NULL
+	CustomerID int references Customer(CustomerID) NULL
 	);
 	
 	

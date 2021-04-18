@@ -102,7 +102,7 @@
         DataValueField="EmployeeID"
         OnDataBound="ddlInitiating_DataBound" Width="100%">
     </asp:DropDownList>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" Text="Required" ControlToValidate="ddlInitiating" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" InitialValue="-1" runat="server" ErrorMessage="RequiredFieldValidator" Text="Required" ControlToValidate="ddlInitiating" ForeColor="Red" ValidationGroup="Save"></asp:RequiredFieldValidator>
         </div>
         <div>
             <asp:CheckBox ID="ChkBoxEstate" runat="server" />
