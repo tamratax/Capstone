@@ -275,7 +275,7 @@
                 CssClass="form-control"
                 runat="server"></asp:TextBox>
                <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtZip" Text="Required" ForeColor="Red" ValidationGroup="addy"></asp:RequiredFieldValidator>
-            <asp:CompareValidator ID="CompareValidator3" runat="server" ErrorMessage="CompareValidator" ValidationGroup="addy" ControlToValidate="TxtZip" Text="Invalid Zip" ForeColor="Red"></asp:CompareValidator>
+            <asp:CompareValidator ID="CompareValidator3" runat="server" ErrorMessage="CompareValidator" ValidationGroup="addy" ControlToValidate="TxtZip" Text="Invalid Zip" ForeColor="Red" operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
         </div>
         <asp:Button ID="BtnAddAddress" runat="server" Text="Add Address ->" OnClick="BtnAddAddress_Click" ValidationGroup="addy" />
     </div>

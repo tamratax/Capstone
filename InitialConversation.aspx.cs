@@ -117,9 +117,9 @@ namespace WalkerS_Lab1Part3
             //Populates fields for testing
             TxtFirstName.Text = "Jake";
             TxtLastName.Text = "Robert";
-            TxtPhoneNumber.Text = "7037284871";
-            TxtCellPhone.Text = "7078523694";
-            TxtWorkPhone.Text = "7578452321";
+            //TxtPhoneNumber.Text = "7037284871";
+            //TxtCellPhone.Text = "7078523694";
+            //TxtWorkPhone.Text = "7578452321";
             TxtEmail.Text = "jake@dukes.com";
             TxtStreet.Text = "531 New Port Rd";
             TxtCity.Text = "Harrisonburg";
