@@ -50,6 +50,11 @@ namespace Lab2
                 Response.Redirect("Navigation.aspx");
             }
 
+            if (!IsPostBack)
+            {
+                divService.Visible = false;
+            }
+
         }
 
 
@@ -428,6 +433,7 @@ namespace Lab2
                     }
                 }
             }
+            divService.Visible = true;
 
 
 
