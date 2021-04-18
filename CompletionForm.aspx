@@ -254,7 +254,7 @@
             <label>City</label>
             <asp:TextBox ID="TxtCity"
                 Placeholder="City"
-                CssClasss="form-control"
+                class="form-control"
                 runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TxtCity" Text="Required" ForeColor="Red" ValidationGroup="addy"></asp:RequiredFieldValidator>
 

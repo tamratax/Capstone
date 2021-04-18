@@ -113,8 +113,8 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="Commentstxt" Text="Required" ForeColor="Red"  ValidationGroup="feedback"></asp:RequiredFieldValidator>
 
      </div>
-        <div>
-            <asp:Button ID="SubmitFeed" runat="server" Text="Submit" OnClick="SubmitFeed_Click1" ValidationGroup="feedback" />
+        <div class="row justify-content-center">
+            <asp:Button ID="SubmitFeed" runat="server" Text="Submit" OnClick="SubmitFeed_Click1" ValidationGroup="feedback" CssClass="btn btn-success" />
             <asp:Label ID="LblSaveStatus" runat="server" Text=""></asp:Label>
         </div>
 
