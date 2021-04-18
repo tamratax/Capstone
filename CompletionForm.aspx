@@ -33,9 +33,21 @@
         <Columns>
             <asp:BoundField DataField="CustomerID" Visible="false" />
             <asp:BoundField DataField="CustomerName" HeaderText="Customer Name" />
-            <asp:BoundField DataField="CellPhone" HeaderText="CellPhone" />
-            <asp:BoundField DataField="WorkPhone" HeaderText="WorkPhone" />
-            <asp:BoundField DataField="HomePhone" HeaderText="HomePhone" />
+            <asp:TemplateField HeaderText="Home" ConvertEmptyStringToNull="true">
+                        <ItemTemplate>
+                            <asp:Label ID="home" runat="server" Text='<%# FormatPhoneNumber(Eval("homephone").ToString()) %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Work" ConvertEmptyStringToNull="true">
+                        <ItemTemplate>
+                            <asp:Label ID="work" runat="server" Text='<%# FormatPhoneNumber(Eval("Workphone").ToString()) %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Cell" ConvertEmptyStringToNull="true">
+                        <ItemTemplate>
+                            <asp:Label ID="cell" runat="server" Text='<%# FormatPhoneNumber(Eval("Cellphone").ToString()) %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
             <asp:BoundField DataField="Email" HeaderText="Email" />
 
 
