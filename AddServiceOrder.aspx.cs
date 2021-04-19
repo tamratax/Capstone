@@ -43,7 +43,7 @@ namespace WalkerS_Lab1Part3
                     String sqlQuery = "Select * from ServiceTicket where ServiceTicketID = " + Session["ServiceTicketID"].ToString();
 
                     //Establishes the connection between our web form and database
-                    SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+                    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
 
                     //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
                     SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
@@ -78,7 +78,7 @@ namespace WalkerS_Lab1Part3
                     String sqlQuery = "Select * from customer where customerid = " + Session["SelectedCustomerID"].ToString();
 
                     //Establishes the connection between our web form and database
-                    SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+                    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
 
                     //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
                     SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
@@ -100,7 +100,7 @@ namespace WalkerS_Lab1Part3
                     String sqlQuery = "Select * from customer join serviceticket on customer.customerID = serviceticket.customerID where serviceticketID = " + Session["ServiceTicketID"].ToString();
 
                     //Establishes the connection between our web form and database
-                    SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+                    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
 
                     //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
                     SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);

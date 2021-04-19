@@ -99,7 +99,7 @@ namespace Lab2
                 String sqlQuery = "Select DateCreated, NoteText from NOTES where NoteID = " + DdlNotes.SelectedValue.ToString();
 
                 //Establishes the connection between our web form and database
-                SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
 
                 //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);

@@ -37,7 +37,7 @@ namespace WalkerS_Lab1Part3
                     String sqlQuery = "Select * from customer where customerid = " + Session["Customer ID"].ToString();
 
                     //Establishes the connection between our web form and database
-                    SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+                    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
 
                     //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
                     SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
@@ -78,7 +78,7 @@ namespace WalkerS_Lab1Part3
                     String sqlQueryAddress = "Select * from address where description = 'Primary Contact Address' AND customerid = " + Session["Customer ID"].ToString();
 
                     //Establishes the connection between our web form and database
-                    SqlConnection sqlConnectAddress = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+                    SqlConnection sqlConnectAddress = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
 
                     //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
                     SqlDataAdapter sqlAdapterAddress = new SqlDataAdapter(sqlQueryAddress, sqlConnectAddress);
@@ -282,7 +282,7 @@ namespace WalkerS_Lab1Part3
 
 
                 //Establishes the connection between our web form and database
-                SqlConnection sqlConnectDuplicate = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+                SqlConnection sqlConnectDuplicate = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
 
                 //Creates sqlcommand with query and email parameter for security
                 SqlCommand sqlCommandInsert = new SqlCommand();

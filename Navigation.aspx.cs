@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Web.Configuration;
 
 
 namespace WalkerS_Lab1Part3
@@ -40,8 +41,8 @@ namespace WalkerS_Lab1Part3
                 String sqlQueryCustomer = "Select customerID 'Customer ID', FirstName + ' ' + LastName + ' (' + DateContacted + ') ->' as Name from Customer where completed='False'";
 
 
-                SqlConnection sqlConnectCustomer = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
-
+                //SqlConnection sqlConnectCustomer = new SqlConnection("Server=aah05kn9aungy9.chenrtpm7jne.us-east-1.rds.amazonaws.com;database=Lab3;uid=admin;password=Tobyman98!;Trusted_Connection=Yes;");
+                System.Data.SqlClient.SqlConnection sqlConnectCustomer = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
                 SqlDataAdapter sqlAdapterCustomer = new SqlDataAdapter(sqlQueryCustomer, sqlConnectCustomer);
 
                 DataTable dtForListBox = new DataTable();
@@ -58,7 +59,7 @@ namespace WalkerS_Lab1Part3
                 String sqlQueryOnline = "Select ServiceTicketID, FirstName + ' ' + LastName + ' - ' + TRIM(ServiceType) + ' (' + TicketOpenDate + ')' as Request from Customer join serviceticket on customer.CustomerID = serviceticket.CustomerID where InitiatingEmp IS null";
 
 
-                SqlConnection sqlConnectOnline = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+                SqlConnection sqlConnectOnline = new  SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
 
                 SqlDataAdapter sqlAdapterOnline = new SqlDataAdapter(sqlQueryOnline, sqlConnectOnline);
 
@@ -150,7 +151,7 @@ namespace WalkerS_Lab1Part3
 
 
             //Establishes the connection between our web form and database
-            SqlConnection sqlConnectDuplicate = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+            SqlConnection sqlConnectDuplicate = new  SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
 
             //Creates sqlcommand with query and email parameter for security
             SqlCommand sqlCommandInsert = new SqlCommand();

@@ -21,7 +21,7 @@ namespace Lab2
             if (Session["SelectedCustomerName"] != null)
             {
                 String sqlQuery = "Select SERVICETICKETID, TicketOpenDate, CompletedDate, ServiceType from ServiceTicket WHERE CustomerID = @CustomerID";
-                SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
 
                 SqlCommand com = new SqlCommand();
                 com.Connection = sqlConnect;
@@ -262,7 +262,7 @@ namespace Lab2
             sqlQuery1 += " from serviceticketemployee semp join employee emp on emp.EmployeeID = semp.EmployeeID ";
             sqlQuery1 += "where semp.ServiceTicketID = @ServiceID";
 
-            SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
 
             SqlCommand com = new SqlCommand();
             com.Connection = sqlConnect;
@@ -285,7 +285,7 @@ namespace Lab2
             sqlQuery2 += "join ServiceTicket st on ServiceTicketEquipment.ServiceTicketID = st.ServiceTicketID ";
             sqlQuery2 += "where st.ServiceTicketID = @ServiceID";
 
-            SqlConnection sqlConnect2 = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+            SqlConnection sqlConnect2 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
 
             SqlCommand com2 = new SqlCommand();
             com2.Connection = sqlConnect2;
@@ -306,7 +306,7 @@ namespace Lab2
             //Progress Bar
             String sqlQueryBar = "select ServiceType, status_service from serviceticket where serviceticketID = " + GrdServices.SelectedValue.ToString();
 
-            SqlConnection sqlConnectBar = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+            SqlConnection sqlConnectBar = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
 
             SqlDataAdapter sqlAdapterBar = new SqlDataAdapter(sqlQueryBar, sqlConnectBar);
 
@@ -462,7 +462,7 @@ namespace Lab2
 
             String sqlQueryBar = "select ServiceType, status_service from serviceticket where serviceticketID = " + GrdServices.SelectedDataKey.Value.ToString();
 
-            SqlConnection sqlConnectBar = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+            SqlConnection sqlConnectBar = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
 
             SqlDataAdapter sqlAdapterBar = new SqlDataAdapter(sqlQueryBar, sqlConnectBar);
 

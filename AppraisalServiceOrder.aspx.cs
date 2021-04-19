@@ -43,7 +43,7 @@ namespace Lab3
                     String sqlQuery = "Select * from customer where customerid = " + Session["SelectedCustomerID"].ToString();
 
                     //Establishes the connection between our web form and database
-                    SqlConnection sqlConnect = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+                    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
 
                     //The adapter is the bridge that pulls in both the query and the connection and stores it in adapter
                     SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
@@ -119,7 +119,7 @@ namespace Lab3
                 String sqlQuery = "insert into Appraisal values (@Estate, @FamilyDivision, @Deadline, @DeadlineDate, @AppraisalSize, @Inventory, @MoveAssessment, @AuctionAssessment)";
 
                 //Define the Connection to the Database
-                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
 
                 // Create the SQL Command object which will send the query
                 SqlCommand sqlCommand = new SqlCommand();

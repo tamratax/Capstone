@@ -61,10 +61,10 @@ namespace Lab3
 
 
                             //Establishes the connection between our web form and database
-                            SqlConnection sqlConnectDuplicate = new SqlConnection("Server=Localhost;Database=Lab3;Trusted_Connection=Yes;");
+                            SqlConnection sqlConnectDuplicate = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
 
-                            //Creates sqlcommand with query and email parameter for security
-                            SqlCommand sqlCommandInsert = new SqlCommand();
+                        //Creates sqlcommand with query and email parameter for security
+                        SqlCommand sqlCommandInsert = new SqlCommand();
                             sqlCommandInsert.Connection = sqlConnectDuplicate;
                             sqlCommandInsert.CommandType = CommandType.Text;
                             sqlCommandInsert.CommandText = sqlQueryDuplicate;
